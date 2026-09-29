@@ -1,0 +1,606 @@
+{
+  "nav": {
+    "skipToContent": "Preskoči na sadržaj",
+    "openMenu": "Otvori meni",
+    "closeMenu": "Zatvori meni",
+    "selectLanguage": "Izaberi jezik",
+    "currentLanguage": "Trenutni jezik",
+    "mainNav": "Glavna navigacija",
+    "mobileNav": "Mobilna navigacija",
+    "toggleMenu": "Uključi/isključi meni",
+    "sectionNavigate": "Navigacija",
+    "searchSite": "Pretraži sajt",
+    "sectionTheme": "Tema",
+    "sectionLanguage": "Jezik",
+    "sectionConnect": "Poveži se",
+    "items": {
+      "home": "Početna",
+      "services": "Usluge",
+      "projects": "Projekti",
+      "blog": "Blog",
+      "about": "O meni",
+      "contact": "Kontakt"
+    }
+  },
+  "common": {
+    "readMore": "Pročitaj više",
+    "loading": "Učitavanje…",
+    "backToTop": "Nazad na vrh",
+    "search": "Pretraga",
+    "submit": "Pošalji",
+    "cancel": "Otkaži",
+    "next": "Sledeće",
+    "previous": "Prethodno",
+    "home": "Početna",
+    "map": "Mapa",
+    "mapConsentPrompt": "Prihvati kolačiće da učitaš interaktivnu mapu.",
+    "viewOnGoogleMaps": "Pogledaj na Google mapama",
+    "themeModeTitle": "Tema: {mode} (klikni za promenu)",
+    "googleMaps": "Google mape",
+    "progress": "Napredak",
+    "themeMode": "Tema: {mode}",
+    "browseByTag": "Pregledaj po oznaci",
+    "techStack": "Tehnologije",
+    "togglePassword": "Prikaži ili sakrij lozinku",
+    "breadcrumb": "Navigaciona putanja",
+    "copyCode": "Kopiraj kod",
+    "dismiss": "Odbaci",
+    "notifications": "Obaveštenja",
+    "closeDialog": "Zatvori dijalog",
+    "tabs": "Kartice",
+    "verticalTabs": "Vertikalne kartice"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Najnoviji članci i novosti",
+    "readingTime": "{minutes} min čitanja",
+    "publishedOn": "Objavljeno {date}",
+    "updatedOn": "Ažurirano {date}",
+    "writtenBy": "Autor: {author}",
+    "tagsLabel": "Oznake",
+    "featured": "Izdvojeno",
+    "draft": "Nacrt",
+    "noPostsFound": "Nema pronađenih objava.",
+    "tableOfContents": "Sadržaj",
+    "shareThisPost": "Podeli ovu objavu",
+    "relatedPosts": "Slične objave",
+    "share": "Podeli:",
+    "shareOn": "Podeli na {platform}",
+    "copyLink": "Kopiraj link",
+    "metaTitle": "Blog",
+    "metaDescription": "Beleške o veb razvoju, cloud tehnologijama i izradi digitalnih proizvoda.",
+    "heroBadge": "Sve objave",
+    "heroDescription": "Praktične beleške o veb razvoju, cloud tehnologijama i izradi digitalnih proizvoda.",
+    "allPosts": "Sve objave",
+    "noPosts": "Nema pronađenih objava",
+    "pageMetaTitle": "Blog — Strana {page}",
+    "pageMetaDescription": "Strana {page} od {total} — beleške o veb razvoju, cloud tehnologijama i izradi digitalnih proizvoda.",
+    "pageBadge": "Strana {page} od {total}",
+    "newestPosts": "Najnovije objave",
+    "tagMetaTitle": "#{tag} — Blog",
+    "tagMetaDescription": "Objave označene sa \"{tag}\".",
+    "tagBadge": "Oznaka",
+    "tagCountOne": "{count} objava označena sa \"{tag}\".",
+    "tagCountOther": "{count} objava označeno sa \"{tag}\".",
+    "tagEmpty": "Nema pronađenih objava za ovu oznaku.",
+    "tagBackToAll": "Nazad na sve objave",
+    "onThisPage": "Na ovoj strani",
+    "tocShow": "Prikaži",
+    "tocHide": "Sakrij",
+    "backToBlog": "Nazad na blog",
+    "updated": "Ažurirano",
+    "rssFeed": "RSS feed",
+    "cta": {
+      "heading": "Spremni za saradnju?",
+      "description": "Javi mi se o svom projektu — odgovoriću ti u toku radnog dana.",
+      "button": "Kontaktiraj me"
+    }
+  },
+  "comments": {
+    "title": "Komentari",
+    "loadError": "Učitavanje komentara nije uspelo. Osveži stranicu i pokušaj ponovo.",
+    "requiresJs": "Za komentare je potreban JavaScript."
+  },
+  "projects": {
+    "title": "Projekti",
+    "description": "Stvari koje sam napravio",
+    "viewProject": "Pogledaj projekat",
+    "viewSource": "Pogledaj kod",
+    "noProjectsFound": "Nema pronađenih projekata.",
+    "carouselChooseSlide": "Izaberi slajd",
+    "carouselNextSlide": "Sledeći slajd",
+    "carouselPreviousSlide": "Prethodni slajd",
+    "galleryLabel": "Pregled medija",
+    "galleryClose": "Zatvori pregled",
+    "galleryNextImage": "Sledeća slika",
+    "galleryPreviousImage": "Prethodna slika",
+    "metaTitle": "Projekti",
+    "metaDescription": "Izdvojeni radovi — sajtovi, alati i projekti koje je napravio Stojan Petković.",
+    "heroBadge": "Izdvojeni radovi",
+    "heroDescription": "Radovi na koje sam najponosniji.",
+    "allProjects": "Svi projekti",
+    "pageMetaTitle": "Projekti — Strana {page}",
+    "pageMetaDescription": "Strana {page} od {total} — izdvojeni radovi, alati i projekti Stojana Petkovića.",
+    "pageBadge": "Strana {page} od {total}",
+    "tagMetaTitle": "#{tag} — Projekti",
+    "tagMetaDescription": "Projekti označeni sa \"{tag}\".",
+    "tagBadge": "Oznaka",
+    "tagCountOne": "{count} projekat označen sa \"{tag}\".",
+    "tagCountOther": "{count} projekata označeno sa \"{tag}\".",
+    "tagEmpty": "Nema pronađenih projekata za ovu oznaku.",
+    "tagBackToAll": "Nazad na sve projekte",
+    "backToProjects": "Nazad na projekte",
+    "moreProjects": "Više projekata",
+    "ctaBadge": "Popričajmo",
+    "ctaHeading": "Popričajmo o tome šta ti treba",
+    "ctaLead": "Svaki sajt koji napravim je poseban dizajn, urađen sa pažnjom koju ovde vidiš. Reci mi šta imaš na umu.",
+    "ctaPrimary": "Pošalji poruku",
+    "ctaSecondary": "Više o meni",
+    "closingHeading": "Imaš projekat na umu?",
+    "closingLead": "Bilo da je u pitanju novi sajt ili nešto što traži svež pogled — rado bih čuo o tome."
+  },
+  "pagination": {
+    "page": "Strana {current} od {total}",
+    "label": "Paginacija",
+    "previousPage": "Prethodna strana",
+    "nextPage": "Sledeća strana",
+    "morePages": "Više strana"
+  },
+  "errors": {
+    "pageNotFound": "Stranica nije pronađena",
+    "pageNotFoundMessage": "Stranica koju tražite ne postoji ili je premeštena.",
+    "goHome": "Idi na početnu",
+    "metaTitle": "Stranica nije pronađena",
+    "metaDescription": "Ova stranica je premeštena, uklonjena ili nikada nije ni postojala.",
+    "badge": "404 — stranica nije pronađena",
+    "titleLead": "Stranica nije",
+    "titleHighlight": "pronađena.",
+    "description": "Ova stranica je premeštena, uklonjena ili nikada nije ni postojala. Hajde da te vratimo na pravi put.",
+    "backHome": "Nazad na početnu",
+    "browseBlog": "Pregledaj blog",
+    "tryInstead": "Probaj nešto od ovoga",
+    "projectsDesc": "Izdvojeni radovi i studije slučaja.",
+    "blogDesc": "Beleške o dizajnu, kodu i zanatu.",
+    "contactTitle": "Kontakt",
+    "contactDesc": "Započni razgovor o svom projektu."
+  },
+  "newsletter": {
+    "heading": "Prijavi se na newsletter",
+    "description": "Dobijaj najnovije objave direktno u inbox.",
+    "emailPlaceholder": "Unesi svoj email",
+    "subscribe": "Prijavi se",
+    "subscribing": "Prijavljivanje…",
+    "success": "Hvala na prijavi!",
+    "genericError": "Nešto je pošlo po zlu",
+    "notConfigured": "Još nije podešeno — postavi RESEND_API_KEY i RESEND_AUDIENCE_ID da uključiš ovo. Samo ti vidiš ovu liniju.",
+    "unavailable": "Prijave trenutno nisu dostupne.",
+    "error": "Prijava nije uspela. Pokušaj ponovo."
+  },
+  "contact": {
+    "heading": "Javi se",
+    "name": "Ime",
+    "email": "Email",
+    "subject": "Naslov",
+    "message": "Poruka",
+    "send": "Pošalji poruku",
+    "sending": "Slanje…",
+    "success": "Poruka je uspešno poslata!",
+    "genericError": "Nešto je pošlo po zlu",
+    "notConfigured": "Još nije podešeno — postavi RESEND_API_KEY da uključiš ovo. Samo ti vidiš ovu liniju.",
+    "unavailable": "Ova forma trenutno nije dostupna.",
+    "error": "Slanje poruke nije uspelo. Pokušaj ponovo."
+  },
+  "theme": {
+    "selectColourTheme": "Izaberi boju teme",
+    "colourTheme": "Boja teme",
+    "colourMode": "Režim boje",
+    "modeTrigger": "Tema: {mode}. Klikni za promenu.",
+    "system": "Sistemski",
+    "light": "Svetla",
+    "dark": "Tamna",
+    "currentlyLight": "Trenutno svetla",
+    "currentlyDark": "Trenutno tamna",
+    "swatchLabel": "{name} tema"
+  },
+  "search": {
+    "placeholder": "Pretraži objave, projekte i stranice…",
+    "inputLabel": "Pojam za pretragu",
+    "resultsLabel": "Rezultati pretrage",
+    "hint": "Počni da kucaš da pretražiš sajt.",
+    "noResults": "Nema rezultata za „{query}“",
+    "unavailable": "Indeks pretrage se generiše prilikom build-a i nije dostupan u <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code>.<br />Pokreni <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build &amp;&amp; pnpm preview</code> da je isprobaš lokalno."
+  },
+  "video": {
+    "playLabel": "Pusti video: {title}",
+    "watchOn": "Pogledaj na YouTube-u"
+  },
+  "footer": {
+    "copyright": "© {year} {siteName}",
+    "groups": {
+      "site": "Sajt",
+      "topics": "Teme",
+      "projects": "Projekti",
+      "questions": "Imaš pitanja?"
+    },
+    "followOn": "Prati nas na {platform}"
+  },
+  "pages": {
+    "about": {
+      "meta": {
+        "title": "O meni",
+        "description": "Ko sam i kako radim: freelance veb developer koji gradi brze, praktične sajtove i digitalne proizvode uz modernu tehnologiju."
+      },
+      "hero": {
+        "badge": "O meni",
+        "titleLead": "Stojan Petković —",
+        "typingWords": ["Veb developer", "Rešavam probleme", "Cloud i automatizacija", "Vođen podacima", "Pažnja na detalje"],
+        "typingWordsMobile": ["Veb developer", "Cloud i automatizacija", "Pažnja na detalje"],
+        "description": "Freelance veb developer koji gradi brze, praktične sajtove i digitalne proizvode.",
+        "imageAlt": "Raketa koja leti pored osvetljene ivice planete, na pozadini zvezdanog neba."
+      },
+      "whatYouGet": {
+        "badge": "Šta donosim",
+        "heading": "Sve što tvom projektu treba",
+        "lead": "Ista pažnja i posvećenost detaljima na svakom projektu, od prve linije koda do lansiranja.",
+        "items": [
+          {
+            "icon": "component",
+            "title": "Čist, iskoristiv kod",
+            "description": "Dobro struktuiran, tipiziran i dokumentovan kod — lak za održavanje i proširivanje i posle lansiranja."
+          },
+          {
+            "icon": "layout",
+            "title": "Svaka stranica koja ti treba",
+            "description": "Početna, o meni, usluge, kontakt i blog stranice, potpuno dizajnirane i responzivne od prvog dana."
+          },
+          {
+            "icon": "palette",
+            "title": "Dizajn koji je tvoj",
+            "description": "Izgled i osećaj oblikovani prema tvom brendu, uz uključen svetli i tamni režim."
+          },
+          {
+            "icon": "book-open",
+            "title": "Sadržaj koji je lako održavati",
+            "description": "Blog i sistem za sadržaj koji je jednostavan za pisanje i lako ga je ažurirati."
+          },
+          {
+            "icon": "image",
+            "title": "Portfolio koji prikazuje tvoj rad",
+            "description": "Galerije i stranice projekata koje čine tvoj rad lakim za pregled i deljenje."
+          },
+          {
+            "icon": "globe",
+            "title": "Spreman za globalnu publiku",
+            "description": "Višejezičnost kad ti zatreba, ugrađena od početka — bez dodatnog troška kad je ne koristiš."
+          },
+          {
+            "icon": "search",
+            "title": "Brza pretraga sajta",
+            "description": "Trenutna, statička pretraga tako da posetioci nađu ono što traže bez čekanja servera."
+          },
+          {
+            "icon": "trending-up",
+            "title": "SEO ugrađen",
+            "description": "Metapodaci, mape sajta, strukturirani podaci i slike za deljenje na mrežama, ispravni od prvog objavljivanja."
+          },
+          {
+            "icon": "server",
+            "title": "Forme koje rade",
+            "description": "Kontakt i newsletter forme zaštićene od spama, plus jednostavan put do hostinga i deploja."
+          }
+        ]
+      },
+      "principles": {
+        "badge": "Kako radim",
+        "heading": "Izgrađeno sa namerom",
+        "lead": "Svaki projekat kojim se bavim vodi se istim trima principima.",
+        "items": [
+          { "icon": "zap", "title": "Performanse na prvom mestu", "description": "Svaki sajt koji napravim optimizovan je za brzinu i Core Web Vitals od prve linije koda." },
+          { "icon": "award", "title": "Napravljeno da traje", "description": "Čist, tipiziran kod i smisleni podrazumevani izbori koji ostaju laki za održavanje i posle lansiranja." },
+          { "icon": "rocket", "title": "Moderni alati", "description": "Astro, Tailwind CSS i čista arhitektura koja se lako proširuje kako tvoje potrebe rastu." }
+        ]
+      },
+      "stack": {
+        "badge": "Alati i tehnologije",
+        "title": "Tehnologije",
+        "description": "Tehnologije sa kojima gradim, izabrane zbog performansi, pouzdanosti i dugoročne održivosti."
+      },
+      "faq": {
+        "badge": "Dobro je znati",
+        "heading": "Često postavljana pitanja",
+        "lead": "Nekoliko stvari koje ljudi obično pitaju pre nego što počnemo da sarađujemo.",
+        "cards": [
+          {
+            "icon": "user",
+            "title": "O meni",
+            "items": [
+              { "question": "Kakve projekte prihvataš?", "answer": "Poslovne sajtove, sisteme za generisanje potencijalnih klijenata i platforme vođene podacima — najviše od onoga što je potrebno rastućem biznisu na internetu." },
+              { "question": "Sa kojim tehnologijama radiš?", "answer": "Moderni, brzi alati: Astro, TypeScript i Tailwind CSS na frontendu, uz cloud infrastrukturu i automatizaciju gde projekat to zahteva." },
+              { "question": "Radiš li sa klijentima van svog lokalnog područja?", "answer": "Da. Većina projekata odvija se u potpunosti putem telefona, video poziva i email-a, a vremenske zone retko predstavljaju problem." },
+              { "question": "Da li si dostupan za nove projekte?", "answer": "Obično jesam — proveri bedž na početnoj strani, ili mi jednostavno pošalji poruku i iskreno ću ti reći." }
+            ]
+          },
+          {
+            "icon": "briefcase",
+            "title": "Saradnja",
+            "items": [
+              { "question": "Kako obično počinje projekat?", "answer": "Besplatnim razgovorom bez obaveza o tome šta ti je potrebno, nakon čega sledi jedan jasan predlog sa rokom i cenom." },
+              { "question": "Da li nudiš podršku posle lansiranja?", "answer": "Da, dostupan je mesečni plan održavanja za ažuriranja, praćenje i manje izmene nakon što sajt postane aktivan." },
+              { "question": "Da li je sajt zaista moj?", "answer": "Potpuno. Domen, hosting i kod su na tvoje ime od prvog dana." }
+            ]
+          }
+        ]
+      },
+      "openSource": {
+        "badge": "Zašto raditi sa mnom",
+        "heading": "Posvećen partner, ne dobavljač",
+        "description": "Radiš direktno sa osobom koja pravi tvoj sajt — bez account menadžera, bez predaje projekta drugima, i uz fiksnu cenu dogovorenu pre početka.",
+        "button": "Javi se",
+        "cards": [
+          { "title": "Jedna kontakt osoba", "text": "Razgovaraš direktno sa mnom od prve poruke do lansiranja — bez tima za prodaju između." },
+          { "title": "Fiksna cena, bez iznenađenja", "text": "Svaki projekat dobija jednu jasnu cenu dogovorenu pre početka rada. Bez naplate po satu." },
+          { "title": "Podrška posle lansiranja", "text": "Ostajem dostupan nakon što tvoj sajt postane aktivan, uz mesečni plan održavanja za stalna ažuriranja." }
+        ]
+      },
+      "cta": {
+        "badge": "Počnimo",
+        "heading": "Spremni za saradnju?",
+        "description": "Javi mi se o svom projektu — odgovoriću ti u toku radnog dana sa iskrenim, praktičnim sledećim koracima.",
+        "button": "Javi se"
+      }
+    },
+    "services": {
+      "meta": {
+        "title": "Usluge — Veb dizajn, razvoj i optimizacija",
+        "description": "Freelance veb dizajn, razvoj i optimizacija: elegantni, izuzetno brzi prilagođeni Astro sajtovi. Besplatan prvi razgovor, jedan jasan predlog, jedna fiksna cena."
+      },
+      "includedLabel": "Šta dobijaš",
+      "hero": {
+        "badge": "Usluge",
+        "titleLead": "Veb dizajn, razvoj",
+        "titleHighlight": "i optimizacija",
+        "description": "Tri usluge, jedan proizvod: elegantan, izuzetno brz prilagođeni Astro sajt na koji ćeš biti ponosan da staviš svoje ime.",
+        "jumpLabels": ["Veb dizajn", "Veb razvoj", "Veb optimizacija"]
+      },
+      "design": {
+        "badge": "Dizajn",
+        "heading": "Veb dizajn",
+        "paragraphs": [
+          "Veb dizajn je kako tvoj sajt izgleda i deluje: raspored, boje, slike i način na koji se posetioci snalaze.",
+          "Svaki sajt dizajniram oko tvog biznisa — tvog brenda, sadržaja i klijenata koje želiš da dosegneš — tako da ostavlja snažan prvi utisak i vodi ljude pravo ka onome što je bitno. Čisto, moderno i napravljeno da radi na svakom ekranu, od desktop monitora do telefona."
+        ],
+        "included": [
+          {
+            "lead": "Dizajn koji je tvoj",
+            "text": "oblikovan prema tvom biznisu, tvom brendu i klijentima koje želiš da dosegneš."
+          },
+          {
+            "lead": "Snažan prvi utisak",
+            "text": "čist, moderan izgled koji ljudima pokazuje ko si u trenutku kad otvore stranicu."
+          },
+          {
+            "lead": "Jasna navigacija",
+            "text": "raspored koji posetioce vodi pravo ka onome što im je bitno."
+          },
+          {
+            "lead": "Dizajn za svaki ekran",
+            "text": "izgleda i radi besprekorno na telefonu, tabletu i desktopu."
+          },
+          {
+            "lead": "Tvoj sadržaj u najboljem izdanju",
+            "text": "tvoje reči i slike dobijaju raspored koji ih čini lakim za čitanje i lepim za gledanje."
+          }
+        ],
+        "ctaLabel": "Razgovaraj o projektu dizajna"
+      },
+      "development": {
+        "badge": "Razvoj",
+        "heading": "Veb razvoj",
+        "paragraphs": [
+          "Veb razvoj je izgradnja tvog sajta: pretvaranje dizajna u kod koji radi u pregledaču tvog posetioca.",
+          "Gradim sa Astro-om, modernim frejmvorkom kome se veruje za neke od najbržih sajtova na internetu. To čini tvoj sajt brzim za učitavanje, bezbednim i lakim za održavanje godinama unapred. I tvoj je od prvog dana, sa kodom, domenom i hostingom na tvoje ime."
+        ],
+        "included": [
+          {
+            "lead": "Izuzetno brz sajt",
+            "text": "napravljen sa Astro-om, frejmvorkom iza nekih od najbržih sajtova na internetu."
+          },
+          {
+            "lead": "Bezbedan, pouzdan sajt",
+            "text": "sajt koji ostaje bezbedan i nastavlja da radi, godinu za godinom."
+          },
+          {
+            "lead": "Puno vlasništvo",
+            "text": "kod, domen i hosting na tvoje ime od prvog dana."
+          },
+          {
+            "lead": "Briga posle lansiranja",
+            "text": "tvoj sajt se ažurira i održava bezbednim uz mesečni plan održavanja, dok se ti baviš svojim biznisom."
+          },
+          {
+            "lead": "Prostor za rast",
+            "text": "prostor za dodavanje novih stranica i funkcionalnosti kad god tvom biznisu zatrebaju."
+          }
+        ],
+        "ctaLabel": "Pogledaj nedavne projekte"
+      },
+      "performance": {
+        "badge": "Optimizacija",
+        "heading": "Veb optimizacija",
+        "paragraphs": [
+          "Veb optimizacija je rad koji čini da tvoj sajt performira: brzo se učitava, dobro se rangira u pretrazi i radi za sve.",
+          "Gradim brzinu, SEO i pristupačnost od same prve linije koda, ne naknadno. To znači da Google lako pronalazi i razume tvoj sajt, da se brzo otvara za svakog posetioca i da ga može koristiti svako ko na njega naiđe."
+        ],
+        "included": [
+          {
+            "lead": "Sajt koji Google i AI mogu da pronađu",
+            "text": "napravljen tako da pretraživači i AI asistenti mogu da pročitaju, razumeju i preporuče tvoje stranice."
+          },
+          {
+            "lead": "Brzina na svakom uređaju",
+            "text": "stranice koje ostaju brze čak i na telefonu ili sporijoj konekciji."
+          },
+          {
+            "lead": "Sajt za svakoga",
+            "text": "pristupačan svakom posetiocu, bez obzira na uređaj ili sposobnosti."
+          },
+          {
+            "lead": "Visoke ocene performansi",
+            "text": "visoke ocene na Google-ovim sopstvenim proverama brzine i kvaliteta (Lighthouse)."
+          },
+          {
+            "lead": "Optimizacija od prvog dana",
+            "text": "brzina, SEO i pristupačnost ugrađeni od same prve linije."
+          }
+        ],
+        "ctaLabel": "Pokreni projekat"
+      },
+      "process": {
+        "badge": "Kako funkcioniše",
+        "heading": "Kako teče projekat",
+        "lead": "Od tvoje prve poruke do sajta koji je aktivan.",
+        "steps": [
+          { "title": "Prvi kontakt", "description": "Pošalješ poruku kroz kontakt formu. Odgovaram u roku od jednog radnog dana i dogovaramo besplatan, informativan razgovor o tome šta ti treba. Bez obaveza." },
+          { "title": "Predlog", "description": "Posle razgovora dobijaš jedan jasan dokument: šta ću napraviti, kada će biti gotovo i fiksnu cenu. Odlučuješ sa svim kartama na stolu." },
+          { "title": "Dizajn i izrada", "description": "Radim u kratkim ciklusima. Pratiš napredak na staging linku i gledaš kako tvoj sajt dobija oblik." },
+          { "title": "Lansiranje i podrška", "description": "Tvoj sajt postaje aktivan na tvom sopstvenom domenu i hostingu, na tvoje ime. Nakon toga ostajem dostupan, a tu je i mesečni plan održavanja ako želiš redovna ažuriranja." }
+        ]
+      },
+      "faq": {
+        "badge": "Pitanja",
+        "heading": "Pitanja i odgovori",
+        "lead": "Stvari koje klijenti pitaju pre nego što počnemo.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Pre nego što počnemo",
+            "items": [
+              { "question": "Koliko košta sajt?", "answer": "Svaki projekat dobija jednu fiksnu cenu, dogovorenu pre početka. Bez naplate po satu, bez iznenađenja kasnije. Besplatan razgovor — i besplatna provera, ako sajt već postoji — mi govori šta tvom projektu treba, a ti dobijaš cenu u jednom jasnom predlogu." },
+              { "question": "Koliko traje izrada projekta?", "answer": "To zavisi od veličine sajta. Predlog navodi rok zajedno sa cenom, tako da znaš oboje pre nego što počnemo." },
+              { "question": "Šta se dešava sa mojim trenutnim sajtom?", "answer": "Ostaje aktivan dok novi ne bude spreman. Tvoj sadržaj, tvoja web adresa i tvoj Google rang idu sa tobom. Proveravam tvoj trenutni sajt pre prvog razgovora, tako da dobijaš jasne odgovore od samog početka." },
+              { "question": "Da li treba sam da obezbedim hosting ili domen?", "answer": "Ne. Postavljam hosting i domen za tebe, na tvoje ime. Ako već imaš domen, jednostavno ga zadržavamo." },
+              { "question": "Da li treba da se sretnemo uživo?", "answer": "Nije neophodno. Većina projekata odvija se u potpunosti putem telefona, video poziva i email-a. Radim sa klijentima širom sveta, a vremenske zone retko predstavljaju problem." }
+            ]
+          },
+          {
+            "icon": "user",
+            "title": "Rad sa mnom",
+            "items": [
+              { "question": "Da li si firma ili agencija?", "answer": "Ja sam biznis jedne osobe: freelancer, ne agencija. Radiš direktno sa osobom koja obavlja posao, od prvog razgovora do gotovog sajta. Bez tima za prodaju, bez account menadžera, bez predaje drugima." },
+              { "question": "Mogu li sam da menjam sajt posle lansiranja?", "answer": "Možeš jednostavno da mi pošalješ svoje izmene, a mesečni plan održavanja postoji tačno za to. Ako želiš sam da uređuješ sajt, reci mi to na prvom razgovoru i podesiću sajt za to." },
+              { "question": "Da li praviš i online prodavnice?", "answer": "Ne. Velike online prodavnice su jedino što ne pravim. Sve ostalo što zahteva prilagođeni Astro sajt, pravim: reci mi na prvom razgovoru šta imaš na umu i biću iskren da li sam pravi izbor za to." },
+              { "question": "Da li je sajt zaista moj?", "answer": "Potpuno. Domen, hosting i kod su na tvoje ime od prvog dana. Ako ikada poželiš da odeš, sve nosiš sa sobom: nikad nisi vezan." },
+              { "question": "Šta ako nešto pukne posle lansiranja?", "answer": "Vrlo malo toga može da pukne: sajt nema plugine niti bazu podataka koja bi otkazala. A ostajem dostupan i posle lansiranja; za redovna ažuriranja i praćenje tu je mesečni plan održavanja." }
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Popričajmo",
+        "heading": "Popričajmo o tome šta ti treba",
+        "description": "Prvi razgovor je besplatan i informativan, bez obaveza: putem telefona, video poziva ili email-a. Dobijaš iskrene odgovore, a posle razgovora jedan jasan predlog sa rokom i fiksnom cenom.",
+        "primary": "Pošalji poruku",
+        "secondary": "Više o meni"
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Kontakt",
+        "description": "Počinješ nešto novo? Dizajniram i pravim nove sajtove od nule — javi mi se o svom projektu i odgovoriću ti u roku od 1 radnog dana."
+      },
+      "hero": {
+        "badge": "Pokreni projekat",
+        "titleLead": "Ispričaj mi o svom",
+        "titleHighlight": "novom projektu",
+        "description": "Rado bih čuo od tebe. Pošalji poruku putem forme ispod, ili se javi na neki od drugih kanala ispod."
+      },
+      "formTitle": "Detalji projekta",
+      "channelsTitle": "Drugi kanali",
+      "channelsSubtitle": "Više voliš direktan kanal? Izaberi ono što ti najviše odgovara.",
+      "emailLabel": "Email",
+      "emailNote": "Javi nam se",
+      "socialNote": "Prati nas",
+      "basedIn": "Sedište u {country}"
+    },
+    "home": {
+      "meta": {
+        "title": "Veb dizajner i developer",
+        "description": "Sajtovi, sistemi za generisanje potencijalnih klijenata i platforme vođene podacima — izgrađeni uz modernu tehnologiju i praktičan, poslovno orijentisan pristup."
+      },
+      "hero": {
+        "badge": "Dostupan za nove projekte",
+        "titleLine1": "Stojan Petković —",
+        "titleLine2": "Veb dizajner",
+        "titleLine3": "i developer",
+        "description": "Gradim sajtove, sisteme za generisanje potencijalnih klijenata i platforme vođene podacima — uz modernu tehnologiju i praktičan, poslovno orijentisan pristup.",
+        "descriptionMobile": "Gradim sajtove, sisteme za generisanje potencijalnih klijenata i platforme vođene podacima uz praktičan, poslovno orijentisan pristup.",
+        "primaryCta": "Javi se",
+        "secondaryCta": "Pogledaj moj rad"
+      },
+      "services": {
+        "badge": "Čime se bavim",
+        "heading": "Dizajn, izrada, optimizacija",
+        "lead": "Svaki projekat dobija sve tri usluge.",
+        "learnMore": "Saznaj više",
+        "cards": [
+          { "icon": "layout", "title": "Veb dizajn", "description": "Interfejsi koji deluju prirodno. Rasporedi oblikovani prema tvom sadržaju, brendu i načinu na koji ljudi zaista čitaju na ekranu." },
+          { "icon": "code", "title": "Veb razvoj", "description": "Sajtovi napravljeni da traju. Astro, Tailwind i čista arhitektura: brzo od prvog dana, lako za održavanje i na dan 500." },
+          { "icon": "trending-up", "title": "Veb optimizacija", "description": "SEO, Core Web Vitals i pristupačnost, ugrađeni od prvog dana tako da tvoj sajt bude dobro rangiran, brzo se učitava i radi za svakog posetioca." }
+        ]
+      },
+      "workWithMe": {
+        "badge": "Radi sa mnom",
+        "heading": "Napravimo tvoj sajt",
+        "lead": "Šta dobijaš kada sarađujemo.",
+        "cards": [
+          { "icon": "palette", "title": "Prilagođen dizajn", "description": "Dizajniran prema tvom biznisu, sadržaju i klijentima." },
+          { "icon": "zap", "title": "Izuzetno brz sajt", "description": "Stranice koje se otvaraju trenutno, na svakom telefonu i svakoj konekciji." },
+          { "icon": "search", "title": "Google i AI te pronalaze", "description": "Svaka stranica napravljena tako da je pretraživači i AI asistenti čisto čitaju i klijenti te pronalaze." },
+          { "icon": "shield-check", "title": "Nula održavanja", "description": "Ažuriran i bezbedan uz plan održavanja, tako da se ti fokusiraš na svoj biznis." }
+        ],
+        "cta": "Pročitaj stranicu usluga"
+      },
+      "portfolio": {
+        "badge": "Izdvojeni radovi",
+        "heading": "Projekti koje sam napravio",
+        "lead": "Izbor nedavnih radova.",
+        "viewAll": "Pogledaj sve projekte"
+      },
+      "testimonials": {
+        "badge": "Utisci klijenata",
+        "heading": "Šta klijenti kažu",
+        "lead": "Prave reči nakon završenih projekata.",
+        "items": [
+          { "quote": "Novi sajt je lansiran na vreme i ostvario je svaki cilj koji smo postavili. Performanse su dramatično poboljšane — vreme učitavanja je smanjeno, a povratne informacije od naših klijenata su izuzetno pozitivne.", "name": "Alex Morgan", "role": "Osnivač, Bright Studio" },
+          { "quote": "Jednostavno od prvog razgovora do finalne predaje. Postavljena su prava pitanja, bili smo u toku tokom celog procesa, a krajnji rezultat je nadmašio ono što smo zamislili. Preporučujem bez oklevanja.", "name": "Sarah Chen", "role": "Izvršna direktorka, Luma Agency" }
+        ]
+      },
+      "aboutTeaser": {
+        "badge": "O meni",
+        "headingLine1": "Dizajner, developer",
+        "headingLine2": "i bloger.",
+        "para1WithLocation": "Šesnaest godina praktičnog iskustva, sedište u {location} i dostupan klijentima širom sveta. Gradim sa Astro-om jer se poklapa sa tim kako razmišljam o vebu: sažeto, svrsishodno i napravljeno da traje.",
+        "para1NoLocation": "Šesnaest godina praktičnog iskustva i dostupan klijentima širom sveta. Gradim sa Astro-om jer se poklapa sa tim kako razmišljam o vebu: sažeto, svrsishodno i napravljeno da traje.",
+        "para2": "Na blogu delim ideje i odluke koje oblikuju moj rad.",
+        "moreAboutMe": "Više o meni",
+        "statsIntro": "Nekoliko stvari o meni.",
+        "stat1": "16 godina iskustva",
+        "stat2": "Gradim sa Astro-om",
+        "stat3": "Radim širom sveta",
+        "basedIn": "Sedište u"
+      },
+      "blog": {
+        "badge": "Sa bloga",
+        "heading": "Izdvojeno",
+        "viewAll": "Pogledaj sve objave"
+      },
+      "cta": {
+        "badge": "Popričajmo",
+        "heading": "Popričajmo o tome šta ti treba",
+        "description": "Prvi razgovor je besplatan i informativan, bez obaveza. I od prvog razgovora do finalne isporuke, to sam ja.",
+        "primary": "Pošalji poruku",
+        "secondary": "Više o meni"
+      }
+    }
+  }
+}
