@@ -232,7 +232,7 @@
       },
       "hero": {
         "badge": "O meni",
-        "titleLead": "Stojan Petković —",
+        "titleLead": "Stojan Petković",
         "typingWords": ["Veb developer", "Rešavam probleme", "Cloud i automatizacija", "Vođen podacima", "Pažnja na detalje"],
         "typingWordsMobile": ["Veb developer", "Cloud i automatizacija", "Pažnja na detalje"],
         "description": "Freelance veb developer koji gradi brze, praktične sajtove i digitalne proizvode.",
@@ -529,7 +529,7 @@
       },
       "hero": {
         "badge": "Dostupan za nove projekte",
-        "titleLine1": "Stojan Petković —",
+        "titleLine1": "Stojan Petković",
         "titleLine2": "Veb dizajner",
         "titleLine3": "i developer",
         "description": "Gradim sajtove, sisteme za generisanje potencijalnih klijenata i platforme vođene podacima — uz modernu tehnologiju i praktičan, poslovno orijentisan pristup.",

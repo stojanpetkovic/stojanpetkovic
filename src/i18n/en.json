@@ -232,7 +232,7 @@
       },
       "hero": {
         "badge": "About",
-        "titleLead": "Stojan Petković —",
+        "titleLead": "Stojan Petković",
         "typingWords": ["Web Developer", "Problem Solver", "Cloud & Automation", "Data-Driven", "Detail-Oriented"],
         "typingWordsMobile": ["Web Developer", "Cloud & Automation", "Detail-Oriented"],
         "description": "A freelance web\u00a0developer building fast, practical websites and digital products.",
@@ -529,7 +529,7 @@
       },
       "hero": {
         "badge": "Available for new projects",
-        "titleLine1": "Stojan Petković —",
+        "titleLine1": "Stojan Petković",
         "titleLine2": "Web Designer",
         "titleLine3": "& Developer",
         "description": "I build websites, lead generation systems and data-driven platforms — with modern technology and a practical, business-focused mindset.",
