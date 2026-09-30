@@ -1,0 +1,99 @@
+---
+title: "Tree Jaws"
+locale: en
+description: "A rebuilt Astro website plus ongoing SEO and Google Ads management for a South Florida tree service company — turning search and paid traffic into over a thousand tracked leads."
+url: "https://treejaws.com"
+tags: ["Astro", "SEO", "Google Ads", "Client Work"]
+featured: true
+order: -1
+year: 2026
+client: "Tree Jaws"
+role: "Developer & Marketing Partner"
+services: ["Web Development", "SEO", "Google Ads Management"]
+meta: ["South Florida tree service", "4.9★ · 427 Google reviews", "1,010 tracked leads", "Ongoing SEO & Ads"]
+icon: "trees"
+image: "../../../assets/projects/tree-jaws-hero-dark.webp"
+imageAlt: "The Tree Jaws homepage hero, built around a live job-site photo with the company's rating and trust signals up front."
+gallery:
+  - src: "../../../assets/projects/tree-jaws-hero-dark.webp"
+    alt: "The Tree Jaws homepage hero, built around a live job-site photo with the company's rating and trust signals up front."
+  - src: "../../../assets/projects/tree-jaws-hero-green.png"
+    alt: "An earlier hero treatment for the same homepage, testing a brand-green overlay over full-bleed equipment photography."
+  - src: "../../../assets/projects/tree-jaws-blog.webp"
+    alt: "The Tree Jaws blog, publishing South Florida-specific guidance as part of the SEO strategy."
+  - src: "../../../assets/projects/tree-jaws-testimonials.png"
+    alt: "A Google Reviews-backed testimonials section showing the business's 4.9-star rating across 427 reviews."
+---
+
+import StatCard from '@/components/patterns/StatCard.astro';
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 91, icon: 'zap' },
+  { label: 'Accessibility', value: 96, icon: 'users' },
+  { label: 'Best Practices', value: 96, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## The brief
+
+**Tree Jaws** is a tree removal, trimming, and stump-grinding company serving residential and commercial properties across **South Florida**. Trust and speed decide who gets the call in this business — a homeowner with a storm-damaged tree isn't comparison-shopping, they're picking the first company that looks credible and answers the phone. The site and the marketing around it needed to do that convincing in the first few seconds, then keep doing it every month after.
+
+I work with Tree Jaws on all three legs of that: the site itself, the SEO underneath it, and the Google Ads account running alongside it.
+
+## Building the site on Astro
+
+The site started out on **WordPress**, carrying the usual weight that platform picks up over time — page builder, SEO plugin, caching layer, each fighting the overhead of the one before it. For a business that lives on "storm damage, need someone today" searches, that weight was costing real calls: a slow first paint is a closed tab before the phone number is even seen. **Tree Jaws' owner wanted off WordPress and onto something built for speed**, so I rebuilt the whole site on **Astro**.
+
+That matters more for a local service business than it might for most: pages resolve to static HTML that loads fast on the job-site 4G connections a lot of these visitors are on, with no client-side framework standing between a tap on the phone number and the call actually starting. I rebuilt the homepage hero around a real photo of the crew's equipment on an active job rather than stock photography, put the **4.9-star Google rating** where it's seen immediately, and kept the calls to action — free quote, phone number — visible without scrolling.
+
+I also treat the hero as something to keep testing rather than ship once: the gallery on this project includes two different hero treatments, a bolder brand-green overlay and the current photo-led version, from iterating on which one actually holds attention longer.
+
+## Never missing a lead
+
+The contact form isn't a "send us a message and hope" box that quietly fills an inbox nobody checks. Every submission fires an **instant email straight to the business** the moment it comes in — name, number, and what they need, laid out and ready to call back, with no portal to log into and no dashboard to remember to refresh. It runs on the same real-time lead pipeline behind [SF Tree Removal](/projects/sf-tree-removal), so a form fill here is treated with the same urgency as a phone call. For a business that lives or dies on who calls back first, that's not a nice-to-have — it's the whole point of having a form at all.
+
+The move off WordPress shows up directly in a Lighthouse run against the live site:
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+## SEO, built into the foundation
+
+None of the ad spend below works if the organic side is thin, so the site carries a proper **blog** — South-Florida-specific guides on tree trimming, storm preparedness, and when topping a tree does more harm than good — aimed at the searches homeowners actually run before they call anyone. Service and service-area pages are structured around the terms people search locally, page speed comes from Astro shipping close to zero JavaScript by default, and the testimonials section pulls directly from the same Google Business Profile the ads point to, so the trust signal is the same one across every channel.
+
+<div class="my-10 grid gap-4 sm:grid-cols-2">
+  <StatCard label="Site pages" value="176" icon="file-text" />
+  <StatCard label="Blog posts" value="108" icon="pen-line" />
+</div>
+
+That's after consolidating the service-area pages themselves — 33 thin, overlapping city pages merged down to 20 stronger ones (17 cities and 3 counties), each with its own content instead of a shared template, and 301-redirected so nothing that used to rank got dropped.
+
+## Running the Google Ads account
+
+Alongside the site, I manage the **Google Ads account** end to end — campaign structure, budget, keyword and landing-page alignment, and the conversion tracking that tells us which of those campaigns is actually worth the spend. Across the reporting window below:
+
+<div class="my-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  <StatCard label="Clicks" value="5.18K" icon="mouse-pointer-click" />
+  <StatCard label="Impressions" value="80.2K" icon="eye" />
+  <StatCard label="Avg. CPC" value="$10.51" icon="dollar-sign" />
+  <StatCard label="Ad spend" value="$54.4K" icon="wallet" />
+</div>
+
+## Results
+
+The account tracks two conversion groups — direct-contact actions and submitted lead forms — for **1,010 tracked conversions** in that same window:
+
+<div class="my-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  <StatCard label="Phone call leads" value="732" icon="phone-call" />
+  <StatCard label="Lead forms submitted" value="133" icon="file-check" />
+  <StatCard label="Get directions" value="50" icon="map-pin" />
+  <StatCard label="Contact form fills" value="49" icon="user-round" />
+</div>
+
+**Phone calls are the dominant conversion by a wide margin** — exactly what you'd expect for emergency and same-week tree work, and it's why the number stays in the header on every page rather than behind a contact form.
+
+I don't have Tree Jaws' internal numbers on how many of those calls turn into a signed, paid job — that close rate lives in their CRM, not mine. But tree removal jobs in South Florida typically run **$3,000–$5,000**, so as a reference point: even a conservative one-in-five close rate on 732 phone leads is around 146 booked jobs, which puts the campaign's return somewhere in the **8–13× range** on the $54.4K spent. The real number moves with how the calls are handled after they come in, but the spend is clearly buying leads at a fraction of what a single closed job is worth.
+
+Off the back of the work the site and the campaigns point to, Tree Jaws now holds a **4.9-star rating across 427 Google reviews** — the same rating and reviews the site surfaces to every visitor before they decide to call.

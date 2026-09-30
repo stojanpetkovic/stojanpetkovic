@@ -455,6 +455,53 @@
         ],
         "ctaLabel": "Pokreni projekat"
       },
+      "additional": {
+        "badge": "Takođe dostupno",
+        "heading": "Još načina da rasteš",
+        "lead": "Pored tri usluge iznad, evo šta još donosim projektu.",
+        "items": [
+          {
+            "icon": "palette",
+            "title": "Grafički dizajn",
+            "description": "Logotipi, grafike za društvene mreže i dizajn za štampu koji čuvaju izgled tvog brenda svuda gde se pojavi, na ekranu i van njega."
+          },
+          {
+            "icon": "pen-line",
+            "title": "Kontent marketing",
+            "description": "Blog tekstovi i stranice usluga pisani da odgovore na pitanja koja tvoji klijenti već pretražuju, tako da sajt nastavlja da donosi posetioce i dugo posle lansiranja."
+          },
+          {
+            "icon": "megaphone",
+            "title": "Marketing na društvenim mrežama",
+            "description": "Instagram i Facebook kampanje izgrađene oko stvarnog praćenja konverzija, tako da se svaki post i oglas ocenjuje po rezervacijama, ne samo po lajkovima."
+          },
+          {
+            "icon": "sparkles",
+            "title": "Generativni pretraživači, AI SEO",
+            "description": "Sadržaj i strukturirani podaci pisani tako da AI asistenti i AI pretraga tačno razumeju tvoj biznis i preporučuju ga."
+          },
+          {
+            "icon": "layout-template",
+            "title": "Paketi za izradu sajta",
+            "description": "Dizajn paketi fiksnog obima za biznise koji tačno znaju šta im treba: jasna cena i jasan rezultat, bez dugog istraživačkog procesa."
+          },
+          {
+            "icon": "target",
+            "title": "Plaćeni oglasi",
+            "description": "Google Ads kampanje kojima upravljam od početka do kraja — budžet, ključne reči i stranice na koje vode — merene cenom po rezervisanom poslu, ne po kliku."
+          },
+          {
+            "icon": "gem",
+            "title": "Razvoj brenda",
+            "description": "Logotip i vizuelni identitet izgrađeni od nule, tako da novi biznis kreće kao da postoji godinama."
+          },
+          {
+            "icon": "server",
+            "title": "Hosting i domeni",
+            "description": "Pouzdan hosting i domen, izabrani, podešeni i vođeni na tvoje ime — bez žongliranja različitim provajderima ili datumima obnove sam."
+          }
+        ]
+      },
       "process": {
         "badge": "Kako funkcioniše",
         "heading": "Kako teče projekat",
@@ -491,6 +538,28 @@
               { "question": "Da li praviš i online prodavnice?", "answer": "Ne. Velike online prodavnice su jedino što ne pravim. Sve ostalo što zahteva prilagođeni Astro sajt, pravim: reci mi na prvom razgovoru šta imaš na umu i biću iskren da li sam pravi izbor za to." },
               { "question": "Da li je sajt zaista moj?", "answer": "Potpuno. Domen, hosting i kod su na tvoje ime od prvog dana. Ako ikada poželiš da odeš, sve nosiš sa sobom: nikad nisi vezan." },
               { "question": "Šta ako nešto pukne posle lansiranja?", "answer": "Vrlo malo toga može da pukne: sajt nema plugine niti bazu podataka koja bi otkazala. A ostajem dostupan i posle lansiranja; za redovna ažuriranja i praćenje tu je mesečni plan održavanja." }
+            ]
+          },
+          {
+            "icon": "sparkles",
+            "title": "Više od sajta",
+            "items": [
+              { "question": "Da li radiš grafički dizajn ili brendiranje samostalno?", "answer": "Da. Logotip, vizuelni identitet ili kontinuirani grafički dizajn dostupni su i samostalno, bez potpune izrade sajta — reci mi šta ti treba na prvom razgovoru." },
+              { "question": "Da li vodiš plaćene oglase poput Google Ads-a?", "answer": "Da, od početka do kraja: struktura kampanje, budžet, usklađivanje ključnih reči i landing stranica, i praćenje konverzija koje pokazuje šta budžet zaista donosi." },
+              { "question": "Možeš li da vodiš marketing na društvenim mrežama?", "answer": "Da — Instagram i Facebook kampanje sa stvarnim praćenjem konverzija, tako da se rezultati ocenjuju po rezervacijama i lidovima, ne samo po angažovanju." },
+              { "question": "Šta je generativni pretraživač ili AI SEO?", "answer": "Osiguravanje da AI asistenti i AI pretraga — ChatGPT, Google-ov AI Overview — tačno razumeju tvoj sajt i preporučuju tvoj biznis, uz tradicionalni SEO." },
+              { "question": "Da li nudiš pakete sajtova po fiksnoj ceni?", "answer": "Da, za biznise sa jasnom idejom šta im treba: paketni dizajn drži cenu i rezultat fiksnim od početka, bez dugog istraživačkog procesa." }
+            ]
+          },
+          {
+            "icon": "globe",
+            "title": "Hosting i domeni",
+            "items": [
+              { "question": "Šta tačno uključuje podešavanje hostinga i domena?", "answer": "Biram i podešavam pouzdan hosting za tvoj sajt i registrujem — ili prebacujem — tvoj domen, oboje na tvoje ime od prvog dana. SSL, DNS i poslovna email adresa na tvom domenu deo su istog podešavanja." },
+              { "question": "Da li plaćam tebi ili direktno provajderu hostinga?", "answer": "Nalozi za domen i hosting su tvoji, naplaćeni direktno tebi od strane provajdera. Ne stajem između tebe i računa — samo se brinem da je podešavanje ispravno i da sve radi." },
+              { "question": "Mogu li da zadržim svoj trenutni domen?", "answer": "Da. Ako već imaš domen, usmeravamo ga ili prebacujemo na novi sajt — tvoje postojeće email adrese i istorija domena ne moraju da se menjaju." },
+              { "question": "Šta ako moj hosting ili domen ima problem?", "answer": "To pokriva mesečni plan održavanja: pratim dostupnost sajta i datume obnove, i rešavam direktno sa hostingom ili registrom domena ako nešto pođe po zlu." },
+              { "question": "Da li se cene menjaju posle prve godine?", "answer": "Cene obnove domena i hostinga određuje registar i hosting provajder, ne ja, i najavljujem ih pre obnove — bez skrivenih iznenađenja u paketnoj ceni." }
             ]
           }
         ]
@@ -571,14 +640,14 @@
         "heading": "Šta klijenti kažu",
         "lead": "Prave reči nakon završenih projekata.",
         "items": [
-          { "quote": "Novi sajt je lansiran na vreme i ostvario je svaki cilj koji smo postavili. Performanse su dramatično poboljšane — vreme učitavanja je smanjeno, a povratne informacije od naših klijenata su izuzetno pozitivne.", "name": "Alex Morgan", "role": "Osnivač, Bright Studio" },
-          { "quote": "Jednostavno od prvog razgovora do finalne predaje. Postavljena su prava pitanja, bili smo u toku tokom celog procesa, a krajnji rezultat je nadmašio ono što smo zamislili. Preporučujem bez oklevanja.", "name": "Sarah Chen", "role": "Izvršna direktorka, Luma Agency" }
+          { "quote": "Stojan je oba moja sajta prebacio sa WordPress-a na Astro, i razlika u brzini se osetila odmah. Svaki lid mi sad stigne na email istog trenutka kad neko pošalje formu — više ne moram da proveravam dešbord i propuštam pozive.", "name": "Mirko Calić", "role": "Vlasnik, Tree Jaws i Mahalo Tree Service" },
+          { "quote": "Stojan nam je napravio sajt za rezervacije od nule i uz njega podesio Instagram i Facebook oglase. Gosti idu direktno sa oglasa do gotove rezervacije, što je tačno ono što nam je trebalo za smeštaj naše veličine.", "name": "Valentina Jovanović", "role": "Vlasnica, Valena Apartmani" }
         ]
       },
       "aboutTeaser": {
         "badge": "O meni",
         "headingLine1": "Dizajner, developer",
-        "headingLine2": "i bloger.",
+        "headingLine2": "i inženjer.",
         "para1WithLocation": "Šesnaest godina praktičnog iskustva, sedište u {location} i dostupan klijentima širom sveta. Gradim sa Astro-om jer se poklapa sa tim kako razmišljam o vebu: sažeto, svrsishodno i napravljeno da traje.",
         "para1NoLocation": "Šesnaest godina praktičnog iskustva i dostupan klijentima širom sveta. Gradim sa Astro-om jer se poklapa sa tim kako razmišljam o vebu: sažeto, svrsishodno i napravljeno da traje.",
         "para2": "Na blogu delim ideje i odluke koje oblikuju moj rad.",

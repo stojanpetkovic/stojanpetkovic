@@ -455,6 +455,53 @@
         ],
         "ctaLabel": "Start a project"
       },
+      "additional": {
+        "badge": "Also available",
+        "heading": "More ways to grow",
+        "lead": "Beyond the three services above, here's what else I bring to a project.",
+        "items": [
+          {
+            "icon": "palette",
+            "title": "Graphic Design",
+            "description": "Logos, social graphics, and print-ready designs that keep your brand looking sharp everywhere it shows up, on screen or off."
+          },
+          {
+            "icon": "pen-line",
+            "title": "Content Marketing",
+            "description": "Blog posts and service pages written to answer the questions your customers are already searching, so your site keeps earning traffic long after launch."
+          },
+          {
+            "icon": "megaphone",
+            "title": "Social Media Marketing",
+            "description": "Instagram and Facebook campaigns built around real conversion tracking, so every post and ad is judged by bookings, not just likes."
+          },
+          {
+            "icon": "sparkles",
+            "title": "Generative Engine, AI SEO",
+            "description": "Content and structured data written so AI assistants and AI-powered search read your business correctly and recommend it."
+          },
+          {
+            "icon": "layout-template",
+            "title": "Website Design Packages",
+            "description": "Fixed-scope design packages for businesses that know what they need: a clear price and a clear deliverable, no lengthy discovery process."
+          },
+          {
+            "icon": "target",
+            "title": "Paid Search Marketing",
+            "description": "Google Ads campaigns managed end to end — budget, keywords, and the landing pages they point to — measured by cost per booked job, not clicks."
+          },
+          {
+            "icon": "gem",
+            "title": "Brand Development",
+            "description": "A logo and visual identity built from scratch, so a new business launches looking like it's been around for years."
+          },
+          {
+            "icon": "server",
+            "title": "Web Hosting & Domains",
+            "description": "Reliable hosting and a domain, chosen, set up, and kept in your own name — no juggling separate providers or renewal dates yourself."
+          }
+        ]
+      },
       "process": {
         "badge": "How it works",
         "heading": "How a project runs",
@@ -491,6 +538,28 @@
               { "question": "Do you also build webshops?", "answer": "No. Big online shops are the one thing I don't build. Everything else that needs a custom Astro website, I build: tell me in the first talk what you have in mind, and I'll be honest about whether I'm the right builder for it." },
               { "question": "Is the website really mine?", "answer": "Completely. The domain, the hosting, and the code are in your name from day one. If you ever want to move on, you take everything with you: you're never locked in." },
               { "question": "What happens if something breaks after launch?", "answer": "Very little can break: the website has no plugins and no database to fail. And I stay reachable after launch; for regular updates and monitoring there is the monthly care plan." }
+            ]
+          },
+          {
+            "icon": "sparkles",
+            "title": "Beyond the website",
+            "items": [
+              { "question": "Do you offer graphic design or branding on its own?", "answer": "Yes. A logo, a brand identity, or ongoing graphic design work is available on its own, without a full website rebuild — tell me what you need in the first talk." },
+              { "question": "Do you run paid ads like Google Ads?", "answer": "Yes, end to end: campaign structure, budget, keyword and landing-page alignment, and the conversion tracking that shows what the spend is actually buying." },
+              { "question": "Can you handle my social media marketing?", "answer": "Yes — Instagram and Facebook campaigns with real conversion tracking built in, so results are judged by bookings and leads, not just engagement." },
+              { "question": "What is Generative Engine or AI SEO?", "answer": "Making sure AI assistants and AI-powered search — ChatGPT, Google's AI Overviews — read your site correctly and recommend your business, alongside traditional SEO." },
+              { "question": "Do you offer fixed-price website packages?", "answer": "Yes, for businesses with a clear scope in mind: a packaged design keeps the price and the deliverable fixed from the start, without a lengthy discovery process." }
+            ]
+          },
+          {
+            "icon": "globe",
+            "title": "Hosting & domains",
+            "items": [
+              { "question": "What does hosting and domain setup actually include?", "answer": "I choose and set up reliable hosting for your site and register — or transfer — your domain, both in your own name from day one. SSL, DNS, and a business email address at your domain are part of the same setup." },
+              { "question": "Do I pay you or the hosting provider directly?", "answer": "The domain and hosting accounts are yours, billed directly to you by the provider. I don't sit between you and the bill — I just make sure it's the right setup and keep it running." },
+              { "question": "Can I keep my current domain?", "answer": "Yes. If you already have one, we point or transfer it to the new site — your existing email addresses and domain history don't need to change." },
+              { "question": "What if my hosting or domain has a problem?", "answer": "That's covered by the monthly care plan: I monitor uptime and renewal dates, and deal directly with the host or registrar if anything goes wrong." },
+              { "question": "Do prices change after the first year?", "answer": "Domain and hosting renewal prices are set by the registrar and host, not by me, and I flag them before they renew — no surprise increases hidden in a bundled fee." }
             ]
           }
         ]
@@ -571,14 +640,14 @@
         "heading": "What clients say",
         "lead": "Real words from finished projects.",
         "items": [
-          { "quote": "The new site launched on time and hit every goal we set. Performance improved dramatically — load times dropped and the feedback from our customers has been overwhelmingly positive.", "name": "Alex Morgan", "role": "Founder, Bright Studio" },
-          { "quote": "Straightforward from first conversation to final handover. The right questions were asked, we were kept in the loop throughout, and the end result exceeded what we imagined. Would recommend without hesitation.", "name": "Sarah Chen", "role": "CEO, Luma Agency" }
+          { "quote": "Stojan moved both of my sites off WordPress and onto Astro, and the speed difference was obvious immediately. Every lead now hits my inbox the second someone submits the form — no more checking a dashboard and missing calls.", "name": "Mirko Calić", "role": "Owner, Tree Jaws & Mahalo Tree Service" },
+          { "quote": "Stojan built our booking site from nothing and set up the Instagram and Facebook ads to go with it. Guests go straight from an ad to a finished reservation, which is exactly what a property our size needed.", "name": "Valentina Jovanović", "role": "Owner, Valena Apartmani" }
         ]
       },
       "aboutTeaser": {
         "badge": "About me",
         "headingLine1": "Designer, developer,",
-        "headingLine2": "and blogger.",
+        "headingLine2": "and engineer.",
         "para1WithLocation": "Sixteen years of hands-on experience, based in {location} and available for clients worldwide. I build with Astro because it aligns with how I think about the web: lean, purposeful, and built to last.",
         "para1NoLocation": "Sixteen years of hands-on experience and available for clients worldwide. I build with Astro because it aligns with how I think about the web: lean, purposeful, and built to last.",
         "para2": "On the blog, I share the ideas and decisions that shape my work.",

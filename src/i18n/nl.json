@@ -455,6 +455,53 @@
         ],
         "ctaLabel": "Start een project"
       },
+      "additional": {
+        "badge": "Ook mogelijk",
+        "heading": "Meer manieren om te groeien",
+        "lead": "Naast de drie diensten hierboven breng ik dit ook mee in een project.",
+        "items": [
+          {
+            "icon": "palette",
+            "title": "Grafisch ontwerp",
+            "description": "Logo's, social-mediabeelden en drukwerk die je merk er overal scherp laten uitzien, op het scherm en daarbuiten."
+          },
+          {
+            "icon": "pen-line",
+            "title": "Contentmarketing",
+            "description": "Blogartikelen en dienstenpagina's geschreven om de vragen te beantwoorden die je klanten al zoeken, zodat je site na de lancering verkeer blijft opleveren."
+          },
+          {
+            "icon": "megaphone",
+            "title": "Social-mediamarketing",
+            "description": "Instagram- en Facebookcampagnes met échte conversietracking, zodat elke post en advertentie wordt beoordeeld op boekingen, niet alleen op likes."
+          },
+          {
+            "icon": "sparkles",
+            "title": "Generative Engine, AI-SEO",
+            "description": "Content en gestructureerde data geschreven zodat AI-assistenten en AI-zoekmachines je bedrijf correct lezen en aanbevelen."
+          },
+          {
+            "icon": "layout-template",
+            "title": "Websiteontwerp-pakketten",
+            "description": "Ontwerppakketten met vaste omvang voor bedrijven die precies weten wat ze nodig hebben: een duidelijke prijs en een duidelijk eindresultaat, zonder lang vooronderzoek."
+          },
+          {
+            "icon": "target",
+            "title": "Betaalde zoekmarketing",
+            "description": "Google Ads-campagnes die ik volledig beheer — budget, zoekwoorden en de landingspagina's waar ze naartoe leiden — afgerekend op kosten per geboekte klus, niet op kliks."
+          },
+          {
+            "icon": "gem",
+            "title": "Merkontwikkeling",
+            "description": "Een logo en visuele identiteit vanaf nul opgebouwd, zodat een nieuw bedrijf meteen oogt alsof het al jaren bestaat."
+          },
+          {
+            "icon": "server",
+            "title": "Webhosting & domeinen",
+            "description": "Betrouwbare hosting en een domein, gekozen, ingesteld en op jouw eigen naam gezet — zonder zelf providers of verlengdata bij te houden."
+          }
+        ]
+      },
       "process": {
         "badge": "Hoe het werkt",
         "heading": "Hoe een project verloopt",
@@ -491,6 +538,28 @@
               { "question": "Bouw je ook webshops?", "answer": "Nee. Grote webwinkels zijn het enige dat ik niet bouw. Al het andere dat een custom Astro-website nodig heeft, bouw ik: vertel me in het eerste gesprek wat je voor ogen hebt, en ik ben eerlijk over of ik de juiste bouwer ervoor ben." },
               { "question": "Is de website echt van mij?", "answer": "Helemaal. Het domein, de hosting en de code staan vanaf dag één op jouw naam. Wil je ooit verder, dan neem je alles mee: je zit nergens aan vast." },
               { "question": "Wat als er na de lancering iets kapotgaat?", "answer": "Er kan maar weinig kapot: de website heeft geen plugins en geen database die kunnen falen. En ik blijf bereikbaar na de lancering; voor regelmatige updates en monitoring is er het maandelijkse onderhoudsplan." }
+            ]
+          },
+          {
+            "icon": "sparkles",
+            "title": "Meer dan de website",
+            "items": [
+              { "question": "Bied je ook losse grafisch ontwerp of branding aan?", "answer": "Ja. Een logo, een merkidentiteit of doorlopend grafisch ontwerp kan ook los worden afgenomen, zonder complete website. Vertel in het eerste gesprek wat je nodig hebt." },
+              { "question": "Beheer je ook betaalde advertenties zoals Google Ads?", "answer": "Ja, volledig: campagnestructuur, budget, afstemming van zoekwoorden en landingspagina's, en de conversietracking die laat zien wat het budget echt oplevert." },
+              { "question": "Kun je mijn social-mediamarketing doen?", "answer": "Ja — Instagram- en Facebookcampagnes met echte conversietracking, zodat resultaten worden beoordeeld op boekingen en leads, niet alleen op engagement." },
+              { "question": "Wat is Generative Engine of AI-SEO?", "answer": "Ervoor zorgen dat AI-assistenten en AI-zoekmachines — ChatGPT, Google's AI Overviews — je site correct lezen en je bedrijf aanbevelen, naast traditionele SEO." },
+              { "question": "Bied je vaste-prijspakketten voor websites aan?", "answer": "Ja, voor bedrijven met een duidelijke scope: een pakketontwerp houdt de prijs en het eindresultaat vanaf het begin vast, zonder lang vooronderzoek." }
+            ]
+          },
+          {
+            "icon": "globe",
+            "title": "Hosting & domeinen",
+            "items": [
+              { "question": "Wat houdt het instellen van hosting en domein precies in?", "answer": "Ik kies en zet betrouwbare hosting voor je site op en registreer — of verhuis — je domein, beide vanaf dag één op jouw eigen naam. SSL, DNS en een zakelijk e-mailadres op je domein horen bij dezelfde installatie." },
+              { "question": "Betaal ik jou of rechtstreeks de hostingprovider?", "answer": "Het domein- en hostingaccount zijn van jou, rechtstreeks door de provider aan jou gefactureerd. Ik zit niet tussen jou en de rekening — ik zorg alleen dat het goed is ingesteld en blijft werken." },
+              { "question": "Kan ik mijn huidige domein behouden?", "answer": "Ja. Heb je er al een, dan wijzen of verhuizen we die naar de nieuwe site — je bestaande e-mailadressen en domeingeschiedenis hoeven niet te veranderen." },
+              { "question": "Wat als mijn hosting of domein een probleem heeft?", "answer": "Dat valt onder het maandelijkse onderhoudsplan: ik houd uptime en verlengdata in de gaten en regel het rechtstreeks met de host of registrar als er iets misgaat." },
+              { "question": "Veranderen de prijzen na het eerste jaar?", "answer": "Verlengprijzen voor domein en hosting worden bepaald door de registrar en de host, niet door mij, en ik meld ze voordat ze verlengen — geen verrassende verhogingen verstopt in een bundelprijs." }
             ]
           }
         ]
@@ -571,14 +640,14 @@
         "heading": "Wat klanten zeggen",
         "lead": "Echte woorden uit afgeronde projecten.",
         "items": [
-          { "quote": "De nieuwe site werd op tijd gelanceerd en haalde elk doel dat we stelden. De prestaties verbeterden enorm — laadtijden daalden en de reacties van onze klanten zijn overweldigend positief.", "name": "Alex Morgan", "role": "Oprichter, Bright Studio" },
-          { "quote": "Helder van het eerste gesprek tot de uiteindelijke oplevering. De juiste vragen werden gesteld, we werden overal bij betrokken en het eindresultaat overtrof wat we ons hadden voorgesteld. Een aanrader zonder twijfel.", "name": "Sarah Chen", "role": "CEO, Luma Agency" }
+          { "quote": "Stojan heeft beide sites van WordPress naar Astro verhuisd, en het snelheidsverschil was meteen duidelijk. Elke lead komt nu direct in mijn inbox terecht zodra iemand het formulier verstuurt — geen dashboard meer checken en gemiste telefoontjes.", "name": "Mirko Calić", "role": "Eigenaar, Tree Jaws & Mahalo Tree Service" },
+          { "quote": "Stojan heeft onze boekingssite vanaf nul gebouwd en de Instagram- en Facebookadvertenties eromheen opgezet. Gasten gaan rechtstreeks van een advertentie naar een afgeronde boeking, precies wat een pand van onze omvang nodig had.", "name": "Valentina Jovanović", "role": "Eigenaar, Valena Apartmani" }
         ]
       },
       "aboutTeaser": {
         "badge": "Over mij",
         "headingLine1": "Designer, ontwikkelaar,",
-        "headingLine2": "en blogger.",
+        "headingLine2": "en ingenieur.",
         "para1WithLocation": "Zestien jaar praktijkervaring, gevestigd in {location} en beschikbaar voor klanten wereldwijd. Ik bouw met Astro omdat het aansluit bij hoe ik over het web denk: compact, doelgericht en gebouwd om lang mee te gaan.",
         "para1NoLocation": "Zestien jaar praktijkervaring en beschikbaar voor klanten wereldwijd. Ik bouw met Astro omdat het aansluit bij hoe ik over het web denk: compact, doelgericht en gebouwd om lang mee te gaan.",
         "para2": "Op de blog deel ik de ideeën en keuzes die mijn werk vormgeven.",

@@ -1,0 +1,63 @@
+---
+title: "Mahalo Tree Service"
+locale: en
+description: "A WordPress-to-Astro rebuild plus ongoing SEO and content work for a South Florida tree service company — no paid ads, just faster pages and a growing blog doing the work."
+url: "https://mahalotreeservice.com"
+tags: ["Astro", "SEO", "Client Work"]
+featured: true
+order: 0
+year: 2026
+client: "Mahalo Tree Service"
+role: "Developer & SEO Partner"
+services: ["Web Development", "SEO", "Content Strategy"]
+meta: ["South Florida tree service", "5.0 Google rating", "WordPress → Astro", "24 blog posts, 18 service areas"]
+icon: "tree-palm"
+image: "../../../assets/projects/mahalo-hero.webp"
+imageAlt: "The Mahalo Tree Service homepage hero: Fast, Efficient, Affordable Tree Removal Service, over a live job-site photo."
+gallery:
+  - src: "../../../assets/projects/mahalo-hero.webp"
+    alt: "The Mahalo Tree Service homepage hero: Fast, Efficient, Affordable Tree Removal Service, over a live job-site photo."
+  - src: "../../../assets/projects/mahalo-services.png"
+    alt: "The Our Tree Services section, covering tree removal, tree trimming, and other services with ISA Certified Arborist credibility built in."
+  - src: "../../../assets/projects/mahalo-testimonials.png"
+    alt: "A five-star testimonials section pulling real, named Google reviews."
+  - src: "../../../assets/projects/mahalo-blog.webp"
+    alt: "The Mahalo Tree Service blog, publishing South Florida-specific tree care guides for SEO."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 87, icon: 'zap' },
+  { label: 'Accessibility', value: 91, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## The brief
+
+**Mahalo Tree Service** is a family-owned tree removal and trimming company serving South Florida, built around bonded, **ISA Certified arborists** and a **5.0 Google rating**. This one came in narrower in scope than most of my client work: no ad campaign to run, no funnel to design — just a site that was holding the business back, and a search presence that needed real content behind it rather than thin, duplicated pages.
+
+## Moving off WordPress
+
+Like a lot of small businesses, Mahalo's site had grown up on **WordPress** — a page builder plus a handful of plugins standing in for pages that were never quite finished. It worked, but it was slow, and slow costs a tree company real jobs: this is a same-day-call business, and a homepage that takes its time to paint is a tab that's already closed. I rebuilt the site on **Astro**, carrying over the brand — the palm-and-sun logo, the green-and-orange palette, the reviews — onto a foundation that ships static HTML instead of a plugin stack.
+
+## Instant lead alerts
+
+The contact form doesn't just sit there collecting submissions for someone to notice eventually — every fill-out sends **Mahalo an email the moment it happens**, with the visitor's name, number, and message ready to act on. No portal to check, no delay between a homeowner deciding to reach out and the business knowing about it. It's the same live lead pipeline I built for [Tree Jaws](/projects/tree-jaws) and for [SF Tree Removal](/projects/sf-tree-removal), so every client site I run reports leads the same way: instantly, not eventually.
+
+The difference shows up in a Lighthouse run against the live site:
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+## SEO and content, not ads
+
+This project has **no Google Ads account** behind it — the entire growth plan runs on organic search. That put more weight on getting the structural SEO right: the rebuild covers **18 service-area pages** (Fort Lauderdale, Miami, Boca Raton, Hollywood, and the rest of the coverage map) feeding into a single `/areas` hub page with its own canonical, title, and description, rather than 18 pages quietly competing with each other. Each of those city pages used to share one duplicated gallery block; each one now carries its own FAQ text, written in one of three distinct phrasings so the pages read as separate answers to a local search, not copies of each other.
+
+Alongside the area pages, the site carries a **24-post blog** — DIY-versus-professional trimming, seasonal pruning windows, formative pruning for young trees — aimed at the specific questions South Florida homeowners search before they call a tree company. Every page, city or blog post, now prioritises loading its own hero image first, which is most of where the Lighthouse gains above come from.
+
+## Results
+
+There's no ad spend or conversion count to report here — the honest measure of this project is a faster site standing behind an already strong reputation. Mahalo holds a **5.0 rating on Google**, and the testimonials on the new site pull those reviews in directly rather than paraphrasing them. The blog and the area pages are the long game: content built to keep earning search visibility long after the last invoice for the rebuild was paid.

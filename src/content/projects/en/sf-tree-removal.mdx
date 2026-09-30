@@ -1,0 +1,59 @@
+---
+title: "SF Tree Removal"
+locale: en
+description: "A lead-generation platform built end to end — backend, frontend, and brand — that compiles public permit filings into qualified tree-service leads and notifies contractors and truck owners the moment one comes in."
+url: "https://sftreeremoval.com"
+tags: ["Astro", "Supabase", "Full-Stack", "Client Work"]
+featured: true
+order: 2
+year: 2026
+client: "SF Tree Removal"
+role: "Full-Stack Developer"
+services: ["Web Development", "Backend & Database", "Branding"]
+meta: ["South Florida lead marketplace", "Astro + Supabase", "Custom CMS & dashboard", "Logo & brand identity"]
+icon: "radar"
+image: "../../../assets/projects/sf-tree-removal-permit-leads.png"
+imageAlt: "The public Potential Permit Leads page: qualified leads compiled from public permit records, sortable by date, score, and jurisdiction."
+gallery:
+  - src: "../../../assets/projects/sf-tree-removal-permit-leads.png"
+    alt: "The public Potential Permit Leads page: qualified leads compiled from public permit records, sortable by date, score, and jurisdiction."
+  - src: "../../../assets/projects/sf-tree-removal-dashboard.png"
+    alt: "The SF Tree Removal admin Command Center: live totals for website leads and external leads, plus an activity timeline of dispatch events."
+  - src: "../../../assets/projects/sf-tree-removal-lead-list.png"
+    alt: "An individual permit-lead record, showing the filer's name, phone, email, and the permit that qualified them as a lead."
+  - src: "../../../assets/projects/sf-tree-removal-login.png"
+    alt: "The staff-only Admin & Dispatch sign-in, gating the dashboard behind email/password or Google auth."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 69, icon: 'zap' },
+  { label: 'Accessibility', value: 88, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 92, icon: 'search' },
+];
+
+## The brief
+
+**SF Tree Removal** isn't a marketing site for one business — it's a **lead-generation platform** I designed and built end to end, for a client working the same South Florida tree-service market as [Tree Jaws](/projects/tree-jaws) but solving a different problem: finding and distributing leads at the source, instead of paying to rank for them or bidding on them in Google Ads. That meant a public brand and marketplace on one side, and a real backend with accounts, permissions, and automation on the other.
+
+## Backend, frontend, and the brand itself
+
+I designed the **shield-and-pine logo** and built the whole platform on **Astro with a Supabase (Postgres) backend** — **25+ database tables**, all behind row-level security, covering leads, contractors, truck owners, credits, and audit logs. The public side is the SF Tree Removal marketplace: a permit-leads directory, a contractors page, and a blog. The private side is a password-protected **Admin & Dispatch Command Center** — staff sign in with email/password or Google — showing live totals, a filterable lead queue, and an activity timeline of every automated action the platform takes. There's even a small custom CMS behind it: blog posts are written, edited, and published from inside the dashboard rather than committed as files.
+
+## Compiling permit leads from public records
+
+The core data source is **public permit records**: tree-removal and landscape permits filed with South Florida cities and counties are compiled and scored, then published to a **live, sortable directory** — by date found, permit date, lead score, or jurisdiction — with the filer's name, phone, and email already attached, since that's exactly what's on the public filing. At the time of the screenshots above the directory was running **219 qualified leads** across multiple jurisdictions, all surfaced without a single dollar spent on ads.
+
+## Catching leads other sites miss, and telling people the moment one lands
+
+Permit filings aren't the only signal. The platform also tracks **external leads** — inquiries and signals surfaced from other sites and sources — and routes them through the same pipeline as the directly-sourced ones, so nothing sits in two different systems. The moment a new lead clears that pipeline, the dashboard's automation fires an **availability notification by email to registered contractors and truck owners**, and logs it to the activity timeline so there's a record of exactly who was told and when. Contractors then **claim** a lead and truck owners **apply** for one, both gated behind a credit system, so the whole marketplace runs on accounts and permissions rather than a shared inbox.
+
+## Results
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+The **69 Performance score is the honest trade-off of what this actually is**: not a static marketing page but a live, authenticated dashboard with real-time counts, filters, and an animated dark UI on the public side — there's simply more shipped to the browser than on a brochure site, and that's a fair price for the functionality. The number worth paying attention to instead is **219 qualified leads**, compiled and scored automatically, with contractors and truck owners notified the moment each one clears the pipeline.

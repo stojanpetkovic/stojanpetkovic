@@ -34,6 +34,11 @@ interface Service {
   included: IncludedItem[];
   ctaLabel: string;
 }
+interface AdditionalItem {
+  icon: string;
+  title: string;
+  description: string;
+}
 interface ProcessStep {
   title: string;
   description: string;
@@ -58,6 +63,10 @@ const hero = tData<{ badge: string; titleLead: string; titleHighlight: string; d
 const design = tData<Service>('pages.services.design', locale)!;
 const development = tData<Service>('pages.services.development', locale)!;
 const performance = tData<Service>('pages.services.performance', locale)!;
+const additional = tData<{ badge: string; heading: string; lead: string; items: AdditionalItem[] }>(
+  'pages.services.additional',
+  locale
+)!;
 const processSection = tData<{ badge: string; heading: string; lead: string; steps: ProcessStep[] }>(
   'pages.services.process',
   locale
@@ -244,8 +253,36 @@ const aboutUrl = localizedPath('/about', locale);
     </div>
   </section>
 
-  <!-- Process -->
+  <!-- Additional services -->
   <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+        <div class="flex flex-col items-center gap-6">
+          <Badge variant="brand" pill>
+            <Icon name="sparkles" size="sm" />
+            {additional.badge}
+          </Badge>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+            {additional.heading}
+          </h2>
+        </div>
+        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
+          {additional.lead}
+        </p>
+      </div>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {additional.items.map((item, i) => (
+          <ProofTile icon={item.icon} title={item.title} data-reveal data-reveal-delay={i % 2 || undefined}>
+            {item.description}
+          </ProofTile>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4 text-center" data-reveal>
         <div class="flex flex-col items-center gap-6">
@@ -273,7 +310,7 @@ const aboutUrl = localizedPath('/about', locale);
   </section>
 
   <!-- Questions & answers -->
-  <section id="faq" class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+  <section id="faq" class="py-[var(--space-section-md)] bg-background border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4 text-center" data-reveal>
         <div class="flex flex-col items-center gap-6">

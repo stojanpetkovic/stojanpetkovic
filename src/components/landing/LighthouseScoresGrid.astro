@@ -13,40 +13,57 @@
  */
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 
-interface Props {
-  /** Stagger the cards in via data-reveal-children. Default true. */
-  staggered?: boolean;
-}
-
-const { staggered = true } = Astro.props;
-
-interface Score {
+export interface Score {
   label: string;
   value: number;
   icon: string;
+  /**
+   * Appended after the animated number, e.g. "/3" to render "2/3". The
+   * count-up still animates just the numeric part; the suffix is static
+   * and hidden from the accessibility tree in favour of the span's own
+   * full-sentence `aria-label`.
+   */
+  suffix?: string;
 }
 
-const scores: Score[] = [
+interface Props {
+  /** Stagger the cards in via data-reveal-children. Default true. */
+  staggered?: boolean;
+  /** Defaults to Astro Rocket's own 100/100/100/100 result. */
+  scores?: Score[];
+}
+
+const defaultScores: Score[] = [
   { label: 'Performance',    value: 100, icon: 'zap' },
   { label: 'Accessibility',  value: 100, icon: 'users' },
   { label: 'Best Practices', value: 100, icon: 'shield-check' },
   { label: 'SEO',            value: 100, icon: 'search' },
 ];
 
+const { staggered = true, scores = defaultScores } = Astro.props;
+
 const wrapperProps = staggered ? { 'data-reveal-children': true } : {};
+// A literal class per branch, not an interpolated one, so Tailwind's
+// content scan can see it.
+const gridColsClass = scores.length >= 5 ? 'md:grid-cols-5' : 'md:grid-cols-4';
 ---
 
-<div class="grid grid-cols-2 gap-[var(--space-content-gap)] md:grid-cols-4" {...wrapperProps}>
+<div class:list={['grid grid-cols-2 gap-[var(--space-content-gap)]', gridColsClass]} {...wrapperProps}>
   {scores.map((score, i) => (
     <div class="bg-background-tertiary rounded-xl p-5 text-center border border-brand-500/40 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:border-brand-500/80 cursor-default h-full">
       <div class="flex flex-col items-center gap-[var(--space-stack-sm)]">
         <Icon name={score.icon} class="w-10 h-10 text-brand-500" />
-        <span
-          class="lh-number font-display text-4xl font-bold text-brand-500"
-          data-target={score.value}
-          data-stagger={i}
-          aria-label={`${score.label}: ${score.value} out of 100`}
-        >0</span>
+        <span class="flex items-baseline">
+          <span
+            class="lh-number font-display text-4xl font-bold text-brand-500"
+            data-target={score.value}
+            data-stagger={i}
+            aria-label={`${score.label}: ${score.value} out of ${score.suffix ? score.suffix.replace('/', '') : '100'}`}
+          >0</span>
+          {score.suffix && (
+            <span class="font-display text-4xl font-bold text-brand-500" aria-hidden="true">{score.suffix}</span>
+          )}
+        </span>
         <span class="text-base font-medium text-foreground-muted">{score.label}</span>
       </div>
     </div>

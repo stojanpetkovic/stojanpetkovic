@@ -19,11 +19,11 @@ export interface SiteConfig {
   email: string;
   phone?: string;
   address?: {
-    street: string;
+    street?: string;
     city: string;
-    state: string;
-    zip: string;
-    country: string;
+    state?: string;
+    zip?: string;
+    country?: string;
   };
   socialLinks: string[];
   /**
@@ -273,9 +273,11 @@ const siteConfig: SiteConfig = {
   ogImage: '/og/default.png',
   author: 'Stojan Petković',
   email: 'petkovicstojan@gmail.com',
-  // No street/city/socials on file yet — add them here once you have them;
-  // the About/Contact copy that reads `address.city` already falls back to a
-  // location-free sentence while it is unset (see aboutTeaser.para1NoLocation).
+  address: {
+    city: 'Zrenjanin',
+    country: 'Serbia',
+  },
+  // No street number or socials on file yet — add them here once available.
   socialLinks: [],
   header: {
     // Flip to `true` to show the social icons (incl. GitHub) in the header.

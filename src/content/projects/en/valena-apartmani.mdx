@@ -1,0 +1,63 @@
+---
+title: "Valena Apartmani"
+locale: en
+description: "A from-scratch Astro site for a mountain apartment rental on Divčibare, built around Instagram and Facebook ad conversion, with a custom booking system in place of a generic listing plugin."
+url: "https://valenaapartmani.com"
+tags: ["Astro", "Social Media Marketing", "Client Work"]
+featured: true
+order: 1
+year: 2025
+client: "Valena Apartmani"
+role: "Developer & Social Ads Partner"
+services: ["Web Development", "Facebook & Instagram Ads", "Booking System"]
+meta: ["Divčibare, Serbia", "Built from scratch", "Facebook & Instagram ads", "Custom booking system"]
+icon: "mountain-snow"
+image: "../../../assets/projects/valena-hero.webp"
+imageAlt: "The Valena Apartmani homepage hero: Your perfect getaway on Divčibare, over a photo of the property."
+gallery:
+  - src: "../../../assets/projects/valena-hero.webp"
+    alt: "The Valena Apartmani homepage hero: Your perfect getaway on Divčibare, over a photo of the property."
+  - src: "../../../assets/projects/valena-apartments.webp"
+    alt: "The two-apartment listing section, each card showing amenities and nearby points of interest alongside a Book Now button."
+  - src: "../../../assets/projects/valena-booking-modal.webp"
+    alt: "The custom booking popup: pick Valena 1 or Valena 2 and go straight into that apartment's reservation flow."
+  - src: "../../../assets/projects/valena-gallery.webp"
+    alt: "The photo gallery section showing the real interior and surroundings of both apartments."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 100, icon: 'zap' },
+  { label: 'Accessibility', value: 88, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 82, icon: 'search' },
+];
+
+## The brief
+
+**Valena Apartmani** rents two apartments on **Divčibare**, a mountain resort in western Serbia, to guests booking a weekend or week away near the ski slopes and hiking trails. Unlike the tree-service work in this portfolio, this wasn't a rebuild — there was no existing site to replace, no SEO history to protect. The brief was to get a fast, credible booking site live from nothing, and drive guests to it directly with paid social, since that's where this kind of short-term-rental audience in Serbia actually books from.
+
+## Built from scratch on Astro
+
+I built the whole site on **Astro**: a single-property, single-purpose site with no CMS or blog to maintain, so **Astro** made sense the same way it does everywhere else in this portfolio — static pages, no JavaScript framework tax, fast on a phone on 4G at a ski resort with patchy signal. It ships **10 pages** total: a homepage, an about page, an activities page, two apartment detail pages, and the usual contact and legal pages — deliberately small, because a two-apartment rental doesn't need more than that to convert a visitor into a reservation.
+
+A run against the live site:
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+The **82 SEO score is the honest number for what this project actually is.** There's no blog, no service-area pages, no content built to rank — because none of that was the brief. Search wasn't the acquisition channel here; **Instagram and Facebook ads were**, so the budget and my time went into the booking flow and the ad creative instead of technical SEO that this particular site doesn't lean on. Wire in the same content investment I put into the tree-service SEO work and that number moves — it just wasn't what this business was paying for.
+
+## A booking system instead of a link to a spreadsheet
+
+The one piece of real product work on this project is the **reservation flow**. Instead of routing every visitor to an external booking platform or a "message us on WhatsApp" link, I built a popup that asks which apartment the guest wants — **Valena 1** or **Valena 2** — then drops them straight into that unit's own reservation form, each with its own availability and amenities already loaded. It's a small piece of UI, but it's the difference between a visitor bouncing off a generic contact form and one who finishes a booking in the same session they clicked the ad.
+
+## Facebook and Instagram, with the tracking to prove it
+
+The growth channel here is **paid and organic social**, not search. I set up a **Meta Pixel** across the site and wired a **Lead event** into the booking flow itself, so every reservation started through the popup reports back to Meta Ads as a conversion — the campaigns optimise toward people who actually open a booking form, not just anyone who lands on the homepage. That feedback loop is what makes Instagram and Facebook worth running as the primary channel for a property this size, instead of competing for search rankings a two-apartment rental doesn't have the content budget to win.
+
+## Results
+
+This is a small, single-property site, and I'm keeping the results section honest about that: there's no ad-spend or lead-volume table here the way there is for the tree-service accounts, because the ongoing spend and booking numbers belong to a much smaller, newer campaign than those. What's real and checkable is the site itself — live, fast, and built to turn a paid-social click into a finished reservation in one sitting.
