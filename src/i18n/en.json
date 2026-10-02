@@ -1,4 +1,7 @@
 {
+  "llms": {
+    "summary": "Stojan Petković is a freelance web developer based in Zrenjanin, Serbia, working with clients worldwide. He builds fast, custom Astro websites, lead generation systems and data-driven platforms, and handles SEO, generative engine optimisation (GEO), Google Ads and social media advertising — mostly for local service businesses, such as tree service companies in South Florida and small businesses in Serbia. Every project has one fixed price agreed before work starts, and the client owns the code, the domain and the hosting from day one."
+  },
   "nav": {
     "skipToContent": "Skip to content",
     "openMenu": "Open menu",

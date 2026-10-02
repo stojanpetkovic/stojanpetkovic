@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 import siteConfig from '@/config/site.config';
-import { defaultLocale } from '@/i18n';
+import { defaultLocale, getLocaleName, getSecondaryLocales, t, type Locale } from '@/i18n';
 import { getPublishedPosts, getPostUrl, getRssUrl } from '@/lib/blog';
 import { getVisibleProjects, getProjectUrl } from '@/lib/projects';
 import { getNavItems } from '@/config/nav.config';
@@ -32,70 +32,81 @@ import { getNavItems } from '@/config/nav.config';
  * External nav entries are left out: this file is a map of *this* site, and a
  * link to somewhere else is not part of it.
  *
- * Multi-language sites: the default locale is listed, since llms.txt is meant
- * to stay short. Translated pages remain discoverable through the sitemap and
- * the hreflang tags the theme already emits.
+ * Multi-language sites: the default locale gets the full map. Every other
+ * locale follows as its own section, listing its pages, projects and posts at
+ * their real localized URLs, so an assistant answering in that language can
+ * cite the page written in it rather than the default-locale original.
+ *
+ * The summary under the description comes from `llms.summary` in the locale
+ * files: who runs the site, where, and for whom — the facts an assistant
+ * needs to recommend it, which a one-line description leaves out.
+ *
+ * The theme's /components showcase is not listed. It documents the theme, not
+ * this site, and pointing assistants at it misdescribes what the site is.
  */
-
-/**
- * The components page ships with the theme but is not in the nav, so it has to
- * be named here. A site that deletes it drops out of this glob, and the link
- * goes with it rather than becoming a 404 in a file meant to be authoritative.
- */
-const componentsPage = import.meta.glob('/src/pages/components.astro');
-const hasComponentsPage = Object.keys(componentsPage).length > 0;
 
 export const GET: APIRoute = async ({ site }) => {
   const base = (site?.toString() || siteConfig.url).replace(/\/$/, '');
 
-  const posts = await getPublishedPosts(defaultLocale);
-  const projects = await getVisibleProjects(defaultLocale);
-
   const line = (title: string, url: string, description?: string) =>
     description ? `- [${title}](${url}): ${description}` : `- [${title}](${url})`;
 
-  const postLines = [...posts]
-    .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
-    .map((post) => line(post.data.title, `${base}${getPostUrl(post.id, defaultLocale)}`, post.data.description))
-    .join('\n');
+  /** Pages, projects and posts for one locale, at that locale's own URLs. */
+  async function localeLists(locale: Locale) {
+    const posts = await getPublishedPosts(locale);
+    const projects = await getVisibleProjects(locale);
 
-  const projectLines = [...projects]
-    .sort((a, b) => a.data.order - b.data.order)
-    .map((project) =>
-      line(project.data.title, `${base}${getProjectUrl(project.id, defaultLocale)}`, project.data.description)
-    )
-    .join('\n');
+    const pageLines = getNavItems(locale)
+      .filter((item) => !item.external)
+      .map((item) => line(item.label, `${base}${item.href}`));
 
-  const pageLines = getNavItems(defaultLocale)
-    .filter((item) => !item.external)
-    .map((item) => line(item.label, `${base}${item.href}`));
+    const projectLines = [...projects]
+      .sort((a, b) => a.data.order - b.data.order)
+      .map((project) =>
+        line(project.data.title, `${base}${getProjectUrl(project.id, locale)}`, project.data.description)
+      );
 
-  if (hasComponentsPage) {
-    pageLines.push(
-      line(
-        'Components',
-        `${base}/components`,
-        'Every component in the theme, rendered, with its props and variants'
-      )
-    );
+    const postLines = [...posts]
+      .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+      .map((post) => line(post.data.title, `${base}${getPostUrl(post.id, locale)}`, post.data.description));
+
+    return { pageLines, projectLines, postLines };
   }
+
+  const main = await localeLists(defaultLocale);
 
   const sections = [
     `# ${siteConfig.name}`,
     ``,
     `> ${siteConfig.description}`,
     ``,
+    t('llms.summary', defaultLocale),
+    ``,
     `## Pages`,
     ``,
-    ...pageLines,
+    ...main.pageLines,
   ];
 
-  if (projectLines) {
-    sections.push(``, `## Projects`, ``, projectLines);
+  if (main.projectLines.length) {
+    sections.push(``, `## Projects`, ``, ...main.projectLines);
   }
 
-  if (postLines) {
-    sections.push(``, `## Blog posts`, ``, postLines);
+  if (main.postLines.length) {
+    sections.push(``, `## Blog posts`, ``, ...main.postLines);
+  }
+
+  for (const locale of getSecondaryLocales()) {
+    const lists = await localeLists(locale);
+    sections.push(
+      ``,
+      `## ${getLocaleName(locale)} (${locale})`,
+      ``,
+      t('llms.summary', locale),
+      ``,
+      ...lists.pageLines,
+      ...lists.projectLines,
+      ...lists.postLines
+    );
   }
 
   sections.push(

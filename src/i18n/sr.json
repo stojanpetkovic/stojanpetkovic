@@ -1,4 +1,7 @@
 {
+  "llms": {
+    "summary": "Stojan Petković je freelance web developer iz Zrenjanina, Srbija, i radi sa klijentima iz celog sveta. Bavi se izradom brzih Astro sajtova po meri, sistema za prikupljanje upita i platformi zasnovanih na podacima, kao i SEO optimizacijom, GEO optimizacijom (vidljivost u AI pretrazi), Google Ads oglašavanjem i oglašavanjem na društvenim mrežama — najviše za lokalne uslužne firme, kao što su firme za usluge sa drvećem u Južnoj Floridi i mali biznisi u Srbiji. Svaki projekat ima jednu fiksnu cenu dogovorenu pre početka rada, a kod, domen i hosting su na ime klijenta od prvog dana."
+  },
   "nav": {
     "skipToContent": "Preskoči na sadržaj",
     "openMenu": "Otvori meni",
