@@ -34,9 +34,15 @@ interface Props {
    * Locales missing from the map fall back to the path swap.
    */
   alternates?: Record<string, string>;
+  /**
+   * `dropdown` (default) opens a panel under the trigger. `segmented` renders
+   * every locale inline as one row of links — for narrow containers such as
+   * the mobile menu, where a panel anchored to the trigger runs off-screen.
+   */
+  variant?: 'dropdown' | 'segmented';
 }
 
-const { class: className, compact = false, alternates } = Astro.props;
+const { class: className, compact = false, alternates, variant = 'dropdown' } = Astro.props;
 
 const enabled = i18nIsEnabled();
 const currentPath = Astro.url.pathname;
@@ -48,7 +54,30 @@ const currentLanguageLabel = t('nav.currentLanguage', currentLocale);
 ---
 
 {
-  enabled && (
+  enabled && variant === 'segmented' && (
+    <nav class={cn('lang-segmented', className)} aria-label={triggerLabel}>
+      {locales.map((locale) => {
+        const href = alternates?.[locale] ?? swapLocaleInPath(currentPath, locale);
+        const isActive = locale === currentLocale;
+        return (
+          <a
+            href={href}
+            hreflang={locale}
+            lang={locale}
+            class="lang-segment"
+            aria-current={isActive ? 'true' : undefined}
+          >
+            <span class="lang-row-code">{locale.toUpperCase()}</span>
+            <span class="lang-segment-name">{getLocaleName(locale)}</span>
+          </a>
+        );
+      })}
+    </nav>
+  )
+}
+
+{
+  enabled && variant === 'dropdown' && (
     <div class={cn('relative lang-wrapper', className)}>
       <button
         type="button"
@@ -183,6 +212,57 @@ const currentLanguageLabel = t('nav.currentLanguage', currentLocale);
   }
 
   .lang-row-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .lang-segmented {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    gap: 0.25rem;
+    width: 100%;
+    padding: 0.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    background-color: var(--color-background-secondary);
+  }
+
+  .lang-segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--color-foreground-muted);
+    text-decoration: none;
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .lang-segment:hover {
+    color: var(--color-foreground);
+  }
+
+  .lang-segment:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: -2px;
+  }
+
+  .lang-segment[aria-current='true'] {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .lang-segment[aria-current='true'] .lang-row-code {
+    color: var(--color-brand-500);
+  }
+
+  .lang-segment-name {
     font-size: 0.875rem;
     font-weight: 500;
   }
