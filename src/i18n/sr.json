@@ -91,7 +91,7 @@
     "updated": "Ažurirano",
     "rssFeed": "RSS feed",
     "cta": {
-      "heading": "Hoćeš da radimo zajedno?",
+      "heading": "Treba ti novi sajt?",
       "description": "Piši mi o svom projektu — javljam se u toku radnog dana.",
       "button": "Piši mi"
     }
@@ -118,8 +118,8 @@
     "galleryPreviousImage": "Prethodna slika",
     "metaTitle": "Projekti",
     "metaDescription": "Izdvojeni radovi — sajtovi, alati i platforme koje je napravio Stojan Petković.",
-    "heroBadge": "Izdvojeni radovi",
-    "heroDescription": "Radovi na koje sam najponosniji.",
+    "heroBadge": "Portfolio",
+    "heroDescription": "Sajtovi i platforme koje sam napravio za klijente.",
     "allProjects": "Svi projekti",
     "pageMetaTitle": "Projekti — strana {page}",
     "pageMetaDescription": "Strana {page} od {total} — izdvojeni radovi, alati i platforme Stojana Petkovića.",
@@ -134,8 +134,8 @@
     "backToProjects": "Nazad na projekte",
     "moreProjects": "Još projekata",
     "ctaBadge": "Popričajmo",
-    "ctaHeading": "Reci mi šta ti treba",
-    "ctaLead": "Svaki sajt koji pravim je skrojen po meri, sa istom pažnjom koju vidiš ovde. Reci mi šta imaš na umu.",
+    "ctaHeading": "Popričajmo o tvom projektu",
+    "ctaLead": "Svaki sajt pravim po meri, sa istom pažnjom koju vidiš ovde. Reci mi šta imaš na umu.",
     "ctaPrimary": "Pošalji poruku",
     "ctaSecondary": "Više o meni",
     "closingHeading": "Imaš projekat na umu?",
@@ -230,7 +230,7 @@
     "about": {
       "meta": {
         "title": "O meni",
-        "description": "Ko sam i kako radim: freelance web developer koji pravi brze, praktične sajtove i digitalne proizvode na modernoj tehnologiji."
+        "description": "Ko sam i kako radim: freelance web developer — izrada brzih, preglednih sajtova i digitalnih proizvoda na modernoj tehnologiji."
       },
       "hero": {
         "badge": "O meni",
@@ -272,7 +272,7 @@
           },
           {
             "icon": "globe",
-            "title": "Spreman za svet",
+            "title": "Sajt na više jezika",
             "description": "Više jezika kad ti zatreba, ugrađeno od starta — i ništa ne košta dok ga ne koristiš."
           },
           {
@@ -282,7 +282,7 @@
           },
           {
             "icon": "trending-up",
-            "title": "SEO u temelju",
+            "title": "SEO od prvog dana",
             "description": "Meta podaci, sitemap, strukturirani podaci i slike za deljenje na mrežama — sve kako treba od prvog dana."
           },
           {
@@ -294,7 +294,7 @@
       },
       "principles": {
         "badge": "Kako radim",
-        "heading": "Sve sa razlogom",
+        "heading": "Principi u radu",
         "lead": "Svaki projekat radim po ista tri principa.",
         "items": [
           { "icon": "zap", "title": "Brzina na prvom mestu", "description": "Svaki sajt optimizujem za brzinu i Core Web Vitals od prve linije koda." },
@@ -353,16 +353,16 @@
     },
     "services": {
       "meta": {
-        "title": "Usluge — web dizajn, izrada i optimizacija sajtova",
-        "description": "Freelance web dizajn, izrada i optimizacija sajtova: moderni, munjevito brzi Astro sajtovi po meri. Besplatan prvi razgovor, jasna ponuda i fiksna cena."
+        "title": "Usluge — izrada sajtova, web dizajn i SEO optimizacija",
+        "description": "Izrada sajtova po meri, web dizajn i SEO optimizacija: moderni i brzi Astro sajtovi. Besplatne konsultacije, jasna ponuda i fiksna cena."
       },
       "includedLabel": "Šta dobijaš",
       "hero": {
         "badge": "Usluge",
-        "titleLead": "Web dizajn, izrada",
-        "titleHighlight": "i optimizacija",
-        "description": "Tri usluge, jedan rezultat: moderan, munjevito brz Astro sajt po meri, na koji ćeš rado da staviš svoje ime.",
-        "jumpLabels": ["Web dizajn", "Izrada sajta", "Optimizacija"]
+        "titleLead": "Izrada sajtova, web dizajn",
+        "titleHighlight": "i SEO optimizacija",
+        "description": "Tri usluge, jedan rezultat: moderan i brz sajt po meri, na koji ćeš biti ponosan.",
+        "jumpLabels": ["Web dizajn", "Izrada sajtova", "SEO optimizacija"]
       },
       "design": {
         "badge": "Dizajn",
@@ -393,18 +393,18 @@
             "text": "tvoj tekst i slike složeni tako da se lako čitaju i lepo izgledaju."
           }
         ],
-        "ctaLabel": "Pričajmo o dizajnu"
+        "ctaLabel": "Zakaži razgovor o dizajnu"
       },
       "development": {
         "badge": "Izrada",
-        "heading": "Izrada sajta",
+        "heading": "Izrada sajtova",
         "paragraphs": [
-          "Izrada sajta je pravljenje samog sajta: dizajn pretvaram u kod koji radi u pregledaču tvojih posetilaca.",
+          "Izrada sajta je pretvaranje dizajna u kod koji radi u pregledaču tvojih posetilaca.",
           "Radim u Astro-u, modernom framework-u na kom rade neki od najbržih sajtova na internetu. Zato se tvoj sajt brzo učitava, bezbedan je i lako se održava godinama. I tvoj je od prvog dana — kod, domen i hosting su na tvoje ime."
         ],
         "included": [
           {
-            "lead": "Munjevito brz sajt",
+            "lead": "Brz sajt",
             "text": "napravljen u Astro-u, framework-u iza nekih od najbržih sajtova na internetu."
           },
           {
@@ -427,10 +427,10 @@
         "ctaLabel": "Pogledaj projekte"
       },
       "performance": {
-        "badge": "Optimizacija",
-        "heading": "Optimizacija sajta",
+        "badge": "SEO",
+        "heading": "SEO optimizacija",
         "paragraphs": [
-          "Optimizacija je ono što tvoj sajt čini uspešnim: brzo se učitava, dobro kotira na Google-u i radi za svakoga.",
+          "SEO optimizacija je ono što tvoj sajt čini uspešnim: brzo se učitava, dobro je pozicioniran na Google-u i radi za svakoga.",
           "Brzinu, SEO i pristupačnost ugrađujem od prve linije koda, a ne naknadno. Tako Google lako pronalazi i razume tvoj sajt, svaki posetilac ga brzo otvara i svako može da ga koristi bez problema."
         ],
         "included": [
@@ -455,12 +455,12 @@
             "text": "brzina, SEO i pristupačnost ugrađeni od prve linije koda."
           }
         ],
-        "ctaLabel": "Pokreni projekat"
+        "ctaLabel": "Započni projekat"
       },
       "additional": {
         "badge": "Još usluga",
-        "heading": "Još načina da rasteš",
-        "lead": "Pored ove tri glavne usluge, evo šta još mogu da uradim za tebe.",
+        "heading": "Ostale usluge",
+        "lead": "Pored izrade sajta, evo šta još mogu da uradim za tvoj biznis.",
         "items": [
           {
             "icon": "palette",
@@ -484,12 +484,12 @@
           },
           {
             "icon": "layout-template",
-            "title": "Paketi za izradu sajta",
+            "title": "Paketi za izradu sajtova",
             "description": "Paketi sa unapred definisanim obimom za firme koje tačno znaju šta im treba: jasna cena, jasan rezultat i bez dugog dogovaranja."
           },
           {
             "icon": "target",
-            "title": "Plaćeni oglasi",
+            "title": "Google Ads oglašavanje",
             "description": "Google Ads kampanje koje vodim od A do Ž — budžet, ključne reči i stranice na koje oglasi vode — i merim ih cenom po dobijenom poslu, a ne po kliku."
           },
           {
@@ -507,7 +507,7 @@
       "process": {
         "badge": "Kako to ide",
         "heading": "Kako izgleda saradnja",
-        "lead": "Od tvoje prve poruke do sajta koji radi.",
+        "lead": "Od prve poruke do sajta koji je online.",
         "steps": [
           { "title": "Prvi kontakt", "description": "Pošalješ poruku preko kontakt forme. Javljam se u roku od jednog radnog dana i dogovaramo besplatan razgovor o tome šta ti treba. Bez ikakvih obaveza." },
           { "title": "Ponuda", "description": "Posle razgovora dobijaš jedan jasan dokument: šta pravim, kad će biti gotovo i koliko košta — fiksno. Odlučuješ kad su ti sve karte na stolu." },
@@ -568,7 +568,7 @@
       },
       "cta": {
         "badge": "Popričajmo",
-        "heading": "Reci mi šta ti treba",
+        "heading": "Popričajmo o tvom projektu",
         "description": "Prvi razgovor je besplatan i bez obaveza: telefonom, video pozivom ili email-om. Dobijaš iskrene odgovore, a posle razgovora jasnu ponudu sa rokom i fiksnom cenom.",
         "primary": "Pošalji poruku",
         "secondary": "Više o meni"
@@ -577,13 +577,13 @@
     "contact": {
       "meta": {
         "title": "Kontakt",
-        "description": "Pokrećeš nešto novo? Dizajniram i pravim sajtove od nule — piši mi o svom projektu i javljam ti se u roku od jednog radnog dana."
+        "description": "Treba ti novi sajt? Izrada sajtova po meri, od nule — piši mi o svom projektu i javljam se u roku od jednog radnog dana."
       },
       "hero": {
         "badge": "Pokreni projekat",
-        "titleLead": "Pričaj mi o svom",
-        "titleHighlight": "novom projektu",
-        "description": "Baš me zanima šta spremaš. Pošalji poruku preko forme ispod ili izaberi neki drugi kanal."
+        "titleLead": "Ispričaj mi nešto",
+        "titleHighlight": "o svom projektu",
+        "description": "Pošalji poruku preko forme ispod ili izaberi neki drugi kanal — javljam se u roku od jednog radnog dana."
       },
       "formTitle": "Detalji projekta",
       "channelsTitle": "Drugi kanali",
@@ -595,52 +595,52 @@
     },
     "home": {
       "meta": {
-        "title": "Web dizajner i developer",
-        "description": "Sajtovi, sistemi koji donose klijente i platforme zasnovane na podacima — napravljeni na modernoj tehnologiji, sa fokusom na rezultate za tvoj biznis."
+        "title": "Izrada sajtova i web dizajn",
+        "description": "Izrada sajtova, sistema za prikupljanje upita i platformi zasnovanih na podacima — brzo, moderno i sa fokusom na rezultate tvog biznisa."
       },
       "hero": {
-        "badge": "Slobodan za nove projekte",
+        "badge": "Dostupan za nove projekte",
         "titleLine1": "Stojan Petković",
         "titleLine2": "Web dizajner",
         "titleLine3": "i developer",
-        "description": "Pravim sajtove, sisteme koji donose klijente i platforme zasnovane na podacima — na modernoj tehnologiji, sa fokusom na rezultate za tvoj biznis.",
-        "descriptionMobile": "Pravim sajtove, sisteme koji donose klijente i platforme zasnovane na podacima, sa fokusom na rezultate za tvoj biznis.",
+        "description": "Izrada sajtova, sistema za prikupljanje upita i platformi zasnovanih na podacima — na modernoj tehnologiji, sa fokusom na rezultate tvog biznisa.",
+        "descriptionMobile": "Izrada sajtova, sistema za prikupljanje upita i platformi zasnovanih na podacima, sa fokusom na rezultate tvog biznisa.",
         "primaryCta": "Javi se",
         "secondaryCta": "Pogledaj radove"
       },
       "services": {
         "badge": "Čime se bavim",
-        "heading": "Dizajn, izrada, optimizacija",
-        "lead": "Svaki projekat dobija sve tri usluge.",
+        "heading": "Web dizajn, izrada sajtova i SEO",
+        "lead": "Sve tri usluge u svakom projektu.",
         "learnMore": "Saznaj više",
         "cards": [
-          { "icon": "layout", "title": "Web dizajn", "description": "Sajtovi koji se koriste bez razmišljanja. Raspored skrojen po tvom sadržaju, brendu i načinu na koji ljudi stvarno čitaju na ekranu." },
-          { "icon": "code", "title": "Izrada sajta", "description": "Sajtovi koji traju. Astro, Tailwind i čista arhitektura: brzi od prvog dana i laki za održavanje i petstotog." },
-          { "icon": "trending-up", "title": "Optimizacija", "description": "SEO, Core Web Vitals i pristupačnost ugrađeni od starta, da sajt dobro kotira, brzo se učitava i radi za svakog posetioca." }
+          { "icon": "layout", "title": "Web dizajn", "description": "Pregledan i moderan dizajn, prilagođen tvom brendu, sadržaju i načinu na koji ljudi stvarno koriste sajt." },
+          { "icon": "code", "title": "Izrada sajtova", "description": "Sajtovi koji traju. Astro, Tailwind i čist kod: brzi od prvog dana i laki za održavanje i godinama kasnije." },
+          { "icon": "trending-up", "title": "SEO optimizacija", "description": "SEO, brzina učitavanja i pristupačnost ugrađeni od starta, da sajt bude dobro pozicioniran na Google-u i radi za svakog posetioca." }
         ]
       },
       "workWithMe": {
-        "badge": "Radimo zajedno",
-        "heading": "Napravimo tvoj sajt",
-        "lead": "Šta dobijaš kad radimo zajedno.",
+        "badge": "Zašto ja",
+        "heading": "Sajt koji radi za tebe",
+        "lead": "Evo šta dobijaš uz saradnju sa mnom.",
         "cards": [
           { "icon": "palette", "title": "Dizajn po meri", "description": "Skrojen po tvom biznisu, sadržaju i klijentima." },
-          { "icon": "zap", "title": "Munjevito brz sajt", "description": "Stranice se otvaraju odmah, na svakom telefonu i svakoj konekciji." },
-          { "icon": "search", "title": "Nalaze te Google i AI", "description": "Svaka stranica napravljena tako da je pretraživači i AI asistenti lako čitaju, a klijenti lako nalaze tebe." },
-          { "icon": "shield-check", "title": "Bez brige o održavanju", "description": "Uz paket održavanja sajt je uvek ažuran i bezbedan, a ti se baviš svojim poslom." }
+          { "icon": "zap", "title": "Brz sajt", "description": "Stranice se otvaraju odmah, na svakom telefonu i svakoj konekciji." },
+          { "icon": "search", "title": "Vidljiv na Google-u i u AI pretrazi", "description": "Svaka stranica je napravljena tako da je pretraživači i AI asistenti lako čitaju — a klijenti lako nalaze tebe." },
+          { "icon": "shield-check", "title": "Održavanje sajta", "description": "Uz mesečno održavanje sajt je uvek ažuran i bezbedan, a ti se baviš svojim poslom." }
         ],
-        "cta": "Pogledaj usluge"
+        "cta": "Pogledaj sve usluge"
       },
       "portfolio": {
-        "badge": "Izdvojeni radovi",
-        "heading": "Projekti koje sam napravio",
-        "lead": "Deo skorašnjih radova.",
-        "viewAll": "Svi projekti"
+        "badge": "Portfolio",
+        "heading": "Moji projekti",
+        "lead": "Izdvojeni radovi za klijente iz Srbije i inostranstva.",
+        "viewAll": "Pogledaj sve projekte"
       },
       "testimonials": {
         "badge": "Utisci klijenata",
         "heading": "Šta kažu klijenti",
-        "lead": "Njihove reči, posle završenih projekata.",
+        "lead": "Utisci klijenata posle završenih projekata.",
         "items": [
           { "quote": "Stojan je oba moja sajta prebacio sa WordPress-a na Astro i razlika u brzini se osetila odmah. Svaki upit mi sad stigne na email istog trenutka kad neko pošalje formu — ne moram više da proveravam dashboard i propuštam pozive.", "name": "Mirko Calić", "role": "Vlasnik, Tree Jaws i Mahalo Tree Service" },
           { "quote": "Stojan nam je napravio sajt za rezervacije od nule i uz njega podesio Instagram i Facebook oglase. Gosti idu pravo sa oglasa do gotove rezervacije, a to je baš ono što nam je trebalo za smeštaj naše veličine.", "name": "Valentina Jovanović", "role": "Vlasnica, Valena Apartmani" }
@@ -652,7 +652,7 @@
         "headingLine2": "i inženjer.",
         "para1WithLocation": "Šesnaest godina iskustva u praksi, baza mi je {location}, a radim sa klijentima iz celog sveta. Radim u Astro-u jer se poklapa sa tim kako ja gledam na web: jednostavno, svrsishodno i napravljeno da traje.",
         "para1NoLocation": "Šesnaest godina iskustva u praksi i klijenti iz celog sveta. Radim u Astro-u jer se poklapa sa tim kako ja gledam na web: jednostavno, svrsishodno i napravljeno da traje.",
-        "para2": "Na blogu pišem o idejama i odlukama koje stoje iza mog rada.",
+        "para2": "Na blogu pišem o SEO-u, AI pretrazi i tome kako sajt može da ti donese više klijenata.",
         "moreAboutMe": "Više o meni",
         "statsIntro": "Par stvari o meni.",
         "stat1": "16 godina iskustva",
@@ -661,14 +661,14 @@
         "basedIn": "Baza:"
       },
       "blog": {
-        "badge": "Sa bloga",
-        "heading": "Izdvojeno",
-        "viewAll": "Svi tekstovi"
+        "badge": "Blog",
+        "heading": "Izdvojeni tekstovi",
+        "viewAll": "Pogledaj sve tekstove"
       },
       "cta": {
-        "badge": "Popričajmo",
-        "heading": "Reci mi šta ti treba",
-        "description": "Prvi razgovor je besplatan i bez obaveza. I od prvog razgovora do gotovog sajta, radiš samo sa mnom.",
+        "badge": "Kontakt",
+        "heading": "Popričajmo o tvom projektu",
+        "description": "Prvi razgovor je besplatan i bez obaveza. Od prvog razgovora do gotovog sajta radiš direktno sa mnom.",
         "primary": "Pošalji poruku",
         "secondary": "Više o meni"
       }
