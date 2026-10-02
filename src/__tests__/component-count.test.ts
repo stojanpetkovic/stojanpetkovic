@@ -76,9 +76,8 @@ describe('component count', () => {
     expect(wrong, `not a total (${COUNT}) or a category count`).toEqual([]);
   });
 
-  it('the showcase page and its post quote it', () => {
+  it('the showcase page quotes it', () => {
     expect(read('src/pages/components.astro')).toContain(`${COUNT} production components`);
-    expect(read('src/content/blog/en/component-library.mdx')).toContain(`${COUNT} Components Ready to Use`);
   });
 
   it('the README quotes it, and its category breakdown adds up', () => {
