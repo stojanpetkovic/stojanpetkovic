@@ -126,12 +126,20 @@ const gridClasses = cn(
 
   {showLetterGlitch && (
     <>
-      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+      {/* Desktop only (the `glitch:` variant: 1024px and a fine pointer), as
+          LetterGlitchBand does by default. On a phone the canvas loop was the
+          single largest cost of the homepage — about six seconds of main-thread
+          work in a throttled mobile Lighthouse run — for a background the
+          overlay below mostly hides. `client:visible` never fires inside a
+          `display: none` box, so phones do not download the island either. */}
+      <div class="pointer-events-none absolute inset-0 hidden glitch:block" aria-hidden="true">
         <LetterGlitch client:visible outerVignette />
       </div>
       {/* The canvas is built for contrast against itself, not against the copy
           sitting on top of it — without this, the badge/heading/description
-          are close to unreadable over the moving grid. */}
+          are close to unreadable over the moving grid. It stays at every
+          viewport, so the hero keeps the same dark tone where the canvas
+          does not run. */}
       <div class="pointer-events-none absolute inset-0 bg-black/70" aria-hidden="true" />
     </>
   )}
