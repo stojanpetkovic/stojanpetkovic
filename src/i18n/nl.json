@@ -106,6 +106,8 @@
     "description": "Dingen die ik heb gebouwd",
     "viewProject": "Bekijk project",
     "viewSource": "Bekijk broncode",
+    "viewLiveSite": "Bekijk live site",
+    "carouselGoToSlide": "Ga naar dia {number}",
     "noProjectsFound": "Geen projecten gevonden.",
     "carouselChooseSlide": "Kies dia",
     "carouselNextSlide": "Volgende dia",

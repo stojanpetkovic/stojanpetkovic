@@ -1,0 +1,99 @@
+---
+title: "Tree Jaws"
+locale: sr
+description: "Nov Astro sajt, plus SEO i Google Ads koje vodim stalno, za firmu za orezivanje i uklanjanje drveća u Južnoj Floridi — pretraga i oglasi pretvoreni u više od hiljadu praćenih upita."
+url: "https://treejaws.com"
+tags: ["Astro", "SEO", "Google Ads", "Klijentski projekti"]
+featured: true
+order: -1
+year: 2026
+client: "Tree Jaws"
+role: "Developer i marketing partner"
+services: ["Izrada sajta", "SEO", "Vođenje Google Ads kampanja"]
+meta: ["Usluge sa drvećem, Južna Florida", "4.9★ · 427 Google recenzija", "1.010 praćenih upita", "SEO i oglasi, stalno"]
+icon: "trees"
+image: "../../../assets/projects/tree-jaws-hero-dark.webp"
+imageAlt: "Početni ekran sajta Tree Jaws, sa fotografijom sa terena i ocenom firme odmah na vrhu."
+gallery:
+  - src: "../../../assets/projects/tree-jaws-hero-dark.webp"
+    alt: "Početni ekran sajta Tree Jaws, sa fotografijom sa terena i ocenom firme odmah na vrhu."
+  - src: "../../../assets/projects/tree-jaws-hero-green.png"
+    alt: "Ranija verzija istog početnog ekrana, sa zelenim slojem u boji brenda preko fotografije mašina."
+  - src: "../../../assets/projects/tree-jaws-blog.webp"
+    alt: "Blog Tree Jaws, sa savetima prilagođenim Južnoj Floridi, kao deo SEO strategije."
+  - src: "../../../assets/projects/tree-jaws-testimonials.png"
+    alt: "Sekcija sa utiscima klijenata iz Google recenzija, sa ocenom 4.9 iz 427 recenzija."
+---
+
+import StatCard from '@/components/patterns/StatCard.astro';
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 91, icon: 'zap' },
+  { label: 'Accessibility', value: 96, icon: 'users' },
+  { label: 'Best Practices', value: 96, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## Zadatak
+
+**Tree Jaws** je firma koja uklanja i orezuje drveće i melje panjeve za kuće i poslovne objekte širom **Južne Floride**. U ovom poslu o tome ko dobija poziv odlučuju poverenje i brzina — vlasnik kuće kome je oluja oborila drvo ne poredi ponude, nego zove prvu firmu koja deluje ozbiljno i javi se na telefon. Sajt i marketing oko njega morali su da ga ubede u prvih par sekundi, i da to rade iz meseca u mesec.
+
+Sa Tree Jaws radim na sve tri stvari: sam sajt, SEO ispod njega i Google Ads nalog koji ide paralelno.
+
+## Novi sajt u Astro-u
+
+Sajt je bio na **WordPress-u**, sa svim teretom koji se tu vremenom nakupi — page builder, SEO plugin, keširanje, i svako to usporava ono pre sebe. Za firmu koja živi od pretraga tipa „oluja, treba mi neko danas“, taj teret je koštao prave pozive: spor sajt je zatvoren tab pre nego što se broj telefona uopšte vidi. **Vlasnik Tree Jaws-a je hteo da pobegne sa WordPress-a na nešto što je napravljeno za brzinu**, pa sam ceo sajt napravio ispočetka u **Astro-u**.
+
+Za lokalnu uslužnu firmu to je bitnije nego za većinu drugih: stranice su statički HTML koji se brzo otvara i na slaboj 4G vezi na terenu, a između dodira na broj telefona i samog poziva ne stoji nikakav JavaScript framework. Početni ekran sam napravio oko prave fotografije ekipe i mašina na poslu umesto stock slika, **Google ocenu 4.9** stavio tamo gde se odmah vidi, a pozive na akciju — besplatna procena i broj telefona — ostavio vidljive bez skrolovanja.
+
+Početni ekran tretiram kao nešto što se stalno testira, a ne objavi jednom i zaboravi: u galeriji ovog projekta su dve verzije, jedna sa jačim zelenim slojem u boji brenda i sadašnja, sa fotografijom u prvom planu — iz testiranja koja verzija duže drži pažnju.
+
+## Nijedan upit ne promakne
+
+Kontakt forma nije kutija „pošaljite nam poruku pa šta bude“ koja tiho puni inbox koji niko ne čita. Svaka poslata forma odmah šalje **email direktno firmi** — ime, broj i šta im treba, spremno za poziv — bez portala u koji treba da se uloguješ i bez dashboarda koji moraš da osvežavaš. Radi na istom sistemu za upite u realnom vremenu kao [SF Tree Removal](/sr/projects/sf-tree-removal), pa se popunjena forma ovde tretira jednako hitno kao telefonski poziv. Za firmu kojoj posao zavisi od toga ko se prvi javi, to nije dodatak — to je cela poenta forme.
+
+Prelazak sa WordPress-a se jasno vidi u Lighthouse testu živog sajta:
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+## SEO u samom temelju
+
+Ništa od budžeta za oglase ispod ne radi ako je organska strana slaba, pa sajt ima pravi **blog** — vodiče za Južnu Floridu o orezivanju, pripremi za oluje i o tome kad skraćivanje krošnje donosi više štete nego koristi — usmeren na ono što vlasnici kuća stvarno kucaju u Google pre nego što bilo koga pozovu. Stranice usluga i oblasti napravljene su oko pojmova koje ljudi lokalno traže, brzina dolazi od toga što Astro po defaultu šalje skoro nula JavaScript-a, a utisci klijenata se povlače direktno sa istog Google Business profila na koji vode i oglasi, pa je signal poverenja svuda isti.
+
+<div class="my-10 grid gap-4 sm:grid-cols-2">
+  <StatCard label="Stranica na sajtu" value="176" icon="file-text" />
+  <StatCard label="Blog tekstova" value="108" icon="pen-line" />
+</div>
+
+I to posle sređivanja samih stranica za oblasti — 33 tanke stranice za gradove koje su se preklapale spojene su u 20 jačih (17 gradova i 3 okruga), svaka sa svojim sadržajem umesto zajedničkog šablona, i preusmerene 301 redirektom da ništa što je već kotiralo ne propadne.
+
+## Google Ads nalog
+
+Pored sajta vodim i **Google Ads nalog** od A do Ž — strukturu kampanja, budžet, usklađivanje ključnih reči i landing stranica, i praćenje konverzija koje pokazuje koja kampanja zaista vredi novca. U periodu iz izveštaja ispod:
+
+<div class="my-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  <StatCard label="Klikova" value="5.18K" icon="mouse-pointer-click" />
+  <StatCard label="Prikaza" value="80.2K" icon="eye" />
+  <StatCard label="Prosečna cena klika" value="$10.51" icon="dollar-sign" />
+  <StatCard label="Potrošeno na oglase" value="$54.4K" icon="wallet" />
+</div>
+
+## Rezultati
+
+Nalog prati dve grupe konverzija — direktan kontakt i poslate forme — za ukupno **1.010 praćenih konverzija** u istom periodu:
+
+<div class="my-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  <StatCard label="Telefonski pozivi" value="732" icon="phone-call" />
+  <StatCard label="Poslate forme za upit" value="133" icon="file-check" />
+  <StatCard label="Kliknuto „Uputstva“" value="50" icon="map-pin" />
+  <StatCard label="Popunjene kontakt forme" value="49" icon="user-round" />
+</div>
+
+**Telefonski pozivi su ubedljivo najčešća konverzija** — baš ono što očekuješ za hitne poslove i poslove iste nedelje, i zato je broj telefona u zaglavlju svake stranice, a ne sakriven iza kontakt forme.
+
+Nemam interne podatke Tree Jaws-a o tome koliko tih poziva postane potpisan i plaćen posao — taj procenat je u njihovom CRM-u, ne u mom. Ali uklanjanje drveta u Južnoj Floridi obično košta **$3.000–$5.000**, pa kao orijentir: čak i uz oprezan procenat od jednog zatvorenog posla na pet poziva, 732 telefonska upita daju oko 146 poslova, što povraćaj ulaganja stavlja negde u opseg od **8 do 13 puta** na potrošenih $54.4K. Pravi broj zavisi od toga kako se pozivi vode kad stignu, ali je jasno da se upiti kupuju za mali deo onoga što vredi jedan zatvoren posao.
+
+Zahvaljujući poslu na koji vode sajt i kampanje, Tree Jaws danas ima **ocenu 4.9 iz 427 Google recenzija** — istu ocenu i recenzije koje sajt pokazuje svakom posetiocu pre nego što odluči da pozove.

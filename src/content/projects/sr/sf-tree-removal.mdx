@@ -1,0 +1,59 @@
+---
+title: "SF Tree Removal"
+locale: sr
+description: "Platforma za pribavljanje klijenata napravljena od A do Ž — backend, frontend i brend — koja iz javnih zahteva za dozvole pravi proverene upite za usluge sa drvećem i obaveštava izvođače i vlasnike kamiona čim stigne novi."
+url: "https://sftreeremoval.com"
+tags: ["Astro", "Supabase", "Full-Stack", "Klijentski projekti"]
+featured: true
+order: 2
+year: 2026
+client: "SF Tree Removal"
+role: "Full-stack developer"
+services: ["Izrada sajta", "Backend i baza podataka", "Brending"]
+meta: ["Marketplace upita, Južna Florida", "Astro + Supabase", "CMS i dashboard po meri", "Logo i vizuelni identitet"]
+icon: "radar"
+image: "../../../assets/projects/sf-tree-removal-permit-leads.png"
+imageAlt: "Javna stranica Potential Permit Leads: provereni upiti iz javnih evidencija dozvola, sortirani po datumu, oceni i nadležnosti."
+gallery:
+  - src: "../../../assets/projects/sf-tree-removal-permit-leads.png"
+    alt: "Javna stranica Potential Permit Leads: provereni upiti iz javnih evidencija dozvola, sortirani po datumu, oceni i nadležnosti."
+  - src: "../../../assets/projects/sf-tree-removal-dashboard.png"
+    alt: "Admin Command Center za SF Tree Removal: ukupni brojevi upita sa sajta i spoljnih upita uživo, plus vremenska linija svih slanja."
+  - src: "../../../assets/projects/sf-tree-removal-lead-list.png"
+    alt: "Pojedinačan upit iz dozvole, sa imenom, telefonom i email-om podnosioca i dozvolom zbog koje je postao upit."
+  - src: "../../../assets/projects/sf-tree-removal-login.png"
+    alt: "Prijava za Admin & Dispatch samo za zaposlene, preko email-a i lozinke ili Google naloga."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 69, icon: 'zap' },
+  { label: 'Accessibility', value: 88, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 92, icon: 'search' },
+];
+
+## Zadatak
+
+**SF Tree Removal** nije prezentacioni sajt jedne firme — to je **platforma za pribavljanje klijenata** koju sam dizajnirao i napravio od A do Ž, za klijenta koji radi na istom tržištu usluga sa drvećem u Južnoj Floridi kao [Tree Jaws](/sr/projects/tree-jaws), ali rešava drugi problem: kako naći i podeliti upite na samom izvoru, umesto da se plaća za pozicije u pretrazi ili licitira za njih u Google Ads-u. To je značilo javni brend i marketplace sa jedne strane, i pravi backend sa nalozima, dozvolama i automatizacijom sa druge.
+
+## Backend, frontend i sam brend
+
+Dizajnirao sam **logo sa štitom i borom** i napravio celu platformu u **Astro-u sa Supabase (Postgres) backendom** — **više od 25 tabela u bazi**, sve iza row-level security zaštite, za upite, izvođače, vlasnike kamiona, kredite i evidenciju aktivnosti. Javna strana je SF Tree Removal marketplace: imenik upita iz dozvola, stranica za izvođače i blog. Privatna strana je **Admin & Dispatch Command Center** zaštićen lozinkom — zaposleni se prijavljuju email-om i lozinkom ili preko Google-a — sa brojevima uživo, redom upita koji se može filtrirati i vremenskom linijom svake automatske akcije platforme. Iza svega je čak i mali CMS po meri: blog tekstovi se pišu, uređuju i objavljuju iz samog dashboarda, a ne kao fajlovi u kodu.
+
+## Upiti iz javnih evidencija dozvola
+
+Glavni izvor podataka su **javne evidencije dozvola**: zahtevi za uklanjanje drveća i uređenje dvorišta podneti gradovima i okruzima u Južnoj Floridi se prikupljaju i ocenjuju, pa objavljuju u **imeniku uživo koji se može sortirati** — po datumu pronalaska, datumu dozvole, oceni upita ili nadležnosti — uz ime, telefon i email podnosioca, jer upravo to stoji u javnom zahtevu. U vreme kad su nastali snimci ekrana iznad, imenik je imao **219 proverenih upita** iz više nadležnosti, i sve bez ijednog dolara potrošenog na oglase.
+
+## Upiti koje drugi propuste — i obaveštenje čim stignu
+
+Zahtevi za dozvole nisu jedini signal. Platforma prati i **spoljne upite** — upite i signale sa drugih sajtova i izvora — i provlači ih kroz isti proces kao i one sa sopstvenih izvora, pa ništa ne stoji u dva odvojena sistema. Čim novi upit prođe proces, automatizacija u dashboardu šalje **email obaveštenje registrovanim izvođačima i vlasnicima kamiona** i beleži ga u vremensku liniju, pa uvek tačno znaš ko je obavešten i kada. Izvođači zatim **preuzimaju** upit, a vlasnici kamiona se **prijavljuju** za njega, i jedno i drugo uz sistem kredita — pa ceo marketplace radi preko naloga i dozvola, a ne preko zajedničkog inbox-a.
+
+## Rezultati
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+**Ocena 69 za Performance je pošten kompromis za ono što ovo zaista jeste**: ne statička prezentacija, nego dashboard uživo sa prijavom, brojevima u realnom vremenu, filterima i animiranim tamnim interfejsom na javnoj strani — pregledaču se prosto šalje više nego kod obične prezentacije, i to je fer cena za tu funkcionalnost. Broj na koji vredi obratiti pažnju je **219 proverenih upita**, prikupljenih i ocenjenih automatski, uz obaveštenje izvođačima i vlasnicima kamiona čim svaki prođe proces.

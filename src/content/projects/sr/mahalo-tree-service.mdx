@@ -1,0 +1,63 @@
+---
+title: "Mahalo Tree Service"
+locale: sr
+description: "Prelazak sa WordPress-a na Astro, plus stalni rad na SEO-u i sadržaju za firmu za usluge sa drvećem iz Južne Floride — bez plaćenih oglasa, samo brže stranice i blog koji raste."
+url: "https://mahalotreeservice.com"
+tags: ["Astro", "SEO", "Klijentski projekti"]
+featured: true
+order: 0
+year: 2026
+client: "Mahalo Tree Service"
+role: "Developer i SEO partner"
+services: ["Izrada sajta", "SEO", "Strategija sadržaja"]
+meta: ["Usluge sa drvećem, Južna Florida", "Google ocena 5.0", "WordPress → Astro", "24 blog teksta, 18 oblasti"]
+icon: "tree-palm"
+image: "../../../assets/projects/mahalo-hero.webp"
+imageAlt: "Početni ekran sajta Mahalo Tree Service: brzo, efikasno i povoljno uklanjanje drveća, preko fotografije sa terena."
+gallery:
+  - src: "../../../assets/projects/mahalo-hero.webp"
+    alt: "Početni ekran sajta Mahalo Tree Service: brzo, efikasno i povoljno uklanjanje drveća, preko fotografije sa terena."
+  - src: "../../../assets/projects/mahalo-services.png"
+    alt: "Sekcija sa uslugama — uklanjanje i orezivanje drveća i ostalo — uz istaknute ISA sertifikovane arboriste."
+  - src: "../../../assets/projects/mahalo-testimonials.png"
+    alt: "Sekcija sa utiscima klijenata, sa pravim Google recenzijama sa pet zvezdica i imenima."
+  - src: "../../../assets/projects/mahalo-blog.webp"
+    alt: "Blog Mahalo Tree Service, sa vodičima o nezi drveća za Južnu Floridu, pisanim za SEO."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 87, icon: 'zap' },
+  { label: 'Accessibility', value: 91, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## Zadatak
+
+**Mahalo Tree Service** je porodična firma iz Južne Floride koja uklanja i orezuje drveće, sa osiguranim, **ISA sertifikovanim arboristima** i **Google ocenom 5.0**. Ovaj posao je bio užeg obima od većine mojih projekata: nema kampanje oglasa, nema prodajnog levka — samo sajt koji je kočio firmu i prisustvo u pretrazi kome je trebao pravi sadržaj umesto tankih stranica koje se ponavljaju.
+
+## Bekstvo sa WordPress-a
+
+Kao kod mnogih malih firmi, Mahalo sajt je nikao na **WordPress-u** — page builder i nekoliko plugina umesto stranica koje nikad nisu bile do kraja gotove. Radio je, ali sporo, a sporost firmu za drveće košta pravih poslova: ovo je posao gde ljudi zovu isti dan, a početna stranica koja se dugo učitava je tab koji je već zatvoren. Sajt sam napravio ispočetka u **Astro-u**, uz zadržan brend — logo sa palmom i suncem, zeleno-narandžaste boje, recenzije — ali na temelju koji šalje statički HTML umesto gomile plugina.
+
+## Upiti stižu odmah
+
+Kontakt forma ne skuplja poruke dok ih neko jednom ne primeti — svaka popunjena forma odmah šalje **Mahalu email**, sa imenom, brojem i porukom posetioca spremnim za poziv. Nema portala koji treba proveravati, nema kašnjenja između trenutka kad vlasnik kuće odluči da se javi i trenutka kad firma za to sazna. To je isti sistem za upite u realnom vremenu koji sam napravio za [Tree Jaws](/sr/projects/tree-jaws) i [SF Tree Removal](/sr/projects/sf-tree-removal), pa svi sajtovi koje vodim javljaju upite isto: odmah, a ne kad stignu.
+
+Razlika se vidi u Lighthouse testu živog sajta:
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+## SEO i sadržaj umesto oglasa
+
+Iza ovog projekta **nema Google Ads naloga** — ceo plan rasta počiva na organskoj pretrazi. Zato je bilo još bitnije da struktura SEO-a bude kako treba: novi sajt ima **18 stranica za oblasti** (Fort Lauderdale, Majami, Boka Raton, Holivud i ostatak mape) koje vode na jednu centralnu `/areas` stranicu sa svojim canonical-om, naslovom i opisom, umesto 18 stranica koje se tiho bore jedna protiv druge. Svaka od tih stranica za gradove ranije je delila isti ponovljeni blok galerije; sad svaka ima svoj FAQ tekst, napisan u jednoj od tri različite formulacije, pa se čitaju kao zasebni odgovori na lokalnu pretragu, a ne kao kopije.
+
+Pored stranica za oblasti, sajt ima **blog sa 24 teksta** — orezivanje sam ili uz profesionalce, kad je pravo vreme za orezivanje, formativno orezivanje mladog drveća — usmeren na konkretna pitanja koja vlasnici kuća u Južnoj Floridi kucaju pre nego što pozovu firmu. Svaka stranica, bilo grad ili blog tekst, sad prvo učitava svoju glavnu sliku, i odatle dolazi najveći deo poboljšanja u Lighthouse rezultatima iznad.
+
+## Rezultati
+
+Ovde nema budžeta za oglase ni broja konverzija za prikazati — iskrena mera ovog projekta je brži sajt iza već jake reputacije. Mahalo ima **ocenu 5.0 na Google-u**, a utisci na novom sajtu povlače te recenzije direktno, umesto da ih prepričavaju. Blog i stranice za oblasti su igra na duže staze: sadržaj koji donosi vidljivost u pretrazi i dugo pošto je poslednji račun za izradu sajta plaćen.

@@ -106,6 +106,8 @@
     "description": "Things I've built",
     "viewProject": "View project",
     "viewSource": "View source",
+    "viewLiveSite": "View live site",
+    "carouselGoToSlide": "Go to slide {number}",
     "noProjectsFound": "No projects found.",
     "carouselChooseSlide": "Choose slide",
     "carouselNextSlide": "Next slide",

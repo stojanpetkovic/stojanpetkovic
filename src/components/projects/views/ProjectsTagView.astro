@@ -15,8 +15,13 @@ import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
-import { t, defaultLocale } from '@/i18n';
-import { getProjectsBaseUrl } from '@/lib/projects';
+import { t, defaultLocale, getLocales } from '@/i18n';
+import {
+  collectProjectTags,
+  getProjectsBaseUrl,
+  getProjectTagUrl,
+  getVisibleProjects,
+} from '@/lib/projects';
 
 interface Props {
   /** Locale whose projects this archive renders. Defaults to the site default. */
@@ -33,6 +38,20 @@ const { locale = defaultLocale, tag, projects, visibleTags } = Astro.props;
 
 const projectsHref = getProjectsBaseUrl(locale);
 const countKey = projects.length === 1 ? 'projects.tagCountOne' : 'projects.tagCountOther';
+
+// Tags are per-locale, so this archive may have no counterpart in another
+// language. hreflang lists only the locales that carry the tag; the switcher
+// falls back to that locale's projects index rather than a 404.
+const tagLocales: { locale: string; url: string }[] = [];
+for (const loc of getLocales()) {
+  if (collectProjectTags(await getVisibleProjects(loc)).includes(tag)) {
+    tagLocales.push({ locale: loc, url: getProjectTagUrl(tag, loc) });
+  }
+}
+const tagUrlByLocale = new Map(tagLocales.map((a) => [a.locale, a.url]));
+const languageAlternates = Object.fromEntries(
+  getLocales().map((loc) => [loc, tagUrlByLocale.get(loc) ?? getProjectsBaseUrl(loc)])
+);
 ---
 
 <PageLayout
@@ -40,6 +59,8 @@ const countKey = projects.length === 1 ? 'projects.tagCountOne' : 'projects.tagC
   description={t('projects.tagMetaDescription', locale, { tag })}
   eagerReveal
   footerBackground="secondary"
+  languageAlternates={languageAlternates}
+  localeAlternates={tagLocales}
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>

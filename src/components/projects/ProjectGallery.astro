@@ -101,7 +101,7 @@ const slideData = images.map((item, i) =>
       {images.map((_, i) => (
         <button
           role="tab"
-          aria-label={`Go to slide ${i + 1}`}
+          aria-label={t('projects.carouselGoToSlide', locale, { number: i + 1 })}
           data-dot={i}
           data-dots-gallery={`gallery-${id}`}
           data-active={i === 0 ? 'true' : 'false'}

@@ -15,8 +15,8 @@ import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
-import { t, defaultLocale } from '@/i18n';
-import { getBlogBaseUrl, getPostUrl, tagToSlug } from '@/lib/blog';
+import { t, defaultLocale, getLocales } from '@/i18n';
+import { collectTags, getBlogBaseUrl, getPostUrl, getPublishedPosts, getTagUrl, tagToSlug } from '@/lib/blog';
 import { getBlogTagOgPath } from '@/lib/og/svg';
 import BlogCta from '@/components/blog/BlogCta.astro';
 
@@ -35,6 +35,20 @@ const { locale = defaultLocale, tag, posts, visibleTags } = Astro.props;
 
 const blogHref = getBlogBaseUrl(locale);
 const countKey = posts.length === 1 ? 'blog.tagCountOne' : 'blog.tagCountOther';
+
+// Tags are per-locale, so this archive may have no counterpart in another
+// language. hreflang lists only the locales that carry the tag; the switcher
+// falls back to that locale's blog index rather than a 404.
+const tagLocales: { locale: string; url: string }[] = [];
+for (const loc of getLocales()) {
+  if (collectTags(await getPublishedPosts(loc)).includes(tag)) {
+    tagLocales.push({ locale: loc, url: getTagUrl(tag, loc) });
+  }
+}
+const tagUrlByLocale = new Map(tagLocales.map((a) => [a.locale, a.url]));
+const languageAlternates = Object.fromEntries(
+  getLocales().map((loc) => [loc, tagUrlByLocale.get(loc) ?? getBlogBaseUrl(loc)])
+);
 ---
 
 <PageLayout
@@ -42,6 +56,8 @@ const countKey = posts.length === 1 ? 'blog.tagCountOne' : 'blog.tagCountOther';
   description={t('blog.tagMetaDescription', locale, { tag })}
   image={getBlogTagOgPath(tagToSlug(tag))}
   eagerReveal
+  languageAlternates={languageAlternates}
+  localeAlternates={tagLocales}
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>

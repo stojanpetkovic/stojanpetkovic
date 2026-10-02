@@ -7,7 +7,7 @@ import ProjectTagList from '@/components/projects/ProjectTagList.astro';
 import HeroGrid from '@/components/effects/HeroGrid.astro';
 import HeroBeam from '@/components/effects/HeroBeam.astro';
 import type { GallerySlide } from '@/lib/gallery';
-import { getLocaleFromPath } from '@/i18n';
+import { t, getLocaleFromPath } from '@/i18n';
 
 interface Props {
   title: string;
@@ -90,13 +90,13 @@ const locale = getLocaleFromPath(Astro.url.pathname);
             {url && (
               <Button href={url} target="_blank" rel="noopener noreferrer" size="md" class="project-live-btn">
                 <Icon name="external-link" size="sm" />
-                View live site
+                {t('projects.viewLiveSite', locale)}
               </Button>
             )}
             {repo && (
               <Button href={repo} target="_blank" rel="noopener noreferrer" variant="brand-outline" size="md" class="hero-btn-opaque-brand">
                 <Icon name="github" size="sm" />
-                View source
+                {t('projects.viewSource', locale)}
               </Button>
             )}
           </div>

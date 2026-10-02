@@ -129,7 +129,7 @@ const posters = await Promise.all(
               data-carousel-dot
               data-index={i}
               role="tab"
-              aria-label={`Go to slide ${i + 1}`}
+              aria-label={t('projects.carouselGoToSlide', locale, { number: i + 1 })}
               aria-selected={i === 0 ? 'true' : 'false'}
               data-active={i === 0 ? 'true' : 'false'}
             >
