@@ -9,9 +9,10 @@
  * `component-registry.json` is the source of truth: the curated set a user
  * installs or copies. These tests fail when a component is added or removed
  * without the docs following, so the claim cannot drift again. Scoped to the
- * theme's own documentation (README, showcase page) — a site built on the
- * theme is free to stop quoting the count in its own copy, as this one now
- * does in `site.config.ts` and the homepage.
+ * theme's own documentation (the README) — a site built on the theme is free
+ * to stop quoting the count in its own copy, as this one does: it dropped the
+ * /components showcase, and `site.config.ts` and the homepage no longer quote
+ * it.
  */
 import { describe, expect, it } from 'vitest';
 import { readFileSync, readdirSync, statSync } from 'node:fs';
@@ -74,10 +75,6 @@ describe('component count', () => {
       }
     }
     expect(wrong, `not a total (${COUNT}) or a category count`).toEqual([]);
-  });
-
-  it('the showcase page quotes it', () => {
-    expect(read('src/pages/components.astro')).toContain(`${COUNT} production components`);
   });
 
   it('the README quotes it, and its category breakdown adds up', () => {

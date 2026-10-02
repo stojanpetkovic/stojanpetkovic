@@ -6,9 +6,6 @@
  * prop defaults, as fallbacks and as `setAttribute` calls — across
  * `src/components/` and `src/layouts/`.
  *
- * `src/pages/components.astro` is out of scope: its strings are demo fixtures
- * that exist to show a component, not interface text.
- *
  * There is no exception list. A string that is identical in every language,
  * such as a product name, belongs in the locale files with the same value in
  * each.
