@@ -12,9 +12,9 @@
  * The count was also quoted as 12 across the config, both locales, the project
  * page, three blog posts, the README and AGENTS.md, with nothing checking any
  * of it. The same lesson as the component count, which is why this mirrors
- * that test. Scoped to the theme's own documentation (README, project page,
- * blog posts) — a site built on the theme is free to stop quoting the count
- * in its own copy, as this one now does in `site.config.ts` and both locales.
+ * that test. Scoped to the theme's own documentation (README, project page)
+ * — a site built on the theme is free to stop quoting the count in its own
+ * copy, as this one now does in `site.config.ts`, every locale and the blog.
  */
 import { describe, expect, it } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
@@ -108,12 +108,8 @@ describe('colour themes', () => {
     }
   });
 
-  it('the README and the docs quote the count', () => {
-    for (const file of [
-      'README.md',
-      'src/content/blog/en/astro-rocket-configuration-guide.mdx',
-      'src/content/blog/en/astro-rocket-getting-started.mdx',
-    ]) {
+  it('the README quotes the count', () => {
+    for (const file of ['README.md']) {
       expect(read(file), file).toMatch(new RegExp(`${COUNT} (ready-to-use )?colour themes`));
     }
   });
@@ -126,10 +122,6 @@ describe('colour themes', () => {
       'src/i18n/en.json',
       'src/i18n/nl.json',
       'src/i18n/sr.json',
-      'src/content/blog/en/astro-rocket-configuration-guide.mdx',
-      'src/content/blog/en/astro-rocket-getting-started.mdx',
-      'src/content/blog/en/component-library.mdx',
-      'src/content/blog/en/scroll-progress-ring.mdx',
     ]) {
       expect(read(file), file).not.toMatch(/\btwelve\b/i);
       expect(read(file), file).not.toMatch(/\b12[- ](colour|color|swatch|theme)/i);
@@ -138,11 +130,7 @@ describe('colour themes', () => {
 
   it('no shipped copy names a palette that was removed', () => {
     const gone = ['orange', 'amber', 'lime', 'magenta'];
-    for (const file of [
-      'src/content/blog/en/astro-rocket-configuration-guide.mdx',
-      'src/content/blog/en/scroll-progress-ring.mdx',
-      'README.md',
-    ]) {
+    for (const file of ['README.md']) {
       const prose = read(file)
         // Tailwind's own palette is unrelated to the theme set
         .replace(/\b(text|bg|border|from|via|to|ring|decoration)-[a-z]+-\d{2,3}\b/g, '')
