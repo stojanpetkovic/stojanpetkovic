@@ -35,9 +35,14 @@ ENV SITE_URL=$SITE_URL
 # Empty is the default and behaves as unset: no measurement id injects no
 # gtag, and an empty PUBLIC_CONSENT_ENABLED resolves to false.
 #
+# The GA4 measurement id is public — it ships in every page's HTML — so it
+# defaults here rather than living only in the host's settings. A Railway
+# variable of the same name still overrides it. Local `pnpm dev` and
+# `pnpm build` do not read this file, so they send no analytics hits.
+#
 # RESEND_API_KEY, RESEND_FROM_EMAIL, RESEND_AUDIENCE_ID and NEWSLETTER_API_KEY
 # are runtime secrets. Railway injects them directly into the running service.
-ARG PUBLIC_GA_MEASUREMENT_ID=
+ARG PUBLIC_GA_MEASUREMENT_ID=G-XE0Z1J0EZG
 ARG PUBLIC_GTM_ID=
 ARG PUBLIC_UMAMI_WEBSITE_ID=
 ARG PUBLIC_UMAMI_SRC=
