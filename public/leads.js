@@ -9,6 +9,9 @@
  * Give a field a readable name in the lead with data-lead-name="phone"
  * (for builders that name inputs text_1, number_1 and so on).
  * Forms sent purely from JavaScript can call window.stojanLeads.send(name, data).
+ *
+ * It also counts page views for the admin's analytics: one small beacon per
+ * page, no cookies. data-pageviews="off" on the tag turns that part off.
  */
 (function () {
   var script = document.currentScript;
@@ -16,6 +19,8 @@
   var siteKey = script.getAttribute('data-site-key');
   if (!siteKey) return;
   var endpoint = script.getAttribute('data-endpoint') || new URL('/api/leads', script.src).href;
+  var hitEndpoint = new URL('/api/hit', endpoint).href;
+  var countPageViews = script.getAttribute('data-pageviews') !== 'off';
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
   var STORE_KEY = 'sp_lead_attribution';
@@ -152,6 +157,76 @@
     },
     true,
   );
+
+  // ── Page views ──────────────────────────────────────────────────────────
+  var VISIT_KEY = 'sp_visit';
+  var lastHit = { path: '', at: 0 };
+
+  function beacon(url, payload) {
+    var body = JSON.stringify(payload);
+    try {
+      // A Blob of text/plain keeps the beacon a "simple" cross-site request.
+      if (navigator.sendBeacon && navigator.sendBeacon(url, new Blob([body], { type: 'text/plain' }))) return;
+    } catch {
+      /* fall back to fetch below */
+    }
+    try {
+      fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        keepalive: true,
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: body,
+      }).catch(function () {});
+    } catch {
+      /* nothing else to try */
+    }
+  }
+
+  function trackPageView() {
+    if (!countPageViews || location.protocol === 'file:') return;
+    var path = location.pathname;
+    var now = Date.now();
+    if (path === lastHit.path && now - lastHit.at < 2000) return;
+    lastHit = { path: path, at: now };
+
+    // The first page of a visit (per tab) carries where the visit came from.
+    var entry = false;
+    try {
+      entry = !sessionStorage.getItem(VISIT_KEY);
+      sessionStorage.setItem(VISIT_KEY, '1');
+    } catch {
+      entry = true;
+    }
+
+    var payload = { site_key: siteKey, path: path, entry: entry };
+    if (entry) {
+      var params = new URLSearchParams(location.search);
+      var utm = {};
+      UTM_KEYS.forEach(function (k) {
+        var v = params.get(k);
+        if (v) utm[k] = v;
+      });
+      if (!utm.utm_source && params.get('fbclid')) utm.utm_source = 'facebook';
+      if (!utm.utm_source && params.get('gclid')) {
+        utm.utm_source = 'google';
+        utm.utm_medium = 'cpc';
+      }
+      var ref = '';
+      try {
+        if (document.referrer && new URL(document.referrer).hostname !== location.hostname) ref = document.referrer;
+      } catch {
+        /* no usable referrer */
+      }
+      payload.utm = utm;
+      payload.referrer = ref;
+    }
+    beacon(hitEndpoint, payload);
+  }
+
+  trackPageView();
+  // Sites using Astro view transitions swap pages without a reload.
+  document.addEventListener('astro:after-swap', trackPageView);
 
   window.stojanLeads = { send: send };
 })();

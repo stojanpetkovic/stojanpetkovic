@@ -1,0 +1,30 @@
+---
+import { RANGES, type RangeDays } from '@/admin/lib/analytics';
+
+interface Props {
+  current: RangeDays;
+}
+const { current } = Astro.props;
+const label = (days: number) => (days === 7 ? '7 dana' : days === 30 ? '30 dana' : '90 dana');
+const hrefFor = (days: number) => {
+  const params = new URLSearchParams(Astro.url.searchParams);
+  params.set('range', String(days));
+  params.delete('created');
+  return `${Astro.url.pathname}?${params}`;
+};
+---
+
+<nav class="inline-flex rounded border border-line bg-white p-0.5" aria-label="Period">
+  {RANGES.map((days) => (
+    <a
+      href={hrefFor(days)}
+      class:list={[
+        'rounded px-3 py-1.5 text-xs font-medium transition-colors',
+        days === current ? 'bg-primary text-white' : 'text-zinc-600 hover:bg-zinc-100',
+      ]}
+      aria-current={days === current ? 'page' : undefined}
+    >
+      {label(days)}
+    </a>
+  ))}
+</nav>

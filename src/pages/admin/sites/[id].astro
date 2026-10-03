@@ -6,9 +6,12 @@ import StatCard from '@/admin/components/StatCard.astro';
 import DailyChart from '@/admin/components/DailyChart.astro';
 import BarList from '@/admin/components/BarList.astro';
 import LeadTable from '@/admin/components/LeadTable.astro';
+import ConversionTable from '@/admin/components/ConversionTable.astro';
+import RangeTabs from '@/admin/components/RangeTabs.astro';
+import { siteAnalytics, parseRange, rate, change } from '@/admin/lib/analytics';
 import { db } from '@/admin/lib/supabase';
 import { readSiteForm } from '@/admin/lib/siteForm';
-import { dailySeries, summarize } from '@/admin/lib/stats';
+import { summarize, countBy } from '@/admin/lib/stats';
 import type { Lead, Site } from '@/admin/lib/types';
 
 const { id } = Astro.params;
@@ -46,22 +49,26 @@ if (Astro.request.method === 'POST') {
   if (!site) return Astro.redirect('/admin/sites');
 }
 
-const since = new Date(Date.now() - 60 * 86_400_000).toISOString();
-const { data: leadsData } = await db()
-  .from('leads')
-  .select('*')
-  .eq('site_id', site.id)
-  .eq('is_spam', false)
-  .gte('created_at', since)
-  .order('created_at', { ascending: false });
+const range = parseRange(Astro.url.searchParams.get('range'));
+const [{ data: leadsData }, analytics] = await Promise.all([
+  db()
+    .from('leads')
+    .select('*')
+    .eq('site_id', site.id)
+    .eq('is_spam', false)
+    .gte('created_at', new Date(Date.now() - range * 86_400_000).toISOString())
+    .order('created_at', { ascending: false }),
+  siteAnalytics(site, range),
+]);
 const leads = (leadsData ?? []) as Lead[];
 const stats = summarize(leads);
-const series = dailySeries(leads, 30, site.timezone);
+const t = analytics.totals;
+const p = analytics.previous;
+const visitorsChange = change(t.visitors, p.visitors);
+const leadsChange = change(t.leads, p.leads);
 
 const origin = Astro.site ? new URL(Astro.site).origin : Astro.url.origin;
 const snippet = `<script src="${origin}/leads.js" data-site-key="${site.site_key}" defer></script>`;
-const changeNote =
-  stats.change === null ? 'nema podataka za prethodni period' : `${stats.change >= 0 ? '+' : ''}${stats.change}% u odnosu na prethodnih 30 dana`;
 ---
 
 <AdminLayout title={site.name}>
@@ -79,24 +86,62 @@ const changeNote =
     <a href={`/admin/leads?site=${site.id}`} class="btn btn-light btn-sm ml-auto">Svi lidovi ovog sajta</a>
   </div>
 
-  <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
-    <StatCard label="Poslednjih 7 dana" value={stats.last7} />
-    <StatCard
-      label="Poslednjih 30 dana"
-      value={stats.last30}
-      note={changeNote}
-      tone={stats.change === null ? 'neutral' : stats.change >= 0 ? 'up' : 'down'}
-    />
-    <StatCard label="Danas" value={stats.today} />
-    <StatCard label="Stopa dogovora" value={stats.winRate === null ? '—' : `${stats.winRate}%`} note="od lidova označenih kao dogovoren/izgubljen" />
+  <div class="flex flex-wrap items-center justify-between gap-3">
+    <h2 class="text-[15px] font-semibold">Posete i upiti</h2>
+    <RangeTabs current={range} />
   </div>
 
-  <DailyChart title="Lidovi po danu (30 dana)" labels={series.map((d) => d.day)} series={[{ label: 'Lidovi', data: series.map((d) => d.count) }]} />
+  {!analytics.hasData && (
+    <div class="rounded bg-sky-50 px-4 py-3 text-[13px] text-sky-800">
+      Još nema zabeleženih poseta za ovaj period. Posete se broje čim je kod za ugradnju na sajtu, a brojke se
+      osvežavaju na svakih 15 minuta.
+    </div>
+  )}
+
+  <div class="grid grid-cols-2 xl:grid-cols-5 gap-4">
+    <StatCard label="Posetioci" value={t.visitors.toLocaleString('sr-Latn-RS')} note={visitorsChange.text} tone={visitorsChange.tone} />
+    <StatCard label="Posete" value={t.visits.toLocaleString('sr-Latn-RS')} />
+    <StatCard label="Pregledi stranica" value={t.views.toLocaleString('sr-Latn-RS')} />
+    <StatCard label="Upiti" value={t.leads} note={leadsChange.text} tone={leadsChange.tone} />
+    <StatCard label="Stopa konverzije" value={rate(t.leads, t.visits)} note="upiti na 100 poseta" />
+  </div>
+
+  <DailyChart
+    title="Posetioci i upiti po danu"
+    note="osvežava se na 15 min"
+    labels={analytics.daily.map((d) => d.day)}
+    series={[
+      { label: 'Posetioci', data: analytics.daily.map((d) => d.visitors) },
+      { label: 'Upiti', data: analytics.daily.map((d) => d.leads), line: true },
+    ]}
+  />
+
+  <div class="grid lg:grid-cols-2 gap-6">
+    <ConversionTable
+      title="Odakle dolaze"
+      columnLabel="Izvor"
+      countLabel="Posete"
+      rows={analytics.channels.map((c) => ({ label: c.label, count: c.visits, leads: c.leads }))}
+    />
+    <ConversionTable
+      title="Najposećenije stranice"
+      columnLabel="Stranica"
+      countLabel="Pregledi"
+      rows={analytics.pages.map((pg) => ({ label: pg.label, count: pg.views, leads: pg.leads }))}
+    />
+  </div>
 
   <div class="grid lg:grid-cols-3 gap-6">
-    <BarList title="Po formi" items={stats.byForm} />
-    <BarList title="Po izvoru" items={stats.bySource} />
-    <BarList title="Po stranici" items={stats.byPage} />
+    <BarList title="Uređaji" items={analytics.devices} />
+    <BarList title="Zemlje" items={analytics.countries} />
+    <BarList title="Upiti po formi" items={countBy(leads, (l) => l.form_name)} />
+  </div>
+
+  <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
+    <StatCard label="Upiti danas" value={stats.today} />
+    <StatCard label="Upiti, 7 dana" value={stats.last7} />
+    <StatCard label="Stopa dogovora" value={stats.winRate === null ? '—' : `${stats.winRate}%`} note="od lidova označenih kao dogovoren/izgubljen" />
+    <StatCard label="Novi, neobrađeni" value={leads.filter((l) => l.status === 'new').length} />
   </div>
 
   <div class="card">

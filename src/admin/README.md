@@ -20,6 +20,15 @@ the admin's files, so nothing from it reaches the portfolio's CSS.
 - **Emails each lead** to the site's client addresses (in Serbian or English)
   and to the owner, with the visitor's address as Reply-To. Every attempt is
   logged and can be resent from the lead page.
+- **Counts page views** on every site that loads `leads.js`, with no cookies
+  and no stored IP address: `/api/hit` records the path, device, country (from
+  Cloudflare's `cf-ipcountry`) and, for the first page of a visit, where it
+  came from. Unique visitors are a SHA-256 of salt, UTC day, site, IP and user
+  agent, so they reset daily and cannot be tied to a person. Bots and other
+  origins are dropped. `rollup_page_views()` turns raw hits into
+  `page_view_daily` every 15 minutes (pg_cron), counted in each site's
+  timezone; raw hits are deleted after 90 days, the daily totals stay.
+  `data-pageviews="off"` on the script tag turns counting off for a site.
 - **Shows lead analytics** per site and overall: leads per day, by form, by
   source (UTM, fbclid/gclid, referrer) and by page, plus a status pipeline
   (new → contacted → won/lost) with notes, filters and CSV export.
@@ -68,5 +77,4 @@ the admin's files, so nothing from it reaches the portfolio's CSS.
 
 ## Roadmap
 
-- Phase 2: Google Analytics 4 (Data API, service account), cached daily.
 - Phase 3: printable monthly report per site → PDF, emailed automatically.

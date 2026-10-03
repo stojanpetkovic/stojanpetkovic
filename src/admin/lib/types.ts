@@ -8,7 +8,6 @@ export interface Site {
   email_language: 'sr' | 'en';
   timezone: string;
   notify_owner: boolean;
-  ga4_property_id: string | null;
   active: boolean;
   created_at: string;
 }

@@ -41,12 +41,7 @@ const { site = {}, showActive = false } = Astro.props;
       {TIMEZONES.map((tz) => <option value={tz.value} selected={(site.timezone ?? 'Europe/Belgrade') === tz.value}>{tz.label}</option>)}
     </select>
   </div>
-  <div>
-    <label class="form-label" for="ga4_property_id">GA4 Property ID <span class="text-muted font-normal">(faza 2)</span></label>
-    <input class="form-input" id="ga4_property_id" name="ga4_property_id" value={site.ga4_property_id ?? ''} placeholder="412345678" inputmode="numeric" />
-    <p class="form-hint">GA4 → Admin → Property details. Broj, ne G-XXXX.</p>
-  </div>
-  <div class="flex flex-col justify-center gap-2 pt-5">
+  <div class="sm:col-span-2 flex flex-col gap-2">
     <label class="inline-flex items-center gap-2 text-[13px] text-zinc-700">
       <input type="checkbox" name="notify_owner" checked={site.notify_owner ?? true} class="size-4 accent-primary" />
       Pošalji kopiju i meni

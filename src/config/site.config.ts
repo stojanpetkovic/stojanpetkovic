@@ -227,9 +227,9 @@ export interface SiteConfig {
   i18n?: I18nConfig;
   /**
    * This site's entry in the lead admin (see src/admin/README.md). With it
-   * set, the contact form delivers each message as a lead — stored in /admin
-   * and emailed from there — instead of sending its own notification.
-   * Leave unset to keep the plain email.
+   * set, every page loads leads.js to count page views, and the contact form
+   * delivers each message as a lead — stored in /admin and emailed from
+   * there — instead of sending its own notification. Leave unset for neither.
    */
   leads?: {
     siteKey: string;

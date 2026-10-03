@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import type { Lead } from './types';
+import { channelOf, referrerHost, type Channel } from './channels';
 
 const MAX_FIELDS = 60;
 const MAX_VALUE_LENGTH = 5000;
@@ -98,25 +99,10 @@ export function originMatches(origin: string | null, domain: string): boolean {
 }
 
 /** Where a lead came from, in words a client understands. */
-export function leadSource(lead: Pick<Lead, 'utm_source' | 'utm_medium' | 'referrer'>): string {
-  const source = lead.utm_source?.toLowerCase() ?? '';
-  const medium = lead.utm_medium?.toLowerCase() ?? '';
-  if (/facebook|fb|instagram|ig|meta/.test(source))
-    return medium.includes('paid') || medium.includes('cpc') || medium.includes('ad')
-      ? 'Facebook/Instagram oglas'
-      : 'Facebook/Instagram';
-  if (source.includes('google')) return medium.includes('cpc') || medium.includes('paid') ? 'Google oglas' : 'Google';
-  if (source) return lead.utm_source!;
-  if (lead.referrer) {
-    try {
-      const host = new URL(lead.referrer).hostname.replace(/^www\./, '');
-      if (/google\./.test(host)) return 'Google pretraga';
-      if (/bing\./.test(host)) return 'Bing pretraga';
-      if (/facebook|instagram|fb\.|l\.messenger/.test(host)) return 'Facebook/Instagram';
-      return host;
-    } catch {
-      return 'Ostalo';
-    }
-  }
-  return 'Direktno';
+export function leadSource(lead: Pick<Lead, 'utm_source' | 'utm_medium' | 'referrer'>): Channel {
+  return channelOf({
+    utm_source: lead.utm_source,
+    utm_medium: lead.utm_medium,
+    referrerHost: referrerHost(lead.referrer),
+  });
 }

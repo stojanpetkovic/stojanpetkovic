@@ -1,0 +1,41 @@
+---
+import { rate } from '@/admin/lib/analytics';
+
+// A breakdown where each row has visits and leads, so the client sees which
+// channel or page actually turns visitors into inquiries.
+interface Props {
+  title: string;
+  columnLabel: string;
+  countLabel: string;
+  rows: { label: string; count: number; leads: number }[];
+  empty?: string;
+}
+const { title, columnLabel, countLabel, rows, empty = 'Još nema podataka.' } = Astro.props;
+---
+
+<div class="card">
+  <div class="card-header"><h2 class="card-title">{title}</h2></div>
+  <div class="overflow-x-auto">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>{columnLabel}</th>
+          <th class="text-right">{countLabel}</th>
+          <th class="text-right">Upiti</th>
+          <th class="text-right">Stopa</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.length === 0 && <tr><td colspan="4" class="text-center text-muted py-6">{empty}</td></tr>}
+        {rows.map((row) => (
+          <tr>
+            <td class="max-w-[16rem] truncate text-zinc-700" title={row.label}>{row.label}</td>
+            <td class="text-right tabular-nums">{row.count.toLocaleString('sr-Latn-RS')}</td>
+            <td class="text-right tabular-nums font-semibold text-ink">{row.leads}</td>
+            <td class="text-right tabular-nums text-muted">{rate(row.leads, row.count)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>

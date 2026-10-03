@@ -6,7 +6,8 @@ import DailyChart from '@/admin/components/DailyChart.astro';
 import BarList from '@/admin/components/BarList.astro';
 import LeadTable from '@/admin/components/LeadTable.astro';
 import { db } from '@/admin/lib/supabase';
-import { dailySeries, summarize, countBy } from '@/admin/lib/stats';
+import { dailySeries, summarize } from '@/admin/lib/stats';
+import { sitesOverview, rate } from '@/admin/lib/analytics';
 import type { Lead, Site } from '@/admin/lib/types';
 
 const since = new Date(Date.now() - 60 * 86_400_000).toISOString();
@@ -29,10 +30,8 @@ const series = sites
   }))
   .filter((s) => s.data.some((n) => n > 0));
 
-const bySite = countBy(
-  leads.filter((l) => Date.now() - new Date(l.created_at).getTime() < 30 * 86_400_000),
-  (l) => siteMap.get(l.site_id)?.name ?? '—',
-);
+const overview = (await sitesOverview(sites, 30)).sort((a, b) => b.visitors - a.visitors || b.leads - a.leads);
+const visitors30 = overview.reduce((n, o) => n + o.visitors, 0);
 const changeNote =
   stats.change === null ? 'nema podataka za prethodni period' : `${stats.change >= 0 ? '+' : ''}${stats.change}% u odnosu na prethodnih 30 dana`;
 ---
@@ -57,13 +56,33 @@ const changeNote =
       note={changeNote}
       tone={stats.change === null ? 'neutral' : stats.change >= 0 ? 'up' : 'down'}
     />
-    <StatCard label="Aktivnih sajtova" value={sites.filter((s) => s.active).length} />
+    <StatCard label="Posetioci, 30 dana" value={visitors30.toLocaleString('sr-Latn-RS')} note={`na ${sites.filter((s) => s.active).length} aktivnih sajtova`} />
   </div>
 
   <DailyChart title="Lidovi po danu (30 dana)" labels={labels} series={series.length ? series : [{ label: 'Lidovi', data: labels.map(() => 0) }]} />
 
   <div class="grid lg:grid-cols-2 gap-6">
-    <BarList title="Po sajtu (30 dana)" items={bySite} />
+    <div class="card">
+      <div class="card-header"><h2 class="card-title">Sajtovi, 30 dana</h2></div>
+      <div class="overflow-x-auto">
+        <table class="table">
+          <thead>
+            <tr><th>Sajt</th><th class="text-right">Posetioci</th><th class="text-right">Upiti</th><th class="text-right">Stopa</th></tr>
+          </thead>
+          <tbody>
+            {overview.length === 0 && <tr><td colspan="4" class="text-center text-muted py-6">Još nema sajtova.</td></tr>}
+            {overview.map((o) => (
+              <tr>
+                <td><a href={`/admin/sites/${o.site.id}`} class="font-medium text-ink hover:text-primary">{o.site.name}</a></td>
+                <td class="text-right tabular-nums">{o.visitors.toLocaleString('sr-Latn-RS')}</td>
+                <td class="text-right tabular-nums font-semibold text-ink">{o.leads}</td>
+                <td class="text-right tabular-nums text-muted">{rate(o.leads, o.visits)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
     <BarList title="Po izvoru (60 dana)" items={stats.bySource} />
   </div>
 

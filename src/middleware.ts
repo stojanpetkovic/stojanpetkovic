@@ -3,9 +3,9 @@ import { authClient } from '@/admin/lib/supabase';
 import { env } from '@/admin/lib/env';
 import { isSameOrigin } from '@/admin/lib/csrf';
 
-// The one endpoint other sites post to. It checks the caller's origin against
-// the submitting site's own domain instead (src/pages/api/leads.ts).
-const CROSS_SITE_ENDPOINT = '/api/leads';
+// The endpoints client sites post to. Each checks the caller's origin against
+// the submitting site's own domain instead (src/pages/api/leads.ts, hit.ts).
+const CROSS_SITE_ENDPOINTS = ['/api/leads', '/api/hit'];
 
 /**
  * Same-origin check for every state-changing request, then the login guard
@@ -13,7 +13,7 @@ const CROSS_SITE_ENDPOINT = '/api/leads';
  * straight through, so the site itself never waits on an auth check.
  *
  * Astro's built-in `security.checkOrigin` is off because it would also reject
- * the cross-site submissions /api/leads exists to receive; the check below
+ * the cross-site submissions /api/leads and /api/hit exist to receive; the check below
  * covers the contact and newsletter endpoints the same way it did.
  */
 export const onRequest = defineMiddleware(async (context, next) => {
@@ -23,7 +23,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
   if (context.isPrerendered) return next();
 
   const changesState = !['GET', 'HEAD', 'OPTIONS'].includes(context.request.method);
-  const crossSiteAllowed = pathname === CROSS_SITE_ENDPOINT || pathname === `${CROSS_SITE_ENDPOINT}/`;
+  const crossSiteAllowed = CROSS_SITE_ENDPOINTS.some((p) => pathname === p || pathname === `${p}/`);
   if (changesState && !crossSiteAllowed && !isSameOrigin(context.request)) {
     return new Response('Forbidden', { status: 403 });
   }

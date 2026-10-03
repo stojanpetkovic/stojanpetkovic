@@ -38,15 +38,11 @@ export function readSiteForm(form: FormData) {
   const email_language = form.get('email_language') === 'en' ? 'en' : 'sr';
   const tz = String(form.get('timezone') ?? 'Europe/Belgrade');
   const timezone = TIMEZONES.some((t) => t.value === tz) ? tz : 'Europe/Belgrade';
-  const ga4 = String(form.get('ga4_property_id') ?? '')
-    .trim()
-    .replace(/^properties\//, '');
 
   const errors: string[] = [];
   if (!name) errors.push('Naziv sajta je obavezan.');
   if (!domain || !domain.includes('.')) errors.push('Domen nije ispravan (npr. valenaapartmani.com).');
   if (invalid.length) errors.push(`Neispravni emailovi: ${invalid.join(', ')}`);
-  if (ga4 && !/^\d+$/.test(ga4)) errors.push('GA4 Property ID je broj (npr. 412345678), ne G-XXXX merni ID.');
 
   return {
     errors,
@@ -58,7 +54,6 @@ export function readSiteForm(form: FormData) {
       email_language,
       timezone,
       notify_owner: form.get('notify_owner') === 'on',
-      ga4_property_id: ga4 || null,
       active: form.has('active') ? form.getAll('active').includes('on') : true,
     },
   };
