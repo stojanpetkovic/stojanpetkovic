@@ -1,5 +1,6 @@
 ---
 export const prerender = false;
+import { Icon } from 'astro-icon/components';
 import AdminLayout from '@/admin/layouts/AdminLayout.astro';
 import StatCard from '@/admin/components/StatCard.astro';
 import DailyChart from '@/admin/components/DailyChart.astro';
@@ -36,9 +37,9 @@ const changeNote =
   stats.change === null ? 'nema podataka za prethodni period' : `${stats.change >= 0 ? '+' : ''}${stats.change}% u odnosu na prethodnih 30 dana`;
 ---
 
-<AdminLayout title="Pregled">
+<AdminLayout title="Kontrolna tabla">
   {sites.length === 0 && (
-    <div class="card card-body flex flex-wrap items-center justify-between gap-4">
+    <div class="card card-body flex flex-wrap items-center justify-between gap-5">
       <div>
         <h2 class="card-title">Dodaj prvi sajt</h2>
         <p class="text-muted mt-1">Svaki sajt dobija svoj ključ i jednu liniju koda koja šalje forme ovde.</p>
@@ -47,21 +48,23 @@ const changeNote =
     </div>
   )}
 
-  <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
-    <StatCard label="Danas" value={stats.today} />
-    <StatCard label="Poslednjih 7 dana" value={stats.last7} />
+  <div class="grid grid-cols-2 xl:grid-cols-4 gap-5">
+    <StatCard icon="lucide:calendar-check" color="success" label="Upiti danas" value={stats.today} />
+    <StatCard icon="lucide:calendar-days" color="warning" label="Upiti, 7 dana" value={stats.last7} />
     <StatCard
-      label="Poslednjih 30 dana"
+      icon="lucide:inbox"
+      color="secondary"
+      label="Upiti, 30 dana"
       value={stats.last30}
       note={changeNote}
       tone={stats.change === null ? 'neutral' : stats.change >= 0 ? 'up' : 'down'}
     />
-    <StatCard label="Posetioci, 30 dana" value={visitors30.toLocaleString('sr-Latn-RS')} note={`na ${sites.filter((s) => s.active).length} aktivnih sajtova`} />
+    <StatCard icon="lucide:users" color="info" label="Posetioci, 30 dana" value={visitors30.toLocaleString('sr-Latn-RS')} note={`na ${sites.filter((s) => s.active).length} aktivnih sajtova`} />
   </div>
 
   <DailyChart title="Lidovi po danu (30 dana)" labels={labels} series={series.length ? series : [{ label: 'Lidovi', data: labels.map(() => 0) }]} />
 
-  <div class="grid lg:grid-cols-2 gap-6">
+  <div class="grid lg:grid-cols-2 gap-5">
     <div class="card">
       <div class="card-header"><h2 class="card-title">Sajtovi, 30 dana</h2></div>
       <div class="overflow-x-auto">
@@ -89,7 +92,7 @@ const changeNote =
   <div class="card">
     <div class="card-header">
       <h2 class="card-title">Poslednji lidovi</h2>
-      <a href="/admin/leads" class="btn btn-light btn-sm">Svi lidovi</a>
+      <a href="/admin/leads" class="btn btn-sm btn-soft">Svi lidovi <Icon name="lucide:move-right" class="size-4" /></a>
     </div>
     <LeadTable leads={leads.slice(0, 10)} sites={siteMap} />
   </div>

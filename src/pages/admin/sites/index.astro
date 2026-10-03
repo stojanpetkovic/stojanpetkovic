@@ -72,7 +72,7 @@ for (const row of recent ?? []) {
     <div class="card-header"><h2 class="card-title">Dodaj sajt</h2></div>
     <div class="card-body space-y-4">
       {errors.length > 0 && (
-        <ul class="rounded bg-orange-50 px-4 py-3 text-[13px] text-orange-700 list-disc list-inside" role="alert">
+        <ul class="alert alert-danger list-disc list-inside" role="alert">
           {errors.map((e) => <li>{e}</li>)}
         </ul>
       )}

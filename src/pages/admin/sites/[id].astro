@@ -1,5 +1,6 @@
 ---
 export const prerender = false;
+import { Icon } from 'astro-icon/components';
 import AdminLayout from '@/admin/layouts/AdminLayout.astro';
 import SiteFields from '@/admin/components/SiteFields.astro';
 import StatCard from '@/admin/components/StatCard.astro';
@@ -71,10 +72,10 @@ const origin = Astro.site ? new URL(Astro.site).origin : Astro.url.origin;
 const snippet = `<script src="${origin}/leads.js" data-site-key="${site.site_key}" defer></script>`;
 ---
 
-<AdminLayout title={site.name}>
-  {notice && <div class="rounded bg-green-50 px-4 py-3 text-[13px] text-green-700" role="status">{notice}</div>}
+<AdminLayout title={site.name} crumbs={[{ label: 'Sajtovi', href: '/admin/sites' }]}>
+  {notice && <div class="alert alert-success" role="status">{notice}</div>}
   {errors.length > 0 && (
-    <ul class="rounded bg-orange-50 px-4 py-3 text-[13px] text-orange-700 list-disc list-inside" role="alert">
+    <ul class="alert alert-danger list-disc list-inside" role="alert">
       {errors.map((e) => <li>{e}</li>)}
     </ul>
   )}
@@ -83,7 +84,7 @@ const snippet = `<script src="${origin}/leads.js" data-site-key="${site.site_key
     <a href={`https://${site.domain}`} target="_blank" rel="noopener" class="text-primary hover:underline">{site.domain}</a>
     {site.client_name && <span class="text-muted">· {site.client_name}</span>}
     {!site.active && <span class="badge badge-lost">Pauziran</span>}
-    <a href={`/admin/leads?site=${site.id}`} class="btn btn-light btn-sm ml-auto">Svi lidovi ovog sajta</a>
+    <a href={`/admin/leads?site=${site.id}`} class="btn btn-sm btn-soft ml-auto">Svi lidovi ovog sajta <Icon name="lucide:move-right" class="size-4" /></a>
   </div>
 
   <div class="flex flex-wrap items-center justify-between gap-3">
@@ -92,18 +93,18 @@ const snippet = `<script src="${origin}/leads.js" data-site-key="${site.site_key
   </div>
 
   {!analytics.hasData && (
-    <div class="rounded bg-sky-50 px-4 py-3 text-[13px] text-sky-800">
+    <div class="alert alert-info">
       Još nema zabeleženih poseta za ovaj period. Posete se broje čim je kod za ugradnju na sajtu, a brojke se
       osvežavaju na svakih 15 minuta.
     </div>
   )}
 
-  <div class="grid grid-cols-2 xl:grid-cols-5 gap-4">
-    <StatCard label="Posetioci" value={t.visitors.toLocaleString('sr-Latn-RS')} note={visitorsChange.text} tone={visitorsChange.tone} />
-    <StatCard label="Posete" value={t.visits.toLocaleString('sr-Latn-RS')} />
-    <StatCard label="Pregledi stranica" value={t.views.toLocaleString('sr-Latn-RS')} />
-    <StatCard label="Upiti" value={t.leads} note={leadsChange.text} tone={leadsChange.tone} />
-    <StatCard label="Stopa konverzije" value={rate(t.leads, t.visits)} note="upiti na 100 poseta" />
+  <div class="grid grid-cols-2 xl:grid-cols-5 gap-5">
+    <StatCard icon="lucide:users" color="success" label="Posetioci" value={t.visitors.toLocaleString('sr-Latn-RS')} note={visitorsChange.text} tone={visitorsChange.tone} />
+    <StatCard icon="lucide:mouse-pointer-click" color="warning" label="Posete" value={t.visits.toLocaleString('sr-Latn-RS')} />
+    <StatCard icon="lucide:eye" color="secondary" label="Pregledi stranica" value={t.views.toLocaleString('sr-Latn-RS')} />
+    <StatCard icon="lucide:inbox" color="info" label="Upiti" value={t.leads} note={leadsChange.text} tone={leadsChange.tone} />
+    <StatCard icon="lucide:percent" color="primary" label="Stopa konverzije" value={rate(t.leads, t.visits)} note="upiti na 100 poseta" />
   </div>
 
   <DailyChart
@@ -116,7 +117,7 @@ const snippet = `<script src="${origin}/leads.js" data-site-key="${site.site_key
     ]}
   />
 
-  <div class="grid lg:grid-cols-2 gap-6">
+  <div class="grid lg:grid-cols-2 gap-5">
     <ConversionTable
       title="Odakle dolaze"
       columnLabel="Izvor"
@@ -131,17 +132,17 @@ const snippet = `<script src="${origin}/leads.js" data-site-key="${site.site_key
     />
   </div>
 
-  <div class="grid lg:grid-cols-3 gap-6">
+  <div class="grid lg:grid-cols-3 gap-5">
     <BarList title="Uređaji" items={analytics.devices} />
     <BarList title="Zemlje" items={analytics.countries} />
     <BarList title="Upiti po formi" items={countBy(leads, (l) => l.form_name)} />
   </div>
 
-  <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
-    <StatCard label="Upiti danas" value={stats.today} />
-    <StatCard label="Upiti, 7 dana" value={stats.last7} />
-    <StatCard label="Stopa dogovora" value={stats.winRate === null ? '—' : `${stats.winRate}%`} note="od lidova označenih kao dogovoren/izgubljen" />
-    <StatCard label="Novi, neobrađeni" value={leads.filter((l) => l.status === 'new').length} />
+  <div class="grid grid-cols-2 xl:grid-cols-4 gap-5">
+    <StatCard icon="lucide:calendar-check" color="success" label="Upiti danas" value={stats.today} />
+    <StatCard icon="lucide:calendar-days" color="warning" label="Upiti, 7 dana" value={stats.last7} />
+    <StatCard icon="lucide:handshake" color="secondary" label="Stopa dogovora" value={stats.winRate === null ? '—' : `${stats.winRate}%`} note="od lidova označenih kao dogovoren/izgubljen" />
+    <StatCard icon="lucide:bell-ring" color="info" label="Novi, neobrađeni" value={leads.filter((l) => l.status === 'new').length} />
   </div>
 
   <div class="card">
@@ -176,7 +177,7 @@ const snippet = `<script src="${origin}/leads.js" data-site-key="${site.site_key
 
   <div class="card">
     <div class="card-header"><h2 class="card-title">Opasna zona</h2></div>
-    <div class="card-body grid md:grid-cols-2 gap-6">
+    <div class="card-body grid md:grid-cols-2 gap-5">
       <form method="post" class="space-y-2">
         <input type="hidden" name="action" value="rotate-key" />
         <p class="text-[13px]">Napravi novi ključ ako je stari zloupotrebljen. Kod na sajtu mora da se zameni.</p>

@@ -1,20 +1,49 @@
 ---
 import '@/admin/styles/admin.css';
 import { Icon } from 'astro-icon/components';
+import { db } from '@/admin/lib/supabase';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
 
 interface Props {
   title: string;
-  heading?: string;
+  /** Trail shown to the right of the page title; the page itself is added last. */
+  crumbs?: Crumb[];
 }
 
-const { title, heading = title } = Astro.props;
-const path = Astro.url.pathname;
-const email = Astro.locals.adminEmail;
+const { title, crumbs = [] } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/admin';
+const email = Astro.locals.adminEmail ?? '';
+const initial = email.charAt(0).toUpperCase() || 'S';
 
-const nav = [
-  { href: '/admin', label: 'Pregled', icon: 'lucide:layout-dashboard', active: path === '/admin' || path === '/admin/' },
-  { href: '/admin/leads', label: 'Lidovi', icon: 'lucide:inbox', active: path.startsWith('/admin/leads') },
-  { href: '/admin/sites', label: 'Sajtovi', icon: 'lucide:globe', active: path.startsWith('/admin/sites') },
+// Unhandled leads, shown as a count beside "Lidovi" in the menu.
+const { count: newLeads } = await db()
+  .from('leads')
+  .select('id', { count: 'exact', head: true })
+  .eq('status', 'new')
+  .eq('is_spam', false);
+
+const sections = [
+  {
+    title: 'Pregled',
+    items: [{ href: '/admin', label: 'Kontrolna tabla', icon: 'lucide:monitor-dot', active: path === '/admin' }],
+  },
+  {
+    title: 'Upravljanje',
+    items: [
+      {
+        href: '/admin/leads',
+        label: 'Lidovi',
+        icon: 'lucide:inbox',
+        active: path.startsWith('/admin/leads'),
+        badge: newLeads ?? 0,
+      },
+      { href: '/admin/sites', label: 'Sajtovi', icon: 'lucide:globe', active: path.startsWith('/admin/sites') },
+    ],
+  },
 ];
 ---
 
@@ -25,54 +54,134 @@ const nav = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" href="/admin-favicon.svg" type="image/svg+xml" />
-    <title>{title} · Admin</title>
+    <title>{title} · Stojan Admin</title>
   </head>
   <body>
     <input type="checkbox" id="nav-toggle" class="peer hidden" />
 
     <aside
-      class="fixed inset-y-0 left-0 z-40 w-sidenav -translate-x-full bg-white border-r border-line transition-transform peer-checked:translate-x-0 lg:translate-x-0"
+      class="fixed inset-y-0 start-0 z-40 flex w-sidenav -translate-x-full flex-col border-e border-zinc-900/10 bg-white transition-transform duration-300 peer-checked:translate-x-0 lg:translate-x-0 print:hidden"
     >
-      <div class="flex h-topbar items-center gap-2.5 px-6 border-b border-line">
-        <span class="grid size-8 place-items-center rounded bg-primary text-white font-bold">S</span>
-        <span class="font-semibold text-ink">Stojan Admin</span>
-      </div>
-      <nav class="p-4 space-y-1">
-        <div class="px-3 pb-2 text-[11px] font-semibold uppercase tracking-wider text-zinc-400">Meni</div>
-        {nav.map(({ href, label, icon, active }) => (
-          <a
-            href={href}
-            class:list={[
-              'flex items-center gap-3 rounded px-3 py-2 text-sm font-medium transition-colors',
-              active ? 'bg-primary/10 text-primary' : 'text-zinc-600 hover:bg-zinc-100 hover:text-ink',
-            ]}
-            aria-current={active ? 'page' : undefined}
-          >
-            <Icon name={icon} class="size-[18px]" />
-            {label}
-          </a>
-        ))}
-      </nav>
-    </aside>
-    <label for="nav-toggle" class="fixed inset-0 z-30 hidden bg-black/30 peer-checked:block lg:peer-checked:hidden" aria-hidden="true"></label>
+      <a href="/admin" class="flex h-topbar shrink-0 items-center gap-2.5 px-6">
+        <span class="grid size-7 place-items-center rounded bg-primary text-sm font-bold text-white">S</span>
+        <span class="text-[17px] font-bold tracking-tight text-zinc-800">Stojan<span class="text-primary">Admin</span></span>
+      </a>
 
-    <div class="lg:pl-sidenav min-h-screen flex flex-col">
-      <header class="sticky top-0 z-20 flex h-topbar items-center gap-3 border-b border-line bg-white/95 backdrop-blur px-4 lg:px-6 print:hidden">
-        <label for="nav-toggle" class="btn btn-light btn-sm lg:hidden cursor-pointer" aria-label="Otvori meni">
-          <Icon name="lucide:menu" class="size-4" />
-        </label>
-        <h1 class="text-base font-semibold truncate">{heading}</h1>
-        <div class="ml-auto flex items-center gap-3">
-          <span class="hidden sm:block text-xs text-muted">{email}</span>
-          <form method="post" action="/admin/logout">
-            <button class="btn btn-light btn-sm" type="submit"><Icon name="lucide:log-out" class="size-3.5" />Odjava</button>
-          </form>
+      <nav class="flex-1 overflow-y-auto p-3" aria-label="Glavni meni">
+        {
+          sections.map((section) => (
+            <div class="mb-1">
+              <div class="menu-title">{section.title}</div>
+              <ul class="mt-1 space-y-0.5">
+                {section.items.map((item) => (
+                  <li>
+                    <a href={item.href} class="menu-link" aria-current={item.active ? 'page' : undefined}>
+                      <Icon name={item.icon} class="size-[18px]" />
+                      <span>{item.label}</span>
+                      {'badge' in item && (item.badge ?? 0) > 0 && <span class="menu-badge">{item.badge}</span>}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </nav>
+
+      <div class="m-3 rounded bg-primary/10 p-4">
+        <p class="text-sm font-semibold text-zinc-800">Kod za sajtove</p>
+        <p class="mt-1 text-xs leading-relaxed text-zinc-600">
+          Jedna linija iz podešavanja sajta hvata forme i broji posete.
+        </p>
+        <a href="/admin/sites" class="btn btn-sm btn-primary mt-3 w-full">Sajtovi</a>
+      </div>
+    </aside>
+    <label
+      for="nav-toggle"
+      class="fixed inset-0 z-30 hidden bg-zinc-900/40 peer-checked:block lg:peer-checked:hidden"
+      aria-hidden="true"></label>
+
+    <div class="flex min-h-screen flex-col lg:ps-sidenav">
+      <header
+        class="sticky top-0 z-20 flex min-h-topbar items-center border-b border-zinc-200 bg-white print:hidden"
+      >
+        <div class="flex w-full items-center justify-between gap-4 px-4 lg:px-6">
+          <div class="flex items-center gap-5">
+            <label for="nav-toggle" class="btn size-9 cursor-pointer bg-zinc-400/10 p-0 hover:bg-zinc-100 lg:hidden" aria-label="Otvori meni">
+              <Icon name="lucide:align-left" class="size-5" />
+            </label>
+            <form method="get" action="/admin/leads" class="relative hidden items-center lg:flex" role="search">
+              <Icon name="lucide:search" class="pointer-events-none absolute start-3 size-4 text-zinc-500" />
+              <input
+                id="admin-search"
+                type="search"
+                name="q"
+                placeholder="Pretraži lidove…"
+                class="form-input w-64 border-transparent bg-zinc-100 ps-10 pe-12 focus:border-transparent focus:bg-white focus:ring-2 focus:ring-primary/20"
+                aria-label="Pretraži lidove po imenu, emailu ili telefonu"
+              />
+              <kbd class="pointer-events-none absolute end-3 text-xs font-medium text-zinc-500">⌘ K</kbd>
+            </form>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <a href="/admin/leads?status=new" class="btn relative size-9 rounded-full p-0 hover:bg-zinc-100" aria-label={`Novi lidovi: ${newLeads ?? 0}`}>
+              <Icon name="lucide:bell" class="size-5 text-zinc-600" />
+              {(newLeads ?? 0) > 0 && <span class="absolute end-2 top-2 size-2 rounded-full bg-danger ring-2 ring-white" />}
+            </a>
+            <div class="flex items-center gap-2.5 border-s border-zinc-200 ps-3">
+              <span class="grid size-9 place-items-center rounded-full bg-primary/15 text-sm font-semibold text-primary">{initial}</span>
+              <div class="hidden leading-tight sm:block">
+                <div class="text-sm font-semibold text-zinc-800">Stojan Petković</div>
+                <div class="text-xs text-zinc-500">{email}</div>
+              </div>
+              <form method="post" action="/admin/logout">
+                <button class="btn size-9 rounded-full p-0 text-zinc-600 hover:bg-zinc-100 hover:text-danger" type="submit" aria-label="Odjava" title="Odjava">
+                  <Icon name="lucide:log-out" class="size-4" />
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </header>
 
-      <main class="flex-1 p-4 lg:p-6 space-y-6">
+      <main class="flex-1 space-y-5 p-4 lg:p-6">
+        <div class="flex flex-wrap items-center gap-2 md:justify-between">
+          <h1 class="text-lg font-semibold text-zinc-900">{title}</h1>
+          <nav class="hidden items-center gap-2 text-sm font-medium text-zinc-700 md:flex" aria-label="Putanja">
+            <a href="/admin" class="hover:text-primary">Stojan Admin</a>
+            {
+              crumbs.map((c) => (
+                <>
+                  <Icon name="lucide:chevron-right" class="size-3.5 text-zinc-500" />
+                  {c.href ? <a href={c.href} class="hover:text-primary">{c.label}</a> : <span>{c.label}</span>}
+                </>
+              ))
+            }
+            <Icon name="lucide:chevron-right" class="size-3.5 text-zinc-500" />
+            <span aria-current="page" class="text-zinc-500">{title}</span>
+          </nav>
+        </div>
         <slot />
       </main>
+
+      <footer class="flex h-14 items-center justify-between border-t border-zinc-200 px-6 text-xs text-zinc-500 print:hidden">
+        <span>© {new Date().getFullYear()} Stojan Petković</span>
+        <span>Lidovi i analitika za sve sajtove</span>
+      </footer>
     </div>
+
+    <script>
+      // ⌘K / Ctrl+K or "/" jumps to the lead search, as in the Tailwick topbar.
+      document.addEventListener('keydown', (event) => {
+        const search = document.getElementById('admin-search') as HTMLInputElement | null;
+        if (!search) return;
+        const typing = (event.target as HTMLElement)?.closest('input, textarea, select, [contenteditable]');
+        if (((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') || (event.key === '/' && !typing)) {
+          event.preventDefault();
+          search.focus();
+        }
+      });
+    </script>
   </body>
 </html>

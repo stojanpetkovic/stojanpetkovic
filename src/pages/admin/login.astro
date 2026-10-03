@@ -1,6 +1,7 @@
 ---
 export const prerender = false;
 import '@/admin/styles/admin.css';
+import { Icon } from 'astro-icon/components';
 import { authClient } from '@/admin/lib/supabase';
 import { env } from '@/admin/lib/env';
 import { isSameOrigin } from '@/admin/lib/csrf';
@@ -37,30 +38,55 @@ if (Astro.request.method === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <link rel="icon" href="/admin-favicon.svg" type="image/svg+xml" />
-    <title>Prijava · Admin</title>
+    <title>Prijava · Stojan Admin</title>
   </head>
-  <body class="min-h-screen grid place-items-center p-4">
-    <div class="card w-full max-w-sm">
-      <div class="card-body p-8">
-        <div class="flex items-center gap-2.5 mb-6">
-          <span class="grid size-9 place-items-center rounded bg-primary text-white font-bold">S</span>
-          <div>
-            <div class="font-semibold text-ink">Stojan Admin</div>
-            <div class="text-xs text-muted">Lidovi i analitika za sve sajtove</div>
+  <body
+    class="flex min-h-screen items-center justify-center p-4"
+    style="background: radial-gradient(circle at 15% 20%, #c7d2fe 0, transparent 40%), radial-gradient(circle at 85% 15%, #fbcfe8 0, transparent 38%), radial-gradient(circle at 80% 85%, #bae6fd 0, transparent 40%), radial-gradient(circle at 20% 85%, #ddd6fe 0, transparent 40%), #f4f4f5;"
+  >
+    <div class="w-full max-w-4xl rounded-[0.3rem] bg-white/60 p-3 shadow-sm backdrop-blur-xl">
+      <div class="grid gap-3 lg:grid-cols-2">
+        <div class="flex flex-col justify-center px-6 py-10 sm:px-10">
+          <div class="mb-8 text-center">
+            <h1 class="text-lg font-semibold text-primary">Dobro došao nazad!</h1>
+            <p class="mt-2 text-sm text-zinc-600">Prijavi se u Stojan Admin.</p>
           </div>
+          {error && <div class="alert alert-danger mb-4" role="alert">{error}</div>}
+          <form method="post" class="space-y-4">
+            <div>
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input bg-white" id="email" name="email" type="email" autocomplete="username" placeholder="Unesi email" required />
+            </div>
+            <div>
+              <label class="form-label" for="password">Lozinka</label>
+              <input class="form-input bg-white" id="password" name="password" type="password" autocomplete="current-password" placeholder="Unesi lozinku" required />
+            </div>
+            <button class="btn btn-primary mt-2 w-full py-2.5" type="submit">Prijavi se</button>
+          </form>
+          <p class="mt-8 text-center text-xs text-zinc-500">Pristup ima samo vlasnik naloga.</p>
         </div>
-        {error && <div class="mb-4 rounded bg-orange-50 px-3 py-2 text-[13px] text-orange-700" role="alert">{error}</div>}
-        <form method="post" class="space-y-4">
-          <div>
-            <label class="form-label" for="email">Email</label>
-            <input class="form-input" id="email" name="email" type="email" autocomplete="username" required />
+
+        <div class="hidden flex-col justify-between rounded-[0.3rem] bg-white/70 p-8 lg:flex">
+          <div class="flex items-center gap-2.5">
+            <span class="grid size-7 place-items-center rounded bg-primary text-sm font-bold text-white">S</span>
+            <span class="text-[17px] font-bold tracking-tight text-zinc-800">Stojan<span class="text-primary">Admin</span></span>
           </div>
-          <div>
-            <label class="form-label" for="password">Lozinka</label>
-            <input class="form-input" id="password" name="password" type="password" autocomplete="current-password" required />
-          </div>
-          <button class="btn btn-primary w-full" type="submit">Prijavi se</button>
-        </form>
+          <ul class="my-10 space-y-5">
+            <li class="flex items-start gap-3">
+              <span class="grid size-10 shrink-0 place-items-center rounded bg-success/15 text-success"><Icon name="lucide:inbox" class="size-5" /></span>
+              <span><span class="block text-sm font-semibold text-zinc-800">Lidovi sa svih sajtova</span><span class="text-xs text-zinc-600">Svaka forma stiže ovde i na email klijentu.</span></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="grid size-10 shrink-0 place-items-center rounded bg-info/15 text-info"><Icon name="lucide:chart-column" class="size-5" /></span>
+              <span><span class="block text-sm font-semibold text-zinc-800">Posete bez kolačića</span><span class="text-xs text-zinc-600">Odakle dolaze posetioci i koliko ih postane upit.</span></span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="grid size-10 shrink-0 place-items-center rounded bg-secondary/15 text-secondary"><Icon name="lucide:file-text" class="size-5" /></span>
+              <span><span class="block text-sm font-semibold text-zinc-800">Izveštaji za klijente</span><span class="text-xs text-zinc-600">Jasne brojke koje klijent razume.</span></span>
+            </li>
+          </ul>
+          <p class="text-xs text-zinc-500">© {new Date().getFullYear()} Stojan Petković</p>
+        </div>
       </div>
     </div>
   </body>

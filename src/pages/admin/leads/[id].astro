@@ -62,8 +62,8 @@ const meta: [string, string | null][] = [
 ];
 ---
 
-<AdminLayout title={title}>
-  {notice && <div class="rounded bg-green-50 px-4 py-3 text-[13px] text-green-700" role="status">{notice}</div>}
+<AdminLayout title={title} crumbs={[{ label: 'Lidovi', href: '/admin/leads' }]}>
+  {notice && <div class="alert alert-success" role="status">{notice}</div>}
 
   <div class="flex flex-wrap items-center gap-2">
     <a href="/admin/leads" class="btn btn-light btn-sm">← Svi lidovi</a>
@@ -74,7 +74,7 @@ const meta: [string, string | null][] = [
     </div>
   </div>
 
-  <div class="grid lg:grid-cols-3 gap-6">
+  <div class="grid lg:grid-cols-3 gap-5">
     <div class="lg:col-span-2 space-y-6">
       <div class="card">
         <div class="card-header"><h2 class="card-title">Podaci iz forme</h2></div>
