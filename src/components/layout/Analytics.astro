@@ -147,7 +147,7 @@ const analyticsDataJson = JSON.stringify({
       (function(){
         const d = JSON.parse(document.getElementById('analytics-data').textContent);
         window.dataLayer = window.dataLayer || [];
-        function gtag(...args){window.dataLayer.push(args);}
+        function gtag(){window.dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', d.gaId);
       })();
@@ -161,7 +161,7 @@ const analyticsDataJson = JSON.stringify({
     (function(){
       const d = JSON.parse(document.getElementById('analytics-data').textContent);
       window.dataLayer = window.dataLayer || [];
-      function gtag(...args){window.dataLayer.push(args);}
+      function gtag(){window.dataLayer.push(arguments);}
 
       let stored = null;
       try {
@@ -228,7 +228,7 @@ const analyticsDataJson = JSON.stringify({
       (function(){
         const d = JSON.parse(document.getElementById('analytics-data').textContent);
         window.dataLayer = window.dataLayer || [];
-        function gtag(...args){window.dataLayer.push(args);}
+        function gtag(){window.dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', d.gaId);
       })();
@@ -274,7 +274,7 @@ const analyticsDataJson = JSON.stringify({
         s.src = 'https://www.googletagmanager.com/gtag/js?id=' + d.gaId;
         document.head.appendChild(s);
         window.dataLayer = window.dataLayer || [];
-        function gtag(...args){window.dataLayer.push(args);}
+        function gtag(){window.dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', d.gaId);
       }
