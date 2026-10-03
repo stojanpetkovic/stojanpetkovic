@@ -1,54 +1,59 @@
 ---
 title: "SF Tree Removal"
 locale: en
-description: "A lead-generation platform built end to end — backend, frontend, and brand — that compiles public permit filings into qualified tree-service leads and notifies contractors and truck owners the moment one comes in."
+description: "A fast, static website for a South Florida tree service: service and city pages built for local search, plain-language guides, and contact that runs entirely through forms, so every inquiry arrives complete and gets counted."
 url: "https://sftreeremoval.com"
-tags: ["Astro", "Supabase", "Full-Stack", "Client Work"]
+tags: ["Astro", "SEO", "Client Work"]
 featured: true
 order: 2
 year: 2026
 client: "SF Tree Removal"
-role: "Full-Stack Developer"
-services: ["Web Development", "Backend & Database", "Branding"]
-meta: ["South Florida lead marketplace", "Astro + Supabase", "Custom CMS & dashboard", "Logo & brand identity"]
-icon: "radar"
-image: "../../../assets/projects/sf-tree-removal-permit-leads.png"
-imageAlt: "The public Potential Permit Leads page: qualified leads compiled from public permit records, sortable by date, score, and jurisdiction."
+role: "Developer & SEO Partner"
+services: ["Web Development", "SEO", "Lead Tracking"]
+meta: ["South Florida tree service", "Astro + Tailwind CSS", "Form-only contact", "Lighthouse 97 · 92 · 100 · 100"]
+icon: "trees"
+image: "../../../assets/projects/sf-tree-removal-home.webp"
+imageAlt: "The SF Tree Removal homepage hero: Protecting Your Property with Smart Tree Solutions, beside a photo of a crane grapple taking down a tree."
 gallery:
-  - src: "../../../assets/projects/sf-tree-removal-permit-leads.png"
-    alt: "The public Potential Permit Leads page: qualified leads compiled from public permit records, sortable by date, score, and jurisdiction."
-  - src: "../../../assets/projects/sf-tree-removal-dashboard.png"
-    alt: "The SF Tree Removal admin Command Center: live totals for website leads and external leads, plus an activity timeline of dispatch events."
-  - src: "../../../assets/projects/sf-tree-removal-lead-list.png"
-    alt: "An individual permit-lead record, showing the filer's name, phone, email, and the permit that qualified them as a lead."
-  - src: "../../../assets/projects/sf-tree-removal-login.png"
-    alt: "The staff-only Admin & Dispatch sign-in, gating the dashboard behind email/password or Google auth."
+  - src: "../../../assets/projects/sf-tree-removal-home.webp"
+    alt: "The SF Tree Removal homepage hero: Protecting Your Property with Smart Tree Solutions, beside a photo of a crane grapple taking down a tree."
+  - src: "../../../assets/projects/sf-tree-removal-services.webp"
+    alt: "The services section: Tree Removal, Emergency Tree Removal and Certified Arborist Services, each linking to its own page."
+  - src: "../../../assets/projects/sf-tree-removal-service-areas.webp"
+    alt: "The service-areas section, linking to dedicated pages for Miami, Fort Lauderdale, Hollywood, Pembroke Pines, Boca Raton and Broward County."
+  - src: "../../../assets/projects/sf-tree-removal-contact.webp"
+    alt: "The contact page: a free-estimate form with name, phone, email, service and city, and a note on marking a request as an emergency."
 ---
 
 import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
 
 export const lighthouseScores = [
-  { label: 'Performance', value: 69, icon: 'zap' },
-  { label: 'Accessibility', value: 88, icon: 'users' },
+  { label: 'Performance', value: 97, icon: 'zap' },
+  { label: 'Accessibility', value: 92, icon: 'users' },
   { label: 'Best Practices', value: 100, icon: 'shield-check' },
-  { label: 'SEO', value: 92, icon: 'search' },
+  { label: 'SEO', value: 100, icon: 'search' },
 ];
 
 ## The brief
 
-**SF Tree Removal** isn't a marketing site for one business — it's a **lead-generation platform** I designed and built end to end, for a client working the same South Florida tree-service market as [Tree Jaws](/projects/tree-jaws) but solving a different problem: finding and distributing leads at the source, instead of paying to rank for them or bidding on them in Google Ads. That meant a public brand and marketplace on one side, and a real backend with accounts, permissions, and automation on the other.
+**SF Tree Removal** offers tree removal, emergency storm response and certified arborist work across Miami-Dade, Broward and Palm Beach County. The domain had been running a heavy, app-like build that scored 69 for performance. The goal of the rebuild was simple: **a site that does one job well**. A homeowner searching for tree removal in their city should land on a page written for that city, understand what the company does, and send a request in under a minute.
 
-## Backend, frontend, and the brand itself
+## Built for local search
 
-I designed the **shield-and-pine logo** and built the whole platform on **Astro with a Supabase (Postgres) backend** — **25+ database tables**, all behind row-level security, covering leads, contractors, truck owners, credits, and audit logs. The public side is the SF Tree Removal marketplace: a permit-leads directory, a contractors page, and a blog. The private side is a password-protected **Admin & Dispatch Command Center** — staff sign in with email/password or Google — showing live totals, a filterable lead queue, and an activity timeline of every automated action the platform takes. There's even a small custom CMS behind it: blog posts are written, edited, and published from inside the dashboard rather than committed as files.
+The site is **Astro with Tailwind CSS**, shipped as static HTML. There is no framework runtime in the browser and nothing to wait for. The structure follows how people actually search:
 
-## Compiling permit leads from public records
+- **Service pages** for tree removal, emergency removal, tree trimming and stump grinding, and certified arborist work.
+- **City and county pages** for Miami, Fort Lauderdale, Hollywood, Pembroke Pines, Boca Raton, Broward County and Palm Beach County. All of them sit under one `/areas/` hub, so they support each other instead of competing.
+- **Tree care guides** that answer the questions homeowners ask before they hire anyone: what removal costs in South Florida, when a permit is needed, how to prepare trees for hurricane season, and what an arborist actually does.
+- **A permits page and an FAQ** for the local rules and the questions that come up on every job.
 
-The core data source is **public permit records**: tree-removal and landscape permits filed with South Florida cities and counties are compiled and scored, then published to a **live, sortable directory** — by date found, permit date, lead score, or jurisdiction — with the filer's name, phone, and email already attached, since that's exactly what's on the public filing. At the time of the screenshots above the directory was running **219 qualified leads** across multiple jurisdictions, all surfaced without a single dollar spent on ads.
+Under the hood, every page carries its own title, description and canonical address. Structured data describes the business, its service area and its services. The sitemap leaves out pages that shouldn't be indexed. City pages that used to sit at the site root now redirect permanently to their new addresses, so the search history they had built up carries over instead of being lost.
 
-## Catching leads other sites miss, and telling people the moment one lands
+## Contact runs through forms
 
-Permit filings aren't the only signal. The platform also tracks **external leads** — inquiries and signals surfaced from other sites and sources — and routes them through the same pipeline as the directly-sourced ones, so nothing sits in two different systems. The moment a new lead clears that pipeline, the dashboard's automation fires an **availability notification by email to registered contractors and truck owners**, and logs it to the activity timeline so there's a record of exactly who was told and when. Contractors then **claim** a lead and truck owners **apply** for one, both gated behind a credit system, so the whole marketplace runs on accounts and permissions rather than a shared inbox.
+The site has **no phone number and no email address anywhere**. Contact runs entirely through forms: a full estimate form on the contact page, and a short callback form in the footer of every page. This was a deliberate choice. Every inquiry arrives as a complete request, with the visitor's name, number, the service they need, their city and a description of the job, instead of a missed call or a two-word email. A visitor with a fallen tree or storm damage picks *Emergency Tree Removal* in the form, and that request is handled first.
+
+Each submission goes straight into the same lead pipeline I run for my other client sites. The business gets an email the moment someone sends a request. Every inquiry is also counted in the **monthly report**, next to visits and where they came from, so the client can see what the website brings in rather than guess.
 
 ## Results
 
@@ -56,4 +61,4 @@ Permit filings aren't the only signal. The platform also tracks **external leads
   <LighthouseScoresGrid scores={lighthouseScores} />
 </div>
 
-The **69 Performance score is the honest trade-off of what this actually is**: not a static marketing page but a live, authenticated dashboard with real-time counts, filters, and an animated dark UI on the public side — there's simply more shipped to the browser than on a brochure site, and that's a fair price for the functionality. The number worth paying attention to instead is **219 qualified leads**, compiled and scored automatically, with contractors and truck owners notified the moment each one clears the pipeline.
+The rebuild took Performance from **69 to 97**, with **100 in both Best Practices and SEO**. More important than the numbers, the site now has a single, measurable path from a local search to a written estimate request. Every visit and every request shows up in the client's report.

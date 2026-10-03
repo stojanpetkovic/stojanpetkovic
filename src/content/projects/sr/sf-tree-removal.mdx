@@ -1,54 +1,59 @@
 ---
 title: "SF Tree Removal"
 locale: sr
-description: "Platforma za lead generation napravljena od A do Ž — backend, frontend i brend — koja iz javnih zahteva za dozvole pravi proverene upite za usluge sa drvećem i obaveštava izvođače i vlasnike kamiona čim stigne novi."
+description: "Brz, statičan sajt za firmu za uklanjanje drveća u Južnoj Floridi: stranice usluga i gradova napravljene za lokalnu pretragu, vodiči jasnim jezikom i kontakt isključivo preko formi, pa svaki upit stiže kompletan i biva izbrojan."
 url: "https://sftreeremoval.com"
-tags: ["Astro", "Supabase", "Full-Stack", "Klijentski projekti"]
+tags: ["Astro", "SEO", "Klijentski projekti"]
 featured: true
 order: 2
 year: 2026
 client: "SF Tree Removal"
-role: "Full-stack developer"
-services: ["Izrada sajta", "Backend i baza podataka", "Brending"]
-meta: ["Marketplace upita, Južna Florida", "Astro + Supabase", "CMS i dashboard po meri", "Logo i vizuelni identitet"]
-icon: "radar"
-image: "../../../assets/projects/sf-tree-removal-permit-leads.png"
-imageAlt: "Javna stranica Potential Permit Leads: provereni upiti iz javnih evidencija dozvola, sortirani po datumu, oceni i nadležnosti."
+role: "Developer i SEO partner"
+services: ["Izrada sajta", "SEO", "Praćenje upita"]
+meta: ["Usluge sa drvećem, Južna Florida", "Astro + Tailwind CSS", "Kontakt samo preko formi", "Lighthouse 97 · 92 · 100 · 100"]
+icon: "trees"
+image: "../../../assets/projects/sf-tree-removal-home.webp"
+imageAlt: "Početna strana SF Tree Removal: naslov Protecting Your Property with Smart Tree Solutions, pored fotografije dizalice koja uklanja drvo."
 gallery:
-  - src: "../../../assets/projects/sf-tree-removal-permit-leads.png"
-    alt: "Javna stranica Potential Permit Leads: provereni upiti iz javnih evidencija dozvola, sortirani po datumu, oceni i nadležnosti."
-  - src: "../../../assets/projects/sf-tree-removal-dashboard.png"
-    alt: "Admin Command Center za SF Tree Removal: ukupni brojevi upita sa sajta i spoljnih upita uživo, plus vremenska linija svih slanja."
-  - src: "../../../assets/projects/sf-tree-removal-lead-list.png"
-    alt: "Pojedinačan upit iz dozvole, sa imenom, telefonom i email-om podnosioca i dozvolom zbog koje je postao upit."
-  - src: "../../../assets/projects/sf-tree-removal-login.png"
-    alt: "Prijava za Admin & Dispatch samo za zaposlene, preko email-a i lozinke ili Google naloga."
+  - src: "../../../assets/projects/sf-tree-removal-home.webp"
+    alt: "Početna strana SF Tree Removal: naslov Protecting Your Property with Smart Tree Solutions, pored fotografije dizalice koja uklanja drvo."
+  - src: "../../../assets/projects/sf-tree-removal-services.webp"
+    alt: "Sekcija usluga: uklanjanje drveća, hitno uklanjanje i usluge sertifikovanog arboriste, svaka sa svojom stranicom."
+  - src: "../../../assets/projects/sf-tree-removal-service-areas.webp"
+    alt: "Sekcija oblasti rada, sa linkovima ka posebnim stranicama za Miami, Fort Lauderdale, Hollywood, Pembroke Pines, Boca Raton i Broward County."
+  - src: "../../../assets/projects/sf-tree-removal-contact.webp"
+    alt: "Kontakt strana: forma za besplatnu procenu sa imenom, telefonom, email-om, uslugom i gradom, i napomenom kako se zahtev označava kao hitan."
 ---
 
 import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
 
 export const lighthouseScores = [
-  { label: 'Performance', value: 69, icon: 'zap' },
-  { label: 'Accessibility', value: 88, icon: 'users' },
+  { label: 'Performance', value: 97, icon: 'zap' },
+  { label: 'Accessibility', value: 92, icon: 'users' },
   { label: 'Best Practices', value: 100, icon: 'shield-check' },
-  { label: 'SEO', value: 92, icon: 'search' },
+  { label: 'SEO', value: 100, icon: 'search' },
 ];
 
 ## Zadatak
 
-**SF Tree Removal** nije prezentacioni sajt jedne firme — to je **platforma za lead generation** koju sam dizajnirao i napravio od A do Ž, za klijenta koji radi na istom tržištu usluga sa drvećem u Južnoj Floridi kao [Tree Jaws](/sr/projects/tree-jaws), ali rešava drugi problem: kako naći i podeliti upite na samom izvoru, umesto da se plaća za pozicije u pretrazi ili licitira za njih u Google Ads-u. To je značilo javni brend i marketplace sa jedne strane, i pravi backend sa nalozima, dozvolama i automatizacijom sa druge.
+**SF Tree Removal** se bavi uklanjanjem drveća, hitnim intervencijama posle oluja i poslovima sertifikovanog arboriste u okruzima Miami-Dade, Broward i Palm Beach. Na domenu je ranije radila teška verzija nalik aplikaciji, sa ocenom 69 za performanse. Cilj novog sajta je bio jednostavan: **sajt koji jedan posao radi dobro**. Vlasnik kuće koji traži uklanjanje drveća u svom gradu treba da stigne na stranicu napisanu baš za taj grad, da razume šta firma radi i da pošalje zahtev za manje od minut.
 
-## Backend, frontend i sam brend
+## Napravljen za lokalnu pretragu
 
-Dizajnirao sam **logo sa štitom i borom** i napravio celu platformu u **Astro-u sa Supabase (Postgres) backendom** — **više od 25 tabela u bazi**, sve iza row-level security zaštite, za upite, izvođače, vlasnike kamiona, kredite i evidenciju aktivnosti. Javna strana je SF Tree Removal marketplace: imenik upita iz dozvola, stranica za izvođače i blog. Privatna strana je **Admin & Dispatch Command Center** zaštićen lozinkom — zaposleni se prijavljuju email-om i lozinkom ili preko Google-a — sa brojevima uživo, redom upita koji se može filtrirati i vremenskom linijom svake automatske akcije platforme. Iza svega je čak i mali CMS po meri: blog tekstovi se pišu, uređuju i objavljuju iz samog dashboarda, a ne kao fajlovi u kodu.
+Sajt je napravljen u **Astru sa Tailwind CSS-om** i isporučuje se kao statičan HTML. U browseru nema framework-a koji se učitava i nema čekanja. Struktura prati to kako ljudi zaista pretražuju:
 
-## Upiti iz javnih evidencija dozvola
+- **Stranice usluga** za uklanjanje drveća, hitno uklanjanje, orezivanje i uklanjanje panjeva i poslove sertifikovanog arboriste.
+- **Stranice gradova i okruga** za Miami, Fort Lauderdale, Hollywood, Pembroke Pines, Boca Raton, Broward County i Palm Beach County. Sve su pod jednim `/areas/` čvorištem, pa se međusobno podržavaju umesto da se takmiče.
+- **Vodiči za negu drveća** koji odgovaraju na pitanja koja vlasnici kuća postavljaju pre nego što bilo koga angažuju: koliko uklanjanje košta u Južnoj Floridi, kada je potrebna dozvola, kako pripremiti drveće za sezonu uragana i čime se arborista zapravo bavi.
+- **Stranica o dozvolama i FAQ** za lokalna pravila i pitanja koja se javljaju na svakom poslu.
 
-Glavni izvor podataka su **javne evidencije dozvola**: zahtevi za uklanjanje drveća i uređenje dvorišta podneti gradovima i okruzima u Južnoj Floridi se prikupljaju i ocenjuju, pa objavljuju u **imeniku uživo koji se može sortirati** — po datumu pronalaska, datumu dozvole, oceni upita ili nadležnosti — uz ime, telefon i email podnosioca, jer upravo to stoji u javnom zahtevu. U vreme kad su nastali snimci ekrana iznad, imenik je imao **219 proverenih upita** iz više nadležnosti, i sve bez ijednog dolara potrošenog na oglase.
+Ispod haube, svaka stranica ima svoj naslov, opis i kanonsku adresu. Strukturirani podaci opisuju firmu, područje rada i usluge. Sitemap izostavlja stranice koje ne treba indeksirati. Stranice gradova koje su ranije bile u korenu sajta sada se trajno preusmeravaju na nove adrese, pa se istorija u pretrazi koju su izgradile prenosi umesto da se izgubi.
 
-## Upiti koje drugi propuste — i obaveštenje čim stignu
+## Kontakt ide preko formi
 
-Zahtevi za dozvole nisu jedini signal. Platforma prati i **spoljne upite** — upite i signale sa drugih sajtova i izvora — i provlači ih kroz isti proces kao i one sa sopstvenih izvora, pa ništa ne stoji u dva odvojena sistema. Čim novi upit prođe proces, automatizacija u dashboardu šalje **email obaveštenje registrovanim izvođačima i vlasnicima kamiona** i beleži ga u vremensku liniju, pa uvek tačno znaš ko je obavešten i kada. Izvođači zatim **preuzimaju** upit, a vlasnici kamiona se **prijavljuju** za njega, i jedno i drugo uz sistem kredita — pa ceo marketplace radi preko naloga i dozvola, a ne preko zajedničkog inbox-a.
+Na sajtu **nema nijednog broja telefona niti email adrese**. Kontakt ide isključivo preko formi: kompletna forma za procenu na kontakt strani i kratka forma „pozovite me“ u footeru svake stranice. To je bila namerna odluka. Svaki upit stiže kao kompletan zahtev, sa imenom, brojem, potrebnom uslugom, gradom i opisom posla, umesto propuštenog poziva ili email-a od dve reči. Posetilac kome je palo drvo ili ima štetu od oluje bira *Emergency Tree Removal* u formi, i taj zahtev se rešava prvi.
+
+Svaka poslata forma ide pravo u isti sistem za upite koji vodim za ostale klijentske sajtove. Firma dobija email onog trenutka kad neko pošalje zahtev. Svaki upit se broji i u **mesečnom izveštaju**, pored poseta i toga odakle su došle, pa klijent vidi šta mu sajt donosi umesto da nagađa.
 
 ## Rezultati
 
@@ -56,4 +61,4 @@ Zahtevi za dozvole nisu jedini signal. Platforma prati i **spoljne upite** — u
   <LighthouseScoresGrid scores={lighthouseScores} />
 </div>
 
-**Ocena 69 za Performance je pošten kompromis za ono što ovo zaista jeste**: ne statička prezentacija, nego dashboard uživo sa prijavom, brojevima u realnom vremenu, filterima i animiranim tamnim interfejsom na javnoj strani — pregledaču se prosto šalje više nego kod obične prezentacije, i to je fer cena za tu funkcionalnost. Broj na koji vredi obratiti pažnju je **219 proverenih upita**, prikupljenih i ocenjenih automatski, uz obaveštenje izvođačima i vlasnicima kamiona čim svaki prođe proces.
+Novi sajt je podigao Performance sa **69 na 97**, uz **100 za Best Practices i SEO**. Važnije od brojeva: sajt sada ima jedan jasan i merljiv put od lokalne pretrage do pisanog zahteva za procenu. Svaka poseta i svaki zahtev vide se u klijentovom izveštaju.
