@@ -105,11 +105,13 @@ export const T = {
     visits: 'Posete',
     pageViews: 'Pregledi stranica',
     leads: 'Upiti',
+    calls: 'Pozivi',
+    contactClicks: 'Klikovi za kontakt',
     conversion: 'Stopa konverzije',
-    conversionHint: 'upita na 100 poseta',
+    conversionHint: 'upiti i pozivi na 100 poseta',
     vsPrevious: 'u odnosu na prethodni period',
     noPrevious: 'nema podataka za prethodni period',
-    daily: 'Posetioci i upiti po danu',
+    daily: 'Posetioci, upiti i pozivi po danu',
     sources: 'Odakle dolaze posetioci',
     source: 'Izvor',
     pages: 'Najposećenije stranice',
@@ -125,9 +127,9 @@ export const T = {
     rate: 'Stopa',
     footer: 'Izveštaj pripremio Stojan Petković · stojanpetkovic.com',
     notes:
-      'Posetioci se broje bez kolačića: ista osoba se računa jednom dnevno. Posete po izvoru računaju se po prvoj stranici svake posete.',
+      'Posetioci se broje bez kolačića: ista osoba se računa jednom dnevno. Posete po izvoru računaju se po prvoj stranici svake posete. Pozivi su klikovi na broj telefona, WhatsApp ili SMS na sajtu.',
     summary: (s: Summary) =>
-      `U periodu ${s.period} sajt je imao ${s.visitors} ${/(^|[^1])[1-4]$/.test(s.visitors.replace(/\D/g, '')) ? 'posetioca' : 'posetilaca'} i ${s.leads} ${s.leadsWord}` +
+      `U periodu ${s.period} sajt je imao ${s.visitors} ${/(^|[^1])[1-4]$/.test(s.visitors.replace(/\D/g, '')) ? 'posetioca' : 'posetilaca'}, ${s.leads} ${s.leadsWord} i ${s.calls} ${s.calls % 10 === 1 && s.calls % 100 !== 11 ? 'poziv' : 'poziva'}` +
       (s.rate ? `, što je stopa konverzije od ${s.rate}.` : '.') +
       (s.topSource ? ` Najviše poseta došlo je preko izvora „${s.topSource}“.` : ''),
     leadsWord: (n: number) => (n % 10 === 1 && n % 100 !== 11 ? 'upit' : 'upita'),
@@ -142,11 +144,13 @@ export const T = {
     visits: 'Visits',
     pageViews: 'Page views',
     leads: 'Inquiries',
+    calls: 'Calls',
+    contactClicks: 'Contact clicks',
     conversion: 'Conversion rate',
-    conversionHint: 'inquiries per 100 visits',
+    conversionHint: 'inquiries and calls per 100 visits',
     vsPrevious: 'vs. previous period',
     noPrevious: 'no data for the previous period',
-    daily: 'Visitors and inquiries by day',
+    daily: 'Visitors, inquiries and calls by day',
     sources: 'Where visitors come from',
     source: 'Source',
     pages: 'Most visited pages',
@@ -162,9 +166,9 @@ export const T = {
     rate: 'Rate',
     footer: 'Report prepared by Stojan Petković · stojanpetkovic.com',
     notes:
-      'Visitors are counted without cookies: the same person counts once per day. Visits by source are attributed to the first page of each visit.',
+      'Visitors are counted without cookies: the same person counts once per day. Visits by source are attributed to the first page of each visit. Calls are taps on the phone number, WhatsApp or text links on the website.',
     summary: (s: Summary) =>
-      `In ${s.period} the website had ${s.visitors} ${s.visitors === '1' ? 'visitor' : 'visitors'} and received ${s.leads} ${s.leadsWord}` +
+      `In ${s.period} the website had ${s.visitors} ${s.visitors === '1' ? 'visitor' : 'visitors'} and received ${s.leads} ${s.leadsWord} and ${s.calls} ${s.calls === 1 ? 'call' : 'calls'}` +
       (s.rate ? `, a conversion rate of ${s.rate}.` : '.') +
       (s.topSource ? ` Most visits came from ${s.topSource}.` : ''),
     leadsWord: (n: number) => (n === 1 ? 'inquiry' : 'inquiries'),
@@ -177,6 +181,7 @@ export interface Summary {
   period: string;
   visitors: string;
   leads: number;
+  calls: number;
   leadsWord: string;
   rate: string | null;
   topSource: string | null;
@@ -208,8 +213,9 @@ export function summaryOf(a: SiteAnalytics, periodLabel: string, locale: ReportL
     period: locale === 'en' ? periodLabel : periodLabel.toLowerCase(),
     visitors: formatNumber(a.totals.visitors, locale),
     leads: a.totals.leads,
+    calls: a.totals.calls,
     leadsWord: t.leadsWord(a.totals.leads),
-    rate: formatRate(a.totals.leads, a.totals.visits, locale),
+    rate: formatRate(a.totals.contacts, a.totals.visits, locale),
     topSource: top && top.visits ? channelLabel(top.label, locale) : null,
   });
 }

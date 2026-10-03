@@ -5,7 +5,7 @@ import { isSameOrigin } from '@/admin/lib/csrf';
 
 // The endpoints client sites post to. Each checks the caller's origin against
 // the submitting site's own domain instead (src/pages/api/leads.ts, hit.ts).
-const CROSS_SITE_ENDPOINTS = ['/api/leads', '/api/hit'];
+const CROSS_SITE_ENDPOINTS = ['/api/leads', '/api/hit', '/api/event'];
 
 /**
  * Same-origin check for every state-changing request, then the login guard

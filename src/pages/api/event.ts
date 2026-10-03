@@ -7,10 +7,12 @@ import { channelOf, referrerHost } from '@/admin/lib/channels';
 import { cleanPath, country, device, noContent, readBeacon, visitorHash } from '@/admin/lib/collector';
 
 /*
- * Page-view collector for the admin's own analytics. leads.js posts one small
- * request per page. No cookies and no IP address are stored: unique visitors
- * are counted with a hash that changes every day (see visitor_hash).
+ * Contact-click collector: leads.js reports a click on a call, WhatsApp, SMS
+ * or email link, with the campaign the visitor first arrived from, so calls
+ * count as conversions next to form inquiries.
  */
+
+const KINDS = ['call', 'whatsapp', 'sms', 'email'] as const;
 
 export const OPTIONS: APIRoute = ({ request }) => noContent(request.headers.get('origin'));
 
@@ -20,27 +22,29 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (!beacon) return noContent(origin);
   const { site, body, ua } = beacon;
 
-  const entry = body.entry === true;
+  const kind = KINDS.find((k) => k === body.kind);
+  if (!kind) return noContent(origin);
+
   const utm = parseUtm(body.utm);
   const host = referrerHost(str(body.referrer, 1000));
 
   const { error } = await db()
-    .from('page_views')
+    .from('site_events')
     .insert({
       site_id: site.id,
+      kind,
+      target: str(body.target, 200),
       path: cleanPath(body.path),
-      entry,
-      // Only the first page of a visit says where the visit came from.
-      channel: entry ? channelOf({ utm_source: utm.utm_source, utm_medium: utm.utm_medium, referrerHost: host }) : null,
-      referrer_host: entry ? host : null,
-      utm_source: entry ? utm.utm_source : null,
-      utm_medium: entry ? utm.utm_medium : null,
-      utm_campaign: entry ? utm.utm_campaign : null,
+      channel: channelOf({ utm_source: utm.utm_source, utm_medium: utm.utm_medium, referrerHost: host }),
+      utm_source: utm.utm_source,
+      utm_medium: utm.utm_medium,
+      utm_campaign: utm.utm_campaign,
+      referrer_host: host,
       device: device(ua),
       country: country(request),
       visitor_hash: visitorHash(request, clientAddress, site, ua),
     });
-  if (error) console.error('page view insert failed', error.message);
+  if (error) console.error('site event insert failed', error.message);
 
   return noContent(origin);
 };

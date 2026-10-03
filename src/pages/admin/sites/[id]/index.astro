@@ -35,6 +35,7 @@ const t = analytics.totals;
 const p = analytics.previous;
 const visitorsChange = change(t.visitors, p.visitors);
 const leadsChange = change(t.leads, p.leads);
+const callsChange = change(t.calls, p.calls);
 
 ---
 
@@ -42,7 +43,7 @@ const leadsChange = change(t.leads, p.leads);
   <SiteHeader site={site} current="overview" />
 
   <div class="flex flex-wrap items-center justify-between gap-3">
-    <h2 class="text-[15px] font-semibold">Posete i upiti</h2>
+    <h2 class="text-[15px] font-semibold">Posete, upiti i pozivi</h2>
     <RangeTabs current={range} />
   </div>
 
@@ -57,18 +58,18 @@ const leadsChange = change(t.leads, p.leads);
   <div class="grid grid-cols-2 xl:grid-cols-5 gap-5">
     <StatCard icon="lucide:users" color="success" label="Posetioci" value={t.visitors.toLocaleString('sr-Latn-RS')} note={visitorsChange.text} tone={visitorsChange.tone} />
     <StatCard icon="lucide:mouse-pointer-click" color="warning" label="Posete" value={t.visits.toLocaleString('sr-Latn-RS')} />
-    <StatCard icon="lucide:eye" color="secondary" label="Pregledi stranica" value={t.views.toLocaleString('sr-Latn-RS')} />
     <StatCard icon="lucide:inbox" color="info" label="Upiti" value={t.leads} note={leadsChange.text} tone={leadsChange.tone} />
-    <StatCard icon="lucide:percent" color="primary" label="Stopa konverzije" value={rate(t.leads, t.visits)} note="upiti na 100 poseta" />
+    <StatCard icon="lucide:phone" color="secondary" label="Pozivi" value={t.calls} note={callsChange.text} tone={callsChange.tone} />
+    <StatCard icon="lucide:percent" color="primary" label="Stopa konverzije" value={rate(t.contacts, t.visits)} note="upiti i pozivi na 100 poseta" />
   </div>
 
   <DailyChart
-    title="Posetioci i upiti po danu"
+    title="Posetioci, upiti i pozivi po danu"
     note="osvežava se na 15 min"
     labels={analytics.daily.map((d) => d.day)}
     series={[
       { label: 'Posetioci', data: analytics.daily.map((d) => d.visitors) },
-      { label: 'Upiti', data: analytics.daily.map((d) => d.leads), line: true },
+      { label: 'Upiti i pozivi', data: analytics.daily.map((d) => d.leads + d.calls), line: true },
     ]}
   />
 
@@ -77,19 +78,20 @@ const leadsChange = change(t.leads, p.leads);
       title="Odakle dolaze"
       columnLabel="Izvor"
       countLabel="Posete"
-      rows={analytics.channels.map((c) => ({ label: c.label, count: c.visits, leads: c.leads }))}
+      rows={analytics.channels.map((c) => ({ label: c.label, count: c.visits, leads: c.leads, calls: c.calls }))}
     />
     <ConversionTable
       title="Najposećenije stranice"
       columnLabel="Stranica"
       countLabel="Pregledi"
-      rows={analytics.pages.map((pg) => ({ label: pg.label, count: pg.views, leads: pg.leads }))}
+      rows={analytics.pages.map((pg) => ({ label: pg.label, count: pg.views, leads: pg.leads, calls: pg.calls }))}
     />
   </div>
 
-  <div class="grid lg:grid-cols-3 gap-5">
+  <div class="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
     <BarList title="Uređaji" items={analytics.devices} />
     <BarList title="Zemlje" items={analytics.countries} />
+    <BarList title="Klikovi za kontakt" items={analytics.clicks} empty="Još nema klikova na telefon, WhatsApp ili email." />
     <BarList title="Upiti po formi" items={countBy(leads, (l) => l.form_name)} />
   </div>
 

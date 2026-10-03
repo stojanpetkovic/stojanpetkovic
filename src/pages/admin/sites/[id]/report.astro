@@ -58,13 +58,14 @@ const rangeText = `${dateFmt.format(new Date(`${period.current[0]}T12:00:00Z`))}
 const kpis = [
   { label: t.visitors, value: n(tot.visitors), change: changeText(tot.visitors, prev.visitors, locale), icon: 'lucide:users', tint: 'bg-success/15', tile: 'bg-success' },
   { label: t.visits, value: n(tot.visits), change: changeText(tot.visits, prev.visits, locale), icon: 'lucide:mouse-pointer-click', tint: 'bg-danger/15', tile: 'bg-danger' },
-  { label: t.pageViews, value: n(tot.views), change: changeText(tot.views, prev.views, locale), icon: 'lucide:eye', tint: 'bg-secondary/15', tile: 'bg-secondary' },
   { label: t.leads, value: n(tot.leads), change: changeText(tot.leads, prev.leads, locale), icon: 'lucide:inbox', tint: 'bg-info/15', tile: 'bg-info' },
-  { label: t.conversion, value: formatRate(tot.leads, tot.visits, locale) ?? '—', change: { text: t.conversionHint, tone: 'neutral' as const }, icon: 'lucide:percent', tint: 'bg-primary/15', tile: 'bg-primary' },
+  { label: t.calls, value: n(tot.calls), change: changeText(tot.calls, prev.calls, locale), icon: 'lucide:phone', tint: 'bg-secondary/15', tile: 'bg-secondary' },
+  { label: t.conversion, value: formatRate(tot.contacts, tot.visits, locale) ?? '—', change: { text: t.conversionHint, tone: 'neutral' as const }, icon: 'lucide:percent', tint: 'bg-primary/15', tile: 'bg-primary' },
 ];
 
 const maxDevice = Math.max(1, ...analytics.devices.map((d) => d.count));
 const maxCountry = Math.max(1, ...analytics.countries.map((c) => c.count));
+const maxClick = Math.max(1, ...analytics.clicks.map((c) => c.count));
 const qs = (overrides: Record<string, string>) =>
   `?${new URLSearchParams({ period: period.key, lang: locale, ...overrides })}`;
 const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
@@ -144,24 +145,28 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
 
       <section class="avoid-break">
         <h2 class="mb-3 text-base font-semibold">{t.daily}</h2>
-        <ReportChart days={analytics.daily} labels={{ visitors: t.visitors, leads: t.leads }} />
+        <ReportChart
+          days={analytics.daily.map((d) => ({ day: d.day, visitors: d.visitors, leads: d.leads + d.calls }))}
+          labels={{ visitors: t.visitors, leads: `${t.leads} + ${t.calls.toLowerCase()}` }}
+        />
       </section>
 
       <section class="avoid-break grid grid-cols-2 gap-6">
         <div>
           <h2 class="mb-3 text-base font-semibold">{t.sources}</h2>
-          <table class="table">
+          <table class="table table-fixed">
             <thead>
-              <tr><th>{t.source}</th><th class="text-right">{t.visits}</th><th class="text-right">{t.leads}</th><th class="text-right">{t.rate}</th></tr>
+              <tr><th class="w-[38%]">{t.source}</th><th class="text-right">{t.visits}</th><th class="text-right">{t.leads}</th><th class="text-right">{t.calls}</th><th class="text-right">{t.rate}</th></tr>
             </thead>
             <tbody>
-              {analytics.channels.length === 0 && <tr><td colspan="4" class="text-zinc-500">{t.noData}</td></tr>}
+              {analytics.channels.length === 0 && <tr><td colspan="5" class="text-zinc-500">{t.noData}</td></tr>}
               {analytics.channels.map((c) => (
                 <tr>
                   <td>{channelLabel(c.label, locale)}</td>
                   <td class="text-right tabular-nums">{n(c.visits)}</td>
                   <td class="text-right font-semibold tabular-nums">{c.leads}</td>
-                  <td class="text-right text-zinc-500 tabular-nums">{formatRate(c.leads, c.visits, locale) ?? '—'}</td>
+                  <td class="text-right font-semibold tabular-nums">{c.calls}</td>
+                  <td class="text-right text-zinc-500 tabular-nums">{formatRate(c.leads + c.calls, c.visits, locale) ?? '—'}</td>
                 </tr>
               ))}
             </tbody>
@@ -169,17 +174,18 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
         </div>
         <div>
           <h2 class="mb-3 text-base font-semibold">{t.pages}</h2>
-          <table class="table">
+          <table class="table table-fixed">
             <thead>
-              <tr><th>{t.page}</th><th class="text-right">{t.pageViews}</th><th class="text-right">{t.leads}</th></tr>
+              <tr><th class="w-[46%]">{t.page}</th><th class="text-right">{t.pageViews}</th><th class="text-right">{t.leads}</th><th class="text-right">{t.calls}</th></tr>
             </thead>
             <tbody>
-              {analytics.pages.length === 0 && <tr><td colspan="3" class="text-zinc-500">{t.noData}</td></tr>}
+              {analytics.pages.length === 0 && <tr><td colspan="4" class="text-zinc-500">{t.noData}</td></tr>}
               {analytics.pages.slice(0, 8).map((p) => (
                 <tr>
-                  <td class="max-w-[11rem] truncate" title={p.label}>{p.label}</td>
+                  <td class="truncate" title={p.label}>{p.label}</td>
                   <td class="text-right tabular-nums">{n(p.views)}</td>
                   <td class="text-right font-semibold tabular-nums">{p.leads}</td>
+                  <td class="text-right font-semibold tabular-nums">{p.calls}</td>
                 </tr>
               ))}
             </tbody>
@@ -187,9 +193,10 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
         </div>
       </section>
 
-      <section class="avoid-break grid grid-cols-2 gap-6">
+      <section class="avoid-break grid grid-cols-3 gap-6">
         {
           [
+            { title: t.contactClicks, items: analytics.clicks, max: maxClick },
             { title: t.devices, items: analytics.devices, max: maxDevice },
             { title: t.countries, items: analytics.countries, max: maxCountry },
           ].map((block) => (

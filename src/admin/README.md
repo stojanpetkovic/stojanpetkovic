@@ -30,6 +30,11 @@ the admin's files, so nothing from it reaches the portfolio's CSS.
   `page_view_daily` every 15 minutes (pg_cron), counted in each site's
   timezone; raw hits are deleted after 90 days, the daily totals stay.
   `data-pageviews="off"` on the script tag turns counting off for a site.
+- **Counts contact clicks**: taps on `tel:`, `sms:`, WhatsApp (`wa.me`,
+  `api.whatsapp.com`) and `mailto:` links go to `/api/event` and the
+  `site_events` table, with the visitor's first-touch campaign. Calls,
+  WhatsApp and SMS count as conversions next to form inquiries (one per kind
+  per visitor per day); email clicks are reported but not counted.
 - **Shows lead analytics** per site and overall: leads per day, by form, by
   source (UTM, fbclid/gclid, referrer) and by page, plus a status pipeline
   (new → contacted → won/lost) with notes, filters and CSV export.

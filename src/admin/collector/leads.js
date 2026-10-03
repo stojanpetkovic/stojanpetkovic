@@ -12,6 +12,9 @@
  *
  * It also counts page views for the admin's analytics: one small beacon per
  * page, no cookies. data-pageviews="off" on the tag turns that part off.
+ *
+ * Clicks on call, WhatsApp, SMS and email links are reported too, so phone
+ * calls count as conversions next to form inquiries.
  */
 (function () {
   var script = document.currentScript;
@@ -20,6 +23,7 @@
   if (!siteKey) return;
   var endpoint = script.getAttribute('data-endpoint') || new URL('/api/leads', script.src).href;
   var hitEndpoint = new URL('/api/hit', endpoint).href;
+  var eventEndpoint = new URL('/api/event', endpoint).href;
   var countPageViews = script.getAttribute('data-pageviews') !== 'off';
 
   var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
@@ -227,6 +231,55 @@
   trackPageView();
   // Sites using Astro view transitions swap pages without a reload.
   document.addEventListener('astro:after-swap', trackPageView);
+
+  // ── Contact clicks ──────────────────────────────────────────────────────
+  function contactKind(href) {
+    if (/^tel:/i.test(href)) return 'call';
+    if (/^sms:/i.test(href)) return 'sms';
+    if (/^mailto:/i.test(href)) return 'email';
+    if (
+      /^whatsapp:/i.test(href) ||
+      /^https?:\/\/(wa\.me|api\.whatsapp\.com|web\.whatsapp\.com|chat\.whatsapp\.com)\//i.test(href)
+    ) {
+      return 'whatsapp';
+    }
+    return null;
+  }
+
+  function contactTarget(kind, href) {
+    if (kind === 'call' || kind === 'sms') return decodeURIComponent(href.replace(/^(tel|sms):/i, '').split(/[?;]/)[0]);
+    if (kind === 'email') return decodeURIComponent(href.replace(/^mailto:/i, '').split('?')[0]);
+    var match = href.match(/wa\.me\/(\+?\d+)/i) || href.match(/[?&]phone=(\+?\d+)/i);
+    return match ? match[1] : 'whatsapp';
+  }
+
+  var lastClick = { key: '', at: 0 };
+
+  document.addEventListener(
+    'click',
+    function (event) {
+      var link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+      if (!link || link.hasAttribute('data-lead-ignore')) return;
+      var href = link.getAttribute('href') || '';
+      var kind = contactKind(href);
+      if (!kind) return;
+
+      var target = contactTarget(kind, href);
+      var now = Date.now();
+      if (lastClick.key === kind + target && now - lastClick.at < 2000) return;
+      lastClick = { key: kind + target, at: now };
+
+      beacon(eventEndpoint, {
+        site_key: siteKey,
+        kind: kind,
+        target: target,
+        path: location.pathname,
+        referrer: attribution.referrer || '',
+        utm: attribution.utm || {},
+      });
+    },
+    true,
+  );
 
   window.stojanLeads = { send: send };
 })();

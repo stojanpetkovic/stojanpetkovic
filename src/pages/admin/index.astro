@@ -31,7 +31,7 @@ const series = sites
   }))
   .filter((s) => s.data.some((n) => n > 0));
 
-const overview = (await sitesOverview(sites, 30)).sort((a, b) => b.visitors - a.visitors || b.leads - a.leads);
+const overview = (await sitesOverview(sites, 30)).sort((a, b) => b.visitors - a.visitors || b.contacts - a.contacts);
 const visitors30 = overview.reduce((n, o) => n + o.visitors, 0);
 const changeNote =
   stats.change === null ? 'nema podataka za prethodni period' : `${stats.change >= 0 ? '+' : ''}${stats.change}% u odnosu na prethodnih 30 dana`;
@@ -70,16 +70,17 @@ const changeNote =
       <div class="overflow-x-auto">
         <table class="table">
           <thead>
-            <tr><th>Sajt</th><th class="text-right">Posetioci</th><th class="text-right">Upiti</th><th class="text-right">Stopa</th></tr>
+            <tr><th>Sajt</th><th class="text-right">Posetioci</th><th class="text-right">Upiti</th><th class="text-right">Pozivi</th><th class="text-right">Stopa</th></tr>
           </thead>
           <tbody>
-            {overview.length === 0 && <tr><td colspan="4" class="text-center text-muted py-6">Još nema sajtova.</td></tr>}
+            {overview.length === 0 && <tr><td colspan="5" class="text-center text-muted py-6">Još nema sajtova.</td></tr>}
             {overview.map((o) => (
               <tr>
                 <td><a href={`/admin/sites/${o.site.id}`} class="font-medium text-ink hover:text-primary">{o.site.name}</a></td>
                 <td class="text-right tabular-nums">{o.visitors.toLocaleString('sr-Latn-RS')}</td>
                 <td class="text-right tabular-nums font-semibold text-ink">{o.leads}</td>
-                <td class="text-right tabular-nums text-muted">{rate(o.leads, o.visits)}</td>
+                <td class="text-right tabular-nums font-semibold text-ink">{o.calls}</td>
+                <td class="text-right tabular-nums text-muted">{rate(o.contacts, o.visits)}</td>
               </tr>
             ))}
           </tbody>
