@@ -357,15 +357,15 @@
     "services": {
       "meta": {
         "title": "Services — Web Design, Development & Optimisation",
-        "description": "Freelance web design, development, and optimisation: sleek, lightning-fast custom Astro websites. A free first talk, one clear proposal, one fixed price."
+        "description": "Web design, development, optimisation and lead tracking: fast custom Astro websites with monthly reports. A free first talk, one proposal, one fixed price."
       },
       "includedLabel": "What you get",
       "hero": {
         "badge": "Services",
         "titleLead": "Web design, development,",
         "titleHighlight": "and optimisation",
-        "description": "Three services, one product: a sleek, lightning-fast custom Astro website you're proud to put your name on.",
-        "jumpLabels": ["Web design", "Web development", "Web optimisation"]
+        "description": "Four services, one product: a sleek, lightning-fast custom Astro website you're proud to put your name on, and clear numbers on what it brings in.",
+        "jumpLabels": ["Web design", "Web development", "Web optimisation", "Tracking & reports"]
       },
       "design": {
         "badge": "Design",
@@ -459,6 +459,64 @@
           }
         ],
         "ctaLabel": "Start a project"
+      },
+      "reporting": {
+        "badge": "Tracking & reports",
+        "heading": "Lead tracking and monthly reports",
+        "paragraphs": [
+          "A website only earns its keep when it brings you customers. So every website I build can show exactly what it brings in: every inquiry form, every tap on your phone number, every WhatsApp message, and where each of those people came from.",
+          "Each inquiry lands in your inbox the moment it's sent, with all the details and a one-click reply. Once a month you get a clear PDF report: visitors, inquiries, calls, and which ads, searches and pages actually turn visitors into customers. No logins, no dashboards to learn, no Google Analytics setup."
+        ],
+        "included": [
+          {
+            "lead": "Every inquiry by email",
+            "text": "the full form, the page it was sent from, and the ad or search that brought the visitor, in your inbox straight away."
+          },
+          {
+            "lead": "Calls counted too",
+            "text": "taps on your phone number, WhatsApp and text links are recorded as conversions, not lost."
+          },
+          {
+            "lead": "Know what works",
+            "text": "see which source (Google, Facebook ads, direct visits) brings visits, inquiries and calls, and at what rate."
+          },
+          {
+            "lead": "A monthly PDF report",
+            "text": "clear pages in plain language, in English or Serbian, ready to share with your team or partners."
+          },
+          {
+            "lead": "No cookies",
+            "text": "visitors are counted anonymously, without cookies and without following them across other websites."
+          }
+        ],
+        "imageAlt": "Example of a monthly website report: visitors, inquiries, calls, conversion rate, a daily chart and where visitors come from.",
+        "imageCaption": "An example monthly report (demo data).",
+        "benefits": {
+          "heading": "What it means for your business",
+          "lead": "Most small businesses pay for a website and ads without knowing what they get back. Tracking turns that into numbers you can act on.",
+          "items": [
+            {
+              "icon": "target",
+              "title": "Spend on what works",
+              "description": "See which ads and searches bring calls and inquiries, and put your budget into the channels that pay off, not the ones that only bring clicks."
+            },
+            {
+              "icon": "inbox",
+              "title": "No lead slips through",
+              "description": "Every inquiry reaches your inbox instantly with a one-click reply, and every call made from the website is counted."
+            },
+            {
+              "icon": "trending-up",
+              "title": "Proof it pays off",
+              "description": "A monthly report shows visitors turning into customers, in numbers you can show your partners or your accountant."
+            },
+            {
+              "icon": "shield-check",
+              "title": "Simple and private",
+              "description": "No dashboards to learn, no Google Analytics setup, no cookies on your visitors. Just one clear report a month."
+            }
+          ]
+        }
       },
       "additional": {
         "badge": "Also available",

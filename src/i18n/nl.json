@@ -357,15 +357,15 @@
     "services": {
       "meta": {
         "title": "Diensten — Webdesign, webdevelopment & weboptimalisatie",
-        "description": "Freelance webdesign, webdevelopment en weboptimalisatie: strakke, razendsnelle custom Astro-websites. Een gratis eerste gesprek, één helder voorstel, één vaste prijs."
+        "description": "Webdesign, webdevelopment, optimalisatie en leadtracking: snelle custom Astro-websites met maandrapporten. Gratis eerste gesprek, één voorstel, één vaste prijs."
       },
       "includedLabel": "Wat je krijgt",
       "hero": {
         "badge": "Diensten",
         "titleLead": "Webdesign, webdevelopment,",
         "titleHighlight": "en weboptimalisatie",
-        "description": "Drie diensten, één product: een strakke, razendsnelle custom Astro-website waar je trots je naam op zet.",
-        "jumpLabels": ["Webdesign", "Webdevelopment", "Weboptimalisatie"]
+        "description": "Vier diensten, één product: een strakke, razendsnelle custom Astro-website waar je trots je naam op zet, en heldere cijfers over wat hij oplevert.",
+        "jumpLabels": ["Webdesign", "Webdevelopment", "Weboptimalisatie", "Tracking & rapporten"]
       },
       "design": {
         "badge": "Design",
@@ -459,6 +459,64 @@
           }
         ],
         "ctaLabel": "Start een project"
+      },
+      "reporting": {
+        "badge": "Tracking & rapporten",
+        "heading": "Leadtracking en maandrapporten",
+        "paragraphs": [
+          "Een website verdient zichzelf pas terug als hij klanten oplevert. Daarom kan elke website die ik bouw precies laten zien wat hij oplevert: elk ingevuld formulier, elke tik op je telefoonnummer, elk WhatsApp-bericht, en waar elk van die mensen vandaan kwam.",
+          "Elke aanvraag staat direct in je inbox, met alle details en antwoorden met één klik. Eén keer per maand krijg je een helder PDF-rapport: bezoekers, aanvragen, telefoontjes en welke advertenties, zoekopdrachten en pagina's bezoekers echt in klanten veranderen. Geen logins, geen dashboards om te leren, geen Google Analytics om in te stellen."
+        ],
+        "included": [
+          {
+            "lead": "Elke aanvraag per e-mail",
+            "text": "het volledige formulier, de pagina waarop het is verstuurd en de advertentie of zoekopdracht die de bezoeker bracht, direct in je inbox."
+          },
+          {
+            "lead": "Ook telefoontjes geteld",
+            "text": "tikken op je telefoonnummer, WhatsApp- en sms-links worden als conversies vastgelegd, niet vergeten."
+          },
+          {
+            "lead": "Weten wat werkt",
+            "text": "zie welke bron (Google, Facebook-advertenties, directe bezoeken) bezoeken, aanvragen en telefoontjes oplevert, en met welke ratio."
+          },
+          {
+            "lead": "Een maandelijks PDF-rapport",
+            "text": "heldere pagina's in gewone taal, in het Engels of Servisch, klaar om te delen met je team of partners."
+          },
+          {
+            "lead": "Geen cookies",
+            "text": "bezoekers worden anoniem geteld, zonder cookies en zonder ze over andere websites te volgen."
+          }
+        ],
+        "imageAlt": "Voorbeeld van een maandrapport over een website: bezoekers, aanvragen, telefoontjes, conversieratio, een grafiek per dag en waar bezoekers vandaan komen.",
+        "imageCaption": "Een voorbeeld van een maandrapport (demogegevens).",
+        "benefits": {
+          "heading": "Wat het je bedrijf oplevert",
+          "lead": "De meeste kleine bedrijven betalen voor een website en advertenties zonder te weten wat ze terugkrijgen. Tracking maakt daar cijfers van waarop je kunt handelen.",
+          "items": [
+            {
+              "icon": "target",
+              "title": "Budget waar het werkt",
+              "description": "Zie welke advertenties en zoekopdrachten telefoontjes en aanvragen opleveren, en steek je budget in de kanalen die renderen, niet in die alleen klikken opleveren."
+            },
+            {
+              "icon": "inbox",
+              "title": "Geen lead gaat verloren",
+              "description": "Elke aanvraag staat direct in je inbox, met antwoorden in één klik, en elk telefoontje vanaf de website wordt geteld."
+            },
+            {
+              "icon": "trending-up",
+              "title": "Bewijs dat het rendeert",
+              "description": "Een maandrapport laat zien hoe bezoekers klanten worden, in cijfers die je aan je partners of je boekhouder kunt laten zien."
+            },
+            {
+              "icon": "shield-check",
+              "title": "Simpel en privacyvriendelijk",
+              "description": "Geen dashboards om te leren, geen Google Analytics om in te stellen, geen cookies voor je bezoekers. Gewoon één helder rapport per maand."
+            }
+          ]
+        }
       },
       "additional": {
         "badge": "Ook mogelijk",

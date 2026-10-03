@@ -357,15 +357,15 @@
     "services": {
       "meta": {
         "title": "Usluge — izrada sajtova, web dizajn i SEO optimizacija",
-        "description": "Izrada sajtova po meri, web dizajn i SEO optimizacija: moderni i brzi Astro sajtovi. Besplatne konsultacije, jasna ponuda i fiksna cena."
+        "description": "Izrada sajtova, web dizajn, SEO i praćenje upita: brzi Astro sajtovi po meri sa mesečnim izveštajima. Besplatne konsultacije, jasna ponuda, fiksna cena."
       },
       "includedLabel": "Šta dobijaš",
       "hero": {
         "badge": "Usluge",
         "titleLead": "Izrada sajtova, web dizajn",
         "titleHighlight": "i SEO optimizacija",
-        "description": "Tri usluge, jedan rezultat: moderan i brz sajt po meri, na koji ćeš biti ponosan.",
-        "jumpLabels": ["Web dizajn", "Izrada sajtova", "SEO optimizacija"]
+        "description": "Četiri usluge, jedan rezultat: moderan i brz sajt po meri, na koji ćeš biti ponosan, i jasni brojevi o tome šta ti donosi.",
+        "jumpLabels": ["Web dizajn", "Izrada sajtova", "SEO optimizacija", "Praćenje i izveštaji"]
       },
       "design": {
         "badge": "Dizajn",
@@ -459,6 +459,64 @@
           }
         ],
         "ctaLabel": "Započni projekat"
+      },
+      "reporting": {
+        "badge": "Praćenje i izveštaji",
+        "heading": "Praćenje upita i mesečni izveštaji",
+        "paragraphs": [
+          "Sajt ima smisla samo ako ti donosi klijente. Zato svaki sajt koji napravim može tačno da pokaže šta donosi: svaki popunjen upit, svaki klik na tvoj broj telefona, svaku WhatsApp poruku, i odakle je svaka od tih osoba došla.",
+          "Svaki upit stiže ti na email čim je poslat, sa svim podacima i odgovorom na jedan klik. Jednom mesečno dobijaš jasan PDF izveštaj: posetioci, upiti, pozivi i koji oglasi, pretrage i stranice zaista pretvaraju posetioce u kupce. Bez naloga, bez komplikovanih panela i bez podešavanja Google Analytics-a."
+        ],
+        "included": [
+          {
+            "lead": "Svaki upit na email",
+            "text": "cela forma, stranica sa koje je poslata i oglas ili pretraga koja je dovela posetioca, odmah u tvom inboksu."
+          },
+          {
+            "lead": "Brojanje poziva",
+            "text": "klikovi na broj telefona, WhatsApp i SMS beleže se kao konverzije i ne gube se."
+          },
+          {
+            "lead": "Znaš šta radi",
+            "text": "vidiš koji izvor (Google, Facebook oglasi, direktne posete) donosi posete, upite i pozive, i sa kojom stopom."
+          },
+          {
+            "lead": "Mesečni PDF izveštaj",
+            "text": "jasne strane, jednostavnim jezikom, na srpskom ili engleskom, spremne da ih podeliš sa timom ili partnerima."
+          },
+          {
+            "lead": "Bez kolačića",
+            "text": "posetioci se broje anonimno, bez kolačića i bez praćenja po drugim sajtovima."
+          }
+        ],
+        "imageAlt": "Primer mesečnog izveštaja o sajtu: posetioci, upiti, pozivi, stopa konverzije, grafikon po danu i izvori poseta.",
+        "imageCaption": "Primer mesečnog izveštaja (demo podaci).",
+        "benefits": {
+          "heading": "Šta ti to donosi",
+          "lead": "Većina malih firmi plaća sajt i oglase, a ne zna šta dobija zauzvrat. Praćenje to pretvara u brojeve na osnovu kojih možeš da odlučuješ.",
+          "items": [
+            {
+              "icon": "target",
+              "title": "Novac ide tamo gde radi",
+              "description": "Vidiš koji oglasi i pretrage donose pozive i upite, pa budžet ulažeš u kanale koji se isplate, a ne u one koji donose samo klikove."
+            },
+            {
+              "icon": "inbox",
+              "title": "Nijedan upit se ne gubi",
+              "description": "Svaki upit odmah stiže na email sa odgovorom na jedan klik, a svaki poziv sa sajta je zabeležen."
+            },
+            {
+              "icon": "trending-up",
+              "title": "Dokaz da se sajt isplati",
+              "description": "Mesečni izveštaj pokazuje kako posetioci postaju klijenti, u brojevima koje možeš da pokažeš partnerima ili knjigovođi."
+            },
+            {
+              "icon": "shield-check",
+              "title": "Jednostavno i diskretno",
+              "description": "Nema panela koje treba učiti, nema podešavanja Google Analytics-a, nema kolačića za tvoje posetioce. Samo jedan jasan izveštaj mesečno."
+            }
+          ]
+        }
       },
       "additional": {
         "badge": "Još usluga",

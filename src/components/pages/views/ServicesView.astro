@@ -16,7 +16,10 @@ import ProofTile from '@/components/ui/data-display/ProofTile/ProofTile.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
 import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
+import { Image } from 'astro:assets';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+import reportExampleEn from '@/assets/services/report-example-en.png';
+import reportExampleSr from '@/assets/services/report-example-sr.png';
 
 interface Props {
   /** Locale whose copy this page renders. Defaults to the site default. */
@@ -33,6 +36,11 @@ interface Service {
   paragraphs: string[];
   included: IncludedItem[];
   ctaLabel: string;
+}
+interface Reporting extends Service {
+  imageAlt: string;
+  imageCaption: string;
+  benefits: { heading: string; lead: string; items: AdditionalItem[] };
 }
 interface AdditionalItem {
   icon: string;
@@ -63,6 +71,10 @@ const hero = tData<{ badge: string; titleLead: string; titleHighlight: string; d
 const design = tData<Service>('pages.services.design', locale)!;
 const development = tData<Service>('pages.services.development', locale)!;
 const performance = tData<Service>('pages.services.performance', locale)!;
+const reporting = tData<Reporting>('pages.services.reporting', locale)!;
+// A real report from the admin, rendered for a demo site; the Serbian page
+// shows the Serbian report, every other locale the English one.
+const reportExample = locale === 'sr' ? reportExampleSr : reportExampleEn;
 const additional = tData<{ badge: string; heading: string; lead: string; items: AdditionalItem[] }>(
   'pages.services.additional',
   locale
@@ -110,6 +122,10 @@ const aboutUrl = localizedPath('/about', locale);
       </Button>
       <Button size="lg" href="#performance" variant="outline" class="hero-btn-opaque">
         {hero.jumpLabels[2]}
+        <Icon name="arrow-down" size="sm" class="hero-jump-arrow" />
+      </Button>
+      <Button size="lg" href="#reporting" variant="outline" class="hero-btn-opaque">
+        {hero.jumpLabels[3]}
         <Icon name="arrow-down" size="sm" class="hero-jump-arrow" />
       </Button>
     </Fragment>
@@ -253,8 +269,88 @@ const aboutUrl = localizedPath('/about', locale);
     </div>
   </section>
 
+  <!-- Tracking & reports -->
+  <section id="reporting" class="py-[var(--space-section-md)] bg-background border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-12">
+      <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12 glitch:items-start">
+        <!-- Text -->
+        <div class="flex flex-col gap-4 sm:items-center sm:text-center glitch:order-2 glitch:items-start glitch:text-left" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
+          <div class="flex flex-col gap-6 sm:items-center glitch:items-start">
+            <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">
+              <Icon name="chart-column" size="sm" />
+              {reporting.badge}
+            </Badge>
+            <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+              {reporting.heading}
+            </h2>
+          </div>
+          {reporting.paragraphs.map((paragraph) => (
+            <p class="text-lg text-foreground-muted leading-relaxed sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <!-- Card -->
+        <div class="sm:max-w-xl sm:mx-auto glitch:order-1 glitch:max-w-none glitch:mx-0" data-reveal data-reveal-ease="smooth">
+          <Card variant="elevated" padding="lg" class="h-full flex flex-col justify-center">
+            <div class="flex items-center gap-3 pb-4 mb-4 border-b border-border sm:justify-center glitch:justify-start">
+              <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+                <Icon name="chart-column" size="md" />
+              </div>
+              <h3 class="font-display text-base font-semibold text-foreground">{includedLabel}</h3>
+            </div>
+            <ul class="flex flex-col gap-3">
+              {reporting.included.map((item) => (
+                <li class="flex items-start gap-3">
+                  <Icon name="check" size="sm" class="text-brand-500 shrink-0 mt-1" />
+                  <p class="text-sm text-foreground-muted leading-relaxed">
+                    <span class="font-semibold text-foreground">{item.lead}</span> — {item.text}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </div>
+      </div>
+
+      <!-- Example report -->
+      <figure class="mx-auto w-full max-w-4xl" data-reveal data-reveal-ease="smooth">
+        <div class="overflow-hidden rounded-2xl border border-border bg-white shadow-xl">
+          <Image
+            src={reportExample}
+            alt={reporting.imageAlt}
+            widths={[480, 768, 1024, 1323]}
+            sizes="(min-width: 1024px) 896px, calc(100vw - 3rem)"
+            loading="lazy"
+            class="block h-auto w-full"
+          />
+        </div>
+        <figcaption class="mt-3 text-center text-sm text-foreground-muted">{reporting.imageCaption}</figcaption>
+      </figure>
+
+      <!-- What it means for the client -->
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col items-center gap-4 text-center" data-reveal>
+          <h3 class="font-display text-2xl md:text-3xl font-bold text-foreground text-balance">
+            {reporting.benefits.heading}
+          </h3>
+          <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
+            {reporting.benefits.lead}
+          </p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {reporting.benefits.items.map((item, i) => (
+            <ProofTile icon={item.icon} title={item.title} data-reveal data-reveal-delay={i % 2 || undefined}>
+              {item.description}
+            </ProofTile>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Additional services -->
-  <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4 text-center" data-reveal>
         <div class="flex flex-col items-center gap-6">
@@ -282,7 +378,7 @@ const aboutUrl = localizedPath('/about', locale);
   </section>
 
   <!-- Process -->
-  <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+  <section class="py-[var(--space-section-md)] bg-background border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4 text-center" data-reveal>
         <div class="flex flex-col items-center gap-6">
@@ -310,7 +406,7 @@ const aboutUrl = localizedPath('/about', locale);
   </section>
 
   <!-- Questions & answers -->
-  <section id="faq" class="py-[var(--space-section-md)] bg-background border-t border-border">
+  <section id="faq" class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4 text-center" data-reveal>
         <div class="flex flex-col items-center gap-6">

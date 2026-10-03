@@ -129,7 +129,7 @@ export const T = {
     notes:
       'Posetioci se broje bez kolačića: ista osoba se računa jednom dnevno. Posete po izvoru računaju se po prvoj stranici svake posete. Pozivi su klikovi na broj telefona, WhatsApp ili SMS na sajtu.',
     summary: (s: Summary) =>
-      `U periodu ${s.period} sajt je imao ${s.visitors} ${/(^|[^1])[1-4]$/.test(s.visitors.replace(/\D/g, '')) ? 'posetioca' : 'posetilaca'}, ${s.leads} ${s.leadsWord} i ${s.calls} ${s.calls % 10 === 1 && s.calls % 100 !== 11 ? 'poziv' : 'poziva'}` +
+      `Za period ${s.period} sajt je imao ${s.visitors} ${/(^|[^1])[1-4]$/.test(s.visitors.replace(/\D/g, '')) ? 'posetioca' : 'posetilaca'}, ${s.leads} ${s.leadsWord} i ${s.calls} ${s.calls % 10 === 1 && s.calls % 100 !== 11 ? 'poziv' : 'poziva'}` +
       (s.rate ? `, što je stopa konverzije od ${s.rate}.` : '.') +
       (s.topSource ? ` Najviše poseta došlo je preko izvora „${s.topSource}“.` : ''),
     leadsWord: (n: number) => (n % 10 === 1 && n % 100 !== 11 ? 'upit' : 'upita'),
