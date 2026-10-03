@@ -151,12 +151,12 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
         />
       </section>
 
-      <section class="avoid-break grid grid-cols-1 gap-6 md:grid-cols-2 print:grid-cols-2 [&>*]:min-w-0">
-        <div>
+      <section class="space-y-6">
+        <div class="avoid-break">
           <h2 class="mb-3 text-base font-semibold">{t.sources}</h2>
           <table class="table w-full table-fixed">
             <thead>
-              <tr><th class="w-[36%]">{t.source}</th><th class="text-right">{t.visits}</th><th class="text-right">{t.leads}</th><th class="text-right">{t.calls}</th><th class="text-right">{t.rate}</th></tr>
+              <tr><th class="w-[44%]">{t.source}</th><th class="text-right">{t.visits}</th><th class="text-right">{t.leads}</th><th class="text-right">{t.calls}</th><th class="text-right">{t.rate}</th></tr>
             </thead>
             <tbody>
               {analytics.channels.length === 0 && <tr><td colspan="5" class="text-zinc-500">{t.noData}</td></tr>}
@@ -172,11 +172,11 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
             </tbody>
           </table>
         </div>
-        <div>
+        <div class="avoid-break">
           <h2 class="mb-3 text-base font-semibold">{t.pages}</h2>
           <table class="table w-full table-fixed">
             <thead>
-              <tr><th class="w-[46%]">{t.page}</th><th class="text-right">{t.pageViews}</th><th class="text-right">{t.leads}</th><th class="text-right">{t.calls}</th></tr>
+              <tr><th class="w-[52%]">{t.page}</th><th class="text-right">{t.pageViews}</th><th class="text-right">{t.leads}</th><th class="text-right">{t.calls}</th></tr>
             </thead>
             <tbody>
               {analytics.pages.length === 0 && <tr><td colspan="4" class="text-zinc-500">{t.noData}</td></tr>}
@@ -193,14 +193,14 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
         </div>
       </section>
 
-      <section class="avoid-break grid grid-cols-1 gap-6 sm:grid-cols-3 print:grid-cols-3 [&>*]:min-w-0">
+      <section class="space-y-6">
         {
           [
             { title: t.contactClicks, items: analytics.clicks, max: maxClick },
             { title: t.devices, items: analytics.devices, max: maxDevice },
             { title: t.countries, items: analytics.countries, max: maxCountry },
           ].map((block) => (
-            <div>
+            <div class="avoid-break">
               <h2 class="mb-3 text-base font-semibold">{block.title}</h2>
               {block.items.length === 0 && <p class="text-sm text-zinc-500">{t.noData}</p>}
               <div class="space-y-2.5">
