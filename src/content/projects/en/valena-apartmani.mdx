@@ -28,10 +28,10 @@ gallery:
 import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
 
 export const lighthouseScores = [
-  { label: 'Performance', value: 100, icon: 'zap' },
-  { label: 'Accessibility', value: 88, icon: 'users' },
+  { label: 'Performance', value: 99, icon: 'zap' },
+  { label: 'Accessibility', value: 93, icon: 'users' },
   { label: 'Best Practices', value: 100, icon: 'shield-check' },
-  { label: 'SEO', value: 82, icon: 'search' },
+  { label: 'SEO', value: 100, icon: 'search' },
 ];
 
 ## The brief
@@ -48,7 +48,7 @@ A run against the live site:
   <LighthouseScoresGrid scores={lighthouseScores} />
 </div>
 
-The **82 SEO score is the honest number for what this project actually is.** There's no blog, no service-area pages, no content built to rank — because none of that was the brief. Search wasn't the acquisition channel here; **Instagram and Facebook ads were**, so the budget and my time went into the booking flow and the ad creative instead of technical SEO that this particular site doesn't lean on. Wire in the same content investment I put into the tree-service SEO work and that number moves — it just wasn't what this business was paying for.
+**SEO went from 82 to 100 in a technical pass on the code.** Canonical tags were pointing at slashless URLs the Apache server answers with a 301, so every page now declares the address it is actually served at, and internal links skip the redirect too. The site gained a **sitemap** and **robots.txt** — before, both returned 404 — plus **schema.org structured data** (a LodgingBusiness for the property and an Apartment for each unit), a unique description for each apartment page, alt text on every gallery photo, and a `noindex` on the thank-you page. The same pass moved the site to **Astro 7** and **Tailwind 4**. None of that changes what the acquisition channel is: there's still no blog or content built to rank, and **Instagram and Facebook ads** still bring the guests. What it does mean is that anyone who searches for Valena by name lands on a page Google reads correctly.
 
 ## A booking system instead of a link to a spreadsheet
 
