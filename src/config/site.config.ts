@@ -226,9 +226,10 @@ export interface SiteConfig {
    */
   i18n?: I18nConfig;
   /**
-   * Lead collector for this site's own forms (see src/admin/README.md).
-   * The key is public: it identifies the site in /admin and only accepts
-   * submissions from the site's own domain. Leave unset to send nothing.
+   * This site's entry in the lead admin (see src/admin/README.md). With it
+   * set, the contact form delivers each message as a lead — stored in /admin
+   * and emailed from there — instead of sending its own notification.
+   * Leave unset to keep the plain email.
    */
   leads?: {
     siteKey: string;

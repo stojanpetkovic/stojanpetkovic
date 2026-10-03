@@ -5,6 +5,7 @@ import { RESEND_API_KEY, RESEND_FROM_EMAIL } from 'astro:env/server';
 import { z } from 'astro/zod';
 import { Resend } from 'resend';
 import siteConfig from '@/config/site.config';
+import { findSite, recordLead, visitorHash } from '@/admin/lib/ingest';
 
 // Escape user-supplied values before they are interpolated into the
 // notification email's HTML, so a message containing markup (links,
@@ -25,7 +26,52 @@ const contactSchema = z.object({
   honeypot: z.string().max(0), // Anti-spam: must be empty
 });
 
-export const POST: APIRoute = async ({ request }) => {
+/**
+ * Hands the message to the lead admin as a lead from this site, so it arrives
+ * as one record in /admin and one set of emails instead of a second, separate
+ * notification. Returns false when the admin is not set up or the write fails,
+ * and the caller falls back to sending the message directly.
+ */
+async function deliverAsLead(
+  request: Request,
+  clientAddress: string | undefined,
+  fields: Record<string, string>
+): Promise<boolean> {
+  const siteKey = siteConfig.leads?.siteKey;
+  if (!siteKey) return false;
+  try {
+    const site = await findSite(siteKey);
+    if (!site) return false;
+
+    // The form posts from the contact page, so its address (and any campaign
+    // parameters the visitor arrived with) is in the Referer.
+    const pageUrl = request.headers.get('referer');
+    let utm: Record<string, string> = {};
+    try {
+      if (pageUrl) utm = Object.fromEntries(new URL(pageUrl).searchParams);
+    } catch {
+      // Not a URL: store the lead without campaign data.
+    }
+
+    const lead = await recordLead({
+      site,
+      fields,
+      spam: false,
+      form: 'contact',
+      pageUrl,
+      referrer: null,
+      utm,
+      userAgent: request.headers.get('user-agent'),
+      ipHash: visitorHash(request, clientAddress, site),
+    });
+    return lead !== null;
+  } catch (error) {
+    console.error('Contact form lead delivery failed:', error);
+    return false;
+  }
+}
+
+export const POST: APIRoute = async ({ request, clientAddress }) => {
   try {
     const formData = await request.formData();
 
@@ -58,6 +104,21 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Honeypot check (bot detection)
     if (result.data.honeypot) {
+      return new Response(JSON.stringify({ success: true }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    const fields = Object.fromEntries(
+      Object.entries({
+        name: result.data.name,
+        email: result.data.email,
+        subject: result.data.subject ?? '',
+        message: result.data.message,
+      }).filter(([, value]) => value)
+    );
+    if (await deliverAsLead(request, clientAddress, fields)) {
       return new Response(JSON.stringify({ success: true }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
