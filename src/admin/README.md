@@ -8,7 +8,8 @@ visual language follows the Tailwick admin template.
 
 Code lives in `src/admin/` (lib, components, layout, stylesheet), routes in
 `src/pages/admin/` and `src/pages/api/leads.ts`, the guard in
-`src/middleware.ts`, and the embeddable collector in `public/leads.js`. The
+`src/middleware.ts`, and the embeddable collector in `src/admin/collector/leads.js` (served at `/leads.js`
+by `src/pages/leads.js.ts` with a five-minute cache). The
 admin compiles its own Tailwind stylesheet; `src/styles/global.css` excludes
 the admin's files, so nothing from it reaches the portfolio's CSS.
 
