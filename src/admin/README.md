@@ -76,6 +76,13 @@ the admin's files, so nothing from it reaches the portfolio's CSS.
   catches bots.
 - Forms sent purely from JavaScript can call `window.stojanLeads.send(name, data)`.
 
+- **Prints a client report** per site and period at
+  `/admin/sites/[id]/report`: an A4 page in the client's language (the
+  site's email language, switchable), with a plain-language summary, the
+  headline numbers against the previous period, a server-drawn SVG chart,
+  sources, pages, devices, countries and the period's inquiries. "Save as
+  PDF" prints it from the browser.
+
 ## Roadmap
 
-- Phase 3: printable monthly report per site → PDF, emailed automatically.
+- Email the monthly report to each client automatically.

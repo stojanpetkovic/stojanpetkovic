@@ -6,12 +6,13 @@ import type { Site } from '@/admin/lib/types';
 // then the tabs that split the site into its overview and its settings.
 interface Props {
   site: Site;
-  current: 'overview' | 'settings';
+  current: 'overview' | 'settings' | 'report';
 }
 const { site, current } = Astro.props;
 
 const tabs = [
   { key: 'overview', label: 'Pregled', icon: 'lucide:chart-column', href: `/admin/sites/${site.id}` },
+  { key: 'report', label: 'Izveštaj (PDF)', icon: 'lucide:file-text', href: `/admin/sites/${site.id}/report` },
   { key: 'settings', label: 'Podešavanja', icon: 'lucide:settings', href: `/admin/sites/${site.id}/settings` },
 ] as const;
 ---

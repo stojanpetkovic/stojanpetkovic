@@ -184,6 +184,29 @@
   }
 }
 
+/* Client report (pages/admin/sites/[id]/report.astro) printed to PDF. */
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm 12mm;
+  }
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .avoid-break {
+    break-inside: avoid;
+  }
+  .report-sheet h2 {
+    break-after: avoid;
+  }
+  .report-sheet .table th,
+  .report-sheet .table td {
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

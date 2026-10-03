@@ -1,0 +1,248 @@
+---
+export const prerender = false;
+import '@/admin/styles/admin.css';
+import { Icon } from 'astro-icon/components';
+import ReportChart from '@/admin/components/ReportChart.astro';
+import { db } from '@/admin/lib/supabase';
+import { analyzeDays, type ReportLocale } from '@/admin/lib/analytics';
+import { leadSource } from '@/admin/lib/leads';
+import { dayKey } from '@/admin/lib/stats';
+import {
+  T,
+  periods,
+  pickPeriod,
+  channelLabel,
+  formatNumber,
+  formatRate,
+  changeText,
+  summaryOf,
+} from '@/admin/lib/report';
+import type { Lead, Site } from '@/admin/lib/types';
+
+const { id } = Astro.params;
+const { data: site } = await db().from('sites').select('*').eq('id', id!).maybeSingle<Site>();
+if (!site) return Astro.redirect('/admin/sites');
+
+// The client's language by default (the site's email language); ?lang= overrides it.
+const langParam = Astro.url.searchParams.get('lang');
+const locale: ReportLocale = langParam === 'en' || langParam === 'sr' ? langParam : site.email_language;
+const t = T[locale];
+
+const all = periods(site.timezone, locale);
+const period = pickPeriod(all, Astro.url.searchParams.get('period'));
+const analytics = await analyzeDays(site, period.current, period.previous, locale);
+
+const inPeriod = new Set(period.current);
+const { data: leadData } = await db()
+  .from('leads')
+  .select('created_at, visitor_name, visitor_email, form_name, utm_source, utm_medium, referrer')
+  .eq('site_id', site.id)
+  .eq('is_spam', false)
+  .gte('created_at', new Date(Date.parse(`${period.current[0]}T00:00:00Z`) - 86_400_000).toISOString())
+  .lt('created_at', new Date(Date.parse(`${period.current.at(-1)}T00:00:00Z`) + 2 * 86_400_000).toISOString())
+  .order('created_at', { ascending: true });
+const leads = ((leadData ?? []) as Pick<
+  Lead,
+  'created_at' | 'visitor_name' | 'visitor_email' | 'form_name' | 'utm_source' | 'utm_medium' | 'referrer'
+>[]).filter((l) => inPeriod.has(dayKey(new Date(l.created_at), site.timezone)));
+
+const tot = analytics.totals;
+const prev = analytics.previous;
+const n = (v: number) => formatNumber(v, locale);
+const dateFmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-US' : 'sr-Latn-RS', {
+  dateStyle: 'medium',
+  timeZone: site.timezone,
+});
+const rangeText = `${dateFmt.format(new Date(`${period.current[0]}T12:00:00Z`))} – ${dateFmt.format(new Date(`${period.current.at(-1)}T12:00:00Z`))}`;
+
+const kpis = [
+  { label: t.visitors, value: n(tot.visitors), change: changeText(tot.visitors, prev.visitors, locale), icon: 'lucide:users', tint: 'bg-success/15', tile: 'bg-success' },
+  { label: t.visits, value: n(tot.visits), change: changeText(tot.visits, prev.visits, locale), icon: 'lucide:mouse-pointer-click', tint: 'bg-danger/15', tile: 'bg-danger' },
+  { label: t.pageViews, value: n(tot.views), change: changeText(tot.views, prev.views, locale), icon: 'lucide:eye', tint: 'bg-secondary/15', tile: 'bg-secondary' },
+  { label: t.leads, value: n(tot.leads), change: changeText(tot.leads, prev.leads, locale), icon: 'lucide:inbox', tint: 'bg-info/15', tile: 'bg-info' },
+  { label: t.conversion, value: formatRate(tot.leads, tot.visits, locale) ?? '—', change: { text: t.conversionHint, tone: 'neutral' as const }, icon: 'lucide:percent', tint: 'bg-primary/15', tile: 'bg-primary' },
+];
+
+const maxDevice = Math.max(1, ...analytics.devices.map((d) => d.count));
+const maxCountry = Math.max(1, ...analytics.countries.map((c) => c.count));
+const qs = (overrides: Record<string, string>) =>
+  `?${new URLSearchParams({ period: period.key, lang: locale, ...overrides })}`;
+const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="/admin-favicon.svg" type="image/svg+xml" />
+    <!-- Browsers use the title as the PDF's file name. -->
+    <title>{fileTitle}</title>
+  </head>
+  <body class="bg-zinc-100 print:bg-white">
+    <!-- Toolbar: on screen only. -->
+    <div class="sticky top-0 z-10 border-b border-zinc-200 bg-white print:hidden">
+      <div class="mx-auto flex max-w-[210mm] flex-wrap items-center gap-3 px-4 py-3">
+        <a href={`/admin/sites/${site.id}`} class="btn btn-sm btn-light"><Icon name="lucide:arrow-left" class="size-4" />{t.back}</a>
+        <form method="get" class="flex flex-wrap items-center gap-2">
+          <input type="hidden" name="lang" value={locale} />
+          <select name="period" class="form-input w-auto py-1.5" onchange="this.form.submit()" aria-label={t.period}>
+            {all.map((p) => <option value={p.key} selected={p.key === period.key}>{p.label}</option>)}
+          </select>
+          <noscript><button class="btn btn-sm btn-outline" type="submit">OK</button></noscript>
+        </form>
+        <div class="inline-flex rounded border border-zinc-200 p-0.5 text-xs font-medium">
+          <a href={qs({ lang: 'sr' })} class:list={['rounded px-2.5 py-1', locale === 'sr' ? 'bg-primary text-white' : 'text-zinc-600 hover:bg-zinc-100']}>SR</a>
+          <a href={qs({ lang: 'en' })} class:list={['rounded px-2.5 py-1', locale === 'en' ? 'bg-primary text-white' : 'text-zinc-600 hover:bg-zinc-100']}>EN</a>
+        </div>
+        <button type="button" class="btn btn-sm btn-primary ms-auto" onclick="window.print()">
+          <Icon name="lucide:download" class="size-4" />{t.print}
+        </button>
+      </div>
+    </div>
+
+    <!-- The sheet: A4 width on screen, the whole page in print. -->
+    <article class="report-sheet mx-auto my-6 max-w-[210mm] space-y-6 bg-white p-10 shadow-sm print:m-0 print:max-w-none print:space-y-4 print:p-0 print:shadow-none">
+      <header class="flex items-start justify-between gap-6 border-b border-zinc-200 pb-6 print:pb-4">
+        <div>
+          <p class="text-xs font-bold tracking-widest text-primary uppercase">{t.title}</p>
+          <h1 class="mt-1 text-2xl font-semibold text-zinc-900">{site.name}</h1>
+          <p class="mt-1 text-sm text-zinc-500">{site.domain}</p>
+        </div>
+        <div class="text-end text-sm">
+          <p class="text-zinc-500">{t.period}</p>
+          <p class="font-semibold text-zinc-800">{period.label}</p>
+          <p class="text-xs text-zinc-500">{rangeText}</p>
+          {site.client_name && <p class="mt-2 text-xs text-zinc-500">{t.preparedFor}: <span class="font-medium text-zinc-700">{site.client_name}</span></p>}
+        </div>
+      </header>
+
+      <p class="text-[15px] leading-relaxed text-zinc-700">{summaryOf(analytics, period.key === 'last30' ? (locale === 'en' ? 'the last 30 days' : 'poslednjih 30 dana') : period.label, locale)}</p>
+
+      <section class="avoid-break grid grid-cols-5 gap-3">
+        {
+          kpis.map((k) => (
+            <div class:list={['rounded-[0.3rem] p-4', k.tint]}>
+              <span class:list={['grid size-9 place-items-center rounded text-white', k.tile]}>
+                <Icon name={k.icon} class="size-4.5" />
+              </span>
+              <div class="mt-3 text-xl font-semibold text-zinc-900">{k.value}</div>
+              <div class="text-xs text-zinc-700">{k.label}</div>
+              <div
+                class:list={[
+                  'mt-1 text-[11px] leading-snug',
+                  k.change.tone === 'up' ? 'text-green-700' : k.change.tone === 'down' ? 'text-orange-700' : 'text-zinc-500',
+                ]}
+              >
+                {k.change.text}
+              </div>
+            </div>
+          ))
+        }
+      </section>
+
+      <section class="avoid-break">
+        <h2 class="mb-3 text-base font-semibold">{t.daily}</h2>
+        <ReportChart days={analytics.daily} labels={{ visitors: t.visitors, leads: t.leads }} />
+      </section>
+
+      <section class="avoid-break grid grid-cols-2 gap-6">
+        <div>
+          <h2 class="mb-3 text-base font-semibold">{t.sources}</h2>
+          <table class="table">
+            <thead>
+              <tr><th>{t.source}</th><th class="text-right">{t.visits}</th><th class="text-right">{t.leads}</th><th class="text-right">{t.rate}</th></tr>
+            </thead>
+            <tbody>
+              {analytics.channels.length === 0 && <tr><td colspan="4" class="text-zinc-500">{t.noData}</td></tr>}
+              {analytics.channels.map((c) => (
+                <tr>
+                  <td>{channelLabel(c.label, locale)}</td>
+                  <td class="text-right tabular-nums">{n(c.visits)}</td>
+                  <td class="text-right font-semibold tabular-nums">{c.leads}</td>
+                  <td class="text-right text-zinc-500 tabular-nums">{formatRate(c.leads, c.visits, locale) ?? '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h2 class="mb-3 text-base font-semibold">{t.pages}</h2>
+          <table class="table">
+            <thead>
+              <tr><th>{t.page}</th><th class="text-right">{t.pageViews}</th><th class="text-right">{t.leads}</th></tr>
+            </thead>
+            <tbody>
+              {analytics.pages.length === 0 && <tr><td colspan="3" class="text-zinc-500">{t.noData}</td></tr>}
+              {analytics.pages.slice(0, 8).map((p) => (
+                <tr>
+                  <td class="max-w-[11rem] truncate" title={p.label}>{p.label}</td>
+                  <td class="text-right tabular-nums">{n(p.views)}</td>
+                  <td class="text-right font-semibold tabular-nums">{p.leads}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="avoid-break grid grid-cols-2 gap-6">
+        {
+          [
+            { title: t.devices, items: analytics.devices, max: maxDevice },
+            { title: t.countries, items: analytics.countries, max: maxCountry },
+          ].map((block) => (
+            <div>
+              <h2 class="mb-3 text-base font-semibold">{block.title}</h2>
+              {block.items.length === 0 && <p class="text-sm text-zinc-500">{t.noData}</p>}
+              <div class="space-y-2.5">
+                {block.items.map((item) => (
+                  <div>
+                    <div class="flex justify-between text-[13px]">
+                      <span class="text-zinc-700">{item.label}</span>
+                      <span class="font-semibold tabular-nums">{n(item.count)}</span>
+                    </div>
+                    <div class="mt-1 h-1.5 rounded-full bg-zinc-100">
+                      <div class="h-1.5 rounded-full bg-primary" style={`width:${(item.count / block.max) * 100}%`} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </section>
+
+      <section>
+        <h2 class="mb-3 text-base font-semibold">{t.leadList} ({leads.length})</h2>
+        {
+          leads.length === 0 ? (
+            <p class="text-sm text-zinc-500">{t.noLeads}</p>
+          ) : (
+            <table class="table">
+              <thead>
+                <tr><th>{t.date}</th><th>{t.name}</th><th>{t.source}</th><th>{t.form}</th></tr>
+              </thead>
+              <tbody>
+                {leads.map((l) => (
+                  <tr class="avoid-break">
+                    <td class="whitespace-nowrap">{dateFmt.format(new Date(l.created_at))}</td>
+                    <td>{l.visitor_name || l.visitor_email || '—'}</td>
+                    <td>{channelLabel(leadSource(l), locale)}</td>
+                    <td>{l.form_name}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )
+        }
+      </section>
+
+      <footer class="space-y-1 border-t border-zinc-200 pt-3 text-[11px] text-zinc-500">
+        <p>{t.notes}</p>
+        <p class="font-medium text-zinc-600">{t.footer}</p>
+      </footer>
+    </article>
+  </body>
+</html>

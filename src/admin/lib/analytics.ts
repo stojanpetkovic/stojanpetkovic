@@ -46,25 +46,32 @@ export interface Breakdown {
 }
 
 export interface SiteAnalytics {
-  days: RangeDays;
+  days: number;
   totals: Totals;
   previous: Totals;
   daily: { day: string; visitors: number; leads: number }[];
   channels: Breakdown[];
   pages: { label: string; views: number; leads: number }[];
-  devices: { label: string; count: number }[];
-  countries: { label: string; count: number }[];
+  devices: { key: string; label: string; count: number }[];
+  countries: { code: string; label: string; count: number }[];
   hasData: boolean;
 }
 
-const DEVICE_LABELS: Record<string, string> = { mobile: 'Telefon', desktop: 'Računar', tablet: 'Tablet' };
+export type ReportLocale = 'sr' | 'en';
 
-let countryNames: Intl.DisplayNames | null = null;
-function countryName(code: string): string {
-  if (code === '??') return 'Nepoznato';
+const DEVICE_LABELS: Record<ReportLocale, Record<string, string>> = {
+  sr: { mobile: 'Telefon', desktop: 'Računar', tablet: 'Tablet' },
+  en: { mobile: 'Mobile', desktop: 'Desktop', tablet: 'Tablet' },
+};
+
+const countryNames = new Map<ReportLocale, Intl.DisplayNames>();
+function countryName(code: string, locale: ReportLocale): string {
+  if (code === '??') return locale === 'en' ? 'Unknown' : 'Nepoznato';
   try {
-    countryNames ??= new Intl.DisplayNames(['sr-Latn'], { type: 'region' });
-    return countryNames.of(code) ?? code;
+    if (!countryNames.has(locale)) {
+      countryNames.set(locale, new Intl.DisplayNames([locale === 'en' ? 'en' : 'sr-Latn'], { type: 'region' }));
+    }
+    return countryNames.get(locale)!.of(code) ?? code;
   } catch {
     return code;
   }
@@ -84,19 +91,47 @@ function dayList(days: number, timeZone: string, offset = 0): string[] {
   return list;
 }
 
-export async function siteAnalytics(site: Site, days: RangeDays): Promise<SiteAnalytics> {
-  const current = dayList(days, site.timezone);
-  const previous = dayList(days, site.timezone, days);
-  const from = previous[0];
+/** Every calendar day from `from` to `to` inclusive (YYYY-MM-DD; plain dates, no timezone). */
+export function daysBetween(from: string, to: string): string[] {
+  const list: string[] = [];
+  const end = Date.parse(`${to}T00:00:00Z`);
+  for (let t = Date.parse(`${from}T00:00:00Z`); t <= end; t += 86_400_000) {
+    list.push(new Date(t).toISOString().slice(0, 10));
+  }
+  return list;
+}
+
+/** The last `days` days including today, compared with the `days` before them. */
+export function siteAnalytics(site: Site, days: RangeDays): Promise<SiteAnalytics> {
+  return analyzeDays(site, dayList(days, site.timezone), dayList(days, site.timezone, days), 'sr');
+}
+
+/**
+ * Totals and breakdowns for the given calendar days (in the site's timezone),
+ * with `previous` as the period the change figures compare against.
+ */
+export async function analyzeDays(
+  site: Site,
+  current: string[],
+  previous: string[],
+  locale: ReportLocale,
+): Promise<SiteAnalytics> {
+  const first = [...previous, ...current].sort()[0];
+  const last = [...previous, ...current].sort().at(-1)!;
+  // A day either side, so leads near midnight in the site's timezone are not
+  // cut off; each lead is then placed on its own day below.
+  const leadsFrom = new Date(Date.parse(`${first}T00:00:00Z`) - 86_400_000).toISOString();
+  const leadsTo = new Date(Date.parse(`${last}T00:00:00Z`) + 2 * 86_400_000).toISOString();
 
   const [{ data: dailyData }, { data: leadData }] = await Promise.all([
-    db().from('page_view_daily').select('*').eq('site_id', site.id).gte('day', from),
+    db().from('page_view_daily').select('*').eq('site_id', site.id).gte('day', first).lte('day', last),
     db()
       .from('leads')
       .select('created_at, page_url, utm_source, utm_medium, referrer')
       .eq('site_id', site.id)
       .eq('is_spam', false)
-      .gte('created_at', new Date(Date.now() - (days * 2 + 1) * 86_400_000).toISOString()),
+      .gte('created_at', leadsFrom)
+      .lt('created_at', leadsTo),
   ]);
   const rows = (dailyData ?? []) as DailyRow[];
   const leads = (leadData ?? []) as Pick<Lead, 'created_at' | 'page_url' | 'utm_source' | 'utm_medium' | 'referrer'>[];
@@ -152,14 +187,14 @@ export async function siteAnalytics(site: Site, days: RangeDays): Promise<SiteAn
     .sort((a, b) => b.visits - a.visits || b.leads - a.leads);
 
   return {
-    days,
+    days: current.length,
     totals: sum(inCurrent, currentLeads.length),
     previous: sum(inPrevious, leads.filter((l) => inPrevious.has(leadDay(l))).length),
     daily: current.map((day) => ({ day, visitors: visitorsByDay.get(day) ?? 0, leads: leadsByDay.get(day) ?? 0 })),
     channels,
     pages: sorted(pageViews, 12).map(([label, views]) => ({ label, views, leads: leadsByPage.get(label) ?? 0 })),
-    devices: sorted(devices, 5).map(([key, count]) => ({ label: DEVICE_LABELS[key] ?? key, count })),
-    countries: sorted(countries, 8).map(([code, count]) => ({ label: countryName(code), count })),
+    devices: sorted(devices, 5).map(([key, count]) => ({ key, label: DEVICE_LABELS[locale][key] ?? key, count })),
+    countries: sorted(countries, 8).map(([code, count]) => ({ code, label: countryName(code, locale), count })),
     hasData: rows.some((r) => inCurrent.has(r.day)),
   };
 }
