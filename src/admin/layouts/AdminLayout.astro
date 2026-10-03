@@ -1,0 +1,78 @@
+---
+import '@/admin/styles/admin.css';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  title: string;
+  heading?: string;
+}
+
+const { title, heading = title } = Astro.props;
+const path = Astro.url.pathname;
+const email = Astro.locals.adminEmail;
+
+const nav = [
+  { href: '/admin', label: 'Pregled', icon: 'lucide:layout-dashboard', active: path === '/admin' || path === '/admin/' },
+  { href: '/admin/leads', label: 'Lidovi', icon: 'lucide:inbox', active: path.startsWith('/admin/leads') },
+  { href: '/admin/sites', label: 'Sajtovi', icon: 'lucide:globe', active: path.startsWith('/admin/sites') },
+];
+---
+
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="/admin-favicon.svg" type="image/svg+xml" />
+    <title>{title} · Admin</title>
+  </head>
+  <body>
+    <input type="checkbox" id="nav-toggle" class="peer hidden" />
+
+    <aside
+      class="fixed inset-y-0 left-0 z-40 w-sidenav -translate-x-full bg-white border-r border-line transition-transform peer-checked:translate-x-0 lg:translate-x-0"
+    >
+      <div class="flex h-topbar items-center gap-2.5 px-6 border-b border-line">
+        <span class="grid size-8 place-items-center rounded bg-primary text-white font-bold">S</span>
+        <span class="font-semibold text-ink">Stojan Admin</span>
+      </div>
+      <nav class="p-4 space-y-1">
+        <div class="px-3 pb-2 text-[11px] font-semibold uppercase tracking-wider text-zinc-400">Meni</div>
+        {nav.map(({ href, label, icon, active }) => (
+          <a
+            href={href}
+            class:list={[
+              'flex items-center gap-3 rounded px-3 py-2 text-sm font-medium transition-colors',
+              active ? 'bg-primary/10 text-primary' : 'text-zinc-600 hover:bg-zinc-100 hover:text-ink',
+            ]}
+            aria-current={active ? 'page' : undefined}
+          >
+            <Icon name={icon} class="size-[18px]" />
+            {label}
+          </a>
+        ))}
+      </nav>
+    </aside>
+    <label for="nav-toggle" class="fixed inset-0 z-30 hidden bg-black/30 peer-checked:block lg:peer-checked:hidden" aria-hidden="true"></label>
+
+    <div class="lg:pl-sidenav min-h-screen flex flex-col">
+      <header class="sticky top-0 z-20 flex h-topbar items-center gap-3 border-b border-line bg-white/95 backdrop-blur px-4 lg:px-6 print:hidden">
+        <label for="nav-toggle" class="btn btn-light btn-sm lg:hidden cursor-pointer" aria-label="Otvori meni">
+          <Icon name="lucide:menu" class="size-4" />
+        </label>
+        <h1 class="text-base font-semibold truncate">{heading}</h1>
+        <div class="ml-auto flex items-center gap-3">
+          <span class="hidden sm:block text-xs text-muted">{email}</span>
+          <form method="post" action="/admin/logout">
+            <button class="btn btn-light btn-sm" type="submit"><Icon name="lucide:log-out" class="size-3.5" />Odjava</button>
+          </form>
+        </div>
+      </header>
+
+      <main class="flex-1 p-4 lg:p-6 space-y-6">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

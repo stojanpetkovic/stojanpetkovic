@@ -1,0 +1,56 @@
+---
+interface Series {
+  label: string;
+  data: number[];
+}
+interface Props {
+  title: string;
+  labels: string[];
+  series: Series[];
+}
+const { title, labels, series } = Astro.props;
+const id = `chart-${Math.random().toString(36).slice(2, 9)}`;
+---
+
+<div class="card">
+  <div class="card-header"><h2 class="card-title">{title}</h2></div>
+  <div class="card-body">
+    <div class="relative h-64">
+      <canvas id={id} data-chart={JSON.stringify({ labels, series })} aria-label={title} role="img"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { Chart, BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
+  Chart.register(BarController, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+
+  const palette = ['#3b82f6', '#8b5cf6', '#22c55e', '#f59e0b', '#0ea5e9', '#f97316', '#ec4899', '#14b8a6'];
+
+  for (const canvas of document.querySelectorAll<HTMLCanvasElement>('canvas[data-chart]')) {
+    const { labels, series } = JSON.parse(canvas.dataset.chart!);
+    new Chart(canvas, {
+      type: 'bar',
+      data: {
+        labels: labels.map((d: string) => d.slice(8, 10) + '.' + d.slice(5, 7) + '.'),
+        datasets: series.map((s: { label: string; data: number[] }, i: number) => ({
+          label: s.label,
+          data: s.data,
+          backgroundColor: palette[i % palette.length],
+          borderRadius: 3,
+          maxBarThickness: 22,
+        })),
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? false : undefined,
+        plugins: { legend: { display: series.length > 1, position: 'bottom' } },
+        scales: {
+          x: { stacked: true, grid: { display: false }, ticks: { maxRotation: 0, autoSkipPadding: 12 } },
+          y: { stacked: true, beginAtZero: true, ticks: { precision: 0 } },
+        },
+      },
+    });
+  }
+</script>

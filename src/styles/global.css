@@ -14,6 +14,10 @@
 @import '@fontsource-variable/outfit';
 @import '@fontsource-variable/jetbrains-mono';
 
+/* The private admin compiles its own stylesheet (src/admin/styles/admin.css). */
+@source not '../admin';
+@source not '../pages/admin';
+
 /* Metric-adjusted fallback fonts.
    The variable fonts above arrive after first paint, so headings and body
    text used to reflow when the swap landed (Lighthouse reported CLS on the

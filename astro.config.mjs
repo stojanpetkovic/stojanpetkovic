@@ -357,6 +357,7 @@ const astroI18nOptions = i18nEnabled
 export default defineConfig({
   output: 'static',
   adapter: resolveAdapter(),
+
   site: process.env.SITE_URL || SITE_URL_FALLBACK,
   ...(astroI18nOptions ? { i18n: astroI18nOptions } : {}),
 
@@ -431,8 +432,11 @@ export default defineConfig({
     },
   },
 
+  // Off because /api/leads receives cross-site posts from client sites by
+  // design. src/middleware.ts applies the same-origin check to every other
+  // state-changing request, the contact and newsletter endpoints included.
   security: {
-    checkOrigin: true,
+    checkOrigin: false,
   },
 
   markdown: {

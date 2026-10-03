@@ -1,0 +1,62 @@
+---
+import { TIMEZONES } from '@/admin/lib/siteForm';
+import type { Site } from '@/admin/lib/types';
+
+interface Props {
+  site?: Partial<Site>;
+  showActive?: boolean;
+}
+const { site = {}, showActive = false } = Astro.props;
+---
+
+<div class="grid sm:grid-cols-2 gap-4">
+  <div>
+    <label class="form-label" for="name">Naziv sajta</label>
+    <input class="form-input" id="name" name="name" required value={site.name ?? ''} placeholder="Valena Apartmani" />
+  </div>
+  <div>
+    <label class="form-label" for="domain">Domen</label>
+    <input class="form-input" id="domain" name="domain" required value={site.domain ?? ''} placeholder="valenaapartmani.com" />
+    <p class="form-hint">Forme se primaju samo sa ovog domena i njegovih poddomena.</p>
+  </div>
+  <div>
+    <label class="form-label" for="client_name">Klijent</label>
+    <input class="form-input" id="client_name" name="client_name" value={site.client_name ?? ''} placeholder="Ime i prezime ili firma" />
+  </div>
+  <div>
+    <label class="form-label" for="client_emails">Emailovi klijenta</label>
+    <input class="form-input" id="client_emails" name="client_emails" value={(site.client_emails ?? []).join(', ')} placeholder="vlasnik@firma.com, prodaja@firma.com" />
+    <p class="form-hint">Svaki lid ide na sve ove adrese. Odvoji zarezom.</p>
+  </div>
+  <div>
+    <label class="form-label" for="email_language">Jezik emaila klijentu</label>
+    <select class="form-input" id="email_language" name="email_language">
+      <option value="sr" selected={site.email_language !== 'en'}>Srpski</option>
+      <option value="en" selected={site.email_language === 'en'}>Engleski</option>
+    </select>
+  </div>
+  <div>
+    <label class="form-label" for="timezone">Vremenska zona klijenta</label>
+    <select class="form-input" id="timezone" name="timezone">
+      {TIMEZONES.map((tz) => <option value={tz.value} selected={(site.timezone ?? 'Europe/Belgrade') === tz.value}>{tz.label}</option>)}
+    </select>
+  </div>
+  <div>
+    <label class="form-label" for="ga4_property_id">GA4 Property ID <span class="text-muted font-normal">(faza 2)</span></label>
+    <input class="form-input" id="ga4_property_id" name="ga4_property_id" value={site.ga4_property_id ?? ''} placeholder="412345678" inputmode="numeric" />
+    <p class="form-hint">GA4 → Admin → Property details. Broj, ne G-XXXX.</p>
+  </div>
+  <div class="flex flex-col justify-center gap-2 pt-5">
+    <label class="inline-flex items-center gap-2 text-[13px] text-zinc-700">
+      <input type="checkbox" name="notify_owner" checked={site.notify_owner ?? true} class="size-4 accent-primary" />
+      Pošalji kopiju i meni
+    </label>
+    {showActive && (
+      <label class="inline-flex items-center gap-2 text-[13px] text-zinc-700">
+        <input type="hidden" name="active" value="off" />
+        <input type="checkbox" name="active" checked={site.active ?? true} class="size-4 accent-primary" />
+        Sajt je aktivan (prima lidove)
+      </label>
+    )}
+  </div>
+</div>

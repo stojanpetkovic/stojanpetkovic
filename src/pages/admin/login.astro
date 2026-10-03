@@ -1,0 +1,67 @@
+---
+export const prerender = false;
+import '@/admin/styles/admin.css';
+import { authClient } from '@/admin/lib/supabase';
+import { env } from '@/admin/lib/env';
+import { isSameOrigin } from '@/admin/lib/csrf';
+
+let error = '';
+
+if (Astro.request.method === 'POST') {
+  if (!isSameOrigin(Astro.request)) {
+    return new Response('Forbidden', { status: 403 });
+  }
+  const form = await Astro.request.formData();
+  const email = String(form.get('email') ?? '').trim().toLowerCase();
+  const password = String(form.get('password') ?? '');
+
+  // Checked before Supabase is asked, so no other account can even start a session.
+  if (!env.adminEmail || email !== env.adminEmail) {
+    error = 'Pogrešan email ili lozinka.';
+  } else {
+    const supabase = authClient(Astro.request, Astro.cookies);
+    const { error: signInError } = await supabase.auth.signInWithPassword({ email, password });
+    if (signInError) {
+      error = 'Pogrešan email ili lozinka.';
+    } else {
+      return Astro.redirect('/admin');
+    }
+  }
+}
+---
+
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="/admin-favicon.svg" type="image/svg+xml" />
+    <title>Prijava · Admin</title>
+  </head>
+  <body class="min-h-screen grid place-items-center p-4">
+    <div class="card w-full max-w-sm">
+      <div class="card-body p-8">
+        <div class="flex items-center gap-2.5 mb-6">
+          <span class="grid size-9 place-items-center rounded bg-primary text-white font-bold">S</span>
+          <div>
+            <div class="font-semibold text-ink">Stojan Admin</div>
+            <div class="text-xs text-muted">Lidovi i analitika za sve sajtove</div>
+          </div>
+        </div>
+        {error && <div class="mb-4 rounded bg-orange-50 px-3 py-2 text-[13px] text-orange-700" role="alert">{error}</div>}
+        <form method="post" class="space-y-4">
+          <div>
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" id="email" name="email" type="email" autocomplete="username" required />
+          </div>
+          <div>
+            <label class="form-label" for="password">Lozinka</label>
+            <input class="form-input" id="password" name="password" type="password" autocomplete="current-password" required />
+          </div>
+          <button class="btn btn-primary w-full" type="submit">Prijavi se</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

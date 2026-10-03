@@ -1,0 +1,83 @@
+---
+export const prerender = false;
+import AdminLayout from '@/admin/layouts/AdminLayout.astro';
+import LeadTable from '@/admin/components/LeadTable.astro';
+import { db } from '@/admin/lib/supabase';
+import { readFilters, leadQuery } from '@/admin/lib/leadQuery';
+import { STATUS_LABELS } from '@/admin/lib/format';
+import type { Lead, Site } from '@/admin/lib/types';
+
+const PAGE_SIZE = 50;
+const filters = readFilters(Astro.url);
+const page = Math.max(1, Number(Astro.url.searchParams.get('page')) || 1);
+
+const [{ data: sitesData }, { data: leadsData, count }] = await Promise.all([
+  db().from('sites').select('*').order('name'),
+  leadQuery(filters, '*', true).range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1),
+]);
+const sites = (sitesData ?? []) as Site[];
+const leads = (leadsData ?? []) as unknown as Lead[];
+const total = count ?? 0;
+const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+
+const params = new URLSearchParams(Astro.url.searchParams);
+params.delete('page');
+const pageHref = (n: number) => `/admin/leads?${new URLSearchParams({ ...Object.fromEntries(params), page: String(n) })}`;
+const exportHref = `/admin/leads/export.csv?${params}`;
+---
+
+<AdminLayout title="Lidovi">
+  <form method="get" class="card card-body grid sm:grid-cols-2 lg:grid-cols-6 gap-3 items-end">
+    <div class="lg:col-span-2">
+      <label class="form-label" for="q">Pretraga</label>
+      <input class="form-input" id="q" name="q" value={filters.q} placeholder="Ime, email ili telefon" />
+    </div>
+    <div>
+      <label class="form-label" for="site">Sajt</label>
+      <select class="form-input" id="site" name="site">
+        <option value="">Svi sajtovi</option>
+        {sites.map((s) => <option value={s.id} selected={filters.site === s.id}>{s.name}</option>)}
+      </select>
+    </div>
+    <div>
+      <label class="form-label" for="status">Status</label>
+      <select class="form-input" id="status" name="status">
+        <option value="">Svi</option>
+        {Object.entries(STATUS_LABELS).map(([value, label]) => <option value={value} selected={filters.status === value}>{label}</option>)}
+      </select>
+    </div>
+    <div>
+      <label class="form-label" for="from">Od</label>
+      <input class="form-input" type="date" id="from" name="from" value={filters.from} />
+    </div>
+    <div>
+      <label class="form-label" for="to">Do</label>
+      <input class="form-input" type="date" id="to" name="to" value={filters.to} />
+    </div>
+    <div class="lg:col-span-6 flex flex-wrap items-center gap-3">
+      <label class="inline-flex items-center gap-2 text-[13px] text-zinc-700">
+        <input type="checkbox" name="spam" value="1" checked={filters.spam} class="size-4 accent-primary" />
+        Prikaži samo spam
+      </label>
+      <div class="ml-auto flex gap-2">
+        <a href="/admin/leads" class="btn btn-light">Poništi</a>
+        <a href={exportHref} class="btn btn-outline">Izvezi CSV</a>
+        <button class="btn btn-primary" type="submit">Filtriraj</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">{total} {total === 1 ? 'lid' : 'lidova'}</h2>
+      <span class="text-muted text-xs">Strana {page} od {pages}</span>
+    </div>
+    <LeadTable leads={leads} sites={new Map(sites.map((s) => [s.id, s]))} empty="Nema lidova za ove filtere." />
+    {pages > 1 && (
+      <div class="flex justify-between gap-3 border-t border-line px-5 py-3">
+        {page > 1 ? <a class="btn btn-light btn-sm" href={pageHref(page - 1)}>← Novije</a> : <span />}
+        {page < pages ? <a class="btn btn-light btn-sm" href={pageHref(page + 1)}>Starije →</a> : <span />}
+      </div>
+    )}
+  </div>
+</AdminLayout>

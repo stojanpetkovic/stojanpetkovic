@@ -1,0 +1,163 @@
+---
+export const prerender = false;
+import AdminLayout from '@/admin/layouts/AdminLayout.astro';
+import SiteFields from '@/admin/components/SiteFields.astro';
+import StatCard from '@/admin/components/StatCard.astro';
+import DailyChart from '@/admin/components/DailyChart.astro';
+import BarList from '@/admin/components/BarList.astro';
+import LeadTable from '@/admin/components/LeadTable.astro';
+import { db } from '@/admin/lib/supabase';
+import { readSiteForm } from '@/admin/lib/siteForm';
+import { dailySeries, summarize } from '@/admin/lib/stats';
+import type { Lead, Site } from '@/admin/lib/types';
+
+const { id } = Astro.params;
+const load = () => db().from('sites').select('*').eq('id', id!).maybeSingle<Site>();
+let { data: site } = await load();
+if (!site) return Astro.redirect('/admin/sites');
+
+let errors: string[] = [];
+let notice = Astro.url.searchParams.get('created') ? 'Sajt je dodat. Ugradi kod ispod na sajt.' : '';
+
+if (Astro.request.method === 'POST') {
+  const form = await Astro.request.formData();
+  const action = form.get('action');
+
+  if (action === 'save') {
+    const { errors: formErrors, values } = readSiteForm(form);
+    errors = formErrors;
+    if (!errors.length) {
+      const { error } = await db().from('sites').update(values).eq('id', site.id);
+      if (error) errors = [error.code === '23505' ? 'Sajt sa tim domenom već postoji.' : error.message];
+      else notice = 'Podešavanja su sačuvana.';
+    }
+  } else if (action === 'rotate-key') {
+    const key = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => b.toString(16).padStart(2, '0')).join('');
+    await db().from('sites').update({ site_key: key }).eq('id', site.id);
+    notice = 'Novi ključ je napravljen. Zameni kod na sajtu — stari ključ više ne radi.';
+  } else if (action === 'delete') {
+    if (String(form.get('confirm') ?? '').trim().toLowerCase() === site.domain) {
+      await db().from('sites').delete().eq('id', site.id);
+      return Astro.redirect('/admin/sites');
+    }
+    errors = ['Za brisanje upiši tačan domen sajta.'];
+  }
+  ({ data: site } = await load());
+  if (!site) return Astro.redirect('/admin/sites');
+}
+
+const since = new Date(Date.now() - 60 * 86_400_000).toISOString();
+const { data: leadsData } = await db()
+  .from('leads')
+  .select('*')
+  .eq('site_id', site.id)
+  .eq('is_spam', false)
+  .gte('created_at', since)
+  .order('created_at', { ascending: false });
+const leads = (leadsData ?? []) as Lead[];
+const stats = summarize(leads);
+const series = dailySeries(leads, 30, site.timezone);
+
+const origin = Astro.site ? new URL(Astro.site).origin : Astro.url.origin;
+const snippet = `<script src="${origin}/leads.js" data-site-key="${site.site_key}" defer></script>`;
+const changeNote =
+  stats.change === null ? 'nema podataka za prethodni period' : `${stats.change >= 0 ? '+' : ''}${stats.change}% u odnosu na prethodnih 30 dana`;
+---
+
+<AdminLayout title={site.name}>
+  {notice && <div class="rounded bg-green-50 px-4 py-3 text-[13px] text-green-700" role="status">{notice}</div>}
+  {errors.length > 0 && (
+    <ul class="rounded bg-orange-50 px-4 py-3 text-[13px] text-orange-700 list-disc list-inside" role="alert">
+      {errors.map((e) => <li>{e}</li>)}
+    </ul>
+  )}
+
+  <div class="flex flex-wrap items-center gap-3">
+    <a href={`https://${site.domain}`} target="_blank" rel="noopener" class="text-primary hover:underline">{site.domain}</a>
+    {site.client_name && <span class="text-muted">· {site.client_name}</span>}
+    {!site.active && <span class="badge badge-lost">Pauziran</span>}
+    <a href={`/admin/leads?site=${site.id}`} class="btn btn-light btn-sm ml-auto">Svi lidovi ovog sajta</a>
+  </div>
+
+  <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
+    <StatCard label="Poslednjih 7 dana" value={stats.last7} />
+    <StatCard
+      label="Poslednjih 30 dana"
+      value={stats.last30}
+      note={changeNote}
+      tone={stats.change === null ? 'neutral' : stats.change >= 0 ? 'up' : 'down'}
+    />
+    <StatCard label="Danas" value={stats.today} />
+    <StatCard label="Stopa dogovora" value={stats.winRate === null ? '—' : `${stats.winRate}%`} note="od lidova označenih kao dogovoren/izgubljen" />
+  </div>
+
+  <DailyChart title="Lidovi po danu (30 dana)" labels={series.map((d) => d.day)} series={[{ label: 'Lidovi', data: series.map((d) => d.count) }]} />
+
+  <div class="grid lg:grid-cols-3 gap-6">
+    <BarList title="Po formi" items={stats.byForm} />
+    <BarList title="Po izvoru" items={stats.bySource} />
+    <BarList title="Po stranici" items={stats.byPage} />
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h2 class="card-title">Poslednji lidovi</h2></div>
+    <LeadTable leads={leads.slice(0, 10)} sites={new Map([[site.id, site]])} showSite={false} />
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h2 class="card-title">Kod za ugradnju</h2></div>
+    <div class="card-body space-y-3">
+      <p>Zalepi ovu liniju pre <code>&lt;/body&gt;</code> na svim stranicama sajta (najlakše u zajednički layout ili futer). Sve forme se onda šalju ovde, paralelno sa onim što već rade.</p>
+      <div class="flex gap-2">
+        <input class="form-input font-mono text-xs" readonly value={snippet} id="snippet" />
+        <button type="button" class="btn btn-outline" data-copy="#snippet">Kopiraj</button>
+      </div>
+      <ul class="text-[13px] text-muted list-disc list-inside space-y-1">
+        <li>Formu koju ne treba pratiti označi sa <code>data-lead-ignore</code> (forme sa lozinkom i pretraga se preskaču same).</li>
+        <li>Ime forme u izveštajima: <code>data-lead-form="rezervacija"</code>, inače se koristi id forme.</li>
+        <li>Zaštita od botova: skriveno polje <code>&lt;input name="website_hp" tabindex="-1" autocomplete="off" hidden&gt;</code>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <form method="post" class="card">
+    <input type="hidden" name="action" value="save" />
+    <div class="card-header"><h2 class="card-title">Podešavanja</h2></div>
+    <div class="card-body space-y-4">
+      <SiteFields site={site} showActive />
+      <button class="btn btn-primary" type="submit">Sačuvaj</button>
+    </div>
+  </form>
+
+  <div class="card">
+    <div class="card-header"><h2 class="card-title">Opasna zona</h2></div>
+    <div class="card-body grid md:grid-cols-2 gap-6">
+      <form method="post" class="space-y-2">
+        <input type="hidden" name="action" value="rotate-key" />
+        <p class="text-[13px]">Napravi novi ključ ako je stari zloupotrebljen. Kod na sajtu mora da se zameni.</p>
+        <button class="btn btn-outline btn-sm" type="submit">Napravi novi ključ</button>
+      </form>
+      <form method="post" class="space-y-2">
+        <input type="hidden" name="action" value="delete" />
+        <p class="text-[13px]">Brisanje sajta trajno briše i <strong>sve njegove lidove</strong>. Upiši <code>{site.domain}</code> za potvrdu.</p>
+        <div class="flex gap-2">
+          <input class="form-input" name="confirm" placeholder={site.domain} autocomplete="off" />
+          <button class="btn btn-danger btn-sm" type="submit">Obriši</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</AdminLayout>
+
+<script>
+  for (const button of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
+    button.addEventListener('click', async () => {
+      const input = document.querySelector<HTMLInputElement>(button.dataset.copy!);
+      if (!input) return;
+      await navigator.clipboard.writeText(input.value);
+      const label = button.textContent;
+      button.textContent = 'Kopirano';
+      setTimeout(() => (button.textContent = label), 1500);
+    });
+  }
+</script>

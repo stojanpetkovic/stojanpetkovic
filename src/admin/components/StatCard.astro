@@ -1,0 +1,17 @@
+---
+interface Props {
+  label: string;
+  value: string | number;
+  note?: string;
+  tone?: 'up' | 'down' | 'neutral';
+}
+const { label, value, note, tone = 'neutral' } = Astro.props;
+---
+
+<div class="card card-body">
+  <div class="stat-label">{label}</div>
+  <div class="stat-value">{value}</div>
+  {note && (
+    <div class:list={['mt-1 text-xs', tone === 'up' ? 'text-green-600' : tone === 'down' ? 'text-orange-600' : 'text-muted']}>{note}</div>
+  )}
+</div>

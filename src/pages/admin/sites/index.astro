@@ -1,0 +1,83 @@
+---
+export const prerender = false;
+import AdminLayout from '@/admin/layouts/AdminLayout.astro';
+import SiteFields from '@/admin/components/SiteFields.astro';
+import { db } from '@/admin/lib/supabase';
+import { readSiteForm } from '@/admin/lib/siteForm';
+import { timeAgo } from '@/admin/lib/format';
+import type { Site } from '@/admin/lib/types';
+
+let errors: string[] = [];
+let draft: Partial<Site> | undefined;
+
+if (Astro.request.method === 'POST') {
+  const { errors: formErrors, values } = readSiteForm(await Astro.request.formData());
+  errors = formErrors;
+  draft = values as Partial<Site>;
+  if (!errors.length) {
+    const { data, error } = await db().from('sites').insert(values).select('id').single();
+    if (error) {
+      errors = [error.code === '23505' ? 'Sajt sa tim domenom već postoji.' : error.message];
+    } else {
+      return Astro.redirect(`/admin/sites/${data.id}?created=1`);
+    }
+  }
+}
+
+const since = new Date(Date.now() - 30 * 86_400_000).toISOString();
+const [{ data: sitesData }, { data: recent }] = await Promise.all([
+  db().from('sites').select('*').order('name'),
+  db().from('leads').select('site_id, created_at').eq('is_spam', false).gte('created_at', since).order('created_at', { ascending: false }),
+]);
+const sites = (sitesData ?? []) as Site[];
+const counts = new Map<string, { n: number; last: string }>();
+for (const row of recent ?? []) {
+  const c = counts.get(row.site_id);
+  if (c) c.n++;
+  else counts.set(row.site_id, { n: 1, last: row.created_at });
+}
+---
+
+<AdminLayout title="Sajtovi">
+  <div class="card">
+    <div class="card-header"><h2 class="card-title">Sajtovi ({sites.length})</h2></div>
+    <div class="overflow-x-auto">
+      <table class="table">
+        <thead>
+          <tr><th>Sajt</th><th>Klijent</th><th>Lidovi (30 dana)</th><th>Poslednji lid</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          {sites.length === 0 && <tr><td colspan="5" class="text-center text-muted py-8">Još nema sajtova. Dodaj prvi ispod.</td></tr>}
+          {sites.map((site) => {
+            const c = counts.get(site.id);
+            return (
+              <tr>
+                <td>
+                  <a href={`/admin/sites/${site.id}`} class="font-medium text-ink hover:text-primary">{site.name}</a>
+                  <div class="text-xs text-muted">{site.domain}</div>
+                </td>
+                <td>{site.client_name ?? '—'}</td>
+                <td class="tabular-nums font-semibold text-ink">{c?.n ?? 0}</td>
+                <td class="text-muted whitespace-nowrap">{c ? timeAgo(c.last) : '—'}</td>
+                <td>{site.active ? <span class="badge badge-won">Aktivan</span> : <span class="badge badge-lost">Pauziran</span>}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <form method="post" class="card" id="novi">
+    <div class="card-header"><h2 class="card-title">Dodaj sajt</h2></div>
+    <div class="card-body space-y-4">
+      {errors.length > 0 && (
+        <ul class="rounded bg-orange-50 px-4 py-3 text-[13px] text-orange-700 list-disc list-inside" role="alert">
+          {errors.map((e) => <li>{e}</li>)}
+        </ul>
+      )}
+      <SiteFields site={draft} />
+      <button class="btn btn-primary" type="submit">Dodaj sajt</button>
+    </div>
+  </form>
+</AdminLayout>

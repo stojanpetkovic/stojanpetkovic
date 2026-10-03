@@ -8,8 +8,9 @@ export const GET: APIRoute = ({ site }) => {
 User-agent: *
 Allow: /
 
-# Block API routes
+# Block API routes and the private admin
 Disallow: /api/
+Disallow: /admin/
 
 # Plain-Markdown map of this site for language models — see https://llmstxt.org
 # LLM map: ${siteUrl}llms.txt

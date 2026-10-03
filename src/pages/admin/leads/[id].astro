@@ -1,0 +1,154 @@
+---
+export const prerender = false;
+import AdminLayout from '@/admin/layouts/AdminLayout.astro';
+import { db } from '@/admin/lib/supabase';
+import { sendLeadEmails } from '@/admin/lib/email';
+import { leadSource } from '@/admin/lib/leads';
+import { STATUS_LABELS, formatDateTime } from '@/admin/lib/format';
+import type { EmailLog, Lead, LeadStatus, Site } from '@/admin/lib/types';
+
+const { id } = Astro.params;
+if (!/^[0-9a-f-]{36}$/.test(id ?? '')) return Astro.redirect('/admin/leads');
+
+const load = () => db().from('leads').select('*').eq('id', id!).maybeSingle<Lead>();
+let { data: lead } = await load();
+if (!lead) return Astro.redirect('/admin/leads');
+const { data: site } = await db().from('sites').select('*').eq('id', lead.site_id).single<Site>();
+
+let notice = '';
+
+if (Astro.request.method === 'POST') {
+  const form = await Astro.request.formData();
+  const action = form.get('action');
+
+  if (action === 'update') {
+    const status = String(form.get('status')) as LeadStatus;
+    await db()
+      .from('leads')
+      .update({
+        status: status in STATUS_LABELS ? status : lead.status,
+        notes: String(form.get('notes') ?? '').slice(0, 5000) || null,
+      })
+      .eq('id', lead.id);
+    notice = 'Sačuvano.';
+  } else if (action === 'resend-client' || action === 'resend-owner') {
+    if (site) await sendLeadEmails(site, lead, action === 'resend-client' ? 'client' : 'owner');
+    notice = 'Email je ponovo poslat. Rezultat je u istoriji ispod.';
+  } else if (action === 'toggle-spam') {
+    await db().from('leads').update({ is_spam: !lead.is_spam }).eq('id', lead.id);
+    notice = lead.is_spam ? 'Lid više nije označen kao spam.' : 'Lid je označen kao spam i ne ulazi u statistiku.';
+  } else if (action === 'delete') {
+    await db().from('leads').delete().eq('id', lead.id);
+    return Astro.redirect('/admin/leads');
+  }
+  ({ data: lead } = await load());
+  if (!lead) return Astro.redirect('/admin/leads');
+}
+
+const { data: logData } = await db().from('email_log').select('*').eq('lead_id', lead.id).order('created_at', { ascending: false });
+const emails = (logData ?? []) as EmailLog[];
+const tz = site?.timezone ?? 'Europe/Belgrade';
+const title = lead.visitor_name || lead.visitor_email || 'Lid';
+
+const meta: [string, string | null][] = [
+  ['Sajt', site?.name ?? '—'],
+  ['Forma', lead.form_name],
+  ['Vreme', `${formatDateTime(lead.created_at)} (Beograd)${tz !== 'Europe/Belgrade' ? ` · ${formatDateTime(lead.created_at, tz)} (klijent)` : ''}`],
+  ['Izvor', leadSource(lead)],
+  ['Kampanja', [lead.utm_campaign, lead.utm_content, lead.utm_term].filter(Boolean).join(' · ') || null],
+  ['Stranica', lead.page_url],
+  ['Došao sa', lead.referrer],
+  ['Uređaj', lead.user_agent],
+];
+---
+
+<AdminLayout title={title}>
+  {notice && <div class="rounded bg-green-50 px-4 py-3 text-[13px] text-green-700" role="status">{notice}</div>}
+
+  <div class="flex flex-wrap items-center gap-2">
+    <a href="/admin/leads" class="btn btn-light btn-sm">← Svi lidovi</a>
+    {lead.is_spam ? <span class="badge badge-spam">Spam</span> : <span class={`badge badge-${lead.status}`}>{STATUS_LABELS[lead.status]}</span>}
+    <div class="ml-auto flex flex-wrap gap-2">
+      {lead.visitor_email && <a class="btn btn-primary btn-sm" href={`mailto:${lead.visitor_email}`}>Odgovori emailom</a>}
+      {lead.visitor_phone && <a class="btn btn-outline btn-sm" href={`tel:${lead.visitor_phone.replace(/[^\d+]/g, '')}`}>Pozovi</a>}
+    </div>
+  </div>
+
+  <div class="grid lg:grid-cols-3 gap-6">
+    <div class="lg:col-span-2 space-y-6">
+      <div class="card">
+        <div class="card-header"><h2 class="card-title">Podaci iz forme</h2></div>
+        <table class="table">
+          <tbody>
+            {Object.entries(lead.data).map(([key, value]) => (
+              <tr>
+                <td class="w-1/3 text-muted">{key}</td>
+                <td class="text-ink whitespace-pre-wrap break-words">{value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><h2 class="card-title">Odakle je došao</h2></div>
+        <table class="table">
+          <tbody>
+            {meta.filter(([, v]) => v).map(([key, value]) => (
+              <tr>
+                <td class="w-1/3 text-muted">{key}</td>
+                <td class="break-all">{value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="space-y-6">
+      <form method="post" class="card">
+        <input type="hidden" name="action" value="update" />
+        <div class="card-header"><h2 class="card-title">Praćenje</h2></div>
+        <div class="card-body space-y-4">
+          <div>
+            <label class="form-label" for="status">Status</label>
+            <select class="form-input" id="status" name="status">
+              {Object.entries(STATUS_LABELS).map(([value, label]) => <option value={value} selected={lead.status === value}>{label}</option>)}
+            </select>
+          </div>
+          <div>
+            <label class="form-label" for="notes">Beleške</label>
+            <textarea class="form-input" id="notes" name="notes" rows="4">{lead.notes ?? ''}</textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Sačuvaj</button>
+        </div>
+      </form>
+
+      <div class="card">
+        <div class="card-header"><h2 class="card-title">Poslati emailovi</h2></div>
+        <div class="card-body space-y-3">
+          {emails.length === 0 && <p class="text-muted">Nijedan email nije poslat{lead.is_spam ? ' (spam se ne šalje)' : ''}.</p>}
+          {emails.map((e) => (
+            <div class="text-[13px]">
+              <div class="flex items-center gap-2">
+                <span class={`badge ${e.status === 'sent' ? 'badge-won' : 'badge-spam'}`}>{e.status === 'sent' ? 'Poslato' : 'Greška'}</span>
+                <span class="text-ink truncate">{e.recipient}</span>
+              </div>
+              <div class="text-xs text-muted mt-0.5">{e.kind === 'client' ? 'Klijent' : 'Ti'} · {formatDateTime(e.created_at)}</div>
+              {e.error && <div class="text-xs text-orange-700 mt-0.5">{e.error}</div>}
+            </div>
+          ))}
+          <div class="flex flex-wrap gap-2 pt-2">
+            <form method="post"><input type="hidden" name="action" value="resend-client" /><button class="btn btn-outline btn-sm" type="submit" disabled={!site?.client_emails.length}>Pošalji klijentu</button></form>
+            <form method="post"><input type="hidden" name="action" value="resend-owner" /><button class="btn btn-outline btn-sm" type="submit">Pošalji meni</button></form>
+          </div>
+        </div>
+      </div>
+
+      <div class="card card-body flex flex-wrap gap-2">
+        <form method="post"><input type="hidden" name="action" value="toggle-spam" /><button class="btn btn-light btn-sm" type="submit">{lead.is_spam ? 'Nije spam' : 'Označi kao spam'}</button></form>
+        <form method="post" onsubmit="return confirm('Trajno obrisati ovaj lid?')"><input type="hidden" name="action" value="delete" /><button class="btn btn-danger btn-sm" type="submit">Obriši lid</button></form>
+      </div>
+    </div>
+  </div>
+</AdminLayout>

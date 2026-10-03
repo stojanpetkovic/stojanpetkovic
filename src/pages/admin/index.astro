@@ -1,0 +1,77 @@
+---
+export const prerender = false;
+import AdminLayout from '@/admin/layouts/AdminLayout.astro';
+import StatCard from '@/admin/components/StatCard.astro';
+import DailyChart from '@/admin/components/DailyChart.astro';
+import BarList from '@/admin/components/BarList.astro';
+import LeadTable from '@/admin/components/LeadTable.astro';
+import { db } from '@/admin/lib/supabase';
+import { dailySeries, summarize, countBy } from '@/admin/lib/stats';
+import type { Lead, Site } from '@/admin/lib/types';
+
+const since = new Date(Date.now() - 60 * 86_400_000).toISOString();
+const [{ data: sitesData }, { data: leadsData }] = await Promise.all([
+  db().from('sites').select('*').order('name'),
+  db().from('leads').select('*').eq('is_spam', false).gte('created_at', since).order('created_at', { ascending: false }),
+]);
+
+const sites = (sitesData ?? []) as Site[];
+const leads = (leadsData ?? []) as Lead[];
+const siteMap = new Map(sites.map((s) => [s.id, s]));
+const stats = summarize(leads);
+
+const DAYS = 30;
+const labels = dailySeries([], DAYS, 'Europe/Belgrade').map((d) => d.day);
+const series = sites
+  .map((site) => ({
+    label: site.name,
+    data: dailySeries(leads.filter((l) => l.site_id === site.id), DAYS, 'Europe/Belgrade').map((d) => d.count),
+  }))
+  .filter((s) => s.data.some((n) => n > 0));
+
+const bySite = countBy(
+  leads.filter((l) => Date.now() - new Date(l.created_at).getTime() < 30 * 86_400_000),
+  (l) => siteMap.get(l.site_id)?.name ?? '—',
+);
+const changeNote =
+  stats.change === null ? 'nema podataka za prethodni period' : `${stats.change >= 0 ? '+' : ''}${stats.change}% u odnosu na prethodnih 30 dana`;
+---
+
+<AdminLayout title="Pregled">
+  {sites.length === 0 && (
+    <div class="card card-body flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <h2 class="card-title">Dodaj prvi sajt</h2>
+        <p class="text-muted mt-1">Svaki sajt dobija svoj ključ i jednu liniju koda koja šalje forme ovde.</p>
+      </div>
+      <a href="/admin/sites" class="btn btn-primary">Dodaj sajt</a>
+    </div>
+  )}
+
+  <div class="grid grid-cols-2 xl:grid-cols-4 gap-4">
+    <StatCard label="Danas" value={stats.today} />
+    <StatCard label="Poslednjih 7 dana" value={stats.last7} />
+    <StatCard
+      label="Poslednjih 30 dana"
+      value={stats.last30}
+      note={changeNote}
+      tone={stats.change === null ? 'neutral' : stats.change >= 0 ? 'up' : 'down'}
+    />
+    <StatCard label="Aktivnih sajtova" value={sites.filter((s) => s.active).length} />
+  </div>
+
+  <DailyChart title="Lidovi po danu (30 dana)" labels={labels} series={series.length ? series : [{ label: 'Lidovi', data: labels.map(() => 0) }]} />
+
+  <div class="grid lg:grid-cols-2 gap-6">
+    <BarList title="Po sajtu (30 dana)" items={bySite} />
+    <BarList title="Po izvoru (60 dana)" items={stats.bySource} />
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Poslednji lidovi</h2>
+      <a href="/admin/leads" class="btn btn-light btn-sm">Svi lidovi</a>
+    </div>
+    <LeadTable leads={leads.slice(0, 10)} sites={siteMap} />
+  </div>
+</AdminLayout>
