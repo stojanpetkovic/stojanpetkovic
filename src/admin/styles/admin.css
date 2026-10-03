@@ -184,7 +184,18 @@
   }
 }
 
-/* Client report (pages/admin/sites/[id]/report.astro) printed to PDF. */
+/* Client report (pages/admin/sites/[id]/report.astro). Compact tables that
+   fit half an A4 column, on screen and on paper. */
+.report-sheet .table th,
+.report-sheet .table td {
+  padding: 0.5rem 0.6rem;
+  font-size: 0.8125rem;
+}
+.report-sheet .table th {
+  white-space: normal;
+}
+
+/* ...and printed to PDF. */
 @media print {
   @page {
     size: A4;

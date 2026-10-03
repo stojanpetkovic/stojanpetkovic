@@ -104,8 +104,8 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
     </div>
 
     <!-- The sheet: A4 width on screen, the whole page in print. -->
-    <article class="report-sheet mx-auto my-6 max-w-[210mm] space-y-6 bg-white p-10 shadow-sm print:m-0 print:max-w-none print:space-y-4 print:p-0 print:shadow-none">
-      <header class="flex items-start justify-between gap-6 border-b border-zinc-200 pb-6 print:pb-4">
+    <article class="report-sheet mx-auto my-6 max-w-[210mm] space-y-6 bg-white p-5 shadow-sm sm:p-10 print:m-0 print:max-w-none print:space-y-4 print:p-0 print:shadow-none">
+      <header class="flex flex-wrap items-start justify-between gap-6 border-b border-zinc-200 pb-6 print:flex-nowrap print:pb-4">
         <div>
           <p class="text-xs font-bold tracking-widest text-primary uppercase">{t.title}</p>
           <h1 class="mt-1 text-2xl font-semibold text-zinc-900">{site.name}</h1>
@@ -121,7 +121,7 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
 
       <p class="text-[15px] leading-relaxed text-zinc-700">{summaryOf(analytics, period.key === 'last30' ? (locale === 'en' ? 'the last 30 days' : 'poslednjih 30 dana') : period.label, locale)}</p>
 
-      <section class="avoid-break grid grid-cols-5 gap-3">
+      <section class="avoid-break grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5 print:grid-cols-5 [&>*]:min-w-0">
         {
           kpis.map((k) => (
             <div class:list={['rounded-[0.3rem] p-4', k.tint]}>
@@ -151,18 +151,18 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
         />
       </section>
 
-      <section class="avoid-break grid grid-cols-2 gap-6">
+      <section class="avoid-break grid grid-cols-1 gap-6 md:grid-cols-2 print:grid-cols-2 [&>*]:min-w-0">
         <div>
           <h2 class="mb-3 text-base font-semibold">{t.sources}</h2>
-          <table class="table table-fixed">
+          <table class="table w-full table-fixed">
             <thead>
-              <tr><th class="w-[38%]">{t.source}</th><th class="text-right">{t.visits}</th><th class="text-right">{t.leads}</th><th class="text-right">{t.calls}</th><th class="text-right">{t.rate}</th></tr>
+              <tr><th class="w-[36%]">{t.source}</th><th class="text-right">{t.visits}</th><th class="text-right">{t.leads}</th><th class="text-right">{t.calls}</th><th class="text-right">{t.rate}</th></tr>
             </thead>
             <tbody>
               {analytics.channels.length === 0 && <tr><td colspan="5" class="text-zinc-500">{t.noData}</td></tr>}
               {analytics.channels.map((c) => (
                 <tr>
-                  <td>{channelLabel(c.label, locale)}</td>
+                  <td class="truncate" title={channelLabel(c.label, locale)}>{channelLabel(c.label, locale)}</td>
                   <td class="text-right tabular-nums">{n(c.visits)}</td>
                   <td class="text-right font-semibold tabular-nums">{c.leads}</td>
                   <td class="text-right font-semibold tabular-nums">{c.calls}</td>
@@ -174,7 +174,7 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
         </div>
         <div>
           <h2 class="mb-3 text-base font-semibold">{t.pages}</h2>
-          <table class="table table-fixed">
+          <table class="table w-full table-fixed">
             <thead>
               <tr><th class="w-[46%]">{t.page}</th><th class="text-right">{t.pageViews}</th><th class="text-right">{t.leads}</th><th class="text-right">{t.calls}</th></tr>
             </thead>
@@ -193,7 +193,7 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
         </div>
       </section>
 
-      <section class="avoid-break grid grid-cols-3 gap-6">
+      <section class="avoid-break grid grid-cols-1 gap-6 sm:grid-cols-3 print:grid-cols-3 [&>*]:min-w-0">
         {
           [
             { title: t.contactClicks, items: analytics.clicks, max: maxClick },
