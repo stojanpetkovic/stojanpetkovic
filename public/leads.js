@@ -6,6 +6,8 @@
  * Copies every form submission on the page to the lead inbox, in parallel
  * with whatever the form already does. It never blocks or changes the form.
  * Opt a form out with data-lead-ignore; name it with data-lead-form="quote".
+ * Give a field a readable name in the lead with data-lead-name="phone"
+ * (for builders that name inputs text_1, number_1 and so on).
  * Forms sent purely from JavaScript can call window.stojanLeads.send(name, data).
  */
 (function () {
@@ -131,10 +133,17 @@
       var now = Date.now();
       if (now - (lastSent.get(form) || 0) < 3000) return;
 
+      var renamed = {};
+      Array.prototype.forEach.call(form.elements, function (el) {
+        var leadName = el.getAttribute && el.getAttribute('data-lead-name');
+        if (leadName && el.name) renamed[el.name] = leadName;
+      });
+
       var fields = {};
       new FormData(form).forEach(function (value, key) {
         if (typeof value !== 'string') return;
-        fields[key] = key in fields ? fields[key] + ', ' + value : value;
+        var name = renamed[key] || key;
+        fields[name] = name in fields ? fields[name] + ', ' + value : value;
       });
       if (!Object.keys(fields).length || isSearchForm(form, fields)) return;
 
