@@ -388,6 +388,15 @@ export default defineConfig({
       RESEND_FROM_EMAIL: envField.string({ context: 'server', access: 'secret', optional: true }),
       RESEND_AUDIENCE_ID: envField.string({ context: 'server', access: 'secret', optional: true }),
       NEWSLETTER_API_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
+      // Private lead admin (/admin, /api/leads). Read at runtime from the
+      // host's variables, never inlined into the build. See src/admin/README.md.
+      PUBLIC_SUPABASE_URL: envField.string({ context: 'server', access: 'secret', optional: true }),
+      PUBLIC_SUPABASE_PUBLISHABLE_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
+      SUPABASE_SECRET_KEY: envField.string({ context: 'server', access: 'secret', optional: true }),
+      ADMIN_EMAIL: envField.string({ context: 'server', access: 'secret', optional: true }),
+      LEADS_FROM_EMAIL: envField.string({ context: 'server', access: 'secret', optional: true }),
+      OWNER_EMAIL: envField.string({ context: 'server', access: 'secret', optional: true }),
+      IP_HASH_SALT: envField.string({ context: 'server', access: 'secret', optional: true }),
       GOOGLE_SITE_VERIFICATION: envField.string({ context: 'server', access: 'public', optional: true }),
       BING_SITE_VERIFICATION: envField.string({ context: 'server', access: 'public', optional: true }),
       PUBLIC_GOOGLE_MAPS_API_KEY: envField.string({ context: 'client', access: 'public', optional: true, default: '' }),

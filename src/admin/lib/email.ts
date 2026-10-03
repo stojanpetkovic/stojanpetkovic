@@ -4,7 +4,6 @@ import { env } from './env';
 import { leadSource } from './leads';
 import type { Lead, Site } from './types';
 
-const ADMIN_URL = `${(process.env.SITE_URL || 'https://stojanpetkovic.com').replace(/\/$/, '')}/admin`;
 
 const copy = {
   sr: {
@@ -172,7 +171,7 @@ export async function sendLeadEmails(site: Site, lead: Lead, only?: 'client' | '
     for (const to of site.client_emails) jobs.push(sendOne(resend, lead, to, 'client', clientMessage));
   }
   if (only !== 'client' && site.notify_owner && env.ownerEmail) {
-    const ownerMessage = render(site, lead, 'sr', `${ADMIN_URL}/leads/${lead.id}`);
+    const ownerMessage = render(site, lead, 'sr', `${env.siteUrl}/admin/leads/${lead.id}`);
     jobs.push(sendOne(resend, lead, env.ownerEmail, 'owner', ownerMessage));
   }
   await Promise.all(jobs);

@@ -42,6 +42,13 @@ ENV SITE_URL=$SITE_URL
 #
 # RESEND_API_KEY, RESEND_FROM_EMAIL, RESEND_AUDIENCE_ID and NEWSLETTER_API_KEY
 # are runtime secrets. Railway injects them directly into the running service.
+#
+# The contact and newsletter forms are prerendered, though, and decide at
+# build time whether to enable their submit button (src/lib/email.ts). Without
+# the key here they shipped disabled even with the key set on Railway. The
+# key and audience id are therefore passed to the build command alone: only
+# whether they are set reaches the HTML, and this stage is discarded, so the
+# values never land in the runtime image.
 ARG PUBLIC_GA_MEASUREMENT_ID=G-43JZTHHKJS
 ARG PUBLIC_GTM_ID=
 ARG PUBLIC_UMAMI_WEBSITE_ID=
@@ -61,7 +68,9 @@ ENV PUBLIC_GA_MEASUREMENT_ID=$PUBLIC_GA_MEASUREMENT_ID \
     GOOGLE_SITE_VERIFICATION=$GOOGLE_SITE_VERIFICATION \
     BING_SITE_VERIFICATION=$BING_SITE_VERIFICATION
 
-RUN pnpm run build
+ARG RESEND_API_KEY=
+ARG RESEND_AUDIENCE_ID=
+RUN RESEND_API_KEY=$RESEND_API_KEY RESEND_AUDIENCE_ID=$RESEND_AUDIENCE_ID pnpm run build
 
 # ── Runtime ──────────────────────────────────────────────────────────────────
 FROM node:22-slim AS runtime
