@@ -6,6 +6,7 @@ import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import { cn } from '@/lib/cn';
 import { t, getLocaleFromPath } from '@/i18n';
 import { contactConfigured } from '@/lib/email';
+import siteConfig from '@/config/site.config';
 
 interface Props {
   action?: string;
@@ -34,6 +35,7 @@ const {
 
 <form
   id="contact-form"
+  data-lead-form="contact"
   action={action}
   method="POST"
   class={cn('space-y-6', className)}
@@ -104,6 +106,12 @@ const {
     </Button>
   </div>
 </form>
+
+{
+  siteConfig.leads?.siteKey && (
+    <script is:inline src="/leads.js" data-site-key={siteConfig.leads.siteKey} defer />
+  )
+}
 
 <script>
   function initContactForm() {

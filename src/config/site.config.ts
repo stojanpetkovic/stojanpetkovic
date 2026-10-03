@@ -226,6 +226,14 @@ export interface SiteConfig {
    */
   i18n?: I18nConfig;
   /**
+   * Lead collector for this site's own forms (see src/admin/README.md).
+   * The key is public: it identifies the site in /admin and only accepts
+   * submissions from the site's own domain. Leave unset to send nothing.
+   */
+  leads?: {
+    siteKey: string;
+  };
+  /**
    * Branding configuration
    * Logo files: Replace SVGs in src/assets/branding/
    * Favicon: Replace in public/favicon.svg
@@ -358,6 +366,9 @@ const siteConfig: SiteConfig = {
     tagCloudLimit: 10,
   },
   i18n: i18nConfig,
+  leads: {
+    siteKey: '6c3438eab99ea0d80eee2b00e5b5e7a8',
+  },
   branding: {
     logo: {
       alt: 'Stojan Petković',
