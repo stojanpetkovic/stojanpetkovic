@@ -19,7 +19,7 @@ if (Astro.request.method === 'POST') {
     if (error) {
       errors = [error.code === '23505' ? 'Sajt sa tim domenom već postoji.' : error.message];
     } else {
-      return Astro.redirect(`/admin/sites/${data.id}?created=1`);
+      return Astro.redirect(`/admin/sites/${data.id}/settings?created=1`);
     }
   }
 }

@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Site } from '@/admin/lib/types';
+
+// The strip above every page of one site: its address, client and status,
+// then the tabs that split the site into its overview and its settings.
+interface Props {
+  site: Site;
+  current: 'overview' | 'settings';
+}
+const { site, current } = Astro.props;
+
+const tabs = [
+  { key: 'overview', label: 'Pregled', icon: 'lucide:chart-column', href: `/admin/sites/${site.id}` },
+  { key: 'settings', label: 'Podešavanja', icon: 'lucide:settings', href: `/admin/sites/${site.id}/settings` },
+] as const;
+---
+
+<div class="card">
+  <div class="flex flex-wrap items-center gap-x-4 gap-y-2 px-5 pt-5">
+    <span class="grid size-11 place-items-center rounded bg-primary/10 text-primary">
+      <Icon name="lucide:globe" class="size-5" />
+    </span>
+    <div class="min-w-0">
+      <a href={`https://${site.domain}`} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 font-semibold text-zinc-800 hover:text-primary">
+        {site.domain}
+        <Icon name="lucide:external-link" class="size-3.5 text-zinc-400" />
+      </a>
+      <div class="text-xs text-zinc-500">
+        {site.client_name ?? 'Bez imena klijenta'}
+        {' · '}
+        {site.active ? <span class="text-green-600">aktivan</span> : <span class="text-orange-600">pauziran</span>}
+      </div>
+    </div>
+    <a href={`/admin/leads?site=${site.id}`} class="btn btn-sm btn-soft ms-auto">
+      Svi lidovi <Icon name="lucide:move-right" class="size-4" />
+    </a>
+  </div>
+
+  <nav class="mt-4 flex gap-6 border-t border-zinc-200 px-5" aria-label="Sajt">
+    {
+      tabs.map((tab) => (
+        <a
+          href={tab.href}
+          class:list={[
+            '-mb-px inline-flex items-center gap-2 border-b-2 py-3 text-sm font-medium transition-colors',
+            tab.key === current
+              ? 'border-primary text-primary'
+              : 'border-transparent text-zinc-600 hover:border-zinc-300 hover:text-zinc-800',
+          ]}
+          aria-current={tab.key === current ? 'page' : undefined}
+        >
+          <Icon name={tab.icon} class="size-4" />
+          {tab.label}
+        </a>
+      ))
+    }
+  </nav>
+</div>

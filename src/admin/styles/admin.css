@@ -100,7 +100,7 @@
 
   /* ── Buttons ─────────────────────────────────────────────────────────── */
   .btn {
-    @apply inline-flex cursor-pointer items-center justify-center gap-x-2 rounded border border-transparent px-4 py-1.75 text-center text-sm font-medium transition-all disabled:cursor-not-allowed disabled:opacity-50;
+    @apply inline-flex cursor-pointer items-center justify-center gap-x-2 whitespace-nowrap rounded border border-transparent px-4 py-1.75 text-center text-sm font-medium transition-all disabled:cursor-not-allowed disabled:opacity-50;
   }
   .btn-sm {
     @apply px-3.5 py-1.5 text-xs;

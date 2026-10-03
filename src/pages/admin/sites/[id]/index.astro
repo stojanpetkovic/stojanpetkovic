@@ -1,0 +1,108 @@
+---
+export const prerender = false;
+import AdminLayout from '@/admin/layouts/AdminLayout.astro';
+import SiteHeader from '@/admin/components/SiteHeader.astro';
+import StatCard from '@/admin/components/StatCard.astro';
+import DailyChart from '@/admin/components/DailyChart.astro';
+import BarList from '@/admin/components/BarList.astro';
+import LeadTable from '@/admin/components/LeadTable.astro';
+import ConversionTable from '@/admin/components/ConversionTable.astro';
+import RangeTabs from '@/admin/components/RangeTabs.astro';
+import { siteAnalytics, parseRange, rate, change } from '@/admin/lib/analytics';
+import { db } from '@/admin/lib/supabase';
+import { summarize, countBy } from '@/admin/lib/stats';
+import type { Lead, Site } from '@/admin/lib/types';
+
+const { id } = Astro.params;
+const load = () => db().from('sites').select('*').eq('id', id!).maybeSingle<Site>();
+const { data: site } = await load();
+if (!site) return Astro.redirect('/admin/sites');
+
+const range = parseRange(Astro.url.searchParams.get('range'));
+const [{ data: leadsData }, analytics] = await Promise.all([
+  db()
+    .from('leads')
+    .select('*')
+    .eq('site_id', site.id)
+    .eq('is_spam', false)
+    .gte('created_at', new Date(Date.now() - range * 86_400_000).toISOString())
+    .order('created_at', { ascending: false }),
+  siteAnalytics(site, range),
+]);
+const leads = (leadsData ?? []) as Lead[];
+const stats = summarize(leads);
+const t = analytics.totals;
+const p = analytics.previous;
+const visitorsChange = change(t.visitors, p.visitors);
+const leadsChange = change(t.leads, p.leads);
+
+---
+
+<AdminLayout title={site.name} crumbs={[{ label: 'Sajtovi', href: '/admin/sites' }]}>
+  <SiteHeader site={site} current="overview" />
+
+  <div class="flex flex-wrap items-center justify-between gap-3">
+    <h2 class="text-[15px] font-semibold">Posete i upiti</h2>
+    <RangeTabs current={range} />
+  </div>
+
+  {!analytics.hasData && (
+    <div class="alert alert-info">
+      Još nema zabeleženih poseta za ovaj period. Posete se broje čim je
+      <a href={`/admin/sites/${site.id}/settings#kod`} class="font-semibold underline">kod za ugradnju</a> na sajtu, a
+      brojke se osvežavaju na svakih 15 minuta.
+    </div>
+  )}
+
+  <div class="grid grid-cols-2 xl:grid-cols-5 gap-5">
+    <StatCard icon="lucide:users" color="success" label="Posetioci" value={t.visitors.toLocaleString('sr-Latn-RS')} note={visitorsChange.text} tone={visitorsChange.tone} />
+    <StatCard icon="lucide:mouse-pointer-click" color="warning" label="Posete" value={t.visits.toLocaleString('sr-Latn-RS')} />
+    <StatCard icon="lucide:eye" color="secondary" label="Pregledi stranica" value={t.views.toLocaleString('sr-Latn-RS')} />
+    <StatCard icon="lucide:inbox" color="info" label="Upiti" value={t.leads} note={leadsChange.text} tone={leadsChange.tone} />
+    <StatCard icon="lucide:percent" color="primary" label="Stopa konverzije" value={rate(t.leads, t.visits)} note="upiti na 100 poseta" />
+  </div>
+
+  <DailyChart
+    title="Posetioci i upiti po danu"
+    note="osvežava se na 15 min"
+    labels={analytics.daily.map((d) => d.day)}
+    series={[
+      { label: 'Posetioci', data: analytics.daily.map((d) => d.visitors) },
+      { label: 'Upiti', data: analytics.daily.map((d) => d.leads), line: true },
+    ]}
+  />
+
+  <div class="grid lg:grid-cols-2 gap-5">
+    <ConversionTable
+      title="Odakle dolaze"
+      columnLabel="Izvor"
+      countLabel="Posete"
+      rows={analytics.channels.map((c) => ({ label: c.label, count: c.visits, leads: c.leads }))}
+    />
+    <ConversionTable
+      title="Najposećenije stranice"
+      columnLabel="Stranica"
+      countLabel="Pregledi"
+      rows={analytics.pages.map((pg) => ({ label: pg.label, count: pg.views, leads: pg.leads }))}
+    />
+  </div>
+
+  <div class="grid lg:grid-cols-3 gap-5">
+    <BarList title="Uređaji" items={analytics.devices} />
+    <BarList title="Zemlje" items={analytics.countries} />
+    <BarList title="Upiti po formi" items={countBy(leads, (l) => l.form_name)} />
+  </div>
+
+  <div class="grid grid-cols-2 xl:grid-cols-4 gap-5">
+    <StatCard icon="lucide:calendar-check" color="success" label="Upiti danas" value={stats.today} />
+    <StatCard icon="lucide:calendar-days" color="warning" label="Upiti, 7 dana" value={stats.last7} />
+    <StatCard icon="lucide:handshake" color="secondary" label="Stopa dogovora" value={stats.winRate === null ? '—' : `${stats.winRate}%`} note="od lidova označenih kao dogovoren/izgubljen" />
+    <StatCard icon="lucide:bell-ring" color="info" label="Novi, neobrađeni" value={leads.filter((l) => l.status === 'new').length} />
+  </div>
+
+  <div class="card">
+    <div class="card-header"><h2 class="card-title">Poslednji lidovi</h2></div>
+    <LeadTable leads={leads.slice(0, 10)} sites={new Map([[site.id, site]])} showSite={false} />
+  </div>
+
+</AdminLayout>

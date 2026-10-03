@@ -1,0 +1,173 @@
+---
+export const prerender = false;
+import { Icon } from 'astro-icon/components';
+import AdminLayout from '@/admin/layouts/AdminLayout.astro';
+import SiteHeader from '@/admin/components/SiteHeader.astro';
+import SiteFields from '@/admin/components/SiteFields.astro';
+import { db } from '@/admin/lib/supabase';
+import { readSiteForm } from '@/admin/lib/siteForm';
+import type { Site } from '@/admin/lib/types';
+
+const { id } = Astro.params;
+const load = () => db().from('sites').select('*').eq('id', id!).maybeSingle<Site>();
+let { data: site } = await load();
+if (!site) return Astro.redirect('/admin/sites');
+
+let errors: string[] = [];
+let notice = Astro.url.searchParams.get('created')
+  ? 'Sajt je dodat. Ugradi kod ispod na sve stranice sajta.'
+  : '';
+
+if (Astro.request.method === 'POST') {
+  const form = await Astro.request.formData();
+  const action = form.get('action');
+
+  if (action === 'save') {
+    const { errors: formErrors, values } = readSiteForm(form);
+    errors = formErrors;
+    if (!errors.length) {
+      const { error } = await db().from('sites').update(values).eq('id', site.id);
+      if (error) errors = [error.code === '23505' ? 'Sajt sa tim domenom već postoji.' : error.message];
+      else notice = 'Podešavanja su sačuvana.';
+    }
+  } else if (action === 'rotate-key') {
+    const key = Array.from(crypto.getRandomValues(new Uint8Array(16)), (b) => b.toString(16).padStart(2, '0')).join('');
+    await db().from('sites').update({ site_key: key }).eq('id', site.id);
+    notice = 'Novi ključ je napravljen. Zameni kod na sajtu — stari ključ više ne radi.';
+  } else if (action === 'delete') {
+    if (String(form.get('confirm') ?? '').trim().toLowerCase() === site.domain) {
+      await db().from('sites').delete().eq('id', site.id);
+      return Astro.redirect('/admin/sites');
+    }
+    errors = ['Za brisanje upiši tačan domen sajta.'];
+  }
+  ({ data: site } = await load());
+  if (!site) return Astro.redirect('/admin/sites');
+}
+
+const origin = Astro.site ? new URL(Astro.site).origin : Astro.url.origin;
+const snippet = `<script src="${origin}/leads.js" data-site-key="${site.site_key}" defer></script>`;
+---
+
+<AdminLayout
+  title="Podešavanja"
+  crumbs={[
+    { label: 'Sajtovi', href: '/admin/sites' },
+    { label: site.name, href: `/admin/sites/${site.id}` },
+  ]}
+>
+  <SiteHeader site={site} current="settings" />
+
+  {notice && <div class="alert alert-success" role="status">{notice}</div>}
+  {
+    errors.length > 0 && (
+      <ul class="alert alert-danger list-inside list-disc" role="alert">
+        {errors.map((e) => (
+          <li>{e}</li>
+        ))}
+      </ul>
+    )
+  }
+
+  <!-- Each section: what it is on the left, the controls on the right. -->
+  <section id="kod" class="grid gap-5 lg:grid-cols-3">
+    <div>
+      <h2 class="text-base font-semibold">Kod za ugradnju</h2>
+      <p class="mt-1 text-sm text-zinc-500">
+        Jedna linija na svim stranicama sajta hvata forme i broji posete. Najlakše je staviti je u zajednički layout
+        ili futer, pre <code>&lt;/body&gt;</code>.
+      </p>
+    </div>
+    <div class="card lg:col-span-2">
+      <div class="card-body space-y-4">
+        <div class="flex gap-2">
+          <input class="form-input font-mono text-xs" readonly value={snippet} id="snippet" aria-label="Kod za ugradnju" />
+          <button type="button" class="btn btn-soft" data-copy="#snippet">
+            <Icon name="lucide:copy" class="size-4" /> <span>Kopiraj</span>
+          </button>
+        </div>
+        <ul class="list-inside list-disc space-y-1.5 text-[13px] text-zinc-600">
+          <li>
+            Formu koju ne treba pratiti označi sa <code>data-lead-ignore</code>. Forme sa lozinkom i pretraga se
+            preskaču same.
+          </li>
+          <li>Ime forme u izveštajima: <code>data-lead-form="rezervacija"</code>, inače se koristi id forme.</li>
+          <li>Čitljivo ime polja u lidu: <code>data-lead-name="phone"</code> (za forme sa poljima tipa text_1).</li>
+          <li>
+            Zaštita od botova: skriveno polje
+            <code>&lt;input name="website_hp" tabindex="-1" autocomplete="off" hidden&gt;</code>.
+          </li>
+          <li>Brojanje poseta se isključuje sa <code>data-pageviews="off"</code> na tagu.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="border-zinc-200" />
+
+  <section class="grid gap-5 lg:grid-cols-3">
+    <div>
+      <h2 class="text-base font-semibold">Podešavanja sajta</h2>
+      <p class="mt-1 text-sm text-zinc-500">
+        Domen sa kog se primaju forme, kome stižu emailovi, na kom jeziku i po kom vremenu.
+      </p>
+    </div>
+    <form method="post" class="card lg:col-span-2">
+      <input type="hidden" name="action" value="save" />
+      <div class="card-body space-y-4">
+        <SiteFields site={site} showActive />
+      </div>
+      <div class="flex justify-end border-t border-zinc-200 px-5 py-3">
+        <button class="btn btn-primary" type="submit">Sačuvaj promene</button>
+      </div>
+    </form>
+  </section>
+
+  <hr class="border-zinc-200" />
+
+  <section class="grid gap-5 lg:grid-cols-3">
+    <div>
+      <h2 class="text-base font-semibold text-red-600">Opasna zona</h2>
+      <p class="mt-1 text-sm text-zinc-500">Radnje koje se ne mogu poništiti.</p>
+    </div>
+    <div class="card divide-y divide-red-200 border border-red-200 lg:col-span-2">
+      <form method="post" class="flex flex-wrap items-center justify-between gap-4 p-5">
+        <input type="hidden" name="action" value="rotate-key" />
+        <div class="max-w-md">
+          <p class="text-sm font-semibold text-zinc-800">Napravi novi ključ</p>
+          <p class="text-[13px] text-zinc-500">
+            Ako je stari ključ zloupotrebljen. Kod na sajtu mora da se zameni, stari prestaje da radi odmah.
+          </p>
+        </div>
+        <button class="btn btn-outline btn-sm" type="submit">Novi ključ</button>
+      </form>
+      <form method="post" class="space-y-3 p-5">
+        <input type="hidden" name="action" value="delete" />
+        <div>
+          <p class="text-sm font-semibold text-zinc-800">Obriši sajt</p>
+          <p class="text-[13px] text-zinc-500">
+            Trajno briše sajt, <strong>sve njegove lidove i statistiku poseta</strong>. Upiši
+            <code>{site.domain}</code> za potvrdu.
+          </p>
+        </div>
+        <div class="flex gap-2">
+          <input class="form-input" name="confirm" placeholder={site.domain} autocomplete="off" aria-label="Domen za potvrdu brisanja" />
+          <button class="btn btn-danger btn-sm" type="submit">Obriši sajt</button>
+        </div>
+      </form>
+    </div>
+  </section>
+</AdminLayout>
+
+<script>
+  for (const button of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
+    button.addEventListener('click', async () => {
+      const input = document.querySelector<HTMLInputElement>(button.dataset.copy!);
+      const label = button.querySelector('span');
+      if (!input || !label) return;
+      await navigator.clipboard.writeText(input.value);
+      label.textContent = 'Kopirano';
+      setTimeout(() => (label.textContent = 'Kopiraj'), 1500);
+    });
+  }
+</script>
