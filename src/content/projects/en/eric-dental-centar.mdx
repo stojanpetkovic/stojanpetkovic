@@ -10,7 +10,7 @@ year: 2026
 client: "Erić Dental Centar"
 role: "Design, Development & SEO"
 services: ["Web Development", "Local SEO", "EN & DE Translation", "Lead Tracking"]
-meta: ["Dental practice, Pančevo", "Astro + Tailwind CSS", "Srpski · English · Deutsch", "60 pages"]
+meta: ["Dental practice, Pančevo", "Srpski · English · Deutsch", "60 pages", "Lighthouse 96 · 100 · 100 · 100"]
 icon: "smile"
 image: "../../../assets/projects/eric-dental-centar-home.webp"
 imageAlt: "The Erić Dental Centar homepage: the headline Zubar u Pančevu kome pacijenti veruju beside a photo of Dr Miloš Erić and a 5.0 rating."
@@ -28,7 +28,7 @@ gallery:
   - src: "../../../assets/projects/eric-dental-centar-service-page.webp"
     alt: "The dental implants service page, with a booking button and the patient rating."
   - src: "../../../assets/projects/eric-dental-centar-team.webp"
-    alt: "The team section: Dr Miloš Erić, owner and dentist, and Marina Erić."
+    alt: "The team section: Dr Miloš Erić, owner and dentist, Dr Olga Milošević, dentist, and Marina Erić."
   - src: "../../../assets/projects/eric-dental-centar-reviews.webp"
     alt: "Patient reviews: a 5.0 average from 31 ratings on doktor.rs and featured reviews."
   - src: "../../../assets/projects/eric-dental-centar-german.webp"
@@ -36,6 +36,14 @@ gallery:
 ---
 
 import Button from '@/components/ui/form/Button/Button.astro';
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 96, icon: 'zap' },
+  { label: 'Accessibility', value: 100, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
 
 ## The brief
 
@@ -75,6 +83,14 @@ The entire site is translated into **English and German**: all 9 services, the b
 - The language switcher leads to **the same page** in the other language. Foreign visitors see the phone number in international format, and patient reviews are marked as translated from Serbian.
 
 For a practice that treats patients from abroad, this is an open channel to the diaspora and international patients.
+
+## Results
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+In Lighthouse the site scores **96 for Performance** and **100 for Accessibility, Best Practices and SEO**, with full-size photography, three languages and lead tracking on every page.
 
 ## Project report
 

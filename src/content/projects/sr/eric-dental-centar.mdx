@@ -10,7 +10,7 @@ year: 2026
 client: "Erić Dental Centar"
 role: "Dizajn, razvoj i SEO"
 services: ["Izrada sajta", "Lokalni SEO", "Prevod na EN i DE", "Praćenje upita"]
-meta: ["Stomatološka ordinacija, Pančevo", "Astro + Tailwind CSS", "Srpski · English · Deutsch", "60 stranica"]
+meta: ["Stomatološka ordinacija, Pančevo", "Srpski · English · Deutsch", "60 stranica", "Lighthouse 96 · 100 · 100 · 100"]
 icon: "smile"
 image: "../../../assets/projects/eric-dental-centar-home.webp"
 imageAlt: "Početna strana Erić Dental Centra: naslov Zubar u Pančevu kome pacijenti veruju, pored fotografije dr Miloša Erića i ocene 5,0."
@@ -28,7 +28,7 @@ gallery:
   - src: "../../../assets/projects/eric-dental-centar-service-page.webp"
     alt: "Stranica usluge Zubni implanti u Pančevu, sa dugmetom za zakazivanje i ocenom pacijenata."
   - src: "../../../assets/projects/eric-dental-centar-team.webp"
-    alt: "Sekcija tima: dr Miloš Erić, vlasnik i stomatolog, i Marina Erić."
+    alt: "Sekcija tima: dr Miloš Erić, vlasnik i stomatolog, dr sci. Olga Milošević, stomatolog, i Marina Erić."
   - src: "../../../assets/projects/eric-dental-centar-reviews.webp"
     alt: "Utisci pacijenata: prosečna ocena 5,0 iz 31 ocene na doktor.rs i izdvojene recenzije."
   - src: "../../../assets/projects/eric-dental-centar-german.webp"
@@ -36,6 +36,14 @@ gallery:
 ---
 
 import Button from '@/components/ui/form/Button/Button.astro';
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 96, icon: 'zap' },
+  { label: 'Accessibility', value: 100, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
 
 ## Zadatak
 
@@ -75,6 +83,14 @@ Ceo sajt je preveden na **engleski i nemački**: svih 9 usluga, blog, forma sa p
 - Prebacivanje jezika vodi na **istu stranicu** na drugom jeziku. Strancima se telefon prikazuje u međunarodnom formatu, a utisci pacijenata su označeni kao prevod sa srpskog.
 
 Za ordinaciju koja prima pacijente iz inostranstva, to je otvoren kanal ka dijaspori i stranim pacijentima.
+
+## Rezultati
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+U Lighthouse testu sajt ima **96 za Performance** i **100 za Accessibility, Best Practices i SEO**. I to sa fotografijama u punoj veličini, tri jezika i praćenjem upita na svakoj stranici.
 
 ## Izveštaj o radu
 
