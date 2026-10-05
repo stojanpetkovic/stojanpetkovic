@@ -145,3 +145,4 @@ const xDefaultHref = i18nOn ? new URL(xDefaultUrl, Astro.site).toString() : null
 <!-- Verification -->
 {siteConfig.verification?.google && <meta name="google-site-verification" content={siteConfig.verification.google} />}
 {siteConfig.verification?.bing && <meta name="msvalidate.01" content={siteConfig.verification.bing} />}
+{siteConfig.verification?.facebook && <meta name="facebook-domain-verification" content={siteConfig.verification.facebook} />}

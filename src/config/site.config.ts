@@ -42,6 +42,8 @@ export interface SiteConfig {
   verification?: {
     google?: string;
     bing?: string;
+    /** Meta Business Manager domain verification code. */
+    facebook?: string;
   };
   /** Path to author photo (relative to site root, e.g. '/avatar.jpg'). Used in Person schema. */
   authorImage?: string;
@@ -295,6 +297,7 @@ const siteConfig: SiteConfig = {
   verification: {
     google: GOOGLE_SITE_VERIFICATION,
     bing: BING_SITE_VERIFICATION,
+    facebook: '5f4zoc49wf1r81vvnv3fe0muzi8k30',
   },
   authorImage: '/avatar.svg',
   blogImageOverlay: true,
