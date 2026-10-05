@@ -27,7 +27,7 @@ import { getPostUrl, getPublishedPosts } from '@/lib/blog';
 import { getVisibleProjects } from '@/lib/projects';
 import ProjectCard from '@/components/projects/ProjectCard.astro';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
-import stojanHeadshot from '@/assets/profile/stojan-headshot.png';
+import stojanAvatar from '@/assets/profile/stojan-avatar.webp';
 
 interface Props {
   /** Locale whose copy and content this page renders. Defaults to the site default. */
@@ -181,12 +181,16 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
         same one the CTA buttons and the header/nav sit inside. Reset at lg,
         where it goes back to hugging the image's own width beside the text
         (lg:justify-self-center). */}
-    <div slot="aside" class="w-full rounded-3xl border border-white/[0.1] bg-white/[0.08] p-2 shadow-2xl backdrop-blur-md lg:mx-0 lg:h-[30rem] lg:w-auto lg:max-w-none lg:justify-self-center">
+    {/* The avatar's own background is the brand blue, so a brand glow sits
+        behind the frame: without it the bright square reads as pasted onto
+        the dark hero rather than lit by it. */}
+    <div slot="aside" class="relative w-full rounded-3xl border border-brand-400/30 bg-white/[0.08] p-2 shadow-2xl shadow-brand-500/30 backdrop-blur-md lg:mx-0 lg:h-[30rem] lg:w-auto lg:max-w-none lg:justify-self-center">
+      <div class="pointer-events-none absolute -inset-12 -z-10 rounded-full bg-brand-500/35 blur-3xl" aria-hidden="true"></div>
       <Image
-        src={stojanHeadshot}
+        src={stojanAvatar}
         alt="Stojan Petković"
         class="w-full h-auto rounded-2xl object-contain lg:h-full lg:w-auto"
-        widths={[320, 480, 640]}
+        widths={[320, 480, 640, 960]}
         sizes="(min-width: 1024px) 24rem, 80vw"
         priority
       />
