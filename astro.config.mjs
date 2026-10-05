@@ -375,6 +375,9 @@ export default defineConfig({
       SITE_URL: envField.string({ context: 'server', access: 'public', optional: true }),
       PUBLIC_GA_MEASUREMENT_ID: envField.string({ context: 'client', access: 'public', optional: true }),
       PUBLIC_GTM_ID: envField.string({ context: 'client', access: 'public', optional: true }),
+      // Meta (Facebook) Pixel ID. Loads only with marketing consent when the
+      // cookie banner is enabled; see src/components/layout/Analytics.astro.
+      PUBLIC_META_PIXEL_ID: envField.string({ context: 'client', access: 'public', optional: true }),
       // Umami — privacy-friendly, cookieless analytics. Set the website ID to
       // enable it; the src defaults to Umami Cloud, override it when self-hosting.
       PUBLIC_UMAMI_WEBSITE_ID: envField.string({ context: 'client', access: 'public', optional: true }),

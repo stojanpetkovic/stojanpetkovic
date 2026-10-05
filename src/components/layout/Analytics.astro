@@ -17,7 +17,13 @@
  * - PUBLIC_GTM_ID: Google Tag Manager Container ID (e.g., GTM-XXXXXXX)
  * - PUBLIC_UMAMI_WEBSITE_ID: Umami website ID (a UUID from your Umami dashboard)
  * - PUBLIC_UMAMI_SRC: Umami script URL (defaults to Umami Cloud; override when self-hosting)
+ * - PUBLIC_META_PIXEL_ID: Meta (Facebook) Pixel ID (e.g., 336664315370378)
  * - PUBLIC_CONSENT_ENABLED: Enable cookie consent integration (boolean)
+ *
+ * The Meta Pixel sets advertising cookies (_fbp), so with consent enabled it
+ * loads only once the visitor grants the marketing category — on a later page
+ * load from the stored choice, or the moment they accept via the
+ * `consent-updated` event. Meta has no cookieless mode to fall back to.
  *
  * CSP: All is:inline scripts here are STATIC (no define:vars). Dynamic values are
  * passed via <script type="application/json"> data elements. Pin each script's
@@ -46,6 +52,7 @@ import {
   PUBLIC_CONSENT_ENABLED,
   PUBLIC_UMAMI_WEBSITE_ID,
   PUBLIC_UMAMI_SRC,
+  PUBLIC_META_PIXEL_ID,
 } from 'astro:env/client';
 import consentConfig from '@/config/consent.config';
 
@@ -54,6 +61,8 @@ const gtmId = PUBLIC_GTM_ID;
 const umamiId = PUBLIC_UMAMI_WEBSITE_ID;
 const umamiSrc = PUBLIC_UMAMI_SRC;
 const hasUmami = !!umamiId;
+const pixelId = PUBLIC_META_PIXEL_ID;
+const hasPixel = !!pixelId;
 const consentEnabled = PUBLIC_CONSENT_ENABLED;
 const consentMode = consentConfig.mode;
 const storageKey = consentConfig.storageKey;
@@ -95,6 +104,23 @@ const hasAnalytics = !!(gaId || gtmId);
 const noConsent = !consentEnabled;
 const isV2 = consentEnabled && consentMode === 'consent_mode_v2';
 const isStrict = consentEnabled && consentMode === 'strict';
+
+// The category whose consent covers advertising cookies (gates the Meta Pixel)
+let marketingCategoryKey = 'marketing';
+for (const [key, cat] of Object.entries(consentConfig.categories)) {
+  if (cat.gcmTypes.includes('ad_storage')) {
+    marketingCategoryKey = key;
+    break;
+  }
+}
+
+const pixelDataJson = JSON.stringify({
+  pixelId: pixelId || null,
+  consentEnabled: !!consentEnabled,
+  storageKey,
+  configVersion,
+  marketingCategoryKey,
+});
 
 // JSON data for all analytics scripts (single data element avoids duplication)
 const analyticsDataJson = JSON.stringify({
@@ -281,3 +307,52 @@ const analyticsDataJson = JSON.stringify({
     })();
   </script>
 )}
+
+{/* ── Meta Pixel ──
+    Without consent integration it loads straight away. With it, it waits for
+    the marketing category: granted in a stored choice, or granted later in the
+    banner (the `consent-updated` event). */}
+{hasPixel && (
+  <>
+    <script is:inline type="application/json" id="meta-pixel-data" set:html={pixelDataJson} />
+    <script is:inline>
+      (function(){
+        const d = JSON.parse(document.getElementById('meta-pixel-data').textContent);
+
+        function loadPixel() {
+          if (window.fbq) return;
+          /* eslint-disable prefer-rest-params, prefer-spread, @typescript-eslint/no-unused-expressions -- Meta's loader, kept as Meta ships it */
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          /* eslint-enable prefer-rest-params, prefer-spread, @typescript-eslint/no-unused-expressions */
+          window.fbq('init', d.pixelId);
+          window.fbq('track', 'PageView');
+        }
+
+        if (!d.consentEnabled) { loadPixel(); return; }
+
+        let granted = false;
+        try {
+          const raw = localStorage.getItem(d.storageKey);
+          const stored = raw ? JSON.parse(raw) : null;
+          granted = !!(stored && stored.version === d.configVersion && stored.categories && stored.categories[d.marketingCategoryKey]);
+        } catch { /* ignored */ }
+        if (granted) { loadPixel(); return; }
+
+        window.addEventListener('consent-updated', function(e) {
+          if (e.detail && e.detail.categories && e.detail.categories[d.marketingCategoryKey]) loadPixel();
+        });
+      })();
+    </script>
+  </>
+)}
+
+{/* No <noscript> pixel image: a visitor without JavaScript cannot answer the
+    consent banner, so the fallback would track exactly the people who were
+    never asked. */}
