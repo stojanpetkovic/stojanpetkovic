@@ -12,6 +12,7 @@ import Dialog from '@/components/ui/overlay/Dialog';
 import Button from '@/components/ui/form/Button';
 import Switch from '@/components/ui/form/Switch';
 import type { ConsentUIText } from '@/lib/consent.types';
+import { tData, getLocaleFromPath } from '@/i18n';
 
 interface Props {
   position?: 'top' | 'bottom';
@@ -30,8 +31,14 @@ const {
 const consentEnabled = PUBLIC_CONSENT_ENABLED;
 const privacyPolicyUrl = PUBLIC_PRIVACY_POLICY_URL;
 
-// Merge UI text: props override config defaults
-const ui = { ...consentConfig.ui, ...uiOverrides };
+// Merge UI text: the page's locale file (`consent.ui`) overrides the English
+// defaults in consent.config, and props override both. Without this the
+// banner spoke English on every locale.
+const locale = getLocaleFromPath(Astro.url.pathname);
+const localeUi = tData<Partial<ConsentUIText>>('consent.ui', locale) ?? {};
+const localeCategories =
+  tData<Record<string, { label?: string; description?: string }>>('consent.categories', locale) ?? {};
+const ui = { ...consentConfig.ui, ...localeUi, ...uiOverrides };
 const alwaysOnLabel = alwaysOnLabelProp ?? ui.alwaysOnLabel ?? 'Always on';
 const privacyPolicyLabel = ui.privacyPolicyLabel ?? 'Privacy Policy';
 const bannerAriaLabel = ui.bannerAriaLabel ?? 'Cookie consent';
@@ -101,11 +108,11 @@ const configJson = JSON.stringify(consentConfig);
         {Object.entries(consentConfig.categories).map(([key, cat]) => (
           <div class="consent-category" data-category={key}>
             <div class="consent-category-info">
-              <span class="consent-category-label">{cat.label}</span>
+              <span class="consent-category-label">{localeCategories[key]?.label ?? cat.label}</span>
               {cat.required && (
                 <span class="consent-category-badge">{alwaysOnLabel}</span>
               )}
-              <p class="consent-category-description">{cat.description}</p>
+              <p class="consent-category-description">{localeCategories[key]?.description ?? cat.description}</p>
             </div>
             <Switch
               id={`consent-${key}`}

@@ -1,4 +1,37 @@
 {
+  "consent": {
+    "ui": {
+      "heading": "Cookie preferences",
+      "description": "I use cookies to measure visits and the results of my ads. Analytics and marketing cookies are only set if you allow them.",
+      "acceptAll": "Accept all",
+      "declineAll": "Decline all",
+      "customize": "Customize",
+      "savePreferences": "Save preferences",
+      "settingsHeading": "Privacy settings",
+      "alwaysOnLabel": "Always on",
+      "privacyPolicyLabel": "Privacy policy",
+      "bannerAriaLabel": "Cookie consent",
+      "reopenerAriaLabel": "Open cookie settings"
+    },
+    "categories": {
+      "necessary": {
+        "label": "Necessary",
+        "description": "Required for the website to work. These cannot be turned off."
+      },
+      "analytics": {
+        "label": "Analytics",
+        "description": "Anonymous usage data (Google Analytics) that shows which pages help visitors."
+      },
+      "marketing": {
+        "label": "Marketing",
+        "description": "Measures the results of ads (Meta Pixel, Google Ads) so they reach the right people."
+      },
+      "preferences": {
+        "label": "Preferences",
+        "description": "Remembers choices you make, such as language or colour theme."
+      }
+    }
+  },
   "site": {
     "name": "Mr. Petkovic"
   },
@@ -258,8 +291,8 @@
             "label": "Google Lighthouse SEO score"
           },
           {
-            "value": "1",
-            "label": "fixed price, agreed up front"
+            "value": "< 1 day",
+            "label": "to reply to every enquiry"
           }
         ],
         "imageAlt": "Mr. Petkovic, the web developer you work with directly"
@@ -512,29 +545,6 @@
             "label": "Just exploring"
           }
         ],
-        "budgetLabel": "Approximate budget (optional)",
-        "budgets": [
-          {
-            "value": "",
-            "label": "Prefer not to say"
-          },
-          {
-            "value": "under-1000",
-            "label": "Under €1,000"
-          },
-          {
-            "value": "1000-3000",
-            "label": "€1,000 – €3,000"
-          },
-          {
-            "value": "3000-7000",
-            "label": "€3,000 – €7,000"
-          },
-          {
-            "value": "7000-plus",
-            "label": "€7,000+"
-          }
-        ],
         "nameLabel": "Your name",
         "emailLabel": "Email",
         "phoneLabel": "Phone (optional)",
@@ -549,12 +559,7 @@
         "promise": "Reply within one business day",
         "successTitle": "Thank you — your request is in!",
         "successText": "I'll review your website and reply within one business day with honest, concrete next steps. Keep an eye on your inbox.",
-        "error": "Something went wrong. Please try again, or email me directly.",
-        "summaryService": "Service",
-        "summaryWebsite": "Website",
-        "summaryBusiness": "Business",
-        "summaryTimeline": "Timeline",
-        "summaryBudget": "Budget"
+        "error": "Something went wrong. Please try again, or email me directly."
       },
       "final": {
         "heading": "Ready for a website that works as hard as you do?",
@@ -562,7 +567,20 @@
         "cta": "Get my free website check"
       },
       "footer": "Fast websites, SEO and lead generation for local businesses.",
-      "mobileCta": "Free website check"
+      "mobileCta": "Free website check",
+      "privacy": {
+        "toggle": "How I handle your data",
+        "title": "Privacy notice",
+        "items": [
+          "Who: Mr. Petkovic, freelance web developer. Contact: {email}.",
+          "What: the details you enter in this form — name, email, phone, website, business type, your answers and message.",
+          "Why: only to reply to your request and prepare a proposal. No newsletters, and your data is never sold or shared for marketing.",
+          "Where: stored with the hosting, email and database providers that run this website, under data-processing agreements.",
+          "How long: as long as needed to handle your request, and no longer than two years without further contact.",
+          "Your rights: you can ask to see, correct or delete your data, or withdraw consent, at any time by email. You can also complain to your data protection authority.",
+          "Cookies: analytics and ad-measurement cookies are set only if you allow them in the cookie banner."
+        ]
+      }
     },
     "about": {
       "meta": {

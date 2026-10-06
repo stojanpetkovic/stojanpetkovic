@@ -54,7 +54,10 @@ ARG PUBLIC_GTM_ID=
 ARG PUBLIC_UMAMI_WEBSITE_ID=
 ARG PUBLIC_UMAMI_SRC=
 ARG PUBLIC_GOOGLE_MAPS_API_KEY=
-ARG PUBLIC_CONSENT_ENABLED=
+# Consent is on: GA4 runs in Consent Mode v2 with storage denied until the
+# visitor accepts, and the Meta Pixel loads only after marketing consent.
+# The landing page collects personal data and runs ads to EU visitors.
+ARG PUBLIC_CONSENT_ENABLED=true
 ARG PUBLIC_PRIVACY_POLICY_URL=
 ARG GOOGLE_SITE_VERIFICATION=
 ARG BING_SITE_VERIFICATION=

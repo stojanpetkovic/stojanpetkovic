@@ -1,4 +1,37 @@
 {
+  "consent": {
+    "ui": {
+      "heading": "Podešavanja kolačića",
+      "description": "Koristim kolačiće da merim posete i rezultate oglasa. Analitički i marketinški kolačići se postavljaju samo ako ih dozvoliš.",
+      "acceptAll": "Prihvati sve",
+      "declineAll": "Odbij sve",
+      "customize": "Podesi",
+      "savePreferences": "Sačuvaj podešavanja",
+      "settingsHeading": "Podešavanja privatnosti",
+      "alwaysOnLabel": "Uvek uključeno",
+      "privacyPolicyLabel": "Politika privatnosti",
+      "bannerAriaLabel": "Saglasnost za kolačiće",
+      "reopenerAriaLabel": "Otvori podešavanja kolačića"
+    },
+    "categories": {
+      "necessary": {
+        "label": "Neophodni",
+        "description": "Potrebni da bi sajt radio. Ne mogu da se isključe."
+      },
+      "analytics": {
+        "label": "Analitika",
+        "description": "Anonimni podaci o korišćenju (Google Analytics) koji pokazuju koje stranice pomažu posetiocima."
+      },
+      "marketing": {
+        "label": "Marketing",
+        "description": "Mere rezultate oglasa (Meta Pixel, Google Ads) da bi stigli do pravih ljudi."
+      },
+      "preferences": {
+        "label": "Podešavanja",
+        "description": "Pamte tvoje izbore, kao što su jezik ili boja teme."
+      }
+    }
+  },
   "site": {
     "name": "Mr. Petković"
   },
@@ -258,8 +291,8 @@
             "label": "SEO ocena u Google Lighthouse-u"
           },
           {
-            "value": "1",
-            "label": "fiksna cena, dogovorena unapred"
+            "value": "< 1 dan",
+            "label": "da odgovorim na svaki upit"
           }
         ],
         "imageAlt": "Mr. Petković, web developer sa kojim radiš direktno"
@@ -512,29 +545,6 @@
             "label": "Samo se raspitujem"
           }
         ],
-        "budgetLabel": "Okvirni budžet (opciono)",
-        "budgets": [
-          {
-            "value": "",
-            "label": "Radije ne bih rekao"
-          },
-          {
-            "value": "under-1000",
-            "label": "Do 1.000 €"
-          },
-          {
-            "value": "1000-3000",
-            "label": "1.000 – 3.000 €"
-          },
-          {
-            "value": "3000-7000",
-            "label": "3.000 – 7.000 €"
-          },
-          {
-            "value": "7000-plus",
-            "label": "Preko 7.000 €"
-          }
-        ],
         "nameLabel": "Ime i prezime",
         "emailLabel": "Email",
         "phoneLabel": "Telefon (opciono)",
@@ -549,12 +559,7 @@
         "promise": "Odgovor u roku od jednog radnog dana",
         "successTitle": "Hvala — zahtev je stigao!",
         "successText": "Pregledaću tvoj sajt i javiti se u roku od jednog radnog dana sa iskrenim, konkretnim sledećim koracima. Prati svoj inbox.",
-        "error": "Nešto je pošlo naopako. Probaj ponovo ili mi piši direktno na email.",
-        "summaryService": "Usluga",
-        "summaryWebsite": "Sajt",
-        "summaryBusiness": "Delatnost",
-        "summaryTimeline": "Početak",
-        "summaryBudget": "Budžet"
+        "error": "Nešto je pošlo naopako. Probaj ponovo ili mi piši direktno na email."
       },
       "final": {
         "heading": "Spreman za sajt koji radi koliko i ti?",
@@ -562,7 +567,20 @@
         "cta": "Zatraži besplatnu proveru"
       },
       "footer": "Brzi sajtovi, SEO i privlačenje klijenata za lokalne firme.",
-      "mobileCta": "Besplatna provera sajta"
+      "mobileCta": "Besplatna provera sajta",
+      "privacy": {
+        "toggle": "Kako postupam sa tvojim podacima",
+        "title": "Izjava o privatnosti",
+        "items": [
+          "Ko: Mr. Petković, freelance web developer. Kontakt: {email}.",
+          "Šta: podaci koje upišeš u ovu formu — ime, email, telefon, sajt, delatnost, tvoji odgovori i poruka.",
+          "Zašto: samo da odgovorim na tvoj zahtev i pripremim ponudu. Bez newslettera, a podaci se nikad ne prodaju i ne dele za marketing.",
+          "Gde: čuvaju se kod hosting, email i database servisa preko kojih radi ovaj sajt, uz ugovore o obradi podataka.",
+          "Koliko dugo: dok je potrebno za tvoj zahtev, a najduže dve godine bez daljeg kontakta.",
+          "Tvoja prava: u svakom trenutku možeš email-om da tražiš uvid, ispravku ili brisanje podataka, ili da povučeš saglasnost. Možeš i da podneseš pritužbu nadležnom organu za zaštitu podataka.",
+          "Kolačići: analitički i kolačići za merenje oglasa postavljaju se samo ako ih dozvoliš u baneru za kolačiće."
+        ]
+      }
     },
     "about": {
       "meta": {

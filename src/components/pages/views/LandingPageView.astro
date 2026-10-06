@@ -24,7 +24,6 @@ import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Input from '@/components/ui/form/Input/Input.astro';
 import Textarea from '@/components/ui/form/Textarea/Textarea.astro';
-import Select from '@/components/ui/form/Select/Select.astro';
 import Accordion from '@/components/ui/overlay/Accordion/Accordion.astro';
 import siteConfig from '@/config/site.config';
 import { t, tData, defaultLocale } from '@/i18n';
@@ -81,8 +80,8 @@ const form = D<{
   stepLabels: string[];
   services: Option[];
   timelines: Option[];
-  budgets: Option[];
 }>('form');
+const privacy = D<{ toggle: string; title: string; items: string[] }>('privacy');
 
 // One image per case, in the order the copy lists them.
 const caseImages = [treeJawsImg, mahaloImg];
@@ -471,7 +470,6 @@ const year = new Date().getFullYear();
                 ))}
               </div>
             </div>
-            <Select label={L('form.budgetLabel')} name="budget" options={form.budgets} />
           </fieldset>
 
           <fieldset class="lp-step mt-8 space-y-4" data-step="3">
@@ -508,6 +506,20 @@ const year = new Date().getFullYear();
             <Icon name="lock" size="xs" class="mt-0.5 shrink-0" />
             {L('form.privacy')}
           </p>
+
+          {/* The privacy notice opens in place: a link to a policy page would
+              be a way off the page. */}
+          <details class="lp-privacy mt-3 text-xs text-foreground-muted">
+            <summary class="cursor-pointer font-medium text-foreground-muted underline underline-offset-2 hover:text-foreground">
+              {privacy.toggle}
+            </summary>
+            <div class="mt-3 rounded-xl border border-border bg-background-secondary p-4">
+              <p class="font-semibold text-foreground">{privacy.title}</p>
+              <ul class="mt-2 space-y-1.5">
+                {privacy.items.map((item) => <li>{item.replace('{email}', siteConfig.email)}</li>)}
+              </ul>
+            </div>
+          </details>
         </form>
 
         <div class="hidden py-6 text-center" data-success role="status">
