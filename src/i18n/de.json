@@ -1,0 +1,1090 @@
+{
+  "consent": {
+    "ui": {
+      "heading": "Cookie-Einstellungen",
+      "description": "Ich verwende Cookies, um Besuche und die Ergebnisse meiner Anzeigen zu messen. Analyse- und Marketing-Cookies werden nur gesetzt, wenn Sie zustimmen.",
+      "acceptAll": "Alle akzeptieren",
+      "declineAll": "Alle ablehnen",
+      "customize": "Anpassen",
+      "savePreferences": "Einstellungen speichern",
+      "settingsHeading": "Datenschutzeinstellungen",
+      "alwaysOnLabel": "Immer aktiv",
+      "privacyPolicyLabel": "Datenschutzerklärung",
+      "bannerAriaLabel": "Cookie-Einwilligung",
+      "reopenerAriaLabel": "Cookie-Einstellungen öffnen"
+    },
+    "categories": {
+      "necessary": {
+        "label": "Notwendig",
+        "description": "Für die Funktion der Website erforderlich. Diese können nicht deaktiviert werden."
+      },
+      "analytics": {
+        "label": "Analyse",
+        "description": "Anonyme Nutzungsdaten (Google Analytics), die zeigen, welche Seiten Besuchern helfen."
+      },
+      "marketing": {
+        "label": "Marketing",
+        "description": "Misst die Ergebnisse von Anzeigen (Meta Pixel, Google Ads), damit sie die richtigen Menschen erreichen."
+      },
+      "preferences": {
+        "label": "Präferenzen",
+        "description": "Speichert Ihre Auswahl, zum Beispiel Sprache oder Farbschema."
+      }
+    }
+  },
+  "site": {
+    "name": "Mr. Petkovic"
+  },
+  "llms": {
+    "summary": "Mr. Petkovic ist ein freiberuflicher Webentwickler aus Zrenjanin, Serbien, und arbeitet mit Kunden weltweit. Er entwickelt schnelle, maßgeschneiderte Astro-Websites, Systeme zur Lead-Gewinnung und datengestützte Plattformen und kümmert sich um SEO, Generative Engine Optimization (GEO), Google Ads und Social-Media-Werbung — vor allem für lokale Dienstleister, etwa Baumpflegefirmen in Südflorida und kleine Unternehmen in Serbien. Jedes Projekt hat einen Festpreis, der vor Beginn der Arbeit vereinbart wird, und Code, Domain und Hosting gehören dem Kunden vom ersten Tag an."
+  },
+  "nav": {
+    "skipToContent": "Zum Inhalt springen",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "selectLanguage": "Sprache wählen",
+    "currentLanguage": "Aktuelle Sprache",
+    "mainNav": "Hauptnavigation",
+    "mobileNav": "Mobile Navigation",
+    "toggleMenu": "Menü umschalten",
+    "sectionNavigate": "Seiten",
+    "searchSite": "Website durchsuchen",
+    "sectionTheme": "Design",
+    "sectionLanguage": "Sprache",
+    "sectionConnect": "Kontakt",
+    "items": {
+      "home": "Start",
+      "services": "Leistungen",
+      "projects": "Projekte",
+      "blog": "Blog",
+      "about": "Über mich",
+      "contact": "Kontakt"
+    }
+  },
+  "common": {
+    "readMore": "Weiterlesen",
+    "loading": "Wird geladen…",
+    "backToTop": "Nach oben",
+    "search": "Suche",
+    "submit": "Senden",
+    "cancel": "Abbrechen",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "home": "Start",
+    "map": "Karte",
+    "mapConsentPrompt": "Akzeptieren Sie Cookies, um die interaktive Karte zu laden.",
+    "viewOnGoogleMaps": "In Google Maps öffnen",
+    "themeModeTitle": "Design: {mode} (klicken zum Wechseln)",
+    "googleMaps": "Google Maps",
+    "progress": "Fortschritt",
+    "themeMode": "Design: {mode}",
+    "browseByTag": "Nach Thema durchsuchen",
+    "techStack": "Technologien",
+    "togglePassword": "Passwort ein- oder ausblenden",
+    "breadcrumb": "Brotkrümelnavigation",
+    "copyCode": "Code in die Zwischenablage kopieren",
+    "dismiss": "Schließen",
+    "notifications": "Benachrichtigungen",
+    "closeDialog": "Dialog schließen",
+    "tabs": "Registerkarten",
+    "verticalTabs": "Vertikale Registerkarten"
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Neueste Artikel und Neuigkeiten",
+    "readingTime": "{minutes} Min. Lesezeit",
+    "publishedOn": "Veröffentlicht am {date}",
+    "updatedOn": "Aktualisiert am {date}",
+    "writtenBy": "Von {author}",
+    "tagsLabel": "Themen",
+    "featured": "Empfohlen",
+    "draft": "Entwurf",
+    "noPostsFound": "Keine Beiträge gefunden.",
+    "tableOfContents": "Inhaltsverzeichnis",
+    "shareThisPost": "Beitrag teilen",
+    "relatedPosts": "Weitere Beiträge",
+    "share": "Teilen:",
+    "shareOn": "Auf {platform} teilen",
+    "copyLink": "Link kopieren",
+    "metaTitle": "Blog",
+    "metaDescription": "Praxisnahe Ratgeber zu SEO, KI-Suche und Kundengewinnung für lokale Dienstleister.",
+    "heroBadge": "Alle Beiträge",
+    "heroDescription": "Praxisnahe Ratgeber zu SEO, KI-Suche und Kundengewinnung für lokale Dienstleister.",
+    "allPosts": "Alle Beiträge",
+    "noPosts": "Keine Beiträge gefunden",
+    "pageMetaTitle": "Blog — Seite {page}",
+    "pageMetaDescription": "Seite {page} von {total} — Ratgeber zu SEO, KI-Suche und Kundengewinnung für lokale Dienstleister.",
+    "pageBadge": "Seite {page} von {total}",
+    "newestPosts": "Neueste Beiträge",
+    "tagMetaTitle": "#{tag} — Blog",
+    "tagMetaDescription": "Beiträge zum Thema „{tag}“.",
+    "tagBadge": "Thema",
+    "tagCountOne": "{count} Beitrag zum Thema „{tag}“.",
+    "tagCountOther": "{count} Beiträge zum Thema „{tag}“.",
+    "tagEmpty": "Zu diesem Thema gibt es noch keine Beiträge.",
+    "tagBackToAll": "Zurück zu allen Beiträgen",
+    "onThisPage": "Auf dieser Seite",
+    "tocShow": "Anzeigen",
+    "tocHide": "Ausblenden",
+    "backToBlog": "Zurück zum Blog",
+    "updated": "Aktualisiert",
+    "rssFeed": "RSS-Feed",
+    "cta": {
+      "heading": "Brauchen Sie eine neue Website?",
+      "description": "Erzählen Sie mir von Ihrem Projekt — ich melde mich innerhalb eines Werktags.",
+      "button": "Kontakt aufnehmen"
+    }
+  },
+  "comments": {
+    "title": "Kommentare",
+    "loadError": "Die Kommentare konnten nicht geladen werden. Bitte laden Sie die Seite neu.",
+    "requiresJs": "Für die Kommentare wird JavaScript benötigt."
+  },
+  "projects": {
+    "title": "Projekte",
+    "description": "Was ich gebaut habe",
+    "viewProject": "Projekt ansehen",
+    "viewSource": "Quellcode ansehen",
+    "viewLiveSite": "Live-Website ansehen",
+    "carouselGoToSlide": "Zu Folie {number}",
+    "noProjectsFound": "Keine Projekte gefunden.",
+    "carouselChooseSlide": "Folie wählen",
+    "carouselNextSlide": "Nächste Folie",
+    "carouselPreviousSlide": "Vorherige Folie",
+    "galleryLabel": "Bildergalerie",
+    "galleryClose": "Galerie schließen",
+    "galleryNextImage": "Nächstes Bild",
+    "galleryPreviousImage": "Vorheriges Bild",
+    "metaTitle": "Projekte",
+    "metaDescription": "Ausgewählte Arbeiten — Websites, Tools und Plattformen von Mr. Petkovic.",
+    "heroBadge": "Portfolio",
+    "heroDescription": "Websites und Plattformen, die ich für Kunden gebaut habe.",
+    "allProjects": "Alle Projekte",
+    "pageMetaTitle": "Projekte — Seite {page}",
+    "pageMetaDescription": "Seite {page} von {total} — ausgewählte Arbeiten, Tools und Plattformen von Mr. Petkovic.",
+    "pageBadge": "Seite {page} von {total}",
+    "tagMetaTitle": "#{tag} — Projekte",
+    "tagMetaDescription": "Projekte zum Thema „{tag}“.",
+    "tagBadge": "Thema",
+    "tagCountOne": "{count} Projekt zum Thema „{tag}“.",
+    "tagCountOther": "{count} Projekte zum Thema „{tag}“.",
+    "tagEmpty": "Zu diesem Thema gibt es noch keine Projekte.",
+    "tagBackToAll": "Zurück zu allen Projekten",
+    "backToProjects": "Zurück zu den Projekten",
+    "moreProjects": "Weitere Projekte",
+    "ctaBadge": "Sprechen wir",
+    "ctaHeading": "Sprechen wir über Ihr Projekt",
+    "ctaLead": "Jede Website, die ich baue, ist eine Maßanfertigung — mit der Sorgfalt, die Sie hier sehen. Erzählen Sie mir, was Sie vorhaben.",
+    "ctaPrimary": "Nachricht senden",
+    "ctaSecondary": "Mehr über mich",
+    "closingHeading": "Haben Sie ein Projekt im Kopf?",
+    "closingLead": "Ob eine ganz neue Website oder eine, die frischen Wind braucht — ich freue mich, davon zu hören."
+  },
+  "pagination": {
+    "page": "Seite {current} von {total}",
+    "label": "Seitennavigation",
+    "previousPage": "Vorherige Seite",
+    "nextPage": "Nächste Seite",
+    "morePages": "Weitere Seiten"
+  },
+  "errors": {
+    "pageNotFound": "Seite nicht gefunden",
+    "pageNotFoundMessage": "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+    "goHome": "Zur Startseite",
+    "metaTitle": "Seite nicht gefunden",
+    "metaDescription": "Diese Seite wurde verschoben, gelöscht oder hat nie existiert.",
+    "badge": "404 — nicht gefunden",
+    "titleLead": "Diese Seite gibt",
+    "titleHighlight": "es nicht.",
+    "description": "Sie wurde verschoben, gelöscht oder hat nie existiert. Wir bringen Sie zurück auf den richtigen Weg.",
+    "backHome": "Zurück zur Startseite",
+    "browseBlog": "Zum Blog",
+    "tryInstead": "Vielleicht suchen Sie eines davon",
+    "projectsDesc": "Ausgewählte Arbeiten und die Geschichten dahinter.",
+    "blogDesc": "Ratgeber zu SEO, KI-Suche und Marketing.",
+    "contactTitle": "Kontakt",
+    "contactDesc": "Schreiben Sie mir zu Ihrem Projekt."
+  },
+  "newsletter": {
+    "heading": "Newsletter abonnieren",
+    "description": "Neue Beiträge direkt in Ihr Postfach.",
+    "emailPlaceholder": "Ihre E-Mail-Adresse",
+    "subscribe": "Abonnieren",
+    "subscribing": "Wird abonniert…",
+    "success": "Danke für Ihr Abonnement!",
+    "genericError": "Etwas ist schiefgelaufen",
+    "notConfigured": "Noch nicht eingerichtet — setzen Sie RESEND_API_KEY und RESEND_AUDIENCE_ID, um dies zu aktivieren. Nur Sie sehen diese Zeile.",
+    "unavailable": "Anmeldungen sind derzeit nicht möglich.",
+    "error": "Die Anmeldung ist fehlgeschlagen. Bitte versuchen Sie es erneut."
+  },
+  "contact": {
+    "heading": "Kontakt aufnehmen",
+    "name": "Name",
+    "email": "E-Mail",
+    "subject": "Betreff",
+    "message": "Nachricht",
+    "send": "Nachricht senden",
+    "sending": "Wird gesendet…",
+    "success": "Nachricht gesendet! Ich melde mich in Kürze.",
+    "genericError": "Etwas ist schiefgelaufen",
+    "notConfigured": "Noch nicht eingerichtet — setzen Sie RESEND_API_KEY, um dies zu aktivieren. Nur Sie sehen diese Zeile.",
+    "unavailable": "Dieses Formular ist derzeit nicht verfügbar.",
+    "error": "Die Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
+  },
+  "theme": {
+    "selectColourTheme": "Farbschema wählen",
+    "colourTheme": "Farbschema",
+    "colourMode": "Hell oder dunkel",
+    "modeTrigger": "Design: {mode}. Klicken zum Ändern.",
+    "system": "System",
+    "light": "Hell",
+    "dark": "Dunkel",
+    "currentlyLight": "Derzeit hell",
+    "currentlyDark": "Derzeit dunkel",
+    "swatchLabel": "Farbschema {name}"
+  },
+  "search": {
+    "placeholder": "Beiträge, Projekte und Seiten durchsuchen…",
+    "inputLabel": "Suchbegriff",
+    "resultsLabel": "Suchergebnisse",
+    "hint": "Tippen Sie, um die Website zu durchsuchen.",
+    "noResults": "Keine Ergebnisse für „{query}“",
+    "unavailable": "Der Suchindex wird beim Build erstellt und ist in <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">astro dev</code> nicht verfügbar.<br />Führen Sie <code class=\"rounded bg-secondary px-1.5 py-0.5 text-xs\">pnpm build &amp;&amp; pnpm preview</code> aus, um sie lokal zu testen."
+  },
+  "video": {
+    "playLabel": "Video abspielen: {title}",
+    "watchOn": "Auf YouTube ansehen"
+  },
+  "footer": {
+    "copyright": "© {year} {siteName}",
+    "groups": {
+      "site": "Website",
+      "topics": "Themen",
+      "projects": "Projekte",
+      "questions": "Fragen?"
+    },
+    "followOn": "Folgen Sie mir auf {platform}"
+  },
+  "pages": {
+    "landing": {
+      "meta": {
+        "title": "Eine Website, die Ihnen Kunden bringt",
+        "description": "Schnelle, maßgeschneiderte Websites, SEO und Sichtbarkeit in der KI-Suche für lokale Dienstleister. Ein Festpreis, alles auf Ihren Namen und ein kostenloser Check Ihrer aktuellen Website."
+      },
+      "header": {
+        "cta": "Kostenloser Website-Check"
+      },
+      "hero": {
+        "badge": "Verfügbar für neue Projekte",
+        "titleLead": "Eine Website, die",
+        "titleHighlight": "Ihnen Kunden bringt",
+        "description": "Ich baue schnelle, maßgeschneiderte Websites, richte SEO und Sichtbarkeit in der KI-Suche ein und leite jede Anfrage direkt auf Ihr Telefon. Für lokale Dienstleister, die Anrufe wollen, nicht nur Besuche.",
+        "primary": "Kostenlosen Website-Check anfordern",
+        "secondary": "Ergebnisse ansehen",
+        "trust": [
+          {
+            "value": "1.010",
+            "label": "erfasste Anfragen für einen Kunden"
+          },
+          {
+            "value": "100",
+            "label": "SEO-Wert in Google Lighthouse"
+          },
+          {
+            "value": "< 1 Tag",
+            "label": "bis zur Antwort auf jede Anfrage"
+          }
+        ],
+        "imageAlt": "Mr. Petkovic, der Webentwickler, mit dem Sie direkt arbeiten"
+      },
+      "problem": {
+        "badge": "Kommt Ihnen das bekannt vor?",
+        "heading": "Ihre Website sollte verkaufen. Die meisten tun es nicht.",
+        "lead": "Die meisten Websites kleiner Unternehmen sehen ordentlich aus und bewirken nichts. Diese Probleme löse ich jede Woche.",
+        "items": [
+          {
+            "icon": "hourglass",
+            "title": "Sie lädt zu langsam",
+            "text": "Jede zusätzliche Sekunde auf dem Smartphone kostet Besucher, bevor sie Ihre Nummer überhaupt sehen. Schwere WordPress-Themes und Plugins sind die üblichen Ursachen."
+          },
+          {
+            "icon": "search-x",
+            "title": "Google zeigt sie nicht",
+            "text": "Dünne Seiten, kein lokaler Inhalt und technische Fehler halten Sie von Seite eins fern — und KI-Assistenten wie ChatGPT erwähnen Sie gar nicht."
+          },
+          {
+            "icon": "mail-x",
+            "title": "Anfragen gehen verloren",
+            "text": "Formulare landen in einem Postfach, das niemand prüft, und der Kunde hat längst Ihren Mitbewerber angerufen, wenn Sie antworten."
+          },
+          {
+            "icon": "lock",
+            "title": "Sie gehört Ihnen nicht wirklich",
+            "text": "Domain, Hosting oder Code laufen auf einen fremden Namen, und jede kleine Änderung bedeutet Warten und Bezahlen."
+          }
+        ]
+      },
+      "solution": {
+        "badge": "Was Sie bekommen",
+        "heading": "Ein Ansprechpartner, ein Preis, alles für Ihr Wachstum",
+        "lead": "Design, Entwicklung, SEO und Anfragen-Tracking in einem Projekt — damit Ihre Website als Ihr bester Verkäufer arbeitet.",
+        "items": [
+          {
+            "icon": "zap",
+            "title": "Eine blitzschnelle Website",
+            "text": "Mit Astro gebaut: Seiten öffnen sich sofort auf jedem Smartphone, mit Bestwerten in Googles eigenen Lighthouse-Tests."
+          },
+          {
+            "icon": "search",
+            "title": "Gefunden bei Google und in der KI-Suche",
+            "text": "Leistungs- und Regionsseiten, strukturierte Daten und Inhalte, die so geschrieben sind, wie Ihre Kunden wirklich suchen — bei Google und in ChatGPT."
+          },
+          {
+            "icon": "bell-ring",
+            "title": "Jede Anfrage, sofort",
+            "text": "Jedes Formular und jeder Anruf wird erfasst und Ihnen in dem Moment gesendet, in dem er passiert — so antworten Sie zuerst und gewinnen den Auftrag."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Ihre vom ersten Tag an",
+            "text": "Code, Domain und Hosting auf Ihren Namen. Keine Knebelverträge, keine versteckten Kosten, keine Plugins, die kaputtgehen."
+          }
+        ]
+      },
+      "results": {
+        "badge": "Beweise statt Versprechen",
+        "heading": "Von WordPress zu unglaublich schnell",
+        "lead": "Zwei Baumpflegefirmen in Südflorida haben langsame WordPress-Websites hinter sich gelassen. Ihre neuen Websites öffnen sich sofort und erreichen den Bestwert 100 bei SEO.",
+        "note": "Das sind nur zwei Beispiele aus meiner Arbeit — jedes Projekt entsteht auf die gleiche Weise.",
+        "cases": [
+          {
+            "client": "Tree Jaws",
+            "sector": "Baumpflege · Südflorida",
+            "metric": "SEO 100",
+            "metricLabel": "Lighthouse-Wert nach dem Abschied von WordPress",
+            "points": [
+              "Von WordPress auf Astro umgebaut — Seiten öffnen sich sofort, selbst bei schwachem 4G",
+              "176 Seiten und 108 lokale Ratgeber, gebaut für die lokale Suche",
+              "1.010 erfasste Anfragen, davon 732 Anrufe",
+              "4,9★ aus 427 Google-Bewertungen"
+            ]
+          },
+          {
+            "client": "Mahalo Tree Service",
+            "sector": "Baumpflege · Südflorida",
+            "metric": "SEO 100",
+            "metricLabel": "Lighthouse-Wert — und 0 $ für Anzeigen",
+            "points": [
+              "Von WordPress auf Astro umgebaut — statische Seiten statt eines Stapels Plugins",
+              "Jede Anfrage landet in der Sekunde des Absendens im Postfach des Inhabers — ohne Portal",
+              "Wachstum allein über die Suche, ohne bezahlte Anzeigen",
+              "Google-Bewertung 5,0, 18 Regionsseiten und ein wachsender Blog"
+            ]
+          }
+        ]
+      },
+      "story": {
+        "badge": "Die Geschichte eines Kunden",
+        "heading": "Wenn Anzeigen mehr kosten, als sie einbringen",
+        "paragraphs": [
+          "Ein Kunde führt zwei Baumpflegefirmen in Südflorida. In seiner Branche ruft ein Hausbesitzer, dessen Baum ein Sturm beschädigt hat, die erste Firma an, die vertrauenswürdig wirkt — und wartet nicht.",
+          "Seine alte WordPress-Website öffnete sich langsam, Google zeigte sie kaum, und das Geld für Anzeigen kam nicht zurück. Besucher, für die er bezahlt hatte, gingen, bevor die Seite überhaupt geladen war.",
+          "Wir haben beide Websites in Astro neu gebaut und SEO von Grund auf eingerichtet. Die Seiten öffnen sich jetzt sofort, erreichen 100 bei SEO, und das Anzeigenbudget wird endlich zu Anrufen."
+        ],
+        "beforeTitle": "Vorher",
+        "before": [
+          "Eine langsame WordPress-Website",
+          "Schwaches SEO, bei Google kaum zu finden",
+          "Anzeigen, die sich nicht rechneten"
+        ],
+        "afterTitle": "Nachher",
+        "after": [
+          "Seiten, die sich sofort öffnen",
+          "Lighthouse-SEO-Wert von 100",
+          "1.010 erfasste Anfragen — davon 732 Anrufe"
+        ],
+        "quote": "Mr. Petkovic hat meine beiden Websites von WordPress auf Astro umgestellt, und der Geschwindigkeitsunterschied war sofort spürbar.",
+        "author": "Ein zufriedener Kunde",
+        "role": "Inhaber von zwei Baumpflegefirmen",
+        "imageAlt": "Website einer Baumpflegefirma, gebaut von Mr. Petkovic"
+      },
+      "process": {
+        "badge": "So funktioniert es",
+        "heading": "Von der ersten Nachricht zur Website, die verkauft — in vier Schritten",
+        "lead": "Keine langen Meetings, keine Überraschungen. Sie wissen immer, was als Nächstes passiert.",
+        "steps": [
+          {
+            "title": "Kostenloser Website-Check",
+            "text": "Senden Sie das Formular. Innerhalb eines Werktags prüfe ich Ihre aktuelle Website und Ihre Mitbewerber und sage Ihnen ehrlich, was Sie bremst."
+          },
+          {
+            "title": "Ein klares Angebot",
+            "text": "Ein kurzes Gespräch, dann ein Dokument: was ich baue, wann es fertig ist und ein Festpreis. Sie entscheiden mit allen Karten auf dem Tisch."
+          },
+          {
+            "title": "Design und Entwicklung",
+            "text": "Ich arbeite in kurzen Zyklen, und Sie verfolgen den Fortschritt über einen Vorschau-Link. Ihre aktuelle Website bleibt online, bis die neue fertig ist."
+          },
+          {
+            "title": "Start und Wachstum",
+            "text": "Die Website geht auf Ihren Namen online, mit aktivem SEO und Anfragen-Tracking. Ich bleibe erreichbar, auf Wunsch mit einem monatlichen Wartungspaket."
+          }
+        ]
+      },
+      "testimonialsHeading": "Was Kunden sagen",
+      "ratings": {
+        "label": "Google-Bewertungen der Unternehmen, deren Websites ich gebaut habe",
+        "items": [
+          {
+            "client": "Tree Jaws",
+            "value": "4,9",
+            "text": "aus 427 Google-Bewertungen"
+          },
+          {
+            "client": "Mahalo Tree Service",
+            "value": "5,0",
+            "text": "Google-Bewertung"
+          }
+        ]
+      },
+      "offer": {
+        "badge": "Ohne Risiko starten",
+        "heading": "Beginnen Sie mit einem kostenlosen Website-Check",
+        "lead": "Unverbindlich und ohne Verkaufsgespräch — nur ein ehrlicher Blick darauf, was Ihre Website für Sie leisten könnte.",
+        "items": [
+          "Eine Prüfung von Geschwindigkeit, SEO und Sichtbarkeit in der KI-Suche",
+          "Ein Vergleich mit Ihren stärksten lokalen Mitbewerbern",
+          "Konkrete nächste Schritte, ob Sie mit mir arbeiten oder nicht",
+          "Ein Festpreis, wenn Sie sich entscheiden, loszulegen"
+        ]
+      },
+      "faq": {
+        "badge": "Fragen",
+        "heading": "Bevor Sie fragen",
+        "items": [
+          {
+            "question": "Was kostet eine Website?",
+            "answer": "Jedes Projekt hat einen Festpreis, der vor Beginn der Arbeit vereinbart wird — keine Abrechnung nach Stunden, keine Überraschungen. Nach dem kostenlosen Check erhalten Sie ein klares Angebot mit Preis und Zeitplan."
+          },
+          {
+            "question": "Wie lange dauert es?",
+            "answer": "Das hängt vom Umfang der Website ab und davon, wie schnell die Inhalte bereitstehen. Das Angebot nennt den Zeitplan zusammen mit dem Preis, sodass Sie beides kennen, bevor wir beginnen."
+          },
+          {
+            "question": "Was passiert mit meiner aktuellen Website und meinen Google-Platzierungen?",
+            "answer": "Ihre aktuelle Website bleibt online, bis die neue fertig ist. Adresse, Inhalte und Platzierungen ziehen mit um, und alte Seiten werden weitergeleitet, damit nichts verloren geht, was bereits rankt."
+          },
+          {
+            "question": "Gehört die Website mir?",
+            "answer": "Vollständig. Code, Domain und Hosting laufen vom ersten Tag an auf Ihren Namen. Wenn Sie jemals wechseln möchten, nehmen Sie alles mit."
+          },
+          {
+            "question": "Arbeiten Sie mit Kunden in anderen Ländern?",
+            "answer": "Ja. Ich arbeite mit Kunden in den USA und in ganz Europa, vollständig per Telefon, Videocall und E-Mail. Zeitzonen sind selten ein Problem."
+          },
+          {
+            "question": "Können Sie auch Google Ads oder Social-Media-Anzeigen betreuen?",
+            "answer": "Ja — Google Ads sowie Facebook- und Instagram-Kampagnen, mit Conversion-Tracking, das zeigt, was jeder Euro einbringt."
+          }
+        ]
+      },
+      "form": {
+        "badge": "Kostenloser Website-Check",
+        "heading": "Erzählen Sie mir von Ihrem Unternehmen",
+        "lead": "Drei kurze Schritte, unter einer Minute. Ich antworte innerhalb eines Werktags.",
+        "stepLabels": [
+          "Was Sie brauchen",
+          "Ihr Unternehmen",
+          "Ihre Kontaktdaten"
+        ],
+        "stepCount": "Schritt {current} von {total}",
+        "serviceLegend": "Was brauchen Sie?",
+        "services": [
+          {
+            "value": "new-website",
+            "icon": "sparkles",
+            "label": "Eine neue Website"
+          },
+          {
+            "value": "redesign",
+            "icon": "refresh-cw",
+            "label": "Einen Relaunch meiner Website"
+          },
+          {
+            "value": "seo",
+            "icon": "search",
+            "label": "SEO und KI-Sichtbarkeit"
+          },
+          {
+            "value": "ads",
+            "icon": "target",
+            "label": "Google- oder Social-Media-Anzeigen"
+          },
+          {
+            "value": "other",
+            "icon": "message-circle",
+            "label": "Etwas anderes"
+          }
+        ],
+        "websiteLabel": "Aktuelle Website (falls vorhanden)",
+        "websitePlaceholder": "ihrunternehmen.de",
+        "businessLabel": "Branche und Ort",
+        "businessPlaceholder": "z. B. Zahnarzt in München, Friseursalon in Wien",
+        "timelineLegend": "Wann möchten Sie starten?",
+        "timelines": [
+          {
+            "value": "asap",
+            "label": "So bald wie möglich"
+          },
+          {
+            "value": "1-3-months",
+            "label": "In 1–3 Monaten"
+          },
+          {
+            "value": "exploring",
+            "label": "Ich informiere mich nur"
+          }
+        ],
+        "nameLabel": "Ihr Name",
+        "emailLabel": "E-Mail",
+        "phoneLabel": "Telefon (optional)",
+        "messageLabel": "Möchten Sie noch etwas ergänzen? (optional)",
+        "next": "Weiter",
+        "back": "Zurück",
+        "submit": "Kostenlosen Check anfordern",
+        "sending": "Wird gesendet…",
+        "chooseService": "Wählen Sie aus, was Sie brauchen, um fortzufahren.",
+        "required": "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse ein.",
+        "privacy": "Ihre Angaben verwende ich nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
+        "promise": "Antwort innerhalb eines Werktags",
+        "successTitle": "Vielen Dank — Ihre Anfrage ist eingegangen!",
+        "successText": "Ich prüfe Ihre Website und melde mich innerhalb eines Werktags mit ehrlichen, konkreten nächsten Schritten. Behalten Sie Ihr Postfach im Blick.",
+        "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail."
+      },
+      "final": {
+        "heading": "Bereit für eine Website, die so hart arbeitet wie Sie?",
+        "text": "Der Check ist kostenlos und unverbindlich. Im schlimmsten Fall wissen Sie danach genau, was zu verbessern ist.",
+        "cta": "Kostenlosen Website-Check anfordern"
+      },
+      "footer": "Schnelle Websites, SEO und Kundengewinnung für lokale Unternehmen.",
+      "mobileCta": "Kostenloser Website-Check",
+      "privacy": {
+        "toggle": "Wie ich mit Ihren Daten umgehe",
+        "title": "Datenschutzhinweis",
+        "items": [
+          "Wer: Mr. Petkovic, freiberuflicher Webentwickler. Kontakt: {email}.",
+          "Was: die Angaben, die Sie in dieses Formular eintragen — Name, E-Mail, Telefon, Website, Branche, Ihre Antworten und Ihre Nachricht.",
+          "Wozu: ausschließlich, um Ihre Anfrage zu beantworten und ein Angebot zu erstellen. Kein Newsletter; Ihre Daten werden nie verkauft oder für Marketing weitergegeben.",
+          "Wo: gespeichert bei den Hosting-, E-Mail- und Datenbankanbietern, über die diese Website läuft, auf Grundlage von Auftragsverarbeitungsverträgen.",
+          "Wie lange: so lange, wie es für Ihre Anfrage nötig ist, und höchstens zwei Jahre ohne weiteren Kontakt.",
+          "Ihre Rechte: Sie können jederzeit per E-Mail Auskunft, Berichtigung oder Löschung Ihrer Daten verlangen oder Ihre Einwilligung widerrufen. Sie können sich außerdem bei Ihrer Datenschutzaufsichtsbehörde beschweren.",
+          "Cookies: Analyse- und Werbe-Cookies werden nur gesetzt, wenn Sie im Cookie-Banner zustimmen."
+        ]
+      }
+    },
+    "about": {
+      "meta": {
+        "title": "Über mich",
+        "description": "Wer ich bin und wie ich arbeite: ein freiberuflicher Webentwickler, der schnelle, praktische Websites und digitale Produkte mit moderner Technologie baut."
+      },
+      "hero": {
+        "badge": "Über mich",
+        "titleLead": "Mr. Petkovic",
+        "typingWords": ["Webentwickler", "Problemlöser", "Cloud & Automatisierung", "Datengetrieben", "Detailverliebt"],
+        "typingWordsMobile": ["Webentwickler", "Cloud & Automatisierung", "Detailverliebt"],
+        "description": "Ein freiberuflicher Web­entwickler, der schnelle, praktische Websites und digitale Produkte baut.",
+        "imageAlt": "Eine Rakete fliegt am beleuchteten Rand eines Planeten vorbei, vor einem Sternenhimmel."
+      },
+      "whatYouGet": {
+        "badge": "Was ich mitbringe",
+        "heading": "Alles, was Ihr Projekt braucht",
+        "lead": "Die gleiche Sorgfalt bei jedem Projekt, von der ersten Codezeile bis zum Start.",
+        "items": [
+          {
+            "icon": "component",
+            "title": "Sauberer, wiederverwendbarer Code",
+            "description": "Gut strukturiert, typisiert und dokumentiert — Code, der auch lange nach dem Start leicht zu pflegen und zu erweitern ist."
+          },
+          {
+            "icon": "layout",
+            "title": "Alle Seiten, die Sie brauchen",
+            "description": "Startseite, Über uns, Leistungen, Kontakt und Blog — vollständig gestaltet und responsiv vom ersten Tag an."
+          },
+          {
+            "icon": "palette",
+            "title": "Ein Design, das zu Ihnen passt",
+            "description": "Ein Erscheinungsbild, das auf Ihre Marke zugeschnitten ist, mit hellem und dunklem Modus."
+          },
+          {
+            "icon": "book-open",
+            "title": "Inhalte, die leicht zu pflegen sind",
+            "description": "Ein Blog und ein Inhaltssystem, mit dem sich Texte einfach schreiben und aktualisieren lassen."
+          },
+          {
+            "icon": "image",
+            "title": "Ein Portfolio, das Ihre Arbeit zeigt",
+            "description": "Galerien und Projektseiten, die Ihre Arbeit leicht durchsuchbar und teilbar machen."
+          },
+          {
+            "icon": "globe",
+            "title": "Bereit für ein internationales Publikum",
+            "description": "Mehrsprachigkeit, wenn Sie sie brauchen, von Anfang an eingebaut — ohne Mehrkosten, solange Sie sie nicht nutzen."
+          },
+          {
+            "icon": "search",
+            "title": "Schnelle Website-Suche",
+            "description": "Sofortige, statische Suche, damit Besucher finden, was sie brauchen, ohne auf einen Server zu warten."
+          },
+          {
+            "icon": "trending-up",
+            "title": "SEO von Anfang an",
+            "description": "Metadaten, Sitemaps, strukturierte Daten und Vorschaubilder für soziale Netzwerke — korrekt ab dem ersten Deployment."
+          },
+          {
+            "icon": "server",
+            "title": "Formulare, die einfach funktionieren",
+            "description": "Kontakt- und Newsletter-Formulare mit Spamschutz, dazu ein reibungsloser Weg zu Hosting und Veröffentlichung."
+          }
+        ]
+      },
+      "principles": {
+        "badge": "Wie ich arbeite",
+        "heading": "Mit Absicht gebaut",
+        "lead": "Jedes Projekt folgt denselben drei Prinzipien.",
+        "items": [
+          { "icon": "zap", "title": "Geschwindigkeit zuerst", "description": "Jede Website optimiere ich ab der ersten Codezeile für Geschwindigkeit und Core Web Vitals." },
+          { "icon": "award", "title": "Gebaut, um zu bleiben", "description": "Sauberer, typisierter Code und sinnvolle Voreinstellungen, die auch lange nach dem Start leicht zu pflegen sind." },
+          { "icon": "rocket", "title": "Moderne Werkzeuge", "description": "Astro, Tailwind CSS und eine klare Architektur, die mit Ihren Anforderungen leicht mitwächst." }
+        ]
+      },
+      "stack": {
+        "badge": "Werkzeuge & Technik",
+        "title": "Technologien",
+        "description": "Die Technologien, mit denen ich arbeite — ausgewählt nach Geschwindigkeit, Zuverlässigkeit und langfristiger Wartbarkeit."
+      },
+      "faq": {
+        "badge": "Gut zu wissen",
+        "heading": "Häufige Fragen",
+        "lead": "Ein paar Dinge, die Kunden meist fragen, bevor wir zusammenarbeiten.",
+        "cards": [
+          {
+            "icon": "user",
+            "title": "Über mich",
+            "items": [
+              { "question": "Welche Projekte übernehmen Sie?", "answer": "Unternehmenswebsites, Systeme zur Kundengewinnung und datengestützte Plattformen — das meiste, was ein wachsendes Unternehmen online braucht." },
+              { "question": "Mit welchen Technologien arbeiten Sie?", "answer": "Mit modernen, schnellen Werkzeugen: Astro, TypeScript und Tailwind CSS im Frontend, dazu Cloud-Infrastruktur und Automatisierung, wo ein Projekt sie braucht." },
+              { "question": "Arbeiten Sie auch mit Kunden außerhalb Ihrer Region?", "answer": "Ja. Die meisten Projekte laufen vollständig per Telefon, Video und E-Mail, und Zeitzonen sind selten ein Problem." },
+              { "question": "Haben Sie Kapazität für neue Projekte?", "answer": "Meistens ja — sehen Sie auf der Startseite nach oder schreiben Sie mir einfach, und ich sage es Ihnen ehrlich." }
+            ]
+          },
+          {
+            "icon": "briefcase",
+            "title": "Zusammenarbeit",
+            "items": [
+              { "question": "Wie beginnt ein Projekt?", "answer": "Mit einem kostenlosen, unverbindlichen Gespräch darüber, was Sie brauchen, gefolgt von einem klaren Angebot mit Zeitplan und Preis." },
+              { "question": "Bieten Sie Unterstützung nach dem Start?", "answer": "Ja, es gibt ein monatliches Wartungspaket für Updates, Überwachung und kleine Änderungen, nachdem Ihre Website online ist." },
+              { "question": "Gehört die Website wirklich mir?", "answer": "Vollständig. Domain, Hosting und Code laufen vom ersten Tag an auf Ihren Namen." }
+            ]
+          }
+        ]
+      },
+      "openSource": {
+        "badge": "Warum mit mir arbeiten",
+        "heading": "Ein Partner, nicht nur ein Dienstleister",
+        "description": "Sie arbeiten direkt mit der Person, die Ihre Website baut — ohne Account-Manager, ohne Übergaben und mit einem Festpreis, der vor Beginn vereinbart wird.",
+        "button": "Kontakt aufnehmen",
+        "cards": [
+          { "title": "Ein Ansprechpartner", "text": "Sie sprechen von der ersten Nachricht bis zum Start direkt mit mir — kein Vertriebsteam dazwischen." },
+          { "title": "Festpreis, keine Überraschungen", "text": "Jedes Projekt hat einen klaren Preis, der vor Arbeitsbeginn vereinbart wird. Keine Abrechnung nach Stunden." },
+          { "title": "Unterstützung nach dem Start", "text": "Ich bleibe erreichbar, wenn Ihre Website online ist, mit einem monatlichen Wartungspaket für laufende Updates." }
+        ]
+      },
+      "cta": {
+        "badge": "Loslegen",
+        "heading": "Bereit für die Zusammenarbeit?",
+        "description": "Erzählen Sie mir von Ihrem Projekt — ich melde mich innerhalb eines Werktags mit ehrlichen, praktischen nächsten Schritten.",
+        "button": "Kontakt aufnehmen"
+      }
+    },
+    "services": {
+      "meta": {
+        "title": "Leistungen — Webdesign, Entwicklung & Optimierung",
+        "description": "Webdesign, Entwicklung, Optimierung und Anfragen-Tracking: schnelle, maßgeschneiderte Astro-Websites mit monatlichen Berichten. Ein kostenloses Erstgespräch, ein Angebot, ein Festpreis."
+      },
+      "includedLabel": "Was Sie bekommen",
+      "hero": {
+        "badge": "Leistungen",
+        "titleLead": "Webdesign, Entwicklung",
+        "titleHighlight": "und Optimierung",
+        "description": "Vier Leistungen, ein Ergebnis: eine elegante, blitzschnelle Astro-Website nach Maß, auf die Sie stolz Ihren Namen setzen — und klare Zahlen darüber, was sie einbringt.",
+        "jumpLabels": ["Webdesign", "Entwicklung", "Optimierung", "Tracking & Berichte"]
+      },
+      "design": {
+        "badge": "Design",
+        "heading": "Webdesign",
+        "paragraphs": [
+          "Webdesign ist, wie Ihre Website aussieht und sich anfühlt: das Layout, die Farben, die Bilder und wie sich Besucher zurechtfinden.",
+          "Ich gestalte jede Website rund um Ihr Unternehmen — Ihre Marke, Ihre Inhalte und die Kunden, die Sie erreichen wollen — damit sie einen starken ersten Eindruck hinterlässt und Menschen direkt zum Wesentlichen führt. Klar, modern und für jeden Bildschirm gemacht, vom Monitor bis zum Smartphone."
+        ],
+        "included": [
+          {
+            "lead": "Ein Design, das zu Ihnen passt",
+            "text": "zugeschnitten auf Ihr Unternehmen, Ihre Marke und die Kunden, die Sie erreichen wollen."
+          },
+          {
+            "lead": "Ein starker erster Eindruck",
+            "text": "ein klares, modernes Erscheinungsbild, das sofort zeigt, wer Sie sind."
+          },
+          {
+            "lead": "Klare Navigation",
+            "text": "ein Aufbau, der Besucher direkt zu dem führt, was für sie wichtig ist."
+          },
+          {
+            "lead": "Ein Design für jeden Bildschirm",
+            "text": "sieht auf Smartphone, Tablet und Desktop gut aus und funktioniert einwandfrei."
+          },
+          {
+            "lead": "Ihre Inhalte im besten Licht",
+            "text": "Ihre Texte und Bilder in einem Layout, das sie leicht lesbar und angenehm anzusehen macht."
+          }
+        ],
+        "ctaLabel": "Über ein Designprojekt sprechen"
+      },
+      "development": {
+        "badge": "Entwicklung",
+        "heading": "Webentwicklung",
+        "paragraphs": [
+          "Webentwicklung ist der Bau Ihrer Website: das Design wird zu Code, der im Browser Ihrer Besucher läuft.",
+          "Ich baue mit Astro, einem modernen Framework, dem einige der schnellsten Websites im Netz vertrauen. Dadurch lädt Ihre Website schnell, ist sicher und bleibt über Jahre leicht zu pflegen. Und sie gehört Ihnen vom ersten Tag an — Code, Domain und Hosting auf Ihren Namen."
+        ],
+        "included": [
+          {
+            "lead": "Eine blitzschnelle Website",
+            "text": "gebaut mit Astro, dem Framework hinter einigen der schnellsten Websites im Netz."
+          },
+          {
+            "lead": "Eine sichere, zuverlässige Website",
+            "text": "die sicher bleibt und Jahr für Jahr funktioniert."
+          },
+          {
+            "lead": "Volles Eigentum",
+            "text": "Code, Domain und Hosting vom ersten Tag an auf Ihren Namen."
+          },
+          {
+            "lead": "Betreuung nach dem Start",
+            "text": "Ihre Website bleibt mit dem monatlichen Wartungspaket aktuell und sicher, während Sie Ihr Geschäft führen."
+          },
+          {
+            "lead": "Raum zum Wachsen",
+            "text": "neue Seiten und Funktionen, wann immer Ihr Unternehmen sie braucht."
+          }
+        ],
+        "ctaLabel": "Aktuelle Projekte ansehen"
+      },
+      "performance": {
+        "badge": "Optimierung",
+        "heading": "Weboptimierung",
+        "paragraphs": [
+          "Weboptimierung ist die Arbeit, die Ihre Website erfolgreich macht: sie lädt schnell, rankt gut in der Suche und funktioniert für alle.",
+          "Geschwindigkeit, SEO und Barrierefreiheit baue ich ab der ersten Zeile ein, nicht nachträglich. So findet und versteht Google Ihre Website leicht, sie öffnet sich schnell für jeden Besucher und kann von allen genutzt werden."
+        ],
+        "included": [
+          {
+            "lead": "Eine Website, die Google und KI finden",
+            "text": "so gebaut, dass Suchmaschinen und KI-Assistenten Ihre Seiten lesen, verstehen und empfehlen können."
+          },
+          {
+            "lead": "Schnell auf jedem Gerät",
+            "text": "Seiten, die auch auf dem Smartphone oder bei langsamer Verbindung schnell bleiben."
+          },
+          {
+            "lead": "Eine Website für alle",
+            "text": "barrierefrei für jeden Besucher, unabhängig von Gerät oder Fähigkeiten."
+          },
+          {
+            "lead": "Hohe Leistungswerte",
+            "text": "starke Ergebnisse in Googles eigenen Geschwindigkeits- und Qualitätstests (Lighthouse)."
+          },
+          {
+            "lead": "Optimierung ab dem ersten Tag",
+            "text": "Geschwindigkeit, SEO und Barrierefreiheit ab der ersten Zeile eingebaut."
+          }
+        ],
+        "ctaLabel": "Projekt starten"
+      },
+      "reporting": {
+        "badge": "Tracking & Berichte",
+        "heading": "Anfragen-Tracking und monatliche Berichte",
+        "paragraphs": [
+          "Eine Website lohnt sich erst, wenn sie Ihnen Kunden bringt. Deshalb kann jede Website, die ich baue, genau zeigen, was sie einbringt: jedes Anfrageformular, jeden Tipp auf Ihre Telefonnummer, jede WhatsApp-Nachricht — und woher diese Menschen kamen.",
+          "Jede Anfrage landet in dem Moment in Ihrem Postfach, in dem sie gesendet wird, mit allen Details und einer Antwort per Klick. Einmal im Monat erhalten Sie einen klaren PDF-Bericht: Besucher, Anfragen, Anrufe und welche Anzeigen, Suchen und Seiten Besucher wirklich zu Kunden machen. Keine Logins, keine Dashboards, kein Google-Analytics-Setup."
+        ],
+        "included": [
+          {
+            "lead": "Jede Anfrage per E-Mail",
+            "text": "das vollständige Formular, die Seite, von der es kam, und die Anzeige oder Suche, die den Besucher brachte — sofort in Ihrem Postfach."
+          },
+          {
+            "lead": "Auch Anrufe werden gezählt",
+            "text": "Tipps auf Ihre Telefonnummer, WhatsApp- und SMS-Links werden als Conversions erfasst, nicht verloren."
+          },
+          {
+            "lead": "Wissen, was funktioniert",
+            "text": "sehen Sie, welche Quelle (Google, Facebook-Anzeigen, direkte Besuche) Besuche, Anfragen und Anrufe bringt — und mit welcher Quote."
+          },
+          {
+            "lead": "Ein monatlicher PDF-Bericht",
+            "text": "klare Seiten in verständlicher Sprache, auf Englisch oder Serbisch, bereit zum Teilen mit Team oder Partnern."
+          },
+          {
+            "lead": "Keine Cookies",
+            "text": "Besucher werden anonym gezählt, ohne Cookies und ohne sie über andere Websites zu verfolgen."
+          }
+        ],
+        "imageAlt": "Beispiel eines monatlichen Website-Berichts: Besucher, Anfragen, Anrufe, Conversion-Rate, ein Tagesdiagramm und die Herkunft der Besucher.",
+        "imageCaption": "Ein Beispiel für einen Monatsbericht (Demodaten).",
+        "benefits": {
+          "heading": "Was das für Ihr Unternehmen bedeutet",
+          "lead": "Die meisten kleinen Unternehmen bezahlen für Website und Anzeigen, ohne zu wissen, was zurückkommt. Tracking macht daraus Zahlen, nach denen Sie handeln können.",
+          "items": [
+            {
+              "icon": "target",
+              "title": "Budget dort, wo es wirkt",
+              "description": "Sehen Sie, welche Anzeigen und Suchen Anrufe und Anfragen bringen, und investieren Sie in die Kanäle, die sich rechnen — nicht in die, die nur Klicks bringen."
+            },
+            {
+              "icon": "inbox",
+              "title": "Keine Anfrage geht verloren",
+              "description": "Jede Anfrage erreicht sofort Ihr Postfach mit Antwort per Klick, und jeder Anruf über die Website wird gezählt."
+            },
+            {
+              "icon": "trending-up",
+              "title": "Der Beweis, dass es sich lohnt",
+              "description": "Ein Monatsbericht zeigt, wie Besucher zu Kunden werden — in Zahlen, die Sie Partnern oder Ihrem Steuerberater zeigen können."
+            },
+            {
+              "icon": "shield-check",
+              "title": "Einfach und datensparsam",
+              "description": "Keine Dashboards, kein Google-Analytics-Setup, keine Cookies bei Ihren Besuchern. Nur ein klarer Bericht pro Monat."
+            }
+          ]
+        }
+      },
+      "additional": {
+        "badge": "Außerdem",
+        "heading": "Weitere Leistungen",
+        "lead": "Über die Website hinaus kann ich das für Ihr Unternehmen tun.",
+        "items": [
+          {
+            "icon": "palette",
+            "title": "Grafikdesign",
+            "description": "Logos, Social-Media-Grafiken und druckfertige Entwürfe, damit Ihre Marke überall gut aussieht — auf dem Bildschirm und auf Papier."
+          },
+          {
+            "icon": "pen-line",
+            "title": "Content-Marketing",
+            "description": "Blogbeiträge und Leistungsseiten, die die Fragen beantworten, nach denen Ihre Kunden bereits suchen — damit Ihre Website noch lange nach dem Start Besucher bringt."
+          },
+          {
+            "icon": "megaphone",
+            "title": "Social-Media-Marketing",
+            "description": "Instagram- und Facebook-Kampagnen mit echtem Conversion-Tracking, damit jeder Beitrag und jede Anzeige nach Buchungen bewertet wird, nicht nach Likes."
+          },
+          {
+            "icon": "sparkles",
+            "title": "GEO und KI-SEO",
+            "description": "Inhalte und strukturierte Daten, die so geschrieben sind, dass KI-Assistenten und KI-Suche Ihr Unternehmen richtig verstehen und empfehlen."
+          },
+          {
+            "icon": "layout-template",
+            "title": "Website-Pakete",
+            "description": "Pakete mit festem Umfang für Unternehmen, die genau wissen, was sie brauchen: klarer Preis, klares Ergebnis, ohne langwierige Abstimmung."
+          },
+          {
+            "icon": "target",
+            "title": "Google Ads",
+            "description": "Google-Ads-Kampagnen, die ich von A bis Z betreue — Budget, Keywords und die Zielseiten — gemessen an den Kosten pro gewonnenem Auftrag, nicht pro Klick."
+          },
+          {
+            "icon": "gem",
+            "title": "Markenentwicklung",
+            "description": "Logo und visuelle Identität von Grund auf, damit ein neues Unternehmen startet, als gäbe es es schon seit Jahren."
+          },
+          {
+            "icon": "server",
+            "title": "Hosting & Domains",
+            "description": "Zuverlässiges Hosting und eine Domain — ausgewählt, eingerichtet und auf Ihren Namen geführt, ohne dass Sie mehrere Anbieter und Verlängerungstermine jonglieren müssen."
+          }
+        ]
+      },
+      "process": {
+        "badge": "So funktioniert es",
+        "heading": "So läuft ein Projekt ab",
+        "lead": "Von Ihrer ersten Nachricht bis zur fertigen Website.",
+        "steps": [
+          { "title": "Erstkontakt", "description": "Sie senden eine Nachricht über das Kontaktformular. Ich antworte innerhalb eines Werktags, und wir vereinbaren ein kostenloses, informatives Gespräch darüber, was Sie brauchen. Unverbindlich." },
+          { "title": "Angebot", "description": "Nach dem Gespräch erhalten Sie ein klares Dokument: was ich baue, wann es fertig ist und den Festpreis. Sie entscheiden mit allen Karten auf dem Tisch." },
+          { "title": "Design & Entwicklung", "description": "Ich arbeite in kurzen Zyklen. Sie verfolgen den Fortschritt über einen Vorschau-Link und sehen, wie Ihre Website Gestalt annimmt." },
+          { "title": "Start & Betreuung", "description": "Ihre Website geht auf Ihrer eigenen Domain und Ihrem Hosting online, auf Ihren Namen. Danach bleibe ich erreichbar, und auf Wunsch gibt es ein monatliches Wartungspaket für regelmäßige Updates." }
+        ]
+      },
+      "faq": {
+        "badge": "Fragen",
+        "heading": "Fragen und Antworten",
+        "lead": "Was Kunden fragen, bevor wir beginnen.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Bevor wir beginnen",
+            "items": [
+              { "question": "Was kostet eine Website?", "answer": "Jedes Projekt hat einen Festpreis, der vor Beginn vereinbart wird. Keine Abrechnung nach Stunden, keine Überraschungen. Das kostenlose Gespräch — und der kostenlose Check, falls es schon eine Website gibt — zeigt mir, was Ihr Projekt braucht, und Sie erhalten den Preis in einem klaren Angebot." },
+              { "question": "Wie lange dauert ein Projekt?", "answer": "Das hängt vom Umfang der Website ab. Das Angebot nennt den Zeitplan zusammen mit dem Preis, sodass Sie beides kennen, bevor wir beginnen." },
+              { "question": "Was passiert mit meiner aktuellen Website?", "answer": "Sie bleibt online, bis die neue fertig ist. Ihre Inhalte, Ihre Webadresse und Ihre Google-Platzierungen ziehen mit um. Ich prüfe Ihre aktuelle Website vor unserem ersten Gespräch, damit Sie von Anfang an klare Antworten bekommen." },
+              { "question": "Muss ich mich um Hosting oder Domain kümmern?", "answer": "Nein. Hosting und Domain richte ich für Sie ein, auf Ihren Namen. Wenn Sie bereits eine Domain haben, behalten wir sie einfach." },
+              { "question": "Müssen wir uns persönlich treffen?", "answer": "Nicht nötig. Die meisten Projekte laufen vollständig per Telefon, Video und E-Mail. Ich arbeite mit Kunden weltweit, und Zeitzonen sind selten ein Problem." }
+            ]
+          },
+          {
+            "icon": "user",
+            "title": "Zusammenarbeit mit mir",
+            "items": [
+              { "question": "Sind Sie eine Firma oder Agentur?", "answer": "Weder noch — ich bin Freiberufler. Sie arbeiten direkt mit der Person, die die Arbeit macht, vom ersten Gespräch bis zur fertigen Website. Kein Vertrieb, keine Account-Manager, keine Übergaben." },
+              { "question": "Kann ich die Website nach dem Start selbst ändern?", "answer": "Sie können mir Ihre Änderungen einfach schicken — genau dafür gibt es das monatliche Wartungspaket. Wenn Sie die Website selbst bearbeiten möchten, sagen Sie es im ersten Gespräch, und ich richte sie entsprechend ein." },
+              { "question": "Bauen Sie auch Onlineshops?", "answer": "Nein. Große Onlineshops sind das Einzige, was ich nicht baue. Alles andere, wofür eine maßgeschneiderte Astro-Website gebraucht wird, baue ich: Sagen Sie mir im ersten Gespräch, was Sie vorhaben, und ich sage Ihnen ehrlich, ob ich der Richtige dafür bin." },
+              { "question": "Gehört die Website wirklich mir?", "answer": "Vollständig. Domain, Hosting und Code laufen vom ersten Tag an auf Ihren Namen. Wenn Sie jemals wechseln möchten, nehmen Sie alles mit: Sie sind nie gebunden." },
+              { "question": "Was passiert, wenn nach dem Start etwas kaputtgeht?", "answer": "Sehr wenig kann kaputtgehen: Die Website hat keine Plugins und keine Datenbank, die ausfallen könnten. Und ich bleibe nach dem Start erreichbar; für regelmäßige Updates und Überwachung gibt es das monatliche Wartungspaket." }
+            ]
+          },
+          {
+            "icon": "sparkles",
+            "title": "Mehr als eine Website",
+            "items": [
+              { "question": "Bieten Sie Grafikdesign oder Branding auch einzeln an?", "answer": "Ja. Logo, visuelle Identität oder laufendes Grafikdesign gibt es auch ohne komplette Website — sagen Sie mir im ersten Gespräch, was Sie brauchen." },
+              { "question": "Betreuen Sie bezahlte Anzeigen wie Google Ads?", "answer": "Ja, von A bis Z: Kampagnenstruktur, Budget, Abstimmung von Keywords und Zielseiten und das Conversion-Tracking, das zeigt, was das Budget wirklich einbringt." },
+              { "question": "Können Sie mein Social-Media-Marketing übernehmen?", "answer": "Ja — Instagram- und Facebook-Kampagnen mit echtem Conversion-Tracking, sodass Ergebnisse an Buchungen und Anfragen gemessen werden, nicht nur an Interaktionen." },
+              { "question": "Was ist GEO bzw. KI-SEO?", "answer": "Dafür zu sorgen, dass KI-Assistenten und KI-Suche — ChatGPT, Googles AI Overviews — Ihre Website richtig verstehen und Ihr Unternehmen empfehlen, ergänzend zum klassischen SEO." },
+              { "question": "Bieten Sie Website-Pakete zum Festpreis an?", "answer": "Ja, für Unternehmen mit klar umrissenem Bedarf: Ein Paket hält Preis und Ergebnis von Anfang an fest, ohne langwierige Abstimmung." }
+            ]
+          },
+          {
+            "icon": "globe",
+            "title": "Hosting & Domains",
+            "items": [
+              { "question": "Was umfasst die Einrichtung von Hosting und Domain genau?", "answer": "Ich wähle und richte zuverlässiges Hosting für Ihre Website ein und registriere — oder übertrage — Ihre Domain, beides vom ersten Tag an auf Ihren Namen. SSL, DNS und eine geschäftliche E-Mail-Adresse unter Ihrer Domain gehören dazu." },
+              { "question": "Bezahle ich Sie oder direkt den Hosting-Anbieter?", "answer": "Domain- und Hosting-Konten gehören Ihnen und werden Ihnen direkt vom Anbieter berechnet. Ich stehe nicht zwischen Ihnen und der Rechnung — ich sorge nur dafür, dass alles richtig eingerichtet ist und läuft." },
+              { "question": "Kann ich meine aktuelle Domain behalten?", "answer": "Ja. Wenn Sie bereits eine haben, verweisen oder übertragen wir sie auf die neue Website — Ihre bestehenden E-Mail-Adressen und die Domainhistorie müssen sich nicht ändern." },
+              { "question": "Was, wenn Hosting oder Domain ein Problem haben?", "answer": "Das deckt das monatliche Wartungspaket ab: Ich überwache die Erreichbarkeit und Verlängerungstermine und kläre Probleme direkt mit dem Hoster oder Registrar." },
+              { "question": "Ändern sich die Preise nach dem ersten Jahr?", "answer": "Die Verlängerungspreise für Domain und Hosting legen Registrar und Hoster fest, nicht ich — und ich weise Sie vor der Verlängerung darauf hin. Keine versteckten Preiserhöhungen in einem Paketpreis." }
+            ]
+          }
+        ]
+      },
+      "cta": {
+        "badge": "Sprechen wir",
+        "heading": "Sprechen wir über Ihr Projekt",
+        "description": "Das erste Gespräch ist kostenlos und unverbindlich: per Telefon, Video oder E-Mail. Sie erhalten ehrliche Antworten und nach dem Gespräch ein klares Angebot mit Zeitplan und Festpreis.",
+        "primary": "Nachricht senden",
+        "secondary": "Mehr über mich"
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Kontakt",
+        "description": "Brauchen Sie eine neue Website? Maßgeschneiderte Websites von Grund auf — schreiben Sie mir zu Ihrem Projekt, und ich antworte innerhalb eines Werktags."
+      },
+      "hero": {
+        "badge": "Projekt starten",
+        "titleLead": "Erzählen Sie mir",
+        "titleHighlight": "von Ihrem Projekt",
+        "description": "Senden Sie mir eine Nachricht über das Formular unten oder wählen Sie einen anderen Kanal — ich antworte innerhalb eines Werktags."
+      },
+      "formTitle": "Projektdetails",
+      "channelsTitle": "Weitere Kanäle",
+      "channelsSubtitle": "Lieber direkt? Wählen Sie, was Ihnen am besten passt.",
+      "emailLabel": "E-Mail",
+      "emailNote": "Schreiben Sie mir",
+      "socialNote": "Folgen Sie mir",
+      "basedIn": "Standort: {country}"
+    },
+    "home": {
+      "meta": {
+        "title": "Webdesigner & Entwickler",
+        "description": "Websites, Systeme zur Kundengewinnung und datengestützte Plattformen — mit moderner Technologie und einem praktischen, geschäftsorientierten Blick gebaut."
+      },
+      "hero": {
+        "badge": "Verfügbar für neue Projekte",
+        "titleLine1": "Mr. Petkovic",
+        "titleLine2": "Webdesigner",
+        "titleLine3": "& Entwickler",
+        "description": "Ich baue Websites, Systeme zur Kundengewinnung und datengestützte Plattformen — mit moderner Technologie und einem praktischen, geschäftsorientierten Blick.",
+        "descriptionMobile": "Ich baue Websites, Systeme zur Kundengewinnung und datengestützte Plattformen mit einem praktischen, geschäftsorientierten Blick.",
+        "primaryCta": "Kontakt aufnehmen",
+        "secondaryCta": "Meine Arbeiten"
+      },
+      "services": {
+        "badge": "Was ich mache",
+        "heading": "Gestalten, bauen, optimieren",
+        "lead": "Jedes Projekt bekommt alle drei Leistungen.",
+        "learnMore": "Mehr erfahren",
+        "cards": [
+          { "icon": "layout", "title": "Webdesign", "description": "Oberflächen, die selbsterklärend wirken. Layouts, die auf Ihre Inhalte, Ihre Marke und das Leseverhalten am Bildschirm zugeschnitten sind." },
+          { "icon": "code", "title": "Webentwicklung", "description": "Websites, die bleiben. Astro, Tailwind und eine klare Architektur: schnell am ersten Tag, leicht zu pflegen am fünfhundertsten." },
+          { "icon": "trending-up", "title": "Weboptimierung", "description": "SEO, Core Web Vitals und Barrierefreiheit von Anfang an eingebaut, damit Ihre Website gut rankt, schnell lädt und für jeden Besucher funktioniert." }
+        ]
+      },
+      "workWithMe": {
+        "badge": "Zusammenarbeit",
+        "heading": "Eine Website, die für Sie arbeitet",
+        "lead": "Das bekommen Sie, wenn wir zusammenarbeiten.",
+        "cards": [
+          { "icon": "palette", "title": "Individuelles Design", "description": "Gestaltet rund um Ihr Unternehmen, Ihre Inhalte und Ihre Kunden." },
+          { "icon": "zap", "title": "Eine blitzschnelle Website", "description": "Seiten, die sich sofort öffnen, auf jedem Smartphone und bei jeder Verbindung." },
+          { "icon": "search", "title": "Gefunden von Google und KI", "description": "Jede Seite so gebaut, dass Suchmaschinen und KI-Assistenten sie sauber lesen und Kunden Sie finden." },
+          { "icon": "shield-check", "title": "Keine Wartungssorgen", "description": "Mit dem Wartungspaket aktuell und sicher, damit Sie sich auf Ihr Geschäft konzentrieren können." }
+        ],
+        "cta": "Alle Leistungen ansehen"
+      },
+      "portfolio": {
+        "badge": "Portfolio",
+        "heading": "Meine Projekte",
+        "lead": "Ausgewählte Arbeiten für Kunden in Europa und den USA.",
+        "viewAll": "Alle Projekte ansehen"
+      },
+      "testimonials": {
+        "badge": "Kundenstimmen",
+        "heading": "Was Kunden sagen",
+        "lead": "Echte Worte nach abgeschlossenen Projekten.",
+        "items": [
+          { "quote": "Stojan hat meine beiden Websites von WordPress auf Astro umgestellt, und der Geschwindigkeitsunterschied war sofort spürbar. Jede Anfrage landet jetzt in der Sekunde in meinem Postfach, in der jemand das Formular absendet — kein Dashboard mehr, das ich prüfen muss, keine verpassten Anrufe.", "name": "Mirko Calić", "role": "Inhaber, Tree Jaws & Mahalo Tree Service" },
+          { "quote": "Stojan hat unsere Buchungswebsite von Grund auf gebaut und die Instagram- und Facebook-Anzeigen dazu eingerichtet. Gäste kommen direkt von der Anzeige zur fertigen Reservierung — genau das, was eine Unterkunft unserer Größe gebraucht hat.", "name": "Valentina Jovanović", "role": "Inhaberin, Valena Apartmani" }
+        ]
+      },
+      "aboutTeaser": {
+        "badge": "Über mich",
+        "headingLine1": "Designer, Entwickler",
+        "headingLine2": "und Ingenieur.",
+        "para1WithLocation": "Sechzehn Jahre Praxiserfahrung, ansässig in {location} und für Kunden weltweit verfügbar. Ich baue mit Astro, weil es zu meiner Sicht auf das Web passt: schlank, zielgerichtet und gebaut, um zu bleiben.",
+        "para1NoLocation": "Sechzehn Jahre Praxiserfahrung und für Kunden weltweit verfügbar. Ich baue mit Astro, weil es zu meiner Sicht auf das Web passt: schlank, zielgerichtet und gebaut, um zu bleiben.",
+        "para2": "Im Blog schreibe ich über SEO, KI-Suche und darüber, wie eine Website Ihnen mehr Kunden bringt.",
+        "moreAboutMe": "Mehr über mich",
+        "statsIntro": "Ein paar Dinge über mich.",
+        "stat1": "16 Jahre Erfahrung",
+        "stat2": "Ich baue mit Astro",
+        "stat3": "Weltweit tätig",
+        "basedIn": "Standort:"
+      },
+      "blog": {
+        "badge": "Blog",
+        "heading": "Empfohlene Beiträge",
+        "viewAll": "Alle Beiträge ansehen"
+      },
+      "cta": {
+        "badge": "Kontakt",
+        "heading": "Sprechen wir über Ihr Projekt",
+        "description": "Das erste Gespräch ist kostenlos und unverbindlich. Vom ersten Gespräch bis zur fertigen Website arbeiten Sie direkt mit mir.",
+        "primary": "Nachricht senden",
+        "secondary": "Mehr über mich"
+      }
+    }
+  }
+}

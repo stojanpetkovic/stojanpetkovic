@@ -1,0 +1,63 @@
+---
+title: "Valena Apartmani"
+locale: de
+description: "Eine von Grund auf gebaute Astro-Website für eine Ferienwohnungsvermietung in Divčibare, ausgerichtet auf Conversions aus Instagram- und Facebook-Anzeigen, mit einem eigenen Buchungssystem statt eines generischen Plugins."
+url: "https://valenaapartmani.com"
+tags: ["Astro", "Social Media", "Kundenprojekte"]
+featured: true
+order: 1
+year: 2025
+client: "Valena Apartmani"
+role: "Entwickler & Partner für Social Ads"
+services: ["Webentwicklung", "Facebook- & Instagram-Anzeigen", "Buchungssystem"]
+meta: ["Divčibare, Serbien", "Von Grund auf gebaut", "Facebook- & Instagram-Anzeigen", "Eigenes Buchungssystem"]
+icon: "mountain-snow"
+image: "../../../assets/projects/valena-hero.webp"
+imageAlt: "Der Startbereich von Valena Apartmani: Ihr perfekter Urlaub in Divčibare, über einem Foto der Unterkunft."
+gallery:
+  - src: "../../../assets/projects/valena-hero.webp"
+    alt: "Der Startbereich von Valena Apartmani: Ihr perfekter Urlaub in Divčibare, über einem Foto der Unterkunft."
+  - src: "../../../assets/projects/valena-apartments.webp"
+    alt: "Der Bereich mit zwei Wohnungen: Jede Karte zeigt Ausstattung und Ausflugsziele in der Nähe sowie einen Buchen-Button."
+  - src: "../../../assets/projects/valena-booking-modal.webp"
+    alt: "Das eigene Buchungsfenster: Valena 1 oder Valena 2 wählen und direkt zur Reservierung dieser Wohnung."
+  - src: "../../../assets/projects/valena-gallery.webp"
+    alt: "Die Fotogalerie mit echten Innen- und Umgebungsaufnahmen beider Wohnungen."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 99, icon: 'zap' },
+  { label: 'Accessibility', value: 93, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## Die Aufgabe
+
+**Valena Apartmani** vermietet zwei Wohnungen in **Divčibare**, einem Bergort im Westen Serbiens, an Gäste, die ein Wochenende oder eine Woche in der Nähe von Skipisten und Wanderwegen buchen. Anders als bei den Baumpflegeprojekten in diesem Portfolio war das kein Neubau — es gab keine bestehende Website zu ersetzen und keine SEO-Historie zu schützen. Die Aufgabe: aus dem Nichts eine schnelle, glaubwürdige Buchungswebsite online bringen und Gäste direkt über bezahlte Social-Media-Anzeigen dorthin führen, denn genau dort bucht diese Zielgruppe in Serbien Ferienunterkünfte.
+
+## Von Grund auf in Astro
+
+Ich habe die gesamte Website in **Astro** gebaut: eine Website für eine Unterkunft und einen Zweck, ohne CMS oder Blog, der gepflegt werden müsste. **Astro** war hier aus denselben Gründen sinnvoll wie überall in diesem Portfolio — statische Seiten, kein JavaScript-Framework-Ballast, schnell auf dem Smartphone über 4G in einem Skigebiet mit lückenhaftem Empfang. Insgesamt sind es **10 Seiten**: Startseite, Über uns, Aktivitäten, zwei Wohnungsseiten sowie die üblichen Kontakt- und Rechtsseiten — bewusst klein, denn zwei Ferienwohnungen brauchen nicht mehr, um aus einem Besucher einen Gast zu machen.
+
+Ein Test der Live-Website:
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+**Das technische SEO ist vollständig.** Jede Seite hat ihren eigenen Titel und ihre Beschreibung, eine korrekte kanonische Adresse, Open-Graph-Tags zum Teilen und Alternativtexte für jedes Bild. Die Website liefert eine **Sitemap**, eine **robots.txt** und **strukturierte Daten nach schema.org**, die die Unterkunft und jede Wohnung beschreiben, sodass Google sie als Beherbergungsbetrieb liest und nicht als lose Seitensammlung. Die Suche ist hier trotzdem nicht der Kanal, über den Gäste kommen — das sind **Instagram- und Facebook-Anzeigen** — aber wer Valena beim Namen sucht, landet auf einer Website, die Suchmaschinen verstehen.
+
+## Ein Buchungssystem statt eines Links zu einer Tabelle
+
+Das einzige echte Produktstück in diesem Projekt ist der **Buchungsablauf**. Statt jeden Besucher auf eine externe Buchungsplattform oder einen Link „schreiben Sie uns auf WhatsApp“ zu schicken, habe ich ein Fenster gebaut, das fragt, welche Wohnung der Gast möchte — **Valena 1** oder **Valena 2** — und ihn direkt zum Reservierungsformular dieser Wohnung führt, mit bereits geladener Verfügbarkeit und Ausstattung. Ein kleines Stück Oberfläche, aber es ist der Unterschied zwischen einem Besucher, der an einem generischen Kontaktformular abspringt, und einem, der die Buchung in derselben Sitzung abschließt, in der er auf die Anzeige geklickt hat.
+
+## Facebook und Instagram, mit Tracking als Beweis
+
+Der Wachstumskanal sind hier **bezahlte und organische soziale Medien**, nicht die Suche. Ich habe auf der ganzen Website ein **Meta Pixel** eingerichtet und ein **Lead-Event** direkt in den Buchungsablauf eingebaut, sodass jede über das Fenster begonnene Reservierung als Conversion an Meta Ads zurückgemeldet wird — die Kampagnen optimieren auf Menschen, die tatsächlich ein Buchungsformular öffnen, nicht auf jeden, der auf der Startseite landet. Genau diese Rückkopplung macht Instagram und Facebook für eine Unterkunft dieser Größe zum lohnenden Hauptkanal, statt um Suchplatzierungen zu kämpfen, für die zwei Ferienwohnungen kein Content-Budget haben.
+
+## Ergebnisse
+
+Das ist eine kleine Website für eine einzige Unterkunft, und ich halte den Ergebnisteil entsprechend ehrlich: Hier gibt es keine Tabelle mit Werbeausgaben und Anfragezahlen wie bei den Baumpflegekonten, weil die laufenden Ausgaben und Buchungszahlen zu einer deutlich kleineren und neueren Kampagne gehören. Echt und überprüfbar ist die Website selbst — online, schnell und dafür gebaut, aus einem Klick auf eine Social-Media-Anzeige in einem Zug eine fertige Reservierung zu machen.

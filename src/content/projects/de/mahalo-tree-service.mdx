@@ -1,0 +1,63 @@
+---
+title: "Mahalo Tree Service"
+locale: de
+description: "Ein Umzug von WordPress auf Astro plus laufende SEO- und Content-Arbeit für eine Baumpflegefirma in Südflorida — keine bezahlten Anzeigen, nur schnellere Seiten und ein wachsender Blog, der die Arbeit macht."
+url: "https://mahalotreeservice.com"
+tags: ["Astro", "SEO", "Kundenprojekte"]
+featured: true
+order: 0
+year: 2026
+client: "Mahalo Tree Service"
+role: "Entwickler & SEO-Partner"
+services: ["Webentwicklung", "SEO", "Content-Strategie"]
+meta: ["Baumpflege, Südflorida", "Google-Bewertung 5,0", "WordPress → Astro", "24 Blogbeiträge, 18 Regionen"]
+icon: "tree-palm"
+image: "../../../assets/projects/mahalo-hero.webp"
+imageAlt: "Der Startbereich der Mahalo-Tree-Service-Website: schnelle, effiziente und günstige Baumfällung, über einem Baustellenfoto."
+gallery:
+  - src: "../../../assets/projects/mahalo-hero.webp"
+    alt: "Der Startbereich der Mahalo-Tree-Service-Website: schnelle, effiziente und günstige Baumfällung, über einem Baustellenfoto."
+  - src: "../../../assets/projects/mahalo-services.png"
+    alt: "Der Leistungsbereich — Baumfällung, Baumschnitt und mehr — mit hervorgehobenen ISA-zertifizierten Arboristen."
+  - src: "../../../assets/projects/mahalo-testimonials.png"
+    alt: "Ein Bereich mit Kundenstimmen: echte Fünf-Sterne-Google-Bewertungen mit Namen."
+  - src: "../../../assets/projects/mahalo-blog.webp"
+    alt: "Der Blog von Mahalo Tree Service mit Ratgebern zur Baumpflege in Südflorida, geschrieben für SEO."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 87, icon: 'zap' },
+  { label: 'Accessibility', value: 91, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## Die Aufgabe
+
+**Mahalo Tree Service** ist ein Familienunternehmen aus Südflorida, das Bäume fällt und schneidet, mit versicherten, **ISA-zertifizierten Arboristen** und einer **Google-Bewertung von 5,0**. Dieses Projekt war enger gefasst als die meisten meiner Kundenarbeiten: keine Anzeigenkampagne, kein Verkaufstrichter — nur eine Website, die das Unternehmen bremste, und eine Präsenz in der Suche, der echte Inhalte statt dünner, doppelter Seiten fehlten.
+
+## Weg von WordPress
+
+Wie bei vielen kleinen Unternehmen war die Mahalo-Website auf **WordPress** gewachsen — ein Page Builder und eine Handvoll Plugins anstelle von Seiten, die nie ganz fertig wurden. Sie funktionierte, aber langsam, und Langsamkeit kostet eine Baumpflegefirma echte Aufträge: Hier rufen Kunden noch am selben Tag an, und eine Startseite, die sich Zeit lässt, ist ein bereits geschlossener Tab. Ich habe die Website in **Astro** neu gebaut und die Marke übernommen — das Logo mit Palme und Sonne, die grün-orangefarbene Palette, die Bewertungen — auf einem Fundament, das statisches HTML statt eines Plugin-Stapels ausliefert.
+
+## Anfragen sofort
+
+Das Kontaktformular sammelt keine Einsendungen, bis sie irgendwann jemand bemerkt — jede Anfrage schickt **Mahalo sofort eine E-Mail** mit Name, Nummer und Nachricht des Besuchers, bereit zum Handeln. Kein Portal, keine Verzögerung zwischen dem Moment, in dem sich ein Hausbesitzer meldet, und dem Moment, in dem das Unternehmen davon erfährt. Es ist dieselbe Echtzeit-Anfragenstrecke, die ich für alle Kundenwebsites einsetze: Anfragen kommen sofort, nicht irgendwann.
+
+Der Unterschied zeigt sich in einem Lighthouse-Test der Live-Website:
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+## SEO und Inhalte statt Anzeigen
+
+Hinter diesem Projekt steht **kein Google-Ads-Konto** — der gesamte Wachstumsplan läuft über die organische Suche. Umso wichtiger war ein sauberes SEO-Gerüst: Der Neubau umfasst **18 Regionsseiten** (Fort Lauderdale, Miami, Boca Raton, Hollywood und der Rest des Einzugsgebiets), die auf eine zentrale `/areas`-Seite mit eigenem Canonical, Titel und Beschreibung zulaufen, statt dass 18 Seiten still gegeneinander konkurrieren. Jede dieser Stadtseiten teilte früher denselben doppelten Galerieblock; jetzt hat jede ihren eigenen FAQ-Text in einer von drei Formulierungen, sodass sie als eigenständige Antworten auf eine lokale Suche wirken, nicht als Kopien.
+
+Neben den Regionsseiten hat die Website einen **Blog mit 24 Beiträgen** — Baumschnitt selbst oder vom Profi, die richtigen Zeitfenster für den Schnitt, Erziehungsschnitt bei jungen Bäumen — ausgerichtet auf die konkreten Fragen, die Hausbesitzer in Südflorida stellen, bevor sie eine Firma anrufen. Jede Seite, ob Stadtseite oder Blogbeitrag, lädt jetzt zuerst ihr eigenes Hauptbild, und daher kommt der größte Teil der Lighthouse-Verbesserungen oben.
+
+## Ergebnisse
+
+Hier gibt es keine Werbeausgaben und keine Conversion-Zahlen zu berichten — der ehrliche Maßstab dieses Projekts ist eine schnellere Website hinter einem bereits starken Ruf. Mahalo hat eine **Bewertung von 5,0 bei Google**, und die Kundenstimmen auf der neuen Website übernehmen diese Bewertungen direkt, statt sie umzuformulieren. Blog und Regionsseiten sind das langfristige Spiel: Inhalte, die noch lange Sichtbarkeit in der Suche bringen, nachdem die letzte Rechnung für den Neubau bezahlt ist.

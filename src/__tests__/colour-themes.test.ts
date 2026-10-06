@@ -122,6 +122,7 @@ describe('colour themes', () => {
       'src/i18n/en.json',
       'src/i18n/nl.json',
       'src/i18n/sr.json',
+      'src/i18n/de.json',
     ]) {
       expect(read(file), file).not.toMatch(/\btwelve\b/i);
       expect(read(file), file).not.toMatch(/\b12[- ](colour|color|swatch|theme)/i);

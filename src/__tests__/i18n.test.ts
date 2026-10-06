@@ -22,8 +22,8 @@ describe('i18n t() helper', () => {
   });
 
   it('falls back to the default-locale string when the locale has no entry', () => {
-    // 'de' has no dictionary loaded yet — should fall back to English
-    expect(t('common.readMore', 'de')).toBe('Read more');
+    // 'fr' has no dictionary — should fall back to English
+    expect(t('common.readMore', 'fr')).toBe('Read more');
   });
 
   it('returns the key itself when no translation exists in any dictionary', () => {
@@ -80,8 +80,8 @@ describe('i18n tData() helper', () => {
 
 describe('i18n getSecondaryLocales()', () => {
   it('lists every non-default locale the site ships', () => {
-    // Real config: enabled, with 'en' as the default and 'sr' prefixed.
-    expect(getSecondaryLocales()).toEqual(['sr']);
+    // Real config: enabled, with 'en' as the default and 'sr' and 'de' prefixed.
+    expect(getSecondaryLocales()).toEqual(['sr', 'de']);
   });
 });
 

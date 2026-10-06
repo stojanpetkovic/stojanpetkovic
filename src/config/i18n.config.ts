@@ -34,7 +34,7 @@ export interface I18nConfig {
 const i18nConfig: I18nConfig = {
   enabled: true,
   defaultLocale: 'en',
-  locales: ['en', 'sr'],
+  locales: ['en', 'sr', 'de'],
   localeNames: {
     en: 'English',
     sr: 'Srpski',

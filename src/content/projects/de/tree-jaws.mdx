@@ -1,0 +1,99 @@
+---
+title: "Tree Jaws"
+locale: de
+description: "Eine neu gebaute Astro-Website plus laufendes SEO und Google-Ads-Management für eine Baumpflegefirma in Südflorida — Such- und Anzeigenverkehr, verwandelt in über tausend erfasste Anfragen."
+url: "https://treejaws.com"
+tags: ["Astro", "SEO", "Google Ads", "Kundenprojekte"]
+featured: true
+order: -1
+year: 2026
+client: "Tree Jaws"
+role: "Entwickler & Marketingpartner"
+services: ["Webentwicklung", "SEO", "Google-Ads-Management"]
+meta: ["Baumpflege, Südflorida", "4,9★ · 427 Google-Bewertungen", "1.010 erfasste Anfragen", "Laufendes SEO & Anzeigen"]
+icon: "trees"
+image: "../../../assets/projects/tree-jaws-hero-dark.webp"
+imageAlt: "Der Startbereich der Tree-Jaws-Website, aufgebaut um ein echtes Baustellenfoto, mit der Bewertung der Firma ganz oben."
+gallery:
+  - src: "../../../assets/projects/tree-jaws-hero-dark.webp"
+    alt: "Der Startbereich der Tree-Jaws-Website, aufgebaut um ein echtes Baustellenfoto, mit der Bewertung der Firma ganz oben."
+  - src: "../../../assets/projects/tree-jaws-hero-green.png"
+    alt: "Eine frühere Variante desselben Startbereichs mit einer grünen Markenfarbfläche über einem Foto der Maschinen."
+  - src: "../../../assets/projects/tree-jaws-blog.webp"
+    alt: "Der Tree-Jaws-Blog mit Ratgebern speziell für Südflorida, als Teil der SEO-Strategie."
+  - src: "../../../assets/projects/tree-jaws-testimonials.png"
+    alt: "Ein Bereich mit Kundenstimmen aus Google-Bewertungen: 4,9 Sterne aus 427 Bewertungen."
+---
+
+import StatCard from '@/components/patterns/StatCard.astro';
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 91, icon: 'zap' },
+  { label: 'Accessibility', value: 96, icon: 'users' },
+  { label: 'Best Practices', value: 96, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## Die Aufgabe
+
+**Tree Jaws** fällt, schneidet und fräst Bäume und Wurzelstöcke für Privat- und Gewerbekunden in ganz **Südflorida**. In dieser Branche entscheiden Vertrauen und Tempo, wer den Anruf bekommt — ein Hausbesitzer mit einem sturmgeschädigten Baum vergleicht keine Angebote, er ruft die erste Firma an, die seriös wirkt und ans Telefon geht. Die Website und das Marketing drumherum mussten in den ersten Sekunden überzeugen — und das Monat für Monat.
+
+Ich arbeite mit Tree Jaws an allen drei Bausteinen: an der Website selbst, am SEO darunter und am Google-Ads-Konto, das parallel läuft.
+
+## Die Website auf Astro
+
+Die Website lief ursprünglich auf **WordPress**, mit dem üblichen Ballast, den diese Plattform mit der Zeit ansammelt — Page Builder, SEO-Plugin, Caching-Schicht, jedes davon kämpft gegen den Overhead des vorigen. Für ein Unternehmen, das von Suchen wie „Sturmschaden, brauche heute jemanden“ lebt, kostete dieser Ballast echte Anrufe: Eine langsame Seite ist ein geschlossener Tab, bevor die Telefonnummer überhaupt zu sehen ist. **Der Inhaber von Tree Jaws wollte weg von WordPress, hin zu etwas, das für Geschwindigkeit gebaut ist** — also habe ich die gesamte Website in **Astro** neu gebaut.
+
+Für einen lokalen Dienstleister zählt das mehr als für die meisten: Die Seiten sind statisches HTML, das auch über die schwachen 4G-Verbindungen schnell lädt, mit denen viele dieser Besucher unterwegs sind — und kein Framework steht zwischen dem Tippen auf die Telefonnummer und dem eigentlichen Anruf. Den Startbereich habe ich um ein echtes Foto der Maschinen im Einsatz statt um Stockfotos herum gebaut, die **Google-Bewertung von 4,9** dort platziert, wo man sie sofort sieht, und die Handlungsaufforderungen — kostenloses Angebot, Telefonnummer — ohne Scrollen sichtbar gehalten.
+
+Den Startbereich behandle ich als etwas, das laufend getestet wird, nicht als einmalige Lieferung: Die Galerie zu diesem Projekt zeigt zwei Varianten, eine kräftigere mit grüner Markenfarbe und die aktuelle fotobetonte, aus Tests dazu, welche die Aufmerksamkeit länger hält.
+
+## Keine Anfrage geht verloren
+
+Das Kontaktformular ist kein Kasten nach dem Motto „schreiben Sie uns und hoffen Sie“, der still ein Postfach füllt, das niemand prüft. Jede Übermittlung löst in dem Moment, in dem sie eintrifft, eine **E-Mail direkt an das Unternehmen** aus — Name, Nummer und Anliegen, übersichtlich und bereit für den Rückruf, ohne Portal und ohne Dashboard, das man aktualisieren müsste. Es läuft über dieselbe Echtzeit-Anfragenstrecke, die ich bei allen Kundenwebsites einsetze, sodass ein ausgefülltes Formular hier so dringlich behandelt wird wie ein Anruf. Für ein Unternehmen, bei dem es darauf ankommt, wer zuerst zurückruft, ist das kein Extra — es ist der ganze Sinn eines Formulars.
+
+Der Abschied von WordPress zeigt sich direkt in einem Lighthouse-Test der Live-Website:
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+## SEO im Fundament
+
+Kein Anzeigenbudget funktioniert, wenn die organische Seite dünn ist. Deshalb hat die Website einen richtigen **Blog** — Ratgeber speziell für Südflorida zu Baumschnitt, Sturmvorbereitung und dazu, wann das Kappen eines Baumes mehr schadet als nützt — ausgerichtet auf die Suchen, die Hausbesitzer machen, bevor sie jemanden anrufen. Leistungs- und Regionsseiten sind um die Begriffe aufgebaut, nach denen lokal gesucht wird, die Geschwindigkeit kommt daher, dass Astro standardmäßig kaum JavaScript ausliefert, und die Kundenstimmen stammen direkt aus demselben Google-Unternehmensprofil, auf das auch die Anzeigen verweisen — das Vertrauenssignal ist überall dasselbe.
+
+<div class="my-10 grid gap-4 sm:grid-cols-2">
+  <StatCard label="Seiten" value="176" icon="file-text" />
+  <StatCard label="Blogbeiträge" value="108" icon="pen-line" />
+</div>
+
+Und das nach dem Zusammenführen der Regionsseiten selbst — 33 dünne, sich überschneidende Stadtseiten wurden zu 20 stärkeren zusammengefasst (17 Städte und 3 Countys), jede mit eigenem Inhalt statt einer gemeinsamen Vorlage, und per 301 weitergeleitet, damit nichts verloren ging, was bereits rankte.
+
+## Das Google-Ads-Konto
+
+Neben der Website betreue ich das **Google-Ads-Konto** von A bis Z — Kampagnenstruktur, Budget, Abstimmung von Keywords und Zielseiten und das Conversion-Tracking, das zeigt, welche Kampagnen ihr Geld wirklich wert sind. Im unten gezeigten Berichtszeitraum:
+
+<div class="my-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  <StatCard label="Klicks" value="5.18K" icon="mouse-pointer-click" />
+  <StatCard label="Impressionen" value="80.2K" icon="eye" />
+  <StatCard label="Ø CPC" value="$10.51" icon="dollar-sign" />
+  <StatCard label="Werbeausgaben" value="$54.4K" icon="wallet" />
+</div>
+
+## Ergebnisse
+
+Das Konto erfasst zwei Conversion-Gruppen — direkte Kontaktaktionen und abgesendete Anfrageformulare — mit insgesamt **1.010 erfassten Conversions** im selben Zeitraum:
+
+<div class="my-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+  <StatCard label="Anrufe" value="732" icon="phone-call" />
+  <StatCard label="Anfrageformulare" value="133" icon="file-check" />
+  <StatCard label="Routenplanungen" value="50" icon="map-pin" />
+  <StatCard label="Kontaktformulare" value="49" icon="user-round" />
+</div>
+
+**Anrufe sind mit großem Abstand die häufigste Conversion** — genau das, was man bei Notfall- und Kurzfristaufträgen erwartet, und der Grund, warum die Nummer auf jeder Seite im Kopfbereich steht statt hinter einem Kontaktformular.
+
+Wie viele dieser Anrufe zu unterschriebenen, bezahlten Aufträgen werden, weiß ich nicht — diese Abschlussquote liegt im CRM von Tree Jaws, nicht in meinem. Eine Baumfällung kostet in Südflorida aber typischerweise **3.000–5.000 $**. Als Orientierung: Schon bei einer vorsichtigen Abschlussquote von einem aus fünf ergeben 732 Anrufe rund 146 Aufträge — das bringt die Kampagne auf etwa das **8- bis 13-Fache** der ausgegebenen 54,4 Tsd. $. Die echte Zahl hängt davon ab, wie die Anrufe nach dem Eingang bearbeitet werden, aber das Budget kauft Anfragen klar zu einem Bruchteil dessen, was ein einziger abgeschlossener Auftrag wert ist.
+
+Getragen von der Arbeit, auf die Website und Kampagnen verweisen, hat Tree Jaws heute eine **Bewertung von 4,9 Sternen aus 427 Google-Bewertungen** — dieselbe Bewertung, die die Website jedem Besucher zeigt, bevor er anruft.

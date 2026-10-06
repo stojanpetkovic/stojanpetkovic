@@ -1,0 +1,101 @@
+---
+title: "Erić Dental Centar"
+locale: de
+description: "Eine Zahnarztpraxis in Pančevo, Serbien, wechselte von einem WordPress-Theme zu einer schnellen, statischen Website für die lokale Suche, Terminbuchung per Formular und drei Sprachen: Serbisch, Englisch und Deutsch. Jede Terminanfrage landet in einem System zur Anfragenerfassung."
+url: "https://zubarpancevo.com"
+tags: ["Astro", "SEO", "Kundenprojekte"]
+featured: true
+order: 2
+year: 2026
+client: "Erić Dental Centar"
+role: "Design, Entwicklung & SEO"
+services: ["Webentwicklung", "Lokales SEO", "Übersetzung EN & DE", "Anfragen-Tracking"]
+meta: ["Zahnarztpraxis, Pančevo", "Srpski · English · Deutsch", "60 Seiten", "Lighthouse 96 · 100 · 100 · 100"]
+icon: "smile"
+image: "../../../assets/projects/eric-dental-centar-home.webp"
+imageAlt: "Die Startseite von Erić Dental Centar: die Überschrift Zubar u Pančevu kome pacijenti veruju neben einem Foto von Dr. Miloš Erić und einer Bewertung von 5,0."
+gallery:
+  - src: "../../../assets/projects/eric-dental-centar-home-label-en.webp"
+    alt: "Die neue Website: ein Startbereich mit der Überschrift Zubar u Pančevu kome pacijenti veruju, einem Foto von Dr. Miloš Erić, einer Bewertung von 5,0 und einem Buchungsbutton."
+  - src: "../../../assets/projects/eric-dental-centar-before-home-label-en.webp"
+    alt: "Die alte WordPress-Website: ein dunkles Vollbildfoto mit den Worten Za Vaš savršen osmeh und ohne Aufforderung zur Buchung."
+  - src: "../../../assets/projects/eric-dental-centar-services.webp"
+    alt: "Die neue Website: vier hervorgehobene Leistungen mit Fotos — Zahnimplantate, ästhetische Zahnheilkunde, Prothetik und Kieferorthopädie — plus Links zu den übrigen."
+  - src: "../../../assets/projects/eric-dental-centar-before-services.webp"
+    alt: "Die alte WordPress-Website: ein Raster aus acht Leistungen mit Stock-Illustrationen und ohne Beschreibungen."
+  - src: "../../../assets/projects/eric-dental-centar-contact.webp"
+    alt: "Die Kontaktseite als Landingpage: das Buchungsformular auf dem ersten Bildschirm, Leistung und Uhrzeit mit einem Tipp gewählt."
+  - src: "../../../assets/projects/eric-dental-centar-service-page.webp"
+    alt: "Die Leistungsseite zu Zahnimplantaten mit Buchungsbutton und Patientenbewertung."
+  - src: "../../../assets/projects/eric-dental-centar-team.webp"
+    alt: "Der Teambereich: Dr. Miloš Erić, Inhaber und Zahnarzt, Dr. Olga Milošević, Zahnärztin, und Marina Erić."
+  - src: "../../../assets/projects/eric-dental-centar-reviews.webp"
+    alt: "Patientenbewertungen: durchschnittlich 5,0 aus 31 Bewertungen auf doktor.rs und ausgewählte Rezensionen."
+  - src: "../../../assets/projects/eric-dental-centar-german.webp"
+    alt: "Die deutsche Version der Website: Der Zahnarzt in Pančevo, dem Patienten vertrauen."
+---
+
+import Button from '@/components/ui/form/Button/Button.astro';
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 96, icon: 'zap' },
+  { label: 'Accessibility', value: 100, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## Die Aufgabe
+
+**Erić Dental Centar** ist eine Zahnarztpraxis in Pančevo, Serbien, eröffnet 2020 in der Oslobođenja 23. Ihre Patienten kommen aus Pančevo und aus Belgrad. Die alte Website war ein WordPress-Theme mit Demoinhalten, die nie entfernt worden waren: die Beispielärzte des Themes, ein leerer Bereich „Ankündigungen“ und Seiten, die nichts mit der Praxis zu tun hatten. Vor allem aber **gab es keinen klaren Weg von einer Suche zu einem gebuchten Termin**.
+
+Das Ziel für die neue Website: Ein Patient, der einen Zahnarzt in Pančevo sucht, findet die Praxis, versteht, was sie anbietet, und sendet in unter einer Minute eine Terminanfrage — in seiner eigenen Sprache.
+
+## Eine Website, die die Leistung verkauft
+
+Die Website wurde von Grund auf mit **Astro und Tailwind CSS** gebaut und als statisches HTML ausgeliefert, ohne Framework im Browser. Das Design ist auf Vertrauen ausgerichtet:
+
+- **Ein großer Startbereich** mit einem Foto des Inhabers Dr. Miloš Erić, der **Bewertung von 5,0 aus 31 Patientenbewertungen** auf doktor.rs und einem klaren Buchungsbutton.
+- **Eigene Icons für alle 9 Leistungen** und die Logos der Implantatmarken, mit denen die Praxis arbeitet: Straumann, Zimmer und IRES.
+- Bereiche für die Praxis, das Team, Patientenbewertungen und den Blog, in den Farben der Praxis.
+- Auf dem Smartphone bleiben die Buttons **„Anrufen“ und „Termin buchen“** in Daumenreichweite.
+
+## Buchung, die konvertiert
+
+Die Kontaktseite funktioniert als **Landingpage**: Das Formular steht auf dem ersten Bildschirm, nur Name und Telefon sind Pflicht, und Leistung und Wunschzeit werden mit einem Tipp gewählt. Von jeder Leistungsseite aus öffnet sich das Formular **mit dieser Leistung bereits ausgewählt**, und jede Seite endet mit einer Aufforderung zur Buchung.
+
+Jede Anfrage geht in mein System zur Anfragenerfassung. Die Praxis wird sofort benachrichtigt, und jede Anfrage zeigt **die Seite, von der der Patient kam, die gewünschte Leistung und die Sprache, in der er geschrieben hat**. Auch Besuche und Klicks auf die Telefonnummer werden gezählt, ohne Cookies, und alles fließt in einen monatlichen Bericht.
+
+## Lokales SEO
+
+- **Eine Seite für jede Leistung**, geschrieben für das, wonach Menschen wirklich suchen („Zahnimplantate Pančevo“, „Kinderzahnarzt Pančevo“), mit FAQs und passenden Artikeln.
+- **Strukturierte Daten** beschreiben die Praxis als Zahnarzt mit Adresse, GPS-Koordinaten, Öffnungszeiten, Einzugsgebiet (Pančevo, Bezirk Südbanat, Belgrad), einem Katalog aller 9 Leistungen und dem Team.
+- Die Website ist mit dem **Google-Unternehmensprofil**, den Social-Media-Profilen und dem Eintrag auf doktor.rs verknüpft — überall mit demselben Namen, derselben Adresse und Telefonnummer.
+- Leistungsseiten und Artikel sind als **medizinischer Inhalt** ausgezeichnet, mit Dr. Miloš Erić als Autor. Bei Gesundheitsthemen achtet Google genau darauf, wer hinter den Inhalten steht.
+- **Keine alte URL ging verloren.** Leistungen und Artikel behielten ihre Adressen aus WordPress, und die neun übrigen WordPress-URLs leiten dauerhaft auf die neuen Seiten weiter.
+
+## Drei Sprachen
+
+Die gesamte Website ist ins **Englische und Deutsche** übersetzt: alle 9 Leistungen, der Blog, das Formular einschließlich seiner Fehlermeldungen, die FAQs und die Datenschutzerklärung. Das sind **60 Seiten, 20 in jeder Sprache**.
+
+- Jede Sprache hat **URLs in dieser Sprache**, etwa `/en/dental-implants/` und `/de/zahnimplantate/`, damit die Seiten in der englischen und deutschen Suche ranken können.
+- **Hreflang-Tags** zeigen Google, welche Seite welche übersetzt, sodass ein Besucher aus Deutschland die deutsche Version bekommt, während Serbisch die Standardsprache bleibt.
+- Der Sprachumschalter führt zu **derselben Seite** in der anderen Sprache. Ausländische Besucher sehen die Telefonnummer im internationalen Format, und Patientenbewertungen sind als aus dem Serbischen übersetzt gekennzeichnet.
+
+Für eine Praxis, die auch Patienten aus dem Ausland behandelt, ist das ein offener Kanal zur Diaspora und zu internationalen Patienten.
+
+## Ergebnisse
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+In Lighthouse erreicht die Website **96 bei Performance** und **100 bei Accessibility, Best Practices und SEO** — mit großformatigen Fotos, drei Sprachen und Anfragen-Tracking auf jeder Seite.
+
+## Projektbericht
+
+Alles, was umgesetzt wurde, mit Vorher-nachher-Screenshots, steht im Bericht, den der Kunde erhalten hat.
+
+<div class="my-8">
+  <Button href="/reports/eric-dental-centar-report.pdf" target="_blank" variant="brand-outline">Bericht herunterladen (PDF, Englisch)</Button>
+</div>
