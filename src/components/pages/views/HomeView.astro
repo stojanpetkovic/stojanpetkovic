@@ -27,6 +27,7 @@ import { getPostUrl, getPublishedPosts } from '@/lib/blog';
 import { getVisibleProjects } from '@/lib/projects';
 import ProjectCard from '@/components/projects/ProjectCard.astro';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+import { getSiteName } from '@/lib/site-name';
 import stojanAvatar from '@/assets/profile/stojan-avatar.webp';
 
 interface Props {
@@ -188,7 +189,7 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
       <div class="pointer-events-none absolute -inset-12 -z-10 rounded-full bg-brand-500/35 blur-3xl" aria-hidden="true"></div>
       <Image
         src={stojanAvatar}
-        alt="Stojan Petković"
+        alt={getSiteName(locale)}
         class="w-full h-auto rounded-2xl object-contain lg:h-full lg:w-auto"
         widths={[320, 480, 640, 960]}
         sizes="(min-width: 1024px) 24rem, 80vw"

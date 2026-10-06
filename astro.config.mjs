@@ -247,10 +247,14 @@ function ogCards() {
             continue;
           }
           if (!path.startsWith('/og/') || !path.endsWith('.png') || wanted.has(path)) continue;
+          // The card carries the brand as og:site_name spells it on this page,
+          // so a card drawn for a translated page uses that language's name.
+          const siteName = meta(html, 'og:site_name') || SITE_NAME;
           wanted.set(path, {
-            title: meta(html, 'og:title') || SITE_NAME,
+            title: meta(html, 'og:title') || siteName,
             subtitle: meta(html, 'og:description'),
             kind: KINDS.find(([re]) => re.test(path))?.[1],
+            siteName,
           });
         }
 
@@ -259,7 +263,6 @@ function ogCards() {
             ...card,
             brandColor: THEME_COLOR,
             domain,
-            siteName: SITE_NAME,
           });
           const target = join(out, path.replace(/^\//, ''));
           await mkdir(dirname(target), { recursive: true });

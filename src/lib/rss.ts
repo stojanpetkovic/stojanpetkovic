@@ -2,6 +2,7 @@ import { getCollection } from 'astro:content';
 import siteConfig from '@/config/site.config';
 import { getPostUrl } from '@/lib/blog';
 import { defaultLocale } from '@/i18n';
+import { getSiteName } from '@/lib/site-name';
 
 /**
  * RSS feed generation, shared by `/rss.xml` and `/<locale>/rss.xml`.
@@ -73,7 +74,7 @@ export async function buildRssFeed({
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>${escapeXml(siteConfig.name)}</title>
+    <title>${escapeXml(getSiteName(locale))}</title>
     <description>${escapeXml(siteConfig.description)}</description>
     <link>${base}</link>
     <atom:link href="${base}${feedPath}" rel="self" type="application/rss+xml"/>

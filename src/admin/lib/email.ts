@@ -16,7 +16,7 @@ const copy = {
     page: 'Stranica',
     source: 'Izvor',
     time: 'Vreme',
-    footer: 'Ovaj email je automatski poslat sa sistema za upite koji je postavio Stojan Petković.',
+    footer: 'Ovaj email je automatski poslat sa sistema za upite koji je postavio Mr.Petković.',
     locale: 'sr-RS',
   },
   en: {
@@ -29,7 +29,7 @@ const copy = {
     page: 'Page',
     source: 'Source',
     time: 'Time',
-    footer: 'This email was sent automatically by the lead system set up by Stojan Petković.',
+    footer: 'This email was sent automatically by the lead system set up by Mr.Petkovic.',
     locale: 'en-US',
   },
 } as const;

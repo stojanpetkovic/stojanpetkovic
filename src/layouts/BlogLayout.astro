@@ -122,6 +122,7 @@ const blogPostingSchema = createBlogPostSchema({
   datePublished: publishedAt,
   dateModified: updatedAt,
   author: { name: author, url: siteConfig.url },
+  locale,
 });
 
 const faqSchema = faqs && faqs.length > 0 ? createFAQSchema(faqs) : null;

@@ -28,6 +28,7 @@ import Logo from '@/components/ui/marketing/Logo/Logo.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import siteConfig from '@/config/site.config';
 import { t, tData, getLocaleFromPath } from '@/i18n';
+import { getSiteName } from '@/lib/site-name';
 import { getDerivedFooterGroups } from '@/lib/footer';
 import { resolveSocialLinks } from '@/lib/utils';
 import { getRssUrl } from '@/lib/blog';
@@ -131,6 +132,7 @@ const maxWidthClass = {
 }[maxWidth];
 
 const locale = getLocaleFromPath(Astro.url.pathname);
+const siteName = getSiteName(locale);
 const logoHref = getLogoHref(locale);
 
 // Get navigation items — footer nav is configured independently from the
@@ -222,7 +224,7 @@ const copyrightTemplate = copyright ?? t('footer.copyright', locale);
 const currentYear = new Date().getFullYear();
 const processedCopyright = copyrightTemplate
   .replace('{year}', String(currentYear))
-  .replace('{siteName}', siteConfig.name);
+  .replace('{siteName}', siteName);
 
 // Centered layout identity lines: the tagline prop wins, then
 // siteConfig.tagline; the note line underneath comes from
@@ -280,7 +282,7 @@ function getSocialIcon(platform: string): string {
                 <a href={logoHref} class="flex items-center gap-2">
                   <Logo size="md" class="bg-brand-600" />
                   <span class="font-display text-base font-bold text-brand-700 dark:text-foreground">
-                    {siteConfig.name}
+                    {siteName}
                   </span>
                 </a>
               )}
@@ -342,7 +344,7 @@ function getSocialIcon(platform: string): string {
               <a href={logoHref} class="flex items-center gap-2">
                 <Logo size="md" class="bg-brand-600" />
                 <span class="font-display text-base font-bold text-brand-700 dark:text-foreground">
-                  {siteConfig.name}
+                  {siteName}
                 </span>
               </a>
             )}
@@ -409,7 +411,7 @@ function getSocialIcon(platform: string): string {
                 <a href={logoHref} class="flex items-center gap-2">
                   <Logo size="md" class="bg-brand-600" />
                   <span class="font-display text-base font-bold text-brand-700 dark:text-foreground">
-                    {siteConfig.name}
+                    {siteName}
                   </span>
                 </a>
               )}
@@ -526,7 +528,7 @@ function getSocialIcon(platform: string): string {
             <a href={logoHref} class="flex items-center gap-2">
               <Logo size="md" class="bg-brand-600" />
               <span class="font-display text-xl font-bold text-brand-700 dark:text-foreground">
-                {siteConfig.name}
+                {siteName}
               </span>
             </a>
           )

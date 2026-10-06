@@ -9,15 +9,29 @@ import type {
   WithContext,
 } from 'schema-dts';
 import siteConfig from '@/config/site.config';
+import { defaultLocale, type Locale } from '@/i18n';
+import { getSiteName, getSiteNameAlternates } from '@/lib/site-name';
+
+/**
+ * The brand as `name`, in the page's language, with the other locales'
+ * spellings as `alternateName` so the spellings resolve to one entity.
+ */
+function brandName(locale: Locale): { name: string; alternateName?: string[] } {
+  const alternates = getSiteNameAlternates(locale);
+  return {
+    name: getSiteName(locale),
+    ...(alternates.length ? { alternateName: alternates } : {}),
+  };
+}
 
 /**
  * Create WebSite schema for homepage
  */
-export function createWebsiteSchema(): WithContext<WebSite> {
+export function createWebsiteSchema(locale: Locale = defaultLocale): WithContext<WebSite> {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: siteConfig.name,
+    ...brandName(locale),
     url: siteConfig.url,
     description: siteConfig.description,
   };
@@ -26,11 +40,11 @@ export function createWebsiteSchema(): WithContext<WebSite> {
 /**
  * Create Person schema for the site owner
  */
-export function createPersonSchema(): WithContext<Person> {
+export function createPersonSchema(locale: Locale = defaultLocale): WithContext<Person> {
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: siteConfig.author,
+    ...brandName(locale),
     jobTitle: 'Web Designer & Developer',
     url: siteConfig.url,
     email: siteConfig.email,
@@ -52,11 +66,11 @@ export function createPersonSchema(): WithContext<Person> {
 /**
  * Create ProfessionalService schema for local SEO
  */
-export function createProfessionalServiceSchema(): WithContext<LocalBusiness> {
+export function createProfessionalServiceSchema(locale: Locale = defaultLocale): WithContext<LocalBusiness> {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService' as 'LocalBusiness',
-    name: siteConfig.name,
+    ...brandName(locale),
     url: siteConfig.url,
     email: siteConfig.email,
     ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
@@ -79,14 +93,14 @@ export function createProfessionalServiceSchema(): WithContext<LocalBusiness> {
 /**
  * Create Organization schema
  */
-export function createOrganizationSchema(): WithContext<Organization> {
+export function createOrganizationSchema(locale: Locale = defaultLocale): WithContext<Organization> {
   const logoUrl = siteConfig.branding.logo.imageUrl
     ? `${siteConfig.url}${siteConfig.branding.logo.imageUrl}`
     : undefined;
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: siteConfig.name,
+    ...brandName(locale),
     url: siteConfig.url,
     ...(logoUrl ? { logo: logoUrl } : {}),
     sameAs: siteConfig.socialLinks,
@@ -111,6 +125,8 @@ export function createBlogPostSchema(post: {
   datePublished: Date;
   dateModified?: Date;
   author: { name: string; url?: string };
+  /** The post's locale, for the publisher's name. */
+  locale?: Locale;
 }): WithContext<BlogPosting> {
   return {
     '@context': 'https://schema.org',
@@ -128,7 +144,7 @@ export function createBlogPostSchema(post: {
     },
     publisher: {
       '@type': 'Organization',
-      name: siteConfig.name,
+      name: getSiteName(post.locale ?? defaultLocale),
       ...(siteConfig.branding.logo.imageUrl
         ? {
             logo: {

@@ -11,6 +11,7 @@ import { createWebsiteSchema, createOrganizationSchema, createPersonSchema, crea
 import type { Thing, WithContext } from 'schema-dts';
 import siteConfig from '@/config/site.config';
 import { t, getLocaleFromPath } from '@/i18n';
+import { getSiteName } from '@/lib/site-name';
 import { getRssUrl } from '@/lib/blog';
 
 interface Props {
@@ -52,19 +53,20 @@ const {
 } = Astro.props;
 
 // Build JSON-LD schemas
-const schemas: WithContext<Thing>[] = [createWebsiteSchema()];
+const locale = getLocaleFromPath(Astro.url.pathname);
+const siteName = getSiteName(locale);
+
+const schemas: WithContext<Thing>[] = [createWebsiteSchema(locale)];
 if (includeOrgSchema) {
-  schemas.push(createOrganizationSchema());
+  schemas.push(createOrganizationSchema(locale));
 }
 if (includePersonSchema) {
-  schemas.push(createPersonSchema());
+  schemas.push(createPersonSchema(locale));
 }
 if (includeProfessionalServiceSchema) {
-  schemas.push(createProfessionalServiceSchema());
+  schemas.push(createProfessionalServiceSchema(locale));
 }
 schemas.push(...extraSchemas);
-
-const locale = getLocaleFromPath(Astro.url.pathname);
 const commentsConfig = siteConfig.articleFeatures?.comments;
 
 let commentsPreconnectHref: string | null = null;
@@ -123,7 +125,7 @@ if (commentsConfig?.enabled) {
     />
 
     <!-- RSS Feed -->
-    <link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} RSS Feed`} href={getRssUrl(locale)} />
+    <link rel="alternate" type="application/rss+xml" title={`${siteName} RSS Feed`} href={getRssUrl(locale)} />
 
     <!-- JSON-LD Structured Data -->
     <JsonLd schema={schemas} />

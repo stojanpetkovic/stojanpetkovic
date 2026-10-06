@@ -282,7 +282,7 @@ const siteConfig: SiteConfig = {
   // Point this at a file in `public/` to use your own — it has to be a raster
   // (PNG or JPEG): social platforms don't render SVG share images.
   ogImage: '/og/default.png',
-  author: 'Stojan Petković',
+  author: SITE_NAME,
   email: 'petkovicstojan@gmail.com',
   address: {
     city: 'Zrenjanin',
@@ -375,7 +375,7 @@ const siteConfig: SiteConfig = {
   },
   branding: {
     logo: {
-      alt: 'Stojan Petković',
+      alt: SITE_NAME,
       // image: '/logo.svg', // Optional: set to a file in public/ to use a custom logo image instead of the letter monogram.
       imageUrl: '/favicon.svg',
     },

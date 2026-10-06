@@ -1,6 +1,9 @@
 {
+  "site": {
+    "name": "Mr.Petkovic"
+  },
   "llms": {
-    "summary": "Stojan Petković is een freelance webontwikkelaar uit Zrenjanin, Servië, en werkt met klanten wereldwijd. Hij bouwt snelle Astro-websites op maat, leadgeneratiesystemen en datagedreven platforms, en verzorgt SEO, generative engine optimisation (GEO), Google Ads en advertenties op sociale media — vooral voor lokale dienstverleners, zoals boomverzorgingsbedrijven in Zuid-Florida en kleine bedrijven in Servië. Elk project heeft één vaste prijs, afgesproken voordat het werk begint, en de klant is vanaf dag één eigenaar van de code, het domein en de hosting."
+    "summary": "Mr.Petkovic is een freelance webontwikkelaar uit Zrenjanin, Servië, en werkt met klanten wereldwijd. Hij bouwt snelle Astro-websites op maat, leadgeneratiesystemen en datagedreven platforms, en verzorgt SEO, generative engine optimisation (GEO), Google Ads en advertenties op sociale media — vooral voor lokale dienstverleners, zoals boomverzorgingsbedrijven in Zuid-Florida en kleine bedrijven in Servië. Elk project heeft één vaste prijs, afgesproken voordat het werk begint, en de klant is vanaf dag één eigenaar van de code, het domein en de hosting."
   },
   "nav": {
     "skipToContent": "Naar inhoud",
@@ -120,12 +123,12 @@
     "galleryNextImage": "Volgende afbeelding",
     "galleryPreviousImage": "Vorige afbeelding",
     "metaTitle": "Projecten",
-    "metaDescription": "Geselecteerd werk — websites, tools en projecten gebouwd door Stojan Petković.",
+    "metaDescription": "Geselecteerd werk — websites, tools en projecten gebouwd door Mr.Petkovic.",
     "heroBadge": "Geselecteerd werk",
     "heroDescription": "Werk waar ik het meest trots op ben.",
     "allProjects": "Alle projecten",
     "pageMetaTitle": "Projecten — Pagina {page}",
-    "pageMetaDescription": "Pagina {page} van {total} — geselecteerd werk, tools en projecten door Stojan Petković.",
+    "pageMetaDescription": "Pagina {page} van {total} — geselecteerd werk, tools en projecten door Mr.Petkovic.",
     "pageBadge": "Pagina {page} van {total}",
     "tagMetaTitle": "#{tag} — Projecten",
     "tagMetaDescription": "Projecten met tag \"{tag}\".",
@@ -237,7 +240,7 @@
       },
       "hero": {
         "badge": "Over",
-        "titleLead": "Stojan Petković",
+        "titleLead": "Mr.Petkovic",
         "typingWords": ["Webontwikkelaar", "Probleemoplosser", "Cloud & automatisering", "Datagedreven", "Oog voor detail"],
         "typingWordsMobile": ["Webontwikkelaar", "Cloud & automatisering", "Oog voor detail"],
         "description": "Een freelance webontwikkelaar die snelle, praktische websites en digitale producten bouwt.",
@@ -661,7 +664,7 @@
       },
       "hero": {
         "badge": "Beschikbaar voor nieuwe projecten",
-        "titleLine1": "Stojan Petković",
+        "titleLine1": "Mr.Petkovic",
         "titleLine2": "Webdesigner",
         "titleLine3": "& Ontwikkelaar",
         "description": "Ik bouw websites, leadgeneratiesystemen en datagedreven platforms — met moderne technologie en een praktische, zakelijke mindset.",

@@ -12,6 +12,8 @@
  */
 import { cn } from '@/lib/cn';
 import siteConfig from '@/config/site.config';
+import { getLocaleFromPath } from '@/i18n';
+import { getSiteName } from '@/lib/site-name';
 
 interface Props {
   /** Size preset */
@@ -48,12 +50,14 @@ const { box, text, radius, img, px } = sizeClasses[size] ?? sizeClasses.md;
 const logoImage = siteConfig.branding.logo.image;
 const useImage = Boolean(logoImage) && !letterProp;
 const letter = letterProp ?? siteConfig.name.charAt(0).toUpperCase();
+// The accessible name follows the page's language, as the wordmark does.
+const logoAlt = getSiteName(getLocaleFromPath(Astro.url.pathname));
 ---
 
 {useImage ? (
   <img
     src={logoImage}
-    alt={siteConfig.branding.logo.alt}
+    alt={logoAlt}
     height={px}
     class={cn(
       'inline-block shrink-0 object-contain',
@@ -75,7 +79,7 @@ const letter = letterProp ?? siteConfig.name.charAt(0).toUpperCase();
       box, text, radius,
       className
     )}
-    aria-label={siteConfig.branding.logo.alt}
+    aria-label={logoAlt}
     role="img"
   >
     {letter}

@@ -1,6 +1,9 @@
 {
+  "site": {
+    "name": "Mr.Petkovic"
+  },
   "llms": {
-    "summary": "Stojan Petković is a freelance web developer based in Zrenjanin, Serbia, working with clients worldwide. He builds fast, custom Astro websites, lead generation systems and data-driven platforms, and handles SEO, generative engine optimisation (GEO), Google Ads and social media advertising — mostly for local service businesses, such as tree service companies in South Florida and small businesses in Serbia. Every project has one fixed price agreed before work starts, and the client owns the code, the domain and the hosting from day one."
+    "summary": "Mr.Petkovic is a freelance web developer based in Zrenjanin, Serbia, working with clients worldwide. He builds fast, custom Astro websites, lead generation systems and data-driven platforms, and handles SEO, generative engine optimisation (GEO), Google Ads and social media advertising — mostly for local service businesses, such as tree service companies in South Florida and small businesses in Serbia. Every project has one fixed price agreed before work starts, and the client owns the code, the domain and the hosting from day one."
   },
   "nav": {
     "skipToContent": "Skip to content",
@@ -120,12 +123,12 @@
     "galleryNextImage": "Next image",
     "galleryPreviousImage": "Previous image",
     "metaTitle": "Projects",
-    "metaDescription": "Selected work — websites, tools, and projects built by Stojan Petković.",
+    "metaDescription": "Selected work — websites, tools, and projects built by Mr.Petkovic.",
     "heroBadge": "Selected work",
     "heroDescription": "Work I'm most proud of.",
     "allProjects": "All projects",
     "pageMetaTitle": "Projects — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — selected work, tools, and projects by Stojan Petković.",
+    "pageMetaDescription": "Page {page} of {total} — selected work, tools, and projects by Mr.Petkovic.",
     "pageBadge": "Page {page} of {total}",
     "tagMetaTitle": "#{tag} — Projects",
     "tagMetaDescription": "Projects tagged \"{tag}\".",
@@ -237,7 +240,7 @@
       },
       "hero": {
         "badge": "About",
-        "titleLead": "Stojan Petković",
+        "titleLead": "Mr.Petkovic",
         "typingWords": ["Web Developer", "Problem Solver", "Cloud & Automation", "Data-Driven", "Detail-Oriented"],
         "typingWordsMobile": ["Web Developer", "Cloud & Automation", "Detail-Oriented"],
         "description": "A freelance web\u00a0developer building fast, practical websites and digital products.",
@@ -661,7 +664,7 @@
       },
       "hero": {
         "badge": "Available for new projects",
-        "titleLine1": "Stojan Petković",
+        "titleLine1": "Mr.Petkovic",
         "titleLine2": "Web Designer",
         "titleLine3": "& Developer",
         "description": "I build websites, lead generation systems and data-driven platforms — with modern technology and a practical, business-focused mindset.",

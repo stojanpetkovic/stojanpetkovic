@@ -9,7 +9,11 @@
  *
  * Change them here. `site.config.ts` reads from this file.
  */
-export const SITE_NAME = 'Stojan Petković';
+/**
+ * The brand in the default locale. Other locales spell it in their own
+ * dictionary (`site.name`); read it through `getSiteName(locale)`.
+ */
+export const SITE_NAME = 'Mr.Petkovic';
 
 /** Browser toolbar colour, and the fill behind the favicon letter. */
 export const THEME_COLOR = '#0083fe';
