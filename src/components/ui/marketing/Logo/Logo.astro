@@ -58,10 +58,14 @@ const logoAlt = getSiteName(getLocaleFromPath(Astro.url.pathname));
   <img
     src={logoImage}
     alt={logoAlt}
+    width={px}
     height={px}
     class={cn(
       'inline-block shrink-0 object-contain',
       img,
+      // Square logos take the monogram's corner radius, so a portrait sits in
+      // the same rounded tile the letter did.
+      radius,
       // Neutralise the brand-tint background the call sites pass for the
       // monogram badge (e.g. `bg-brand-600`) — a custom logo shouldn't sit on
       // a coloured square. The trailing class wins via tailwind-merge, while

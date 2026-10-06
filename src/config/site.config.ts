@@ -376,7 +376,8 @@ const siteConfig: SiteConfig = {
   branding: {
     logo: {
       alt: SITE_NAME,
-      // image: '/logo.svg', // Optional: set to a file in public/ to use a custom logo image instead of the letter monogram.
+      // The avatar portrait, cut on the same square as the favicons (192px).
+      image: '/logo.webp',
       imageUrl: '/favicon.svg',
     },
     favicon: {
