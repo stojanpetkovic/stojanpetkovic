@@ -264,9 +264,6 @@
         ],
         "imageAlt": "Mr. Petkovic, the web developer you work with directly"
       },
-      "clients": {
-        "label": "Trusted by businesses in the US and Serbia"
-      },
       "problem": {
         "badge": "Sound familiar?",
         "heading": "Your website should sell. Most don't.",
@@ -323,51 +320,32 @@
       },
       "results": {
         "badge": "Proof, not promises",
-        "heading": "Results from real client projects",
-        "lead": "Numbers taken from live sites and ad accounts I build and run.",
+        "heading": "From WordPress to unbelievably fast",
+        "lead": "Two tree service companies in South Florida left slow WordPress sites behind. Their new sites open instantly and score a perfect 100 for SEO.",
+        "note": "These are just two examples from my work — every project is built the same way.",
         "cases": [
           {
             "client": "Tree Jaws",
             "sector": "Tree service · South Florida",
-            "metric": "1,010",
-            "metricLabel": "tracked leads in one reporting window",
+            "metric": "SEO 100",
+            "metricLabel": "Lighthouse score after leaving WordPress",
             "points": [
-              "732 phone calls from search and ads",
-              "4.9★ rating across 427 Google reviews",
-              "Moved off WordPress — Lighthouse SEO 100"
-            ]
-          },
-          {
-            "client": "Erić Dental Centar",
-            "sector": "Dental practice · Pančevo",
-            "metric": "96 · 100 · 100 · 100",
-            "metricLabel": "Lighthouse scores on a 60-page site",
-            "points": [
-              "Serbian, English and German",
-              "Every appointment request tracked",
-              "Built for local search in Pančevo"
+              "Rebuilt from WordPress in Astro — pages open instantly, even on a weak 4G connection",
+              "Lighthouse: Performance 91 · Accessibility 96 · Best Practices 96 · SEO 100",
+              "1,010 tracked leads, 732 of them phone calls",
+              "4.9★ across 427 Google reviews"
             ]
           },
           {
             "client": "Mahalo Tree Service",
             "sector": "Tree service · South Florida",
-            "metric": "$0",
-            "metricLabel": "spent on ads — growth from search alone",
+            "metric": "SEO 100",
+            "metricLabel": "Lighthouse score — and $0 spent on ads",
             "points": [
-              "5.0 Google rating",
-              "18 service-area pages that don't compete with each other",
-              "A growing blog that keeps bringing visitors"
-            ]
-          },
-          {
-            "client": "SF Tree Removal",
-            "sector": "Lead platform · South Florida",
-            "metric": "219",
-            "metricLabel": "qualified leads compiled from public permits",
-            "points": [
-              "Zero ad spend",
-              "Contractors notified the moment a lead arrives",
-              "Custom dashboard and CMS"
+              "Rebuilt from WordPress in Astro — static pages instead of a stack of plugins",
+              "Lighthouse: Performance 87 · Accessibility 91 · Best Practices 100 · SEO 100",
+              "Growth from search alone, with no paid ads",
+              "5.0 Google rating, 18 service-area pages and a growing blog"
             ]
           }
         ]

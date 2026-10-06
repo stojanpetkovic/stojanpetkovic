@@ -264,9 +264,6 @@
         ],
         "imageAlt": "Mr. Petković, web developer sa kojim radiš direktno"
       },
-      "clients": {
-        "label": "Sa mnom rade firme iz Amerike i Srbije"
-      },
       "problem": {
         "badge": "Zvuči poznato?",
         "heading": "Sajt treba da prodaje. Većina ne prodaje.",
@@ -323,51 +320,32 @@
       },
       "results": {
         "badge": "Dokazi, ne obećanja",
-        "heading": "Rezultati sa pravih projekata",
-        "lead": "Brojke sa živih sajtova i oglasnih naloga koje pravim i vodim.",
+        "heading": "Sa WordPress-a do neverovatne brzine",
+        "lead": "Dve firme za usluge sa drvećem iz Južne Floride ostavile su spore WordPress sajtove. Novi sajtovi se otvaraju odmah i imaju savršenu SEO ocenu 100.",
+        "note": "Ovo su samo dva primera iz mog rada — svaki projekat pravim na isti način.",
         "cases": [
           {
             "client": "Tree Jaws",
             "sector": "Usluge sa drvećem · Južna Florida",
-            "metric": "1.010",
-            "metricLabel": "praćenih upita u jednom periodu izveštaja",
+            "metric": "SEO 100",
+            "metricLabel": "Lighthouse ocena posle prelaska sa WordPress-a",
             "points": [
-              "732 telefonska poziva iz pretrage i oglasa",
-              "Ocena 4.9★ iz 427 Google recenzija",
-              "Prelazak sa WordPress-a — Lighthouse SEO 100"
-            ]
-          },
-          {
-            "client": "Erić Dental Centar",
-            "sector": "Stomatološka ordinacija · Pančevo",
-            "metric": "96 · 100 · 100 · 100",
-            "metricLabel": "Lighthouse ocene na sajtu od 60 stranica",
-            "points": [
-              "Srpski, engleski i nemački",
-              "Svaki zahtev za termin se prati",
-              "Napravljen za lokalnu pretragu u Pančevu"
+              "Prebačen sa WordPress-a na Astro — stranice se otvaraju odmah, čak i na slaboj 4G vezi",
+              "Lighthouse: Performance 91 · Accessibility 96 · Best Practices 96 · SEO 100",
+              "1.010 praćenih upita, od toga 732 telefonska poziva",
+              "Ocena 4.9★ iz 427 Google recenzija"
             ]
           },
           {
             "client": "Mahalo Tree Service",
             "sector": "Usluge sa drvećem · Južna Florida",
-            "metric": "$0",
-            "metricLabel": "potrošeno na oglase — rast samo iz pretrage",
+            "metric": "SEO 100",
+            "metricLabel": "Lighthouse ocena — uz $0 potrošeno na oglase",
             "points": [
-              "Google ocena 5.0",
-              "18 stranica za oblasti koje se ne bore međusobno",
-              "Blog koji stalno donosi nove posetioce"
-            ]
-          },
-          {
-            "client": "SF Tree Removal",
-            "sector": "Platforma za upite · Južna Florida",
-            "metric": "219",
-            "metricLabel": "proverenih upita iz javnih evidencija dozvola",
-            "points": [
-              "Nula dinara za oglase",
-              "Izvođači obavešteni čim upit stigne",
-              "Dashboard i CMS po meri"
+              "Prebačen sa WordPress-a na Astro — statičke stranice umesto gomile plugina",
+              "Lighthouse: Performance 87 · Accessibility 91 · Best Practices 100 · SEO 100",
+              "Rast samo iz pretrage, bez plaćenih oglasa",
+              "Google ocena 5.0, 18 stranica za oblasti i blog koji raste"
             ]
           }
         ]
