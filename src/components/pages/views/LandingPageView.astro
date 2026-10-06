@@ -286,7 +286,9 @@ const year = new Date().getFullYear();
           ))}
         </ul>
         <div class="mt-8 flex items-center gap-4 rounded-2xl border border-border bg-background p-4">
-          <Image src={stojanAvatar} alt="" class="h-14 w-14 shrink-0 rounded-full object-cover" widths={[112]} sizes="56px" />
+          {/* The logo file: the same face crop, already cached from the header,
+              and a plain static file, so it shows without the image pipeline. */}
+          <img src={siteConfig.branding.logo.image} alt="" width="56" height="56" class="h-14 w-14 shrink-0 rounded-full object-cover" />
           <div>
             <p class="font-semibold text-foreground">{siteName}</p>
             <p class="flex items-center gap-1.5 text-sm text-foreground-muted">
