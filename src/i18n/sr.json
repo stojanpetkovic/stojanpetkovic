@@ -354,7 +354,7 @@
         "badge": "Priča klijenta",
         "heading": "Kad oglasi koštaju više nego što donesu",
         "paragraphs": [
-          "Mirko vodi dve firme za uklanjanje drveća u Južnoj Floridi. U njegovom poslu vlasnik kuće kome je oluja oborila drvo zove prvu firmu koja deluje ozbiljno — i ne čeka.",
+          "Jedan klijent vodi dve firme za uklanjanje drveća u Južnoj Floridi. U njegovom poslu vlasnik kuće kome je oluja oborila drvo zove prvu firmu koja deluje ozbiljno — i ne čeka.",
           "Njegov stari WordPress sajt se sporo otvarao, Google ga je jedva prikazivao, a novac uložen u oglase se nije vraćao. Posetioci za koje je platio odlazili su pre nego što bi se stranica uopšte učitala.",
           "Oba sajta smo napravili ispočetka u Astro-u i postavili SEO od temelja. Stranice se sada otvaraju odmah, imaju SEO ocenu 100, a budžet za oglase se konačno pretvara u telefonske pozive."
         ],
@@ -370,10 +370,10 @@
           "Lighthouse SEO ocena 100",
           "1.010 praćenih upita — od toga 732 telefonska poziva"
         ],
-        "quote": "Stojan je oba moja sajta prebacio sa WordPress-a na Astro i razlika u brzini se osetila odmah.",
-        "author": "Mirko Calić",
-        "role": "Vlasnik, Tree Jaws i Mahalo Tree Service",
-        "imageAlt": "Nova početna stranica Tree Jaws, sa fotografijom sa terena i ocenom firme na vrhu"
+        "quote": "Mr. Petković je oba moja sajta prebacio sa WordPress-a na Astro i razlika u brzini se osetila odmah.",
+        "author": "Zadovoljan klijent",
+        "role": "Vlasnik dve firme za usluge sa drvećem",
+        "imageAlt": "Sajt firme za usluge sa drvećem koji je napravio Mr. Petković"
       },
       "process": {
         "badge": "Kako to ide",

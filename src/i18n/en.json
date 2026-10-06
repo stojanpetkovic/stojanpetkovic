@@ -354,7 +354,7 @@
         "badge": "A client's story",
         "heading": "When the ads cost more than they brought in",
         "paragraphs": [
-          "Mirko runs two tree service companies in South Florida. In his line of work, a homeowner with a storm-damaged tree calls the first company that looks trustworthy — and doesn't wait.",
+          "One client runs two tree service companies in South Florida. In his line of work, a homeowner with a storm-damaged tree calls the first company that looks trustworthy — and doesn't wait.",
           "His old WordPress site opened slowly, Google barely showed it, and the money he put into ads wasn't coming back. Visitors he paid for left before the page had even loaded.",
           "We rebuilt both sites in Astro and set up SEO from the ground up. The pages now open instantly, score 100 for SEO, and the ad budget finally turns into phone calls."
         ],
@@ -370,10 +370,10 @@
           "Lighthouse SEO score of 100",
           "1,010 tracked leads — 732 of them phone calls"
         ],
-        "quote": "Stojan moved both of my sites off WordPress and onto Astro, and the speed difference was obvious immediately.",
-        "author": "Mirko Calić",
-        "role": "Owner, Tree Jaws & Mahalo Tree Service",
-        "imageAlt": "The new Tree Jaws homepage, with a job-site photo and the company's rating up front"
+        "quote": "Mr. Petkovic moved both of my sites off WordPress and onto Astro, and the speed difference was obvious immediately.",
+        "author": "A satisfied client",
+        "role": "Owner of two tree service companies",
+        "imageAlt": "A tree service website built by Mr. Petkovic"
       },
       "process": {
         "badge": "How it works",
