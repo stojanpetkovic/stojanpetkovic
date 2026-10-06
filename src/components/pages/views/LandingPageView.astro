@@ -628,9 +628,31 @@ const year = new Date().getFullYear();
 
   /* Guidance glow. A soft brand halo that breathes on the buttons a visitor
      should press next: the calls to action that lead to the form, and inside
-     the form only the current step's action (the script moves the class). */
+     the form only the current step's action (the script moves the class).
+
+     The halo is drawn once, on a pseudo-element, and only its opacity is
+     animated, so the compositor runs it. Animating box-shadow itself
+     restyled and repainted every frame: in a throttled mobile Lighthouse run
+     that cost about 3.8s of main-thread style and layout. */
   :global(.lp-glow) {
+    position: relative;
+    isolation: isolate;
+  }
+  :global(.lp-glow)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    box-shadow: 0 0 22px 4px var(--lp-glow-color, color-mix(in oklab, var(--color-brand-500) 50%, transparent));
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* Started only after the page has loaded (the script adds .lp-anim), so
+     the first render and the largest paint are never competing with it. */
+  :global(html.lp-anim .lp-glow)::after {
     animation: lp-glow 2.4s ease-in-out infinite;
+    will-change: opacity;
   }
   :global(.lp-glow-light) {
     --lp-glow-color: rgb(255 255 255 / 0.55);
@@ -638,38 +660,51 @@ const year = new Date().getFullYear();
   @keyframes lp-glow {
     0%,
     100% {
-      box-shadow: 0 0 0 0 var(--lp-glow-color, color-mix(in oklab, var(--color-brand-500) 45%, transparent));
+      opacity: 0;
     }
     50% {
-      box-shadow: 0 0 0 7px transparent, 0 0 22px 4px var(--lp-glow-color, color-mix(in oklab, var(--color-brand-500) 45%, transparent));
+      opacity: 1;
     }
   }
 
   /* Step one: until a service is chosen, the option cards pulse one after
-     another, pointing the eye along the choices. */
-  :global([data-guide-options]) .lp-option {
-    animation: lp-option-pulse 3s ease-in-out infinite;
+     another, pointing the eye along the choices. Same technique: a
+     pre-drawn ring whose opacity moves. */
+  .lp-option {
+    position: relative;
   }
-  :global([data-guide-options]) .lp-option:nth-child(2) { animation-delay: 0.25s; }
-  :global([data-guide-options]) .lp-option:nth-child(3) { animation-delay: 0.5s; }
-  :global([data-guide-options]) .lp-option:nth-child(4) { animation-delay: 0.75s; }
-  :global([data-guide-options]) .lp-option:nth-child(5) { animation-delay: 1s; }
+  .lp-option::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    border: 1px solid var(--color-brand-400);
+    box-shadow: 0 0 16px 0 color-mix(in oklab, var(--color-brand-500) 30%, transparent);
+    opacity: 0;
+    pointer-events: none;
+  }
+  :global(html.lp-anim [data-guide-options]) .lp-option::after {
+    animation: lp-option-pulse 3s ease-in-out infinite;
+    will-change: opacity;
+  }
+  :global(html.lp-anim [data-guide-options]) .lp-option:nth-child(2)::after { animation-delay: 0.25s; }
+  :global(html.lp-anim [data-guide-options]) .lp-option:nth-child(3)::after { animation-delay: 0.5s; }
+  :global(html.lp-anim [data-guide-options]) .lp-option:nth-child(4)::after { animation-delay: 0.75s; }
+  :global(html.lp-anim [data-guide-options]) .lp-option:nth-child(5)::after { animation-delay: 1s; }
   @keyframes lp-option-pulse {
     0%,
     60%,
     100% {
-      border-color: var(--color-border);
-      box-shadow: none;
+      opacity: 0;
     }
     20% {
-      border-color: var(--color-brand-400);
-      box-shadow: 0 0 16px 0 color-mix(in oklab, var(--color-brand-500) 30%, transparent);
+      opacity: 1;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    :global(.lp-glow),
-    :global([data-guide-options]) .lp-option {
+    :global(html.lp-anim .lp-glow)::after,
+    :global(html.lp-anim [data-guide-options]) .lp-option::after {
       animation: none;
     }
   }
@@ -837,6 +872,18 @@ const year = new Date().getFullYear();
     ).observe(target);
   }
 
+  /** Switch the guidance glow on once the page is loaded and the browser idle. */
+  function startGlow(): void {
+    const begin = () => document.documentElement.classList.add('lp-anim');
+    const idle = () => {
+      if (typeof window.requestIdleCallback === 'function') window.requestIdleCallback(begin, { timeout: 3000 });
+      else setTimeout(begin, 1500);
+    };
+    if (document.readyState === 'complete') idle();
+    else window.addEventListener('load', idle, { once: true });
+  }
+
   initLandingForm();
   initStickyCta();
+  startGlow();
 </script>
