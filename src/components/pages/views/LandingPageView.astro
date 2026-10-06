@@ -92,7 +92,7 @@ const year = new Date().getFullYear();
             logo alone carries the brand there. */}
         <span class="font-display text-lg font-bold tracking-tight text-brand-700 dark:text-foreground whitespace-nowrap max-[359px]:sr-only">{siteName}</span>
       </span>
-      <Button href="#form" size="sm" class="cta-btn-brand gap-1.5 whitespace-nowrap">
+      <Button href="#form" size="sm" class="lp-glow cta-btn-brand gap-1.5 whitespace-nowrap">
         {L('header.cta')}
         <Icon name="arrow-down" size="sm" />
       </Button>
@@ -110,7 +110,7 @@ const year = new Date().getFullYear();
         </h1>
         <p class="mx-auto mt-5 max-w-xl text-lg text-foreground-muted lg:mx-0 text-pretty">{L('hero.description')}</p>
         <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-          <Button href="#form" size="lg" class="cta-btn-brand w-full gap-2 sm:w-auto">
+          <Button href="#form" size="lg" class="lp-glow cta-btn-brand w-full gap-2 sm:w-auto">
             {L('hero.primary')}
             <Icon name="arrow-right" size="sm" />
           </Button>
@@ -245,7 +245,7 @@ const year = new Date().getFullYear();
         ))}
       </ol>
       <div class="mt-10 text-center">
-        <Button href="#form" size="lg" class="cta-btn-brand gap-2">
+        <Button href="#form" size="lg" class="lp-glow cta-btn-brand gap-2">
           {L('hero.primary')}
           <Icon name="arrow-right" size="sm" />
         </Button>
@@ -357,7 +357,7 @@ const year = new Date().getFullYear();
 
           <fieldset class="lp-step space-y-4" data-step="1">
             <legend class="mb-3 font-semibold text-foreground">{L('form.serviceLegend')}</legend>
-            <div class="grid gap-3 sm:grid-cols-2">
+            <div class="grid gap-3 sm:grid-cols-2" data-options>
               {form.services.map((option) => (
                 <label class="lp-option flex cursor-pointer items-center gap-3 rounded-xl border border-border bg-background-secondary p-4 transition-colors hover:border-brand-400">
                   <input type="radio" name="service" value={option.value} class="sr-only" />
@@ -457,7 +457,7 @@ const year = new Date().getFullYear();
       <div class="lp-final relative overflow-hidden rounded-3xl px-6 py-14 text-center sm:py-20">
         <h2 class="mx-auto max-w-2xl font-display text-3xl font-bold text-white md:text-4xl text-balance">{L('final.heading')}</h2>
         <p class="mx-auto mt-4 max-w-xl text-lg text-white/85">{L('final.text')}</p>
-        <Button href="#form" size="lg" variant="secondary" class="mt-8 gap-2">
+        <Button href="#form" size="lg" variant="secondary" class="lp-glow lp-glow-light mt-8 gap-2">
           {L('final.cta')}
           <Icon name="arrow-up" size="sm" />
         </Button>
@@ -474,7 +474,7 @@ const year = new Date().getFullYear();
   <!-- Phones: the action stays in reach while reading. Hidden once the form
        itself is on screen. -->
   <div class="lp-sticky fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur-md md:hidden" data-sticky-cta>
-    <Button href="#form" fullWidth class="cta-btn-brand gap-2">
+    <Button href="#form" fullWidth class="lp-glow cta-btn-brand gap-2">
       {L('mobileCta')}
       <Icon name="arrow-down" size="sm" />
     </Button>
@@ -525,6 +525,54 @@ const year = new Date().getFullYear();
     margin-top: 0;
   }
 
+  /* Guidance glow. A soft brand halo that breathes on the buttons a visitor
+     should press next: the calls to action that lead to the form, and inside
+     the form only the current step's action (the script moves the class). */
+  :global(.lp-glow) {
+    animation: lp-glow 2.4s ease-in-out infinite;
+  }
+  :global(.lp-glow-light) {
+    --lp-glow-color: rgb(255 255 255 / 0.55);
+  }
+  @keyframes lp-glow {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 var(--lp-glow-color, color-mix(in oklab, var(--color-brand-500) 45%, transparent));
+    }
+    50% {
+      box-shadow: 0 0 0 7px transparent, 0 0 22px 4px var(--lp-glow-color, color-mix(in oklab, var(--color-brand-500) 45%, transparent));
+    }
+  }
+
+  /* Step one: until a service is chosen, the option cards pulse one after
+     another, pointing the eye along the choices. */
+  :global([data-guide-options]) .lp-option {
+    animation: lp-option-pulse 3s ease-in-out infinite;
+  }
+  :global([data-guide-options]) .lp-option:nth-child(2) { animation-delay: 0.25s; }
+  :global([data-guide-options]) .lp-option:nth-child(3) { animation-delay: 0.5s; }
+  :global([data-guide-options]) .lp-option:nth-child(4) { animation-delay: 0.75s; }
+  :global([data-guide-options]) .lp-option:nth-child(5) { animation-delay: 1s; }
+  @keyframes lp-option-pulse {
+    0%,
+    60%,
+    100% {
+      border-color: var(--color-border);
+      box-shadow: none;
+    }
+    20% {
+      border-color: var(--color-brand-400);
+      box-shadow: 0 0 16px 0 color-mix(in oklab, var(--color-brand-500) 30%, transparent);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(.lp-glow),
+    :global([data-guide-options]) .lp-option {
+      animation: none;
+    }
+  }
+
   .lp-sticky {
     transition: transform 200ms ease;
   }
@@ -571,6 +619,21 @@ const year = new Date().getFullYear();
       errorBox.classList.toggle('hidden', !text);
     }
 
+    const options = form.querySelector<HTMLElement>('[data-options]');
+    const nameInput = form.elements.namedItem('name') as HTMLInputElement;
+    const emailInput = form.elements.namedItem('email') as HTMLInputElement;
+
+    /** Light up the one thing to do next, and nothing else in the form. */
+    function guide(): void {
+      const chosen = Boolean(form!.querySelector('input[name="service"]:checked'));
+      options?.toggleAttribute('data-guide-options', current === 1 && !chosen);
+      next.classList.toggle('lp-glow', current === 2 || (current === 1 && chosen));
+      const ready = nameInput.value.trim().length >= 2 && emailInput.checkValidity() && emailInput.value.trim() !== '';
+      submit.classList.toggle('lp-glow', current === steps.length && ready);
+    }
+    nameInput.addEventListener('input', guide);
+    emailInput.addEventListener('input', guide);
+
     function render(): void {
       steps.forEach((step) => step.toggleAttribute('data-current', Number(step.dataset.step) === current));
       back.classList.toggle('lp-off', current === 1);
@@ -582,6 +645,7 @@ const year = new Date().getFullYear();
         .replace('{total}', String(steps.length));
       stepName.textContent = labels[current - 1] || '';
       showError('');
+      guide();
     }
 
     function valid(step: number): boolean {
