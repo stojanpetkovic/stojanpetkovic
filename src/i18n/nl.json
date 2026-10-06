@@ -233,6 +233,319 @@
     "followOn": "Volg ons op {platform}"
   },
   "pages": {
+    "landing": {
+      "meta": {
+        "title": "A website that brings you clients",
+        "description": "Fast custom websites, SEO and AI-search visibility for local service businesses. One fixed price, everything in your name, and a free check of your current site."
+      },
+      "header": {
+        "cta": "Free website check"
+      },
+      "hero": {
+        "badge": "Available for new projects",
+        "titleLead": "A website that",
+        "titleHighlight": "brings you clients",
+        "description": "I build fast custom websites, set up SEO and AI-search visibility, and wire every enquiry straight to your phone. For local service businesses that want calls, not just visits.",
+        "primary": "Get a free website check",
+        "secondary": "See the results",
+        "trust": [
+          {
+            "value": "1,010",
+            "label": "tracked leads for one client"
+          },
+          {
+            "value": "100",
+            "label": "Google Lighthouse SEO score"
+          },
+          {
+            "value": "1",
+            "label": "fixed price, agreed up front"
+          }
+        ],
+        "imageAlt": "Mr. Petkovic, the web developer you work with directly"
+      },
+      "clients": {
+        "label": "Trusted by businesses in the US and Serbia"
+      },
+      "problem": {
+        "badge": "Sound familiar?",
+        "heading": "Your website should sell. Most don't.",
+        "lead": "Most small business websites look fine and do nothing. These are the problems I fix every week.",
+        "items": [
+          {
+            "icon": "hourglass",
+            "title": "It loads too slowly",
+            "text": "Every extra second on a phone loses visitors before they even see your number. Heavy WordPress themes and plugins are the usual cause."
+          },
+          {
+            "icon": "search-x",
+            "title": "Google doesn't show it",
+            "text": "Thin pages, no local content and technical errors keep you off page one — and AI assistants like ChatGPT don't mention you at all."
+          },
+          {
+            "icon": "mail-x",
+            "title": "Enquiries get lost",
+            "text": "Forms land in an inbox nobody checks, and the customer has already called your competitor by the time you reply."
+          },
+          {
+            "icon": "lock",
+            "title": "You don't really own it",
+            "text": "The domain, the hosting or the code sits in someone else's name, and every small change means waiting and paying."
+          }
+        ]
+      },
+      "solution": {
+        "badge": "What you get",
+        "heading": "One person, one price, everything you need to grow",
+        "lead": "Design, development, SEO and lead tracking in a single project — built so your site works as your best salesperson.",
+        "items": [
+          {
+            "icon": "zap",
+            "title": "A lightning-fast website",
+            "text": "Built with Astro: pages open instantly on any phone, with top marks in Google's own Lighthouse tests."
+          },
+          {
+            "icon": "search",
+            "title": "Found on Google and in AI search",
+            "text": "Service and area pages, structured data and content written for how your customers actually search — in Google and in ChatGPT."
+          },
+          {
+            "icon": "bell-ring",
+            "title": "Every enquiry, instantly",
+            "text": "Each form and call is tracked and sent to you the moment it happens, so you reply first and win the job."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Yours from day one",
+            "text": "Code, domain and hosting in your name. No lock-in contracts, no hidden fees, no plugins to break."
+          }
+        ]
+      },
+      "results": {
+        "badge": "Proof, not promises",
+        "heading": "Results from real client projects",
+        "lead": "Numbers taken from live sites and ad accounts I build and run.",
+        "cases": [
+          {
+            "client": "Tree Jaws",
+            "sector": "Tree service · South Florida",
+            "metric": "1,010",
+            "metricLabel": "tracked leads in one reporting window",
+            "points": [
+              "732 phone calls from search and ads",
+              "4.9★ rating across 427 Google reviews",
+              "Moved off WordPress — Lighthouse SEO 100"
+            ]
+          },
+          {
+            "client": "Erić Dental Centar",
+            "sector": "Dental practice · Pančevo",
+            "metric": "96 · 100 · 100 · 100",
+            "metricLabel": "Lighthouse scores on a 60-page site",
+            "points": [
+              "Serbian, English and German",
+              "Every appointment request tracked",
+              "Built for local search in Pančevo"
+            ]
+          },
+          {
+            "client": "Mahalo Tree Service",
+            "sector": "Tree service · South Florida",
+            "metric": "$0",
+            "metricLabel": "spent on ads — growth from search alone",
+            "points": [
+              "5.0 Google rating",
+              "18 service-area pages that don't compete with each other",
+              "A growing blog that keeps bringing visitors"
+            ]
+          },
+          {
+            "client": "SF Tree Removal",
+            "sector": "Lead platform · South Florida",
+            "metric": "219",
+            "metricLabel": "qualified leads compiled from public permits",
+            "points": [
+              "Zero ad spend",
+              "Contractors notified the moment a lead arrives",
+              "Custom dashboard and CMS"
+            ]
+          }
+        ]
+      },
+      "process": {
+        "badge": "How it works",
+        "heading": "From first message to a site that sells — in four steps",
+        "lead": "No long meetings, no surprises. You always know what happens next.",
+        "steps": [
+          {
+            "title": "Free website check",
+            "text": "Send the form. Within one business day I review your current site and your competitors and tell you honestly what's holding you back."
+          },
+          {
+            "title": "One clear proposal",
+            "text": "A short call, then one document: what I'll build, when it's ready and one fixed price. You decide with everything on the table."
+          },
+          {
+            "title": "Design and build",
+            "text": "I work in short cycles and you follow progress on a preview link. Your current site stays live until the new one is ready."
+          },
+          {
+            "title": "Launch and growth",
+            "text": "The site goes live in your name, with SEO and lead tracking switched on. I stay available, with an optional monthly care plan."
+          }
+        ]
+      },
+      "testimonialsHeading": "What clients say",
+      "offer": {
+        "badge": "Zero risk to start",
+        "heading": "Start with a free website check",
+        "lead": "No obligation and no sales pitch — just an honest look at what your website could be doing for you.",
+        "items": [
+          "A review of your current site's speed, SEO and AI-search visibility",
+          "A comparison with your top local competitors",
+          "Concrete next steps, whether you work with me or not",
+          "One fixed price if you decide to go ahead"
+        ]
+      },
+      "faq": {
+        "badge": "Questions",
+        "heading": "Before you ask",
+        "items": [
+          {
+            "question": "How much does a website cost?",
+            "answer": "Every project gets one fixed price, agreed before any work starts — no hourly billing and no surprises. After the free check you get a clear proposal with the price and the timeline."
+          },
+          {
+            "question": "How long does it take?",
+            "answer": "That depends on the size of the site and how quickly the content is ready. The proposal names the timeline together with the price, so you know both before we start."
+          },
+          {
+            "question": "What happens to my current website and Google rankings?",
+            "answer": "Your current site stays live until the new one is ready. Your address, content and rankings move with you, and old pages are redirected so nothing that already ranks gets lost."
+          },
+          {
+            "question": "Do I own the website?",
+            "answer": "Completely. The code, the domain and the hosting are in your name from day one. If you ever want to leave, you take everything with you."
+          },
+          {
+            "question": "Do you work with businesses outside Serbia?",
+            "answer": "Yes. I work with clients in the US and across Europe, entirely by phone, video call and email. Time zones are rarely a problem."
+          },
+          {
+            "question": "Can you also run Google Ads or social media ads?",
+            "answer": "Yes — Google Ads and Facebook and Instagram campaigns, with conversion tracking that shows what every euro brings in."
+          }
+        ]
+      },
+      "form": {
+        "badge": "Free website check",
+        "heading": "Tell me about your business",
+        "lead": "Three short steps, under a minute. I reply within one business day.",
+        "stepLabels": [
+          "What you need",
+          "Your business",
+          "Your contact"
+        ],
+        "stepCount": "Step {current} of {total}",
+        "serviceLegend": "What do you need?",
+        "services": [
+          {
+            "value": "new-website",
+            "icon": "sparkles",
+            "label": "A new website"
+          },
+          {
+            "value": "redesign",
+            "icon": "refresh-cw",
+            "label": "A redesign of my site"
+          },
+          {
+            "value": "seo",
+            "icon": "search",
+            "label": "SEO and AI visibility"
+          },
+          {
+            "value": "ads",
+            "icon": "target",
+            "label": "Google or social ads"
+          },
+          {
+            "value": "other",
+            "icon": "message-circle",
+            "label": "Something else"
+          }
+        ],
+        "websiteLabel": "Current website (if you have one)",
+        "websitePlaceholder": "yourbusiness.com",
+        "businessLabel": "Business type and location",
+        "businessPlaceholder": "e.g. tree service in Miami, dentist in Novi Sad",
+        "timelineLegend": "When would you like to start?",
+        "timelines": [
+          {
+            "value": "asap",
+            "label": "As soon as possible"
+          },
+          {
+            "value": "1-3-months",
+            "label": "In 1–3 months"
+          },
+          {
+            "value": "exploring",
+            "label": "Just exploring"
+          }
+        ],
+        "budgetLabel": "Approximate budget (optional)",
+        "budgets": [
+          {
+            "value": "",
+            "label": "Prefer not to say"
+          },
+          {
+            "value": "under-1000",
+            "label": "Under €1,000"
+          },
+          {
+            "value": "1000-3000",
+            "label": "€1,000 – €3,000"
+          },
+          {
+            "value": "3000-7000",
+            "label": "€3,000 – €7,000"
+          },
+          {
+            "value": "7000-plus",
+            "label": "€7,000+"
+          }
+        ],
+        "nameLabel": "Your name",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone (optional)",
+        "messageLabel": "Anything else I should know? (optional)",
+        "next": "Continue",
+        "back": "Back",
+        "submit": "Get my free check",
+        "sending": "Sending…",
+        "chooseService": "Choose what you need to continue.",
+        "required": "Please fill in your name and a valid email.",
+        "privacy": "Your details are used only to reply to you. No newsletters, no sharing.",
+        "promise": "Reply within one business day",
+        "successTitle": "Thank you — your request is in!",
+        "successText": "I'll review your website and reply within one business day with honest, concrete next steps. Keep an eye on your inbox.",
+        "error": "Something went wrong. Please try again, or email me directly.",
+        "summaryService": "Service",
+        "summaryWebsite": "Website",
+        "summaryBusiness": "Business",
+        "summaryTimeline": "Timeline",
+        "summaryBudget": "Budget"
+      },
+      "final": {
+        "heading": "Ready for a website that works as hard as you do?",
+        "text": "The check is free and there's no obligation. The worst case: you learn exactly what to fix.",
+        "cta": "Get my free website check"
+      },
+      "footer": "Fast websites, SEO and lead generation for local businesses.",
+      "mobileCta": "Free website check"
+    },
     "about": {
       "meta": {
         "title": "Over",

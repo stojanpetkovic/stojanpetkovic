@@ -1,0 +1,663 @@
+---
+/**
+ * LandingPageView — the conversion landing page (`/start`, `/<locale>/start`).
+ *
+ * Built for paid traffic and direct links: one goal, the free website check.
+ * So it carries no navigation, no language switcher and no link that leaves
+ * the page — the logo is not a link, every button scrolls to the form, and
+ * the footer is a line of text. It renders straight into BaseLayout rather
+ * than through a layout with the site header and footer.
+ *
+ * The page argues in the order a sceptical visitor reads: what you get, what
+ * is wrong with most sites, what is different here, proof from live client
+ * projects, how the work runs, what clients say, a zero-risk offer, the usual
+ * objections, and only then the form. Copy lives in `pages.landing.*`.
+ *
+ * It is noindex and kept out of the sitemap: it repeats the services page for
+ * ad traffic and should not compete with it in search.
+ */
+import { Image } from 'astro:assets';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Input from '@/components/ui/form/Input/Input.astro';
+import Textarea from '@/components/ui/form/Textarea/Textarea.astro';
+import Select from '@/components/ui/form/Select/Select.astro';
+import Accordion from '@/components/ui/overlay/Accordion/Accordion.astro';
+import siteConfig from '@/config/site.config';
+import { t, tData, defaultLocale } from '@/i18n';
+import { getSiteName } from '@/lib/site-name';
+import { contactConfigured } from '@/lib/email';
+import stojanAvatar from '@/assets/profile/stojan-avatar.webp';
+import treeJawsImg from '@/assets/projects/tree-jaws-hero-dark.webp';
+import ericEnImg from '@/assets/projects/eric-dental-centar-home-label-en.webp';
+import ericSrImg from '@/assets/projects/eric-dental-centar-home-label-sr.webp';
+import mahaloImg from '@/assets/projects/mahalo-hero.webp';
+import sfImg from '@/assets/projects/sf-tree-removal-home.webp';
+
+interface Props {
+  locale?: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+
+interface IconItem { icon: string; title: string; text: string }
+interface Case { client: string; sector: string; metric: string; metricLabel: string; points: string[] }
+interface Option { value: string; label: string; icon?: string }
+interface Testimonial { quote: string; name: string; role: string }
+
+const L = (key: string) => t(`pages.landing.${key}`, locale);
+const D = <T,>(key: string) => tData<T>(`pages.landing.${key}`, locale)!;
+
+const siteName = getSiteName(locale);
+const trust = D<{ value: string; label: string }[]>('hero.trust');
+const problems = D<IconItem[]>('problem.items');
+const solutions = D<IconItem[]>('solution.items');
+const cases = D<Case[]>('results.cases');
+const steps = D<{ title: string; text: string }[]>('process.steps');
+const offerItems = D<string[]>('offer.items');
+const faqItems = D<{ question: string; answer: string }[]>('faq.items');
+const testimonials = tData<{ items: Testimonial[] }>('pages.home.testimonials', locale)!.items;
+const form = D<{
+  stepLabels: string[];
+  services: Option[];
+  timelines: Option[];
+  budgets: Option[];
+}>('form');
+
+// One image per case, in the order the copy lists them. The Erić screenshot
+// carries a before/after label in the page's own language.
+const caseImages = [treeJawsImg, locale === 'sr' ? ericSrImg : ericEnImg, mahaloImg, sfImg];
+const clientNames = [...cases.map((c) => c.client), 'Valena Apartmani'];
+
+const unconfigured = !contactConfigured && !import.meta.env.DEV;
+const year = new Date().getFullYear();
+---
+
+<BaseLayout title={L('meta.title')} description={L('meta.description')} noindex nofollow>
+  <!-- Header: the brand and one action. No navigation, no language switch,
+       and the logo is deliberately not a link. -->
+  <header slot="header" class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+    <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+      <span class="flex items-center gap-2">
+        <img src={siteConfig.branding.logo.image} alt="" width="32" height="32" class="h-8 w-8 rounded-[6px]" />
+        {/* Below 360px the name and the button do not fit side by side; the
+            logo alone carries the brand there. */}
+        <span class="font-display text-lg font-bold tracking-tight text-brand-700 dark:text-foreground whitespace-nowrap max-[359px]:sr-only">{siteName}</span>
+      </span>
+      <Button href="#form" size="sm" class="cta-btn-brand gap-1.5 whitespace-nowrap">
+        {L('header.cta')}
+        <Icon name="arrow-down" size="sm" />
+      </Button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="lp-hero relative overflow-hidden bg-background-secondary pt-12 pb-16 sm:pt-16 lg:pt-20 lg:pb-24">
+    <div class="lp-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+      <div class="text-center lg:text-left">
+        <Badge variant="brand" pill pulse>{L('hero.badge')}</Badge>
+        <h1 class="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
+          {L('hero.titleLead')} <span class="text-brand-500">{L('hero.titleHighlight')}</span>
+        </h1>
+        <p class="mx-auto mt-5 max-w-xl text-lg text-foreground-muted lg:mx-0 text-pretty">{L('hero.description')}</p>
+        <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+          <Button href="#form" size="lg" class="cta-btn-brand w-full gap-2 sm:w-auto">
+            {L('hero.primary')}
+            <Icon name="arrow-right" size="sm" />
+          </Button>
+          <Button href="#results" size="lg" variant="outline" class="w-full sm:w-auto">{L('hero.secondary')}</Button>
+        </div>
+        <dl class="mt-10 grid grid-cols-3 gap-3 sm:gap-6">
+          {trust.map((item) => (
+            <div class="rounded-xl border border-border bg-background p-3 text-center shadow-sm sm:p-4 lg:text-left">
+              <dt class="sr-only">{item.label}</dt>
+              <dd class="font-display text-2xl font-bold text-brand-600 dark:text-brand-400 sm:text-3xl">{item.value}</dd>
+              <dd class="mt-1 text-xs leading-snug text-foreground-muted sm:text-sm">{item.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <div class="relative mx-auto w-full max-w-sm lg:max-w-none">
+        <div class="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-brand-500/25 blur-3xl" aria-hidden="true"></div>
+        <div class="rounded-3xl border border-brand-400/30 bg-background/60 p-2 shadow-2xl shadow-brand-500/20 backdrop-blur-md">
+          <Image
+            src={stojanAvatar}
+            alt={L('hero.imageAlt')}
+            class="h-auto w-full rounded-2xl"
+            widths={[320, 480, 640]}
+            sizes="(min-width: 1024px) 26rem, 80vw"
+            priority
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client names: plain text, no links out. -->
+  <section class="border-y border-border bg-background py-6" aria-label={L('clients.label')}>
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <p class="text-center text-xs font-semibold uppercase tracking-widest text-foreground-subtle">{L('clients.label')}</p>
+      <ul class="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+        {clientNames.map((name) => (
+          <li class="font-display text-base font-bold text-foreground-muted sm:text-lg">{name}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Problem -->
+  <section class="bg-background py-[var(--space-section-md)]">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <Badge variant="default" pill>{L('problem.badge')}</Badge>
+        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{L('problem.heading')}</h2>
+        <p class="mt-4 text-lg text-foreground-muted text-pretty">{L('problem.lead')}</p>
+      </div>
+      <div class="mt-12 grid gap-5 sm:grid-cols-2">
+        {problems.map((item) => (
+          <div class="flex gap-4 rounded-2xl border border-border bg-background-secondary p-6">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
+              <Icon name={item.icon} size="md" />
+            </span>
+            <div>
+              <h3 class="font-display text-lg font-bold text-foreground">{item.title}</h3>
+              <p class="mt-1.5 text-foreground-muted">{item.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="bg-background-secondary py-[var(--space-section-md)] border-y border-border">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <Badge variant="brand" pill>{L('solution.badge')}</Badge>
+        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{L('solution.heading')}</h2>
+        <p class="mt-4 text-lg text-foreground-muted text-pretty">{L('solution.lead')}</p>
+      </div>
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {solutions.map((item) => (
+          <div class="rounded-2xl border border-border bg-background p-6 shadow-sm">
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400">
+              <Icon name={item.icon} size="md" />
+            </span>
+            <h3 class="mt-4 font-display text-lg font-bold text-foreground">{item.title}</h3>
+            <p class="mt-1.5 text-foreground-muted">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Results from client projects -->
+  <section id="results" class="scroll-mt-20 bg-background py-[var(--space-section-md)]">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <Badge variant="brand" pill>{L('results.badge')}</Badge>
+        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{L('results.heading')}</h2>
+        <p class="mt-4 text-lg text-foreground-muted text-pretty">{L('results.lead')}</p>
+      </div>
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        {cases.map((item, i) => (
+          <article class="overflow-hidden rounded-2xl border border-border bg-background shadow-md">
+            <Image
+              src={caseImages[i]}
+              alt={`${item.client} — ${item.sector}`}
+              class="aspect-[16/9] w-full object-cover object-top"
+              widths={[400, 640, 900]}
+              sizes="(min-width: 768px) 34rem, 100vw"
+            />
+            <div class="p-6">
+              <p class="text-sm font-medium text-foreground-subtle">{item.sector}</p>
+              <h3 class="font-display text-xl font-bold text-foreground">{item.client}</h3>
+              <p class="mt-4 font-display text-4xl font-bold text-brand-600 dark:text-brand-400">{item.metric}</p>
+              <p class="text-sm text-foreground-muted">{item.metricLabel}</p>
+              <ul class="mt-4 space-y-2">
+                {item.points.map((point) => (
+                  <li class="flex gap-2 text-foreground-muted">
+                    <Icon name="check" size="sm" class="mt-1 shrink-0 text-success" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="bg-background-secondary py-[var(--space-section-md)] border-y border-border">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="mx-auto max-w-2xl text-center">
+        <Badge variant="brand" pill>{L('process.badge')}</Badge>
+        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{L('process.heading')}</h2>
+        <p class="mt-4 text-lg text-foreground-muted text-pretty">{L('process.lead')}</p>
+      </div>
+      <ol class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        {steps.map((step, i) => (
+          <li class="relative rounded-2xl border border-border bg-background p-6 shadow-sm">
+            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 font-display text-lg font-bold text-white">{i + 1}</span>
+            <h3 class="mt-4 font-display text-lg font-bold text-foreground">{step.title}</h3>
+            <p class="mt-1.5 text-foreground-muted">{step.text}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="mt-10 text-center">
+        <Button href="#form" size="lg" class="cta-btn-brand gap-2">
+          {L('hero.primary')}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-background py-[var(--space-section-md)]">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <h2 class="text-center font-display text-3xl font-bold text-foreground md:text-4xl">{L('testimonialsHeading')}</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        {testimonials.map((item) => (
+          <figure class="rounded-2xl border border-border bg-background-secondary p-6 shadow-sm">
+            <div class="flex gap-0.5 text-warning" aria-hidden="true">
+              {[0, 1, 2, 3, 4].map(() => <Icon name="star" size="sm" fill="currentColor" />)}
+            </div>
+            <blockquote class="mt-4 text-lg text-foreground">“{item.quote}”</blockquote>
+            <figcaption class="mt-4">
+              <span class="block font-semibold text-foreground">{item.name}</span>
+              <span class="block text-sm text-foreground-muted">{item.role}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Offer + form -->
+  <section id="form" class="scroll-mt-16 bg-background-secondary py-[var(--space-section-md)] border-y border-border">
+    <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+      <div>
+        <Badge variant="brand" pill>{L('offer.badge')}</Badge>
+        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{L('offer.heading')}</h2>
+        <p class="mt-4 text-lg text-foreground-muted text-pretty">{L('offer.lead')}</p>
+        <ul class="mt-6 space-y-3">
+          {offerItems.map((item) => (
+            <li class="flex gap-3 text-foreground">
+              <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-success/15 text-success">
+                <Icon name="check" size="sm" />
+              </span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-8 flex items-center gap-4 rounded-2xl border border-border bg-background p-4">
+          <Image src={stojanAvatar} alt="" class="h-14 w-14 shrink-0 rounded-full object-cover" widths={[112]} sizes="56px" />
+          <div>
+            <p class="font-semibold text-foreground">{siteName}</p>
+            <p class="flex items-center gap-1.5 text-sm text-foreground-muted">
+              <Icon name="clock" size="sm" class="text-brand-500" />
+              {L('form.promise')}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- The step form. Without JavaScript every step shows at once and the
+           form posts as one; the script turns it into three steps. -->
+      <div class="rounded-3xl border border-border bg-background p-6 shadow-xl sm:p-8">
+        <p class="text-sm font-semibold text-brand-600 dark:text-brand-400">{L('form.badge')}</p>
+        <h3 class="mt-1 font-display text-2xl font-bold text-foreground">{L('form.heading')}</h3>
+        <p class="mt-2 text-foreground-muted">{L('form.lead')}</p>
+
+        <div class="lp-progress mt-6 hidden" data-progress>
+          <div class="flex items-center justify-between text-xs font-medium text-foreground-muted">
+            <span data-step-count data-template={L('form.stepCount')}></span>
+            <span data-step-name></span>
+          </div>
+          <div class="mt-2 h-1.5 overflow-hidden rounded-full bg-border">
+            <div class="h-full w-1/3 rounded-full bg-brand-500 transition-[width] duration-300" data-progress-bar></div>
+          </div>
+        </div>
+
+        <form
+          id="lp-form"
+          action="/api/contact"
+          method="POST"
+          class="mt-6"
+          data-lead-ignore
+          data-step-labels={JSON.stringify(form.stepLabels)}
+          data-msg-choose={L('form.chooseService')}
+          data-msg-required={L('form.required')}
+          data-msg-error={L('form.error')}
+          data-msg-sending={L('form.sending')}
+          novalidate
+        >
+          <input type="hidden" name="source" value="landing" />
+          <input type="hidden" name="subject" value={L('form.badge')} />
+
+          <fieldset class="lp-step space-y-4" data-step="1">
+            <legend class="mb-3 font-semibold text-foreground">{L('form.serviceLegend')}</legend>
+            <div class="grid gap-3 sm:grid-cols-2">
+              {form.services.map((option) => (
+                <label class="lp-option flex cursor-pointer items-center gap-3 rounded-xl border border-border bg-background-secondary p-4 transition-colors hover:border-brand-400">
+                  <input type="radio" name="service" value={option.value} class="sr-only" />
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-500/10 text-brand-600 dark:text-brand-400">
+                    <Icon name={option.icon ?? 'circle'} size="md" />
+                  </span>
+                  <span class="font-medium text-foreground">{option.label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset class="lp-step mt-8 space-y-4" data-step="2">
+            <legend class="sr-only">{form.stepLabels[1]}</legend>
+            <Input label={L('form.websiteLabel')} name="website" type="text" inputmode="url" placeholder={L('form.websitePlaceholder')} autocomplete="url" />
+            <Input label={L('form.businessLabel')} name="business" type="text" placeholder={L('form.businessPlaceholder')} />
+            <div>
+              <p class="mb-2 text-sm font-medium text-foreground">{L('form.timelineLegend')}</p>
+              <div class="flex flex-wrap gap-2">
+                {form.timelines.map((option, i) => (
+                  <label class="lp-chip cursor-pointer rounded-full border border-border bg-background-secondary px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-brand-400">
+                    <input type="radio" name="timeline" value={option.value} class="sr-only" checked={i === 0} />
+                    {option.label}
+                  </label>
+                ))}
+              </div>
+            </div>
+            <Select label={L('form.budgetLabel')} name="budget" options={form.budgets} />
+          </fieldset>
+
+          <fieldset class="lp-step mt-8 space-y-4" data-step="3">
+            <legend class="sr-only">{form.stepLabels[2]}</legend>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <Input label={L('form.nameLabel')} name="name" type="text" required autocomplete="name" />
+              <Input label={L('form.emailLabel')} name="email" type="email" required autocomplete="email" />
+            </div>
+            <Input label={L('form.phoneLabel')} name="phone" type="tel" autocomplete="tel" />
+            <Textarea label={L('form.messageLabel')} name="message" rows={3} />
+            <div class="hidden" aria-hidden="true">
+              <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
+            </div>
+          </fieldset>
+
+          <p class="mt-4 hidden text-sm text-destructive" role="alert" data-form-error></p>
+
+          <div class="mt-8 flex items-center justify-between gap-3">
+            <Button type="button" variant="ghost" class="lp-back lp-off gap-1.5" data-back>
+              <Icon name="arrow-left" size="sm" />
+              {L('form.back')}
+            </Button>
+            <Button type="button" class="lp-next lp-off ml-auto cta-btn-brand gap-1.5" data-next>
+              {L('form.next')}
+              <Icon name="arrow-right" size="sm" />
+            </Button>
+            <Button type="submit" size="lg" class="ml-auto cta-btn-brand gap-2" data-submit disabled={unconfigured}>
+              {L('form.submit')}
+              <Icon name="send" size="sm" />
+            </Button>
+          </div>
+
+          <p class="mt-5 flex items-start gap-2 text-xs text-foreground-subtle">
+            <Icon name="lock" size="xs" class="mt-0.5 shrink-0" />
+            {L('form.privacy')}
+          </p>
+        </form>
+
+        <div class="hidden py-6 text-center" data-success role="status">
+          <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-success/15 text-success">
+            <Icon name="check" size="lg" />
+          </span>
+          <h3 class="mt-4 font-display text-2xl font-bold text-foreground">{L('form.successTitle')}</h3>
+          <p class="mt-2 text-foreground-muted">{L('form.successText')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-background py-[var(--space-section-md)]">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6">
+      <div class="text-center">
+        <Badge variant="default" pill>{L('faq.badge')}</Badge>
+        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl">{L('faq.heading')}</h2>
+      </div>
+      <Accordion
+        class="mt-10"
+        variant="card"
+        exclusive
+        items={faqItems.map((item) => ({ title: item.question, content: item.answer }))}
+      />
+    </div>
+  </section>
+
+  <!-- Final call to action -->
+  <section class="pb-[var(--space-section-md)]">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="lp-final relative overflow-hidden rounded-3xl px-6 py-14 text-center sm:py-20">
+        <h2 class="mx-auto max-w-2xl font-display text-3xl font-bold text-white md:text-4xl text-balance">{L('final.heading')}</h2>
+        <p class="mx-auto mt-4 max-w-xl text-lg text-white/85">{L('final.text')}</p>
+        <Button href="#form" size="lg" variant="secondary" class="mt-8 gap-2">
+          {L('final.cta')}
+          <Icon name="arrow-up" size="sm" />
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <footer slot="footer" class="border-t border-border bg-background py-8 pb-24 md:pb-8">
+    <p class="mx-auto max-w-6xl px-4 text-center text-sm text-foreground-muted sm:px-6">
+      © {year} {siteName} · {L('footer')}
+    </p>
+  </footer>
+
+  <!-- Phones: the action stays in reach while reading. Hidden once the form
+       itself is on screen. -->
+  <div class="lp-sticky fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur-md md:hidden" data-sticky-cta>
+    <Button href="#form" fullWidth class="cta-btn-brand gap-2">
+      {L('mobileCta')}
+      <Icon name="arrow-down" size="sm" />
+    </Button>
+  </div>
+</BaseLayout>
+
+<style>
+  .lp-grid {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--color-brand-500) 10%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in oklab, var(--color-brand-500) 10%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 30% 40%, #000 30%, transparent 75%);
+    mask-image: radial-gradient(ellipse at 30% 40%, #000 30%, transparent 75%);
+  }
+
+  .lp-final {
+    background: linear-gradient(180deg, var(--color-brand-500) -16%, var(--color-brand-900) 100%);
+  }
+
+  /* Chosen option cards and chips: the input is visually hidden, so the
+     label carries the checked state and the keyboard focus ring. */
+  .lp-option:has(input:checked),
+  .lp-chip:has(input:checked) {
+    border-color: var(--color-brand-500);
+    background-color: color-mix(in oklab, var(--color-brand-500) 10%, var(--color-background));
+    box-shadow: 0 0 0 1px var(--color-brand-500);
+  }
+  .lp-option:has(input:focus-visible),
+  .lp-chip:has(input:focus-visible) {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  /* Navigation buttons the current step does not use. `hidden` loses to the
+     Button's own display utility, so this class wins with !important. The
+     back and next buttons start hidden: without JavaScript the form is one
+     page with a single submit. */
+  :global(.lp-off) {
+    display: none !important;
+  }
+
+  /* Step mode, set by the script: only the current step shows. */
+  :global([data-steps-active]) .lp-step:not([data-current]) {
+    display: none;
+  }
+  :global([data-steps-active]) .lp-step {
+    margin-top: 0;
+  }
+
+  .lp-sticky {
+    transition: transform 200ms ease;
+  }
+  .lp-sticky[data-hidden] {
+    transform: translateY(110%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lp-sticky {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  type Gtag = (...args: unknown[]) => void;
+  type Fbq = (...args: unknown[]) => void;
+
+  function initLandingForm(): void {
+    const form = document.getElementById('lp-form') as HTMLFormElement | null;
+    if (!form || form.dataset.init) return;
+    form.dataset.init = 'true';
+
+    const steps = Array.from(form.querySelectorAll<HTMLElement>('.lp-step'));
+    const back = form.querySelector<HTMLButtonElement>('[data-back]')!;
+    const next = form.querySelector<HTMLButtonElement>('[data-next]')!;
+    const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+    const errorBox = form.querySelector<HTMLElement>('[data-form-error]')!;
+    const card = form.parentElement!;
+    const progress = card.querySelector<HTMLElement>('[data-progress]')!;
+    const bar = card.querySelector<HTMLElement>('[data-progress-bar]')!;
+    const count = card.querySelector<HTMLElement>('[data-step-count]')!;
+    const stepName = card.querySelector<HTMLElement>('[data-step-name]')!;
+    const success = card.querySelector<HTMLElement>('[data-success]')!;
+    const labels: string[] = JSON.parse(form.dataset.stepLabels || '[]');
+    const submitHTML = submit.innerHTML;
+    let current = 1;
+
+    form.setAttribute('data-steps-active', '');
+    progress.classList.remove('hidden');
+
+    function showError(text: string): void {
+      errorBox.textContent = text;
+      errorBox.classList.toggle('hidden', !text);
+    }
+
+    function render(): void {
+      steps.forEach((step) => step.toggleAttribute('data-current', Number(step.dataset.step) === current));
+      back.classList.toggle('lp-off', current === 1);
+      next.classList.toggle('lp-off', current === steps.length);
+      submit.classList.toggle('lp-off', current !== steps.length);
+      bar.style.width = `${(current / steps.length) * 100}%`;
+      count.textContent = (count.dataset.template || '')
+        .replace('{current}', String(current))
+        .replace('{total}', String(steps.length));
+      stepName.textContent = labels[current - 1] || '';
+      showError('');
+    }
+
+    function valid(step: number): boolean {
+      if (step === 1 && !form!.querySelector('input[name="service"]:checked')) {
+        showError(form!.dataset.msgChoose || '');
+        return false;
+      }
+      if (step === 3) {
+        const name = (form!.elements.namedItem('name') as HTMLInputElement).value.trim();
+        const email = form!.elements.namedItem('email') as HTMLInputElement;
+        if (name.length < 2 || !email.value.trim() || !email.checkValidity()) {
+          showError(form!.dataset.msgRequired || '');
+          return false;
+        }
+      }
+      return true;
+    }
+
+    function go(step: number): void {
+      current = step;
+      render();
+      const first = steps[current - 1].querySelector<HTMLElement>('input:not([type=hidden]), select, textarea');
+      first?.focus({ preventScroll: true });
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    next.addEventListener('click', () => {
+      if (valid(current)) go(current + 1);
+    });
+    back.addEventListener('click', () => go(current - 1));
+
+    // Choosing a service is the whole of step one, so it moves on by itself.
+    form.querySelectorAll<HTMLInputElement>('input[name="service"]').forEach((input) => {
+      input.addEventListener('change', () => {
+        if (current === 1) window.setTimeout(() => go(2), 180);
+      });
+    });
+
+    // Enter in a text field advances instead of submitting an unfinished form.
+    form.addEventListener('keydown', (e) => {
+      const target = e.target as HTMLElement;
+      if (e.key === 'Enter' && target.tagName === 'INPUT' && current < steps.length) {
+        e.preventDefault();
+        if (valid(current)) go(current + 1);
+      }
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!valid(1)) return go(1);
+      if (!valid(3)) return;
+
+      submit.disabled = true;
+      submit.textContent = form.dataset.msgSending || '…';
+      showError('');
+
+      try {
+        const response = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+        const data = await response.json();
+        if (!data.success) throw new Error('rejected');
+
+        // Conversion events for the ad platforms, when they are loaded.
+        const w = window as unknown as { gtag?: Gtag; fbq?: Fbq };
+        w.gtag?.('event', 'generate_lead', { form: 'landing' });
+        w.fbq?.('track', 'Lead');
+
+        form.classList.add('hidden');
+        progress.classList.add('hidden');
+        success.classList.remove('hidden');
+        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch {
+        showError(form.dataset.msgError || '');
+        submit.disabled = false;
+        submit.innerHTML = submitHTML;
+      }
+    });
+
+    render();
+  }
+
+  function initStickyCta(): void {
+    const sticky = document.querySelector<HTMLElement>('[data-sticky-cta]');
+    const target = document.getElementById('form');
+    if (!sticky || !target || typeof IntersectionObserver === 'undefined') return;
+    new IntersectionObserver(
+      (entries) => sticky.toggleAttribute('data-hidden', entries.some((entry) => entry.isIntersecting)),
+      { rootMargin: '0px 0px -20% 0px' }
+    ).observe(target);
+  }
+
+  initLandingForm();
+  initStickyCta();
+</script>

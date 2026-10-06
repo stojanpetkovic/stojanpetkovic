@@ -1,0 +1,14 @@
+---
+import LandingPageView from '@/components/pages/views/LandingPageView.astro';
+import { getSecondaryLocales } from '@/i18n';
+
+// Locale-prefixed landing page (`/<locale>/start`). The page itself offers no
+// way to switch language: each ad points at the version in its own language.
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<LandingPageView locale={locale} />

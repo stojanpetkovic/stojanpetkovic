@@ -444,16 +444,19 @@ export default defineConfig({
     // each page with its translation wherever the two share a path. Posts
     // whose translation lives at another slug are paired by the hreflang tags
     // in each page's <head>, which the sitemap cannot see.
-    sitemap(
-      i18nConfig.enabled && i18nConfig.locales.length > 1
+    sitemap({
+      // The /start landing page is for ad traffic and is noindex; it stays out
+      // of the sitemap so search engines are not pointed at it.
+      filter: (page) => !/\/start\/?$/.test(new URL(page).pathname),
+      ...(i18nConfig.enabled && i18nConfig.locales.length > 1
         ? {
             i18n: {
               defaultLocale: i18nConfig.defaultLocale,
               locales: Object.fromEntries(i18nConfig.locales.map((l) => [l, l])),
             },
           }
-        : {}
-    ),
+        : {}),
+    }),
     icon(),
     siteUrlCheck(),
     pagefind(),

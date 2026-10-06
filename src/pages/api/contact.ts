@@ -18,13 +18,36 @@ const escapeHtml = (value: string): string =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
-const contactSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters').max(100),
-  email: z.email('Please enter a valid email address'),
-  subject: z.string().max(200).optional(),
-  message: z.string().min(10, 'Message must be at least 10 characters').max(5000),
-  honeypot: z.string().max(0), // Anti-spam: must be empty
-});
+/**
+ * The contact page sends name, email, subject and message. The landing page's
+ * step form adds what it asks along the way — the service, the visitor's site
+ * and business, timeline, budget and phone — and lets the message be empty,
+ * since by then the choices say what the visitor wants. A message is still
+ * required whenever no service was chosen, so the plain contact form keeps its
+ * rule.
+ */
+const contactSchema = z
+  .object({
+    name: z.string().min(2, 'Name must be at least 2 characters').max(100),
+    email: z.email('Please enter a valid email address'),
+    subject: z.string().max(200).optional(),
+    message: z.string().max(5000).optional(),
+    phone: z.string().max(40).optional(),
+    website: z.string().max(200).optional(),
+    business: z.string().max(200).optional(),
+    service: z.string().max(40).optional(),
+    timeline: z.string().max(40).optional(),
+    budget: z.string().max(40).optional(),
+    source: z.string().max(40).optional(),
+    honeypot: z.string().max(0), // Anti-spam: must be empty
+  })
+  .refine((d) => Boolean(d.service) || (d.message ?? '').trim().length >= 10, {
+    message: 'Message must be at least 10 characters',
+    path: ['message'],
+  });
+
+/** Optional fields, in the order they are listed in the notification email. */
+const EXTRA_FIELDS = ['service', 'website', 'business', 'timeline', 'budget', 'phone', 'source'] as const;
 
 /**
  * Hands the message to the lead admin as a lead from this site, so it arrives
@@ -81,6 +104,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       subject: formData.get('subject')?.toString() || '',
       message: formData.get('message')?.toString() || '',
       honeypot: formData.get('honeypot')?.toString() || '',
+      ...Object.fromEntries(EXTRA_FIELDS.map((key) => [key, formData.get(key)?.toString() || ''])),
     };
 
     // Validate
@@ -115,7 +139,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
         name: result.data.name,
         email: result.data.email,
         subject: result.data.subject ?? '',
-        message: result.data.message,
+        message: result.data.message ?? '',
+        ...Object.fromEntries(EXTRA_FIELDS.map((key) => [key, result.data[key] ?? ''])),
       }).filter(([, value]) => value)
     );
     if (await deliverAsLead(request, clientAddress, fields)) {
@@ -153,8 +178,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       html: `
         <p><strong>Name:</strong> ${escapeHtml(result.data.name)}</p>
         <p><strong>Email:</strong> ${escapeHtml(result.data.email)}</p>
+        ${EXTRA_FIELDS.filter((key) => result.data[key])
+          .map((key) => `<p><strong>${key}:</strong> ${escapeHtml(result.data[key] ?? '')}</p>`)
+          .join('')}
         <p><strong>Message:</strong></p>
-        <p>${escapeHtml(result.data.message).replace(/\n/g, '<br>')}</p>
+        <p>${escapeHtml(result.data.message ?? '').replace(/\n/g, '<br>')}</p>
       `,
     });
 
