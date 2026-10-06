@@ -1,5 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
 const svgs = import.meta.glob<string>('/src/assets/blog/*.svg', { query: '?raw', import: 'default', eager: true });
+const avatarFiles = import.meta.glob<{ default: ImageMetadata }>('/src/assets/blog/avatars/*.png', { eager: true });
 
 interface Props {
   slug: string;
@@ -8,6 +12,20 @@ interface Props {
 
 const { slug, title } = Astro.props;
 const svgContent = svgs[`/src/assets/blog/${slug}.svg`] ?? '';
+
+/**
+ * A cover can feature the author's avatar standing beside its title. The
+ * artwork names it on its root element — `<svg data-avatar="suit" …>` — so the
+ * choice travels with the cover: every card, hero and translation that shows
+ * this cover shows the same figure, with nothing to thread through
+ * frontmatter. The SVG itself leaves the right of the frame clear for it.
+ *
+ * The figure is a raster image, so it goes through astro:assets beside the
+ * inline SVG rather than inside it. It is decorative: the host's aria-label
+ * already names the cover.
+ */
+const avatarKey = svgContent.match(/^<svg[^>]*\sdata-avatar="([a-z-]+)"/)?.[1];
+const avatar = avatarKey ? avatarFiles[`/src/assets/blog/avatars/${avatarKey}.png`]?.default : undefined;
 
 /**
  * Where the gradient's two stops sit, in the rect's own coordinates.
@@ -52,13 +70,25 @@ const stopFoot = +(1 - stopTop).toFixed(4);
         </linearGradient>
       </defs>
     </svg>
-    <div
-      class="svg-host"
-      role="img"
-      aria-label={title}
-      style={`--cover-bg: url(#blog-grad-${slug})`}
-      set:html={svgContent}
-    />
+    <div class="cover-frame">
+      <div
+        class="svg-host"
+        role="img"
+        aria-label={title}
+        style={`--cover-bg: url(#blog-grad-${slug})`}
+        set:html={svgContent}
+      />
+      {avatar && (
+        <Image
+          src={avatar}
+          alt=""
+          aria-hidden="true"
+          class="cover-avatar"
+          widths={[120, 240, 400]}
+          sizes="(min-width: 1024px) 200px, 20vw"
+        />
+      )}
+    </div>
   </>
 )}
 
@@ -97,6 +127,26 @@ const stopFoot = +(1 - stopTop).toFixed(4);
 
   .svg-host {
     position: relative;
+  }
+
+  .cover-frame {
+    position: relative;
+  }
+
+  /* Standing on the frame's bottom edge in the right quarter, turned toward
+     the title the artwork centres to its left. Sized from the frame's height,
+     so it keeps its place from a card to an article hero. Above the grid
+     overlay (the host's ::after), which belongs to the background. Reached
+     through :global because <Image> renders outside this file's scope. */
+  .cover-frame :global(.cover-avatar) {
+    position: absolute;
+    right: 5%;
+    bottom: 0;
+    z-index: 1;
+    height: 94%;
+    width: auto;
+    pointer-events: none;
+    filter: drop-shadow(0 12px 18px rgb(0 0 0 / 0.35));
   }
 
   /* One rule, both modes. A flat fill for light and another for dark would sit
