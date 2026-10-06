@@ -331,7 +331,7 @@
             "metricLabel": "Lighthouse ocena posle prelaska sa WordPress-a",
             "points": [
               "Prebačen sa WordPress-a na Astro — stranice se otvaraju odmah, čak i na slaboj 4G vezi",
-              "Lighthouse: Performance 91 · Accessibility 96 · Best Practices 96 · SEO 100",
+              "176 stranica i 108 lokalnih vodiča, napravljenih da kotiraju u lokalnoj pretrazi",
               "1.010 praćenih upita, od toga 732 telefonska poziva",
               "Ocena 4.9★ iz 427 Google recenzija"
             ]
@@ -343,7 +343,7 @@
             "metricLabel": "Lighthouse ocena — uz $0 potrošeno na oglase",
             "points": [
               "Prebačen sa WordPress-a na Astro — statičke stranice umesto gomile plugina",
-              "Lighthouse: Performance 87 · Accessibility 91 · Best Practices 100 · SEO 100",
+              "Svaki upit stiže vlasniku na email istog trenutka — bez portala koji treba proveravati",
               "Rast samo iz pretrage, bez plaćenih oglasa",
               "Google ocena 5.0, 18 stranica za oblasti i blog koji raste"
             ]
