@@ -134,8 +134,8 @@ const stopFoot = +(1 - stopTop).toFixed(4);
   }
 
   /* Standing on the frame's bottom edge in the left quarter, turned toward
-     the title the artwork centres to its right. The source figures face the
-     viewer's left, so they are mirrored to face the title. Sized from the frame's height,
+     the title the artwork centres to its right. The source figures already
+     face the viewer's right, so they are drawn as they are. Sized from the frame's height,
      so it keeps its place from a card to an article hero. Above the grid
      overlay (the host's ::after), which belongs to the background. Reached
      through :global because <Image> renders outside this file's scope. */
@@ -143,7 +143,6 @@ const stopFoot = +(1 - stopTop).toFixed(4);
     position: absolute;
     left: 5%;
     bottom: 0;
-    transform: scaleX(-1);
     z-index: 1;
     height: 94%;
     width: auto;
