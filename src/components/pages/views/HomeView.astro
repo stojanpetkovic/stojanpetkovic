@@ -163,7 +163,13 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
        the body this colour while the hero covers that edge, and clears it
        after. Same value as --bar-color in global.css, which ends the hero's
        gradient. See `paintBody` in BaseLayout.astro. -->
-  <Hero layout="split" imagePosition="left" size="xl" class="hero-dark-gradient" fullHeight showLetterGlitch data-header-flip-anchor data-bar-color="#000">
+  {/* Below lg the photo stacks above the copy, and the xl hero's top padding
+      (page-top + space-16, sized for a desktop headline) left far more room
+      under the floating header than between the photo and the badge. The
+      header pill ends 5rem from the top, so 5rem plus the grid's own gap
+      puts the photo exactly one --space-section-gap below it, matching the
+      gap under the photo. */}
+  <Hero layout="split" imagePosition="left" size="xl" class="hero-dark-gradient max-lg:pt-[calc(5rem+var(--space-section-gap))]" fullHeight showLetterGlitch data-header-flip-anchor data-bar-color="#000">
     {/* Framed like the header's own glass pill (bg-white/[0.08] + border
         white/[0.1]) so the treatment matches the rest of this hero rather
         than introducing a new material. */}
