@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import LetterGlitch from '@/components/effects/LetterGlitch';
+import avatarPoint from '@/assets/blog/avatars/hoodie-point.png';
 
 interface Props {
   maxWidth?: '6xl' | '7xl';
@@ -24,7 +26,20 @@ const maxWidthClass = maxWidth === '7xl' ? 'max-w-7xl' : 'max-w-6xl';
       <div class="absolute inset-0" aria-hidden="true">
         <LetterGlitch client:visible outerVignette />
       </div>
-      <div class="relative z-10 px-6 py-16 sm:py-24" data-reveal>
+      {/* The author pointing at the copy, standing on the band's bottom edge to the
+          left of the glass card and turned toward it. Desktop only: below lg
+          the card fills the band. From lg the content takes a left inset
+          (lg:pl-80) so the card never covers the figure. Decorative — the heading carries the
+          message. Above the canvas, under the card. */}
+      <Image
+        src={avatarPoint}
+        alt=""
+        aria-hidden="true"
+        class="cta-avatar pointer-events-none absolute bottom-0 left-[4%] z-[5] hidden h-[82%] w-auto lg:block"
+        widths={[260, 520]}
+        sizes="260px"
+      />
+      <div class="relative z-10 px-6 py-16 sm:py-24 lg:pl-80" data-reveal>
         <div class="mx-auto max-w-2xl rounded-2xl border border-white/10 bg-brand-900/85 px-6 py-10 sm:px-10 text-center shadow-xl backdrop-blur-md">
           <slot />
         </div>
