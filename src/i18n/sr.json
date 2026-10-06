@@ -374,6 +374,21 @@
         ]
       },
       "testimonialsHeading": "Šta kažu klijenti",
+      "ratings": {
+        "label": "Google ocene firmi čije sajtove sam napravio",
+        "items": [
+          {
+            "client": "Tree Jaws",
+            "value": "4.9",
+            "text": "iz 427 Google recenzija"
+          },
+          {
+            "client": "Mahalo Tree Service",
+            "value": "5.0",
+            "text": "Google ocena"
+          }
+        ]
+      },
       "offer": {
         "badge": "Bez rizika na početku",
         "heading": "Kreni od besplatne provere sajta",

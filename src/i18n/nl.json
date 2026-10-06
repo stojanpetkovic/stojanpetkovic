@@ -374,6 +374,21 @@
         ]
       },
       "testimonialsHeading": "What clients say",
+      "ratings": {
+        "label": "Google ratings of the businesses whose websites I built",
+        "items": [
+          {
+            "client": "Tree Jaws",
+            "value": "4.9",
+            "text": "from 427 Google reviews"
+          },
+          {
+            "client": "Mahalo Tree Service",
+            "value": "5.0",
+            "text": "Google rating"
+          }
+        ]
+      },
       "offer": {
         "badge": "Zero risk to start",
         "heading": "Start with a free website check",
