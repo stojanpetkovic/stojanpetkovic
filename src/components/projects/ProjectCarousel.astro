@@ -100,7 +100,7 @@ const posters = await Promise.all(
     <div class="mt-4 flex items-center justify-between gap-3">
       <button
         type="button"
-        class="carousel-nav inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border-strong bg-background text-foreground shadow-sm transition-colors hover:border-brand-500 hover:bg-background-secondary hover:text-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+        class="carousel-nav inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border-strong bg-background text-foreground shadow-sm transition-colors hover:border-brand-500 hover:bg-background-secondary hover:text-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
         data-carousel-prev
         aria-label={t('projects.carouselPreviousSlide', locale)}
         aria-controls={carouselId}
@@ -110,14 +110,18 @@ const posters = await Promise.all(
         </svg>
       </button>
 
-      <div class="flex items-center gap-3">
+      <div class="flex min-w-0 items-center gap-3">
         {/* The dot a visitor sees is 8px, which is far below the 24px minimum
             a touch target needs. The button carries the 24x24 target and the
             span carries the appearance, so the control is thumb-sized without
             drawing a thumb-sized dot. The row has no gap: the targets meet
             edge to edge rather than overlapping. */}
+        {/* Every dot keeps its 24px target, so a long gallery outgrows a
+            small phone: nine dots plus the counter and both arrows need more
+            than 320px. Past five slides the dots appear from sm up, and below
+            it the counter and the arrows (and a swipe) carry navigation. */}
         <div
-          class="flex items-center"
+          class:list={['items-center', slides.length > 5 ? 'hidden sm:flex' : 'flex']}
           role="tablist"
           aria-label={t('projects.carouselChooseSlide', locale)}
           data-carousel-dots
@@ -138,7 +142,7 @@ const posters = await Promise.all(
           ))}
         </div>
         <span
-          class="text-xs font-medium text-foreground-muted tabular-nums"
+          class="whitespace-nowrap text-xs font-medium text-foreground-muted tabular-nums"
           data-carousel-counter
           aria-hidden="true"
         >
@@ -148,7 +152,7 @@ const posters = await Promise.all(
 
       <button
         type="button"
-        class="carousel-nav inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border-strong bg-background text-foreground shadow-sm transition-colors hover:border-brand-500 hover:bg-background-secondary hover:text-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
+        class="carousel-nav inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border-strong bg-background text-foreground shadow-sm transition-colors hover:border-brand-500 hover:bg-background-secondary hover:text-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
         data-carousel-next
         aria-label={t('projects.carouselNextSlide', locale)}
         aria-controls={carouselId}

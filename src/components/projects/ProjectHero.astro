@@ -104,7 +104,11 @@ const locale = getLocaleFromPath(Astro.url.pathname);
       </div>
 
       <!-- Media column (carousel, single image, or branded placeholder) -->
-      <div class="animate-hero-slide-up [animation-delay:300ms]">
+      {/* min-w-0: a grid item's minimum width defaults to its content's, and
+          the carousel track is every slide side by side — without it the
+          single-column phone grid widened to the whole track and the image
+          ran off the screen. */}
+      <div class="min-w-0 animate-hero-slide-up [animation-delay:300ms]">
         {hasMedia ? (
           <ProjectCarousel slides={slides} label={`${title} screenshots`} />
         ) : (
