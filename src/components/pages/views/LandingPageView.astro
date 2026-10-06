@@ -55,6 +55,19 @@ const solutions = D<IconItem[]>('solution.items');
 const cases = D<Case[]>('results.cases');
 const steps = D<{ title: string; text: string }[]>('process.steps');
 const offerItems = D<string[]>('offer.items');
+const story = D<{
+  badge: string;
+  heading: string;
+  paragraphs: string[];
+  beforeTitle: string;
+  before: string[];
+  afterTitle: string;
+  after: string[];
+  quote: string;
+  author: string;
+  role: string;
+  imageAlt: string;
+}>('story');
 const ratings = D<{ label: string; items: { client: string; value: string; text: string }[] }>('ratings');
 const faqItems = D<{ question: string; answer: string }[]>('faq.items');
 // Only the quote from the two featured projects' owner: the page argues
@@ -224,6 +237,75 @@ const year = new Date().getFullYear();
         ))}
       </div>
       <p class="mt-8 text-center text-sm italic text-foreground-muted">{L('results.note')}</p>
+    </div>
+  </section>
+
+  <!-- Client story: the one section built to be felt rather than scanned.
+       A dark brand band, the real site beside the story, before and after,
+       and the client's own words. Every claim is from the Tree Jaws project
+       and Mirko's testimonial, with his consent. -->
+  <section class="bg-background py-[var(--space-section-md)]">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6">
+      <div class="lp-story relative overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-14">
+        <div class="lp-story-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+        <div class="relative grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
+          {/* On phones the story opens with its heading; the site and the quote follow it. */}
+          <div class="relative order-2 lg:order-none">
+            <div class="rotate-[-2deg] overflow-hidden rounded-2xl border border-white/15 shadow-2xl shadow-black/40">
+              <Image
+                src={treeJawsImg}
+                alt={story.imageAlt}
+                class="aspect-[4/3] w-full object-cover object-top"
+                widths={[480, 720, 960]}
+                sizes="(min-width: 1024px) 30rem, 100vw"
+              />
+            </div>
+            <figure class="relative -mt-10 ml-4 mr-4 rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur-md sm:ml-10 sm:mr-0">
+              <Icon name="quote" size="lg" class="text-brand-200" />
+              <blockquote class="mt-2 text-lg font-medium leading-snug text-white">{story.quote}</blockquote>
+              <figcaption class="mt-3 text-sm text-white/75">
+                <span class="font-semibold text-white">{story.author}</span> · {story.role}
+              </figcaption>
+            </figure>
+          </div>
+
+          <div>
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-100">
+              <Icon name="heart-handshake" size="sm" />
+              {story.badge}
+            </span>
+            <h2 class="mt-4 font-display text-3xl font-bold leading-tight text-white md:text-4xl text-balance">{story.heading}</h2>
+            <div class="mt-5 space-y-4 text-lg leading-relaxed text-white/85">
+              {story.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-black/20 p-5">
+                <p class="text-xs font-bold uppercase tracking-widest text-white/60">{story.beforeTitle}</p>
+                <ul class="mt-3 space-y-2">
+                  {story.before.map((item) => (
+                    <li class="flex gap-2 text-white/75">
+                      <Icon name="x" size="sm" class="mt-1 shrink-0 text-white/50" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="rounded-2xl border border-brand-300/40 bg-white/10 p-5">
+                <p class="text-xs font-bold uppercase tracking-widest text-brand-100">{story.afterTitle}</p>
+                <ul class="mt-3 space-y-2">
+                  {story.after.map((item) => (
+                    <li class="flex gap-2 font-medium text-white">
+                      <Icon name="check" size="sm" class="mt-1 shrink-0 text-brand-200" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -489,6 +571,21 @@ const year = new Date().getFullYear();
     background-size: 56px 56px;
     -webkit-mask-image: radial-gradient(ellipse at 30% 40%, #000 30%, transparent 75%);
     mask-image: radial-gradient(ellipse at 30% 40%, #000 30%, transparent 75%);
+  }
+
+  /* The story band runs from brand-600 to brand-900 corner to corner, a
+     darker, warmer field than the page around it, so it reads as its own
+     moment. White copy holds contrast across the whole ramp. */
+  .lp-story {
+    background: linear-gradient(135deg, var(--color-brand-600) 0%, var(--color-brand-900) 70%);
+  }
+  .lp-story-grid {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+    -webkit-mask-image: radial-gradient(ellipse at 70% 30%, #000 20%, transparent 75%);
+    mask-image: radial-gradient(ellipse at 70% 30%, #000 20%, transparent 75%);
   }
 
   .lp-final {
