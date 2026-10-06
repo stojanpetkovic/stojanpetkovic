@@ -13,7 +13,7 @@
  * The brand in the default locale. Other locales spell it in their own
  * dictionary (`site.name`); read it through `getSiteName(locale)`.
  */
-export const SITE_NAME = 'Mr.Petkovic';
+export const SITE_NAME = 'Mr. Petkovic';
 
 /**
  * An image to draw the favicons from instead of the letter monogram: a path

@@ -1,6 +1,6 @@
 # Lead admin (/admin)
 
-Private lead inbox and analytics for every site built by Mr.Petkovic,
+Private lead inbox and analytics for every site built by Mr. Petkovic,
 served from this site at `/admin`. The portfolio stays prerendered; only the
 admin pages and `/api/leads` render on demand (`prerender = false`).
 Supabase holds the data and the login, Resend sends the email, and the

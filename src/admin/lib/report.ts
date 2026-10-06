@@ -125,7 +125,7 @@ export const T = {
     noLeads: 'U ovom periodu nije bilo upita.',
     noData: 'Nema podataka.',
     rate: 'Stopa',
-    footer: 'Izveštaj pripremio Mr.Petković · stojanpetkovic.com',
+    footer: 'Izveštaj pripremio Mr. Petković · stojanpetkovic.com',
     notes:
       'Posetioci se broje bez kolačića: ista osoba se računa jednom dnevno. Posete po izvoru računaju se po prvoj stranici svake posete. Pozivi su klikovi na broj telefona, WhatsApp ili SMS na sajtu.',
     summary: (s: Summary) =>
@@ -164,7 +164,7 @@ export const T = {
     noLeads: 'There were no inquiries in this period.',
     noData: 'No data.',
     rate: 'Rate',
-    footer: 'Report prepared by Mr.Petkovic · stojanpetkovic.com',
+    footer: 'Report prepared by Mr. Petkovic · stojanpetkovic.com',
     notes:
       'Visitors are counted without cookies: the same person counts once per day. Visits by source are attributed to the first page of each visit. Calls are taps on the phone number, WhatsApp or text links on the website.',
     summary: (s: Summary) =>

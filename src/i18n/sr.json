@@ -1,9 +1,9 @@
 {
   "site": {
-    "name": "Mr.Petković"
+    "name": "Mr. Petković"
   },
   "llms": {
-    "summary": "Mr.Petković je freelance web developer iz Zrenjanina, Srbija, i radi sa klijentima iz celog sveta. Bavi se izradom brzih Astro sajtova po meri, sistema za prikupljanje upita i platformi zasnovanih na podacima, kao i SEO optimizacijom, GEO optimizacijom (vidljivost u AI pretrazi), Google Ads oglašavanjem i oglašavanjem na društvenim mrežama — najviše za lokalne uslužne firme, kao što su firme za usluge sa drvećem u Južnoj Floridi i mali biznisi u Srbiji. Svaki projekat ima jednu fiksnu cenu dogovorenu pre početka rada, a kod, domen i hosting su na ime klijenta od prvog dana."
+    "summary": "Mr. Petković je freelance web developer iz Zrenjanina, Srbija, i radi sa klijentima iz celog sveta. Bavi se izradom brzih Astro sajtova po meri, sistema za prikupljanje upita i platformi zasnovanih na podacima, kao i SEO optimizacijom, GEO optimizacijom (vidljivost u AI pretrazi), Google Ads oglašavanjem i oglašavanjem na društvenim mrežama — najviše za lokalne uslužne firme, kao što su firme za usluge sa drvećem u Južnoj Floridi i mali biznisi u Srbiji. Svaki projekat ima jednu fiksnu cenu dogovorenu pre početka rada, a kod, domen i hosting su na ime klijenta od prvog dana."
   },
   "nav": {
     "skipToContent": "Preskoči na sadržaj",
@@ -123,12 +123,12 @@
     "galleryNextImage": "Sledeća slika",
     "galleryPreviousImage": "Prethodna slika",
     "metaTitle": "Projekti",
-    "metaDescription": "Izdvojeni radovi — sajtovi, alati i platforme koje je napravio Mr.Petković.",
+    "metaDescription": "Izdvojeni radovi — sajtovi, alati i platforme koje je napravio Mr. Petković.",
     "heroBadge": "Portfolio",
     "heroDescription": "Sajtovi i platforme koje sam napravio za klijente.",
     "allProjects": "Svi projekti",
     "pageMetaTitle": "Projekti — strana {page}",
-    "pageMetaDescription": "Strana {page} od {total} — izdvojeni radovi, alati i platforme koje je napravio Mr.Petković.",
+    "pageMetaDescription": "Strana {page} od {total} — izdvojeni radovi, alati i platforme koje je napravio Mr. Petković.",
     "pageBadge": "Strana {page} od {total}",
     "tagMetaTitle": "#{tag} — Projekti",
     "tagMetaDescription": "Projekti na temu \"{tag}\".",
@@ -240,7 +240,7 @@
       },
       "hero": {
         "badge": "O meni",
-        "titleLead": "Mr.Petković",
+        "titleLead": "Mr.\u00a0Petković",
         "typingWords": ["Web developer", "Rešavam probleme", "Cloud i automatizacija", "Odluke na osnovu podataka", "Pazim na detalje"],
         "typingWordsMobile": ["Web developer", "Cloud i automatizacija", "Pazim na detalje"],
         "description": "Freelance web developer koji pravi brze, praktične sajtove i digitalne proizvode.",
@@ -664,7 +664,7 @@
       },
       "hero": {
         "badge": "Dostupan za nove projekte",
-        "titleLine1": "Mr.Petković",
+        "titleLine1": "Mr.\u00a0Petković",
         "titleLine2": "Web dizajner",
         "titleLine3": "i developer",
         "description": "Izrada sajtova, sistema za prikupljanje upita i platformi zasnovanih na podacima — na modernoj tehnologiji, sa fokusom na rezultate tvog biznisa.",
