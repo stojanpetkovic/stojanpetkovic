@@ -18,7 +18,7 @@ const svgContent = svgs[`/src/assets/blog/${slug}.svg`] ?? '';
  * artwork names it on its root element — `<svg data-avatar="suit" …>` — so the
  * choice travels with the cover: every card, hero and translation that shows
  * this cover shows the same figure, with nothing to thread through
- * frontmatter. The SVG itself leaves the right of the frame clear for it.
+ * frontmatter. The SVG itself leaves the left of the frame clear for it.
  *
  * The figure is a raster image, so it goes through astro:assets beside the
  * inline SVG rather than inside it. It is decorative: the host's aria-label
@@ -133,15 +133,17 @@ const stopFoot = +(1 - stopTop).toFixed(4);
     position: relative;
   }
 
-  /* Standing on the frame's bottom edge in the right quarter, turned toward
-     the title the artwork centres to its left. Sized from the frame's height,
+  /* Standing on the frame's bottom edge in the left quarter, turned toward
+     the title the artwork centres to its right. The source figures face the
+     viewer's left, so they are mirrored to face the title. Sized from the frame's height,
      so it keeps its place from a card to an article hero. Above the grid
      overlay (the host's ::after), which belongs to the background. Reached
      through :global because <Image> renders outside this file's scope. */
   .cover-frame :global(.cover-avatar) {
     position: absolute;
-    right: 5%;
+    left: 5%;
     bottom: 0;
+    transform: scaleX(-1);
     z-index: 1;
     height: 94%;
     width: auto;

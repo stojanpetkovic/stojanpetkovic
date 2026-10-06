@@ -10,10 +10,10 @@
   </style>
   <rect width="1200" height="630" class="bg"/>
   <!-- Lucide MapPin -->
-  <g transform="translate(435, 205) scale(5)" class="ico" opacity="0.9">
+  <g transform="translate(645, 205) scale(5)" class="ico" opacity="0.9">
     <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/>
   </g>
-  <text x="495" y="435" font-size="119" text-anchor="middle" letter-spacing="-4" class="txt">local seo</text>
+  <text x="705" y="435" font-size="119" text-anchor="middle" letter-spacing="-4" class="txt">local seo</text>
   <path d="M 36 60 L 36 36 L 60 36" class="cor"/>
   <path d="M 1140 36 L 1164 36 L 1164 60" class="cor"/>
   <path d="M 36 570 L 36 594 L 60 594" class="cor"/>
