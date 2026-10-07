@@ -1,16 +1,16 @@
 ---
 title: "CARETRANS Patient Transport"
 locale: en
-description: "A 24/7 medical transport company from Belgrade got a newer Astro, a full local SEO overhaul and call tracking on every page, without touching the tracking its marketing partner relies on."
+description: "A 24/7 medical transport company from Belgrade moved from a WordPress site with a handful of plain pages to a fast Astro site with 11 service pages, a 17-article blog built around search terms and locations, call tracking and full local SEO."
 url: "https://prevozpacijenatacaretrans.rs"
 tags: ["Astro", "SEO", "Client Work"]
 featured: true
 order: 4
 year: 2026
 client: "Sanitetski prevoz CARETRANS"
-role: "Development, SEO & Lead Tracking"
-services: ["Astro Upgrade", "Local SEO", "Structured Data", "Lead Tracking"]
-meta: ["Medical transport, Belgrade", "33 pages", "Lighthouse 95 · 96 · 100 · 100"]
+role: "Development, SEO & Content"
+services: ["WordPress to Astro", "Local SEO", "Blog & Content", "Lead Tracking"]
+meta: ["Medical transport, Belgrade", "WordPress → Astro", "33 pages, 17 articles", "Lighthouse 95 · 96 · 100 · 100"]
 icon: "ambulance"
 image: "../../../assets/projects/caretrans-home.webp"
 imageAlt: "The CARETRANS homepage: ambulances behind the headline Pouzdan sanitetski prevoz i prevoz pacijenata u zemlji i inostranstvu and a call button."
@@ -25,6 +25,8 @@ gallery:
     alt: "The price list for medical transport in Belgrade, across Serbia and in Europe, each with a call button."
   - src: "../../../assets/projects/caretrans-blog.webp"
     alt: "The blog: articles on health, care for bedridden people and spa treatment in Serbia."
+  - src: "../../../assets/projects/caretrans-article.webp"
+    alt: "A blog article: Koja oboljenja se leče u banjama Srbije, a guide to the conditions treated in Serbian spas."
   - src: "../../../assets/projects/caretrans-contact.webp"
     alt: "The contact page: available 24/7, every day of the year, with a tap-to-call phone number."
 ---
@@ -40,31 +42,47 @@ export const lighthouseScores = [
 
 ## The brief
 
-**CARETRANS** is a medical transport company from Belgrade, available **24/7, every day of the year**. It transports bedridden and less mobile patients across Serbia and brings patients home from Germany, Austria, Switzerland and Italy.
+**CARETRANS** is a medical transport company from Belgrade, available **24/7, every day of the year**. It transports bedridden and less mobile patients across Serbia, to the country's spas and brings patients home from Germany, Austria, Switzerland and Italy.
 
-The site already ran on Astro, but on an older version, and an external marketing partner manages its advertising and tracking through Google Tag Manager. The brief had three parts: **upgrade the site, add call tracking, and fix everything holding it back in local search**. And one firm rule: **the marketing partner's tracking stays exactly as it is**.
+The old site ran on **WordPress** and had **only a few plain pages**: no page per service, no content to rank for, and a slow load on the phones most people use when they urgently need transport. When someone needs an ambulance, they call **the first company whose site opens and tells them what they need to know**. The goal: a faster site that ranks for every service and location the company covers, and turns visits into calls.
 
-## Upgrade without breaking anything
+## From WordPress to Astro
 
-The site moved from **Astro 5 to Astro 7**. The old Tailwind integration doesn't support the new version, so Tailwind now builds directly. I compared the styles before and after the upgrade: they match class for class, so the site looks exactly as it did.
+The site was rebuilt in **Astro and Tailwind CSS** and ships as static HTML: no database, no plugins, nothing that has to be built on the server while the visitor waits. Pages open almost instantly, even on a weak mobile signal, which matters most to the people this site is for.
 
-The Google Tag Manager code wasn't touched. After the upgrade I checked all **33 pages**: the tag is on each one and fires the same way as before. Before any change, the whole site was saved as it was on the server, so every step can be undone.
+The site has since been upgraded to **Astro 7**, without a single visual change. An external marketing partner manages advertising through Google Tag Manager. That setup was left exactly as it was and checked on all 33 pages after every change.
+
+## From a few pages to 33
+
+Instead of a few general pages, every service has **its own page**, written for what people actually search for:
+
+- **Transport of bedridden patients**, **transport of sick people**, **medical transport** and **private ambulance**, all with Belgrade and 24/7 in the heading.
+- **Transport to spas** across Serbia.
+- **Four pages for patient transport from abroad**: Germany, Austria, Switzerland and Italy, where the diaspora searches for a way to bring a family member home.
+- A **price list** for Belgrade, Serbia and Europe, and a contact page that's available around the clock.
+
+## A blog built around keywords and locations
+
+The biggest addition is **a complete blog of 17 articles**, planned around what families search for before they call for transport. It covers four topics:
+
+- **Transport guides**: how to transport a sick patient, transporting bedridden patients, transport abroad and what an ambulance vehicle offers.
+- **Spas and destinations**: which conditions are treated in Serbian spas, plus guides to **Vrnjačka Banja, Prolom Banja and Atomska Banja**, with the distance from Belgrade, what is treated and how to get there safely.
+- **Health**: hypertension, low blood pressure, atherosclerosis, dementia, osteoporosis, rheumatic diseases and hip fractures in older people. These are the conditions behind most transport needs.
+- **Care**: looking after bedridden people and patients confined to bed.
+
+Every article leads to the service it relates to: the articles contain **about 80 links to the service pages**, so readers and Google alike move from a question to the service that answers it. Each article is marked up as a blog post with its date, image and author.
 
 ## Every call counted
 
-For a medical transport company **the phone is everything**: nobody fills in a form when they need an ambulance. That's why my lead tracking is now on every page and **counts each tap on the phone number**, with the page it came from. On the contact page the number wasn't even a link; now a single tap calls it.
+For a medical transport company **the phone is everything**: nobody fills in a form when they need an ambulance. That's why the phone number is in the header, the hero, the footer and a bar that appears on phones as soon as you scroll. My lead tracking is on every page and **counts each tap on the number**, with the page it came from, so it's clear which services and articles bring the calls.
 
 ## Local SEO
 
-The audit found problems that had been quietly costing positions:
-
-- **Two main headings on almost every page.** The company name in the header was marked as the main heading (H1). Now every page has exactly one, and it names the service and the city.
-- **Wrong canonical addresses.** One service page pointed Google to an address that doesn't exist, and all the others to addresses that redirect.
-- **Six broken links** between articles and services, and **four missing images**, including the banner on every service page and the logo.
-- The **FAQ** was rendered by JavaScript in the browser, so search engines and AI assistants may not have seen it. It's now plain HTML.
-- **Titles and descriptions** now name Belgrade, the 24/7 service and the phone number.
-
-On top of that, **structured data** now describes CARETRANS as a medical business in Belgrade, with its phone, 24/7 hours, the countries it serves and its social profiles. Every service and article has its own markup, the FAQ is marked up on the homepage, and the sitemap is generated automatically.
+- **One main heading per page**, naming the service and the city.
+- **Correct canonical addresses**, with no redirects and no links to pages that don't exist.
+- **Structured data** describes CARETRANS as a medical business in Belgrade, with its phone, 24/7 hours, the countries it serves and its social profiles. Every service has its own markup, and the FAQ is marked up on the homepage.
+- The **FAQ** is plain HTML, so search engines and AI assistants can read it.
+- **Titles and descriptions** name Belgrade, the 24/7 service and the phone number, and the sitemap is generated automatically.
 
 ## Results
 
@@ -72,4 +90,4 @@ On top of that, **structured data** now describes CARETRANS as a medical busines
   <LighthouseScoresGrid scores={lighthouseScores} />
 </div>
 
-In Lighthouse the site scores **95 for Performance, 96 for Accessibility and 100 for Best Practices and SEO**, with the marketing partner's tracking and my call tracking on every page.
+In Lighthouse the site scores **95 for Performance, 96 for Accessibility and 100 for Best Practices and SEO**, with 33 pages, the marketing partner's tracking and my call tracking on every page.

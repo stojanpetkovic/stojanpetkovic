@@ -1,16 +1,16 @@
 ---
 title: "Krankentransport CARETRANS"
 locale: de
-description: "Ein Krankentransportunternehmen aus Belgrad, rund um die Uhr erreichbar, bekam ein neueres Astro, eine komplette Überarbeitung des lokalen SEO und Anruf-Tracking auf jeder Seite, ohne das Tracking seines Marketingpartners anzutasten."
+description: "Ein Krankentransportunternehmen aus Belgrad, rund um die Uhr erreichbar, wechselte von einer WordPress-Website mit wenigen einfachen Seiten zu einer schnellen Astro-Website mit 11 Leistungsseiten, einem Blog mit 17 Artikeln rund um Suchbegriffe und Orte, Anruf-Tracking und vollständigem lokalem SEO."
 url: "https://prevozpacijenatacaretrans.rs"
 tags: ["Astro", "SEO", "Kundenprojekte"]
 featured: true
 order: 4
 year: 2026
 client: "Sanitetski prevoz CARETRANS"
-role: "Entwicklung, SEO & Anfragen-Tracking"
-services: ["Astro-Upgrade", "Lokales SEO", "Strukturierte Daten", "Anfragen-Tracking"]
-meta: ["Krankentransport, Belgrad", "33 Seiten", "Lighthouse 95 · 96 · 100 · 100"]
+role: "Entwicklung, SEO & Inhalte"
+services: ["WordPress zu Astro", "Lokales SEO", "Blog & Inhalte", "Anfragen-Tracking"]
+meta: ["Krankentransport, Belgrad", "WordPress → Astro", "33 Seiten, 17 Artikel", "Lighthouse 95 · 96 · 100 · 100"]
 icon: "ambulance"
 image: "../../../assets/projects/caretrans-home.webp"
 imageAlt: "Die Startseite von CARETRANS: Krankenwagen hinter der Überschrift Pouzdan sanitetski prevoz i prevoz pacijenata u zemlji i inostranstvu und ein Anruf-Button."
@@ -25,6 +25,8 @@ gallery:
     alt: "Die Preisliste für Krankentransporte in Belgrad, in Serbien und in Europa, jeweils mit Anruf-Button."
   - src: "../../../assets/projects/caretrans-blog.webp"
     alt: "Der Blog: Artikel über Gesundheit, die Pflege bettlägeriger Menschen und Kuren in serbischen Heilbädern."
+  - src: "../../../assets/projects/caretrans-article.webp"
+    alt: "Ein Blogartikel: Koja oboljenja se leče u banjama Srbije, ein Ratgeber zu den Erkrankungen, die in serbischen Heilbädern behandelt werden."
   - src: "../../../assets/projects/caretrans-contact.webp"
     alt: "Die Kontaktseite: rund um die Uhr an 365 Tagen erreichbar, mit einer Telefonnummer, die sich mit einem Tippen anrufen lässt."
 ---
@@ -40,31 +42,47 @@ export const lighthouseScores = [
 
 ## Die Aufgabe
 
-**CARETRANS** ist ein Krankentransportunternehmen aus Belgrad, erreichbar **rund um die Uhr, an 365 Tagen im Jahr**. Es transportiert bettlägerige und eingeschränkt mobile Patienten in ganz Serbien und bringt Patienten aus Deutschland, Österreich, der Schweiz und Italien nach Hause.
+**CARETRANS** ist ein Krankentransportunternehmen aus Belgrad, erreichbar **rund um die Uhr, an 365 Tagen im Jahr**. Es transportiert bettlägerige und eingeschränkt mobile Patienten in ganz Serbien und zu den Heilbädern des Landes und bringt Patienten aus Deutschland, Österreich, der Schweiz und Italien nach Hause.
 
-Die Website lief bereits auf Astro, aber auf einer älteren Version, und Werbung sowie Tracking über den Google Tag Manager betreut ein externer Marketingpartner. Die Aufgabe hatte drei Teile: **die Website aktualisieren, Anruf-Tracking ergänzen und alles beheben, was sie in der lokalen Suche bremst**. Und eine feste Regel: **Das Tracking des Marketingpartners bleibt genau so, wie es ist**.
+Die alte Website lief auf **WordPress** und hatte **nur wenige einfache Seiten**: keine Seite pro Leistung, keine Inhalte, mit denen sie ranken konnte, und lange Ladezeiten auf dem Smartphone, mit dem die meisten suchen, wenn sie dringend einen Transport brauchen. Wer einen Krankenwagen braucht, ruft **das erste Unternehmen an, dessen Website sich öffnet und sagt, was man wissen muss**. Das Ziel: eine schnellere Website, die für jede Leistung und jeden Ort rankt, den das Unternehmen abdeckt, und Besuche in Anrufe verwandelt.
 
-## Upgrade ohne Schaden
+## Von WordPress zu Astro
 
-Die Website wechselte von **Astro 5 auf Astro 7**. Die alte Tailwind-Integration unterstützt die neue Version nicht, deshalb baut Tailwind jetzt direkt. Ich habe die Styles vor und nach dem Upgrade verglichen: Sie stimmen Klasse für Klasse überein, die Website sieht also genauso aus wie vorher.
+Die Website wurde mit **Astro und Tailwind CSS** neu gebaut und als statisches HTML ausgeliefert: keine Datenbank, keine Plugins, nichts, was der Server erst zusammensetzen muss, während der Besucher wartet. Die Seiten öffnen sich fast sofort, auch bei schwachem Mobilfunknetz, und genau darauf kommt es bei den Menschen an, für die diese Website da ist.
 
-Der Google-Tag-Manager-Code blieb unangetastet. Nach dem Upgrade habe ich alle **33 Seiten** geprüft: Das Tag ist auf jeder Seite und funktioniert wie zuvor. Vor jeder Änderung wurde die gesamte Website im Zustand auf dem Server gesichert, sodass sich jeder Schritt rückgängig machen lässt.
+Inzwischen läuft die Website auf **Astro 7**, ohne eine einzige sichtbare Änderung. Die Werbung über den Google Tag Manager betreut ein externer Marketingpartner. Diese Einrichtung blieb genau so, wie sie war, und wurde nach jeder Änderung auf allen 33 Seiten geprüft.
+
+## Von wenigen Seiten zu 33
+
+Statt weniger allgemeiner Seiten hat jede Leistung **eine eigene Seite**, geschrieben für das, wonach Menschen tatsächlich suchen:
+
+- **Transport bettlägeriger Patienten**, **Krankentransport**, **medizinischer Transport** und **privater Rettungsdienst**, jeweils mit Belgrad und 24/7 in der Überschrift.
+- **Transport zu Heilbädern** in ganz Serbien.
+- **Vier Seiten für den Patiententransport aus dem Ausland**: Deutschland, Österreich, die Schweiz und Italien, wo die Diaspora nach einem Weg sucht, Angehörige nach Hause zu bringen.
+- Eine **Preisliste** für Belgrad, Serbien und Europa und eine Kontaktseite, die rund um die Uhr gilt.
+
+## Ein Blog rund um Suchbegriffe und Orte
+
+Die größte Ergänzung ist **ein vollständiger Blog mit 17 Artikeln**, geplant rund um das, wonach Familien suchen, bevor sie einen Transport anfragen. Er deckt vier Themen ab:
+
+- **Ratgeber zum Transport**: wie man einen kranken Patienten transportiert, Transport bettlägeriger Patienten, Transport ins Ausland und was ein Krankenwagen bietet.
+- **Heilbäder und Ziele**: welche Erkrankungen in serbischen Heilbädern behandelt werden, dazu Ratgeber zu **Vrnjačka Banja, Prolom Banja und Atomska Banja** mit Entfernung von Belgrad, Behandlungen und sicherer Anreise.
+- **Gesundheit**: Bluthochdruck, niedriger Blutdruck, Arteriosklerose, Demenz, Osteoporose, rheumatische Erkrankungen und Hüftfrakturen im Alter. Das sind die Erkrankungen hinter den meisten Transporten.
+- **Pflege**: die Betreuung bettlägeriger Menschen und ans Bett gebundener Patienten.
+
+Jeder Artikel führt zur passenden Leistung: Die Artikel enthalten **rund 80 Links zu den Leistungsseiten**, sodass Leser und Google gleichermaßen von der Frage zur Leistung gelangen, die sie beantwortet. Jeder Artikel ist als Blogbeitrag mit Datum, Bild und Autor ausgezeichnet.
 
 ## Jeder Anruf zählt
 
-Für einen Krankentransport ist **das Telefon alles**: Wer einen Krankenwagen braucht, füllt kein Formular aus. Deshalb ist mein Anfragen-Tracking jetzt auf jeder Seite und **zählt jedes Tippen auf die Telefonnummer**, mit der Seite, von der es kam. Auf der Kontaktseite war die Nummer nicht einmal ein Link; jetzt genügt ein Tippen.
+Für einen Krankentransport ist **das Telefon alles**: Wer einen Krankenwagen braucht, füllt kein Formular aus. Deshalb steht die Telefonnummer in der Kopfzeile, im Startbereich, in der Fußzeile und in einer Leiste, die auf dem Smartphone beim Scrollen erscheint. Mein Anfragen-Tracking ist auf jeder Seite und **zählt jedes Tippen auf die Nummer** mit der Seite, von der es kam. So ist klar, welche Leistungen und Artikel die Anrufe bringen.
 
 ## Lokales SEO
 
-Die Prüfung fand Probleme, die still Positionen gekostet hatten:
-
-- **Zwei Hauptüberschriften auf fast jeder Seite.** Der Firmenname in der Kopfzeile war als Hauptüberschrift (H1) ausgezeichnet. Jetzt hat jede Seite genau eine, mit Leistung und Stadt.
-- **Falsche kanonische Adressen.** Eine Leistungsseite verwies Google auf eine Adresse, die nicht existiert, alle anderen auf Adressen mit Weiterleitung.
-- **Sechs defekte Links** zwischen Artikeln und Leistungen und **vier fehlende Bilder**, darunter das Banner jeder Leistungsseite und das Logo.
-- Die **häufigen Fragen** wurden per JavaScript im Browser erzeugt, Suchmaschinen und KI-Assistenten sahen sie womöglich gar nicht. Jetzt sind sie normales HTML.
-- **Titel und Beschreibungen** nennen jetzt Belgrad, den 24/7-Service und die Telefonnummer.
-
-Dazu beschreiben **strukturierte Daten** CARETRANS jetzt als medizinisches Unternehmen in Belgrad, mit Telefon, Erreichbarkeit rund um die Uhr, den bedienten Ländern und den Social-Media-Profilen. Jede Leistung und jeder Artikel hat eigene Auszeichnungen, die häufigen Fragen sind auf der Startseite ausgezeichnet und die Sitemap entsteht automatisch.
+- **Eine Hauptüberschrift pro Seite**, mit Leistung und Stadt.
+- **Korrekte kanonische Adressen**, ohne Weiterleitungen und ohne Links auf Seiten, die nicht existieren.
+- **Strukturierte Daten** beschreiben CARETRANS als medizinisches Unternehmen in Belgrad, mit Telefon, Erreichbarkeit rund um die Uhr, den bedienten Ländern und den Social-Media-Profilen. Jede Leistung hat eigene Auszeichnungen, die häufigen Fragen sind auf der Startseite ausgezeichnet.
+- Die **häufigen Fragen** sind normales HTML, Suchmaschinen und KI-Assistenten können sie lesen.
+- **Titel und Beschreibungen** nennen Belgrad, den 24/7-Service und die Telefonnummer, und die Sitemap entsteht automatisch.
 
 ## Ergebnisse
 
@@ -72,4 +90,4 @@ Dazu beschreiben **strukturierte Daten** CARETRANS jetzt als medizinisches Unter
   <LighthouseScoresGrid scores={lighthouseScores} />
 </div>
 
-In Lighthouse erreicht die Website **95 bei Performance, 96 bei Accessibility und 100 bei Best Practices und SEO**, mit dem Tracking des Marketingpartners und meinem Anruf-Tracking auf jeder Seite.
+In Lighthouse erreicht die Website **95 bei Performance, 96 bei Accessibility und 100 bei Best Practices und SEO**, mit 33 Seiten, dem Tracking des Marketingpartners und meinem Anruf-Tracking auf jeder Seite.

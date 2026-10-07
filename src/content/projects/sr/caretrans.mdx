@@ -1,16 +1,16 @@
 ---
 title: "Sanitetski prevoz CARETRANS"
 locale: sr
-description: "Firma za sanitetski prevoz iz Beograda, dostupna 24/7, dobila je noviji Astro, kompletno sređen lokalni SEO i praćenje poziva na svakoj strani, bez diranja praćenja na koje se oslanja njen marketing partner."
+description: "Firma za sanitetski prevoz iz Beograda, dostupna 24/7, prešla je sa WordPress sajta od par običnih strana na brz Astro sajt sa 11 strana usluga, blogom od 17 tekstova napravljenim oko ključnih reči i lokacija, praćenjem poziva i kompletnim lokalnim SEO-om."
 url: "https://prevozpacijenatacaretrans.rs"
 tags: ["Astro", "SEO", "Klijentski projekti"]
 featured: true
 order: 4
 year: 2026
 client: "Sanitetski prevoz CARETRANS"
-role: "Razvoj, SEO i praćenje upita"
-services: ["Ažuriranje Astra", "Lokalni SEO", "Strukturirani podaci", "Praćenje upita"]
-meta: ["Sanitetski prevoz, Beograd", "33 stranice", "Lighthouse 95 · 96 · 100 · 100"]
+role: "Razvoj, SEO i sadržaj"
+services: ["Prelazak sa WordPressa na Astro", "Lokalni SEO", "Blog i sadržaj", "Praćenje upita"]
+meta: ["Sanitetski prevoz, Beograd", "WordPress → Astro", "33 stranice, 17 tekstova", "Lighthouse 95 · 96 · 100 · 100"]
 icon: "ambulance"
 image: "../../../assets/projects/caretrans-home.webp"
 imageAlt: "Početna strana CARETRANS-a: sanitetska vozila iza naslova Pouzdan sanitetski prevoz i prevoz pacijenata u zemlji i inostranstvu i dugme za poziv."
@@ -25,6 +25,8 @@ gallery:
     alt: "Cenovnik sanitetskog prevoza za Beograd, Srbiju i Evropu, uz dugme za poziv kod svake stavke."
   - src: "../../../assets/projects/caretrans-blog.webp"
     alt: "Blog: tekstovi o zdravlju, nezi nepokretnih osoba i lečenju u banjama Srbije."
+  - src: "../../../assets/projects/caretrans-article.webp"
+    alt: "Tekst sa bloga: Koja oboljenja se leče u banjama Srbije, vodič kroz lečenje u banjama."
   - src: "../../../assets/projects/caretrans-contact.webp"
     alt: "Kontakt strana: dostupni 24/7, svih 365 dana, sa brojem telefona koji se poziva jednim dodirom."
 ---
@@ -40,31 +42,47 @@ export const lighthouseScores = [
 
 ## Zadatak
 
-**CARETRANS** je firma za sanitetski prevoz iz Beograda, dostupna **24/7, svih 365 dana u godini**. Prevozi nepokretne i teško pokretne pacijente širom Srbije i vraća pacijente kući iz Nemačke, Austrije, Švajcarske i Italije.
+**CARETRANS** je firma za sanitetski prevoz iz Beograda, dostupna **24/7, svih 365 dana u godini**. Prevozi nepokretne i teško pokretne pacijente širom Srbije i do banja, a pacijente vraća kući iz Nemačke, Austrije, Švajcarske i Italije.
 
-Sajt je već bio na Astru, ali na starijoj verziji, a reklame i praćenje preko Google Tag Managera vodi spoljni marketing partner. Zadatak je imao tri dela: **ažurirati sajt, dodati praćenje poziva i srediti sve što ga koči u lokalnoj pretrazi**. I jedno čvrsto pravilo: **praćenje marketing partnera ostaje tačno kakvo jeste**.
+Stari sajt je bio na **WordPressu** i imao je **samo par običnih strana**: nijednu stranu po usluzi, nikakav sadržaj po kom bi se rangirao i sporo učitavanje na telefonima, a s njih ljudi najčešće traže prevoz kad im hitno treba. Kad nekom treba sanitet, zove **prvu firmu čiji se sajt otvori i kaže mu ono što mora da zna**. Cilj: brži sajt koji se rangira za svaku uslugu i lokaciju koju firma pokriva i koji posete pretvara u pozive.
 
-## Ažuriranje bez ijedne štete
+## Sa WordPressa na Astro
 
-Sajt je prešao sa **Astra 5 na Astro 7**. Stara Tailwind integracija ne podržava novu verziju, pa se Tailwind sada gradi direktno. Uporedio sam stilove pre i posle: poklapaju se klasa po klasa, tako da sajt izgleda isto kao ranije.
+Sajt je ponovo napravljen u **Astru i Tailwind CSS-u** i isporučuje se kao statičan HTML: bez baze, bez pluginova, bez ičega što server mora da sklapa dok posetilac čeka. Strane se otvaraju skoro trenutno, čak i na slabom mobilnom signalu, što je najvažnije baš ljudima kojima je ovaj sajt namenjen.
 
-Kod Google Tag Managera nije diran. Posle ažuriranja proverio sam svih **33 stranice**: tag je na svakoj i radi isto kao ranije. Pre bilo kakve izmene ceo sajt je sačuvan u stanju u kom je bio na serveru, pa se svaki korak može vratiti.
+Sajt je u međuvremenu ažuriran na **Astro 7**, bez ijedne vizuelne promene. Reklame preko Google Tag Managera vodi spoljni marketing partner. To podešavanje je ostalo tačno kakvo je bilo i provereno je na sve 33 stranice posle svake izmene.
+
+## Od par strana do 33
+
+Umesto par opštih strana, svaka usluga ima **svoju stranu**, napisanu za ono što ljudi zaista traže:
+
+- **Prevoz nepokretnih pacijenata**, **prevoz bolesnika**, **medicinski transport** i **privatna hitna pomoć**, sve sa Beogradom i 24/7 u naslovu.
+- **Prevoz pacijenata do banja** širom Srbije.
+- **Četiri strane za sanitetski prevoz iz inostranstva**: Nemačka, Austrija, Švajcarska i Italija, gde dijaspora traži način da vrati člana porodice kući.
+- **Cenovnik** za Beograd, Srbiju i Evropu i kontakt strana dostupna u svako doba.
+
+## Blog napravljen oko ključnih reči i lokacija
+
+Najveći dodatak je **kompletan blog od 17 tekstova**, isplaniran oko onoga što porodice traže pre nego što pozovu prevoz. Pokriva četiri teme:
+
+- **Vodiči za prevoz**: kako prevesti bolesnog pacijenta, prevoz nepokretnih i teško pokretnih, prevoz u inostranstvo i šta nudi sanitetsko vozilo.
+- **Banje i destinacije**: koja oboljenja se leče u banjama Srbije, uz vodiče za **Vrnjačku Banju, Prolom Banju i Atomsku Banju**, sa udaljenošću od Beograda, onim što se leči i načinom da se bezbedno stigne.
+- **Zdravlje**: visok i nizak pritisak, ateroskleroza, demencija, osteoporoza, reumatske bolesti i prelom kuka kod starijih. To su stanja iza većine potreba za prevozom.
+- **Nega**: briga o nepokretnim osobama i bolesnicima vezanim za krevet.
+
+Svaki tekst vodi do usluge na koju se odnosi: u tekstovima je **oko 80 linkova ka stranama usluga**, pa i čitaoci i Google prelaze sa pitanja na uslugu koja ga rešava. Svaki tekst je označen kao blog članak sa datumom, slikom i autorom.
 
 ## Svaki poziv se broji
 
-Za sanitetski prevoz **telefon je sve**: niko ne popunjava formu kad mu treba sanitet. Zato je moje praćenje upita sada na svakoj strani i **broji svaki dodir na broj telefona**, uz stranicu sa koje je došao. Na kontakt strani broj nije bio ni link; sada se poziva jednim dodirom.
+Za sanitetski prevoz **telefon je sve**: niko ne popunjava formu kad mu treba sanitet. Zato je broj telefona u zaglavlju, u hero sekciji, u futeru i u traci koja se na telefonu pojavi čim se skroluje. Moje praćenje upita je na svakoj strani i **broji svaki dodir na broj**, uz stranicu sa koje je došao, pa se jasno vidi koje usluge i koji tekstovi donose pozive.
 
 ## Lokalni SEO
 
-Provera je otkrila probleme koji su tiho koštali pozicije:
-
-- **Dva glavna naslova na skoro svakoj strani.** Ime firme u zaglavlju bilo je označeno kao glavni naslov (H1). Sada svaka strana ima tačno jedan, sa uslugom i gradom.
-- **Pogrešne kanonske adrese.** Jedna strana usluge slala je Google na adresu koja ne postoji, a sve ostale na adrese koje se preusmeravaju.
-- **Šest pokvarenih linkova** između tekstova i usluga i **četiri slike koje ne postoje**, među njima baner na svakoj strani usluga i logo.
-- **Česta pitanja** su se iscrtavala JavaScriptom u pregledaču, pa ih pretraživači i AI asistenti možda nisu ni videli. Sada su običan HTML.
-- **Naslovi i opisi** sada sadrže Beograd, rad 24/7 i broj telefona.
-
-Uz to, **strukturirani podaci** sada opisuju CARETRANS kao medicinsku firmu u Beogradu, sa telefonom, radom 24/7, zemljama u kojima radi i profilima na mrežama. Svaka usluga i svaki tekst imaju svoje oznake, česta pitanja su označena na početnoj, a mapa sajta se pravi automatski.
+- **Jedan glavni naslov po strani**, sa uslugom i gradom.
+- **Ispravne kanonske adrese**, bez preusmeravanja i bez linkova ka stranama koje ne postoje.
+- **Strukturirani podaci** opisuju CARETRANS kao medicinsku firmu u Beogradu, sa telefonom, radom 24/7, zemljama u kojima radi i profilima na mrežama. Svaka usluga ima svoje oznake, a česta pitanja su označena na početnoj.
+- **Česta pitanja** su običan HTML, pa ih čitaju i pretraživači i AI asistenti.
+- **Naslovi i opisi** sadrže Beograd, rad 24/7 i broj telefona, a mapa sajta se pravi automatski.
 
 ## Rezultati
 
@@ -72,4 +90,4 @@ Uz to, **strukturirani podaci** sada opisuju CARETRANS kao medicinsku firmu u Be
   <LighthouseScoresGrid scores={lighthouseScores} />
 </div>
 
-U Lighthouse-u sajt ima **95 za Performance, 96 za Accessibility i 100 za Best Practices i SEO**, sa praćenjem marketing partnera i mojim praćenjem poziva na svakoj strani.
+U Lighthouse-u sajt ima **95 za Performance, 96 za Accessibility i 100 za Best Practices i SEO**, sa 33 stranice, praćenjem marketing partnera i mojim praćenjem poziva na svakoj strani.
