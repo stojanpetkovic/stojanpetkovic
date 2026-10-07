@@ -31,7 +31,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       path: cleanPath(body.path),
       entry,
       // Only the first page of a visit says where the visit came from.
-      channel: entry ? channelOf({ utm_source: utm.utm_source, utm_medium: utm.utm_medium, referrerHost: host }) : null,
+      channel: entry ? channelOf({ utm_source: utm.utm_source, utm_medium: utm.utm_medium, referrerHost: host, userAgent: ua }) : null,
       referrer_host: entry ? host : null,
       utm_source: entry ? utm.utm_source : null,
       utm_medium: entry ? utm.utm_medium : null,

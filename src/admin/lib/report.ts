@@ -223,6 +223,8 @@ const CHANNEL_EN: Record<Channel, string> = {
   'Google oglasi': 'Google Ads',
   'Facebook/Instagram oglasi': 'Facebook/Instagram Ads',
   'Facebook/Instagram': 'Facebook/Instagram',
+  'Druge društvene mreže': 'Other social networks',
+  'Google Business profil': 'Google Business Profile',
   'Bing pretraga': 'Bing Search',
   'Drugi sajtovi': 'Other websites',
   Email: 'Email',

@@ -35,7 +35,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       kind,
       target: str(body.target, 200),
       path: cleanPath(body.path),
-      channel: channelOf({ utm_source: utm.utm_source, utm_medium: utm.utm_medium, referrerHost: host }),
+      channel: channelOf({ utm_source: utm.utm_source, utm_medium: utm.utm_medium, referrerHost: host, userAgent: ua }),
       utm_source: utm.utm_source,
       utm_medium: utm.utm_medium,
       utm_campaign: utm.utm_campaign,
