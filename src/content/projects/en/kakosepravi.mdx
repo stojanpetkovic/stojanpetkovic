@@ -1,0 +1,83 @@
+---
+title: "Kako se pravi"
+locale: en
+description: "My recipe and DIY site moved from a PHP magazine script with a database to a static Astro site: every article and address kept, a magazine redesign, search without a server, recipe rich results, and 97 / 100 / 100 / 100 in Lighthouse with ads and analytics still running."
+url: "https://kakosepravi.com"
+tags: ["Astro", "SEO", "Performance"]
+featured: true
+order: 5
+year: 2026
+client: "Kako se pravi (my own project)"
+role: "Migration, Design, SEO & Performance"
+services: ["PHP to Astro", "Content Migration", "Technical SEO", "Performance"]
+meta: ["Recipes & DIY guides", "PHP → Astro", "49 articles", "Lighthouse 97 · 100 · 100 · 100"]
+icon: "chef-hat"
+image: "../../../assets/projects/kakosepravi-home.webp"
+imageAlt: "The Kako se pravi homepage: the KAKO se pravi? logo, the Mr. Petković banner and the most-read guide over a large photo."
+gallery:
+  - src: "../../../assets/projects/kakosepravi-home.webp"
+    alt: "The new homepage: the most-read guide over a full-width photo, a featured list beside it and the Kuhinja and Uradi sam categories below."
+  - src: "../../../assets/projects/kakosepravi-post.webp"
+    alt: "A recipe page: Kako se pravi hleb sa jogurtom, with a jump-to-recipe button and a video that loads only when played."
+  - src: "../../../assets/projects/kakosepravi-guide.webp"
+    alt: "A long guide, Kako se pravi rakija, with the reading time and a large cover photo."
+  - src: "../../../assets/projects/kakosepravi-category.webp"
+    alt: "The Kuhinja category page with a grid of recipe cards."
+  - src: "../../../assets/projects/kakosepravi-popup.webp"
+    alt: "The popup that appears after 40 seconds of reading, offering a fast website for your business."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 97, icon: 'zap' },
+  { label: 'Accessibility', value: 100, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## The starting point
+
+**Kako se pravi** ("How it's made") is my own site with home recipes and DIY guides: bread, pies, kajmak, rakija, soap and charcoal, explained step by step. It ran on a **PHP magazine script with a database**: every visit had the server assemble the page from PHP and SQL, with a heavy Bootstrap theme on top. Pages were slow, the URLs depended on the script, and every update of the script was a risk.
+
+The goal: **the same site, the same addresses, but as fast as a site can be**, and still on the same ordinary cPanel hosting.
+
+## From PHP to Astro
+
+Instead of copying text by hand, I wrote a **migration script** that read the old site's sitemap and turned every article into a Markdown file, with its cover, the images inside the text, tags, category and publish date.
+
+- **49 articles, 42 tags and the legal pages** moved over automatically.
+- **Ten articles lead with a YouTube video.** The script kept the video and its thumbnail as the cover.
+- **Headings fixed in every article.** The old editor started at the fourth level and skipped levels; now every article runs in order under a single title.
+- The site is built with **Astro 7** and ships as **plain static HTML**: no PHP, no database, nothing the server has to assemble while the reader waits.
+
+## Not a single address lost
+
+For a site that lives on Google traffic, the URLs are the most valuable thing it has. **Every article kept exactly the address it had**, without ".html" and without a trailing slash. A short `.htaccess` serves the static pages on Apache under those addresses, sends the old script's pages (gallery, profile, old RSS feeds) to their nearest new page, and forces https. I tested the rules on Apache before the site went live.
+
+## Speed that holds up with ads
+
+Ads and analytics usually ruin performance, and this site runs **Google AdSense, Google Analytics and two Meta Pixels**: about 650 KB of third-party code.
+
+- These scripts now **load on the first scroll or tap**, or a few seconds after the page opens. Their queues start immediately, so not a single page view is lost, but they no longer stand between the reader and the recipe.
+- **Images are converted to WebP** and served in the size each screen needs.
+- **YouTube loads only on click.** Until then a video is just one image.
+- **Search runs without a server**: the index is built together with the site, so it works on ordinary cPanel hosting.
+
+## SEO
+
+- **Recipe rich results**: recipes with an ingredients list and a method get structured data with every ingredient and every step, so Google can show them as recipes. Nothing is guessed for articles that don't have that structure.
+- **Video, breadcrumb and article** markup on every page, a **sitemap with images** for Google Images and `llms.txt` for AI search.
+- **Imported articles are credited.** Articles the old script had pulled in from other recipe sites now name their source and point Google to the original, so copied text doesn't pull down the site's own articles.
+
+## A new look
+
+The redesign is a **magazine**: the most-read guide on a large photo, a featured list, categories, a most-read ranking, and on articles a table of contents, a jump-to-recipe button and related articles. The site also works for me: **a banner and a popup after 40 seconds of reading** offer my web design services, with every link tagged so I can see which placement brings visits.
+
+## Results
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+On the live site Lighthouse gives **97 for Performance and 100 for Accessibility, Best Practices and SEO**, with ads, analytics and both pixels still running.

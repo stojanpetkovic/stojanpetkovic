@@ -1,0 +1,83 @@
+---
+title: "Kako se pravi"
+locale: sr
+description: "Moj sajt sa receptima i uradi-sam vodičima prešao je sa PHP magazin skripte i baze na statičan Astro sajt: sačuvan je svaki tekst i svaka adresa, dobio je novi magazin dizajn, pretragu bez servera, recepte za Google i 97 / 100 / 100 / 100 u Lighthouse-u, uz reklame i analitiku."
+url: "https://kakosepravi.com"
+tags: ["Astro", "SEO", "Brzina"]
+featured: true
+order: 5
+year: 2026
+client: "Kako se pravi (moj projekat)"
+role: "Migracija, dizajn, SEO i brzina"
+services: ["Sa PHP-a na Astro", "Prebacivanje sadržaja", "Tehnički SEO", "Brzina"]
+meta: ["Recepti i uradi-sam vodiči", "PHP → Astro", "49 tekstova", "Lighthouse 97 · 100 · 100 · 100"]
+icon: "chef-hat"
+image: "../../../assets/projects/kakosepravi-home.webp"
+imageAlt: "Početna strana sajta Kako se pravi: logo KAKO se pravi?, baner Mr. Petković i najčitaniji vodič preko velike fotografije."
+gallery:
+  - src: "../../../assets/projects/kakosepravi-home.webp"
+    alt: "Nova početna: najčitaniji vodič preko fotografije cele širine, izdvojeni tekstovi pored i kategorije Kuhinja i Uradi sam ispod."
+  - src: "../../../assets/projects/kakosepravi-post.webp"
+    alt: "Strana recepta Kako se pravi hleb sa jogurtom, sa dugmetom Pređi na recept i videom koji se učitava tek na klik."
+  - src: "../../../assets/projects/kakosepravi-guide.webp"
+    alt: "Dugačak vodič Kako se pravi rakija, sa vremenom čitanja i velikom naslovnom fotografijom."
+  - src: "../../../assets/projects/kakosepravi-category.webp"
+    alt: "Strana kategorije Kuhinja sa mrežom kartica recepata."
+  - src: "../../../assets/projects/kakosepravi-popup.webp"
+    alt: "Popup koji se pojavi posle 40 sekundi čitanja i nudi brz sajt za vaš biznis."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 97, icon: 'zap' },
+  { label: 'Accessibility', value: 100, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## Polazna tačka
+
+**Kako se pravi** je moj sajt sa domaćim receptima i uradi-sam vodičima: hleb, pite, kajmak, rakija, sapun i ćumur, objašnjeni korak po korak. Radio je na **PHP magazin skripti sa bazom podataka**: pri svakoj poseti server je sklapao stranu iz PHP-a i SQL-a, a preko toga je išla teška Bootstrap tema. Strane su bile spore, adrese su zavisile od skripte, a svako ažuriranje skripte bio je rizik.
+
+Cilj: **isti sajt, iste adrese, ali brz koliko sajt uopšte može da bude**, i dalje na istom običnom cPanel hostingu.
+
+## Sa PHP-a na Astro
+
+Umesto da tekstove prepisujem ručno, napravio sam **skriptu za prebacivanje** koja je pročitala mapu starog sajta i svaki tekst pretvorila u Markdown fajl, sa naslovnom slikom, slikama iz teksta, oznakama, kategorijom i datumom objave.
+
+- **49 tekstova, 42 oznake i pravne strane** prešli su automatski.
+- **Deset tekstova počinje YouTube videom.** Skripta je sačuvala video i njegovu sličicu kao naslovnu.
+- **Naslovi u svakom tekstu su ispravljeni.** Stari editor je počinjao od četvrtog nivoa i preskakao nivoe, a sada svaki tekst ide redom ispod jednog glavnog naslova.
+- Sajt je napravljen u **Astru 7** i isporučuje se kao **običan statičan HTML**: bez PHP-a, bez baze, bez ičega što server mora da sklapa dok čitalac čeka.
+
+## Nijedna adresa nije izgubljena
+
+Za sajt koji živi od Google posetilaca, adrese su najvrednije što ima. **Svaki tekst je zadržao tačno onu adresu koju je imao**, bez „.html” i bez kose crte na kraju. Kratak `.htaccess` na Apache-u služi statične strane pod tim adresama, strane stare skripte (galerija, profil, stari RSS) šalje na najbližu novu stranu i uključuje https. Pravila sam isprobao na Apache-u pre nego što je sajt pušten.
+
+## Brzina koja izdrži i reklame
+
+Reklame i analitika obično ubiju brzinu, a ovaj sajt ima **Google AdSense, Google Analytics i dva Meta Pixela**: oko 650 KB tuđeg koda.
+
+- Te skripte se sada **učitavaju na prvi skrol ili dodir**, ili par sekundi posle otvaranja strane. Njihov red čekanja kreće odmah, pa se nijedan pregled ne gubi, ali više ne stoje između čitaoca i recepta.
+- **Slike su pretvorene u WebP** i šalju se u veličini koja treba svakom ekranu.
+- **YouTube se učitava tek na klik.** Do tada je video samo jedna slika.
+- **Pretraga radi bez servera**: indeks se pravi zajedno sa sajtom, pa radi i na običnom cPanel hostingu.
+
+## SEO
+
+- **Recepti u Google-u**: recepti sa spiskom sastojaka i postupkom dobijaju strukturirane podatke sa svakim sastojkom i svakim korakom, pa ih Google može prikazati kao recept. Za tekstove bez takve strukture ništa se ne izmišlja.
+- Oznake za **video, putanju i članak** na svakoj strani, **mapa sajta sa slikama** za Google Images i `llms.txt` za AI pretragu.
+- **Preuzeti tekstovi su potpisani.** Tekstovi koje je stara skripta povlačila sa drugih kulinarskih sajtova sada navode izvor i upućuju Google na original, pa kopiran sadržaj ne obara sopstvene tekstove sajta.
+
+## Novi izgled
+
+Redizajn je **magazin**: najčitaniji vodič na velikoj fotografiji, izdvojeni tekstovi, kategorije, lista najčitanijih, a na tekstovima sadržaj, dugme „Pređi na recept” i slični tekstovi. Sajt radi i za mene: **baner i popup posle 40 sekundi čitanja** nude moju izradu sajtova, a svaki link je označen, pa vidim koje mesto donosi posete.
+
+## Rezultati
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+Na živom sajtu Lighthouse daje **97 za Performance i 100 za Accessibility, Best Practices i SEO**, sa reklamama, analitikom i oba pixela.

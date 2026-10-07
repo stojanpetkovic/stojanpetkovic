@@ -1,0 +1,83 @@
+---
+title: "Kako se pravi"
+locale: de
+description: "Meine Website mit Rezepten und Heimwerker-Anleitungen wechselte von einem PHP-Magazinskript mit Datenbank zu einer statischen Astro-Website: jeder Artikel und jede Adresse blieb erhalten, dazu ein neues Magazin-Design, Suche ohne Server, Rezepte für Google und 97 / 100 / 100 / 100 in Lighthouse, mit Werbung und Analytics."
+url: "https://kakosepravi.com"
+tags: ["Astro", "SEO", "Performance"]
+featured: true
+order: 5
+year: 2026
+client: "Kako se pravi (eigenes Projekt)"
+role: "Migration, Design, SEO & Performance"
+services: ["PHP zu Astro", "Content-Migration", "Technisches SEO", "Performance"]
+meta: ["Rezepte & Heimwerker-Anleitungen", "PHP → Astro", "49 Artikel", "Lighthouse 97 · 100 · 100 · 100"]
+icon: "chef-hat"
+image: "../../../assets/projects/kakosepravi-home.webp"
+imageAlt: "Die Startseite von Kako se pravi: das Logo KAKO se pravi?, das Mr.-Petković-Banner und der meistgelesene Ratgeber über einem großen Foto."
+gallery:
+  - src: "../../../assets/projects/kakosepravi-home.webp"
+    alt: "Die neue Startseite: der meistgelesene Ratgeber über einem Foto in voller Breite, daneben ausgewählte Artikel und darunter die Kategorien Kuhinja und Uradi sam."
+  - src: "../../../assets/projects/kakosepravi-post.webp"
+    alt: "Eine Rezeptseite, Kako se pravi hleb sa jogurtom, mit einem Button zum Rezept und einem Video, das erst beim Abspielen lädt."
+  - src: "../../../assets/projects/kakosepravi-guide.webp"
+    alt: "Ein langer Ratgeber, Kako se pravi rakija, mit Lesezeit und großem Titelfoto."
+  - src: "../../../assets/projects/kakosepravi-category.webp"
+    alt: "Die Kategorieseite Kuhinja mit einem Raster aus Rezeptkarten."
+  - src: "../../../assets/projects/kakosepravi-popup.webp"
+    alt: "Das Popup, das nach 40 Sekunden Lesezeit erscheint und eine schnelle Website für das eigene Unternehmen anbietet."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 97, icon: 'zap' },
+  { label: 'Accessibility', value: 100, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## Ausgangslage
+
+**Kako se pravi** („Wie man es macht“) ist meine eigene Website mit Hausrezepten und Heimwerker-Anleitungen: Brot, Pita, Kajmak, Rakija, Seife und Holzkohle, Schritt für Schritt erklärt. Sie lief auf einem **PHP-Magazinskript mit Datenbank**: Bei jedem Besuch setzte der Server die Seite aus PHP und SQL zusammen, darüber lag ein schweres Bootstrap-Theme. Die Seiten waren langsam, die Adressen hingen vom Skript ab, und jedes Update des Skripts war ein Risiko.
+
+Das Ziel: **dieselbe Website, dieselben Adressen, aber so schnell, wie eine Website nur sein kann**, weiterhin auf demselben gewöhnlichen cPanel-Hosting.
+
+## Von PHP zu Astro
+
+Statt Texte von Hand zu kopieren, schrieb ich ein **Migrationsskript**, das die Sitemap der alten Website las und jeden Artikel in eine Markdown-Datei umwandelte, mit Titelbild, den Bildern im Text, Schlagwörtern, Kategorie und Veröffentlichungsdatum.
+
+- **49 Artikel, 42 Schlagwörter und die Rechtsseiten** wurden automatisch übernommen.
+- **Zehn Artikel beginnen mit einem YouTube-Video.** Das Skript übernahm das Video und sein Vorschaubild als Titelbild.
+- **Die Überschriften jedes Artikels wurden korrigiert.** Der alte Editor begann auf der vierten Ebene und übersprang Ebenen; jetzt läuft jeder Artikel geordnet unter einer einzigen Hauptüberschrift.
+- Die Website ist mit **Astro 7** gebaut und wird als **reines statisches HTML** ausgeliefert: kein PHP, keine Datenbank, nichts, was der Server zusammensetzen muss, während der Leser wartet.
+
+## Keine einzige Adresse verloren
+
+Für eine Website, die von Google-Besuchern lebt, sind die Adressen das Wertvollste. **Jeder Artikel behielt genau seine bisherige Adresse**, ohne „.html“ und ohne Schrägstrich am Ende. Eine kurze `.htaccess` liefert die statischen Seiten auf Apache unter diesen Adressen aus, leitet die Seiten des alten Skripts (Galerie, Profil, alte RSS-Feeds) auf die nächstliegende neue Seite um und erzwingt https. Die Regeln habe ich vor dem Start auf Apache getestet.
+
+## Geschwindigkeit, die auch Werbung aushält
+
+Werbung und Analytics ruinieren meist die Performance, und diese Website nutzt **Google AdSense, Google Analytics und zwei Meta Pixel**: rund 650 KB fremder Code.
+
+- Diese Skripte **laden jetzt beim ersten Scrollen oder Tippen** oder wenige Sekunden nach dem Öffnen der Seite. Ihre Warteschlangen starten sofort, sodass kein Seitenaufruf verloren geht, aber sie stehen nicht mehr zwischen Leser und Rezept.
+- **Bilder sind in WebP umgewandelt** und werden in der Größe ausgeliefert, die jeder Bildschirm braucht.
+- **YouTube lädt erst beim Klick.** Bis dahin ist ein Video nur ein Bild.
+- **Die Suche läuft ohne Server**: Der Index entsteht zusammen mit der Website und funktioniert daher auch auf gewöhnlichem cPanel-Hosting.
+
+## SEO
+
+- **Rezepte in Google**: Rezepte mit Zutatenliste und Zubereitung erhalten strukturierte Daten mit jeder Zutat und jedem Schritt, sodass Google sie als Rezept anzeigen kann. Für Artikel ohne diese Struktur wird nichts erfunden.
+- Auszeichnungen für **Video, Breadcrumbs und Artikel** auf jeder Seite, eine **Sitemap mit Bildern** für die Google-Bildersuche und `llms.txt` für die KI-Suche.
+- **Übernommene Artikel sind gekennzeichnet.** Artikel, die das alte Skript von anderen Rezeptseiten bezogen hatte, nennen jetzt ihre Quelle und verweisen Google auf das Original, sodass kopierte Texte die eigenen Artikel nicht herunterziehen.
+
+## Ein neues Gesicht
+
+Das neue Design ist ein **Magazin**: der meistgelesene Ratgeber auf einem großen Foto, ausgewählte Artikel, Kategorien, eine Liste der meistgelesenen Texte und in den Artikeln ein Inhaltsverzeichnis, ein Button zum Rezept und ähnliche Artikel. Die Website arbeitet auch für mich: **ein Banner und ein Popup nach 40 Sekunden Lesezeit** bieten meine Webentwicklung an, und jeder Link ist markiert, sodass ich sehe, welche Platzierung Besuche bringt.
+
+## Ergebnisse
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+Auf der Live-Website liefert Lighthouse **97 bei Performance und 100 bei Accessibility, Best Practices und SEO**, mit Werbung, Analytics und beiden Pixeln.
