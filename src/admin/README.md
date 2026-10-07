@@ -86,7 +86,14 @@ the admin's files, so nothing from it reaches the portfolio's CSS.
   site's email language, switchable), with a plain-language summary, the
   headline numbers against the previous period, a server-drawn SVG chart,
   sources, pages, devices, countries and the period's inquiries. "Save as
-  PDF" prints it from the browser.
+  PDF" prints it from the browser. Besides the monthly presets, a custom
+  from–to period (up to a year) compares with the same length before it.
+  Marketing spend for the period (Google Ads, Meta ads, other, in EUR, USD
+  or RSD) and an optional average job value add a cost section: total
+  spend, cost per inquiry, call and contact, jobs won (inquiries marked won)
+  and cost per won client, estimated revenue and ROAS, and cost per contact
+  for each paid channel. The amounts live in the report's URL; nothing is
+  stored.
 
 ## Roadmap
 

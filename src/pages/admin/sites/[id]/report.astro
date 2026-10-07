@@ -16,6 +16,10 @@ import {
   formatRate,
   changeText,
   summaryOf,
+  parseSpend,
+  spendMetrics,
+  formatMoney,
+  CURRENCIES,
 } from '@/admin/lib/report';
 import type { Lead, Site } from '@/admin/lib/types';
 
@@ -28,14 +32,22 @@ const langParam = Astro.url.searchParams.get('lang');
 const locale: ReportLocale = langParam === 'en' || langParam === 'sr' ? langParam : site.email_language;
 const t = T[locale];
 
+const params = Astro.url.searchParams;
 const all = periods(site.timezone, locale);
-const period = pickPeriod(all, Astro.url.searchParams.get('period'));
+const period = pickPeriod(all, params.get('period'), {
+  from: params.get('from'),
+  to: params.get('to'),
+  timeZone: site.timezone,
+  locale,
+});
+// Asked for a custom period, got the default: the dates were not usable.
+const customRejected = params.get('period') === 'custom' && period.key !== 'custom';
 const analytics = await analyzeDays(site, period.current, period.previous, locale);
 
 const inPeriod = new Set(period.current);
 const { data: leadData } = await db()
   .from('leads')
-  .select('created_at, visitor_name, visitor_email, form_name, utm_source, utm_medium, referrer')
+  .select('created_at, visitor_name, visitor_email, form_name, utm_source, utm_medium, referrer, status')
   .eq('site_id', site.id)
   .eq('is_spam', false)
   .gte('created_at', new Date(Date.parse(`${period.current[0]}T00:00:00Z`) - 86_400_000).toISOString())
@@ -43,8 +55,14 @@ const { data: leadData } = await db()
   .order('created_at', { ascending: true });
 const leads = ((leadData ?? []) as Pick<
   Lead,
-  'created_at' | 'visitor_name' | 'visitor_email' | 'form_name' | 'utm_source' | 'utm_medium' | 'referrer'
+  'created_at' | 'visitor_name' | 'visitor_email' | 'form_name' | 'utm_source' | 'utm_medium' | 'referrer' | 'status'
 >[]).filter((l) => inPeriod.has(dayKey(new Date(l.created_at), site.timezone)));
+
+// Spend entered on this page for the period, and what it bought.
+const spend = parseSpend(params);
+const won = leads.filter((l) => l.status === 'won').length;
+const cost = spend ? spendMetrics(analytics, spend, won) : null;
+const money = (v: number | null) => (v === null || !spend ? '—' : formatMoney(v, spend.currency, locale));
 
 const tot = analytics.totals;
 const prev = analytics.previous;
@@ -66,8 +84,14 @@ const kpis = [
 const maxDevice = Math.max(1, ...analytics.devices.map((d) => d.count));
 const maxCountry = Math.max(1, ...analytics.countries.map((c) => c.count));
 const maxClick = Math.max(1, ...analytics.clicks.map((c) => c.count));
-const qs = (overrides: Record<string, string>) =>
-  `?${new URLSearchParams({ period: period.key, lang: locale, ...overrides })}`;
+// Links that switch language keep every other setting on the page.
+const qs = (overrides: Record<string, string>) => {
+  const next = new URLSearchParams(params);
+  next.set('period', period.key);
+  for (const [key, value] of Object.entries(overrides)) next.set(key, value);
+  return `?${next}`;
+};
+const field = (name: string) => params.get(name) ?? '';
 const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
 ---
 
@@ -86,12 +110,51 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
     <div class="sticky top-0 z-10 border-b border-zinc-200 bg-white print:hidden">
       <div class="mx-auto flex max-w-[210mm] flex-wrap items-center gap-3 px-4 py-3">
         <a href={`/admin/sites/${site.id}`} class="btn btn-sm btn-light"><Icon name="lucide:arrow-left" class="size-4" />{t.back}</a>
-        <form method="get" class="flex flex-wrap items-center gap-2">
+        <form method="get" id="report-settings" class="flex w-full flex-wrap items-end gap-2 order-last">
           <input type="hidden" name="lang" value={locale} />
-          <select name="period" class="form-input w-auto py-1.5" onchange="this.form.submit()" aria-label={t.period}>
-            {all.map((p) => <option value={p.key} selected={p.key === period.key}>{p.label}</option>)}
-          </select>
-          <noscript><button class="btn btn-sm btn-outline" type="submit">OK</button></noscript>
+          <label class="text-xs text-zinc-500">
+            {t.period}
+            <select name="period" class="form-input mt-0.5 block w-auto py-1.5" aria-label={t.period} data-period>
+              {all.map((p) => <option value={p.key} selected={p.key === period.key}>{p.label}</option>)}
+              <option value="custom" selected={period.key === 'custom' || customRejected}>{t.customPeriod}</option>
+            </select>
+          </label>
+          <label class="text-xs text-zinc-500" data-custom>
+            {t.from}
+            <input type="date" name="from" value={period.key === 'custom' ? period.current[0] : field('from')} class="form-input mt-0.5 block w-auto py-1.5" />
+          </label>
+          <label class="text-xs text-zinc-500" data-custom>
+            {t.to}
+            <input type="date" name="to" value={period.key === 'custom' ? period.current.at(-1) : field('to')} class="form-input mt-0.5 block w-auto py-1.5" />
+          </label>
+          <fieldset class="flex flex-wrap items-end gap-2 border-s border-zinc-200 ps-3" title={t.spendHint}>
+            <legend class="sr-only">{t.spendHeading}</legend>
+            <label class="text-xs text-zinc-500">
+              {t.spendGoogle}
+              <input name="spendGoogle" inputmode="decimal" value={field('spendGoogle')} placeholder="0" class="form-input mt-0.5 block w-24 py-1.5" />
+            </label>
+            <label class="text-xs text-zinc-500">
+              {t.spendMeta}
+              <input name="spendMeta" inputmode="decimal" value={field('spendMeta')} placeholder="0" class="form-input mt-0.5 block w-24 py-1.5" />
+            </label>
+            <label class="text-xs text-zinc-500">
+              {t.spendOther}
+              <input name="spendOther" inputmode="decimal" value={field('spendOther')} placeholder="0" class="form-input mt-0.5 block w-24 py-1.5" />
+            </label>
+            <label class="text-xs text-zinc-500">
+              {t.currency}
+              <select name="currency" class="form-input mt-0.5 block w-auto py-1.5">
+                {CURRENCIES.map((c) => <option value={c} selected={(spend?.currency ?? (field('currency') || 'EUR')) === c}>{c}</option>)}
+              </select>
+            </label>
+            <label class="text-xs text-zinc-500">
+              {t.jobValue} <span class="text-zinc-400">({t.optional})</span>
+              <input name="jobValue" inputmode="decimal" value={field('jobValue')} placeholder="0" class="form-input mt-0.5 block w-28 py-1.5" />
+            </label>
+          </fieldset>
+          <button class="btn btn-sm btn-outline" type="submit">{t.apply}</button>
+          <p class="w-full text-[11px] text-zinc-400">{t.spendHint}</p>
+          {customRejected && <p class="w-full text-xs text-orange-700">{t.invalidPeriod}</p>}
         </form>
         <div class="inline-flex rounded border border-zinc-200 p-0.5 text-xs font-medium">
           <a href={qs({ lang: 'sr' })} class:list={['rounded px-2.5 py-1', locale === 'sr' ? 'bg-primary text-white' : 'text-zinc-600 hover:bg-zinc-100']}>SR</a>
@@ -119,7 +182,10 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
         </div>
       </header>
 
-      <p class="text-[15px] leading-relaxed text-zinc-700">{summaryOf(analytics, period.key === 'last30' ? (locale === 'en' ? 'the last 30 days' : 'poslednjih 30 dana') : period.label, locale)}</p>
+      <p class="text-[15px] leading-relaxed text-zinc-700">
+        {summaryOf(analytics, period.key === 'last30' ? (locale === 'en' ? 'the last 30 days' : 'poslednjih 30 dana') : period.label, locale)}
+        {cost && t.costSummary({ total: money(cost.total), perContact: cost.perContact === null ? null : money(cost.perContact), won: cost.won })}
+      </p>
 
       <section class="avoid-break grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5 print:grid-cols-5 [&>*]:min-w-0">
         {
@@ -142,6 +208,58 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
           ))
         }
       </section>
+
+
+      {
+        cost && (
+          <section class="avoid-break space-y-4">
+            <h2 class="text-base font-semibold">{t.costs}</h2>
+            <div class="grid grid-cols-2 gap-3 sm:grid-cols-4 print:grid-cols-4 [&>*]:min-w-0">
+              {[
+                { label: t.totalSpend, value: money(cost.total), hint: '' },
+                { label: t.perLead, value: money(cost.perLead), hint: `${n(tot.leads)} ${t.leads.toLowerCase()}` },
+                { label: t.perCall, value: money(cost.perCall), hint: `${n(tot.calls)} ${t.calls.toLowerCase()}` },
+                { label: t.perContact, value: money(cost.perContact), hint: t.perContactHint },
+                { label: t.won, value: n(cost.won), hint: t.wonHint },
+                { label: t.perWon, value: money(cost.perWon), hint: '' },
+                ...(cost.revenue !== null
+                  ? [
+                      { label: t.revenue, value: money(cost.revenue), hint: t.revenueHint },
+                      { label: t.roas, value: `${cost.roas!.toLocaleString(locale === 'en' ? 'en-US' : 'sr-Latn-RS', { maximumFractionDigits: 1 })}×`, hint: t.roasHint },
+                    ]
+                  : []),
+              ].map((k) => (
+                <div class="rounded-[0.3rem] border border-zinc-200 p-4">
+                  <div class="text-xl font-semibold text-zinc-900 tabular-nums">{k.value}</div>
+                  <div class="text-xs text-zinc-700">{k.label}</div>
+                  {k.hint && <div class="mt-1 text-[11px] leading-snug text-zinc-500">{k.hint}</div>}
+                </div>
+              ))}
+            </div>
+            {cost.channels.length > 0 && (
+              <div>
+                <h3 class="mb-2 text-sm font-semibold">{t.byChannel}</h3>
+                <table class="table w-full table-fixed">
+                  <thead>
+                    <tr><th class="w-[40%]">{t.channel}</th><th class="text-right">{t.spent}</th><th class="text-right">{t.contacts}</th><th class="text-right">{t.perContact}</th></tr>
+                  </thead>
+                  <tbody>
+                    {cost.channels.map((c) => (
+                      <tr>
+                        <td>{channelLabel(c.label, locale)}</td>
+                        <td class="text-right tabular-nums">{money(c.spend)}</td>
+                        <td class="text-right font-semibold tabular-nums">{n(c.contacts)}</td>
+                        <td class="text-right tabular-nums">{money(c.perContact)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                {spend && spend.other > 0 && <p class="mt-2 text-[11px] text-zinc-500">{t.breakdownOther}</p>}
+              </div>
+            )}
+          </section>
+        )
+      }
 
       <section class="avoid-break">
         <h2 class="mb-3 text-base font-semibold">{t.daily}</h2>
@@ -248,8 +366,21 @@ const fileTitle = `${site.name} – ${t.title} – ${period.label}`;
 
       <footer class="space-y-1 border-t border-zinc-200 pt-3 text-[11px] text-zinc-500">
         <p>{t.notes}</p>
+        {cost && <p>{t.costNotes}</p>}
         <p class="font-medium text-zinc-600">{t.footer}</p>
       </footer>
     </article>
+    <script>
+      // Dates matter only for a custom period; a preset applies at once.
+      const settings = document.getElementById('report-settings') as HTMLFormElement | null;
+      const select = settings?.querySelector<HTMLSelectElement>('[data-period]');
+      const toggle = () =>
+        settings?.querySelectorAll<HTMLElement>('[data-custom]').forEach((el) => (el.hidden = select?.value !== 'custom'));
+      select?.addEventListener('change', () => {
+        toggle();
+        if (select.value !== 'custom') settings?.requestSubmit();
+      });
+      toggle();
+    </script>
   </body>
 </html>

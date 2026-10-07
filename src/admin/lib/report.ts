@@ -75,9 +75,147 @@ export function periods(timeZone: string, locale: ReportLocale): Period[] {
   return list;
 }
 
-/** The requested period, or last month by default (the usual monthly report). */
-export function pickPeriod(all: Period[], key: string | null): Period {
+/** The longest custom period a report accepts: a year and a day. */
+const MAX_CUSTOM_DAYS = 366;
+const ISO_DAY = /^\d{4}-\d{2}-\d{2}$/;
+
+/**
+ * A period with chosen start and end days (inclusive), compared with the
+ * period of the same length right before it. Returns null for dates that are
+ * malformed, reversed, in the future or more than a year apart.
+ */
+export function customPeriod(
+  from: string | null,
+  to: string | null,
+  timeZone: string,
+  locale: ReportLocale,
+): Period | null {
+  if (!from || !to || !ISO_DAY.test(from) || !ISO_DAY.test(to)) return null;
+  if (Number.isNaN(Date.parse(from)) || Number.isNaN(Date.parse(to))) return null;
+  const today = dayKey(new Date(), timeZone);
+  if (from > to || to > today) return null;
+  const current = daysBetween(from, to);
+  if (current.length > MAX_CUSTOM_DAYS) return null;
+  const dayBefore = (day: string, n: number) =>
+    new Date(Date.parse(`${day}T00:00:00Z`) - n * 86_400_000).toISOString().slice(0, 10);
+  const previous = daysBetween(dayBefore(from, current.length), dayBefore(from, 1));
+  const fmt = new Intl.DateTimeFormat(locale === 'en' ? 'en-US' : 'sr-Latn-RS', {
+    dateStyle: 'medium',
+    timeZone: 'UTC',
+  });
+  const label = `${fmt.format(new Date(`${from}T12:00:00Z`))} – ${fmt.format(new Date(`${to}T12:00:00Z`))}`;
+  return { key: 'custom', label, current, previous };
+}
+
+/**
+ * The requested period: a custom range when `key` is "custom" and the dates
+ * are valid, one of the offered periods by key, or last month by default (the
+ * usual monthly report).
+ */
+export function pickPeriod(
+  all: Period[],
+  key: string | null,
+  custom?: { from: string | null; to: string | null; timeZone: string; locale: ReportLocale },
+): Period {
+  if (key === 'custom' && custom) {
+    const period = customPeriod(custom.from, custom.to, custom.timeZone, custom.locale);
+    if (period) return period;
+  }
   return all.find((p) => p.key === key) ?? all[1];
+}
+
+/*
+ * Marketing spend for the reported period, entered on the report page and
+ * carried in its URL, so a saved link or PDF keeps the figures it was printed
+ * with. Nothing is stored. Spend is split by the two paid channels the
+ * analytics can attribute contacts to, plus everything else (SEO, content,
+ * print), which counts toward the totals only.
+ */
+export const CURRENCIES = ['EUR', 'USD', 'RSD'] as const;
+export type Currency = (typeof CURRENCIES)[number];
+
+export interface Spend {
+  google: number;
+  meta: number;
+  other: number;
+  currency: Currency;
+  /** Average value of a won job, for estimated revenue and ROAS. */
+  jobValue: number;
+  total: number;
+}
+
+/** A non-negative amount from a form field, accepting "1.234,56" and "1,234.56". */
+export function parseAmount(value: string | null): number {
+  if (!value) return 0;
+  let text = value.replace(/\s/g, '');
+  const lastComma = text.lastIndexOf(',');
+  const lastDot = text.lastIndexOf('.');
+  // The later separator is the decimal one; the other groups thousands.
+  if (lastComma > lastDot) text = text.replace(/\./g, '').replace(',', '.');
+  else text = text.replace(/,/g, '');
+  const n = Number(text);
+  return Number.isFinite(n) && n > 0 ? Math.round(n * 100) / 100 : 0;
+}
+
+export function parseSpend(params: URLSearchParams): Spend | null {
+  const google = parseAmount(params.get('spendGoogle'));
+  const meta = parseAmount(params.get('spendMeta'));
+  const other = parseAmount(params.get('spendOther'));
+  const currency = (CURRENCIES as readonly string[]).includes(params.get('currency') ?? '')
+    ? (params.get('currency') as Currency)
+    : 'EUR';
+  const total = google + meta + other;
+  if (!total) return null;
+  return { google, meta, other, currency, jobValue: parseAmount(params.get('jobValue')), total };
+}
+
+export function formatMoney(amount: number, currency: Currency, locale: ReportLocale): string {
+  return new Intl.NumberFormat(locale === 'en' ? 'en-US' : 'sr-Latn-RS', {
+    style: 'currency',
+    currency,
+    maximumFractionDigits: amount >= 100 ? 0 : 2,
+  }).format(amount);
+}
+
+/** The paid channels spend is entered for, keyed as in channels.ts. */
+export const PAID_CHANNELS = { google: 'Google oglasi', meta: 'Facebook/Instagram oglasi' } as const;
+
+export interface SpendMetrics {
+  total: number;
+  perLead: number | null;
+  perCall: number | null;
+  perContact: number | null;
+  won: number;
+  perWon: number | null;
+  /** Won jobs × average job value, when a job value was entered. */
+  revenue: number | null;
+  /** revenue ÷ spend. */
+  roas: number | null;
+  channels: { key: 'google' | 'meta'; label: string; spend: number; contacts: number; perContact: number | null }[];
+}
+
+const per = (amount: number, count: number) => (count > 0 ? amount / count : null);
+
+export function spendMetrics(a: SiteAnalytics, spend: Spend, won: number): SpendMetrics {
+  const revenue = spend.jobValue && won ? spend.jobValue * won : null;
+  const channels = (['google', 'meta'] as const)
+    .filter((key) => spend[key] > 0)
+    .map((key) => {
+      const row = a.channels.find((c) => c.label === PAID_CHANNELS[key]);
+      const contacts = row ? row.leads + row.calls : 0;
+      return { key, label: PAID_CHANNELS[key], spend: spend[key], contacts, perContact: per(spend[key], contacts) };
+    });
+  return {
+    total: spend.total,
+    perLead: per(spend.total, a.totals.leads),
+    perCall: per(spend.total, a.totals.calls),
+    perContact: per(spend.total, a.totals.contacts),
+    won,
+    perWon: per(spend.total, won),
+    revenue,
+    roas: revenue !== null ? revenue / spend.total : null,
+    channels,
+  };
 }
 
 const CHANNEL_EN: Record<Channel, string> = {
@@ -135,6 +273,42 @@ export const T = {
     leadsWord: (n: number) => (n % 10 === 1 && n % 100 !== 11 ? 'upit' : 'upita'),
     print: 'Sačuvaj PDF',
     back: 'Nazad',
+    customPeriod: 'Prilagođeni period',
+    from: 'Od',
+    to: 'Do',
+    apply: 'Primeni',
+    spendHeading: 'Troškovi marketinga',
+    spendGoogle: 'Google Ads',
+    spendMeta: 'Meta (FB/IG) oglasi',
+    spendOther: 'Ostali marketing',
+    currency: 'Valuta',
+    jobValue: 'Prosečna vrednost posla',
+    optional: 'opciono',
+    spendHint: 'Unesi koliko je potrošeno u ovom periodu. Iznosi ostaju u linku izveštaja i ne čuvaju se nigde.',
+    invalidPeriod: 'Prilagođeni period nije ispravan (datumi od–do, ne u budućnosti, najviše godinu dana). Prikazan je prošli mesec.',
+    costs: 'Troškovi i cena po rezultatu',
+    totalSpend: 'Ukupno potrošeno',
+    perLead: 'Cena po upitu',
+    perCall: 'Cena po pozivu',
+    perContact: 'Cena po kontaktu',
+    perContactHint: 'upiti i pozivi zajedno',
+    won: 'Dobijeni poslovi',
+    wonHint: 'upiti označeni kao „dobijen“ u adminu',
+    perWon: 'Cena po dobijenom klijentu',
+    revenue: 'Procenjen prihod',
+    revenueHint: 'dobijeni poslovi × prosečna vrednost posla',
+    roas: 'Povraćaj na uloženo (ROAS)',
+    roasHint: 'prihod podeljen sa troškovima',
+    byChannel: 'Oglasi po kanalu',
+    channel: 'Kanal',
+    spent: 'Potrošeno',
+    contacts: 'Kontakti',
+    breakdownOther: 'Ostali marketing ulazi u ukupne troškove, ali se ne pripisuje jednom kanalu.',
+    costNotes:
+      'Cena po upitu i pozivu računa se iz ukupnih troškova za period. Kontakti po kanalu računaju se samo za posete obeležene kao plaćeni oglasi (UTM, gclid, fbclid).',
+    costSummary: (s: CostSummary) =>
+      ` Uloženo je ${s.total} u marketing, što je ${s.perContact ? `${s.perContact} po kontaktu` : 'bez kontakata u ovom periodu'}` +
+      (s.won ? `, a ${s.won} ${s.won % 10 === 1 && s.won % 100 !== 11 ? 'upit je postao' : 'upita je postalo'} posao.` : '.'),
   },
   en: {
     title: 'Website report',
@@ -174,8 +348,50 @@ export const T = {
     leadsWord: (n: number) => (n === 1 ? 'inquiry' : 'inquiries'),
     print: 'Save as PDF',
     back: 'Back',
+    customPeriod: 'Custom period',
+    from: 'From',
+    to: 'To',
+    apply: 'Apply',
+    spendHeading: 'Marketing spend',
+    spendGoogle: 'Google Ads',
+    spendMeta: 'Meta (FB/IG) ads',
+    spendOther: 'Other marketing',
+    currency: 'Currency',
+    jobValue: 'Average job value',
+    optional: 'optional',
+    spendHint: 'Enter what was spent in this period. The amounts stay in the report link and are not stored anywhere.',
+    invalidPeriod: 'The custom period is not valid (from–to dates, not in the future, at most one year). Showing last month.',
+    costs: 'Spend and cost per result',
+    totalSpend: 'Total spend',
+    perLead: 'Cost per inquiry',
+    perCall: 'Cost per call',
+    perContact: 'Cost per contact',
+    perContactHint: 'inquiries and calls together',
+    won: 'Jobs won',
+    wonHint: 'inquiries marked "won" in the admin',
+    perWon: 'Cost per won client',
+    revenue: 'Estimated revenue',
+    revenueHint: 'jobs won × average job value',
+    roas: 'Return on ad spend (ROAS)',
+    roasHint: 'revenue divided by spend',
+    byChannel: 'Ads by channel',
+    channel: 'Channel',
+    spent: 'Spent',
+    contacts: 'Contacts',
+    breakdownOther: 'Other marketing counts toward total spend but is not attributed to one channel.',
+    costNotes:
+      'Cost per inquiry and per call is worked out from total spend for the period. Contacts by channel count only visits marked as paid ads (UTM, gclid, fbclid).',
+    costSummary: (s: CostSummary) =>
+      ` ${s.total} went into marketing, ${s.perContact ? `${s.perContact} per contact` : 'with no contacts in this period'}` +
+      (s.won ? `, and ${s.won} ${s.won === 1 ? 'inquiry' : 'inquiries'} turned into ${s.won === 1 ? 'a job' : 'jobs'}.` : '.'),
   },
 } as const;
+
+export interface CostSummary {
+  total: string;
+  perContact: string | null;
+  won: number;
+}
 
 export interface Summary {
   period: string;
