@@ -1,0 +1,88 @@
+---
+title: "Kožna obuća"
+locale: sr
+description: "Klijent je hteo da prodavnicu jednog modela cipela pretvori u stručni blog o kožnoj obući. Rezultat: 20 tekstova na srpskom zasnovanih na stručnim izvorima, statičan Astro sajt na cPanelu, sačuvane sve stare adrese i 100 u sve četiri Lighthouse kategorije."
+url: "https://koznaobuca.com"
+tags: ["Astro", "SEO", "Sadržaj"]
+featured: true
+order: 6
+year: 2026
+client: "Kožna obuća"
+role: "Sadržaj, razvoj i SEO"
+services: ["Iz prodavnice u blog", "SEO sadržaj", "Tehnički SEO", "Praćenje upita"]
+meta: ["Blog o kožnoj obući", "20 tekstova", "Statičan sajt na cPanelu", "Lighthouse 100 · 100 · 100 · 100"]
+icon: "footprints"
+image: "../../../assets/projects/koznaobuca-home.webp"
+imageAlt: "Početna strana Kožna obuća: naslov Kožna obuća koja traje pored kockastog banera za izradu sajtova."
+gallery:
+  - src: "../../../assets/projects/koznaobuca-home.webp"
+    alt: "Hero sekcija početne strane sa kockastim banerom desno."
+  - src: "../../../assets/projects/koznaobuca-topics.webp"
+    alt: "Tri kartice tema: vodiči, stil i nega."
+  - src: "../../../assets/projects/koznaobuca-post.webp"
+    alt: "Strana teksta: Spenserice – šta su i kako ih nositi."
+  - src: "../../../assets/projects/koznaobuca-blog.webp"
+    alt: "Lista tekstova na blogu sa zelenim oznakama kategorija."
+  - src: "../../../assets/projects/koznaobuca-kontakt.webp"
+    alt: "Kontakt strana sa jedinom formom na sajtu."
+  - src: "../../../assets/projects/koznaobuca-popup.webp"
+    alt: "Popup koji se pojavi posle 40 sekundi čitanja."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 100, icon: 'zap' },
+  { label: 'Accessibility', value: 100, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## Zadatak
+
+**koznaobuca.com** je bila prodavnica od jedne strane koja je preko forme prodavala jedan model kožnih cipela. Search Console je pokazivao nešto što prodavnica nije koristila: ljudi su domen nalazili preko **opštih pretraga o kožnoj obući** – kožna obuća, spenserice, veličina obuće u cm, ženske čizme.
+
+Klijent je hteo da **prodaju za sada ukine i domen pretvori u blog** koji odgovara baš na te pretrage. Zahtevi su bili:
+
+- profesionalan izgled bloga, na gotovoj open-source temi koju je klijent izabrao;
+- oko **20 tekstova na srpskom** o opštim ključnim rečima za kožnu obuću, **bez ciljanja naziva firmi**;
+- sadržaj zasnovan na renomiranim sajtovima na engleskom, sa stock fotografijama;
+- **kontakt samo preko forme**, bez broja telefona na sajtu;
+- brz, statičan sajt koji radi na postojećem **cPanel hostingu**.
+
+## 20 tekstova iz renomiranih izvora
+
+Ključne reči sam uzeo direktno iz klijentovog izvoza iz Search Console-a i zadržao samo opšte. Svaki tekst je **napisan iznova, na srpskom**, na osnovu saveta renomiranih stranih časopisa i sajtova o obući i zdravlju stopala, a izvori su navedeni na kraju teksta.
+
+Tekstovi su podeljeni u tri teme:
+
+- **Vodiči**: kako prepoznati kvalitetnu kožu, kako izmeriti stopalo i veličina obuće u cm, vrste kože, šivena ili lepljena obuća, kožni ili gumeni đon, domaća kožna obuća.
+- **Stil**: muške i ženske spenserice, čelzi čizme, ženske čizme i natkolenice, sandale i huarache, vrste muških cipela, ženska obuća za posao.
+- **Nega**: čišćenje i nega, zaštita od soli i snega, ogrebotine i fleke, neprijatan miris, kožne patike.
+
+Svaki tekst ima **česta pitanja** sa odgovorima na stvarna pitanja, linkove ka srodnim tekstovima i stock fotografiju sa navedenim autorom.
+
+## Iz prodavnice u blog, bez gubitka posetilaca
+
+- **Svaka adresa koju je Google već znao i dalje radi.** Strana za naručivanje, zahvalnica, uslovi kupovine i stare adrese proizvoda trajno vode na najsrodniju novu stranu, a tabela veličina na tekst u kom se sada nalazi.
+- Sajt je napravljen u **Astru**, na open-source temi **ProCleaning** prilagođenoj brendu, i isporučuje se kao **statičan HTML** na klijentovom cPanel hostingu.
+- **Kontakt ide preko jedne forme** na strani Kontakt, koju šalje mala PHP skripta sa zaštitom od spama. Ostale strane vode do nje dugmetom.
+
+## Ugrađen SEO
+
+- **Strukturirani podaci za članak, česta pitanja i putanju** na svakom tekstu, sa izvorima kao citatima.
+- **Mapa sajta sa slikama**, RSS, `llms.txt` za AI pretragu i uredne strane sa jednim glavnim naslovom.
+- **Pretraga** koja radi bez servera.
+- Analytics i Meta Pixel se učitavaju na prvu interakciju, pa nikad ne usporavaju prvi prikaz.
+
+## Praćenje i baner
+
+Na svakoj strani radi moje **praćenje upita**, pa klijent vidi svaku poslatu poruku. **Kockasti baner** u hero sekciji i **popup posle 40 sekundi čitanja** nude izradu sajtova, sa UTM oznakama, pa se meri svako mesto posebno.
+
+## Rezultati
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+Na živom sajtu Lighthouse daje **100 za Performance, Accessibility, Best Practices i SEO**.

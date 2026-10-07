@@ -1,0 +1,88 @@
+---
+title: "Kožna obuća"
+locale: de
+description: "Der Kunde wollte einen Shop für ein einziges Schuhmodell in einen Fachblog über Lederschuhe verwandeln. Das Ergebnis: 20 recherchierte Artikel auf Serbisch, eine statische Astro-Website auf cPanel, alle alten Adressen erhalten und 100 in allen vier Lighthouse-Kategorien."
+url: "https://koznaobuca.com"
+tags: ["Astro", "SEO", "Inhalte"]
+featured: true
+order: 6
+year: 2026
+client: "Kožna obuća"
+role: "Inhalte, Entwicklung & SEO"
+services: ["Vom Shop zum Blog", "SEO-Inhalte", "Technisches SEO", "Anfragen-Tracking"]
+meta: ["Blog über Lederschuhe", "20 Artikel", "Statisch auf cPanel", "Lighthouse 100 · 100 · 100 · 100"]
+icon: "footprints"
+image: "../../../assets/projects/koznaobuca-home.webp"
+imageAlt: "Die Startseite von Kožna obuća: die Überschrift Kožna obuća koja traje neben einem quadratischen Webdesign-Banner."
+gallery:
+  - src: "../../../assets/projects/koznaobuca-home.webp"
+    alt: "Der Startbereich mit dem quadratischen Banner rechts."
+  - src: "../../../assets/projects/koznaobuca-topics.webp"
+    alt: "Drei Themenkarten: Ratgeber, Stil und Pflege."
+  - src: "../../../assets/projects/koznaobuca-post.webp"
+    alt: "Eine Artikelseite: Spenserice – šta su i kako ih nositi."
+  - src: "../../../assets/projects/koznaobuca-blog.webp"
+    alt: "Die Blogübersicht mit grünen Kategorie-Labels."
+  - src: "../../../assets/projects/koznaobuca-kontakt.webp"
+    alt: "Die Kontaktseite mit dem einzigen Formular der Website."
+  - src: "../../../assets/projects/koznaobuca-popup.webp"
+    alt: "Das Popup nach 40 Sekunden Lesezeit."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 100, icon: 'zap' },
+  { label: 'Accessibility', value: 100, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## Die Aufgabe
+
+**koznaobuca.com** war ein einseitiger Shop, der über ein Bestellformular ein einziges Lederschuhmodell verkaufte. Die Search Console zeigte etwas, das der Shop nicht nutzte: Menschen fanden die Domain über **allgemeine Suchen rund um Lederschuhe** – Lederschuhe, Chukka-Boots („Spenserice“), Schuhgrößen in Zentimetern, Damenstiefel.
+
+Der Kunde wollte **den Verkauf vorerst einstellen und die Domain in einen Blog verwandeln**, der genau diese Suchen beantwortet. Die Anforderungen:
+
+- ein professioneller Blog-Auftritt auf einem fertigen Open-Source-Theme, das der Kunde ausgewählt hatte;
+- rund **20 Artikel auf Serbisch** zu allgemeinen Suchbegriffen rund um Lederschuhe, **ohne Markennamen anzuzielen**;
+- Inhalte auf Grundlage renommierter englischsprachiger Quellen, mit Stockfotos;
+- **Kontakt nur über ein Formular**, keine Telefonnummer auf der Website;
+- eine schnelle, statische Website auf dem bestehenden **cPanel-Hosting**.
+
+## 20 Artikel aus renommierten Quellen
+
+Die Suchbegriffe habe ich direkt aus dem Search-Console-Export des Kunden übernommen und nur die allgemeinen behalten. Jeder Artikel wurde **neu auf Serbisch geschrieben**, auf Grundlage von Ratschlägen angesehener englischsprachiger Schuh- und Fußgesundheitsmagazine, und nennt diese Quellen am Ende.
+
+Die Artikel sind in drei Themen gegliedert:
+
+- **Ratgeber**: Lederqualität erkennen, Fuß messen und Schuhgröße in cm, Lederarten, rahmengenähte oder geklebte Schuhe, Leder- oder Gummisohle, Lederschuhe aus heimischer Fertigung.
+- **Stil**: Chukka-Boots für Herren und Damen, Chelsea-Boots, Damenstiefel und Overknees, Sandalen und Huaraches, Herrenschuhmodelle, Damenschuhe fürs Büro.
+- **Pflege**: Reinigung und Pflege, Schutz vor Salz und Schnee, Kratzer und Flecken, Schuhgeruch, Ledersneaker.
+
+Jeder Artikel hat **häufige Fragen** mit Antworten, interne Links zu verwandten Artikeln und ein Stockfoto mit genanntem Urheber.
+
+## Vom Shop zum Blog, ohne Besucher zu verlieren
+
+- **Jede Adresse, die Google bereits kannte, funktioniert weiter.** Bestellseite, Danke-Seite, Kaufbedingungen und alte Produkt-URLs leiten dauerhaft auf die passendste neue Seite um, die Größentabelle auf den Artikel, der sie jetzt enthält.
+- Die Website ist mit **Astro** auf dem Open-Source-Theme **ProCleaning** gebaut, an die Marke angepasst, und wird als **statisches HTML** auf dem cPanel-Hosting des Kunden ausgeliefert.
+- **Kontakt läuft über ein einziges Formular** auf der Kontaktseite, versendet von einem kleinen PHP-Skript mit Spamschutz. Die übrigen Seiten führen per Button dorthin.
+
+## Eingebautes SEO
+
+- **Strukturierte Daten für Artikel, FAQ und Breadcrumbs** auf jedem Beitrag, mit den Quellen als Zitate.
+- Eine **Sitemap mit Bildern**, RSS, `llms.txt` für die KI-Suche und saubere Seiten mit einer Hauptüberschrift.
+- Eine **Suche**, die ohne Server funktioniert.
+- Analytics und das Meta Pixel laden bei der ersten Interaktion und bremsen den ersten Seitenaufbau nie.
+
+## Tracking und Banner
+
+Auf jeder Seite läuft mein **Anfragen-Tracking**, sodass der Kunde jede Formularanfrage sieht. Ein **quadratisches Banner** im Startbereich und ein **Popup nach 40 Sekunden Lesezeit** bewerben Webdesign, mit UTM-Parametern, damit jede Platzierung messbar ist.
+
+## Ergebnisse
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+Auf der Live-Website liefert Lighthouse **100 bei Performance, Accessibility, Best Practices und SEO**.

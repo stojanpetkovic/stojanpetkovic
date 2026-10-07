@@ -1,0 +1,88 @@
+---
+title: "Kožna obuća"
+locale: en
+description: "The client wanted to turn a one-product shoe shop into an authority blog on leather footwear. The result: 20 researched Serbian articles, a static Astro site on cPanel, every old address kept, and 100 in all four Lighthouse categories."
+url: "https://koznaobuca.com"
+tags: ["Astro", "SEO", "Content"]
+featured: true
+order: 6
+year: 2026
+client: "Kožna obuća"
+role: "Content, Development & SEO"
+services: ["Shop to Blog", "SEO Content", "Technical SEO", "Lead Tracking"]
+meta: ["Leather footwear blog", "20 articles", "Static on cPanel", "Lighthouse 100 · 100 · 100 · 100"]
+icon: "footprints"
+image: "../../../assets/projects/koznaobuca-home.webp"
+imageAlt: "The Kožna obuća homepage: the headline Kožna obuća koja traje beside a square web design banner."
+gallery:
+  - src: "../../../assets/projects/koznaobuca-home.webp"
+    alt: "The homepage hero with a square banner on the right."
+  - src: "../../../assets/projects/koznaobuca-topics.webp"
+    alt: "Three topic cards: guides, style and care."
+  - src: "../../../assets/projects/koznaobuca-post.webp"
+    alt: "An article page: Spenserice – šta su i kako ih nositi."
+  - src: "../../../assets/projects/koznaobuca-blog.webp"
+    alt: "The blog listing with green category labels."
+  - src: "../../../assets/projects/koznaobuca-kontakt.webp"
+    alt: "The contact page with the only form on the site."
+  - src: "../../../assets/projects/koznaobuca-popup.webp"
+    alt: "The popup that appears after 40 seconds of reading."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 100, icon: 'zap' },
+  { label: 'Accessibility', value: 100, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## The brief
+
+**koznaobuca.com** was a single-page shop selling one model of leather shoes through an order form. Search Console showed something the shop wasn't using: people were finding the domain for **general searches about leather footwear** – leather shoes, chukka-style "spenserice", shoe sizes in centimetres, women's boots.
+
+The client wanted to **stop selling for now and turn the domain into a blog** that answers exactly those searches. The requirements:
+
+- a professional blog look, built on a ready-made open-source theme the client chose;
+- around **20 articles in Serbian** on general leather footwear keywords, **without targeting brand names**;
+- content based on reputable English-language sources, with stock photos;
+- **contact only through a form**, no phone number on the site;
+- a fast, static site that runs on the existing **cPanel hosting**.
+
+## 20 articles from reputable sources
+
+I took the keywords straight from the client's Search Console export and kept only the general ones. Each article was **written from scratch in Serbian**, based on advice from respected English-language footwear and foot-health publications, and lists those sources at the end.
+
+The articles are split into three topics:
+
+- **Guides**: how to recognise quality leather, measuring your foot and shoe size in cm, leather types, Goodyear-welted vs cemented soles, leather vs rubber soles, domestic leather footwear.
+- **Style**: chukka boots for men and women, Chelsea boots, women's boots and over-the-knee boots, sandals and huaraches, men's shoe types, women's shoes for work.
+- **Care**: cleaning and conditioning, winter protection from salt and snow, scuffs and stains, shoe odour, leather sneakers.
+
+Every article has a **FAQ** answering real questions, internal links to related articles and a stock photo credited under the image.
+
+## From a shop to a blog, without losing traffic
+
+- **Every address Google already knew still works.** The order page, the thank-you page, the purchase terms and the old shop's product URLs permanently redirect to the most relevant new page; the size chart redirects to the article that now contains it.
+- The site is built in **Astro** on the open-source **ProCleaning** theme, adapted to the brand, and ships as **static HTML** on the client's cPanel hosting.
+- **Contact goes through one form** on the contact page, sent by a small PHP script with spam protection. Other pages lead there with a call-to-action button.
+
+## SEO built in
+
+- **Article, FAQ and breadcrumb structured data** on every post, with the sources listed as citations.
+- An **image sitemap**, RSS, `llms.txt` for AI search and clean, one-heading pages.
+- **Search** that works without a server.
+- Analytics and the Meta Pixel load on the first interaction, so they never slow the first paint.
+
+## Tracking and a banner
+
+Every page runs my **lead tracking**, so the client sees every form submission. A **square banner** in the homepage hero and a **popup after 40 seconds of reading** promote web design services, with UTM tags so each placement can be measured.
+
+## Results
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+On the live site Lighthouse gives **100 in Performance, Accessibility, Best Practices and SEO**.
