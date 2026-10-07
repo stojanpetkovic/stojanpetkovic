@@ -408,6 +408,52 @@
         "role": "Owner of two tree service companies",
         "imageAlt": "A tree service website built by Mr. Petkovic"
       },
+      "report": {
+        "badge": "Tracking & monthly report",
+        "heading": "Know exactly what your website earns — down to the last inquiry",
+        "lead": "Most websites leave you guessing. Every site I build can give you the clearest picture you'll ever have of your marketing: every inquiry, every call and every euro, in one monthly report written in plain language.",
+        "points": [
+          {
+            "icon": "inbox",
+            "title": "Every inquiry, instantly",
+            "text": "The full form, the page it came from and the ad or search that brought the visitor — in your inbox the second it's sent."
+          },
+          {
+            "icon": "phone",
+            "title": "Every call counted",
+            "text": "Taps on your phone number, WhatsApp and text links are recorded as conversions, not lost in the noise."
+          },
+          {
+            "icon": "target",
+            "title": "The source that pays",
+            "text": "Google, Facebook ads or direct visits: see which one brings visits, inquiries and calls, and at what rate."
+          },
+          {
+            "icon": "wallet",
+            "title": "Cost per inquiry and per call",
+            "text": "Add your ad spend and the report shows what each inquiry, each call and each won client really cost you — and your return on ad spend."
+          },
+          {
+            "icon": "file-text",
+            "title": "A monthly PDF anyone can read",
+            "text": "No logins, no dashboards to learn: clear pages in English or Serbian, ready for your partners or your accountant."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Private by design",
+            "text": "Visitors are counted anonymously, without cookies and without following them across other websites."
+          }
+        ],
+        "outcomesHeading": "What it means for your business",
+        "outcomes": [
+          "Put your budget into the channels that bring customers, not just clicks",
+          "Never miss an inquiry again — every one reaches you instantly",
+          "Proof in numbers that your website pays for itself"
+        ],
+        "imageAlt": "Example of a monthly website report: visitors, inquiries, calls, conversion rate, a daily chart and where visitors come from.",
+        "imageCaption": "An example monthly report (demo data).",
+        "imageBadge": "Available with every website"
+      },
       "process": {
         "badge": "How it works",
         "heading": "From first message to a site that sells — in four steps",

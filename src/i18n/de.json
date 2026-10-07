@@ -408,6 +408,52 @@
         "role": "Inhaber von zwei Baumpflegefirmen",
         "imageAlt": "Website einer Baumpflegefirma, gebaut von Mr. Petkovic"
       },
+      "report": {
+        "badge": "Tracking & Monatsbericht",
+        "heading": "Wissen Sie genau, was Ihre Website einbringt — bis zur letzten Anfrage",
+        "lead": "Die meisten Websites lassen Sie raten. Zu jeder Website, die ich baue, bekommen Sie auf Wunsch das klarste Bild Ihres Marketings, das Sie je hatten: jede Anfrage, jeden Anruf und jeden investierten Euro, in einem verständlich geschriebenen Monatsbericht.",
+        "points": [
+          {
+            "icon": "inbox",
+            "title": "Jede Anfrage, sofort",
+            "text": "Das vollständige Formular, die Seite, von der es kam, und die Anzeige oder Suche, die den Besucher brachte — in der Sekunde des Absendens in Ihrem Postfach."
+          },
+          {
+            "icon": "phone",
+            "title": "Jeder Anruf zählt",
+            "text": "Tipps auf Ihre Telefonnummer, WhatsApp- und SMS-Links werden als Conversions erfasst, statt verloren zu gehen."
+          },
+          {
+            "icon": "target",
+            "title": "Die Quelle, die sich lohnt",
+            "text": "Google, Facebook-Anzeigen oder direkte Besuche: Sie sehen, welche Quelle Besuche, Anfragen und Anrufe bringt — und mit welcher Quote."
+          },
+          {
+            "icon": "wallet",
+            "title": "Kosten pro Anfrage und pro Anruf",
+            "text": "Tragen Sie Ihre Werbeausgaben ein, und der Bericht zeigt, was jede Anfrage, jeder Anruf und jeder gewonnene Kunde wirklich gekostet hat — samt Return on Ad Spend."
+          },
+          {
+            "icon": "file-text",
+            "title": "Ein Monats-PDF, das jeder versteht",
+            "text": "Keine Logins, keine Dashboards: klare Seiten auf Englisch oder Serbisch, bereit für Partner oder Steuerberater."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Datenschutz von Anfang an",
+            "text": "Besucher werden anonym gezählt, ohne Cookies und ohne sie über andere Websites zu verfolgen."
+          }
+        ],
+        "outcomesHeading": "Was das für Ihr Unternehmen bedeutet",
+        "outcomes": [
+          "Ihr Budget fließt in Kanäle, die Kunden bringen — nicht nur Klicks",
+          "Keine Anfrage geht mehr verloren — jede erreicht Sie sofort",
+          "Der Beweis in Zahlen, dass sich Ihre Website rechnet"
+        ],
+        "imageAlt": "Beispiel eines monatlichen Website-Berichts: Besucher, Anfragen, Anrufe, Conversion-Rate, ein Tagesdiagramm und die Herkunft der Besucher.",
+        "imageCaption": "Ein Beispiel für einen Monatsbericht (Demodaten).",
+        "imageBadge": "Für jede Website verfügbar"
+      },
       "process": {
         "badge": "So funktioniert es",
         "heading": "Von der ersten Nachricht zur Website, die verkauft — in vier Schritten",

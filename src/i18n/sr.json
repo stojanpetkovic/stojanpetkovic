@@ -408,6 +408,52 @@
         "role": "Vlasnik dve firme za usluge sa drvećem",
         "imageAlt": "Sajt firme za usluge sa drvećem koji je napravio Mr. Petković"
       },
+      "report": {
+        "badge": "Praćenje i mesečni izveštaj",
+        "heading": "Znaj tačno šta ti sajt donosi — do poslednjeg upita",
+        "lead": "Većina sajtova te ostavlja da nagađaš. Uz svaki sajt koji napravim možeš da dobiješ najjasniju sliku tvog marketinga koju ćeš ikad imati: svaki upit, svaki poziv i svaki uloženi evro, u jednom mesečnom izveštaju napisanom razumljivim jezikom.",
+        "points": [
+          {
+            "icon": "inbox",
+            "title": "Svaki upit, odmah",
+            "text": "Cela forma, stranica sa koje je stigla i oglas ili pretraga koja je dovela posetioca — u tvom inboxu istog trenutka."
+          },
+          {
+            "icon": "phone",
+            "title": "Svaki poziv se broji",
+            "text": "Klikovi na broj telefona, WhatsApp i SMS beleže se kao konverzije, umesto da se izgube."
+          },
+          {
+            "icon": "target",
+            "title": "Izvor koji se isplati",
+            "text": "Google, Facebook oglasi ili direktne posete: vidiš koji donosi posete, upite i pozive, i sa kojom stopom."
+          },
+          {
+            "icon": "wallet",
+            "title": "Cena po upitu i po pozivu",
+            "text": "Uneseš koliko je potrošeno na oglase, a izveštaj pokaže koliko te je stvarno koštao svaki upit, svaki poziv i svaki dobijeni klijent — i koliko ti se vratilo."
+          },
+          {
+            "icon": "file-text",
+            "title": "Mesečni PDF koji svako razume",
+            "text": "Bez logovanja i dashboarda: jasne stranice na srpskom ili engleskom, spremne za partnere ili knjigovođu."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Privatnost na prvom mestu",
+            "text": "Posetioci se broje anonimno, bez kolačića i bez praćenja po drugim sajtovima."
+          }
+        ],
+        "outcomesHeading": "Šta to znači za tvoj biznis",
+        "outcomes": [
+          "Budžet ide u kanale koji donose klijente, a ne samo klikove",
+          "Nijedan upit više ne promakne — svaki stiže do tebe odmah",
+          "Dokaz u brojkama da se sajt isplaćuje"
+        ],
+        "imageAlt": "Primer mesečnog izveštaja o sajtu: posetioci, upiti, pozivi, stopa konverzije, dnevni grafikon i odakle dolaze posetioci.",
+        "imageCaption": "Primer mesečnog izveštaja (demo podaci).",
+        "imageBadge": "Dostupno uz svaki sajt"
+      },
       "process": {
         "badge": "Kako to ide",
         "heading": "Od prve poruke do sajta koji prodaje — u četiri koraka",
