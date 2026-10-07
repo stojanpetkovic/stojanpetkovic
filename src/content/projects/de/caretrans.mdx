@@ -1,0 +1,75 @@
+---
+title: "Krankentransport CARETRANS"
+locale: de
+description: "Ein Krankentransportunternehmen aus Belgrad, rund um die Uhr erreichbar, bekam ein neueres Astro, eine komplette Überarbeitung des lokalen SEO und Anruf-Tracking auf jeder Seite, ohne das Tracking seines Marketingpartners anzutasten."
+url: "https://prevozpacijenatacaretrans.rs"
+tags: ["Astro", "SEO", "Kundenprojekte"]
+featured: true
+order: 4
+year: 2026
+client: "Sanitetski prevoz CARETRANS"
+role: "Entwicklung, SEO & Anfragen-Tracking"
+services: ["Astro-Upgrade", "Lokales SEO", "Strukturierte Daten", "Anfragen-Tracking"]
+meta: ["Krankentransport, Belgrad", "33 Seiten", "Lighthouse 95 · 96 · 100 · 100"]
+icon: "ambulance"
+image: "../../../assets/projects/caretrans-home.webp"
+imageAlt: "Die Startseite von CARETRANS: Krankenwagen hinter der Überschrift Pouzdan sanitetski prevoz i prevoz pacijenata u zemlji i inostranstvu und ein Anruf-Button."
+gallery:
+  - src: "../../../assets/projects/caretrans-home.webp"
+    alt: "Die Startseite: Krankenwagen hinter der Überschrift über zuverlässigen Patiententransport im In- und Ausland, rund um die Uhr, mit einem Anruf-Button."
+  - src: "../../../assets/projects/caretrans-service.webp"
+    alt: "Die Leistungsseite für den Transport bettlägeriger Patienten in Belgrad."
+  - src: "../../../assets/projects/caretrans-abroad.webp"
+    alt: "Die Leistungsseite für den Patiententransport aus Deutschland nach Serbien."
+  - src: "../../../assets/projects/caretrans-pricing.webp"
+    alt: "Die Preisliste für Krankentransporte in Belgrad, in Serbien und in Europa, jeweils mit Anruf-Button."
+  - src: "../../../assets/projects/caretrans-blog.webp"
+    alt: "Der Blog: Artikel über Gesundheit, die Pflege bettlägeriger Menschen und Kuren in serbischen Heilbädern."
+  - src: "../../../assets/projects/caretrans-contact.webp"
+    alt: "Die Kontaktseite: rund um die Uhr an 365 Tagen erreichbar, mit einer Telefonnummer, die sich mit einem Tippen anrufen lässt."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 95, icon: 'zap' },
+  { label: 'Accessibility', value: 96, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## Die Aufgabe
+
+**CARETRANS** ist ein Krankentransportunternehmen aus Belgrad, erreichbar **rund um die Uhr, an 365 Tagen im Jahr**. Es transportiert bettlägerige und eingeschränkt mobile Patienten in ganz Serbien und bringt Patienten aus Deutschland, Österreich, der Schweiz und Italien nach Hause.
+
+Die Website lief bereits auf Astro, aber auf einer älteren Version, und Werbung sowie Tracking über den Google Tag Manager betreut ein externer Marketingpartner. Die Aufgabe hatte drei Teile: **die Website aktualisieren, Anruf-Tracking ergänzen und alles beheben, was sie in der lokalen Suche bremst**. Und eine feste Regel: **Das Tracking des Marketingpartners bleibt genau so, wie es ist**.
+
+## Upgrade ohne Schaden
+
+Die Website wechselte von **Astro 5 auf Astro 7**. Die alte Tailwind-Integration unterstützt die neue Version nicht, deshalb baut Tailwind jetzt direkt. Ich habe die Styles vor und nach dem Upgrade verglichen: Sie stimmen Klasse für Klasse überein, die Website sieht also genauso aus wie vorher.
+
+Der Google-Tag-Manager-Code blieb unangetastet. Nach dem Upgrade habe ich alle **33 Seiten** geprüft: Das Tag ist auf jeder Seite und funktioniert wie zuvor. Vor jeder Änderung wurde die gesamte Website im Zustand auf dem Server gesichert, sodass sich jeder Schritt rückgängig machen lässt.
+
+## Jeder Anruf zählt
+
+Für einen Krankentransport ist **das Telefon alles**: Wer einen Krankenwagen braucht, füllt kein Formular aus. Deshalb ist mein Anfragen-Tracking jetzt auf jeder Seite und **zählt jedes Tippen auf die Telefonnummer**, mit der Seite, von der es kam. Auf der Kontaktseite war die Nummer nicht einmal ein Link; jetzt genügt ein Tippen.
+
+## Lokales SEO
+
+Die Prüfung fand Probleme, die still Positionen gekostet hatten:
+
+- **Zwei Hauptüberschriften auf fast jeder Seite.** Der Firmenname in der Kopfzeile war als Hauptüberschrift (H1) ausgezeichnet. Jetzt hat jede Seite genau eine, mit Leistung und Stadt.
+- **Falsche kanonische Adressen.** Eine Leistungsseite verwies Google auf eine Adresse, die nicht existiert, alle anderen auf Adressen mit Weiterleitung.
+- **Sechs defekte Links** zwischen Artikeln und Leistungen und **vier fehlende Bilder**, darunter das Banner jeder Leistungsseite und das Logo.
+- Die **häufigen Fragen** wurden per JavaScript im Browser erzeugt, Suchmaschinen und KI-Assistenten sahen sie womöglich gar nicht. Jetzt sind sie normales HTML.
+- **Titel und Beschreibungen** nennen jetzt Belgrad, den 24/7-Service und die Telefonnummer.
+
+Dazu beschreiben **strukturierte Daten** CARETRANS jetzt als medizinisches Unternehmen in Belgrad, mit Telefon, Erreichbarkeit rund um die Uhr, den bedienten Ländern und den Social-Media-Profilen. Jede Leistung und jeder Artikel hat eigene Auszeichnungen, die häufigen Fragen sind auf der Startseite ausgezeichnet und die Sitemap entsteht automatisch.
+
+## Ergebnisse
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+In Lighthouse erreicht die Website **95 bei Performance, 96 bei Accessibility und 100 bei Best Practices und SEO**, mit dem Tracking des Marketingpartners und meinem Anruf-Tracking auf jeder Seite.

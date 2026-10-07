@@ -1,0 +1,75 @@
+---
+title: "CARETRANS Patient Transport"
+locale: en
+description: "A 24/7 medical transport company from Belgrade got a newer Astro, a full local SEO overhaul and call tracking on every page, without touching the tracking its marketing partner relies on."
+url: "https://prevozpacijenatacaretrans.rs"
+tags: ["Astro", "SEO", "Client Work"]
+featured: true
+order: 4
+year: 2026
+client: "Sanitetski prevoz CARETRANS"
+role: "Development, SEO & Lead Tracking"
+services: ["Astro Upgrade", "Local SEO", "Structured Data", "Lead Tracking"]
+meta: ["Medical transport, Belgrade", "33 pages", "Lighthouse 95 · 96 · 100 · 100"]
+icon: "ambulance"
+image: "../../../assets/projects/caretrans-home.webp"
+imageAlt: "The CARETRANS homepage: ambulances behind the headline Pouzdan sanitetski prevoz i prevoz pacijenata u zemlji i inostranstvu and a call button."
+gallery:
+  - src: "../../../assets/projects/caretrans-home.webp"
+    alt: "The homepage: ambulances behind the headline about reliable patient transport at home and abroad, available 24/7, with a call button."
+  - src: "../../../assets/projects/caretrans-service.webp"
+    alt: "The service page for transporting bedridden patients in Belgrade, with the headline Prevoz nepokretnih pacijenata Beograd 24/7."
+  - src: "../../../assets/projects/caretrans-abroad.webp"
+    alt: "The service page for patient transport from Germany to Serbia."
+  - src: "../../../assets/projects/caretrans-pricing.webp"
+    alt: "The price list for medical transport in Belgrade, across Serbia and in Europe, each with a call button."
+  - src: "../../../assets/projects/caretrans-blog.webp"
+    alt: "The blog: articles on health, care for bedridden people and spa treatment in Serbia."
+  - src: "../../../assets/projects/caretrans-contact.webp"
+    alt: "The contact page: available 24/7, every day of the year, with a tap-to-call phone number."
+---
+
+import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
+
+export const lighthouseScores = [
+  { label: 'Performance', value: 95, icon: 'zap' },
+  { label: 'Accessibility', value: 96, icon: 'users' },
+  { label: 'Best Practices', value: 100, icon: 'shield-check' },
+  { label: 'SEO', value: 100, icon: 'search' },
+];
+
+## The brief
+
+**CARETRANS** is a medical transport company from Belgrade, available **24/7, every day of the year**. It transports bedridden and less mobile patients across Serbia and brings patients home from Germany, Austria, Switzerland and Italy.
+
+The site already ran on Astro, but on an older version, and an external marketing partner manages its advertising and tracking through Google Tag Manager. The brief had three parts: **upgrade the site, add call tracking, and fix everything holding it back in local search**. And one firm rule: **the marketing partner's tracking stays exactly as it is**.
+
+## Upgrade without breaking anything
+
+The site moved from **Astro 5 to Astro 7**. The old Tailwind integration doesn't support the new version, so Tailwind now builds directly. I compared the styles before and after the upgrade: they match class for class, so the site looks exactly as it did.
+
+The Google Tag Manager code wasn't touched. After the upgrade I checked all **33 pages**: the tag is on each one and fires the same way as before. Before any change, the whole site was saved as it was on the server, so every step can be undone.
+
+## Every call counted
+
+For a medical transport company **the phone is everything**: nobody fills in a form when they need an ambulance. That's why my lead tracking is now on every page and **counts each tap on the phone number**, with the page it came from. On the contact page the number wasn't even a link; now a single tap calls it.
+
+## Local SEO
+
+The audit found problems that had been quietly costing positions:
+
+- **Two main headings on almost every page.** The company name in the header was marked as the main heading (H1). Now every page has exactly one, and it names the service and the city.
+- **Wrong canonical addresses.** One service page pointed Google to an address that doesn't exist, and all the others to addresses that redirect.
+- **Six broken links** between articles and services, and **four missing images**, including the banner on every service page and the logo.
+- The **FAQ** was rendered by JavaScript in the browser, so search engines and AI assistants may not have seen it. It's now plain HTML.
+- **Titles and descriptions** now name Belgrade, the 24/7 service and the phone number.
+
+On top of that, **structured data** now describes CARETRANS as a medical business in Belgrade, with its phone, 24/7 hours, the countries it serves and its social profiles. Every service and article has its own markup, the FAQ is marked up on the homepage, and the sitemap is generated automatically.
+
+## Results
+
+<div class="my-10">
+  <LighthouseScoresGrid scores={lighthouseScores} />
+</div>
+
+In Lighthouse the site scores **95 for Performance, 96 for Accessibility and 100 for Best Practices and SEO**, with the marketing partner's tracking and my call tracking on every page.
