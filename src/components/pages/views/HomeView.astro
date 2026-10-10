@@ -10,7 +10,6 @@
  * yet. Each card links to the URL of the locale the content actually belongs
  * to, so a fallback (default-locale) item still points at a real page.
  */
-import { Image } from 'astro:assets';
 import LandingLayout from '@/layouts/LandingLayout.astro';
 import { Hero } from '@/components/hero';
 import Button from '@/components/ui/form/Button/Button.astro';
@@ -28,7 +27,6 @@ import { getVisibleProjects } from '@/lib/projects';
 import ProjectCard from '@/components/projects/ProjectCard.astro';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
 import { getSiteName } from '@/lib/site-name';
-import stojanAvatar from '@/assets/profile/stojan-avatar.webp';
 
 interface Props {
   /** Locale whose copy and content this page renders. Defaults to the site default. */
@@ -96,6 +94,8 @@ const hero = tData<{
   descriptionMobile: string;
   primaryCta: string;
   secondaryCta: string;
+  videoPlay: string;
+  videoLabel: string;
 }>('pages.home.hero', locale)!;
 const workWithMe = tData<{ badge: string; heading: string; lead: string; cards: IconCard[]; cta: string }>(
   'pages.home.workWithMe',
@@ -191,16 +191,34 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
     {/* The avatar's own background is the brand blue, so a brand glow sits
         behind the frame: without it the bright square reads as pasted onto
         the dark hero rather than lit by it. */}
-    <div slot="aside" class="relative w-full rounded-3xl border border-brand-400/30 bg-white/[0.08] p-2 shadow-2xl shadow-brand-500/30 backdrop-blur-md lg:mx-0 lg:h-[30rem] lg:w-auto lg:max-w-none lg:justify-self-center">
+    {/* The intro video is a square crop with sound. Browsers only autoplay muted video,
+        so it loops silently as a preview and the pill button restarts it from
+        the start with sound and native controls. On lg the frame is a fixed
+        30rem square so it sits beside the copy. */}
+    <div slot="aside" class="hero-video relative w-full rounded-3xl border border-brand-400/30 bg-white/[0.08] p-2 shadow-2xl shadow-brand-500/30 backdrop-blur-md lg:w-[30rem] lg:justify-self-center">
       <div class="pointer-events-none absolute -inset-12 -z-10 rounded-full bg-brand-500/35 blur-3xl" aria-hidden="true"></div>
-      <Image
-        src={stojanAvatar}
-        alt={getSiteName(locale)}
-        class="w-full h-auto rounded-2xl object-contain lg:h-full lg:w-auto"
-        widths={[320, 480, 640, 960]}
-        sizes="(min-width: 1024px) 24rem, 80vw"
-        priority
-      />
+      <video
+        class="hero-video-el aspect-square w-full rounded-2xl bg-black object-cover"
+        poster="/video/hero-avatar-poster.webp"
+        width="720"
+        height="720"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-label={hero.videoLabel}
+      >
+        <source src="/video/hero-avatar.webm" type="video/webm" />
+        <source src="/video/hero-avatar.mp4" type="video/mp4" />
+      </video>
+      <button
+        type="button"
+        class="hero-video-play absolute bottom-5 left-5 inline-flex items-center gap-2 rounded-full bg-black/70 px-4 py-2 text-sm font-medium text-white backdrop-blur-md transition hover:bg-black/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      >
+        <Icon name="volume-2" size="sm" />
+        {hero.videoPlay}
+      </button>
     </div>
 
     <Badge slot="badge" variant="brand" pill pulse class="dark:text-brand-200">{hero.badge}</Badge>
@@ -535,6 +553,24 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
   </section>
 
 <script>
+  // Muted loop is the preview; the button restarts the video with sound.
+  // Visitors who prefer reduced motion get the poster still until they press it.
+  function initHeroVideo() {
+    const video = document.querySelector<HTMLVideoElement>('.hero-video-el');
+    const button = document.querySelector<HTMLButtonElement>('.hero-video-play');
+    if (!video || !button) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.pause();
+    button.addEventListener('click', () => {
+      video.muted = false;
+      video.loop = false;
+      video.controls = true;
+      video.currentTime = 0;
+      void video.play();
+      button.hidden = true;
+    });
+  }
+  initHeroVideo();
+
   function initCountup() {
     const counters = document.querySelectorAll<HTMLElement>('[data-countup]:not([data-countup-init])');
     if (counters.length === 0) return;

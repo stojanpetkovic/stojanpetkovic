@@ -1065,7 +1065,9 @@
         "description": "I build websites, lead generation systems and data-driven platforms — with modern technology and a practical, business-focused mindset.",
         "descriptionMobile": "I build websites, lead generation systems and data-driven platforms with a practical, business-focused mindset.",
         "primaryCta": "Get in touch",
-        "secondaryCta": "See my work"
+        "secondaryCta": "See my work",
+        "videoPlay": "Play with sound",
+        "videoLabel": "Video introduction"
       },
       "services": {
         "badge": "What I do",

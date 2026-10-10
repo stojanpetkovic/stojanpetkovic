@@ -1065,7 +1065,9 @@
         "description": "Izrada sajtova, sistema za prikupljanje upita i platformi zasnovanih na podacima — na modernoj tehnologiji, sa fokusom na rezultate tvog biznisa.",
         "descriptionMobile": "Izrada sajtova, sistema za prikupljanje upita i platformi zasnovanih na podacima, sa fokusom na rezultate tvog biznisa.",
         "primaryCta": "Javi se",
-        "secondaryCta": "Pogledaj radove"
+        "secondaryCta": "Pogledaj radove",
+        "videoPlay": "Pusti sa zvukom",
+        "videoLabel": "Video predstavljanje"
       },
       "services": {
         "badge": "Čime se bavim",

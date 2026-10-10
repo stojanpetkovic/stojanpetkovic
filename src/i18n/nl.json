@@ -1065,7 +1065,9 @@
         "description": "Ik bouw websites, leadgeneratiesystemen en datagedreven platforms — met moderne technologie en een praktische, zakelijke mindset.",
         "descriptionMobile": "Ik bouw websites, leadgeneratiesystemen en datagedreven platforms met een praktische, zakelijke mindset.",
         "primaryCta": "Neem contact op",
-        "secondaryCta": "Bekijk mijn werk"
+        "secondaryCta": "Bekijk mijn werk",
+        "videoPlay": "Afspelen met geluid",
+        "videoLabel": "Introductievideo"
       },
       "services": {
         "badge": "Wat ik doe",

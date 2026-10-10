@@ -1065,7 +1065,9 @@
         "description": "Ich baue Websites, Systeme zur Kundengewinnung und datengestützte Plattformen — mit moderner Technologie und einem praktischen, geschäftsorientierten Blick.",
         "descriptionMobile": "Ich baue Websites, Systeme zur Kundengewinnung und datengestützte Plattformen mit einem praktischen, geschäftsorientierten Blick.",
         "primaryCta": "Kontakt aufnehmen",
-        "secondaryCta": "Meine Arbeiten"
+        "secondaryCta": "Meine Arbeiten",
+        "videoPlay": "Mit Ton abspielen",
+        "videoLabel": "Vorstellungsvideo"
       },
       "services": {
         "badge": "Was ich mache",
