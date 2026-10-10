@@ -295,7 +295,9 @@
             "label": "to reply to every enquiry"
           }
         ],
-        "imageAlt": "Mr. Petkovic, the web developer you work with directly"
+        "imageAlt": "Mr. Petkovic, the web developer you work with directly",
+        "videoPlay": "Play with sound",
+        "videoLabel": "Video introduction"
       },
       "problem": {
         "badge": "Sound familiar?",

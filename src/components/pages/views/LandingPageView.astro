@@ -29,7 +29,6 @@ import siteConfig from '@/config/site.config';
 import { t, tData, defaultLocale } from '@/i18n';
 import { getSiteName } from '@/lib/site-name';
 import { contactConfigured } from '@/lib/email';
-import stojanAvatar from '@/assets/profile/stojan-avatar.webp';
 import treeJawsImg from '@/assets/projects/tree-jaws-hero-dark.webp';
 import mahaloImg from '@/assets/projects/mahalo-hero.webp';
 import storyImg from '@/assets/projects/sf-tree-removal-home.webp';
@@ -158,14 +157,33 @@ const year = new Date().getFullYear();
       <div class="relative mx-auto w-full max-w-sm lg:max-w-none">
         <div class="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-brand-500/25 blur-3xl" aria-hidden="true"></div>
         <div class="rounded-3xl border border-brand-400/30 bg-background/60 p-2 shadow-2xl shadow-brand-500/20 backdrop-blur-md">
-          <Image
-            src={stojanAvatar}
-            alt={L('hero.imageAlt')}
-            class="h-auto w-full rounded-2xl"
-            widths={[320, 480, 640]}
-            sizes="(min-width: 1024px) 26rem, 80vw"
-            priority
-          />
+          {/* Muted loop as a preview (browsers only autoplay muted video); the
+              button restarts it with sound and native controls. Reduced-motion
+              visitors get the poster until they press it. */}
+          <div class="relative">
+            <video
+              class="lp-hero-video aspect-square w-full rounded-2xl bg-black object-cover"
+              poster="/video/start-hero-poster.webp"
+              width="720"
+              height="720"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label={L('hero.videoLabel')}
+            >
+              <source src="/video/start-hero.webm" type="video/webm" />
+              <source src="/video/start-hero.mp4" type="video/mp4" />
+            </video>
+            <button
+              type="button"
+              class="lp-hero-video-play absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-black/70 px-4 py-2 text-sm font-medium text-white backdrop-blur-md transition hover:bg-black/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              <Icon name="volume-2" size="sm" />
+              {L('hero.videoPlay')}
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -815,6 +833,22 @@ const year = new Date().getFullYear();
 </style>
 
 <script>
+  function initHeroVideo(): void {
+    const video = document.querySelector<HTMLVideoElement>('.lp-hero-video');
+    const button = document.querySelector<HTMLButtonElement>('.lp-hero-video-play');
+    if (!video || !button) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.pause();
+    button.addEventListener('click', () => {
+      video.muted = false;
+      video.loop = false;
+      video.controls = true;
+      video.currentTime = 0;
+      void video.play();
+      button.hidden = true;
+    });
+  }
+  initHeroVideo();
+
   type Gtag = (...args: unknown[]) => void;
   type Fbq = (...args: unknown[]) => void;
 

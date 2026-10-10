@@ -295,7 +295,9 @@
             "label": "da odgovorim na svaki upit"
           }
         ],
-        "imageAlt": "Mr. Petković, web developer sa kojim radiš direktno"
+        "imageAlt": "Mr. Petković, web developer sa kojim radiš direktno",
+        "videoPlay": "Pusti sa zvukom",
+        "videoLabel": "Video predstavljanje"
       },
       "problem": {
         "badge": "Zvuči poznato?",

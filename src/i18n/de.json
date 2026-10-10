@@ -295,7 +295,9 @@
             "label": "bis zur Antwort auf jede Anfrage"
           }
         ],
-        "imageAlt": "Mr. Petkovic, der Webentwickler, mit dem Sie direkt arbeiten"
+        "imageAlt": "Mr. Petkovic, der Webentwickler, mit dem Sie direkt arbeiten",
+        "videoPlay": "Mit Ton abspielen",
+        "videoLabel": "Vorstellungsvideo"
       },
       "problem": {
         "badge": "Kommt Ihnen das bekannt vor?",
