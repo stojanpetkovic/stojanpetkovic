@@ -130,7 +130,7 @@ const year = new Date().getFullYear();
   <!-- Hero -->
   <section class="lp-hero relative overflow-hidden bg-background-secondary pt-12 pb-16 sm:pt-16 lg:pt-20 lg:pb-24">
     <div class="lp-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
-    <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
+    <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch lg:gap-14">
       <div class="text-center lg:text-left">
         <Badge variant="brand" pill pulse>{L('hero.badge')}</Badge>
         <h1 class="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
@@ -156,13 +156,13 @@ const year = new Date().getFullYear();
       </div>
       <div class="relative mx-auto w-full max-w-sm lg:max-w-none">
         <div class="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-brand-500/25 blur-3xl" aria-hidden="true"></div>
-        <div class="rounded-3xl border border-brand-400/30 bg-background/60 p-2 shadow-2xl shadow-brand-500/20 backdrop-blur-md">
+        <div class="rounded-3xl border border-brand-400/30 bg-background/60 p-2 shadow-2xl shadow-brand-500/20 backdrop-blur-md lg:h-full">
           {/* Muted loop as a preview (browsers only autoplay muted video); the
               button restarts it with sound and native controls. Reduced-motion
               visitors get the poster until they press it. */}
-          <div class="relative">
+          <div class="relative lg:h-full">
             <video
-              class="lp-hero-video aspect-square w-full rounded-2xl bg-black object-cover"
+              class="lp-hero-video aspect-square w-full rounded-2xl bg-black object-cover lg:aspect-auto lg:h-full"
               poster="/video/start-hero-poster.webp"
               width="720"
               height="720"
