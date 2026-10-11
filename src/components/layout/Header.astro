@@ -446,6 +446,9 @@ const buttonId = `${menuId}-button`;
           id={menuId}
           class={cn(
             'hidden origin-top scale-y-0 opacity-0 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.12)] lg:hidden',
+            // The header is fixed, so a menu taller than the screen cannot be
+            // scrolled to. Cap it below the bar and let it scroll inside.
+            'max-h-[calc(100dvh-6.5rem)] overflow-y-auto overscroll-contain',
             isFloating
               ? 'rounded-b-2xl bg-background/95 backdrop-blur-xl'
               : 'border-border bg-background border-t'
