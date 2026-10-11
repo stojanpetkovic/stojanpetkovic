@@ -276,10 +276,10 @@
       },
       "hero": {
         "badge": "Verfügbar für neue Projekte",
-        "titleLead": "Eine Website, die",
-        "titleHighlight": "Ihnen Kunden bringt",
-        "description": "Ich baue schnelle, maßgeschneiderte Websites, richte SEO und Sichtbarkeit in der KI-Suche ein und leite jede Anfrage direkt auf Ihr Telefon. Für lokale Dienstleister, die Anrufe wollen, nicht nur Besuche.",
-        "primary": "Kostenlosen Website-Check anfordern",
+        "titleLead": "Schickt Ihre Website Kunden",
+        "titleHighlight": "zu Ihrer Konkurrenz?",
+        "description": "Jede langsame Seite, jede unbeantwortete Anfrage und jedes fehlende Google-Ranking schiebt einen Kunden zu jemand anderem — und Sie sehen es nie. Ich baue schnelle, maßgeschneiderte Websites, richte SEO und Sichtbarkeit in der KI-Suche ein und leite jede Anfrage direkt auf Ihr Telefon.",
+        "primary": "Erfahren, was Ihre Website verliert",
         "secondary": "Ergebnisse ansehen",
         "trust": [
           {
@@ -300,36 +300,36 @@
         "videoLabel": "Vorstellungsvideo"
       },
       "problem": {
-        "badge": "Kommt Ihnen das bekannt vor?",
-        "heading": "Ihre Website sollte verkaufen. Die meisten tun es nicht.",
-        "lead": "Die meisten Websites kleiner Unternehmen sehen ordentlich aus und bewirken nichts. Diese Probleme löse ich jede Woche.",
+        "badge": "Was es Sie kostet",
+        "heading": "Ihre Website schiebt Ihre Kunden womöglich gerade zur Konkurrenz",
+        "lead": "Nichts warnt Sie: kein Fehler, kein Alarm, nur Anrufe, die nie kommen. Und je länger es dauert, desto teurer wird es.",
         "items": [
           {
             "icon": "hourglass",
-            "title": "Sie lädt zu langsam",
-            "text": "Jede zusätzliche Sekunde auf dem Smartphone kostet Besucher, bevor sie Ihre Nummer überhaupt sehen. Schwere WordPress-Themes und Plugins sind die üblichen Ursachen."
+            "title": "Besucher gehen, bevor sie Sie sehen",
+            "text": "Jede zusätzliche Sekunde auf dem Smartphone kostet Besucher, bevor sie Ihre Nummer überhaupt sehen — und zuerst gehen die, für die Sie bezahlt haben. Die Ursache liegt selten in Ihrem Geschäft: Es ist ein schwerer Aufbau aus Themes und Plugins, gewählt für eine Website, die nichts davon je gebraucht hat."
           },
           {
             "icon": "search-x",
-            "title": "Google zeigt sie nicht",
-            "text": "Dünne Seiten, kein lokaler Inhalt und technische Fehler halten Sie von Seite eins fern — und KI-Assistenten wie ChatGPT erwähnen Sie gar nicht."
+            "title": "Kunden finden Sie nicht",
+            "text": "Dünne Seiten, kein lokaler Inhalt und technische Fehler halten Sie von Seite eins fern, und KI-Assistenten wie ChatGPT erwähnen Sie gar nicht. Den Anruf bekommt, wer genannt wird."
           },
           {
             "icon": "mail-x",
-            "title": "Anfragen gehen verloren",
-            "text": "Formulare landen in einem Postfach, das niemand prüft, und der Kunde hat längst Ihren Mitbewerber angerufen, wenn Sie antworten."
+            "title": "Anfragen gehen an die Konkurrenz",
+            "text": "Formulare landen in einem Postfach, das niemand prüft, und der Kunde hat längst jemand anderen angerufen, wenn Sie antworten."
           },
           {
             "icon": "lock",
-            "title": "Sie gehört Ihnen nicht wirklich",
-            "text": "Domain, Hosting oder Code laufen auf einen fremden Namen, und jede kleine Änderung bedeutet Warten und Bezahlen."
+            "title": "Sie sind von anderen abhängig",
+            "text": "Domain, Hosting oder Code laufen auf einen fremden Namen, jede kleine Änderung bedeutet Warten und Bezahlen — und einfach gehen können Sie nicht."
           }
         ]
       },
       "solution": {
-        "badge": "Was Sie bekommen",
-        "heading": "Ein Ansprechpartner, ein Preis, alles für Ihr Wachstum",
-        "lead": "Design, Entwicklung, SEO und Anfragen-Tracking in einem Projekt — damit Ihre Website als Ihr bester Verkäufer arbeitet.",
+        "badge": "So hören die Verluste auf",
+        "heading": "Ein Ansprechpartner, ein Preis und eine Website, die keine Kunden mehr verliert",
+        "lead": "Design, Entwicklung, SEO und Anfragen-Tracking in einem Projekt, gebaut nur mit den Werkzeugen, die Ihr Unternehmen braucht — damit aus jedem Besucher, den Sie gewinnen, eine Anfrage wird und kein verpasster Anruf.",
         "items": [
           {
             "icon": "zap",
@@ -354,9 +354,9 @@
         ]
       },
       "results": {
-        "badge": "Beweise statt Versprechen",
-        "heading": "Von WordPress zu unglaublich schnell",
-        "lead": "Zwei Baumpflegefirmen in Südflorida haben langsame WordPress-Websites hinter sich gelassen. Ihre neuen Websites öffnen sich sofort und erreichen den Bestwert 100 bei SEO.",
+        "badge": "Beweis, dass es sich beheben lässt",
+        "heading": "Dasselbe Problem, gelöst: der richtige Aufbau für die Aufgabe",
+        "lead": "Zwei Baumpflegefirmen in Südflorida verloren Besucher an schwere Websites, gebaut mit Werkzeugen, die sie nie gebraucht haben. Schlank neu gebaut, öffnen sich ihre Seiten sofort und erreichen den Bestwert 100 bei SEO. Ein lokales Unternehmen braucht Tempo und Anfragen, keinen komplizierten Unterbau.",
         "note": "Das sind nur zwei Beispiele aus meiner Arbeit — jedes Projekt entsteht auf die gleiche Weise.",
         "cases": [
           {
@@ -386,34 +386,34 @@
         ]
       },
       "story": {
-        "badge": "Die Geschichte eines Kunden",
+        "badge": "Eine Beispielgeschichte",
         "heading": "Wenn Anzeigen mehr kosten, als sie einbringen",
         "paragraphs": [
-          "Ein Kunde führt zwei Baumpflegefirmen in Südflorida. In seiner Branche ruft ein Hausbesitzer, dessen Baum ein Sturm beschädigt hat, die erste Firma an, die vertrauenswürdig wirkt — und wartet nicht.",
-          "Seine alte WordPress-Website öffnete sich langsam, Google zeigte sie kaum, und das Geld für Anzeigen kam nicht zurück. Besucher, für die er bezahlt hatte, gingen, bevor die Seite überhaupt geladen war.",
-          "Wir haben beide Websites in Astro neu gebaut und SEO von Grund auf eingerichtet. Die Seiten öffnen sich jetzt sofort, erreichen 100 bei SEO, und das Anzeigenbudget wird endlich zu Anrufen."
+          "Das ist Daniel, ein erfundener Inhaber, zusammengesetzt aus Situationen, die ich immer wieder sehe. Er führt eine Baumpflegefirma. Ein Hausbesitzer, dessen Baum ein Sturm beschädigt hat, ruft die erste Firma an, die vertrauenswürdig wirkt — und wartet nicht.",
+          "Seine Website öffnet sich langsam, Google zeigt sie kaum, und das Geld, das er in Anzeigen steckt, kommt nicht zurück. Besucher, für die er bezahlt, gehen, bevor die Seite überhaupt geladen ist — und er erfährt es nie, weil ihn nichts warnt.",
+          "Dann wird die Website neu gebaut: schnelle Seiten, SEO von Grund auf, jede Anfrage direkt auf sein Telefon. Die Seiten öffnen sich sofort, und das Anzeigenbudget wird endlich zu Anrufen. Hätte er noch eine Saison gewartet, hätten die Anzeigen weiter Besucher bezahlt, die nie angerufen hätten."
         ],
         "beforeTitle": "Vorher",
         "before": [
-          "Eine langsame WordPress-Website",
-          "Schwaches SEO, bei Google kaum zu finden",
-          "Anzeigen, die sich nicht rechneten"
+          "Eine schwere Website, gebaut mit Werkzeugen, die er nie gebraucht hat",
+          "Schwaches SEO, bei Google schwer zu finden",
+          "Anzeigenbudget, das sich nicht auszahlt"
         ],
         "afterTitle": "Nachher",
         "after": [
           "Seiten, die sich sofort öffnen",
-          "Lighthouse-SEO-Wert von 100",
-          "1.010 erfasste Anfragen — davon 732 Anrufe"
+          "SEO von Grund auf eingerichtet",
+          "Jede Anfrage erreicht ihn im selben Moment"
         ],
-        "quote": "Mr. Petkovic hat meine beiden Websites von WordPress auf Astro umgestellt, und der Geschwindigkeitsunterschied war sofort spürbar.",
-        "author": "Ein zufriedener Kunde",
-        "role": "Inhaber von zwei Baumpflegefirmen",
-        "imageAlt": "Website einer Baumpflegefirma, gebaut von Mr. Petkovic"
+        "quote": "Jede Woche, die ich gewartet habe, hat jemand anderes diese Anrufe bekommen.",
+        "author": "Daniel",
+        "role": "Ein erfundener Inhaber — eine Illustration, kein echter Kunde",
+        "imageAlt": "Eine Beispiel-Website einer Baumpflegefirma von Mr. Petkovic"
       },
       "report": {
         "badge": "Tracking & Monatsbericht",
-        "heading": "Wissen Sie genau, was Ihre Website einbringt — bis zur letzten Anfrage",
-        "lead": "Die meisten Websites lassen Sie raten. Zu jeder Website, die ich baue, bekommen Sie auf Wunsch das klarste Bild Ihres Marketings, das Sie je hatten: jede Anfrage, jeden Anruf und jeden investierten Euro, in einem verständlich geschriebenen Monatsbericht.",
+        "heading": "Ohne Zahlen raten Sie — und so verschwinden Budgets",
+        "lead": "Die meisten Websites lassen Sie raten, welche Klicks, Anrufe und Euro wirken und welche verpuffen. Zu jeder Website, die ich baue, bekommen Sie auf Wunsch das klarste Bild Ihres Marketings, das Sie je hatten: jede Anfrage, jeden Anruf und jeden investierten Euro, in einem verständlich geschriebenen Monatsbericht.",
         "points": [
           {
             "icon": "inbox",
@@ -448,7 +448,7 @@
         ],
         "outcomesHeading": "Was das für Ihr Unternehmen bedeutet",
         "outcomes": [
-          "Ihr Budget fließt in Kanäle, die Kunden bringen — nicht nur Klicks",
+          "Hören Sie auf, für Kanäle zu zahlen, die Klicks bringen, aber keine Kunden",
           "Keine Anfrage geht mehr verloren — jede erreicht Sie sofort",
           "Der Beweis in Zahlen, dass sich Ihre Website rechnet"
         ],
@@ -458,8 +458,8 @@
       },
       "process": {
         "badge": "So funktioniert es",
-        "heading": "Von der ersten Nachricht zur Website, die verkauft — in vier Schritten",
-        "lead": "Keine langen Meetings, keine Überraschungen. Sie wissen immer, was als Nächstes passiert.",
+        "heading": "Vier Schritte von einer Website, die Kunden verliert, zu einer, die sie gewinnt",
+        "lead": "Jede Woche des Wartens ist eine Woche verpasster Anfragen. Keine langen Meetings, keine Überraschungen — Sie wissen immer, was als Nächstes passiert.",
         "steps": [
           {
             "title": "Kostenloser Website-Check",
@@ -479,26 +479,10 @@
           }
         ]
       },
-      "testimonialsHeading": "Was Kunden sagen",
-      "ratings": {
-        "label": "Google-Bewertungen der Unternehmen, deren Websites ich gebaut habe",
-        "items": [
-          {
-            "client": "Tree Jaws",
-            "value": "4,9",
-            "text": "aus 427 Google-Bewertungen"
-          },
-          {
-            "client": "Mahalo Tree Service",
-            "value": "5,0",
-            "text": "Google-Bewertung"
-          }
-        ]
-      },
       "offer": {
         "badge": "Ohne Risiko starten",
-        "heading": "Beginnen Sie mit einem kostenlosen Website-Check",
-        "lead": "Unverbindlich und ohne Verkaufsgespräch — nur ein ehrlicher Blick darauf, was Ihre Website für Sie leisten könnte.",
+        "heading": "Finden Sie heraus, was Ihre Website Sie kostet",
+        "lead": "Unverbindlich und ohne Verkaufsgespräch — nur ein ehrlicher Blick darauf, wo Ihnen heute Besucher und Anfragen entgehen.",
         "items": [
           "Eine Prüfung von Geschwindigkeit, SEO und Sichtbarkeit in der KI-Suche",
           "Ein Vergleich mit Ihren stärksten lokalen Mitbewerbern",
@@ -610,8 +594,8 @@
         "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail."
       },
       "final": {
-        "heading": "Bereit für eine Website, die so hart arbeitet wie Sie?",
-        "text": "Der Check ist kostenlos und unverbindlich. Im schlimmsten Fall wissen Sie danach genau, was zu verbessern ist.",
+        "heading": "Jede Woche des Wartens gehen die Anrufe an Ihre Konkurrenz",
+        "text": "Der Check ist kostenlos und unverbindlich. Im schlimmsten Fall wissen Sie danach genau, was Sie Kunden kostet und was zuerst zu beheben ist.",
         "cta": "Kostenlosen Website-Check anfordern"
       },
       "footer": "Schnelle Websites, SEO und Kundengewinnung für lokale Unternehmen.",

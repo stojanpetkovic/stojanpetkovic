@@ -276,10 +276,10 @@
       },
       "hero": {
         "badge": "Dostupan za nove projekte",
-        "titleLead": "Sajt koji ti",
-        "titleHighlight": "donosi klijente",
-        "description": "Pravim brze sajtove po meri, podešavam SEO i vidljivost u AI pretrazi i povezujem svaki upit direktno sa tvojim telefonom. Za lokalne firme kojima trebaju pozivi, a ne samo posete.",
-        "primary": "Zatraži besplatnu proveru sajta",
+        "titleLead": "Da li tvoj sajt šalje klijente",
+        "titleHighlight": "tvojoj konkurenciji?",
+        "description": "Svaka spora stranica, neodgovoren upit i izostanak sa Google-a predaju klijenta nekom drugom — a ti to nikad ne vidiš. Pravim brze sajtove po meri, podešavam SEO i vidljivost u AI pretrazi i povezujem svaki upit direktno sa tvojim telefonom.",
+        "primary": "Saznaj šta tvoj sajt gubi",
         "secondary": "Pogledaj rezultate",
         "trust": [
           {
@@ -300,36 +300,36 @@
         "videoLabel": "Video predstavljanje"
       },
       "problem": {
-        "badge": "Zvuči poznato?",
-        "heading": "Sajt treba da prodaje. Većina ne prodaje.",
-        "lead": "Većina sajtova malih firmi izgleda okej i ne radi ništa. Ovo su problemi koje rešavam svake nedelje.",
+        "badge": "Šta te košta",
+        "heading": "Tvoj sajt upravo sada možda predaje klijente konkurenciji",
+        "lead": "Ništa te ne upozorava: nema greške ni obaveštenja, samo pozivi koji ne stižu. A što duže traje, to više košta.",
         "items": [
           {
             "icon": "hourglass",
-            "title": "Sporo se učitava",
-            "text": "Svaka sekunda viška na telefonu otera posetioce pre nego što uopšte vide tvoj broj. Teške WordPress teme i plugini su obično krivci."
+            "title": "Posetioci odlaze pre nego što te vide",
+            "text": "Svaka sekunda viška na telefonu otera posetioce pre nego što uopšte vide tvoj broj — a prvi odlaze oni koje si platio. Uzrok retko leži u tvom poslu: to je teška izrada od tema i plugina, izabrana za sajt kojem to nikad nije trebalo."
           },
           {
             "icon": "search-x",
-            "title": "Google ga ne prikazuje",
-            "text": "Tanke stranice, bez lokalnog sadržaja i sa tehničkim greškama drže te daleko od prve strane — a AI asistenti kao ChatGPT te uopšte ne pominju."
+            "title": "Klijenti te ne mogu da nađu",
+            "text": "Tanke stranice, bez lokalnog sadržaja i sa tehničkim greškama drže te daleko od prve strane, a AI asistenti kao ChatGPT te uopšte ne pominju. Poziv dobija onaj koga pomenu."
           },
           {
             "icon": "mail-x",
-            "title": "Upiti se gube",
-            "text": "Forme stižu u inbox koji niko ne proverava, a klijent je već pozvao konkurenciju dok mu ti odgovoriš."
+            "title": "Upiti idu konkurenciji",
+            "text": "Forme stižu u inbox koji niko ne proverava, a klijent je već pozvao nekog drugog dok mu ti odgovoriš."
           },
           {
             "icon": "lock",
-            "title": "Sajt zapravo nije tvoj",
-            "text": "Domen, hosting ili kod su na tuđe ime, a svaka sitna izmena znači čekanje i plaćanje."
+            "title": "Prepušten si tuđoj volji",
+            "text": "Domen, hosting ili kod su na tuđe ime, pa svaka sitna izmena znači čekanje i plaćanje — a ne možeš jednostavno da odeš."
           }
         ]
       },
       "solution": {
-        "badge": "Šta dobijaš",
-        "heading": "Jedan čovek, jedna cena, sve što ti treba za rast",
-        "lead": "Dizajn, izrada, SEO i praćenje upita u jednom projektu — sajt koji radi kao tvoj najbolji prodavac.",
+        "badge": "Kako gubici prestaju",
+        "heading": "Jedan čovek, jedna cena i sajt koji prestaje da gubi klijente",
+        "lead": "Dizajn, izrada, SEO i praćenje upita u jednom projektu, napravljeni samo od alata koji tvojoj firmi trebaju — da se svaki posetilac koga dobiješ pretvori u upit, a ne u propušten poziv.",
         "items": [
           {
             "icon": "zap",
@@ -354,9 +354,9 @@
         ]
       },
       "results": {
-        "badge": "Dokazi, ne obećanja",
-        "heading": "Sa WordPress-a do neverovatne brzine",
-        "lead": "Dve firme za usluge sa drvećem iz Južne Floride ostavile su spore WordPress sajtove. Novi sajtovi se otvaraju odmah i imaju savršenu SEO ocenu 100.",
+        "badge": "Dokaz da se može popraviti",
+        "heading": "Isti problem, rešen: prava izrada za pravi posao",
+        "lead": "Dve firme za usluge sa drvećem iz Južne Floride gubile su posetioce zbog teških sajtova sagrađenih od alata koji im nikad nisu trebali. Posle lake prerade stranice se otvaraju odmah i imaju savršenu SEO ocenu 100. Lokalnoj firmi trebaju brzina i upiti, a ne komplikovan sistem.",
         "note": "Ovo su samo dva primera iz mog rada — svaki projekat pravim na isti način.",
         "cases": [
           {
@@ -386,34 +386,34 @@
         ]
       },
       "story": {
-        "badge": "Priča klijenta",
+        "badge": "Ilustrativna priča",
         "heading": "Kad oglasi koštaju više nego što donesu",
         "paragraphs": [
-          "Jedan klijent vodi dve firme za uklanjanje drveća u Južnoj Floridi. U njegovom poslu vlasnik kuće kome je oluja oborila drvo zove prvu firmu koja deluje ozbiljno — i ne čeka.",
-          "Njegov stari WordPress sajt se sporo otvarao, Google ga je jedva prikazivao, a novac uložen u oglase se nije vraćao. Posetioci za koje je platio odlazili su pre nego što bi se stranica uopšte učitala.",
-          "Oba sajta smo napravili ispočetka u Astro-u i postavili SEO od temelja. Stranice se sada otvaraju odmah, imaju SEO ocenu 100, a budžet za oglase se konačno pretvara u telefonske pozive."
+          "Upoznaj Dragana, izmišljenog vlasnika sastavljenog od situacija koje viđam iznova i iznova. Vodi firmu za uklanjanje drveća. Vlasnik kuće kome je oluja oštetila drvo zove prvu firmu koja deluje ozbiljno — i ne čeka.",
+          "Njegov sajt se sporo otvara, Google ga jedva prikazuje, a novac koji ulaže u oglase ne vraća se. Posetioci koje plaća odlaze pre nego što se stranica uopšte učita — a on to nikad ne sazna, jer ga ništa ne upozorava.",
+          "Zatim se sajt prepravlja: brze stranice, SEO od temelja, svaki upit stiže pravo na njegov telefon. Stranice se otvaraju odmah, a budžet za oglase se konačno pretvara u telefonske pozive. Da je čekao još jednu sezonu, oglasi bi nastavili da plaćaju posetioce koji nikad ne pozovu."
         ],
         "beforeTitle": "Pre",
         "before": [
-          "Spor WordPress sajt",
+          "Težak sajt sagrađen od alata koji mu nikad nisu trebali",
           "Slab SEO, teško ga je naći na Google-u",
-          "Oglasi koji se nisu isplaćivali"
+          "Novac za oglase koji se ne vraća"
         ],
         "afterTitle": "Posle",
         "after": [
-          "Stranice se otvaraju odmah",
-          "Lighthouse SEO ocena 100",
-          "1.010 praćenih upita — od toga 732 telefonska poziva"
+          "Stranice koje se otvaraju odmah",
+          "SEO postavljen od temelja",
+          "Svaki upit stiže do njega istog trenutka"
         ],
-        "quote": "Mr. Petković je oba moja sajta prebacio sa WordPress-a na Astro i razlika u brzini se osetila odmah.",
-        "author": "Zadovoljan klijent",
-        "role": "Vlasnik dve firme za usluge sa drvećem",
-        "imageAlt": "Sajt firme za usluge sa drvećem koji je napravio Mr. Petković"
+        "quote": "Svake nedelje koju sam čekao, te pozive je dobijao neko drugi.",
+        "author": "Dragan",
+        "role": "Izmišljeni vlasnik — ilustracija, a ne stvarni klijent",
+        "imageAlt": "Primer sajta firme za uklanjanje drveća koji je napravio Mr. Petković"
       },
       "report": {
         "badge": "Praćenje i mesečni izveštaj",
-        "heading": "Znaj tačno šta ti sajt donosi — do poslednjeg upita",
-        "lead": "Većina sajtova te ostavlja da nagađaš. Uz svaki sajt koji napravim možeš da dobiješ najjasniju sliku tvog marketinga koju ćeš ikad imati: svaki upit, svaki poziv i svaki uloženi evro, u jednom mesečnom izveštaju napisanom razumljivim jezikom.",
+        "heading": "Bez brojki nagađaš — a tako nestaju budžeti",
+        "lead": "Većina sajtova te ostavlja da nagađaš koji klikovi, pozivi i evri rade, a koji se bacaju. Uz svaki sajt koji napravim možeš da dobiješ najjasniju sliku tvog marketinga koju ćeš ikad imati: svaki upit, svaki poziv i svaki uloženi evro, u jednom mesečnom izveštaju napisanom razumljivim jezikom.",
         "points": [
           {
             "icon": "inbox",
@@ -448,8 +448,8 @@
         ],
         "outcomesHeading": "Šta to znači za tvoj biznis",
         "outcomes": [
-          "Budžet ide u kanale koji donose klijente, a ne samo klikove",
-          "Nijedan upit više ne promakne — svaki stiže do tebe odmah",
+          "Prestani da plaćaš kanale koji donose klikove, a ne klijente",
+          "Nijedan upit više ne propada — svaki stiže do tebe odmah",
           "Dokaz u brojkama da se sajt isplaćuje"
         ],
         "imageAlt": "Primer mesečnog izveštaja o sajtu: posetioci, upiti, pozivi, stopa konverzije, dnevni grafikon i odakle dolaze posetioci.",
@@ -458,8 +458,8 @@
       },
       "process": {
         "badge": "Kako to ide",
-        "heading": "Od prve poruke do sajta koji prodaje — u četiri koraka",
-        "lead": "Bez dugih sastanaka i bez iznenađenja. Uvek znaš šta sledi.",
+        "heading": "Četiri koraka od sajta koji gubi klijente do sajta koji ih dobija",
+        "lead": "Svaka nedelja čekanja je nedelja propuštenih upita. Bez dugih sastanaka i bez iznenađenja — uvek znaš šta sledi.",
         "steps": [
           {
             "title": "Besplatna provera sajta",
@@ -479,26 +479,10 @@
           }
         ]
       },
-      "testimonialsHeading": "Šta kažu klijenti",
-      "ratings": {
-        "label": "Google ocene firmi čije sajtove sam napravio",
-        "items": [
-          {
-            "client": "Tree Jaws",
-            "value": "4.9",
-            "text": "iz 427 Google recenzija"
-          },
-          {
-            "client": "Mahalo Tree Service",
-            "value": "5.0",
-            "text": "Google ocena"
-          }
-        ]
-      },
       "offer": {
         "badge": "Bez rizika na početku",
-        "heading": "Kreni od besplatne provere sajta",
-        "lead": "Bez obaveza i bez prodajnog pritiska — samo iskren pogled na to šta bi tvoj sajt mogao da radi za tebe.",
+        "heading": "Saznaj šta te sajt košta",
+        "lead": "Bez obaveza i bez prodajnog pritiska — samo iskren pogled na to gde ti danas izmiču posetioci i upiti.",
         "items": [
           "Pregled brzine, SEO-a i vidljivosti u AI pretrazi tvog sajta",
           "Poređenje sa tvojom najjačom lokalnom konkurencijom",
@@ -610,8 +594,8 @@
         "error": "Nešto je pošlo naopako. Probaj ponovo ili mi piši direktno na email."
       },
       "final": {
-        "heading": "Spreman za sajt koji radi koliko i ti?",
-        "text": "Provera je besplatna i bez obaveza. U najgorem slučaju saznaš tačno šta treba popraviti.",
+        "heading": "Svake nedelje čekanja pozive dobija konkurencija",
+        "text": "Provera je besplatna i bez obaveza. U najgorem slučaju saznaš tačno šta ti gubi klijente i šta prvo treba popraviti.",
         "cta": "Zatraži besplatnu proveru"
       },
       "footer": "Brzi sajtovi, SEO i privlačenje klijenata za lokalne firme.",

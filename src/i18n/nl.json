@@ -276,10 +276,10 @@
       },
       "hero": {
         "badge": "Available for new projects",
-        "titleLead": "A website that",
-        "titleHighlight": "brings you clients",
-        "description": "I build fast custom websites, set up SEO and AI-search visibility, and wire every enquiry straight to your phone. For local service businesses that want calls, not just visits.",
-        "primary": "Get a free website check",
+        "titleLead": "Is your website sending clients to",
+        "titleHighlight": "your competitors?",
+        "description": "Every slow page, unanswered enquiry and missing Google ranking hands a customer to someone else — and you never see it happen. I build fast custom websites, set up SEO and AI-search visibility, and wire every enquiry straight to your phone.",
+        "primary": "See what my website is losing",
         "secondary": "See the results",
         "trust": [
           {
@@ -300,36 +300,36 @@
         "videoLabel": "Introductievideo"
       },
       "problem": {
-        "badge": "Sound familiar?",
-        "heading": "Your website should sell. Most don't.",
-        "lead": "Most small business websites look fine and do nothing. These are the problems I fix every week.",
+        "badge": "What it's costing you",
+        "heading": "Right now, your website may be handing clients to your competitors",
+        "lead": "Nothing warns you: no error, no alert, just calls that never come. And the longer it goes on, the more it costs.",
         "items": [
           {
             "icon": "hourglass",
-            "title": "It loads too slowly",
-            "text": "Every extra second on a phone loses visitors before they even see your number. Heavy WordPress themes and plugins are the usual cause."
+            "title": "Visitors leave before they see you",
+            "text": "Every extra second on a phone loses visitors before they even see your number — and the ones you paid for are the first to go. The cause is rarely your business: it's a heavy build of themes and plugins, chosen for a site that never needed any of it."
           },
           {
             "icon": "search-x",
-            "title": "Google doesn't show it",
-            "text": "Thin pages, no local content and technical errors keep you off page one — and AI assistants like ChatGPT don't mention you at all."
+            "title": "Customers can't find you",
+            "text": "Thin pages, no local content and technical errors keep you off page one, and AI assistants like ChatGPT don't mention you at all. Whoever they do name gets the call."
           },
           {
             "icon": "mail-x",
-            "title": "Enquiries get lost",
-            "text": "Forms land in an inbox nobody checks, and the customer has already called your competitor by the time you reply."
+            "title": "Enquiries go to your competitor",
+            "text": "Forms land in an inbox nobody checks, and the customer has already called someone else by the time you reply."
           },
           {
             "icon": "lock",
-            "title": "You don't really own it",
-            "text": "The domain, the hosting or the code sits in someone else's name, and every small change means waiting and paying."
+            "title": "You're at someone else's mercy",
+            "text": "The domain, hosting or code sits in someone else's name, so every small change means waiting and paying — and you can't simply leave."
           }
         ]
       },
       "solution": {
-        "badge": "What you get",
-        "heading": "One person, one price, everything you need to grow",
-        "lead": "Design, development, SEO and lead tracking in a single project — built so your site works as your best salesperson.",
+        "badge": "How the losses stop",
+        "heading": "One person, one price, and a website that stops losing clients",
+        "lead": "Design, development, SEO and lead tracking in one project, built with only the tools your business needs — so every visitor you earn turns into an enquiry instead of a missed call.",
         "items": [
           {
             "icon": "zap",
@@ -354,9 +354,9 @@
         ]
       },
       "results": {
-        "badge": "Proof, not promises",
-        "heading": "From WordPress to unbelievably fast",
-        "lead": "Two tree service companies in South Florida left slow WordPress sites behind. Their new sites open instantly and score a perfect 100 for SEO.",
+        "badge": "Proof it can be fixed",
+        "heading": "The same problem, fixed: the right build for the job",
+        "lead": "Two tree service companies in South Florida were losing visitors to heavy sites built on tools they never needed. Rebuilt lean, their pages open instantly and score a perfect 100 for SEO. A local business needs speed and enquiries, not a complicated stack.",
         "note": "These are just two examples from my work — every project is built the same way.",
         "cases": [
           {
@@ -386,34 +386,34 @@
         ]
       },
       "story": {
-        "badge": "A client's story",
+        "badge": "An illustrative story",
         "heading": "When the ads cost more than they brought in",
         "paragraphs": [
-          "One client runs two tree service companies in South Florida. In his line of work, a homeowner with a storm-damaged tree calls the first company that looks trustworthy — and doesn't wait.",
-          "His old WordPress site opened slowly, Google barely showed it, and the money he put into ads wasn't coming back. Visitors he paid for left before the page had even loaded.",
-          "We rebuilt both sites in Astro and set up SEO from the ground up. The pages now open instantly, score 100 for SEO, and the ad budget finally turns into phone calls."
+          "Meet Daniel, a made-up owner built from situations I see again and again. He runs a tree service company. A homeowner with a storm-damaged tree calls the first company that looks trustworthy — and doesn't wait.",
+          "His website opens slowly, Google barely shows it, and the money he puts into ads isn't coming back. Visitors he pays for leave before the page has even loaded — and he never finds out, because nothing tells him.",
+          "Then the site is rebuilt: fast pages, SEO from the ground up, every enquiry sent straight to his phone. The pages open instantly and the ad budget finally turns into phone calls. Had he waited another season, the ads would have kept paying for visitors who never called."
         ],
         "beforeTitle": "Before",
         "before": [
-          "A slow WordPress site",
+          "A heavy site built on tools he never needed",
           "Weak SEO, hard to find on Google",
           "Ad spend that didn't pay back"
         ],
         "afterTitle": "After",
         "after": [
           "Pages that open instantly",
-          "Lighthouse SEO score of 100",
-          "1,010 tracked leads — 732 of them phone calls"
+          "SEO set up from the ground up",
+          "Every enquiry reaches him the moment it's sent"
         ],
-        "quote": "Mr. Petkovic moved both of my sites off WordPress and onto Astro, and the speed difference was obvious immediately.",
-        "author": "A satisfied client",
-        "role": "Owner of two tree service companies",
-        "imageAlt": "A tree service website built by Mr. Petkovic"
+        "quote": "Every week I waited, someone else got those calls.",
+        "author": "Daniel",
+        "role": "A fictional owner — an illustration, not a real client",
+        "imageAlt": "An example tree service website built by Mr. Petkovic"
       },
       "report": {
         "badge": "Tracking & monthly report",
-        "heading": "Know exactly what your website earns — down to the last inquiry",
-        "lead": "Most websites leave you guessing. Every site I build can give you the clearest picture you'll ever have of your marketing: every inquiry, every call and every euro, in one monthly report written in plain language.",
+        "heading": "Without numbers, you're guessing — and that's how budgets disappear",
+        "lead": "Most websites leave you guessing which clicks, calls and euros are working and which are wasted. Every site I build can give you the clearest picture you'll ever have of your marketing: every inquiry, every call and every euro, in one monthly report written in plain language.",
         "points": [
           {
             "icon": "inbox",
@@ -448,8 +448,8 @@
         ],
         "outcomesHeading": "What it means for your business",
         "outcomes": [
-          "Put your budget into the channels that bring customers, not just clicks",
-          "Never miss an inquiry again — every one reaches you instantly",
+          "Stop paying for channels that bring clicks but no customers",
+          "Never lose an inquiry again — every one reaches you instantly",
           "Proof in numbers that your website pays for itself"
         ],
         "imageAlt": "Example of a monthly website report: visitors, inquiries, calls, conversion rate, a daily chart and where visitors come from.",
@@ -458,8 +458,8 @@
       },
       "process": {
         "badge": "How it works",
-        "heading": "From first message to a site that sells — in four steps",
-        "lead": "No long meetings, no surprises. You always know what happens next.",
+        "heading": "Four steps from a website that loses clients to one that wins them",
+        "lead": "Every week you wait is a week of missed enquiries. No long meetings, no surprises — you always know what happens next.",
         "steps": [
           {
             "title": "Free website check",
@@ -479,26 +479,10 @@
           }
         ]
       },
-      "testimonialsHeading": "What clients say",
-      "ratings": {
-        "label": "Google ratings of the businesses whose websites I built",
-        "items": [
-          {
-            "client": "Tree Jaws",
-            "value": "4.9",
-            "text": "from 427 Google reviews"
-          },
-          {
-            "client": "Mahalo Tree Service",
-            "value": "5.0",
-            "text": "Google rating"
-          }
-        ]
-      },
       "offer": {
         "badge": "Zero risk to start",
-        "heading": "Start with a free website check",
-        "lead": "No obligation and no sales pitch — just an honest look at what your website could be doing for you.",
+        "heading": "Find out what your website is costing you",
+        "lead": "No obligation and no sales pitch — just an honest look at where visitors and enquiries are slipping away today.",
         "items": [
           "A review of your current site's speed, SEO and AI-search visibility",
           "A comparison with your top local competitors",
@@ -610,8 +594,8 @@
         "error": "Something went wrong. Please try again, or email me directly."
       },
       "final": {
-        "heading": "Ready for a website that works as hard as you do?",
-        "text": "The check is free and there's no obligation. The worst case: you learn exactly what to fix.",
+        "heading": "Every week you wait, your competitors get the calls",
+        "text": "The check is free and there's no obligation. The worst case: you learn exactly what is losing you clients and what to fix first.",
         "cta": "Get my free website check"
       },
       "footer": "Fast websites, SEO and lead generation for local businesses.",
