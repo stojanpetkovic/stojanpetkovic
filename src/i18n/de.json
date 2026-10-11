@@ -1021,22 +1021,24 @@
     },
     "contact": {
       "meta": {
-        "title": "Kontakt",
-        "description": "Brauchen Sie eine neue Website? Maßgeschneiderte Websites von Grund auf — schreiben Sie mir zu Ihrem Projekt, und ich antworte innerhalb eines Werktags."
+        "title": "Kostenloser Website-Check",
+        "description": "Finden Sie heraus, was Ihre Website Sie kostet. Erzählen Sie mir von Ihrem Unternehmen und erhalten Sie innerhalb eines Werktags eine ehrliche Einschätzung zu Tempo, SEO und Anfragen. Kostenlos."
       },
       "hero": {
-        "badge": "Projekt starten",
-        "titleLead": "Erzählen Sie mir",
-        "titleHighlight": "von Ihrem Projekt",
-        "description": "Senden Sie mir eine Nachricht über das Formular unten oder wählen Sie einen anderen Kanal — ich antworte innerhalb eines Werktags."
+        "badge": "Kostenloser Website-Check",
+        "titleLead": "Ihre Website verliert Ihnen möglicherweise Kunden",
+        "titleHighlight": "genau jetzt",
+        "description": "Langsame Seiten, versteckte Telefonnummern und Anfragen, die niemand sieht, kosten Sie Aufträge, und eine Warnung gibt es nicht. Erzählen Sie mir von Ihrem Unternehmen, und ich zeige Ihnen genau, wo Kunden abspringen. Kostenlos und unverbindlich."
       },
-      "formTitle": "Projektdetails",
-      "channelsTitle": "Weitere Kanäle",
-      "channelsSubtitle": "Lieber direkt? Wählen Sie, was Ihnen am besten passt.",
+      "painTitle": "Wo Kunden abspringen",
+      "risks": [
+        { "icon": "hourglass", "title": "Langsame Seiten", "text": "Besucher gehen, bevor sie Ihre Nummer sehen." },
+        { "icon": "search-x", "title": "Auf Google unsichtbar", "text": "Den Anruf, der Ihrer sein sollte, bekommt die Konkurrenz." },
+        { "icon": "mail-x", "title": "Unbeantwortete Anfragen", "text": "Bis Sie antworten, hat der Kunde schon jemand anderen angerufen." }
+      ],
+      "offerTitle": "Das bekommen Sie kostenlos",
       "emailLabel": "E-Mail",
-      "emailNote": "Schreiben Sie mir",
-      "socialNote": "Folgen Sie mir",
-      "basedIn": "Standort: {country}"
+      "preferEmail": "Lieber per E-Mail? Schreiben Sie an"
     },
     "home": {
       "meta": {

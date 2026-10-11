@@ -1021,22 +1021,24 @@
     },
     "contact": {
       "meta": {
-        "title": "Kontakt",
-        "description": "Treba ti novi sajt? Izrada sajtova po meri, od nule — piši mi o svom projektu i javljam se u roku od jednog radnog dana."
+        "title": "Besplatna provera sajta",
+        "description": "Saznaj šta ti sajt gubi. Ispričaj mi o svom biznisu i u roku od jednog radnog dana dobijaš iskren pregled brzine, SEO-a i upita. Besplatno."
       },
       "hero": {
-        "badge": "Pokreni projekat",
-        "titleLead": "Ispričaj mi nešto",
-        "titleHighlight": "o svom projektu",
-        "description": "Pošalji poruku preko forme ispod ili izaberi neki drugi kanal — javljam se u roku od jednog radnog dana."
+        "badge": "Besplatna provera sajta",
+        "titleLead": "Tvoj sajt ti možda gubi klijente",
+        "titleHighlight": "baš sada",
+        "description": "Spore stranice, sakriven telefon i upiti koje niko ne vidi koštaju te poslova, a upozorenja nema. Ispričaj mi o svom biznisu i pokazaću ti tačno gde klijenti odlaze. Besplatno, bez obaveze."
       },
-      "formTitle": "Detalji projekta",
-      "channelsTitle": "Drugi kanali",
-      "channelsSubtitle": "Više voliš direktan kontakt? Izaberi šta ti najviše odgovara.",
+      "painTitle": "Gde klijenti odlaze",
+      "risks": [
+        { "icon": "hourglass", "title": "Spore stranice", "text": "Posetioci odu pre nego što vide tvoj broj." },
+        { "icon": "search-x", "title": "Nevidljivost na Google-u", "text": "Poziv koji je trebalo da bude tvoj odlazi konkurenciji." },
+        { "icon": "mail-x", "title": "Upiti bez odgovora", "text": "Dok odgovoriš, klijent je već pozvao nekog drugog." }
+      ],
+      "offerTitle": "Šta dobijaš besplatno",
       "emailLabel": "Email",
-      "emailNote": "Piši mi",
-      "socialNote": "Prati me",
-      "basedIn": "Lokacija: {country}"
+      "preferEmail": "Više voliš email? Piši na"
     },
     "home": {
       "meta": {

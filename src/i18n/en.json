@@ -1021,22 +1021,24 @@
     },
     "contact": {
       "meta": {
-        "title": "Contact",
-        "description": "Starting something new? I design and build new websites from scratch — tell me about your project and I'll get back to you within 1 business day."
+        "title": "Free website check",
+        "description": "Find out what your website is losing you. Tell me about your business and get an honest review of speed, SEO and enquiries within one business day, free."
       },
       "hero": {
-        "badge": "Start a project",
-        "titleLead": "Tell me about your",
-        "titleHighlight": "new project",
-        "description": "I'd love to hear from you. Send a message with the form below, or reach out on one of the other channels below."
+        "badge": "Free website check",
+        "titleLead": "Your website may be losing you clients",
+        "titleHighlight": "right now",
+        "description": "Slow pages, buried phone numbers and enquiries nobody sees cost you jobs, and you never get a warning. Tell me about your business and I'll show you exactly where clients slip away. Free, no obligation."
       },
-      "formTitle": "Project details",
-      "channelsTitle": "Other channels",
-      "channelsSubtitle": "Prefer a direct channel? Pick whichever works best.",
+      "painTitle": "Where clients slip away",
+      "risks": [
+        { "icon": "hourglass", "title": "Slow pages", "text": "Visitors leave before they see your number." },
+        { "icon": "search-x", "title": "Invisible on Google", "text": "The call that should have been yours goes to a competitor." },
+        { "icon": "mail-x", "title": "Enquiries nobody answers", "text": "By the time you reply, they've already called someone else." }
+      ],
+      "offerTitle": "What you get, free",
       "emailLabel": "Email",
-      "emailNote": "Drop us a line",
-      "socialNote": "Follow along",
-      "basedIn": "Based in {country}"
+      "preferEmail": "Prefer email? Write to"
     },
     "home": {
       "meta": {

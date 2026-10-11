@@ -22,13 +22,11 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import Input from '@/components/ui/form/Input/Input.astro';
-import Textarea from '@/components/ui/form/Textarea/Textarea.astro';
+import WebsiteCheckForm from '@/components/patterns/WebsiteCheckForm.astro';
 import Accordion from '@/components/ui/overlay/Accordion/Accordion.astro';
 import siteConfig from '@/config/site.config';
 import { t, tData, defaultLocale } from '@/i18n';
 import { getSiteName } from '@/lib/site-name';
-import { contactConfigured } from '@/lib/email';
 import treeJawsImg from '@/assets/projects/tree-jaws-hero-dark.webp';
 import mahaloImg from '@/assets/projects/mahalo-hero.webp';
 import storyImg from '@/assets/projects/sf-tree-removal-home.webp';
@@ -43,7 +41,6 @@ const { locale = defaultLocale } = Astro.props;
 
 interface IconItem { icon: string; title: string; text: string }
 interface Case { client: string; sector: string; metric: string; metricLabel: string; points: string[] }
-interface Option { value: string; label: string; icon?: string }
 
 const L = (key: string) => t(`pages.landing.${key}`, locale);
 const D = <T,>(key: string) => tData<T>(`pages.landing.${key}`, locale)!;
@@ -82,17 +79,10 @@ const story = D<{
   imageAlt: string;
 }>('story');
 const faqItems = D<{ question: string; answer: string }[]>('faq.items');
-const form = D<{
-  stepLabels: string[];
-  services: Option[];
-  timelines: Option[];
-}>('form');
-const privacy = D<{ toggle: string; title: string; items: string[] }>('privacy');
 
 // One image per case, in the order the copy lists them.
 const caseImages = [treeJawsImg, mahaloImg];
 
-const unconfigured = !contactConfigured && !import.meta.env.DEV;
 const year = new Date().getFullYear();
 ---
 
@@ -452,129 +442,7 @@ const year = new Date().getFullYear();
         </div>
       </div>
 
-      <!-- The step form. Without JavaScript every step shows at once and the
-           form posts as one; the script turns it into three steps. -->
-      <div class="rounded-3xl border border-border bg-background p-6 shadow-xl sm:p-8">
-        <p class="text-sm font-semibold text-brand-600 dark:text-brand-400">{L('form.badge')}</p>
-        <h3 class="mt-1 font-display text-2xl font-bold text-foreground">{L('form.heading')}</h3>
-        <p class="mt-2 text-foreground-muted">{L('form.lead')}</p>
-
-        <div class="lp-progress mt-6 hidden" data-progress>
-          <div class="flex items-center justify-between text-xs font-medium text-foreground-muted">
-            <span data-step-count data-template={L('form.stepCount')}></span>
-            <span data-step-name></span>
-          </div>
-          <div class="mt-2 h-1.5 overflow-hidden rounded-full bg-border">
-            <div class="h-full w-1/3 rounded-full bg-brand-500 transition-[width] duration-300" data-progress-bar></div>
-          </div>
-        </div>
-
-        <form
-          id="lp-form"
-          action="/api/contact"
-          method="POST"
-          class="mt-6"
-          data-lead-ignore
-          data-step-labels={JSON.stringify(form.stepLabels)}
-          data-msg-choose={L('form.chooseService')}
-          data-msg-required={L('form.required')}
-          data-msg-error={L('form.error')}
-          data-msg-sending={L('form.sending')}
-          novalidate
-        >
-          <input type="hidden" name="source" value="landing" />
-          <input type="hidden" name="subject" value={L('form.badge')} />
-
-          <fieldset class="lp-step space-y-4" data-step="1">
-            <legend class="mb-3 font-semibold text-foreground">{L('form.serviceLegend')}</legend>
-            <div class="grid gap-3 sm:grid-cols-2" data-options>
-              {form.services.map((option) => (
-                <label class="lp-option flex cursor-pointer items-center gap-3 rounded-xl border border-border bg-background-secondary p-4 transition-colors hover:border-brand-400">
-                  <input type="radio" name="service" value={option.value} class="sr-only" />
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-500/10 text-brand-600 dark:text-brand-400">
-                    <Icon name={option.icon ?? 'circle'} size="md" />
-                  </span>
-                  <span class="font-medium text-foreground">{option.label}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
-
-          <fieldset class="lp-step mt-8 space-y-4" data-step="2">
-            <legend class="sr-only">{form.stepLabels[1]}</legend>
-            <Input label={L('form.websiteLabel')} name="website" type="text" inputmode="url" placeholder={L('form.websitePlaceholder')} autocomplete="url" />
-            <Input label={L('form.businessLabel')} name="business" type="text" placeholder={L('form.businessPlaceholder')} />
-            <div>
-              <p class="mb-2 text-sm font-medium text-foreground">{L('form.timelineLegend')}</p>
-              <div class="flex flex-wrap gap-2">
-                {form.timelines.map((option, i) => (
-                  <label class="lp-chip cursor-pointer rounded-full border border-border bg-background-secondary px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-brand-400">
-                    <input type="radio" name="timeline" value={option.value} class="sr-only" checked={i === 0} />
-                    {option.label}
-                  </label>
-                ))}
-              </div>
-            </div>
-          </fieldset>
-
-          <fieldset class="lp-step mt-8 space-y-4" data-step="3">
-            <legend class="sr-only">{form.stepLabels[2]}</legend>
-            <div class="grid gap-4 sm:grid-cols-2">
-              <Input label={L('form.nameLabel')} name="name" type="text" required autocomplete="name" />
-              <Input label={L('form.emailLabel')} name="email" type="email" required autocomplete="email" />
-            </div>
-            <Input label={L('form.phoneLabel')} name="phone" type="tel" autocomplete="tel" />
-            <Textarea label={L('form.messageLabel')} name="message" rows={3} />
-            <div class="hidden" aria-hidden="true">
-              <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
-            </div>
-          </fieldset>
-
-          <p class="mt-4 hidden text-sm text-destructive" role="alert" data-form-error></p>
-
-          <div class="mt-8 flex items-center justify-between gap-3">
-            <Button type="button" variant="ghost" class="lp-back lp-off gap-1.5" data-back>
-              <Icon name="arrow-left" size="sm" />
-              {L('form.back')}
-            </Button>
-            <Button type="button" class="lp-next lp-off ml-auto cta-btn-brand gap-1.5" data-next>
-              {L('form.next')}
-              <Icon name="arrow-right" size="sm" />
-            </Button>
-            <Button type="submit" size="lg" class="ml-auto cta-btn-brand gap-2" data-submit disabled={unconfigured}>
-              {L('form.submit')}
-              <Icon name="send" size="sm" />
-            </Button>
-          </div>
-
-          <p class="mt-5 flex items-start gap-2 text-xs text-foreground-subtle">
-            <Icon name="lock" size="xs" class="mt-0.5 shrink-0" />
-            {L('form.privacy')}
-          </p>
-
-          {/* The privacy notice opens in place: a link to a policy page would
-              be a way off the page. */}
-          <details class="lp-privacy mt-3 text-xs text-foreground-muted">
-            <summary class="cursor-pointer font-medium text-foreground-muted underline underline-offset-2 hover:text-foreground">
-              {privacy.toggle}
-            </summary>
-            <div class="mt-3 rounded-xl border border-border bg-background-secondary p-4">
-              <p class="font-semibold text-foreground">{privacy.title}</p>
-              <ul class="mt-2 space-y-1.5">
-                {privacy.items.map((item) => <li>{item.replace('{email}', siteConfig.email)}</li>)}
-              </ul>
-            </div>
-          </details>
-        </form>
-
-        <div class="hidden py-6 text-center" data-success role="status">
-          <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-success/15 text-success">
-            <Icon name="check" size="lg" />
-          </span>
-          <h3 class="mt-4 font-display text-2xl font-bold text-foreground">{L('form.successTitle')}</h3>
-          <p class="mt-2 text-foreground-muted">{L('form.successText')}</p>
-        </div>
-      </div>
+      <WebsiteCheckForm {locale} source="landing" />
     </div>
   </section>
 
@@ -653,119 +521,6 @@ const year = new Date().getFullYear();
     background: linear-gradient(180deg, var(--color-brand-500) -16%, var(--color-brand-900) 100%);
   }
 
-  /* Chosen option cards and chips: the input is visually hidden, so the
-     label carries the checked state and the keyboard focus ring. */
-  .lp-option:has(input:checked),
-  .lp-chip:has(input:checked) {
-    border-color: var(--color-brand-500);
-    background-color: color-mix(in oklab, var(--color-brand-500) 10%, var(--color-background));
-    box-shadow: 0 0 0 1px var(--color-brand-500);
-  }
-  .lp-option:has(input:focus-visible),
-  .lp-chip:has(input:focus-visible) {
-    outline: 2px solid var(--color-ring);
-    outline-offset: 2px;
-  }
-
-  /* Navigation buttons the current step does not use. `hidden` loses to the
-     Button's own display utility, so this class wins with !important. The
-     back and next buttons start hidden: without JavaScript the form is one
-     page with a single submit. */
-  :global(.lp-off) {
-    display: none !important;
-  }
-
-  /* Step mode, set by the script: only the current step shows. */
-  :global([data-steps-active]) .lp-step:not([data-current]) {
-    display: none;
-  }
-  :global([data-steps-active]) .lp-step {
-    margin-top: 0;
-  }
-
-  /* Guidance glow. A soft brand halo that breathes on the buttons a visitor
-     should press next: the calls to action that lead to the form, and inside
-     the form only the current step's action (the script moves the class).
-
-     The halo is drawn once, on a pseudo-element, and only its opacity is
-     animated, so the compositor runs it. Animating box-shadow itself
-     restyled and repainted every frame: in a throttled mobile Lighthouse run
-     that cost about 3.8s of main-thread style and layout. */
-  :global(.lp-glow) {
-    position: relative;
-    isolation: isolate;
-  }
-  :global(.lp-glow)::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    border-radius: inherit;
-    box-shadow: 0 0 22px 4px var(--lp-glow-color, color-mix(in oklab, var(--color-brand-500) 50%, transparent));
-    opacity: 0;
-    pointer-events: none;
-  }
-  /* Started only after the page has loaded (the script adds .lp-anim), so
-     the first render and the largest paint are never competing with it. */
-  :global(html.lp-anim .lp-glow)::after {
-    animation: lp-glow 2.4s ease-in-out infinite;
-    will-change: opacity;
-  }
-  :global(.lp-glow-light) {
-    --lp-glow-color: rgb(255 255 255 / 0.55);
-  }
-  @keyframes lp-glow {
-    0%,
-    100% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-
-  /* Step one: until a service is chosen, the option cards pulse one after
-     another, pointing the eye along the choices. Same technique: a
-     pre-drawn ring whose opacity moves. */
-  .lp-option {
-    position: relative;
-  }
-  .lp-option::after {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    border: 1px solid var(--color-brand-400);
-    box-shadow: 0 0 16px 0 color-mix(in oklab, var(--color-brand-500) 30%, transparent);
-    opacity: 0;
-    pointer-events: none;
-  }
-  :global(html.lp-anim [data-guide-options]) .lp-option::after {
-    animation: lp-option-pulse 3s ease-in-out infinite;
-    will-change: opacity;
-  }
-  :global(html.lp-anim [data-guide-options]) .lp-option:nth-child(2)::after { animation-delay: 0.25s; }
-  :global(html.lp-anim [data-guide-options]) .lp-option:nth-child(3)::after { animation-delay: 0.5s; }
-  :global(html.lp-anim [data-guide-options]) .lp-option:nth-child(4)::after { animation-delay: 0.75s; }
-  :global(html.lp-anim [data-guide-options]) .lp-option:nth-child(5)::after { animation-delay: 1s; }
-  @keyframes lp-option-pulse {
-    0%,
-    60%,
-    100% {
-      opacity: 0;
-    }
-    20% {
-      opacity: 1;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    :global(html.lp-anim .lp-glow)::after,
-    :global(html.lp-anim [data-guide-options]) .lp-option::after {
-      animation: none;
-    }
-  }
-
   .lp-sticky {
     transition: transform 200ms ease;
   }
@@ -797,144 +552,6 @@ const year = new Date().getFullYear();
   }
   initHeroVideo();
 
-  type Gtag = (...args: unknown[]) => void;
-  type Fbq = (...args: unknown[]) => void;
-
-  function initLandingForm(): void {
-    const form = document.getElementById('lp-form') as HTMLFormElement | null;
-    if (!form || form.dataset.init) return;
-    form.dataset.init = 'true';
-
-    const steps = Array.from(form.querySelectorAll<HTMLElement>('.lp-step'));
-    const back = form.querySelector<HTMLButtonElement>('[data-back]')!;
-    const next = form.querySelector<HTMLButtonElement>('[data-next]')!;
-    const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
-    const errorBox = form.querySelector<HTMLElement>('[data-form-error]')!;
-    const card = form.parentElement!;
-    const progress = card.querySelector<HTMLElement>('[data-progress]')!;
-    const bar = card.querySelector<HTMLElement>('[data-progress-bar]')!;
-    const count = card.querySelector<HTMLElement>('[data-step-count]')!;
-    const stepName = card.querySelector<HTMLElement>('[data-step-name]')!;
-    const success = card.querySelector<HTMLElement>('[data-success]')!;
-    const labels: string[] = JSON.parse(form.dataset.stepLabels || '[]');
-    const submitHTML = submit.innerHTML;
-    let current = 1;
-
-    form.setAttribute('data-steps-active', '');
-    progress.classList.remove('hidden');
-
-    function showError(text: string): void {
-      errorBox.textContent = text;
-      errorBox.classList.toggle('hidden', !text);
-    }
-
-    const options = form.querySelector<HTMLElement>('[data-options]');
-    const nameInput = form.elements.namedItem('name') as HTMLInputElement;
-    const emailInput = form.elements.namedItem('email') as HTMLInputElement;
-
-    /** Light up the one thing to do next, and nothing else in the form. */
-    function guide(): void {
-      const chosen = Boolean(form!.querySelector('input[name="service"]:checked'));
-      options?.toggleAttribute('data-guide-options', current === 1 && !chosen);
-      next.classList.toggle('lp-glow', current === 2 || (current === 1 && chosen));
-      const ready = nameInput.value.trim().length >= 2 && emailInput.checkValidity() && emailInput.value.trim() !== '';
-      submit.classList.toggle('lp-glow', current === steps.length && ready);
-    }
-    nameInput.addEventListener('input', guide);
-    emailInput.addEventListener('input', guide);
-
-    function render(): void {
-      steps.forEach((step) => step.toggleAttribute('data-current', Number(step.dataset.step) === current));
-      back.classList.toggle('lp-off', current === 1);
-      next.classList.toggle('lp-off', current === steps.length);
-      submit.classList.toggle('lp-off', current !== steps.length);
-      bar.style.width = `${(current / steps.length) * 100}%`;
-      count.textContent = (count.dataset.template || '')
-        .replace('{current}', String(current))
-        .replace('{total}', String(steps.length));
-      stepName.textContent = labels[current - 1] || '';
-      showError('');
-      guide();
-    }
-
-    function valid(step: number): boolean {
-      if (step === 1 && !form!.querySelector('input[name="service"]:checked')) {
-        showError(form!.dataset.msgChoose || '');
-        return false;
-      }
-      if (step === 3) {
-        const name = (form!.elements.namedItem('name') as HTMLInputElement).value.trim();
-        const email = form!.elements.namedItem('email') as HTMLInputElement;
-        if (name.length < 2 || !email.value.trim() || !email.checkValidity()) {
-          showError(form!.dataset.msgRequired || '');
-          return false;
-        }
-      }
-      return true;
-    }
-
-    function go(step: number): void {
-      current = step;
-      render();
-      const first = steps[current - 1].querySelector<HTMLElement>('input:not([type=hidden]), select, textarea');
-      first?.focus({ preventScroll: true });
-      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    next.addEventListener('click', () => {
-      if (valid(current)) go(current + 1);
-    });
-    back.addEventListener('click', () => go(current - 1));
-
-    // Choosing a service is the whole of step one, so it moves on by itself.
-    form.querySelectorAll<HTMLInputElement>('input[name="service"]').forEach((input) => {
-      input.addEventListener('change', () => {
-        if (current === 1) window.setTimeout(() => go(2), 180);
-      });
-    });
-
-    // Enter in a text field advances instead of submitting an unfinished form.
-    form.addEventListener('keydown', (e) => {
-      const target = e.target as HTMLElement;
-      if (e.key === 'Enter' && target.tagName === 'INPUT' && current < steps.length) {
-        e.preventDefault();
-        if (valid(current)) go(current + 1);
-      }
-    });
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (!valid(1)) return go(1);
-      if (!valid(3)) return;
-
-      submit.disabled = true;
-      submit.textContent = form.dataset.msgSending || '…';
-      showError('');
-
-      try {
-        const response = await fetch(form.action, { method: 'POST', body: new FormData(form) });
-        const data = await response.json();
-        if (!data.success) throw new Error('rejected');
-
-        // Conversion events for the ad platforms, when they are loaded.
-        const w = window as unknown as { gtag?: Gtag; fbq?: Fbq };
-        w.gtag?.('event', 'generate_lead', { form: 'landing' });
-        w.fbq?.('track', 'Lead');
-
-        form.classList.add('hidden');
-        progress.classList.add('hidden');
-        success.classList.remove('hidden');
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      } catch {
-        showError(form.dataset.msgError || '');
-        submit.disabled = false;
-        submit.innerHTML = submitHTML;
-      }
-    });
-
-    render();
-  }
-
   function initStickyCta(): void {
     const sticky = document.querySelector<HTMLElement>('[data-sticky-cta]');
     const target = document.getElementById('form');
@@ -945,18 +562,5 @@ const year = new Date().getFullYear();
     ).observe(target);
   }
 
-  /** Switch the guidance glow on once the page is loaded and the browser idle. */
-  function startGlow(): void {
-    const begin = () => document.documentElement.classList.add('lp-anim');
-    const idle = () => {
-      if (typeof window.requestIdleCallback === 'function') window.requestIdleCallback(begin, { timeout: 3000 });
-      else setTimeout(begin, 1500);
-    };
-    if (document.readyState === 'complete') idle();
-    else window.addEventListener('load', idle, { once: true });
-  }
-
-  initLandingForm();
   initStickyCta();
-  startGlow();
 </script>

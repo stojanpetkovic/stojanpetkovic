@@ -1021,22 +1021,24 @@
     },
     "contact": {
       "meta": {
-        "title": "Contact",
-        "description": "Iets nieuws van plan? Ik ontwerp en bouw nieuwe websites vanaf nul — vertel me over je project en ik reageer binnen 1 werkdag."
+        "title": "Gratis websitecheck",
+        "description": "Ontdek wat je website je kost. Vertel me over je bedrijf en ontvang binnen één werkdag een eerlijke beoordeling van snelheid, SEO en aanvragen. Gratis."
       },
       "hero": {
-        "badge": "Start een project",
-        "titleLead": "Vertel me over je",
-        "titleHighlight": "nieuwe project",
-        "description": "Ik hoor graag van je. Stuur een bericht via het formulier hieronder, of gebruik een van de andere kanalen hieronder."
+        "badge": "Gratis websitecheck",
+        "titleLead": "Je website kost je misschien klanten",
+        "titleHighlight": "op dit moment",
+        "description": "Trage pagina's, verstopte telefoonnummers en aanvragen die niemand ziet kosten je opdrachten, zonder waarschuwing. Vertel me over je bedrijf en ik laat precies zien waar klanten afhaken. Gratis en vrijblijvend."
       },
-      "formTitle": "Projectdetails",
-      "channelsTitle": "Andere kanalen",
-      "channelsSubtitle": "Liever een direct kanaal? Kies wat het beste werkt.",
+      "painTitle": "Waar klanten afhaken",
+      "risks": [
+        { "icon": "hourglass", "title": "Trage pagina's", "text": "Bezoekers vertrekken voordat ze je nummer zien." },
+        { "icon": "search-x", "title": "Onzichtbaar op Google", "text": "Het telefoontje dat van jou had moeten zijn gaat naar de concurrent." },
+        { "icon": "mail-x", "title": "Onbeantwoorde aanvragen", "text": "Tegen de tijd dat je reageert, heeft de klant al iemand anders gebeld." }
+      ],
+      "offerTitle": "Dit krijg je gratis",
       "emailLabel": "E-mail",
-      "emailNote": "Stuur een bericht",
-      "socialNote": "Volg mee",
-      "basedIn": "Gevestigd in {country}"
+      "preferEmail": "Liever e-mail? Schrijf naar"
     },
     "home": {
       "meta": {

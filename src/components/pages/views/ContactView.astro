@@ -3,19 +3,18 @@
  * ContactView — the Contact page body.
  *
  * Shared by the default-locale route (`/contact`) and the locale-prefixed route
- * (`/<locale>/contact`). Page copy is read from `pages.contact.*`; the embedded
- * `ContactForm` localizes itself from the URL path, so the form fields follow
- * the active locale automatically. Untranslated keys fall back to the default
- * locale.
+ * (`/<locale>/contact`). It is the short form of the landing page: what a slow
+ * or invisible website costs, what the free check covers, and the same step
+ * form, with none of the case studies, process or FAQ. Page copy is read from
+ * `pages.contact.*`; the offer list and the form reuse `pages.landing.*` so the
+ * two pages cannot promise different things.
  */
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
-import Card from '@/components/ui/data-display/Card/Card.astro';
 import { Hero } from '@/components/hero';
-import ContactForm from '@/components/patterns/ContactForm.astro';
+import WebsiteCheckForm from '@/components/patterns/WebsiteCheckForm.astro';
 import siteConfig from '@/config/site.config';
-import { resolveSocialLinks } from '@/lib/utils';
 import { t, tData, defaultLocale } from '@/i18n';
 
 interface Props {
@@ -29,27 +28,9 @@ const hero = tData<{ badge: string; titleLead: string; titleHighlight: string; d
   'pages.contact.hero',
   locale
 )!;
-
-const socialLinks = resolveSocialLinks(siteConfig.socialLinks);
-
-const channels = [
-  {
-    icon: 'mail',
-    label: t('pages.contact.emailLabel', locale),
-    value: siteConfig.email,
-    note: t('pages.contact.emailNote', locale),
-    href: `mailto:${siteConfig.email}`,
-    external: false,
-  },
-  ...socialLinks.map((link) => ({
-    icon: link.icon,
-    label: link.label,
-    value: link.href.replace(/^https?:\/\/(www\.)?/, ''),
-    note: t('pages.contact.socialNote', locale),
-    href: link.href,
-    external: true,
-  })),
-];
+const risks = tData<{ icon: string; title: string; text: string }[]>('pages.contact.risks', locale)!;
+const offerItems = tData<string[]>('pages.landing.offer.items', locale)!;
+const trust = tData<{ value: string; label: string }[]>('pages.landing.hero.trust', locale)!;
 ---
 
 <PageLayout
@@ -59,7 +40,7 @@ const channels = [
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>
-      <Icon name="mail" size="sm" />
+      <Icon name="search" size="sm" />
       {hero.badge}
     </Badge>
 
@@ -72,63 +53,61 @@ const channels = [
     </p>
   </Hero>
 
-  <!-- Contact Section -->
   <section class="relative isolate overflow-hidden py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="relative z-10 mx-auto max-w-5xl px-6">
-      <div class="grid grid-cols-1 glitch:grid-cols-5 gap-10 glitch:gap-16 items-stretch">
+      <div class="grid grid-cols-1 glitch:grid-cols-5 gap-10 glitch:gap-14 items-start">
 
-        <!-- Left column: contact form -->
-        <div class="glitch:col-span-3 h-full sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0" data-reveal data-reveal-ease="smooth">
-          <Card padding="lg" class="h-full flex flex-col justify-center">
-            <h2 class="font-display text-xl font-bold text-foreground mb-6 sm:text-center glitch:text-left">{t('pages.contact.formTitle', locale)}</h2>
-            <ContactForm />
-          </Card>
+        <!-- Left column: the cost of waiting, then what the check gives -->
+        <div class="glitch:col-span-2 space-y-8 sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0 order-2 glitch:order-1" data-reveal data-reveal-ease="smooth">
+          <div>
+            <h2 class="font-display text-lg font-bold text-foreground">{t('pages.contact.painTitle', locale)}</h2>
+            <ul class="mt-4 space-y-4">
+              {risks.map((risk) => (
+                <li class="flex gap-3">
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
+                    <Icon name={risk.icon} size="sm" />
+                  </span>
+                  <div>
+                    <p class="font-semibold text-foreground">{risk.title}</p>
+                    <p class="mt-0.5 text-sm text-foreground-muted">{risk.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="font-display text-lg font-bold text-foreground">{t('pages.contact.offerTitle', locale)}</h2>
+            <ul class="mt-4 space-y-3">
+              {offerItems.map((item) => (
+                <li class="flex gap-3 text-sm text-foreground">
+                  <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-success/15 text-success">
+                    <Icon name="check" size="sm" />
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <dl class="grid grid-cols-3 gap-3 border-t border-border pt-6">
+            {trust.map((item) => (
+              <div>
+                <dt class="font-display text-xl font-bold text-brand-600 dark:text-brand-400">{item.value}</dt>
+                <dd class="mt-0.5 text-xs text-foreground-muted">{item.label}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <p class="text-sm text-foreground-muted">
+            {t('pages.contact.preferEmail', locale)}
+            <a href={`mailto:${siteConfig.email}`} class="font-medium text-foreground underline underline-offset-2 hover:text-brand-500">{siteConfig.email}</a>
+          </p>
         </div>
 
-        <!-- Right column: contact channels -->
-        <div class="glitch:col-span-2 space-y-4 sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
-          <div class="sm:text-center glitch:text-left">
-            <h2 class="font-display text-lg font-bold text-foreground mb-1">{t('pages.contact.channelsTitle', locale)}</h2>
-            <p class="text-sm text-foreground-muted">{t('pages.contact.channelsSubtitle', locale)}</p>
-          </div>
-
-          <!-- Channel list -->
-          <div class="space-y-2">
-            {channels.map((ch) => (
-              <a
-                href={ch.href}
-                {...ch.external ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
-                class="block group"
-              >
-                <Card hover padding="sm" class="h-full">
-                  <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500">
-                      <Icon name={ch.icon} size="sm" />
-                    </div>
-                    <div class="min-w-0 flex-1">
-                      <p class="font-semibold text-sm text-foreground">{ch.label}</p>
-                      <p class="text-xs text-foreground-muted truncate">{ch.value}</p>
-                    </div>
-                    <Icon name="arrow-up-right" size="sm" class="text-foreground-muted group-hover:text-brand-500 transition-colors shrink-0" />
-                  </div>
-                </Card>
-              </a>
-            ))}
-          </div>
-
-          <!-- Location card -->
-          <Card hover padding="sm" class="bg-brand-500/5 border-brand-500/20">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500">
-                <Icon name="map-pin" size="sm" />
-              </div>
-              <div>
-                <p class="font-semibold text-sm text-foreground">{siteConfig.address?.city ?? 'Your City'}</p>
-                <p class="text-xs text-foreground-muted mt-0.5">{t('pages.contact.basedIn', locale, { country: siteConfig.address?.country ?? 'Your Country' })}</p>
-              </div>
-            </div>
-          </Card>
-
+        <!-- Right column: the form, first on phones -->
+        <div class="glitch:col-span-3 sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0 order-1 glitch:order-2" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
+          <WebsiteCheckForm {locale} source="contact" />
         </div>
 
       </div>
