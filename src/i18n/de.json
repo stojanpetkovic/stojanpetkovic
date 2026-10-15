@@ -1452,7 +1452,8 @@
       },
       "canvas": {
         "title": "Bohrungsschema (gemessene Tiefe)",
-        "empty": "Ziehen Sie eine Komponente hierher, um die Bohrung zu beginnen."
+        "empty": "Ziehen Sie eine Komponente hierher, um die Bohrung zu beginnen.",
+        "notToScale": "Tiefe maßstäblich; Breiten nicht maßstäblich."
       },
       "editor": {
         "size": "Größe",
@@ -1523,6 +1524,16 @@
         "ct": "CT-Ende",
         "packer": "Packer",
         "perforations": "Perforationen"
+      },
+      "print": {
+        "button": "Als PDF speichern",
+        "title": "Bohrungsschema",
+        "components": "Komponenten",
+        "type": "Typ",
+        "size": "Größe",
+        "weight": "Gewicht",
+        "length": "Länge",
+        "generated": "Erstellt auf {url} am {date}."
       },
       "data": {
         "example": "Beispielbohrung laden",

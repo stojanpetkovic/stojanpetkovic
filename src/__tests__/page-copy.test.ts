@@ -51,6 +51,7 @@ const BLOCKS = [
   'pages.wellBuilder.survey',
   'pages.wellBuilder.view',
   'pages.wellBuilder.data',
+  'pages.wellBuilder.print',
   'pages.tools.form',
   'pages.tools.nitrogenZ',
   'nav.items.tools',

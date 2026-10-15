@@ -1452,7 +1452,8 @@
       },
       "canvas": {
         "title": "Šema bušotine (merena dubina)",
-        "empty": "Prevuci komponentu ovde da započneš bušotinu."
+        "empty": "Prevuci komponentu ovde da započneš bušotinu.",
+        "notToScale": "Dubina u razmeri; širine nisu u razmeri."
       },
       "editor": {
         "size": "Dimenzija",
@@ -1523,6 +1524,16 @@
         "ct": "Kraj CT-a",
         "packer": "Paker",
         "perforations": "Perforacije"
+      },
+      "print": {
+        "button": "Sačuvaj kao PDF",
+        "title": "Šema bušotine",
+        "components": "Komponente",
+        "type": "Tip",
+        "size": "Dimenzija",
+        "weight": "Težina",
+        "length": "Dužina",
+        "generated": "Napravljeno na {url}, {date}."
       },
       "data": {
         "example": "Učitaj primer bušotine",

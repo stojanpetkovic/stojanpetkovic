@@ -786,3 +786,66 @@ html:root[data-theme='blue'] .wb-ramp {
   border-radius: 999px;
   background: linear-gradient(90deg, var(--color-brand-600), var(--cta));
 }
+
+/* Well Builder drawing details and the print report. */
+#wb-svg .wb-overlay { pointer-events: none; }
+#wb-svg .wb-leader { stroke: var(--color-foreground-subtle); stroke-width: 0.8; fill: none; }
+#wb-svg .wb-leader-dot { fill: var(--color-foreground); }
+#wb-svg .wb-detail { fill: var(--color-foreground-subtle); font-size: 10px; font-weight: 400; }
+.wb-print-only { display: none; }
+@media print {
+  body:has(#well-builder) * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  body:has(#well-builder) {
+    background: #fff;
+  }
+  body:has(#well-builder) header,
+  body:has(#well-builder) footer,
+  body:has(#well-builder) .web-head,
+  body:has(#well-builder) .wb-noprint,
+  body:has(#well-builder) .wb-noprint-note,
+  body:has(#well-builder) .tool-card > h2 + #wb-3d {
+    display: none !important;
+  }
+  body:has(#well-builder) main {
+    padding-top: 0 !important;
+    min-height: 0 !important;
+  }
+  body:has(#well-builder) main section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+  body:has(#well-builder) main .mx-auto {
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  body:has(#well-builder) .tool-print-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+    border-bottom: 2px solid #000;
+  }
+  body:has(#well-builder) .tool-print-site { font-size: 16pt; font-weight: 700; }
+  body:has(#well-builder) .tool-print-url { font-size: 9pt; color: #444; }
+  body:has(#well-builder) .tool-print-title { display: block; margin-bottom: 10pt; font-size: 20pt; font-weight: 700; line-height: 1.2; }
+  body:has(#well-builder) .tool-card { border: 0; box-shadow: none; padding: 0 !important; overflow: visible; }
+  body:has(#well-builder) .tool-card::before { display: none; }
+  body:has(#well-builder) #wb-svg { height: auto; max-height: 200mm; width: 100%; }
+  body:has(#well-builder) #wb-svg .wb-grid { stroke: #ddd; }
+  body:has(#well-builder) #well-builder > .mt-6 > .tool-card h2 { display: none; }
+  body:has(#well-builder) .wb-print-only { display: block; }
+  body:has(#well-builder) .wb-print-components { break-before: page; margin-bottom: 14pt; }
+  body:has(#well-builder) .wb-print-components h2 { margin-bottom: 6pt; font-size: 10pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; }
+  body:has(#well-builder) .wb-print-components table { width: 100%; border-collapse: collapse; font-size: 8.5pt; }
+  body:has(#well-builder) .wb-print-components th { padding: 3pt 4pt; border-bottom: 1.5px solid #000; text-align: left; font-size: 7.5pt; text-transform: uppercase; letter-spacing: 0.04em; }
+  body:has(#well-builder) .wb-print-components td { padding: 3pt 4pt; border-bottom: 1px solid #ccc; font-family: var(--font-mono, monospace); }
+  body:has(#well-builder) .wb-summary { margin: 10pt 0; grid-template-columns: repeat(3, 1fr); }
+  body:has(#well-builder) #wb-3d { display: none; }
+  body:has(#well-builder) #wb-3d-print { width: 100%; height: auto; max-height: 120mm; object-fit: contain; }
+  body:has(#well-builder) .wb-print-foot { margin-top: 14pt; padding-top: 6pt; border-top: 1px solid #999; font-size: 8pt; color: #444; }
+}

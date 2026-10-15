@@ -24,11 +24,12 @@ export interface BuilderCopy {
   view: Record<string, string>;
   marker: Record<string, string>;
   data: Record<string, string>;
+  print: Record<string, string>;
 }
 
 const STORAGE_KEY = 'well-builder:v1';
 const VIEW_W = 720;
-const TOP = 28;
+const TOP = 62;
 const PLOT_H = 560;
 const LEFT = 64;
 const CENTRE = LEFT + (VIEW_W - LEFT) / 2 - 40;
@@ -146,6 +147,9 @@ export class WellBuilder {
       this.afterReplace();
     });
     root.querySelector('#wb-export')?.addEventListener('click', () => this.exportJson());
+    root.querySelector('#wb-print')?.addEventListener('click', () => window.print());
+    window.addEventListener('beforeprint', () => this.beforePrint());
+    window.addEventListener('afterprint', () => this.afterPrint());
     root.querySelector<HTMLInputElement>('#wb-import')?.addEventListener('change', (e) => this.importFile(e, 'json'));
     root.querySelector<HTMLInputElement>('#wb-survey-file')?.addEventListener('change', (e) => this.importFile(e, 'survey'));
     root.querySelector('#wb-survey-clear')?.addEventListener('click', () => {
@@ -203,6 +207,53 @@ export class WellBuilder {
     this.state = { unit: next, items, survey };
     this.save();
     this.refreshAll();
+  }
+
+  // ---- print ------------------------------------------------------------
+
+  private printed: string | null | undefined;
+
+  /** Turns the page into a report: no selection or handles, the components as a table, the 3D view as a picture. */
+  private beforePrint() {
+    this.printed = this.selected;
+    this.selected = null;
+    this.renderSchematic();
+    const c = this.copy;
+    const url = `${location.host}${location.pathname}`;
+    const lang = document.documentElement.lang || 'en';
+    const date = new Intl.DateTimeFormat(lang, { dateStyle: 'long' }).format(new Date());
+    document.querySelectorAll('[data-print-url]').forEach((el) => (el.textContent = url));
+    const foot = this.root.querySelector<HTMLElement>('#wb-print-foot');
+    if (foot) foot.textContent = `${c.print.generated.replace('{url}', url).replace('{date}', date)} ${foot.dataset.note ?? ''}`;
+
+    const table = this.root.querySelector<HTMLElement>('#wb-print-table');
+    if (table) {
+      const inches = (n: number) => `${fmt(n, 3)} in`;
+      const rows = [...this.state.items]
+        .sort((a, b) => a.top - b.top || a.bottom - b.bottom)
+        .map((i) => {
+          const pipe = isPipe(i.type);
+          const properties = pipe ? pipeProperties({ kind: apiKind(i.type) ?? 'tubing', od: i.od, weight: i.weight, wall: i.wall }) : null;
+          const size = i.type === 'perforation' ? '' : `${sizeLabel(i.od)}"`;
+          return `<tr><td>${esc(c.types[i.type])}</td><td>${esc(size)}</td><td>${apiKind(i.type) ? `${i.weight} lb/ft` : ''}</td><td>${properties ? inches(properties.id) : ''}</td><td>${properties && apiKind(i.type) ? inches(properties.drift) : ''}</td><td>${fmt(i.top)}</td><td>${fmt(i.bottom)}</td><td>${fmt(i.bottom - i.top)}</td></tr>`;
+        })
+        .join('');
+      const e = c.editor;
+      const head = [c.print.type, c.print.size, c.print.weight, e.id, e.drift, `${e.top} (${this.unit})`, `${e.bottom} (${this.unit})`, `${c.print.length} (${this.unit})`];
+      table.innerHTML = `<table><thead><tr>${head.map((h) => `<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows}</tbody></table>`;
+    }
+    this.viewer.draw();
+    const picture = this.root.querySelector<HTMLImageElement>('#wb-3d-print');
+    const canvas = this.root.querySelector<HTMLCanvasElement>('#wb-3d');
+    if (picture && canvas) picture.src = canvas.toDataURL('image/png');
+  }
+
+  private afterPrint() {
+    if (this.printed === undefined) return;
+    this.selected = this.item(this.printed) ? this.printed : null;
+    this.printed = undefined;
+    this.renderSchematic();
+    this.renderEditor();
   }
 
   // ---- files ------------------------------------------------------------
@@ -264,6 +315,14 @@ export class WellBuilder {
     return Math.max(0, Math.round(depth / step) * step);
   }
 
+  /** Pattern and gradient definitions of the drawing: steel hatching, rubber, ground and a cylinder shine. */
+  private static DEFS = `<defs>
+    <pattern id="wb-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#fff" stroke-opacity="0.4" stroke-width="1.1"/></pattern>
+    <pattern id="wb-rubber" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#2b2b2b"/><path d="M0 0L5 5M5 0L0 5" stroke="#8a8a8a" stroke-width="0.7"/></pattern>
+    <pattern id="wb-ground" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#666" stroke-width="1"/></pattern>
+    <linearGradient id="wb-shine" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0.38"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.22"/></linearGradient>
+  </defs>`;
+
   private renderSchematic() {
     const items = this.state.items;
     const pipes = items.filter((i) => isPipe(i.type));
@@ -275,72 +334,127 @@ export class WellBuilder {
 
     const maxOd = Math.max(5, ...items.filter((i) => i.type !== 'perforation').map((i) => i.od));
     const widthOf = (od: number) => Math.max(10, (MAX_WIDTH * od) / maxOd);
+    const wallOf = (item: WellItem) => Math.max(4, (item.wall * MAX_WIDTH) / maxOd);
+    const INK = 'var(--color-foreground)';
+    // The innermost casing or liner that reaches a depth: what a packer seals against and perforations pass through.
+    const hostAt = (depth: number) =>
+      pipes
+        .filter((i) => (i.type === 'casing' || i.type === 'liner') && i.top <= depth && i.bottom >= depth)
+        .sort((a, b) => a.od - b.od)[0];
 
-    let svg = '';
-    // Depth axis.
+    let svg = WellBuilder.DEFS;
+    const y0 = this.y(0);
+    const widest = Math.max(0, ...pipes.map((i) => widthOf(i.od)));
+
+    // Depth grid and axis.
     for (let d = 0; d <= maxDepth; d += step) {
       svg += `<line x1="${LEFT - 6}" x2="${VIEW_W - 10}" y1="${this.y(d)}" y2="${this.y(d)}" class="wb-grid"/>`;
       svg += `<text x="${LEFT - 10}" y="${this.y(d) + 4}" text-anchor="end" class="wb-axis">${fmt(d)}</text>`;
     }
-    svg += `<text x="6" y="14" class="wb-axis">MD, ${this.unit}</text>`;
+    svg += `<text x="6" y="${y0 - 18}" class="wb-axis">MD, ${this.unit}</text>`;
     if (items.length === 0) {
       svg += `<text x="${CENTRE}" y="${TOP + 120}" text-anchor="middle" class="wb-empty">${esc(this.copy.canvas.empty)}</text>`;
     }
 
-    // Pipes, the largest first so the smaller ones sit inside them.
+    // Ground and wellhead.
+    const groundW = Math.max(60, widest / 2 + 36);
+    svg += `<rect x="${CENTRE - groundW - 90}" y="${y0}" width="${groundW + 90 - widest / 2 + 6}" height="9" fill="url(#wb-ground)"/>`;
+    svg += `<rect x="${CENTRE + widest / 2 - 6}" y="${y0}" width="${groundW + 90 - widest / 2 + 6}" height="9" fill="url(#wb-ground)"/>`;
+    svg += `<line x1="${LEFT}" x2="${VIEW_W - 10}" y1="${y0}" y2="${y0}" stroke="${INK}" stroke-width="1.6"/>`;
+    const head = Math.max(34, widest * 0.3);
+    svg += `<g class="wb-overlay" stroke="${INK}" stroke-width="0.8" fill="var(--color-foreground-muted)">`;
+    svg += `<rect x="${CENTRE - head / 2}" y="${y0 - 26}" width="${head}" height="26"/>`;
+    svg += `<rect x="${CENTRE - head / 3}" y="${y0 - 38}" width="${(head * 2) / 3}" height="12"/>`;
+    svg += `<rect x="${CENTRE - head / 2 - 20}" y="${y0 - 20}" width="20" height="9"/><rect x="${CENTRE + head / 2}" y="${y0 - 20}" width="20" height="9"/>`;
+    svg += `</g>`;
+
+    // Pipes, the largest first so the smaller ones sit inside them. Only the walls take the pointer.
     const ordered = [...pipes].sort((a, b) => b.od - a.od || a.top - b.top);
-    const widest = ordered[0] ? widthOf(ordered[0].od) : 0;
     for (const item of ordered) {
       const w = widthOf(item.od);
-      const wall = Math.max(4, (item.wall * MAX_WIDTH) / maxOd);
+      const wall = wallOf(item);
       const inner = Math.max(2, w - 2 * wall);
       const x = CENTRE - w / 2;
       const y1 = this.y(item.top);
       const y2 = this.y(item.bottom);
       const sel = item.id === this.selected ? ' wb-selected' : '';
-      // Only the walls take the pointer, so a pipe inside another does not cover it.
+      const colour = COLOUR[item.type];
+      const wallRect = (wx: number) =>
+        `<rect x="${wx}" y="${y1}" width="${wall}" height="${y2 - y1}" fill="${colour}" stroke="${INK}" stroke-width="0.8"/>` +
+        `<rect x="${wx}" y="${y1}" width="${wall}" height="${y2 - y1}" fill="url(#wb-hatch)" class="wb-overlay"/>` +
+        `<rect x="${wx}" y="${y1}" width="${wall}" height="${y2 - y1}" fill="url(#wb-shine)" class="wb-overlay"/>`;
       svg += `<g data-id="${item.id}" class="wb-item${sel}">`;
       svg += `<rect x="${CENTRE - inner / 2}" y="${y1}" width="${inner}" height="${y2 - y1}" class="wb-bore"/>`;
-      svg += `<rect x="${x}" y="${y1}" width="${wall}" height="${y2 - y1}" fill="${COLOUR[item.type]}"/>`;
-      svg += `<rect x="${x + w - wall}" y="${y1}" width="${wall}" height="${y2 - y1}" fill="${COLOUR[item.type]}"/>`;
-      if (item.type !== 'ct') svg += `<polygon points="${x - 4},${y2} ${x + w + 4},${y2} ${CENTRE},${y2 + 9}" fill="${COLOUR[item.type]}"/>`;
+      svg += wallRect(x) + wallRect(x + w - wall);
+      if (item.type === 'ct') {
+        // A coiled tubing string ends in a nozzle.
+        svg += `<polygon points="${CENTRE - inner / 2},${y2} ${CENTRE + inner / 2},${y2} ${CENTRE + inner / 2 - 2},${y2 + 7} ${CENTRE - inner / 2 + 2},${y2 + 7}" fill="${colour}" stroke="${INK}" stroke-width="0.8"/>`;
+      } else {
+        // A shoe: the wall thickened and bevelled inwards at the bottom.
+        const bevel = `fill="${colour}" stroke="${INK}" stroke-width="0.8"`;
+        svg += `<polygon points="${x - 3},${y2 - 9} ${x + wall},${y2 - 9} ${x + wall + 9},${y2} ${x - 3},${y2}" ${bevel}/>`;
+        svg += `<polygon points="${x + w + 3},${y2 - 9} ${x + w - wall},${y2 - 9} ${x + w - wall - 9},${y2} ${x + w + 3},${y2}" ${bevel}/>`;
+      }
       svg += `</g>`;
     }
 
-    // Packers and perforations.
+    // Packers: a mandrel, slips above and below and a rubber element that seals against the casing.
+    const callouts: { y: number; x: number; name: string; detail: string; id: string }[] = [];
     for (const item of items) {
       const sel = item.id === this.selected ? ' wb-selected' : '';
       const y1 = this.y(item.top);
-      const y2 = Math.max(this.y(item.bottom), y1 + 8);
       if (item.type === 'packer') {
-        const w = widthOf(item.od);
-        svg += `<g data-id="${item.id}" class="wb-item${sel}"><rect x="${CENTRE - w / 2}" y="${y1}" width="${w}" height="${y2 - y1}" fill="${COLOUR.packer}" rx="2"/></g>`;
-      } else if (item.type === 'perforation') {
-        const edge = widest / 2;
-        svg += `<g data-id="${item.id}" class="wb-item${sel}">`;
+        const host = hostAt(item.top);
+        const seal = host ? widthOf(host.od) - 2 * wallOf(host) : widthOf(item.od);
+        const w = Math.max(16, Math.min(widthOf(item.od), seal));
+        const tubing = pipes.find((i) => i.type === 'tubing' && i.top <= item.top && i.bottom >= item.top);
+        const m = Math.max(10, tubing ? widthOf(tubing.od) : 12) + 6;
+        const h = Math.max(34, this.y(item.bottom) - y1);
+        const cx = CENTRE;
+        svg += `<g data-id="${item.id}" class="wb-item${sel}" stroke="${INK}" stroke-width="0.8">`;
+        svg += `<rect x="${cx - m / 2}" y="${y1}" width="${m}" height="${h}" fill="${INK}"/>`;
+        svg += `<rect x="${cx - w / 2}" y="${y1 + h * 0.3}" width="${w}" height="${h * 0.4}" rx="3" fill="url(#wb-rubber)"/>`;
         for (const side of [-1, 1]) {
-          const x = CENTRE + side * edge;
-          svg += `<rect x="${side < 0 ? x - 12 : x}" y="${y1}" width="12" height="${y2 - y1}" fill="${COLOUR.perforation}" opacity="0.85"/>`;
+          const edge = cx + (side * w) / 2;
+          const near = cx + (side * m) / 2;
+          svg += `<polygon points="${near},${y1 + 2} ${edge},${y1 + h * 0.3} ${near},${y1 + h * 0.3}" fill="${INK}"/>`;
+          svg += `<polygon points="${near},${y1 + h * 0.7} ${edge},${y1 + h * 0.7} ${near},${y1 + h - 2}" fill="${INK}"/>`;
         }
         svg += `</g>`;
+        callouts.push({ y: y1 + h / 2, x: cx + w / 2 + 4, name: `${this.copy.types.packer} ${itemSize(item)}`, detail: `${fmt(item.top)} ${this.unit}`, id: item.id });
+      } else if (item.type === 'perforation') {
+        const host = hostAt(item.top) ?? hostAt(item.bottom) ?? [...pipes].sort((a, b) => a.od - b.od)[0];
+        const hostW = host ? widthOf(host.od) : widest || 40;
+        const wall = host ? wallOf(host) : 6;
+        const yb = Math.max(this.y(item.bottom), y1 + 16);
+        const rows = Math.max(3, Math.round((yb - y1) / 7));
+        svg += `<g data-id="${item.id}" class="wb-item${sel}" stroke="${COLOUR.perforation}" fill="${COLOUR.perforation}" stroke-width="1.2">`;
+        for (let r = 0; r < rows; r++) {
+          const yy = y1 + ((r + 0.5) * (yb - y1)) / rows;
+          for (const side of [-1, 1]) {
+            const inside = CENTRE + side * (hostW / 2 - wall);
+            const out = CENTRE + side * (hostW / 2 + 14);
+            svg += `<line x1="${inside}" x2="${out - side * 4}" y1="${yy}" y2="${yy}"/><polygon points="${out},${yy} ${out - side * 6},${yy - 3} ${out - side * 6},${yy + 3}" stroke="none"/>`;
+          }
+        }
+        svg += `<rect x="${CENTRE - hostW / 2 - 14}" y="${y1 - 2}" width="${hostW + 28}" height="${yb - y1 + 4}" fill="transparent" stroke="none"/>`;
+        svg += `</g>`;
+        callouts.push({ y: (y1 + yb) / 2, x: CENTRE + hostW / 2 + 16, name: this.copy.types.perforation, detail: `${fmt(item.top)}–${fmt(item.bottom)} ${this.unit}`, id: item.id });
+      } else {
+        const w = widthOf(item.od);
+        callouts.push({ y: this.y(item.bottom), x: CENTRE + w / 2 + 4, name: `${this.copy.types[item.type]} ${itemSize(item)}`, detail: `${fmt(item.top)}–${fmt(item.bottom)} ${this.unit}`, id: item.id });
       }
     }
 
-    // Labels on the right: the size and the depth, kept apart.
-    const labels = items
-      .filter((i) => i.type !== 'perforation' || true)
-      .map((i) => ({
-        y: this.y(i.type === 'packer' || i.type === 'perforation' ? i.top : i.bottom),
-        text: `${this.copy.types[i.type]} ${itemSize(i)} @ ${fmt(i.type === 'packer' || i.type === 'perforation' ? i.top : i.bottom)}`.trim(),
-        id: i.id,
-      }))
-      .sort((a, b) => a.y - b.y);
-    let last = -Infinity;
-    for (const label of labels) {
-      const y = Math.max(label.y, last + 13);
-      last = y;
-      const sel = label.id === this.selected ? ' wb-label-selected' : '';
-      svg += `<text x="${CENTRE + widest / 2 + 20}" y="${y + 4}" class="wb-label${sel}">${esc(label.text)}</text>`;
+    // Callouts: a label for each item in a column on the right, joined to it by a leader line.
+    const labelX = CENTRE + widest / 2 + 58;
+    let lastY = -Infinity;
+    for (const c of callouts.sort((a, b) => a.y - b.y)) {
+      const ly = Math.max(c.y, lastY + 27);
+      lastY = ly;
+      const sel = c.id === this.selected ? ' wb-label-selected' : '';
+      svg += `<polyline points="${c.x},${c.y} ${labelX - 8},${ly - 3}" class="wb-leader"/><circle cx="${c.x}" cy="${c.y}" r="2" class="wb-leader-dot"/>`;
+      svg += `<text x="${labelX}" y="${ly}" class="wb-label${sel}">${esc(c.name)}<tspan x="${labelX}" dy="12" class="wb-detail">${esc(c.detail)}</tspan></text>`;
     }
 
     // Handles on the selected item.
@@ -352,7 +466,8 @@ export class WellBuilder {
       }
     }
 
-    this.svg.setAttribute('viewBox', `0 0 ${VIEW_W} ${TOP + PLOT_H + 24}`);
+    svg += `<text x="${LEFT}" y="${TOP + PLOT_H + 18}" class="wb-axis">${esc(this.copy.canvas.notToScale)}</text>`;
+    this.svg.setAttribute('viewBox', `0 0 ${VIEW_W} ${TOP + PLOT_H + 28}`);
     this.svg.innerHTML = svg;
   }
 

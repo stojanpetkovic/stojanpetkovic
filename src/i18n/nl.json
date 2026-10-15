@@ -1452,7 +1452,8 @@
       },
       "canvas": {
         "title": "Putschema (gemeten diepte)",
-        "empty": "Sleep een onderdeel hierheen om de put te beginnen."
+        "empty": "Sleep een onderdeel hierheen om de put te beginnen.",
+        "notToScale": "Diepte op schaal; breedtes niet op schaal."
       },
       "editor": {
         "size": "Maat",
@@ -1523,6 +1524,16 @@
         "ct": "CT-einde",
         "packer": "Packer",
         "perforations": "Perforaties"
+      },
+      "print": {
+        "button": "Opslaan als PDF",
+        "title": "Putschema",
+        "components": "Onderdelen",
+        "type": "Type",
+        "size": "Maat",
+        "weight": "Gewicht",
+        "length": "Lengte",
+        "generated": "Gemaakt op {url} op {date}."
       },
       "data": {
         "example": "Voorbeeldput laden",

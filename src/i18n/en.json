@@ -1452,7 +1452,8 @@
       },
       "canvas": {
         "title": "Well schematic (measured depth)",
-        "empty": "Drag a component here to start the well."
+        "empty": "Drag a component here to start the well.",
+        "notToScale": "Depth to scale; widths are not to scale."
       },
       "editor": {
         "size": "Size",
@@ -1523,6 +1524,16 @@
         "ct": "CT end",
         "packer": "Packer",
         "perforations": "Perforations"
+      },
+      "print": {
+        "button": "Save as PDF",
+        "title": "Well schematic",
+        "components": "Components",
+        "type": "Type",
+        "size": "Size",
+        "weight": "Weight",
+        "length": "Length",
+        "generated": "Created at {url} on {date}."
       },
       "data": {
         "example": "Load an example well",
