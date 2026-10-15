@@ -356,7 +356,7 @@ export class WellBuilder {
     const placed = new Map<string, { y: number; h: number }>();
     let nextTop = Infinity;
     for (const item of equipment) {
-      const minimum = item.type === 'packer' ? 36 : item.type === 'nipple' ? 22 : 28;
+      const minimum = item.type === 'packer' ? 36 : item.type === 'nipple' ? 15 : 19;
       const h = Math.max(minimum, this.y(item.bottom) - this.y(item.top));
       const y = Math.max(TOP, Math.min(this.y(item.top), nextTop - 6 - h));
       placed.set(item.id, { y, h });
@@ -463,7 +463,7 @@ export class WellBuilder {
         const tubing = pipes.find((i) => i.type === 'tubing' && i.top <= item.top && i.bottom >= item.top);
         const tubingW = tubing ? widthOf(tubing.od) : widthOf(item.od);
         const tubingBore = tubing ? tubingW - 2 * wallOf(tubing) : tubingW * 0.6;
-        const w = tubingW + 10;
+        const w = tubingW + 5;
         const h = slot!.h;
         const cx = CENTRE;
         svg += `<g data-id="${item.id}" class="wb-item${sel}" stroke="${INK}" stroke-width="0.8">`;
