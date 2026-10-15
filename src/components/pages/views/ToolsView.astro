@@ -20,6 +20,8 @@ interface Props {
 }
 
 interface Tool {
+  /** Path of the tool's own page; a tool without one is still in preparation. */
+  href?: string;
   tag: string;
   icon: string;
   title: string;
@@ -62,7 +64,7 @@ const contactUrl = localizedPath('/contact', locale);
             <div class="flex items-center justify-between gap-3">
               <span class="rounded border border-brand-200 bg-brand-50 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-widest text-brand-700">{tool.tag}</span>
               <span class="rounded-full border border-border bg-background-secondary px-3 py-1 text-xs font-medium text-foreground-muted">
-                {t('pages.tools.status', locale)}
+                {t(tool.href ? 'pages.tools.statusAvailable' : 'pages.tools.status', locale)}
               </span>
             </div>
 
@@ -95,8 +97,8 @@ const contactUrl = localizedPath('/contact', locale);
             </div>
 
             <div class="mt-6 pt-1">
-              <Button variant="brand-outline" href={contactUrl}>
-                {t('pages.tools.cta', locale)}
+              <Button variant="brand-outline" href={tool.href ? localizedPath(tool.href, locale) : contactUrl}>
+                {t(tool.href ? 'pages.tools.open' : 'pages.tools.cta', locale)}
                 <Icon name="arrow-right" size="sm" />
               </Button>
             </div>

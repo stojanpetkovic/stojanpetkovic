@@ -1040,6 +1040,8 @@
         "description": "Kleine Cloud-basierte Werkzeuge und Rechner für Coiled Tubing und Arbeiten im Ölfeld. Jedes erklärt seine Methode, damit Sie das Ergebnis prüfen können."
       },
       "status": "In Vorbereitung",
+      "statusAvailable": "Verfügbar",
+      "open": "Werkzeug öffnen",
       "inputsLabel": "Eingaben",
       "outputsLabel": "Ergebnisse",
       "cta": "Sagen Sie mir, was Sie brauchen",
@@ -1051,6 +1053,7 @@
       },
       "items": [
         {
+          "href": "/tools/ct-pressure-loss",
           "tag": "Hydraulik",
           "icon": "activity",
           "title": "CT-Druckverlust",
@@ -1068,6 +1071,97 @@
           ]
         }
       ]
+    },
+    "ctPressureLoss": {
+      "meta": {
+        "title": "CT-Druckverlust",
+        "description": "Berechnen Sie den Reibungsdruckverlust eines Potenzgesetz-Fluids in Coiled Tubing, aufgeteilt in gerade und auf der Haspel gewickelte Abschnitte, in Feld- oder metrischen Einheiten."
+      },
+      "hero": {
+        "badge": "Hydraulik",
+        "title": "CT-Druckverlust",
+        "description": "Reibungsdruckverlust für Potenzgesetz-Fluide in Coiled Tubing. Geben Sie Fluid, Rohr und Förderrate ein, in Feld- oder metrischen Einheiten."
+      },
+      "system": {
+        "label": "Einheiten",
+        "us": "Feldeinheiten (US)",
+        "metric": "Metrisch"
+      },
+      "example": "Beispiel laden",
+      "groups": {
+        "fluid": "Fluid",
+        "geometry": "Rohr und Haspel",
+        "flow": "Förderung"
+      },
+      "fields": {
+        "density": {
+          "label": "Dichte"
+        },
+        "n": {
+          "label": "Fließindex, n",
+          "hint": "Potenzgesetz-Exponent; 1 für ein newtonsches Fluid"
+        },
+        "k": {
+          "label": "Konsistenzindex, K",
+          "hint": "Konsistenz nach Potenzgesetz, aus der Rheologie des Fluids"
+        },
+        "reelDiameter": {
+          "label": "Haspeldurchmesser",
+          "hint": "Durchmesser der Wicklung, auf der das Rohr aufgewickelt ist"
+        },
+        "od": {
+          "label": "Rohr-Außendurchmesser"
+        },
+        "wall": {
+          "label": "Wandstärke"
+        },
+        "totalLength": {
+          "label": "Stranglänge"
+        },
+        "lengthOffReel": {
+          "label": "Rohr außerhalb der Haspel",
+          "hint": "Gerade Länge, nicht auf der Haspel gewickelt"
+        },
+        "flowRate": {
+          "label": "Förderrate"
+        }
+      },
+      "results": {
+        "title": "Ergebnis",
+        "total": "Gesamter Reibungsdruckverlust",
+        "straight": "Außerhalb der Haspel (gerade)",
+        "curved": "Auf der Haspel (gekrümmt)",
+        "velocity": "Geschwindigkeit",
+        "reynolds": "Reynolds-Zahl",
+        "dean": "Dean-Zahl",
+        "regime": "Strömungsregime",
+        "invalidTitle": "Eingaben prüfen",
+        "invalidText": "Einige Werte fehlen oder liegen außerhalb des Bereichs. Korrigieren Sie die markierten Felder, um das Ergebnis zu sehen."
+      },
+      "regimes": {
+        "laminar": "Laminar",
+        "transitional": "Übergang",
+        "turbulent": "Turbulent"
+      },
+      "method": {
+        "title": "Methode",
+        "intro": "Der Verlust wird getrennt für den Teil des Strangs außerhalb der Haspel (gerade) und den Teil auf der Haspel (gekrümmt) berechnet und addiert.",
+        "steps": [
+          "Reynolds-Zahl (Metzner–Reed): Re = 31,042 ρ Q^(2−n) / (9,804^n K ID^(4−3n)) · (n/(1+3n))^n, mit ρ in lb/gal, Q in gal/min, ID in Zoll und K in lbf·sⁿ/100 ft².",
+          "Gerades Rohr: laminar unter Re = 3470 − 1370n und turbulent über 4270 − 1370n. Laminar f = 16/Re. Turbulent f = a/Re^b, mit a = (log n + 3,93)/50 und b = (1,75 − log n)/7.",
+          "Coiled Tubing: Der laminare Faktor wird mit ψ·De^φ multipliziert, wobei De = Re_g·(ID/D)^0,5 die Dean-Zahl ist, ψ = 47,969 − 153,8n + 166,22n² − 60,132n³ und φ = 0,875n − 0,515. Turbulent: f = 1,069·a/Re^(0,8b)·(ID/D)^0,1. Die laminare Grenze ist (4n/(3n+1))^n · [2100 ψ (ID/D)^(0,5φ)]^(1/(1−φ)), die turbulente Grenze liegt 800 darüber.",
+          "Druckverlust: ΔP = f ρ Q² L / (154,63 ID⁵) in Feldeinheiten. Zwischen den beiden Grenzen wird der Verlust linear in Re interpoliert, vom laminaren Verlust an der unteren Grenze zum turbulenten Verlust an der oberen Grenze."
+        ],
+        "assumptionsTitle": "Annahmen",
+        "assumptions": [
+          "Ein einphasiges Potenzgesetz-Fluid ohne Feststoffe.",
+          "Glattes Rohr und ausgebildete Strömung, mit entlang des Strangs konstanten Fluideigenschaften.",
+          "Die Krümmung ist die des eingegebenen Haspeldurchmessers; Rohr außerhalb der Haspel ist gerade.",
+          "Die Korrelationen decken nur einen begrenzten Bereich von n und ID/D ab. Prüfen Sie Ergebnisse außerhalb davon."
+        ],
+        "reference": "Basiert auf veröffentlichten Korrelationen für Potenzgesetz-Fluide in Coiled Tubing (Zhou und Shah), mit der Reynolds-Zahl nach Metzner–Reed und den turbulenten Faktoren nach Dodge–Metzner. Die Berechnung reproduziert für ihren Beispielfall ein Referenz-Arbeitsblatt. Prüfen Sie die Originalarbeiten, bevor Sie sich auf ein Ergebnis verlassen."
+      },
+      "back": "Alle Werkzeuge"
     },
     "web": {
       "glance": {"label": "Auf einen Blick", "items": [{"label": "Technik", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Preis", "value": "Ein Festpreis, vor Arbeitsbeginn vereinbart"}, {"label": "Eigentum", "value": "Code, Domain und Hosting auf Ihren Namen"}, {"label": "Antwort", "value": "Innerhalb eines Werktags"}]},

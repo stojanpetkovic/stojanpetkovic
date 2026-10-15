@@ -1040,6 +1040,8 @@
         "description": "Small cloud-based tools and calculators for coiled tubing and oilfield work. Each one explains its method, so you can check the result."
       },
       "status": "In preparation",
+      "statusAvailable": "Available",
+      "open": "Open the tool",
       "inputsLabel": "Inputs",
       "outputsLabel": "Results",
       "cta": "Tell me what you need",
@@ -1051,6 +1053,7 @@
       },
       "items": [
         {
+          "href": "/tools/ct-pressure-loss",
           "tag": "Hydraulics",
           "icon": "activity",
           "title": "CT Pressure Loss",
@@ -1068,6 +1071,97 @@
           ]
         }
       ]
+    },
+    "ctPressureLoss": {
+      "meta": {
+        "title": "CT Pressure Loss",
+        "description": "Calculate the friction pressure loss of a power-law fluid pumped through coiled tubing, split into straight and reel-wound sections, in oilfield or metric units."
+      },
+      "hero": {
+        "badge": "Hydraulics",
+        "title": "CT Pressure Loss",
+        "description": "Frictional pressure loss for power-law fluids pumped through coiled tubing. Enter the fluid, the tubing and the flow rate, in oilfield or metric units."
+      },
+      "system": {
+        "label": "Units",
+        "us": "Oilfield (US)",
+        "metric": "Metric"
+      },
+      "example": "Load example",
+      "groups": {
+        "fluid": "Fluid",
+        "geometry": "Tubing and reel",
+        "flow": "Flow"
+      },
+      "fields": {
+        "density": {
+          "label": "Density"
+        },
+        "n": {
+          "label": "Flow behaviour index, n",
+          "hint": "Power-law exponent; 1 for a Newtonian fluid"
+        },
+        "k": {
+          "label": "Consistency index, K",
+          "hint": "Power-law consistency, from the rheology of the fluid"
+        },
+        "reelDiameter": {
+          "label": "Reel diameter",
+          "hint": "Diameter of the coil the tubing is wound on"
+        },
+        "od": {
+          "label": "Tubing OD"
+        },
+        "wall": {
+          "label": "Wall thickness"
+        },
+        "totalLength": {
+          "label": "String length"
+        },
+        "lengthOffReel": {
+          "label": "Tubing off the reel",
+          "hint": "Straight length, not wound on the reel"
+        },
+        "flowRate": {
+          "label": "Flow rate"
+        }
+      },
+      "results": {
+        "title": "Result",
+        "total": "Total friction pressure loss",
+        "straight": "Off the reel (straight)",
+        "curved": "On the reel (curved)",
+        "velocity": "Velocity",
+        "reynolds": "Reynolds number",
+        "dean": "Dean number",
+        "regime": "Flow regime",
+        "invalidTitle": "Check the inputs",
+        "invalidText": "Some values are missing or out of range. Correct the highlighted fields to see the result."
+      },
+      "regimes": {
+        "laminar": "Laminar",
+        "transitional": "Transitional",
+        "turbulent": "Turbulent"
+      },
+      "method": {
+        "title": "Method",
+        "intro": "The loss is calculated separately for the part of the string off the reel (straight) and the part on the reel (curved), and the two are added.",
+        "steps": [
+          "Reynolds number (Metzner–Reed): Re = 31.042 ρ Q^(2−n) / (9.804^n K ID^(4−3n)) · (n/(1+3n))^n, with ρ in lb/gal, Q in gal/min, ID in inches and K in lbf·sⁿ/100 ft².",
+          "Straight tubing: laminar below Re = 3470 − 1370n and turbulent above 4270 − 1370n. Laminar f = 16/Re. Turbulent f = a/Re^b, with a = (log n + 3.93)/50 and b = (1.75 − log n)/7.",
+          "Coiled tubing: the laminar factor is multiplied by ψ·De^φ, where De = Re_g·(ID/D)^0.5 is the Dean number, ψ = 47.969 − 153.8n + 166.22n² − 60.132n³ and φ = 0.875n − 0.515. Turbulent: f = 1.069·a/Re^(0.8b)·(ID/D)^0.1. The laminar limit is (4n/(3n+1))^n · [2100 ψ (ID/D)^(0.5φ)]^(1/(1−φ)) and the turbulent limit is 800 above it.",
+          "Pressure loss: ΔP = f ρ Q² L / (154.63 ID⁵) in oilfield units. Between the two limits the loss is interpolated linearly in Re, from the laminar loss at the lower limit to the turbulent loss at the upper limit."
+        ],
+        "assumptionsTitle": "Assumptions",
+        "assumptions": [
+          "A single-phase power-law fluid without solids.",
+          "Smooth tubing and fully developed flow, with fluid properties constant along the string.",
+          "The curvature is that of the reel diameter you enter; tubing off the reel is straight.",
+          "The correlations cover a limited range of n and ID/D. Check results outside it."
+        ],
+        "reference": "Based on published correlations for power-law fluids in coiled tubing (Zhou and Shah), with the Metzner–Reed Reynolds number and Dodge–Metzner turbulent factors. The calculation reproduces a reference worksheet for its example case. Check the original papers before you rely on a result."
+      },
+      "back": "All tools"
     },
     "web": {
       "glance": {"label": "At a glance", "items": [{"label": "Stack", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Price", "value": "One fixed price, agreed before work starts"}, {"label": "Ownership", "value": "Code, domain and hosting in your name"}, {"label": "Reply", "value": "Within one business day"}]},

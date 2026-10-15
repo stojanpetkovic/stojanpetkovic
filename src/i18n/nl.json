@@ -1040,6 +1040,8 @@
         "description": "Kleine cloudgebaseerde tools en rekenhulpen voor coiled tubing en olieveldwerk. Elke tool legt zijn methode uit, zodat je het resultaat kunt controleren."
       },
       "status": "In voorbereiding",
+      "statusAvailable": "Beschikbaar",
+      "open": "Open de tool",
       "inputsLabel": "Invoer",
       "outputsLabel": "Resultaten",
       "cta": "Vertel me wat je nodig hebt",
@@ -1051,6 +1053,7 @@
       },
       "items": [
         {
+          "href": "/tools/ct-pressure-loss",
           "tag": "Hydraulica",
           "icon": "activity",
           "title": "CT-drukverlies",
@@ -1068,6 +1071,97 @@
           ]
         }
       ]
+    },
+    "ctPressureLoss": {
+      "meta": {
+        "title": "CT-drukverlies",
+        "description": "Bereken het wrijvingsdrukverlies van een power-law-vloeistof in coiled tubing, verdeeld in rechte en op de haspel gewikkelde delen, in oliveld- of metrische eenheden."
+      },
+      "hero": {
+        "badge": "Hydraulica",
+        "title": "CT-drukverlies",
+        "description": "Wrijvingsdrukverlies voor power-law-vloeistoffen in coiled tubing. Voer de vloeistof, de buis en het debiet in, in oliveld- of metrische eenheden."
+      },
+      "system": {
+        "label": "Eenheden",
+        "us": "Oliveld (US)",
+        "metric": "Metrisch"
+      },
+      "example": "Voorbeeld laden",
+      "groups": {
+        "fluid": "Vloeistof",
+        "geometry": "Buis en haspel",
+        "flow": "Stroming"
+      },
+      "fields": {
+        "density": {
+          "label": "Dichtheid"
+        },
+        "n": {
+          "label": "Stromingsindex, n",
+          "hint": "Power-law-exponent; 1 voor een newtonse vloeistof"
+        },
+        "k": {
+          "label": "Consistentie-index, K",
+          "hint": "Power-law-consistentie, uit de reologie van de vloeistof"
+        },
+        "reelDiameter": {
+          "label": "Haspeldiameter",
+          "hint": "Diameter van de wikkeling waarop de buis is gewonden"
+        },
+        "od": {
+          "label": "Buis-OD"
+        },
+        "wall": {
+          "label": "Wanddikte"
+        },
+        "totalLength": {
+          "label": "Lengte van de string"
+        },
+        "lengthOffReel": {
+          "label": "Buis van de haspel",
+          "hint": "Rechte lengte, niet op de haspel gewonden"
+        },
+        "flowRate": {
+          "label": "Debiet"
+        }
+      },
+      "results": {
+        "title": "Resultaat",
+        "total": "Totaal wrijvingsdrukverlies",
+        "straight": "Van de haspel (recht)",
+        "curved": "Op de haspel (gekromd)",
+        "velocity": "Snelheid",
+        "reynolds": "Reynoldsgetal",
+        "dean": "Deangetal",
+        "regime": "Stromingsregime",
+        "invalidTitle": "Controleer de invoer",
+        "invalidText": "Sommige waarden ontbreken of liggen buiten het bereik. Corrigeer de gemarkeerde velden om het resultaat te zien."
+      },
+      "regimes": {
+        "laminar": "Laminair",
+        "transitional": "Overgang",
+        "turbulent": "Turbulent"
+      },
+      "method": {
+        "title": "Methode",
+        "intro": "Het verlies wordt apart berekend voor het deel van de string van de haspel (recht) en het deel op de haspel (gekromd), en beide worden opgeteld.",
+        "steps": [
+          "Reynoldsgetal (Metzner–Reed): Re = 31,042 ρ Q^(2−n) / (9,804^n K ID^(4−3n)) · (n/(1+3n))^n, met ρ in lb/gal, Q in gal/min, ID in inch en K in lbf·sⁿ/100 ft².",
+          "Rechte buis: laminair onder Re = 3470 − 1370n en turbulent boven 4270 − 1370n. Laminair f = 16/Re. Turbulent f = a/Re^b, met a = (log n + 3,93)/50 en b = (1,75 − log n)/7.",
+          "Coiled tubing: de laminaire factor wordt vermenigvuldigd met ψ·De^φ, waarbij De = Re_g·(ID/D)^0,5 het Deangetal is, ψ = 47,969 − 153,8n + 166,22n² − 60,132n³ en φ = 0,875n − 0,515. Turbulent: f = 1,069·a/Re^(0,8b)·(ID/D)^0,1. De laminaire grens is (4n/(3n+1))^n · [2100 ψ (ID/D)^(0,5φ)]^(1/(1−φ)) en de turbulente grens ligt 800 hoger.",
+          "Drukverlies: ΔP = f ρ Q² L / (154,63 ID⁵) in oliveldeenheden. Tussen de twee grenzen wordt het verlies lineair in Re geïnterpoleerd, van het laminaire verlies bij de onderste grens naar het turbulente verlies bij de bovenste grens."
+        ],
+        "assumptionsTitle": "Aannames",
+        "assumptions": [
+          "Een eenfasige power-law-vloeistof zonder vaste stoffen.",
+          "Gladde buis en volledig ontwikkelde stroming, met vloeistofeigenschappen die langs de string constant zijn.",
+          "De kromming is die van de ingevoerde haspeldiameter; buis van de haspel is recht.",
+          "De correlaties gelden voor een beperkt bereik van n en ID/D. Controleer resultaten daarbuiten."
+        ],
+        "reference": "Gebaseerd op gepubliceerde correlaties voor power-law-vloeistoffen in coiled tubing (Zhou en Shah), met het Reynoldsgetal van Metzner–Reed en de turbulente factoren van Dodge–Metzner. De berekening reproduceert voor haar voorbeeldgeval een referentiewerkblad. Controleer de oorspronkelijke artikelen voordat je op een resultaat vertrouwt."
+      },
+      "back": "Alle tools"
     },
     "web": {
       "glance": {"label": "In één oogopslag", "items": [{"label": "Techniek", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Prijs", "value": "Eén vaste prijs, afgesproken voor aanvang"}, {"label": "Eigendom", "value": "Code, domein en hosting op jouw naam"}, {"label": "Reactie", "value": "Binnen één werkdag"}]},

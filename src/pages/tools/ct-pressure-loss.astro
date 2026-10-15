@@ -1,0 +1,9 @@
+---
+import CtPressureLossView from '@/components/pages/views/CtPressureLossView.astro';
+import { defaultLocale } from '@/i18n';
+
+// The CT Pressure Loss calculator for the default locale. Additional locales are
+// served by `src/pages/[locale]/tools/ct-pressure-loss.astro`.
+---
+
+<CtPressureLossView locale={defaultLocale} />

@@ -1040,6 +1040,8 @@
         "description": "Mali alati i kalkulatori u oblaku za coiled tubing i rad na naftnim poljima. Svaki objašnjava svoju metodu, da možeš da proveriš rezultat."
       },
       "status": "U pripremi",
+      "statusAvailable": "Dostupno",
+      "open": "Otvori alat",
       "inputsLabel": "Ulazni podaci",
       "outputsLabel": "Rezultati",
       "cta": "Reci mi šta ti treba",
@@ -1051,6 +1053,7 @@
       },
       "items": [
         {
+          "href": "/tools/ct-pressure-loss",
           "tag": "Hidraulika",
           "icon": "activity",
           "title": "CT pad pritiska",
@@ -1068,6 +1071,97 @@
           ]
         }
       ]
+    },
+    "ctPressureLoss": {
+      "meta": {
+        "title": "CT pad pritiska",
+        "description": "Izračunaj pad pritiska usled trenja za power-law fluid u coiled tubing-u, podeljen na ravne delove i delove namotane na bubanj, u oilfield ili metričkim jedinicama."
+      },
+      "hero": {
+        "badge": "Hidraulika",
+        "title": "CT pad pritiska",
+        "description": "Pad pritiska usled trenja za power-law fluide u coiled tubing-u. Unesi fluid, cev i protok, u oilfield ili metričkim jedinicama."
+      },
+      "system": {
+        "label": "Jedinice",
+        "us": "Oilfield (US)",
+        "metric": "Metričke"
+      },
+      "example": "Učitaj primer",
+      "groups": {
+        "fluid": "Fluid",
+        "geometry": "Cev i bubanj",
+        "flow": "Protok"
+      },
+      "fields": {
+        "density": {
+          "label": "Gustina"
+        },
+        "n": {
+          "label": "Indeks ponašanja toka, n",
+          "hint": "Power-law eksponent; 1 za njutnovski fluid"
+        },
+        "k": {
+          "label": "Indeks konzistencije, K",
+          "hint": "Power-law konzistencija, iz reologije fluida"
+        },
+        "reelDiameter": {
+          "label": "Prečnik bubnja",
+          "hint": "Prečnik namotaja na koji je cev namotana"
+        },
+        "od": {
+          "label": "Spoljašnji prečnik cevi"
+        },
+        "wall": {
+          "label": "Debljina zida"
+        },
+        "totalLength": {
+          "label": "Dužina niza"
+        },
+        "lengthOffReel": {
+          "label": "Cev van bubnja",
+          "hint": "Ravna dužina, nije namotana na bubanj"
+        },
+        "flowRate": {
+          "label": "Protok"
+        }
+      },
+      "results": {
+        "title": "Rezultat",
+        "total": "Ukupan pad pritiska usled trenja",
+        "straight": "Van bubnja (ravno)",
+        "curved": "Na bubnju (savijeno)",
+        "velocity": "Brzina",
+        "reynolds": "Rejnoldsov broj",
+        "dean": "Dinov broj",
+        "regime": "Režim toka",
+        "invalidTitle": "Proveri unos",
+        "invalidText": "Neke vrednosti nedostaju ili su van opsega. Ispravi označena polja da vidiš rezultat."
+      },
+      "regimes": {
+        "laminar": "Laminaran",
+        "transitional": "Prelazni",
+        "turbulent": "Turbulentan"
+      },
+      "method": {
+        "title": "Metoda",
+        "intro": "Pad se računa odvojeno za deo niza van bubnja (ravno) i deo na bubnju (savijeno), a zatim se sabiraju.",
+        "steps": [
+          "Rejnoldsov broj (Metzner–Reed): Re = 31,042 ρ Q^(2−n) / (9,804^n K ID^(4−3n)) · (n/(1+3n))^n, sa ρ u lb/gal, Q u gal/min, ID u inčima i K u lbf·sⁿ/100 ft².",
+          "Ravna cev: laminarno ispod Re = 3470 − 1370n, turbulentno iznad 4270 − 1370n. Laminarno f = 16/Re. Turbulentno f = a/Re^b, gde je a = (log n + 3,93)/50 i b = (1,75 − log n)/7.",
+          "Coiled tubing: laminarni faktor se množi sa ψ·De^φ, gde je De = Re_g·(ID/D)^0,5 Dinov broj, ψ = 47,969 − 153,8n + 166,22n² − 60,132n³ i φ = 0,875n − 0,515. Turbulentno: f = 1,069·a/Re^(0,8b)·(ID/D)^0,1. Laminarna granica je (4n/(3n+1))^n · [2100 ψ (ID/D)^(0,5φ)]^(1/(1−φ)), a turbulentna je 800 iznad nje.",
+          "Pad pritiska: ΔP = f ρ Q² L / (154,63 ID⁵) u oilfield jedinicama. Između dve granice pad se linearno interpolira po Re, od laminarnog pada na donjoj granici do turbulentnog pada na gornjoj granici."
+        ],
+        "assumptionsTitle": "Pretpostavke",
+        "assumptions": [
+          "Jednofazni power-law fluid bez čvrstih čestica.",
+          "Glatka cev i potpuno razvijen tok, sa osobinama fluida koje su konstantne duž niza.",
+          "Zakrivljenost je ona koju daje uneti prečnik bubnja; cev van bubnja je ravna.",
+          "Korelacije važe za ograničen opseg n i ID/D. Proveri rezultate van njega."
+        ],
+        "reference": "Zasnovano na objavljenim korelacijama za power-law fluide u coiled tubing-u (Zhou i Shah), sa Rejnoldsovim brojem po Metzner–Reed-u i turbulentnim faktorima po Dodge–Metzner-u. Proračun reprodukuje referentnu tabelu za njen primer. Proveri originalne radove pre nego što se osloniš na rezultat."
+      },
+      "back": "Svi alati"
     },
     "web": {
       "glance": {"label": "Ukratko", "items": [{"label": "Tehnologije", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Cena", "value": "Jedna fiksna cena, dogovorena pre početka"}, {"label": "Vlasništvo", "value": "Kod, domen i hosting na tvoje ime"}, {"label": "Odgovor", "value": "U roku od jednog radnog dana"}]},
