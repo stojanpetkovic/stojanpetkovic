@@ -55,8 +55,8 @@ const posts = [...postItems]
 
 /** The redacted scans behind the two credential cards, in page order. */
 const credentialScans: string[][] = [
-  ['/credentials/ingenieur-1.webp?v=2', '/credentials/ingenieur-2.webp?v=2'],
-  ['/credentials/exam-rs.webp?v=2'],
+  ['/credentials/ingenieur-1.webp?v=3', '/credentials/ingenieur-2.webp?v=3'],
+  ['/credentials/exam-rs.webp?v=3'],
 ];
 
 const hero = tData<{
@@ -140,7 +140,7 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
   description={t('pages.home.meta.description', locale)}
   includePersonSchema={true}
   includeProfessionalServiceSchema={true}
-  preloadImage="/video/hero-avatar-poster.webp?v=2"
+  preloadImage="/video/hero-avatar-poster.webp?v=3"
 >
   <!-- Hero -->
   <!-- data-header-flip-anchor: the header keeps its over-the-hero look until
@@ -183,7 +183,7 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
       <div class="pointer-events-none absolute -inset-12 -z-10 rounded-full bg-brand-500/35 blur-3xl" aria-hidden="true"></div>
       <video
         class="hero-video-el aspect-square w-full rounded-2xl bg-black object-cover"
-        poster="/video/hero-avatar-poster.webp?v=2"
+        poster="/video/hero-avatar-poster.webp?v=3"
         width="720"
         height="720"
         muted
@@ -192,8 +192,8 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
         preload="none"
         aria-label={hero.videoLabel}
       >
-        <source src="/video/hero-avatar.webm?v=2" type="video/webm" />
-        <source src="/video/hero-avatar.mp4?v=2" type="video/mp4" />
+        <source src="/video/hero-avatar.webm?v=3" type="video/webm" />
+        <source src="/video/hero-avatar.mp4?v=3" type="video/mp4" />
       </video>
       <button
         type="button"
