@@ -738,16 +738,147 @@
     },
     "services": {
       "meta": {
-        "title": "Services — Web Design, Development & Optimisation",
-        "description": "Web design, development, optimisation and lead tracking for technical businesses, by an engineer. Fast custom Astro websites, free first talk, one proposal, one fixed price."
+        "title": "Services — Engineering, Software and Web",
+        "description": "Engineering consulting and projects for oil and gas, cloud-based software and tools, and web development, by an engineer. Free first talk, one proposal, one fixed price."
+      },
+      "areas": {
+        "consulting": {
+          "icon": "award",
+          "badge": "Consulting & projects",
+          "heading": "Engineering consulting and projects",
+          "paragraphs": [
+            "I advise on and carry out engineering work for the oil and gas industry: job design, calculations, procedures and the review of what was planned against what happened.",
+            "My background is more than thirteen years of coiled tubing and nitrogen operations, from field engineer to operations manager. You get an engineer who has run the job, not one who only describes it."
+          ],
+          "included": [
+            {
+              "lead": "Job design and calculations",
+              "text": "planned step by step, with the assumptions written down."
+            },
+            {
+              "lead": "Procedures and reviews",
+              "text": "clear documents your crews can follow and your team can audit."
+            },
+            {
+              "lead": "A technical second opinion",
+              "text": "a fresh look at a plan, a calculation or a problem on site."
+            },
+            {
+              "lead": "Training material",
+              "text": "what crews and young engineers need to know, in plain language."
+            },
+            {
+              "lead": "Clear scope and price",
+              "text": "agreed before the work starts."
+            }
+          ],
+          "ctaLabel": "Discuss a project"
+        },
+        "software": {
+          "icon": "code",
+          "badge": "Software & tools",
+          "heading": "Cloud-based software and tools",
+          "paragraphs": [
+            "Software for technical teams that runs on a server and opens in the browser: nothing to install, one version for everyone.",
+            "I build it the way I run a job: requirements first, numbers checked, and the logic documented so results can be reviewed."
+          ],
+          "included": [
+            {
+              "lead": "Internal tools and dashboards",
+              "text": "your data and workflows in one place."
+            },
+            {
+              "lead": "Calculators and engineering tools",
+              "text": "formulas explained, results you can reproduce."
+            },
+            {
+              "lead": "Custom industrial software",
+              "text": "built to order around how your operation works."
+            },
+            {
+              "lead": "Hosting in your name",
+              "text": "set up, secured and kept running, with the code and the domain yours."
+            },
+            {
+              "lead": "Documentation",
+              "text": "so your team can use it and your auditors can check it."
+            }
+          ],
+          "ctaLabel": "Discuss a tool"
+        },
+        "web": {
+          "icon": "layout",
+          "badge": "Web development",
+          "heading": "Websites for technical companies",
+          "paragraphs": [
+            "Fast websites and web systems for engineering and technical companies, as a separate service with its own page.",
+            "Design, development and optimisation by the same engineer, with one fixed price and everything in your name."
+          ],
+          "included": [
+            {
+              "lead": "Custom design",
+              "text": "shaped around your business and your customers."
+            },
+            {
+              "lead": "Built for speed",
+              "text": "Astro websites that open instantly on every device."
+            },
+            {
+              "lead": "Found by Google and AI",
+              "text": "SEO and structured data built in from the first line."
+            },
+            {
+              "lead": "A monthly report",
+              "text": "visitors, enquiries and sources, in plain language."
+            },
+            {
+              "lead": "Care after launch",
+              "text": "updates and monitoring, with an optional care plan."
+            }
+          ],
+          "ctaLabel": "Go to web development"
+        }
+      },
+      "overviewFaq": {
+        "badge": "Questions",
+        "heading": "Questions and answers",
+        "lead": "The things clients ask before we start.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Before we start",
+            "items": [
+              {
+                "question": "How much does it cost?",
+                "answer": "Every project gets one fixed price, agreed before the work starts. No hourly billing and no surprises. The free first talk tells me what you need, and you get the price in one clear proposal."
+              },
+              {
+                "question": "How long does it take?",
+                "answer": "That depends on the scope. The proposal names the timeline together with the price, so you know both before we start."
+              },
+              {
+                "question": "Do you work with clients abroad?",
+                "answer": "Yes. I work with clients worldwide, by phone, video and email, in the CET time zone."
+              },
+              {
+                "question": "Who owns what you build?",
+                "answer": "You do. The code, the documentation, the domain and the hosting are in your name from day one."
+              },
+              {
+                "question": "Can you take on a small piece of work?",
+                "answer": "Yes. A review, a calculation or a single tool is a perfectly good start. Tell me what you have in mind."
+              }
+            ]
+          }
+        ]
       },
       "includedLabel": "What you get",
       "hero": {
         "badge": "Services",
-        "titleLead": "Engineering software,",
-        "titleHighlight": "web development and design",
-        "description": "Custom software and websites for technical businesses, built by an engineer: clear requirements, checked numbers, and a fast result you're proud to put your name on.",
-        "jumpLabels": ["Web design", "Software & development", "Web optimisation", "Data & reports"]
+        "titleLead": "Consulting, software",
+        "titleHighlight": "and web development",
+        "description": "Three areas, one engineer: consulting and projects for oil and gas, cloud-based software for technical teams, and websites as a separate service.",
+        "jumpLabels": ["Consulting & projects", "Software & tools", "Web development"]
       },
       "design": {
         "badge": "Design",
@@ -950,12 +1081,12 @@
       "process": {
         "badge": "How it works",
         "heading": "How a project runs",
-        "lead": "From your first message to a live website.",
+        "lead": "From your first message to the delivered result.",
         "steps": [
           { "title": "First contact", "description": "You send a message through the contact form. I reply within a working day, and we plan a free, informational talk about what you need. No obligations." },
           { "title": "Proposal", "description": "After our talk you get one clear document: what I'll build, when it's ready, and the fixed price. You decide with everything on the table." },
-          { "title": "Design & build", "description": "I work in short cycles. You follow the progress on a staging link, and you see your website take shape." },
-          { "title": "Launch & support", "description": "Your website goes live on your own domain and hosting, in your name. Afterwards I stay reachable, and there's a monthly care plan if you want regular updates." }
+          { "title": "Work in short cycles", "description": "You follow the progress and see the result take shape, whether it is a document, a tool or a website." },
+          { "title": "Delivery & support", "description": "The work is handed over in your name and documented. Afterwards I stay reachable, and there is a monthly care plan if you want regular updates." }
         ]
       },
       "faq": {

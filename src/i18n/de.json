@@ -738,16 +738,147 @@
     },
     "services": {
       "meta": {
-        "title": "Leistungen — Webdesign, Entwicklung & Optimierung",
-        "description": "Webdesign, Entwicklung, Optimierung und Tracking für technische Unternehmen, von einem Ingenieur. Schnelle individuelle Astro-Websites, kostenloses Erstgespräch, ein Angebot, ein Festpreis."
+        "title": "Leistungen — Ingenieurwesen, Software und Web",
+        "description": "Ingenieurberatung und Projekte für Öl und Gas, Cloud-basierte Software und Werkzeuge sowie Webentwicklung, von einem Ingenieur. Kostenloses Erstgespräch, ein Angebot, ein Festpreis."
+      },
+      "areas": {
+        "consulting": {
+          "icon": "award",
+          "badge": "Beratung & Projekte",
+          "heading": "Ingenieurberatung und Projekte",
+          "paragraphs": [
+            "Ich berate und führe Ingenieurarbeiten für die Öl- und Gasindustrie aus: Einsatzplanung, Berechnungen, Verfahren und die Auswertung dessen, was geplant war, gegenüber dem, was passiert ist.",
+            "Mein Hintergrund sind mehr als dreizehn Jahre Coiled-Tubing- und Stickstoffoperationen, vom Feldingenieur bis zum Operations Manager. Sie bekommen einen Ingenieur, der den Einsatz selbst gefahren hat, keinen, der ihn nur beschreibt."
+          ],
+          "included": [
+            {
+              "lead": "Einsatzplanung und Berechnungen",
+              "text": "Schritt für Schritt geplant, mit festgehaltenen Annahmen."
+            },
+            {
+              "lead": "Verfahren und Auswertungen",
+              "text": "klare Dokumente, denen Ihre Crews folgen und die Ihr Team prüfen kann."
+            },
+            {
+              "lead": "Eine technische Zweitmeinung",
+              "text": "ein frischer Blick auf einen Plan, eine Berechnung oder ein Problem vor Ort."
+            },
+            {
+              "lead": "Schulungsmaterial",
+              "text": "was Crews und junge Ingenieure wissen müssen, in klarer Sprache."
+            },
+            {
+              "lead": "Klarer Umfang und Preis",
+              "text": "vor Beginn der Arbeit vereinbart."
+            }
+          ],
+          "ctaLabel": "Ein Projekt besprechen"
+        },
+        "software": {
+          "icon": "code",
+          "badge": "Software & Werkzeuge",
+          "heading": "Cloud-basierte Software und Werkzeuge",
+          "paragraphs": [
+            "Software für technische Teams, die auf einem Server läuft und im Browser öffnet: nichts zu installieren, eine Version für alle.",
+            "Ich baue sie so, wie ich einen Einsatz fahre: erst die Anforderungen, Zahlen geprüft und die Logik dokumentiert, damit Ergebnisse nachvollziehbar sind."
+          ],
+          "included": [
+            {
+              "lead": "Interne Werkzeuge und Dashboards",
+              "text": "Ihre Daten und Abläufe an einem Ort."
+            },
+            {
+              "lead": "Rechner und Engineering-Werkzeuge",
+              "text": "erklärte Formeln, reproduzierbare Ergebnisse."
+            },
+            {
+              "lead": "Individuelle Industriesoftware",
+              "text": "nach Maß gebaut, passend zu Ihrem Betrieb."
+            },
+            {
+              "lead": "Hosting auf Ihren Namen",
+              "text": "eingerichtet, abgesichert und am Laufen gehalten, Code und Domain gehören Ihnen."
+            },
+            {
+              "lead": "Dokumentation",
+              "text": "damit Ihr Team sie nutzen und Ihre Prüfer sie kontrollieren können."
+            }
+          ],
+          "ctaLabel": "Ein Werkzeug besprechen"
+        },
+        "web": {
+          "icon": "layout",
+          "badge": "Webentwicklung",
+          "heading": "Websites für technische Unternehmen",
+          "paragraphs": [
+            "Schnelle Websites und Websysteme für Ingenieur- und technische Unternehmen, als eigene Leistung mit eigener Seite.",
+            "Design, Entwicklung und Optimierung vom selben Ingenieur, mit einem Festpreis und allem auf Ihren Namen."
+          ],
+          "included": [
+            {
+              "lead": "Individuelles Design",
+              "text": "zugeschnitten auf Ihr Unternehmen und Ihre Kunden."
+            },
+            {
+              "lead": "Auf Geschwindigkeit gebaut",
+              "text": "Astro-Websites, die auf jedem Gerät sofort öffnen."
+            },
+            {
+              "lead": "Gefunden bei Google und KI",
+              "text": "SEO und strukturierte Daten von der ersten Zeile an."
+            },
+            {
+              "lead": "Ein Monatsbericht",
+              "text": "Besucher, Anfragen und Quellen, in klarer Sprache."
+            },
+            {
+              "lead": "Betreuung nach dem Start",
+              "text": "Updates und Überwachung, mit optionalem Pflegeplan."
+            }
+          ],
+          "ctaLabel": "Zur Webentwicklung"
+        }
+      },
+      "overviewFaq": {
+        "badge": "Fragen",
+        "heading": "Fragen und Antworten",
+        "lead": "Was Kunden fragen, bevor wir anfangen.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Bevor wir anfangen",
+            "items": [
+              {
+                "question": "Was kostet es?",
+                "answer": "Jedes Projekt bekommt einen Festpreis, der vor Arbeitsbeginn vereinbart wird. Keine Stundenabrechnung und keine Überraschungen. Das kostenlose Erstgespräch zeigt mir, was Sie brauchen, und Sie erhalten den Preis in einem klaren Angebot."
+              },
+              {
+                "question": "Wie lange dauert es?",
+                "answer": "Das hängt vom Umfang ab. Das Angebot nennt den Zeitplan zusammen mit dem Preis, damit Sie beides vor dem Start kennen."
+              },
+              {
+                "question": "Arbeiten Sie mit Kunden im Ausland?",
+                "answer": "Ja. Ich arbeite mit Kunden weltweit, per Telefon, Video und E-Mail, in der Zeitzone MEZ."
+              },
+              {
+                "question": "Wem gehört, was Sie bauen?",
+                "answer": "Ihnen. Code, Dokumentation, Domain und Hosting laufen von Anfang an auf Ihren Namen."
+              },
+              {
+                "question": "Übernehmen Sie auch kleine Aufträge?",
+                "answer": "Ja. Eine Prüfung, eine Berechnung oder ein einzelnes Werkzeug sind ein guter Anfang. Sagen Sie mir, was Sie vorhaben."
+              }
+            ]
+          }
+        ]
       },
       "includedLabel": "Was Sie bekommen",
       "hero": {
         "badge": "Leistungen",
-        "titleLead": "Engineering-Software,",
-        "titleHighlight": "Webentwicklung und Design",
-        "description": "Individuelle Software und Websites für technische Unternehmen, gebaut von einem Ingenieur: klare Anforderungen, geprüfte Zahlen und ein schnelles Ergebnis, hinter dem Sie stehen können.",
-        "jumpLabels": ["Webdesign", "Software & Entwicklung", "Weboptimierung", "Daten & Berichte"]
+        "titleLead": "Beratung, Software",
+        "titleHighlight": "und Webentwicklung",
+        "description": "Drei Bereiche, ein Ingenieur: Beratung und Projekte für Öl und Gas, Cloud-basierte Software für technische Teams und Websites als eigene Leistung.",
+        "jumpLabels": ["Beratung & Projekte", "Software & Werkzeuge", "Webentwicklung"]
       },
       "design": {
         "badge": "Design",
@@ -950,12 +1081,12 @@
       "process": {
         "badge": "So funktioniert es",
         "heading": "So läuft ein Projekt ab",
-        "lead": "Von Ihrer ersten Nachricht bis zur fertigen Website.",
+        "lead": "Von Ihrer ersten Nachricht bis zum gelieferten Ergebnis.",
         "steps": [
           { "title": "Erstkontakt", "description": "Sie senden eine Nachricht über das Kontaktformular. Ich antworte innerhalb eines Werktags, und wir vereinbaren ein kostenloses, informatives Gespräch darüber, was Sie brauchen. Unverbindlich." },
           { "title": "Angebot", "description": "Nach dem Gespräch erhalten Sie ein klares Dokument: was ich baue, wann es fertig ist und den Festpreis. Sie entscheiden mit allen Karten auf dem Tisch." },
-          { "title": "Design & Entwicklung", "description": "Ich arbeite in kurzen Zyklen. Sie verfolgen den Fortschritt über einen Vorschau-Link und sehen, wie Ihre Website Gestalt annimmt." },
-          { "title": "Start & Betreuung", "description": "Ihre Website geht auf Ihrer eigenen Domain und Ihrem Hosting online, auf Ihren Namen. Danach bleibe ich erreichbar, und auf Wunsch gibt es ein monatliches Wartungspaket für regelmäßige Updates." }
+          { "title": "In kurzen Zyklen arbeiten", "description": "Sie verfolgen den Fortschritt und sehen, wie das Ergebnis entsteht, ob Dokument, Werkzeug oder Website." },
+          { "title": "Übergabe & Betreuung", "description": "Die Arbeit wird auf Ihren Namen übergeben und dokumentiert. Danach bleibe ich erreichbar, und es gibt einen monatlichen Pflegeplan, wenn Sie regelmäßige Updates möchten." }
         ]
       },
       "faq": {

@@ -738,16 +738,147 @@
     },
     "services": {
       "meta": {
-        "title": "Diensten — Webdesign, webdevelopment & weboptimalisatie",
-        "description": "Webdesign, ontwikkeling, optimalisatie en tracking voor technische bedrijven, door een ingenieur. Snelle Astro-websites op maat, gratis eerste gesprek, één voorstel, één vaste prijs."
+        "title": "Diensten — Engineering, software en web",
+        "description": "Engineeringadvies en projecten voor olie en gas, cloudgebaseerde software en tools en webdevelopment, door een ingenieur. Gratis eerste gesprek, één voorstel, één vaste prijs."
+      },
+      "areas": {
+        "consulting": {
+          "icon": "award",
+          "badge": "Advies & projecten",
+          "heading": "Engineeringadvies en projecten",
+          "paragraphs": [
+            "Ik adviseer over en voer engineeringwerk uit voor de olie- en gasindustrie: jobontwerp, berekeningen, procedures en de evaluatie van wat gepland was ten opzichte van wat er gebeurde.",
+            "Mijn achtergrond is meer dan dertien jaar coiled tubing- en stikstofoperaties, van veldingenieur tot operations manager. Je krijgt een ingenieur die de job zelf heeft gedraaid, geen ingenieur die hem alleen beschrijft."
+          ],
+          "included": [
+            {
+              "lead": "Jobontwerp en berekeningen",
+              "text": "stap voor stap gepland, met de aannames vastgelegd."
+            },
+            {
+              "lead": "Procedures en evaluaties",
+              "text": "heldere documenten die je crews kunnen volgen en je team kan controleren."
+            },
+            {
+              "lead": "Een technische second opinion",
+              "text": "een frisse blik op een plan, een berekening of een probleem op locatie."
+            },
+            {
+              "lead": "Trainingsmateriaal",
+              "text": "wat crews en jonge ingenieurs moeten weten, in gewone taal."
+            },
+            {
+              "lead": "Heldere scope en prijs",
+              "text": "afgesproken voordat het werk begint."
+            }
+          ],
+          "ctaLabel": "Een project bespreken"
+        },
+        "software": {
+          "icon": "code",
+          "badge": "Software & tools",
+          "heading": "Cloudgebaseerde software en tools",
+          "paragraphs": [
+            "Software voor technische teams die op een server draait en in de browser opent: niets te installeren, één versie voor iedereen.",
+            "Ik bouw het zoals ik een job draai: eerst de eisen, cijfers gecontroleerd en de logica gedocumenteerd, zodat resultaten te controleren zijn."
+          ],
+          "included": [
+            {
+              "lead": "Interne tools en dashboards",
+              "text": "je gegevens en werkprocessen op één plek."
+            },
+            {
+              "lead": "Rekenhulpen en engineeringtools",
+              "text": "uitgelegde formules, reproduceerbare resultaten."
+            },
+            {
+              "lead": "Maatwerk industriële software",
+              "text": "op bestelling gebouwd rond hoe jouw bedrijf werkt."
+            },
+            {
+              "lead": "Hosting op jouw naam",
+              "text": "ingericht, beveiligd en draaiend gehouden, code en domein zijn van jou."
+            },
+            {
+              "lead": "Documentatie",
+              "text": "zodat je team het kan gebruiken en je auditors het kunnen controleren."
+            }
+          ],
+          "ctaLabel": "Een tool bespreken"
+        },
+        "web": {
+          "icon": "layout",
+          "badge": "Webdevelopment",
+          "heading": "Websites voor technische bedrijven",
+          "paragraphs": [
+            "Snelle websites en websystemen voor engineering- en technische bedrijven, als aparte dienst met een eigen pagina.",
+            "Design, ontwikkeling en optimalisatie door dezelfde ingenieur, met één vaste prijs en alles op jouw naam."
+          ],
+          "included": [
+            {
+              "lead": "Design op maat",
+              "text": "afgestemd op je bedrijf en je klanten."
+            },
+            {
+              "lead": "Gebouwd voor snelheid",
+              "text": "Astro-websites die op elk apparaat direct openen."
+            },
+            {
+              "lead": "Gevonden door Google en AI",
+              "text": "SEO en gestructureerde data vanaf de eerste regel."
+            },
+            {
+              "lead": "Een maandrapport",
+              "text": "bezoekers, aanvragen en bronnen, in gewone taal."
+            },
+            {
+              "lead": "Zorg na de lancering",
+              "text": "updates en monitoring, met een optioneel onderhoudsplan."
+            }
+          ],
+          "ctaLabel": "Naar webdevelopment"
+        }
+      },
+      "overviewFaq": {
+        "badge": "Vragen",
+        "heading": "Vragen en antwoorden",
+        "lead": "Wat klanten vragen voordat we beginnen.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Voordat we beginnen",
+            "items": [
+              {
+                "question": "Wat kost het?",
+                "answer": "Elk project krijgt één vaste prijs, afgesproken voordat het werk begint. Geen uurtarief en geen verrassingen. Het gratis eerste gesprek vertelt me wat je nodig hebt, en je krijgt de prijs in één helder voorstel."
+              },
+              {
+                "question": "Hoe lang duurt het?",
+                "answer": "Dat hangt af van de omvang. Het voorstel noemt de planning samen met de prijs, zodat je beide kent voordat we beginnen."
+              },
+              {
+                "question": "Werk je met klanten in het buitenland?",
+                "answer": "Ja. Ik werk met klanten wereldwijd, per telefoon, video en e-mail, in de tijdzone CET."
+              },
+              {
+                "question": "Van wie is wat je bouwt?",
+                "answer": "Van jou. De code, de documentatie, het domein en de hosting staan vanaf dag één op jouw naam."
+              },
+              {
+                "question": "Neem je ook kleine opdrachten aan?",
+                "answer": "Ja. Een review, een berekening of één enkele tool is een prima begin. Vertel me wat je in gedachten hebt."
+              }
+            ]
+          }
+        ]
       },
       "includedLabel": "Wat je krijgt",
       "hero": {
         "badge": "Diensten",
-        "titleLead": "Engineeringsoftware,",
-        "titleHighlight": "webontwikkeling en design",
-        "description": "Maatwerksoftware en websites voor technische bedrijven, gebouwd door een ingenieur: heldere eisen, gecontroleerde cijfers en een snel resultaat waar je je naam aan verbindt.",
-        "jumpLabels": ["Webdesign", "Software & development", "Weboptimalisatie", "Data & rapporten"]
+        "titleLead": "Advies, software",
+        "titleHighlight": "en webdevelopment",
+        "description": "Drie gebieden, één ingenieur: advies en projecten voor olie en gas, cloudgebaseerde software voor technische teams en websites als aparte dienst.",
+        "jumpLabels": ["Advies & projecten", "Software & tools", "Webdevelopment"]
       },
       "design": {
         "badge": "Design",
@@ -950,12 +1081,12 @@
       "process": {
         "badge": "Hoe het werkt",
         "heading": "Hoe een project verloopt",
-        "lead": "Van je eerste bericht tot een live website.",
+        "lead": "Van je eerste bericht tot het opgeleverde resultaat.",
         "steps": [
           { "title": "Eerste contact", "description": "Je stuurt een bericht via het contactformulier. Ik reageer binnen een werkdag en we plannen een gratis, informatief gesprek over wat je nodig hebt. Vrijblijvend." },
           { "title": "Voorstel", "description": "Na ons gesprek krijg je één helder document: wat ik bouw, wanneer het klaar is en de vaste prijs. Jij beslist met alles op tafel." },
-          { "title": "Ontwerp & bouw", "description": "Ik werk in korte cycli. Je volgt de voortgang op een staging-link en ziet je website vorm krijgen." },
-          { "title": "Lancering & ondersteuning", "description": "Je website gaat live op je eigen domein en hosting, op jouw naam. Daarna blijf ik bereikbaar, en voor regelmatige updates is er het maandelijkse onderhoudsplan." }
+          { "title": "In korte cycli werken", "description": "Je volgt de voortgang en ziet het resultaat vorm krijgen, of het nu een document, een tool of een website is." },
+          { "title": "Oplevering & ondersteuning", "description": "Het werk wordt op jouw naam en gedocumenteerd overgedragen. Daarna blijf ik bereikbaar, en er is een maandelijks onderhoudsplan als je regelmatige updates wilt." }
         ]
       },
       "faq": {

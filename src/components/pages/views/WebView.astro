@@ -17,10 +17,10 @@ import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Card from '@/components/ui/data-display/Card/Card.astro';
-import ProofTile from '@/components/ui/data-display/ProofTile/ProofTile.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
 import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
+import WebSections from '@/components/pages/views/WebSections.astro';
 import ProjectCard from '@/components/projects/ProjectCard.astro';
 import { getVisibleProjects } from '@/lib/projects';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
@@ -34,6 +34,15 @@ interface IconCard {
   icon: string;
   title: string;
   description: string;
+}
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+interface FaqCard {
+  icon: string;
+  title: string;
+  items: FaqItem[];
 }
 interface Testimonial {
   quote: string;
@@ -60,10 +69,6 @@ const hero = tData<{
   primaryCta: string;
   secondaryCta: string;
 }>('pages.web.hero', locale)!;
-const services = tData<{ badge: string; heading: string; lead: string; cards: IconCard[] }>(
-  'pages.web.services',
-  locale
-)!;
 const portfolio = tData<{ badge: string; heading: string; lead: string; viewAll: string }>(
   'pages.home.portfolio',
   locale
@@ -72,6 +77,7 @@ const testimonials = tData<{ badge: string; heading: string; lead: string; items
   'pages.home.testimonials',
   locale
 )!;
+const faq = tData<{ badge: string; heading: string; lead: string; cards: FaqCard[] }>('pages.services.faq', locale)!;
 const cta = tData<{ badge: string; heading: string; description: string; primary: string; secondary: string }>(
   'pages.services.cta',
   locale
@@ -114,39 +120,14 @@ const contactUrl = localizedPath('/contact', locale);
     </Fragment>
   </Hero>
 
-  <!-- What I build -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="section-head" data-reveal>
-        <div>
-          <p class="section-eyebrow"><span class="section-eyebrow-num">01</span><span>{services.badge}</span></p>
-          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground">{services.heading}</h2>
-        </div>
-        <p class="section-lead">{services.lead}</p>
-      </div>
-
-      <div class="grid gap-6 sm:grid-cols-3">
-        {services.cards.map((card, i) => (
-          <ProofTile
-            href={servicesUrl}
-            icon={card.icon}
-            title={card.title}
-            data-reveal
-            data-reveal-delay={i || undefined}
-          >
-            {card.description}
-          </ProofTile>
-        ))}
-      </div>
-    </div>
-  </section>
+  <WebSections {locale} />
 
   <!-- Projects -->
   <section id="work" class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="section-head" data-reveal>
         <div>
-          <p class="section-eyebrow"><span class="section-eyebrow-num">02</span><span>{portfolio.badge}</span></p>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">06</span><span>{portfolio.badge}</span></p>
           <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground">{portfolio.heading}</h2>
         </div>
         <p class="section-lead">{portfolio.lead}</p>
@@ -172,7 +153,7 @@ const contactUrl = localizedPath('/contact', locale);
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="section-head" data-reveal>
         <div>
-          <p class="section-eyebrow"><span class="section-eyebrow-num">03</span><span>{testimonials.badge}</span></p>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">07</span><span>{testimonials.badge}</span></p>
           <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground">{testimonials.heading}</h2>
         </div>
         <p class="section-lead">{testimonials.lead}</p>
@@ -208,8 +189,45 @@ const contactUrl = localizedPath('/contact', locale);
     </div>
   </section>
 
+  <!-- Questions & answers -->
+  <section id="faq" class="py-[var(--space-section-md)] bg-background border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">08</span><span>{faq.badge}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground">{faq.heading}</h2>
+        </div>
+        <p class="section-lead">{faq.lead}</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {faq.cards.map((card, cardIndex) => (
+          <Card variant="elevated" padding="lg" data-reveal data-reveal-delay={cardIndex + 1}>
+            <div class="flex items-center gap-3 pb-4 border-b border-border">
+              <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-brand-500/20 to-brand-500/5 flex items-center justify-center text-brand-500 shrink-0">
+                <Icon name={card.icon} size="md" />
+              </div>
+              <h3 class="font-display text-base font-semibold text-foreground">{card.title}</h3>
+            </div>
+            <div class="w-full">
+              {card.items.map((item) => (
+                <details class="border-b border-border last:border-0" name={`web-faq-${cardIndex}`}>
+                  <summary class="flex w-full items-center justify-between text-sm py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                    {item.question}
+                    <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
+                  </summary>
+                  <div class="pb-4 text-sm text-foreground-muted leading-relaxed" set:html={item.answer} />
+                </details>
+              ))}
+            </div>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
+  <section class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <LetterGlitchBand desktopOnly={false}>
       <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
         {cta.heading}
@@ -230,3 +248,10 @@ const contactUrl = localizedPath('/contact', locale);
     </LetterGlitchBand>
   </section>
 </PageLayout>
+
+<style is:global>
+  /* FAQ accordion: rotate the chevron while an item is open. */
+  details[open] > summary .faq-icon {
+    transform: rotate(180deg);
+  }
+</style>

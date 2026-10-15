@@ -738,16 +738,147 @@
     },
     "services": {
       "meta": {
-        "title": "Usluge — izrada sajtova, web dizajn i SEO optimizacija",
-        "description": "Web dizajn, razvoj, optimizacija i praćenje za tehničke firme, od inženjera. Brzi Astro sajtovi po meri, prvi razgovor je besplatan, jedna ponuda, jedna fiksna cena."
+        "title": "Usluge — inženjering, softver i web",
+        "description": "Inženjerske konsultacije i projekti za naftu i gas, softver i alati u oblaku i web razvoj, od inženjera. Besplatan prvi razgovor, jedna ponuda, jedna fiksna cena."
+      },
+      "areas": {
+        "consulting": {
+          "icon": "award",
+          "badge": "Konsultacije i projekti",
+          "heading": "Inženjerske konsultacije i projekti",
+          "paragraphs": [
+            "Savetujem i izvodim inženjerske radove za naftnu i gasnu industriju: projektovanje poslova, proračune, procedure i poređenje onoga što je planirano sa onim što se desilo.",
+            "Iza mene je više od trinaest godina coiled tubing i azotnih operacija, od terenskog inženjera do operations manager-a. Dobijaš inženjera koji je posao sam vodio, a ne nekoga ko ga samo opisuje."
+          ],
+          "included": [
+            {
+              "lead": "Projektovanje poslova i proračuni",
+              "text": "planirani korak po korak, sa zapisanim pretpostavkama."
+            },
+            {
+              "lead": "Procedure i analize",
+              "text": "jasni dokumenti koje tvoje ekipe mogu da prate, a tim da proveri."
+            },
+            {
+              "lead": "Tehničko drugo mišljenje",
+              "text": "svež pogled na plan, proračun ili problem na terenu."
+            },
+            {
+              "lead": "Materijal za obuku",
+              "text": "ono što ekipe i mladi inženjeri treba da znaju, jasnim jezikom."
+            },
+            {
+              "lead": "Jasan obim i cena",
+              "text": "dogovoreni pre početka posla."
+            }
+          ],
+          "ctaLabel": "Razgovaraj o projektu"
+        },
+        "software": {
+          "icon": "code",
+          "badge": "Softver i alati",
+          "heading": "Softver i alati u oblaku",
+          "paragraphs": [
+            "Softver za tehničke timove koji radi na serveru i otvara se u pregledaču: ništa se ne instalira, jedna verzija za sve.",
+            "Pravim ga onako kako vodim posao: prvo zahtevi, brojke provereno, a logika dokumentovana da se rezultati mogu proveriti."
+          ],
+          "included": [
+            {
+              "lead": "Interni alati i dashboard-i",
+              "text": "tvoji podaci i tokovi rada na jednom mestu."
+            },
+            {
+              "lead": "Kalkulatori i inženjerski alati",
+              "text": "objašnjene formule, rezultati koje možeš da ponoviš."
+            },
+            {
+              "lead": "Industrijski softver po meri",
+              "text": "izrađen po narudžbini, prema tome kako radi tvoja operacija."
+            },
+            {
+              "lead": "Hosting na tvoje ime",
+              "text": "postavljen, obezbeđen i održavan, kod i domen su tvoji."
+            },
+            {
+              "lead": "Dokumentacija",
+              "text": "da tvoj tim može da ga koristi, a revizori da ga provere."
+            }
+          ],
+          "ctaLabel": "Razgovaraj o alatu"
+        },
+        "web": {
+          "icon": "layout",
+          "badge": "Web razvoj",
+          "heading": "Sajtovi za tehničke firme",
+          "paragraphs": [
+            "Brzi sajtovi i veb sistemi za inženjerske i tehničke firme, kao posebna usluga sa sopstvenom stranicom.",
+            "Dizajn, razvoj i optimizacija od istog inženjera, sa jednom fiksnom cenom i svime na tvoje ime."
+          ],
+          "included": [
+            {
+              "lead": "Dizajn po meri",
+              "text": "prilagođen tvojoj firmi i tvojim klijentima."
+            },
+            {
+              "lead": "Napravljeno za brzinu",
+              "text": "Astro sajtovi koji se otvaraju odmah na svakom uređaju."
+            },
+            {
+              "lead": "Pronađen na Google-u i u AI pretrazi",
+              "text": "SEO i strukturirani podaci od prve linije."
+            },
+            {
+              "lead": "Mesečni izveštaj",
+              "text": "posetioci, upiti i izvori, jasnim jezikom."
+            },
+            {
+              "lead": "Briga posle lansiranja",
+              "text": "ažuriranje i nadzor, uz opcioni plan održavanja."
+            }
+          ],
+          "ctaLabel": "Idi na web razvoj"
+        }
+      },
+      "overviewFaq": {
+        "badge": "Pitanja",
+        "heading": "Pitanja i odgovori",
+        "lead": "Ono što klijenti pitaju pre nego što počnemo.",
+        "cards": [
+          {
+            "icon": "tag",
+            "title": "Pre nego što počnemo",
+            "items": [
+              {
+                "question": "Koliko košta?",
+                "answer": "Svaki projekat ima jednu fiksnu cenu, dogovorenu pre početka rada. Bez plaćanja po satu i bez iznenađenja. Besplatan prvi razgovor mi pokazuje šta ti treba, a cenu dobijaš u jednoj jasnoj ponudi."
+              },
+              {
+                "question": "Koliko traje?",
+                "answer": "To zavisi od obima. Ponuda navodi rok zajedno sa cenom, pa oba znaš pre početka."
+              },
+              {
+                "question": "Da li radiš sa klijentima iz inostranstva?",
+                "answer": "Da. Radim sa klijentima širom sveta, telefonom, video pozivom i emailom, u vremenskoj zoni CET."
+              },
+              {
+                "question": "Čije je ono što napraviš?",
+                "answer": "Tvoje. Kod, dokumentacija, domen i hosting su na tvoje ime od prvog dana."
+              },
+              {
+                "question": "Da li preuzimaš i manje poslove?",
+                "answer": "Da. Pregled, proračun ili jedan alat su sasvim dobar početak. Reci mi šta imaš na umu."
+              }
+            ]
+          }
+        ]
       },
       "includedLabel": "Šta dobijaš",
       "hero": {
         "badge": "Usluge",
-        "titleLead": "Inženjerski softver,",
-        "titleHighlight": "web razvoj i dizajn",
-        "description": "Softver i sajtovi po meri za tehničke firme, od inženjera: jasni zahtevi, proverene brojke i brz rezultat na koji si ponosan.",
-        "jumpLabels": ["Web dizajn", "Softver i razvoj", "Web optimizacija", "Podaci i izveštaji"]
+        "titleLead": "Konsultacije, softver",
+        "titleHighlight": "i web razvoj",
+        "description": "Tri oblasti, jedan inženjer: konsultacije i projekti za naftu i gas, softver u oblaku za tehničke timove i sajtovi kao posebna usluga.",
+        "jumpLabels": ["Konsultacije i projekti", "Softver i alati", "Web razvoj"]
       },
       "design": {
         "badge": "Dizajn",
@@ -950,12 +1081,12 @@
       "process": {
         "badge": "Kako to ide",
         "heading": "Kako izgleda saradnja",
-        "lead": "Od prve poruke do sajta koji je online.",
+        "lead": "Od tvoje prve poruke do isporučenog rezultata.",
         "steps": [
           { "title": "Prvi kontakt", "description": "Pošalješ poruku preko kontakt forme. Javljam se u roku od jednog radnog dana i dogovaramo besplatan razgovor o tome šta ti treba. Bez ikakvih obaveza." },
           { "title": "Ponuda", "description": "Posle razgovora dobijaš jedan jasan dokument: šta pravim, kad će biti gotovo i koliko košta — fiksno. Odlučuješ kad su ti sve karte na stolu." },
-          { "title": "Dizajn i izrada", "description": "Radim u kratkim ciklusima. Napredak pratiš preko test linka i gledaš kako sajt dobija oblik." },
-          { "title": "Lansiranje i podrška", "description": "Sajt ide uživo na tvom domenu i hostingu, na tvoje ime. I posle toga sam tu, a ako želiš redovna ažuriranja, postoji mesečni paket održavanja." }
+          { "title": "Rad u kratkim ciklusima", "description": "Pratiš napredak i vidiš kako rezultat dobija oblik, bilo da je dokument, alat ili sajt." },
+          { "title": "Isporuka i podrška", "description": "Rad se predaje na tvoje ime i dokumentovan. Posle toga ostajem dostupan, a postoji i mesečni plan održavanja ako želiš redovna ažuriranja." }
         ]
       },
       "faq": {
