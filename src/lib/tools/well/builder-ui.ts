@@ -339,7 +339,9 @@ export class WellBuilder {
     const maxOd = Math.max(5, ...items.filter((i) => i.type !== 'perforation').map((i) => i.od));
     // The strings are drawn close together: the width grows a little slower than the diameter.
     const widthOf = (od: number) => Math.max(10, MAX_WIDTH * (od / maxOd) ** 0.75);
-    const wallOf = (item: WellItem) => Math.max(3, (item.wall * widthOf(item.od)) / item.od);
+    // Tubing is drawn a fifth narrower than its diameter alone would give, so the string reads as slim.
+    const sizeOf = (item: WellItem) => widthOf(item.od) * (item.type === 'tubing' ? 0.8 : 1);
+    const wallOf = (item: WellItem) => Math.max(3, (item.wall * sizeOf(item)) / item.od);
     const INK = 'var(--color-foreground)';
     // The innermost casing or liner that reaches a depth: what a packer seals against and perforations pass through.
     const hostAt = (depth: number) =>
@@ -356,7 +358,7 @@ export class WellBuilder {
     const placed = new Map<string, { y: number; h: number }>();
     let nextTop = Infinity;
     for (const item of equipment) {
-      const minimum = item.type === 'packer' ? 36 : item.type === 'nipple' ? 15 : 19;
+      const minimum = item.type === 'packer' ? 26 : item.type === 'nipple' ? 15 : 19;
       const h = Math.max(minimum, this.y(item.bottom) - this.y(item.top));
       const y = Math.max(TOP, Math.min(this.y(item.top), nextTop - 6 - h));
       placed.set(item.id, { y, h });
@@ -370,7 +372,7 @@ export class WellBuilder {
 
     let svg = WellBuilder.DEFS;
     const y0 = this.y(0);
-    const widest = Math.max(0, ...pipes.map((i) => widthOf(i.od)));
+    const widest = Math.max(0, ...pipes.map((i) => sizeOf(i)));
 
     // Depth grid and axis.
     for (let d = 0; d <= maxDepth; d += step) {
@@ -401,7 +403,7 @@ export class WellBuilder {
     // Pipes, the largest first so the smaller ones sit inside them. Only the walls take the pointer.
     const ordered = [...pipes].sort((a, b) => b.od - a.od || a.top - b.top);
     for (const item of ordered) {
-      const w = widthOf(item.od);
+      const w = sizeOf(item);
       const wall = wallOf(item);
       const inner = Math.max(2, w - 2 * wall);
       const x = CENTRE - w / 2;
@@ -437,11 +439,11 @@ export class WellBuilder {
       if (item.type === 'packer') {
         const host = hostAt(item.top);
         // The element seals against the casing it sits in, so it is drawn touching the wall.
-        const seal = host ? widthOf(host.od) - 2 * wallOf(host) : widthOf(item.od);
+        const seal = host ? sizeOf(host) - 2 * wallOf(host) : widthOf(item.od);
         const w = Math.max(16, seal);
         const tubing = pipes.find((i) => i.type === 'tubing' && i.top <= item.top && i.bottom >= item.top);
-        const tubingW = tubing ? widthOf(tubing.od) : 12;
-        const m = Math.max(12, tubingW) + 8;
+        const tubingW = tubing ? sizeOf(tubing) : 12;
+        const m = Math.max(10, tubingW) + 5;
         const boreW = Math.max(4, tubing ? tubingW - 2 * wallOf(tubing) : 6);
         const h = slot!.h;
         const cx = CENTRE;
@@ -461,7 +463,7 @@ export class WellBuilder {
         // A landing nipple (a seat with lock grooves and a narrower bore) or a sliding sleeve (ports in the body
         // and an inner sleeve), both made up in the tubing string.
         const tubing = pipes.find((i) => i.type === 'tubing' && i.top <= item.top && i.bottom >= item.top);
-        const tubingW = tubing ? widthOf(tubing.od) : widthOf(item.od);
+        const tubingW = tubing ? sizeOf(tubing) : widthOf(item.od) * 0.8;
         const tubingBore = tubing ? tubingW - 2 * wallOf(tubing) : tubingW * 0.6;
         const w = tubingW + 5;
         const h = slot!.h;
@@ -491,7 +493,7 @@ export class WellBuilder {
         callouts.push({ y: y1 + h / 2, x: cx + w / 2 + 4, name: `${this.copy.types[item.type]} ${itemSize(item)}`, detail: withNote(`${fmt(item.top)} ${this.unit}`, item), id: item.id });
       } else if (item.type === 'perforation') {
         const host = hostAt(item.top) ?? hostAt(item.bottom) ?? [...pipes].sort((a, b) => a.od - b.od)[0];
-        const hostW = host ? widthOf(host.od) : widest || 40;
+        const hostW = host ? sizeOf(host) : widest || 40;
         const wall = host ? wallOf(host) : 6;
         const yb = Math.max(this.y(item.bottom), y1 + 16);
         const rows = Math.max(3, Math.round((yb - y1) / 7));
@@ -508,7 +510,7 @@ export class WellBuilder {
         svg += `</g>`;
         callouts.push({ y: (y1 + yb) / 2, x: CENTRE + hostW / 2 + 16, name: this.copy.types.perforation, detail: withNote(`${fmt(item.top)}–${fmt(item.bottom)} ${this.unit}`, item), id: item.id });
       } else {
-        const w = widthOf(item.od);
+        const w = sizeOf(item);
         callouts.push({ y: this.y(item.bottom), x: CENTRE + w / 2 + 4, name: `${this.copy.types[item.type]} ${itemSize(item)}`, detail: withNote(`${fmt(item.top)}–${fmt(item.bottom)} ${this.unit}`, item), id: item.id });
       }
     }
