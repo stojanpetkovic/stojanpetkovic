@@ -16,6 +16,8 @@
  * - `[data-system="us|metric"]` buttons for the unit switch;
  * - `[data-tool-example]` button; `data-example` and `data-defaults` JSON on root;
  * - `[data-tool-invalid]` and `[data-tool-output]` panels;
+ * - optional `[data-use-value="<output key>"][data-target="<input name>"]` buttons
+ *   that copy an output into an input;
  * - `[data-out="<key>"]` for each output, with `data-quantity` to convert it and
  *   `[data-unit-out="<quantity>"]` for unit labels.
  */
@@ -37,6 +39,9 @@ export function initToolForm(root: HTMLElement, compute: (input: Record<string, 
   /** The unit system the calculation works in; the form opens in it. */
   const base: UnitSystem = root.dataset.base === 'metric' ? 'metric' : 'us';
   let system: UnitSystem = base;
+
+  /** Output values of the last successful calculation. */
+  let last: Record<string, number | string | null> | undefined;
 
   const parse = (raw: string) => Number(raw.trim().replace(',', '.'));
   /** Plain number for an input field: no grouping, so it parses back unchanged. */
@@ -76,6 +81,8 @@ export function initToolForm(root: HTMLElement, compute: (input: Record<string, 
     root.querySelector<HTMLElement>('[data-tool-invalid]')!.hidden = !invalid;
     root.querySelector<HTMLElement>('[data-tool-output]')!.hidden = invalid;
     if (invalid || !outcome.values) return;
+    last = outcome.values;
+    document.dispatchEvent(new CustomEvent('tool-result', { detail: outcome.values }));
 
     root.querySelectorAll<HTMLElement>('[data-out]').forEach((el) => {
       const value = outcome.values![el.dataset.out!];
@@ -119,6 +126,16 @@ export function initToolForm(root: HTMLElement, compute: (input: Record<string, 
   root
     .querySelectorAll<HTMLButtonElement>('[data-system]')
     .forEach((b) => b.addEventListener('click', () => switchSystem(b.dataset.system as UnitSystem)));
+  root.querySelectorAll<HTMLElement>('[data-use-value]').forEach((button) =>
+    button.addEventListener('click', () => {
+      const value = last?.[button.dataset.useValue!];
+      const target = inputs.find((el) => el.name === button.dataset.target);
+      if (typeof value !== 'number' || !target) return;
+      target.value = plain(value);
+      target.dataset.base = String(value);
+      calculate();
+    })
+  );
   root.querySelector('[data-tool-example]')?.addEventListener('click', () => fill(example));
   form.addEventListener('input', (e) => {
     delete (e.target as HTMLInputElement).dataset.base;

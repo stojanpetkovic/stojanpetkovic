@@ -1062,6 +1062,18 @@
         "text": "Reci mi koji proračun ili mali alat koristiš svaki dan. Ako pomaže i drugima, možda postane sledeći.",
         "cta": "Predloži alat"
       },
+      "nitrogenZ": {
+        "title": "Faktor kompresibilnosti azota",
+        "intro": "Z koriguje zakon idealnog gasa za azot pri visokom pritisku: iznad 1 gas zauzima više prostora od idealnog, pa sud ili bušotina u standardnim zapreminama sadrže manje azota nego sa Z = 1. Dijagram i tablica daju Z za azot po apsolutnom pritisku i temperaturi; alati za azot interpoliraju u tablici.",
+        "chartLabel": "Faktor kompresibilnosti Z azota u zavisnosti od apsolutnog pritiska, za pet temperatura od −20 do 160 °C",
+        "pressureAxis": "Apsolutni pritisak, bar",
+        "marker": "Narandžasta tačka: uslovi tvog proračuna.",
+        "pressureHeader": "Apsolutni pritisak",
+        "source": "Izračunato iz gustine azota u NIST Chemistry WebBook (jednačina stanja Span i saradnika, 2000) kao Z = P·M/(ρ·R·T). Pritisci su apsolutni, manometarski plus 1,013 bar. Između tačaka alati interpoliraju linearno; van opsega 1–500 bar i −20 do 160 °C koriste vrednost na ivici.",
+        "hint": "Z iz tablice pri ovim uslovima",
+        "use": "Koristi ovu vrednost",
+        "outside": "Van tablice: prikazana je vrednost na ivici."
+      },
       "items": [
         {
           "href": "/tools/ct-pressure-loss",
@@ -1289,7 +1301,7 @@
         },
         "compressibility": {
           "label": "Faktor kompresibilnosti, Z",
-          "hint": "1 za idealan gas; azot pri visokom pritisku je veći, iz tablice gasa"
+          "hint": "1 za idealan gas. Koristi vrednost iz tablice ispod."
         },
         "nitrogenDensity": {
           "label": "Srednja gustina azota u bušotini",
@@ -1364,7 +1376,7 @@
         },
         "compressibility": {
           "label": "Faktor kompresibilnosti, Z",
-          "hint": "1 za idealan gas; azot pri visokom pritisku je veći, iz tablice gasa"
+          "hint": "1 za idealan gas. Koristi vrednost iz tablice ispod."
         }
       },
       "results": {

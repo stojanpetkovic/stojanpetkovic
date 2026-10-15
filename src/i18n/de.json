@@ -1062,6 +1062,18 @@
         "text": "Sagen Sie mir, welche Berechnung oder welches kleine Werkzeug Sie täglich nutzen. Wenn es auch anderen hilft, wird es vielleicht das nächste.",
         "cta": "Werkzeug vorschlagen"
       },
+      "nitrogenZ": {
+        "title": "Kompressibilitätsfaktor von Stickstoff",
+        "intro": "Z korrigiert das ideale Gasgesetz für Stickstoff bei hohem Druck: Über 1 braucht das Gas mehr Raum als ein ideales Gas, sodass ein Behälter oder eine Bohrung in Normvolumen weniger Stickstoff fasst als mit Z = 1. Diagramm und Tabelle geben Z für Stickstoff nach absolutem Druck und Temperatur an; die Stickstoff-Werkzeuge interpolieren in der Tabelle.",
+        "chartLabel": "Kompressibilitätsfaktor Z von Stickstoff über dem absoluten Druck, für fünf Temperaturen von −20 bis 160 °C",
+        "pressureAxis": "Absoluter Druck, bar",
+        "marker": "Oranger Punkt: die Bedingungen Ihrer Berechnung.",
+        "pressureHeader": "Absoluter Druck",
+        "source": "Berechnet aus der Dichte von Stickstoff im NIST Chemistry WebBook (Zustandsgleichung von Span et al., 2000) als Z = P·M/(ρ·R·T). Die Drücke sind absolut, Überdruck plus 1,013 bar. Zwischen den Punkten interpolieren die Werkzeuge linear; außerhalb von 1–500 bar und −20 bis 160 °C verwenden sie den Randwert.",
+        "hint": "Z aus der Tabelle bei diesen Bedingungen",
+        "use": "Diesen Wert übernehmen",
+        "outside": "Außerhalb der Tabelle: der Wert am Rand wird angezeigt."
+      },
       "items": [
         {
           "href": "/tools/ct-pressure-loss",
@@ -1289,7 +1301,7 @@
         },
         "compressibility": {
           "label": "Kompressibilitätsfaktor, Z",
-          "hint": "1 für ein ideales Gas; Stickstoff bei hohem Druck liegt höher, aus einer Gastabelle"
+          "hint": "1 für ein ideales Gas. Nehmen Sie den Wert aus der Tabelle unten."
         },
         "nitrogenDensity": {
           "label": "Mittlere Stickstoffdichte in der Bohrung",
@@ -1364,7 +1376,7 @@
         },
         "compressibility": {
           "label": "Kompressibilitätsfaktor, Z",
-          "hint": "1 für ein ideales Gas; Stickstoff bei hohem Druck liegt höher, aus einer Gastabelle"
+          "hint": "1 für ein ideales Gas. Nehmen Sie den Wert aus der Tabelle unten."
         }
       },
       "results": {

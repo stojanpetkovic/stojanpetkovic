@@ -46,6 +46,7 @@ const BLOCKS = [
   'pages.nitrogenVessel.results',
   'pages.nitrogenVessel.method',
   'pages.tools.form',
+  'pages.tools.nitrogenZ',
   'nav.items.tools',
   'pages.web.meta',
   'pages.web.hero',

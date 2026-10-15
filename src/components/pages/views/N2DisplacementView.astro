@@ -11,6 +11,8 @@
 import ToolPage from './ToolPage.astro';
 import ToolFields from './ToolFields.astro';
 import ToolMethod from './ToolMethod.astro';
+import N2ZHint from './N2ZHint.astro';
+import N2ZTable from './N2ZTable.astro';
 import { t, tData, defaultLocale } from '@/i18n';
 import type { Quantity } from '@/lib/tools/units';
 
@@ -118,6 +120,7 @@ const sections: { title: string; rows: Row[] }[] = [
   example={example}
   defaults={example}
   base="metric"
+  data={{ 'z-outside': t('pages.tools.nitrogenZ.outside', locale) }}
 >
   <ToolFields
     groups={layout.map((g) => ({ id: g.id, label: groups[g.id], rows: g.rows }))}
@@ -155,22 +158,29 @@ const sections: { title: string; rows: Row[] }[] = [
         </section>
       ))
     }
+  <N2ZHint locale={locale} />
   </Fragment>
 
-  <ToolMethod slot="method" method={method} />
+  <Fragment slot="method">
+    <ToolMethod method={method} />
+    <N2ZTable locale={locale} />
+  </Fragment>
 </ToolPage>
 
 <script>
   import { initToolForm } from '@/lib/tools/tool-form';
+  import { ATMOSPHERE_BAR, nitrogenZ } from '@/lib/tools/n2-z';
   import { calculateN2Displacement, validateN2Input, type N2Input } from '@/lib/tools/n2-displacement';
 
   function init() {
     const root = document.getElementById('tool');
     if (!root) return;
+    const outside = root.dataset.zOutside ?? '';
     initToolForm(root, (input) => {
       const errors = validateN2Input(input as unknown as N2Input);
       if (errors.length > 0) return { errors };
       const n = calculateN2Displacement(input as unknown as N2Input);
+      const table = nitrogenZ(n.pressureMean + ATMOSPHERE_BAR, n.tempMean);
       return {
         values: {
           totalMass: n.total.mass,
@@ -188,6 +198,10 @@ const sections: { title: string; rows: Row[] }[] = [
           reelMass: n.reel.mass,
           totalGas: n.total.gas,
           totalLiquid: n.total.liquid,
+          zTable: table.z,
+          zNote: table.inRange ? '' : outside,
+          zPressure: n.pressureMean + ATMOSPHERE_BAR,
+          zTemperature: n.tempMean,
         },
       };
     });

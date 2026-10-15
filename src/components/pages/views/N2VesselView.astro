@@ -10,6 +10,8 @@
 import ToolPage from './ToolPage.astro';
 import ToolFields from './ToolFields.astro';
 import ToolMethod from './ToolMethod.astro';
+import N2ZHint from './N2ZHint.astro';
+import N2ZTable from './N2ZTable.astro';
 import { t, tData, defaultLocale } from '@/i18n';
 import type { Quantity } from '@/lib/tools/units';
 
@@ -65,6 +67,7 @@ const rows = [
   example={example}
   defaults={example}
   base="metric"
+  data={{ 'z-outside': t('pages.tools.nitrogenZ.outside', locale) }}
 >
   <ToolFields
     groups={layout.map((g) => ({ id: g.id, label: groups[g.id], rows: g.rows }))}
@@ -94,24 +97,41 @@ const rows = [
         ))
       }
     </dl>
+  <N2ZHint locale={locale} />
   </Fragment>
 
-  <ToolMethod slot="method" method={method} />
+  <Fragment slot="method">
+    <ToolMethod method={method} />
+    <N2ZTable locale={locale} />
+  </Fragment>
 </ToolPage>
 
 <script>
   import { initToolForm } from '@/lib/tools/tool-form';
+  import { ATMOSPHERE_BAR, nitrogenZ } from '@/lib/tools/n2-z';
   import { calculateVessel, validateVesselInput, type VesselInput } from '@/lib/tools/n2-vessel';
 
   function init() {
     const root = document.getElementById('tool');
     if (!root) return;
+    const outside = root.dataset.zOutside ?? '';
     initToolForm(root, (input) => {
       const errors = validateVesselInput(input as unknown as VesselInput);
       if (errors.length > 0) return { errors };
       const v = calculateVessel(input as unknown as VesselInput);
+      const table = nitrogenZ(input.pressure + ATMOSPHERE_BAR, input.temperature);
       return {
-        values: { mass: v.mass, factor: v.factor, gasInVessel: v.gasInVessel, gas: v.gas, liquid: v.liquid },
+        values: {
+          mass: v.mass,
+          factor: v.factor,
+          gasInVessel: v.gasInVessel,
+          gas: v.gas,
+          liquid: v.liquid,
+          zTable: table.z,
+          zNote: table.inRange ? '' : outside,
+          zPressure: input.pressure + ATMOSPHERE_BAR,
+          zTemperature: input.temperature,
+        },
       };
     });
   }

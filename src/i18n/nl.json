@@ -1062,6 +1062,18 @@
         "text": "Vertel me welke berekening of kleine tool je dagelijks gebruikt. Als het ook anderen helpt, wordt het misschien de volgende.",
         "cta": "Een tool voorstellen"
       },
+      "nitrogenZ": {
+        "title": "Compressibiliteitsfactor van stikstof",
+        "intro": "Z corrigeert de ideale gaswet voor stikstof bij hoge druk: boven 1 neemt het gas meer ruimte in dan een ideaal gas, zodat een vat of put in standaardvolumes minder stikstof bevat dan met Z = 1. Het diagram en de tabel geven Z voor stikstof naar absolute druk en temperatuur; de stikstoftools interpoleren in de tabel.",
+        "chartLabel": "Compressibiliteitsfactor Z van stikstof tegen absolute druk, voor vijf temperaturen van −20 tot 160 °C",
+        "pressureAxis": "Absolute druk, bar",
+        "marker": "Oranje punt: de condities van je berekening.",
+        "pressureHeader": "Absolute druk",
+        "source": "Berekend uit de dichtheid van stikstof in de NIST Chemistry WebBook (toestandsvergelijking van Span et al., 2000) als Z = P·M/(ρ·R·T). De drukken zijn absoluut, overdruk plus 1,013 bar. Tussen de punten interpoleren de tools lineair; buiten 1–500 bar en −20 tot 160 °C gebruiken ze de randwaarde.",
+        "hint": "Z uit de tabel bij deze condities",
+        "use": "Gebruik deze waarde",
+        "outside": "Buiten de tabel: de waarde aan de rand wordt getoond."
+      },
       "items": [
         {
           "href": "/tools/ct-pressure-loss",
@@ -1289,7 +1301,7 @@
         },
         "compressibility": {
           "label": "Compressibiliteitsfactor, Z",
-          "hint": "1 voor een ideaal gas; stikstof bij hoge druk ligt hoger, uit een gastabel"
+          "hint": "1 voor een ideaal gas. Gebruik de waarde uit de tabel hieronder."
         },
         "nitrogenDensity": {
           "label": "Gemiddelde stikstofdichtheid in de put",
@@ -1364,7 +1376,7 @@
         },
         "compressibility": {
           "label": "Compressibiliteitsfactor, Z",
-          "hint": "1 voor een ideaal gas; stikstof bij hoge druk ligt hoger, uit een gastabel"
+          "hint": "1 voor een ideaal gas. Gebruik de waarde uit de tabel hieronder."
         }
       },
       "results": {

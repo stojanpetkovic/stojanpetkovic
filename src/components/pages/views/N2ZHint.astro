@@ -1,0 +1,29 @@
+---
+/**
+ * N2ZHint — the table value of Z at the current conditions, under the results of
+ * a nitrogen tool, with a button that copies it into the Z field. The script of
+ * the page supplies the `zTable` and `zNote` outputs.
+ */
+import { t } from '@/i18n';
+
+interface Props {
+  locale: string;
+}
+const { locale } = Astro.props;
+---
+
+<div class="mt-5 rounded-lg border border-border bg-background-secondary p-3 text-sm">
+  <div class="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+    <p class="text-foreground-muted">{t('pages.tools.nitrogenZ.hint', locale)}</p>
+    <p class="font-mono font-semibold text-foreground"><span data-out="zTable" data-decimals="3">–</span></p>
+  </div>
+  <p class="mt-1 text-xs text-foreground-subtle" data-out="zNote"></p>
+  <button
+    type="button"
+    data-use-value="zTable"
+    data-target="compressibility"
+    class="mt-2 text-sm font-medium text-brand-700 underline-offset-4 hover:underline"
+  >
+    {t('pages.tools.nitrogenZ.use', locale)}
+  </button>
+</div>

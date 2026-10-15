@@ -1062,6 +1062,18 @@
         "text": "Tell me which calculation or small tool you use every day. If it helps others too, it may become the next one.",
         "cta": "Suggest a tool"
       },
+      "nitrogenZ": {
+        "title": "Compressibility factor of nitrogen",
+        "intro": "Z corrects the ideal gas law for nitrogen at high pressure: above 1 the gas takes more room than an ideal gas, so a vessel or well holds less nitrogen in standard volumes than with Z = 1. The diagram and the table give Z for nitrogen by absolute pressure and temperature; the nitrogen tools interpolate in the table.",
+        "chartLabel": "Compressibility factor Z of nitrogen against absolute pressure, for five temperatures from −20 to 160 °C",
+        "pressureAxis": "Absolute pressure, bar",
+        "marker": "Orange point: the conditions of your calculation.",
+        "pressureHeader": "Absolute pressure",
+        "source": "Computed from the density of nitrogen in the NIST Chemistry WebBook (equation of state of Span et al., 2000) as Z = P·M/(ρ·R·T). Pressures are absolute, gauge pressure plus 1.013 bar. Between the points the tools interpolate linearly; outside 1–500 bar and −20 to 160 °C they use the edge value.",
+        "hint": "Z from the table at these conditions",
+        "use": "Use this value",
+        "outside": "Outside the table: the value at the edge is shown."
+      },
       "items": [
         {
           "href": "/tools/ct-pressure-loss",
@@ -1289,7 +1301,7 @@
         },
         "compressibility": {
           "label": "Compressibility factor, Z",
-          "hint": "1 for an ideal gas; nitrogen at high pressure is higher, from a gas table"
+          "hint": "1 for an ideal gas. Use the value from the table below."
         },
         "nitrogenDensity": {
           "label": "Mean nitrogen density in the well",
@@ -1364,7 +1376,7 @@
         },
         "compressibility": {
           "label": "Compressibility factor, Z",
-          "hint": "1 for an ideal gas; nitrogen at high pressure is higher, from a gas table"
+          "hint": "1 for an ideal gas. Use the value from the table below."
         }
       },
       "results": {
