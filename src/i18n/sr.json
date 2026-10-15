@@ -1146,6 +1146,23 @@
             "Zapremina tečnog azota",
             "Masa azota"
           ]
+        },
+        {
+          "href": "/tools/well-builder",
+          "tag": "Bušotine",
+          "icon": "layers",
+          "title": "Crtanje bušotine",
+          "description": "Nacrtaj bušotinu prevlačenjem kolone, tubinga, coiled tubing-a i pakera sa API dimenzijama na šemu, i vidi je u 3D iz deviation loga.",
+          "inputs": [
+            "Komponente prevučene na šemu",
+            "API dimenzije i težine kolone i tubinga",
+            "Deviation log (MD, inklinacija, azimut)"
+          ],
+          "outputs": [
+            "Šema bušotine po mernoj dubini",
+            "Unutrašnji prečnik, drift i kapacitet",
+            "3D putanja i jačina doglega"
+          ]
         }
       ]
     },
@@ -1406,6 +1423,117 @@
           "Azot se ne gubi pri produvavanju ni curenjem."
         ],
         "reference": "Koristi isti zapreminski faktor i osobine azota kao alat Zamena fluida azotom, koji reprodukuje referentnu tabelu. Proveri osobine gasa prema tablici azota pre nego što se osloniš na rezultat."
+      }
+    },
+    "wellBuilder": {
+      "meta": {
+        "title": "Crtanje bušotine",
+        "description": "Nacrtaj bušotinu prevlačenjem kolone, tubinga, coiled tubing-a i pakera sa API dimenzijama na šemu, i pogledaj bušotinu u 3D iz merenja devijacije."
+      },
+      "hero": {
+        "badge": "Bušotine",
+        "title": "Crtanje bušotine",
+        "description": "Prevuci kolonu, liner, tubing, coiled tubing, pakere i perforacije na šemu, izaberi API dimenzije, nalepi deviation log i pogledaj bušotinu u 3D."
+      },
+      "units": {
+        "label": "Jedinica dubine"
+      },
+      "palette": {
+        "title": "Komponente",
+        "hint": "Prevuci komponentu na šemu ili pritisni Enter da je dodaš. Na šemi je pomeraš prevlačenjem; okrugle ručke menjaju njene dubine."
+      },
+      "types": {
+        "casing": "Kolona",
+        "liner": "Liner",
+        "tubing": "Tubing",
+        "ct": "Coiled tubing",
+        "packer": "Paker",
+        "perforation": "Perforacije"
+      },
+      "canvas": {
+        "title": "Šema bušotine (merena dubina)",
+        "empty": "Prevuci komponentu ovde da započneš bušotinu."
+      },
+      "editor": {
+        "size": "Dimenzija",
+        "weight": "Težina",
+        "wall": "Zid",
+        "packerOd": "Spoljašnji prečnik pakera, in",
+        "depth": "Dubina",
+        "top": "Vrh",
+        "bottom": "Dno",
+        "delete": "Obriši",
+        "duplicate": "Dupliraj",
+        "none": "Izaberi komponentu da je urediš.",
+        "id": "Unutrašnji prečnik",
+        "drift": "Drift prečnik",
+        "capacity": "Kapacitet",
+        "displacement": "Istisnuće čelika"
+      },
+      "survey": {
+        "title": "Deviation log",
+        "intro": "Nalepi mernu dubinu, inklinaciju i azimut, jednu stanicu po redu, ili uvezi CSV ili tekstualni fajl. Putanja se računa metodom minimalne krivine.",
+        "placeholder": "MD, Inc, Azi\n0, 0, 0\n1500, 0, 0\n3000, 28, 50",
+        "import": "Uvezi fajl",
+        "clear": "Obriši",
+        "errors": {
+          "empty": "Log je prazan.",
+          "columns": "Red {line}: potrebne su tri kolone (MD, inklinacija, azimut).",
+          "number": "Red {line}: jedna vrednost nije broj.",
+          "range": "Red {line}: inklinacija mora biti 0–180°, azimut 0–360°, a MD nenegativan.",
+          "order": "Red {line}: merena dubina mora da raste."
+        },
+        "table": {
+          "md": "MD",
+          "inc": "Inc °",
+          "azi": "Azi °",
+          "tvd": "TVD",
+          "north": "Sever",
+          "east": "Istok",
+          "dls": "DLS"
+        },
+        "summary": {
+          "md": "Merena dubina",
+          "tvd": "Prava vertikalna dubina",
+          "departure": "Odstupanje",
+          "closure": "Pravac",
+          "maxInc": "Maks. inklinacija",
+          "maxDls": "Maks. dogleg"
+        }
+      },
+      "view": {
+        "title": "3D putanja bušotine",
+        "hint": "Prevuci da okreneš bušotinu, drži Shift i prevuci da je pomeriš, točkić ili + i − za zumiranje. Isprekidana linija je putanja projektovana na tlo.",
+        "top": "Pogled odozgo",
+        "side": "Pogled sa strane",
+        "reset": "Poništi",
+        "zoomIn": "Uvećaj",
+        "zoomOut": "Umanji",
+        "north": "S",
+        "east": "I",
+        "depth": "TVD",
+        "low": "Nisko",
+        "high": "Visoko",
+        "noSurvey": "Još nema loga: bušotina se crta ravno naniže do najdublje komponente.",
+        "legend": "Boja: jačina doglega, od niske do visoke."
+      },
+      "marker": {
+        "shoe": "sabot",
+        "tubing": "Kraj tubinga",
+        "ct": "Kraj CT-a",
+        "packer": "Paker",
+        "perforations": "Perforacije"
+      },
+      "data": {
+        "example": "Učitaj primer bušotine",
+        "import": "Uvezi bušotinu",
+        "export": "Izvezi bušotinu",
+        "reset": "Obriši bušotinu",
+        "note": "Sačuvano samo u ovom pregledaču.",
+        "confirmExample": "Zameniti trenutnu bušotinu primerom?",
+        "confirmReset": "Obrisati bušotinu i njen log?",
+        "importError": "Taj fajl nije bušotina izvezena sa ove stranice.",
+        "sizes": "Dimenzije i težine cevi su nominalne vrednosti prema API 5CT; proveri ih prema standardu ili podacima proizvođača pre projektovanja."
       }
     },
     "ctPressureLoss": {

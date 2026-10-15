@@ -1146,6 +1146,23 @@
             "Volumen des flüssigen Stickstoffs",
             "Stickstoffmasse"
           ]
+        },
+        {
+          "href": "/tools/well-builder",
+          "tag": "Bohrungen",
+          "icon": "layers",
+          "title": "Bohrungs-Builder",
+          "description": "Zeichnen Sie eine Bohrung, indem Sie Verrohrung, Tubing, Coiled Tubing und Packer mit API-Größen auf ein Schema ziehen, und sehen Sie sie aus einem Neigungsprofil in 3D.",
+          "inputs": [
+            "Auf das Schema gezogene Komponenten",
+            "API-Größen und -Gewichte von Verrohrung und Tubing",
+            "Ein Neigungsprofil (MD, Neigung, Azimut)"
+          ],
+          "outputs": [
+            "Bohrungsschema nach gemessener Tiefe",
+            "Innendurchmesser, Drift und Fassungsvermögen",
+            "3D-Bohrpfad und Dogleg-Stärke"
+          ]
         }
       ]
     },
@@ -1406,6 +1423,117 @@
           "Es geht kein Stickstoff durch Spülen oder Leckagen verloren."
         ],
         "reference": "Verwendet denselben Volumenfaktor und dieselben Stickstoffeigenschaften wie das Werkzeug Stickstoff-Verdrängung, das ein Referenz-Arbeitsblatt reproduziert. Prüfen Sie die Gaseigenschaften an einer Stickstofftabelle, bevor Sie sich auf ein Ergebnis verlassen."
+      }
+    },
+    "wellBuilder": {
+      "meta": {
+        "title": "Bohrungs-Builder",
+        "description": "Zeichnen Sie eine Bohrung, indem Sie Verrohrung, Tubing, Coiled Tubing und Packer mit API-Größen auf ein Schema ziehen, und sehen Sie die Bohrung aus einem Neigungsprofil in 3D."
+      },
+      "hero": {
+        "badge": "Bohrungen",
+        "title": "Bohrungs-Builder",
+        "description": "Ziehen Sie Verrohrung, Liner, Tubing, Coiled Tubing, Packer und Perforationen auf das Schema, wählen Sie API-Größen, fügen Sie ein Neigungsprofil ein und sehen Sie die Bohrung in 3D."
+      },
+      "units": {
+        "label": "Tiefeneinheit"
+      },
+      "palette": {
+        "title": "Komponenten",
+        "hint": "Ziehen Sie eine Komponente auf das Schema oder drücken Sie Enter, um sie hinzuzufügen. Im Schema verschieben Sie sie durch Ziehen; die runden Griffe ändern ihre Tiefen."
+      },
+      "types": {
+        "casing": "Verrohrung",
+        "liner": "Liner",
+        "tubing": "Tubing",
+        "ct": "Coiled Tubing",
+        "packer": "Packer",
+        "perforation": "Perforationen"
+      },
+      "canvas": {
+        "title": "Bohrungsschema (gemessene Tiefe)",
+        "empty": "Ziehen Sie eine Komponente hierher, um die Bohrung zu beginnen."
+      },
+      "editor": {
+        "size": "Größe",
+        "weight": "Gewicht",
+        "wall": "Wand",
+        "packerOd": "Packer-Außendurchmesser, in",
+        "depth": "Tiefe",
+        "top": "Oberkante",
+        "bottom": "Unterkante",
+        "delete": "Löschen",
+        "duplicate": "Duplizieren",
+        "none": "Wählen Sie eine Komponente zum Bearbeiten.",
+        "id": "Innendurchmesser",
+        "drift": "Driftdurchmesser",
+        "capacity": "Fassungsvermögen",
+        "displacement": "Stahlverdrängung"
+      },
+      "survey": {
+        "title": "Neigungsprofil",
+        "intro": "Fügen Sie gemessene Tiefe, Neigung und Azimut ein, eine Messstation pro Zeile, oder importieren Sie eine CSV- oder Textdatei. Der Verlauf wird mit der Minimum-Curvature-Methode berechnet.",
+        "placeholder": "MD, Inc, Azi\n0, 0, 0\n1500, 0, 0\n3000, 28, 50",
+        "import": "Datei importieren",
+        "clear": "Leeren",
+        "errors": {
+          "empty": "Das Profil ist leer.",
+          "columns": "Zeile {line}: Es werden drei Spalten benötigt (MD, Neigung, Azimut).",
+          "number": "Zeile {line}: Ein Wert ist keine Zahl.",
+          "range": "Zeile {line}: Die Neigung muss 0–180°, der Azimut 0–360° sein und die MD nicht negativ.",
+          "order": "Zeile {line}: Die gemessene Tiefe muss zunehmen."
+        },
+        "table": {
+          "md": "MD",
+          "inc": "Neig. °",
+          "azi": "Azi °",
+          "tvd": "TVD",
+          "north": "Nord",
+          "east": "Ost",
+          "dls": "DLS"
+        },
+        "summary": {
+          "md": "Gemessene Tiefe",
+          "tvd": "Wahre vertikale Tiefe",
+          "departure": "Abweichung",
+          "closure": "Richtung",
+          "maxInc": "Max. Neigung",
+          "maxDls": "Max. Dogleg"
+        }
+      },
+      "view": {
+        "title": "3D-Bohrpfad",
+        "hint": "Ziehen Sie, um die Bohrung zu drehen, mit gedrückter Umschalttaste verschieben Sie sie, mit dem Mausrad oder + und − zoomen Sie. Die gestrichelte Linie ist der auf den Boden projizierte Pfad.",
+        "top": "Draufsicht",
+        "side": "Seitenansicht",
+        "reset": "Zurücksetzen",
+        "zoomIn": "Vergrößern",
+        "zoomOut": "Verkleinern",
+        "north": "N",
+        "east": "O",
+        "depth": "TVD",
+        "low": "Niedrig",
+        "high": "Hoch",
+        "noSurvey": "Noch kein Profil: Die Bohrung wird senkrecht bis zur tiefsten Komponente gezeichnet.",
+        "legend": "Farbe: Dogleg-Stärke, von niedrig bis hoch."
+      },
+      "marker": {
+        "shoe": "Schuh",
+        "tubing": "Tubing-Ende",
+        "ct": "CT-Ende",
+        "packer": "Packer",
+        "perforations": "Perforationen"
+      },
+      "data": {
+        "example": "Beispielbohrung laden",
+        "import": "Bohrung importieren",
+        "export": "Bohrung exportieren",
+        "reset": "Bohrung leeren",
+        "note": "Nur in diesem Browser gespeichert.",
+        "confirmExample": "Die aktuelle Bohrung durch das Beispiel ersetzen?",
+        "confirmReset": "Die Bohrung und ihr Profil leeren?",
+        "importError": "Diese Datei ist keine von dieser Seite exportierte Bohrung.",
+        "sizes": "Rohrgrößen und Gewichte sind die Nennwerte nach API 5CT; prüfen Sie sie vor einer Auslegung anhand der Norm oder der Herstellerdaten."
       }
     },
     "ctPressureLoss": {

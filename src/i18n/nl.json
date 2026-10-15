@@ -1146,6 +1146,23 @@
             "Volume vloeibare stikstof",
             "Massa stikstof"
           ]
+        },
+        {
+          "href": "/tools/well-builder",
+          "tag": "Putten",
+          "icon": "layers",
+          "title": "Putbouwer",
+          "description": "Teken een put door casing, tubing, coiled tubing en packers met API-maten op een schema te slepen, en zie hem in 3D vanuit een afwijkingsmeting.",
+          "inputs": [
+            "Onderdelen op het schema gesleept",
+            "API-maten en -gewichten van casing en tubing",
+            "Een afwijkingsmeting (MD, inclinatie, azimut)"
+          ],
+          "outputs": [
+            "Putschema naar gemeten diepte",
+            "Binnendiameter, drift en inhoud",
+            "3D-putbaan en doglegernst"
+          ]
         }
       ]
     },
@@ -1406,6 +1423,117 @@
           "Er gaat geen stikstof verloren door spoelen of lekkage."
         ],
         "reference": "Gebruikt dezelfde volumefactor en stikstofeigenschappen als de tool Stikstofverplaatsing, die een referentiewerkblad reproduceert. Controleer de gaseigenschappen aan een stikstoftabel voordat je op een resultaat vertrouwt."
+      }
+    },
+    "wellBuilder": {
+      "meta": {
+        "title": "Putbouwer",
+        "description": "Teken een put door casing, tubing, coiled tubing en packers met API-maten op een schema te slepen, en bekijk de put in 3D vanuit een afwijkingsmeting."
+      },
+      "hero": {
+        "badge": "Putten",
+        "title": "Putbouwer",
+        "description": "Sleep casing, liner, tubing, coiled tubing, packers en perforaties op het schema, kies API-maten, plak een afwijkingsmeting en bekijk de put in 3D."
+      },
+      "units": {
+        "label": "Diepte-eenheid"
+      },
+      "palette": {
+        "title": "Onderdelen",
+        "hint": "Sleep een onderdeel op het schema, of druk op Enter om het toe te voegen. Verplaats het in het schema door te slepen; de ronde handvatten wijzigen de diepten."
+      },
+      "types": {
+        "casing": "Casing",
+        "liner": "Liner",
+        "tubing": "Tubing",
+        "ct": "Coiled tubing",
+        "packer": "Packer",
+        "perforation": "Perforaties"
+      },
+      "canvas": {
+        "title": "Putschema (gemeten diepte)",
+        "empty": "Sleep een onderdeel hierheen om de put te beginnen."
+      },
+      "editor": {
+        "size": "Maat",
+        "weight": "Gewicht",
+        "wall": "Wand",
+        "packerOd": "Packer-OD, in",
+        "depth": "Diepte",
+        "top": "Boven",
+        "bottom": "Onder",
+        "delete": "Verwijderen",
+        "duplicate": "Dupliceren",
+        "none": "Selecteer een onderdeel om het te bewerken.",
+        "id": "Binnendiameter",
+        "drift": "Driftdiameter",
+        "capacity": "Inhoud",
+        "displacement": "Staalverplaatsing"
+      },
+      "survey": {
+        "title": "Afwijkingsmeting",
+        "intro": "Plak gemeten diepte, inclinatie en azimut, één station per regel, of importeer een CSV- of tekstbestand. De baan wordt berekend met de minimum-curvature-methode.",
+        "placeholder": "MD, Inc, Azi\n0, 0, 0\n1500, 0, 0\n3000, 28, 50",
+        "import": "Bestand importeren",
+        "clear": "Wissen",
+        "errors": {
+          "empty": "De meting is leeg.",
+          "columns": "Regel {line}: er zijn drie kolommen nodig (MD, inclinatie, azimut).",
+          "number": "Regel {line}: een waarde is geen getal.",
+          "range": "Regel {line}: inclinatie moet 0–180° zijn, azimut 0–360° en MD niet negatief.",
+          "order": "Regel {line}: de gemeten diepte moet toenemen."
+        },
+        "table": {
+          "md": "MD",
+          "inc": "Inc °",
+          "azi": "Azi °",
+          "tvd": "TVD",
+          "north": "Noord",
+          "east": "Oost",
+          "dls": "DLS"
+        },
+        "summary": {
+          "md": "Gemeten diepte",
+          "tvd": "Ware verticale diepte",
+          "departure": "Afwijking",
+          "closure": "Richting",
+          "maxInc": "Max. inclinatie",
+          "maxDls": "Max. dogleg"
+        }
+      },
+      "view": {
+        "title": "3D-putbaan",
+        "hint": "Sleep om de put te draaien, houd Shift ingedrukt en sleep om te verplaatsen, scroll of gebruik + en − om te zoomen. De stippellijn is de baan geprojecteerd op de grond.",
+        "top": "Bovenaanzicht",
+        "side": "Zijaanzicht",
+        "reset": "Herstellen",
+        "zoomIn": "Inzoomen",
+        "zoomOut": "Uitzoomen",
+        "north": "N",
+        "east": "O",
+        "depth": "TVD",
+        "low": "Laag",
+        "high": "Hoog",
+        "noSurvey": "Nog geen meting: de put wordt recht naar beneden getekend tot het diepste onderdeel.",
+        "legend": "Kleur: doglegernst, van laag naar hoog."
+      },
+      "marker": {
+        "shoe": "schoen",
+        "tubing": "Tubing-einde",
+        "ct": "CT-einde",
+        "packer": "Packer",
+        "perforations": "Perforaties"
+      },
+      "data": {
+        "example": "Voorbeeldput laden",
+        "import": "Put importeren",
+        "export": "Put exporteren",
+        "reset": "Put wissen",
+        "note": "Alleen in deze browser opgeslagen.",
+        "confirmExample": "De huidige put vervangen door het voorbeeld?",
+        "confirmReset": "De put en zijn meting wissen?",
+        "importError": "Dat bestand is geen put die vanaf deze pagina is geëxporteerd.",
+        "sizes": "Buismaten en gewichten zijn de nominale API 5CT-waarden; controleer ze voor een ontwerp aan de norm of de gegevens van de fabrikant."
       }
     },
     "ctPressureLoss": {

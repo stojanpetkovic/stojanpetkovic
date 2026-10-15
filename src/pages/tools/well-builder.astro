@@ -1,0 +1,9 @@
+---
+import WellBuilderView from '@/components/pages/views/WellBuilderView.astro';
+import { defaultLocale } from '@/i18n';
+
+// The Well Builder for the default locale. Additional locales are served by
+// `src/pages/[locale]/tools/well-builder.astro`.
+---
+
+<WellBuilderView locale={defaultLocale} />

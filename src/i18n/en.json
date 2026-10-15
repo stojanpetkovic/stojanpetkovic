@@ -1146,6 +1146,23 @@
             "Liquid nitrogen volume",
             "Nitrogen mass"
           ]
+        },
+        {
+          "href": "/tools/well-builder",
+          "tag": "Wells",
+          "icon": "layers",
+          "title": "Well Builder",
+          "description": "Draw a well by dragging casing, tubing, coiled tubing and packers onto a schematic, with API sizes, and see it in 3D from a deviation survey.",
+          "inputs": [
+            "Components dragged onto the schematic",
+            "API casing and tubing sizes and weights",
+            "A deviation survey (MD, inclination, azimuth)"
+          ],
+          "outputs": [
+            "Well schematic by measured depth",
+            "Inside diameter, drift and capacity",
+            "3D well path and dogleg severity"
+          ]
         }
       ]
     },
@@ -1406,6 +1423,117 @@
           "No nitrogen is lost to purging or leaks."
         ],
         "reference": "Uses the same volume factor and nitrogen properties as the Nitrogen Displacement tool, which reproduces a reference worksheet. Check the gas properties against a nitrogen table before you rely on a result."
+      }
+    },
+    "wellBuilder": {
+      "meta": {
+        "title": "Well Builder",
+        "description": "Draw a well by dragging casing, tubing, coiled tubing and packers onto a schematic, with API sizes, and view the well in 3D from a deviation survey."
+      },
+      "hero": {
+        "badge": "Wells",
+        "title": "Well Builder",
+        "description": "Drag casing, liner, tubing, coiled tubing, packers and perforations onto the schematic, choose API sizes, paste a deviation survey and see the well in 3D."
+      },
+      "units": {
+        "label": "Depth unit"
+      },
+      "palette": {
+        "title": "Components",
+        "hint": "Drag a component onto the schematic, or press Enter on it to add it. Drag in the schematic to move it; drag the round handles to change its depths."
+      },
+      "types": {
+        "casing": "Casing",
+        "liner": "Liner",
+        "tubing": "Tubing",
+        "ct": "Coiled tubing",
+        "packer": "Packer",
+        "perforation": "Perforations"
+      },
+      "canvas": {
+        "title": "Well schematic (measured depth)",
+        "empty": "Drag a component here to start the well."
+      },
+      "editor": {
+        "size": "Size",
+        "weight": "Weight",
+        "wall": "Wall",
+        "packerOd": "Packer OD, in",
+        "depth": "Depth",
+        "top": "Top",
+        "bottom": "Bottom",
+        "delete": "Delete",
+        "duplicate": "Duplicate",
+        "none": "Select a component to edit it.",
+        "id": "Inside diameter",
+        "drift": "Drift diameter",
+        "capacity": "Capacity",
+        "displacement": "Steel displacement"
+      },
+      "survey": {
+        "title": "Deviation survey",
+        "intro": "Paste measured depth, inclination and azimuth, one station per line, or import a CSV or text file. The path is calculated with the minimum curvature method.",
+        "placeholder": "MD, Inc, Azi\n0, 0, 0\n1500, 0, 0\n3000, 28, 50",
+        "import": "Import a file",
+        "clear": "Clear",
+        "errors": {
+          "empty": "The survey is empty.",
+          "columns": "Line {line}: three columns are needed (MD, inclination, azimuth).",
+          "number": "Line {line}: a value is not a number.",
+          "range": "Line {line}: inclination must be 0–180°, azimuth 0–360° and MD not negative.",
+          "order": "Line {line}: measured depth must increase."
+        },
+        "table": {
+          "md": "MD",
+          "inc": "Inc °",
+          "azi": "Azi °",
+          "tvd": "TVD",
+          "north": "North",
+          "east": "East",
+          "dls": "DLS"
+        },
+        "summary": {
+          "md": "Measured depth",
+          "tvd": "True vertical depth",
+          "departure": "Departure",
+          "closure": "Direction",
+          "maxInc": "Max inclination",
+          "maxDls": "Max dogleg"
+        }
+      },
+      "view": {
+        "title": "3D well path",
+        "hint": "Drag to turn the well, hold Shift and drag to move it, scroll or use + and − to zoom. The dashed line is the path projected on the ground.",
+        "top": "Plan view",
+        "side": "Side view",
+        "reset": "Reset",
+        "zoomIn": "Zoom in",
+        "zoomOut": "Zoom out",
+        "north": "N",
+        "east": "E",
+        "depth": "TVD",
+        "low": "Low",
+        "high": "High",
+        "noSurvey": "No survey yet: the well is drawn straight down to its deepest component.",
+        "legend": "Colour: dogleg severity, from low to high."
+      },
+      "marker": {
+        "shoe": "shoe",
+        "tubing": "Tubing end",
+        "ct": "CT end",
+        "packer": "Packer",
+        "perforations": "Perforations"
+      },
+      "data": {
+        "example": "Load an example well",
+        "import": "Import a well",
+        "export": "Export a well",
+        "reset": "Clear the well",
+        "note": "Saved in this browser only.",
+        "confirmExample": "Replace the current well with the example?",
+        "confirmReset": "Clear the well and its survey?",
+        "importError": "That file is not a well exported from this page.",
+        "sizes": "Pipe sizes and weights are the nominal API 5CT values; check them against the standard or the mill data before a design."
       }
     },
     "ctPressureLoss": {
