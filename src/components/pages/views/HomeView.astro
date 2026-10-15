@@ -14,19 +14,13 @@ import LandingLayout from '@/layouts/LandingLayout.astro';
 import { Hero } from '@/components/hero';
 import Button from '@/components/ui/form/Button/Button.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
-import Card from '@/components/ui/data-display/Card/Card.astro';
-import ProofTile from '@/components/ui/data-display/ProofTile/ProofTile.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import BlogCard from '@/components/blog/BlogCard.astro';
 import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
-import StackMarquee from '@/components/landing/StackMarquee.astro';
-import { getCollection } from 'astro:content';
 import siteConfig from '@/config/site.config';
 import { getPostUrl, getPublishedPosts } from '@/lib/blog';
-import { getVisibleProjects } from '@/lib/projects';
-import ProjectCard from '@/components/projects/ProjectCard.astro';
+import { isEngineeringTag } from '@/lib/engineering';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
-import { getSiteName } from '@/lib/site-name';
 
 interface Props {
   /** Locale whose copy and content this page renders. Defaults to the site default. */
@@ -38,51 +32,32 @@ interface IconCard {
   title: string;
   description: string;
 }
-interface Testimonial {
-  quote: string;
-  name: string;
-  role: string;
+interface Pillar extends IconCard {
+  points: string[];
 }
 
 const { locale = defaultLocale } = Astro.props;
-
-// Featured projects for this locale, falling back to the default locale so the
-// section is never empty on a locale that hasn't translated its projects yet.
-let projectItems = await getVisibleProjects(locale);
-if (projectItems.length === 0 && locale !== defaultLocale) {
-  projectItems = await getVisibleProjects(defaultLocale);
-}
-const featuredProjects = projectItems
-  .filter((p) => p.data.featured)
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 4);
 
 let postItems = await getPublishedPosts(locale);
 if (postItems.length === 0 && locale !== defaultLocale) {
   postItems = await getPublishedPosts(defaultLocale);
 }
+// The home page shows engineering posts only. Posts tagged for the web or for
+// marketing stay on the blog and under /web; this section stays out of the way
+// until there is an engineering post to show.
 const posts = [...postItems]
+  .filter((post) => post.data.tags.some(isEngineeringTag))
   .sort((a, b) => {
     if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
     return b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf();
   })
   .slice(0, 4);
 
-// Hero marquee — a focused subset of the tech stack, in this order, pulled from
-// the same `stack` collection so icons and links stay single-sourced. Seven logos
-// are wide enough to fill the constrained hero width and loop seamlessly on their
-// own; the Tech-stack section further down still shows the full stack.
-const heroStackOrder = ['Astro', 'Tailwind CSS', 'TypeScript', 'React', 'GitHub', 'Vercel', 'Claude'];
-const heroStackItems = (await getCollection('stack'))
-  .filter((e) => heroStackOrder.includes(e.data.name))
-  .sort((a, b) => heroStackOrder.indexOf(a.data.name) - heroStackOrder.indexOf(b.data.name))
-  .map((e) => ({
-    name: e.data.name,
-    icon: e.data.icon,
-    url: e.data.url,
-    version: e.data.version,
-    colorOklch: e.data.colorOklch,
-  }));
+/** The redacted scans behind the two credential cards, in page order. */
+const credentialScans: string[][] = [
+  ['/credentials/ingenieur-1.webp?v=2', '/credentials/ingenieur-2.webp?v=2'],
+  ['/credentials/exam-rs.webp?v=2'],
+];
 
 const hero = tData<{
   badge: string;
@@ -96,18 +71,25 @@ const hero = tData<{
   secondaryCta: string;
   videoPlay: string;
   videoLabel: string;
+  /** Credentials shown as badges under the hero buttons. */
+  badges: { icon: string; tag: string; title: string; text: string; docTitle: string; docAlt: string }[];
+  credentialsDialog: { close: string; note: string; hint: string; zoom: string };
+  qualifications: { label: string; items: { icon: string; year: string; title: string; text: string }[] };
 }>('pages.home.hero', locale)!;
 const workWithMe = tData<{ badge: string; heading: string; lead: string; cards: IconCard[]; cta: string }>(
   'pages.home.workWithMe',
   locale
 )!;
-const servicesSection = tData<{ badge: string; heading: string; lead: string; learnMore: string; cards: IconCard[] }>(
-  'pages.home.services',
-  locale
-)!;
-const portfolio = tData<{ badge: string; heading: string; lead: string; viewAll: string }>('pages.home.portfolio', locale)!;
-const testimonials = tData<{ badge: string; heading: string; lead: string; items: Testimonial[] }>(
-  'pages.home.testimonials',
+const servicesSection = tData<{
+  badge: string;
+  heading: string;
+  lead: string;
+  learnMore: string;
+  status: string;
+  cards: Pillar[];
+}>('pages.home.services', locale)!;
+const webGateway = tData<{ badge: string; heading: string; lead: string; items: string[]; cta: string }>(
+  'pages.home.webGateway',
   locale
 )!;
 const aboutTeaser = tData<{
@@ -120,6 +102,8 @@ const aboutTeaser = tData<{
   stat1: string;
   stat2: string;
   stat3: string;
+  stat4: string;
+  facts: { icon: string; label: string; value: string }[];
   basedIn: string;
 }>('pages.home.aboutTeaser', locale)!;
 const blogSection = tData<{ badge: string; heading: string; viewAll: string }>('pages.home.blog', locale)!;
@@ -128,8 +112,14 @@ const cta = tData<{ badge: string; heading: string; description: string; primary
   locale
 )!;
 
+/** Splits "13+ Years in Engineering" into its figure and its label. */
+const splitStat = (stat: string) => {
+  const cut = stat.indexOf(' ');
+  return { value: stat.slice(0, cut), label: stat.slice(cut + 1) };
+};
+
 const servicesUrl = localizedPath('/services', locale);
-const projectsUrl = localizedPath('/projects', locale);
+const webUrl = localizedPath('/web', locale);
 const aboutUrl = localizedPath('/about', locale);
 const contactUrl = localizedPath('/contact', locale);
 const blogUrl = localizedPath('/blog', locale);
@@ -150,26 +140,20 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
   description={t('pages.home.meta.description', locale)}
   includePersonSchema={true}
   includeProfessionalServiceSchema={true}
+  preloadImage="/video/hero-avatar-poster.webp"
 >
   <!-- Hero -->
-  <!-- data-header-flip-anchor: the floating header keeps its over-the-hero
-       look until this section is nearly out from under it. See the flip
-       threshold in Header.astro.
-
-       data-bar-color: Safari on iOS floats a translucent toolbar over the foot
-       of the screen and tints it from the BODY's background. This hero is dark
-       in both colour modes while the body under it is white in light mode,
-       which draws a white strip across the foot of it. The theme script paints
-       the body this colour while the hero covers that edge, and clears it
-       after. Same value as --bar-color in global.css, which ends the hero's
-       gradient. See `paintBody` in BaseLayout.astro. -->
+  <!-- data-header-flip-anchor: the header keeps its over-the-hero look until
+       this section is nearly out from under it. See the flip threshold in
+       Header.astro. The hero is a light wash, so it no longer sets the
+       iOS toolbar colour and the body shows through (see bar-color.test.ts). -->
   {/* Below lg the photo stacks above the copy, and the xl hero's top padding
       (page-top + space-16, sized for a desktop headline) left far more room
       under the floating header than between the photo and the badge. The
       header pill ends 5rem from the top, so 5rem plus the grid's own gap
       puts the photo exactly one --space-section-gap below it, matching the
       gap under the photo. */}
-  <Hero layout="split" imagePosition="left" size="xl" class="hero-dark-gradient max-lg:pt-[calc(5rem+var(--space-section-gap))]" fullHeight showLetterGlitch data-header-flip-anchor data-bar-color="#000">
+  <Hero layout="split" imagePosition="left" size="xl" class="hero-dark-gradient max-lg:pt-[calc(5rem+var(--space-section-gap))]" fullHeight data-header-flip-anchor>
     {/* Framed like the header's own glass pill (bg-white/[0.08] + border
         white/[0.1]) so the treatment matches the rest of this hero rather
         than introducing a new material. */}
@@ -195,18 +179,17 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
         so it loops silently as a preview and the pill button restarts it from
         the start with sound and native controls. On lg the frame is a fixed
         30rem square so it sits beside the copy. */}
-    <div slot="aside" class="hero-video relative w-full rounded-3xl border border-brand-400/30 bg-white/[0.08] p-2 shadow-2xl shadow-brand-500/30 backdrop-blur-md lg:w-[30rem] lg:justify-self-center">
+    <div slot="aside" class="hero-video relative w-full rounded-3xl border border-brand-400/30 bg-white/[0.08] p-2 shadow-2xl shadow-brand-500/30 backdrop-blur-md lg:w-full">
       <div class="pointer-events-none absolute -inset-12 -z-10 rounded-full bg-brand-500/35 blur-3xl" aria-hidden="true"></div>
       <video
         class="hero-video-el aspect-square w-full rounded-2xl bg-black object-cover"
         poster="/video/hero-avatar-poster.webp"
         width="720"
         height="720"
-        autoplay
         muted
         loop
         playsinline
-        preload="metadata"
+        preload="none"
         aria-label={hero.videoLabel}
       >
         <source src="/video/hero-avatar.webm" type="video/webm" />
@@ -227,7 +210,7 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
         English demo strings — translated hero copy is the site owner's to
         refit. The 3rem cap keeps the size continuous with sm:text-5xl at
         the 640px boundary. */}
-    <h1 slot="title" class="!text-[clamp(2rem,12.6vw,3rem)] sm:!text-5xl md:!text-6xl lg:!text-7xl">
+    <h1 slot="title" class="!text-[clamp(1.75rem,10.4vw,3rem)] sm:!text-5xl md:!text-6xl lg:!text-7xl">
       <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor] whitespace-nowrap">{hero.titleLine1}</span><br />
       <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor]">{hero.titleLine2}</span><br class="md:hidden" /><span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor]">{' '}{hero.titleLine3}</span>
     </h1>
@@ -242,188 +225,181 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
         {hero.primaryCta}
         <Icon name="arrow-right" size="sm" />
       </Button>
-      <Button size="lg" variant="outline" href={projectsUrl}>
+      <Button size="lg" variant="outline" href="#focus">
         {hero.secondaryCta}
         <Icon name="arrow-right" size="sm" />
       </Button>
     </Fragment>
 
-    <!-- Tech-stack marquee floored into the hero in place of the scroll indicator:
-         the content stays at the top and the marquee sits low near the bottom, with
-         a roomy gap above it (a guaranteed minimum gap, so it never crowds the
-         CTAs). Constrained to the content width; one decorative row; hidden on
-         phones. cardWidth="auto" lets each card hug its logo + name so the logos sit
-         close together; StackMarquee repeats the set to fill the row so the loop
-         stays seamless. -->
-    <div slot="bottom" class="mx-auto w-full max-w-6xl px-6">
-      <!-- Tablet & up: the animated tech-stack marquee. -->
-      <div class="hp-hero-marquee" aria-hidden="true">
-        <StackMarquee items={heroStackItems} rows={1} duration={55} pauseOnHover={false} linked={false} cardWidth="auto" gap="1rem" />
-      </div>
-      <!-- Portrait phone: a static, non-animated row of the four core-stack logos.
-           No marquee machinery — no duplicated track and no infinite animation — so
-           there's zero ongoing compositor/battery cost on mobile. Logos only,
-           non-interactive, with a one-time fade-in to match the marquee's entrance. -->
-      <div class="hp-hero-logos" aria-hidden="true">
-        {heroStackItems.slice(0, 4).map((item) => (
-          <span class="hp-hero-logo">
-            <Icon name={item.icon} size="lg" />
-          </span>
-        ))}
+    {/* Credentials: the German title and the Serbian professional exam. */}
+    <ul class="mt-8 grid w-full gap-3 sm:grid-cols-2" role="list">
+      {hero.badges.map((badge, index) => (
+        <li class="h-full">
+          <button
+            type="button"
+            class="credential-card group flex h-full w-full items-center gap-4 rounded-xl border border-l-4 border-border border-l-brand-600 bg-card py-3.5 pl-4 pr-4 text-left shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-brand-300 hover:border-l-brand-600 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+            data-credential
+            data-title={badge.docTitle}
+            data-alt={badge.docAlt}
+            data-images={JSON.stringify(credentialScans[index])}
+            aria-haspopup="dialog"
+            aria-label={`${badge.title}. ${hero.credentialsDialog.hint}`}
+          >
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-700 text-white">
+              <Icon name={badge.icon} size="md" />
+            </span>
+            <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+              <span class="flex items-center gap-2">
+                <span class="rounded border border-brand-200 bg-brand-50 px-1.5 py-0.5 font-mono text-[10px] font-semibold tracking-widest text-brand-700">{badge.tag}</span>
+                <span class="font-display text-sm font-bold text-foreground">{badge.title}</span>
+              </span>
+              <span class="text-xs text-foreground-muted">{badge.text}</span>
+            </span>
+            <span class="credential-cue relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-brand-600" aria-hidden="true">
+              <Icon name="file-search" size="sm" />
+            </span>
+          </button>
+        </li>
+      ))}
+    </ul>
+
+    {/* Qualifications and training, as a band along the foot of the hero. */}
+    <div slot="bottom" class="mx-auto w-full max-w-7xl px-6">
+      <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-md">
+        <div class="flex items-center gap-3 border-b border-border bg-background-secondary px-5 py-2.5">
+          <Icon name="award" size="sm" class="text-brand-700" />
+          <p class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-secondary">{hero.qualifications.label}</p>
+        </div>
+        <ul class="grid grid-cols-1 divide-y divide-border sm:grid-cols-2 sm:divide-y-0 lg:grid-cols-4 lg:divide-x" role="list">
+          {hero.qualifications.items.map((item) => (
+            <li class="flex items-start gap-3 p-4 sm:[&:nth-child(n+3)]:border-t sm:[&:nth-child(n+3)]:border-border lg:[&:nth-child(n+3)]:border-t-0">
+              <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-100 text-brand-700">
+                <Icon name={item.icon} size="sm" />
+              </span>
+              <span class="flex min-w-0 flex-1 flex-col gap-0.5">
+                <span class="flex items-baseline justify-between gap-2">
+                  <span class="font-display text-sm font-bold leading-snug text-foreground">{item.title}</span>
+                  <span class="shrink-0 font-mono text-[11px] font-semibold text-brand-700">{item.year}</span>
+                </span>
+                <span class="text-xs leading-snug text-foreground-muted">{item.text}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </Hero>
 
-  <!-- Services Section -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>
-            <Icon name="sparkles" size="sm" />
-            {servicesSection.badge}
-          </Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
+  {/* The document viewer behind the credential cards. Filled in by the script
+      below; the scans in /public/credentials have their personal details burned
+      out of the image itself. */}
+  <dialog id="credential-dialog" class="credential-dialog" aria-labelledby="credential-dialog-title">
+    <div class="credential-dialog-panel">
+      <header class="credential-dialog-head">
+        <div class="min-w-0">
+          <h2 id="credential-dialog-title" class="font-display text-base font-bold text-foreground sm:text-lg"></h2>
+          <p class="mt-0.5 flex items-center gap-1.5 text-xs text-foreground-muted">
+            <Icon name="eye-off" size="xs" />
+            {hero.credentialsDialog.note}
+          </p>
+          <p class="credential-dialog-zoomhint mt-0.5 items-center gap-1.5 text-xs text-foreground-muted">
+            <Icon name="zoom-in" size="xs" />
+            {hero.credentialsDialog.zoom}
+          </p>
+        </div>
+        <button type="button" class="credential-dialog-close" data-credential-close aria-label={hero.credentialsDialog.close}>
+          <Icon name="x" size="sm" />
+        </button>
+      </header>
+      <div class="credential-dialog-body" id="credential-dialog-pages" tabindex="0"></div>
+    </div>
+  </dialog>
+
+  <!-- Focus: industrial projects, courses, software -->
+  <section id="focus" class="relative z-10 py-[var(--space-section-lg)] bg-background-secondary border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-12">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">01</span><span>{servicesSection.badge}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground">
             {servicesSection.heading}
           </h2>
         </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
-          {servicesSection.lead}
-        </p>
+        <p class="section-lead">{servicesSection.lead}</p>
       </div>
 
-      <div class="grid gap-6 sm:grid-cols-3">
+      {/* Subgrid: the four rows of each card (header, title, text, list) line up
+          across the three cards, whatever the length of the copy. */}
+      <div class="grid gap-6 md:grid-cols-3 md:gap-y-0 md:grid-rows-[repeat(4,auto)]">
         {servicesSection.cards.map((card, i) => (
-          <ProofTile
-            href={servicesUrl}
-            icon={card.icon}
-            title={card.title}
-            data-reveal
-            data-reveal-delay={i || undefined}
-          >
-            {card.description}
-          </ProofTile>
+          <article class="focus-card md:row-span-4 md:grid md:grid-rows-subgrid md:gap-y-5 flex flex-col gap-5" data-reveal data-reveal-delay={i || undefined}>
+            <div class="flex items-center justify-between gap-3">
+              <span class="font-mono text-xs font-semibold tracking-[0.2em] text-brand-600">{`0${i + 1}`}</span>
+              <span class="rounded-full border border-border bg-background-secondary px-3 py-1 text-xs font-medium text-foreground-muted">
+                {servicesSection.status}
+              </span>
+            </div>
+            <div class="flex items-center gap-4">
+              <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-white shadow-sm">
+                <Icon name={card.icon} size="md" />
+              </span>
+              <h3 class="font-display text-xl font-bold leading-tight text-foreground">{card.title}</h3>
+            </div>
+            <p class="text-foreground-muted leading-relaxed">{card.description}</p>
+            <ul class="flex flex-col gap-2.5 border-t border-border pt-5 text-sm text-foreground-muted" role="list">
+              {card.points.map((point) => (
+                <li class="flex items-start gap-2.5">
+                  <Icon name="check" size="sm" class="mt-0.5 shrink-0 text-brand-600" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
         ))}
+      </div>
+
+      <div class="flex justify-center" data-reveal>
+        <Button size="lg" href={contactUrl}>
+          {servicesSection.learnMore}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
       </div>
     </div>
   </section>
 
-  <!-- Work with me -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>
-            <Icon name="handshake" size="sm" />
-            {workWithMe.badge}
-          </Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+  <!-- Why work with an engineer: a dark band, to break the rhythm of the page -->
+  <section class="why-band invert-section relative z-10 overflow-hidden py-[var(--space-section-lg)] border-t border-border">
+    <div class="relative mx-auto max-w-6xl px-6 flex flex-col gap-12">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">02</span><span>{workWithMe.badge}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground">
             {workWithMe.heading}
           </h2>
         </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
-          {workWithMe.lead}
-        </p>
+        <p class="section-lead">{workWithMe.lead}</p>
       </div>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="why-grid grid sm:grid-cols-2 lg:grid-cols-4">
         {workWithMe.cards.map((card, i) => (
-          <ProofTile icon={card.icon} title={card.title} data-reveal data-reveal-delay={i || undefined}>
-            {card.description}
-          </ProofTile>
+          <div class="why-cell flex flex-col gap-4 p-7" data-reveal data-reveal-delay={i || undefined}>
+            <div class="flex items-center justify-between">
+              <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 text-white ring-1 ring-white/15">
+                <Icon name={card.icon} size="md" />
+              </span>
+              <span class="font-mono text-xs font-semibold tracking-[0.2em] text-white/45">{`0${i + 1}`}</span>
+            </div>
+            <h3 class="font-display text-lg font-bold text-foreground">{card.title}</h3>
+            <p class="text-sm leading-relaxed text-foreground-muted">{card.description}</p>
+          </div>
         ))}
       </div>
 
-      <div class="flex justify-center mt-4" data-reveal>
+      <div class="flex justify-center" data-reveal>
         <Button size="lg" href={servicesUrl} class="cta-btn-brand">
           {workWithMe.cta}
           <Icon name="arrow-right" size="sm" />
         </Button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section id="work" class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>
-            <Icon name="layers" size="sm" />
-            {portfolio.badge}
-          </Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-            {portfolio.heading}
-          </h2>
-        </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto">
-          {portfolio.lead}
-        </p>
-      </div>
-
-      <div class="grid gap-6 md:grid-cols-2">
-        {/* One card component for the homepage, the projects index, the
-            paginated pages and the tag archive. The homepage used to carry
-            its own copy of this markup, so a change to the card reached three
-            of the four places and quietly skipped this one. */}
-        {featuredProjects.map((project, i) => (
-          <ProjectCard project={project} index={i} locale={project.data.locale} />
-        ))}
-      </div>
-
-      <div class="text-center mt-4">
-        <Button variant="brand-outline" href={projectsUrl}>
-          {portfolio.viewAll}
-          <Icon name="arrow-right" size="sm" />
-        </Button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>
-            <Icon name="quote" size="sm" />
-            {testimonials.badge}
-          </Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-            {testimonials.heading}
-          </h2>
-        </div>
-        <p class="text-lg text-foreground-muted">
-          {testimonials.lead}
-        </p>
-      </div>
-
-      <div class="grid gap-6 md:grid-cols-2">
-        {testimonials.items.map((item, i) => (
-          <Card variant="elevated" padding="lg" hover data-reveal data-reveal-delay={i || undefined}>
-            <div class="flex flex-col h-full gap-4">
-              <div class="flex gap-1 text-brand-500" role="img" aria-label="5 out of 5 stars">
-                {[...Array(5)].map(() => (
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20" aria-hidden="true">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <blockquote class="flex-1 text-foreground-muted leading-relaxed">
-                {item.quote}
-              </blockquote>
-              <div class="flex items-center gap-3 pt-4 border-t border-border">
-                <div class="w-9 h-9 rounded-full bg-gradient-to-br from-brand-500/30 to-brand-500/10 flex items-center justify-center text-brand-500 font-bold text-sm shrink-0">
-                  {item.name.charAt(0)}
-                </div>
-                <div>
-                  <p class="text-sm font-semibold text-foreground">{item.name}</p>
-                  <p class="text-xs text-foreground-muted">{item.role}</p>
-                </div>
-              </div>
-            </div>
-          </Card>
-        ))}
       </div>
     </div>
   </section>
@@ -434,10 +410,7 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
       <div class="grid gap-10 glitch:grid-cols-2 glitch:gap-12">
         <div class="flex flex-col justify-center sm:items-center sm:text-center glitch:items-start glitch:text-left" data-reveal data-reveal-ease="smooth">
           <div class="flex flex-col gap-6 mb-6 sm:items-center glitch:items-start">
-            <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">
-              <Icon name="user" size="sm" />
-              {aboutTeaser.badge}
-            </Badge>
+            <p class="section-eyebrow !mb-0 sm:justify-center glitch:justify-start"><span class="section-eyebrow-num">03</span><span>{aboutTeaser.badge}</span></p>
             <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
               {aboutTeaser.headingLine1}<br />
               <span class="text-brand-500">{aboutTeaser.headingLine2}</span>
@@ -454,30 +427,52 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
             <Icon name="arrow-right" size="sm" />
           </Button>
         </div>
-        <Card variant="elevated" padding="lg" class="h-full flex flex-col" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
-          <p class="text-sm font-bold text-brand-500 mb-5 text-center sm:hidden glitch:block">{aboutTeaser.statsIntro}</p>
-          <div class="grid grid-cols-2 sm:grid-cols-4 glitch:grid-cols-2 gap-3 flex-1 auto-rows-fr">
-            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
-              <Icon name="history" class="w-10 h-10 text-brand-500" />
-              <p class="text-sm font-semibold text-foreground">{aboutTeaser.stat1}</p>
-            </div>
-            <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 h-full">
-              <svg class="w-10 h-10 text-brand-500" viewBox="0 0 1280 1280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M815.039 94.6439C824.758 106.709 829.714 122.99 839.626 155.553L1056.17 866.901C976.107 825.368 889.072 795.413 797.281 779.252L656.29 302.798C653.983 295.002 646.822 289.654 638.693 289.654C630.542 289.654 623.368 295.03 621.08 302.853L481.795 779.011C389.579 795.1 302.146 825.109 221.741 866.793L439.347 155.388L439.348 155.388C449.291 122.882 454.262 106.629 463.982 94.5853C472.562 83.9531 483.723 75.6958 496.4 70.6002C510.76 64.8284 527.756 64.8284 561.749 64.8284H717.174C751.212 64.8284 768.23 64.8284 782.603 70.6123C795.292 75.7184 806.459 83.9923 815.039 94.6439Z" fill="currentColor"/>
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M840.951 900.754C805.253 931.279 734.002 952.097 651.929 952.097C551.197 952.097 466.767 920.737 444.363 878.561C436.354 902.732 434.558 930.396 434.558 948.068C434.558 948.068 429.281 1034.84 489.636 1095.2C489.636 1063.86 515.042 1038.46 546.381 1038.46C600.097 1038.46 600.036 1085.32 599.987 1123.34C599.986 1124.48 599.984 1125.61 599.984 1126.73C599.984 1184.44 635.255 1233.91 685.416 1254.77C677.924 1239.36 673.721 1222.05 673.721 1203.77C673.721 1148.73 706.034 1128.23 743.588 1104.41L743.588 1104.41C773.469 1085.46 806.668 1064.41 829.548 1022.17C841.486 1000.13 848.265 974.893 848.265 948.068C848.265 931.573 845.702 915.676 840.951 900.754Z" fill="currentColor"/>
-              </svg>
-              <p class="text-sm font-semibold text-foreground">{aboutTeaser.stat2}</p>
-            </a>
-            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
-              <Icon name="globe" class="w-10 h-10 text-brand-500" />
-              <p class="text-sm font-semibold text-foreground">{aboutTeaser.stat3}</p>
-            </div>
-            <div class="bg-background-tertiary rounded-xl p-5 flex flex-col items-center justify-center text-center gap-2 border-t-2 border-brand-500/40 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:border-brand-500 cursor-default h-full">
-              <Icon name="map-pin" class="w-10 h-10 text-brand-500" />
-              <p class="text-sm font-semibold text-foreground">{aboutTeaser.basedIn} <br class="sm:hidden" />{basedInDisplay}</p>
-            </div>
+        {/* A fact sheet, in the manner of a datasheet: a status line, three headline
+            figures, then a table of facts. The figures are the first word of the
+            stat strings, so each language keeps its own number format
+            ("1,000+" / "1.000+"). The look is in sassify.css (.fact-sheet). */}
+        <div class="fact-sheet flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-lg" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
+          <div class="fact-sheet-head flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-b border-border px-6 py-3">
+            <p class="flex items-center gap-3 font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-secondary">
+              <Icon name="user" size="sm" class="text-brand-700" />
+              {aboutTeaser.statsIntro}
+            </p>
+            <p class="flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-medium text-foreground-secondary">
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--cta)] opacity-60"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-[var(--cta)]"></span>
+              </span>
+              {hero.badge}
+            </p>
           </div>
-        </Card>
+          <dl class="fact-sheet-figures grid grid-cols-[1fr_1.25fr_1fr] divide-x divide-border border-b border-border">
+            {[splitStat(aboutTeaser.stat1), splitStat(aboutTeaser.stat2), splitStat(aboutTeaser.stat4)].map((fact) => (
+              <div class="flex flex-col justify-center gap-2 px-4 py-7 sm:px-5">
+                <dd class="whitespace-nowrap font-display text-3xl font-extrabold leading-none text-brand-700">{fact.value}</dd>
+                <dt class="text-xs font-medium leading-snug text-foreground-muted sm:text-sm">{fact.label}</dt>
+              </div>
+            ))}
+          </dl>
+          <ul class="flex flex-1 flex-col divide-y divide-border" role="list">
+            {[
+              aboutTeaser.facts[0],
+              aboutTeaser.facts[1],
+              { icon: 'map-pin', label: aboutTeaser.basedIn, value: basedInDisplay },
+              aboutTeaser.facts[2],
+              aboutTeaser.facts[3],
+            ].map((row) => (
+              <li class="flex flex-1 items-center gap-4 px-6 py-3.5">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-100 text-brand-700">
+                  <Icon name={row.icon} size="sm" />
+                </span>
+                <span class="flex min-w-0 flex-col">
+                  <span class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{row.label}</span>
+                  <span class="font-display text-[15px] font-bold leading-snug text-foreground">{row.value}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
         <div class="hidden sm:flex justify-center glitch:hidden" data-reveal data-reveal-delay="2">
           <Button variant="brand-outline" href={aboutUrl}>
             {aboutTeaser.moreAboutMe}
@@ -488,8 +483,41 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
     </div>
   </section>
 
-  <!-- Blog -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
+  <!-- Web development: a separate part of the site -->
+  <section class="relative z-10 py-[var(--space-section-lg)] bg-background border-t border-border">
+    <div class="mx-auto max-w-6xl px-6">
+      <div class="gateway overflow-hidden rounded-3xl border border-border bg-card shadow-lg md:grid md:grid-cols-[1.15fr_1fr]" data-reveal>
+        <div class="flex flex-col justify-center gap-5 p-8 sm:p-12">
+          <p class="section-eyebrow !mb-0"><span class="section-eyebrow-num">04</span><span>{webGateway.badge}</span></p>
+          <h2 class="font-display text-3xl font-bold tracking-tight text-foreground text-balance">
+            {webGateway.heading}
+          </h2>
+          <p class="text-lg text-foreground-muted leading-relaxed">
+            {webGateway.lead}
+          </p>
+          <Button variant="brand-outline" href={webUrl} class="mt-2 self-start">
+            {webGateway.cta}
+            <Icon name="arrow-right" size="sm" />
+          </Button>
+        </div>
+        <ul class="gateway-panel flex flex-col justify-center gap-3 border-t border-border p-8 sm:p-12 md:border-l md:border-t-0" role="list">
+          {webGateway.items.map((item, i) => (
+            <li class="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-4 shadow-sm">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-100 text-brand-700">
+                <Icon name={['layout', 'code', 'trending-up'][i] ?? 'check'} size="md" />
+              </span>
+              <span class="flex-1 font-display text-base font-bold text-foreground">{item}</span>
+              <span class="font-mono text-xs font-semibold tracking-[0.2em] text-brand-600">{`0${i + 1}`}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog: engineering posts only -->
+  {posts.length > 0 && (
+  <section class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="flex flex-col items-center gap-6 text-center" data-reveal>
         <Badge variant="brand" pill>
@@ -527,11 +555,12 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
       </div>
     </div>
   </section>
+  )}
 
- <!-- CTA — `secondary` so it alternates with the `background` Blog section above and the `background` Footer below.
+ <!-- CTA — `background` so it alternates with the `secondary` Blog section above.
       desktopOnly={false}: this band runs the LetterGlitch canvas at every viewport, not just
       `glitch:` (1024px, fine pointer) — the slot's own glass card keeps the copy legible either way. -->
-  <section class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
     <LetterGlitchBand desktopOnly={false}>
       <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
         {cta.heading}
@@ -553,13 +582,62 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
   </section>
 
 <script>
+  // Credential cards open a viewer with the redacted scan of the document.
+  function initCredentialDialog() {
+    const dialog = document.getElementById('credential-dialog') as HTMLDialogElement | null;
+    const pages = document.getElementById('credential-dialog-pages');
+    const title = document.getElementById('credential-dialog-title');
+    if (!dialog || !pages || !title || dialog.dataset.init) return;
+    dialog.dataset.init = 'true';
+
+    document.querySelectorAll<HTMLButtonElement>('[data-credential]').forEach((card) => {
+      card.addEventListener('click', () => {
+        const images: string[] = JSON.parse(card.dataset.images ?? '[]');
+        title.textContent = card.dataset.title ?? '';
+        pages.replaceChildren(
+          ...images.map((src, i) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = images.length > 1 ? `${card.dataset.alt} (${i + 1}/${images.length})` : (card.dataset.alt ?? '');
+            img.loading = i === 0 ? 'eager' : 'lazy';
+            img.decoding = 'async';
+            img.className = 'credential-dialog-page';
+            img.addEventListener('click', () => img.classList.toggle('is-zoomed'));
+            return img;
+          })
+        );
+        pages.scrollTop = 0;
+        card.dataset.seen = 'true';
+        dialog.showModal();
+      });
+    });
+
+    dialog.querySelector('[data-credential-close]')?.addEventListener('click', () => dialog.close());
+    // A click on the backdrop lands on the dialog element itself.
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  }
+  initCredentialDialog();
+
   // Muted loop is the preview; the button restarts the video with sound.
   // Visitors who prefer reduced motion get the poster still until they press it.
   function initHeroVideo() {
     const video = document.querySelector<HTMLVideoElement>('.hero-video-el');
     const button = document.querySelector<HTMLButtonElement>('.hero-video-play');
     if (!video || !button) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) video.pause();
+    // The poster is the first paint. The muted loop starts once the page has
+    // loaded, so its 3 MB does not compete with the CSS and fonts the first
+    // paint waits on. Visitors who prefer reduced motion keep the poster.
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const start = () => {
+        const play = () => void video.play().catch(() => {});
+        if ('requestIdleCallback' in window) requestIdleCallback(play, { timeout: 2000 });
+        else setTimeout(play, 500);
+      };
+      if (document.readyState === 'complete') start();
+      else window.addEventListener('load', start, { once: true });
+    }
     button.addEventListener('click', () => {
       video.muted = false;
       video.loop = false;
@@ -603,6 +681,132 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
 </script>
 
 <style is:global>
+  /* Credential viewer. A native <dialog>, so focus is trapped, Escape closes it
+     and focus returns to the card that opened it. */
+  .credential-dialog {
+    margin: auto;
+    width: min(56rem, calc(100% - 1.5rem));
+    max-height: min(92dvh, 60rem);
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-card);
+    color: var(--color-foreground);
+    box-shadow: 0 30px 80px -20px rgb(0 0 0 / 0.45);
+    overflow: hidden;
+  }
+  .credential-dialog[open] {
+    display: flex;
+  }
+  .credential-dialog::backdrop {
+    background: color-mix(in srgb, oklch(18% 0.05 252) 70%, transparent);
+    backdrop-filter: blur(4px);
+  }
+  .credential-dialog-panel {
+    display: flex;
+    min-height: 0;
+    width: 100%;
+    flex-direction: column;
+  }
+  .credential-dialog-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.1rem;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-background-secondary);
+  }
+  .credential-dialog-close {
+    display: inline-flex;
+    height: 2.25rem;
+    width: 2.25rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    color: var(--color-foreground);
+    cursor: pointer;
+    transition: background-color 0.15s;
+  }
+  .credential-dialog-close:hover {
+    background: var(--color-background-tertiary);
+  }
+  .credential-dialog-body {
+    display: flex;
+    min-height: 0;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 1rem;
+    overflow: auto;
+    padding: 1rem;
+    background: color-mix(in srgb, var(--color-brand-900) 10%, var(--color-background-secondary));
+  }
+  .credential-dialog-page {
+    display: block;
+    /* The whole page fits the width on every screen. Tapping it enlarges it
+       (see .is-zoomed) and the viewer scrolls in both directions. */
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    cursor: zoom-in;
+    border-radius: 0.375rem;
+    background: #fff;
+    box-shadow: 0 6px 24px -8px rgb(0 0 0 / 0.35), 0 0 0 1px rgb(0 0 0 / 0.08);
+  }
+  .credential-dialog-page.is-zoomed {
+    width: max(200%, 44rem);
+    max-width: none;
+    cursor: zoom-out;
+  }
+  /* The tap hint only makes sense where the page is narrower than a sheet of paper. */
+  .credential-dialog-zoomhint {
+    display: none;
+  }
+  @media (max-width: 767px) {
+    .credential-dialog-zoomhint {
+      display: flex;
+    }
+  }
+  html:has(.credential-dialog[open]) {
+    overflow: hidden;
+  }
+
+  /* A quiet cue that the credential cards open a document: every four seconds a
+     soft ring spreads from the icon and the icon leans in once. It stops on
+     hover, on focus, and for good once the card has been opened, and it does not
+     run at all for visitors who prefer reduced motion. */
+  @media (prefers-reduced-motion: no-preference) {
+    .credential-card:not([data-seen]):not(:hover):not(:focus-visible) .credential-cue {
+      animation: credential-nudge 4s ease-in-out infinite;
+    }
+    .credential-card:not([data-seen]):not(:hover):not(:focus-visible) .credential-cue::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      border: 1.5px solid var(--color-brand-500);
+      opacity: 0;
+      animation: credential-ring 4s ease-out infinite;
+    }
+    li:nth-child(2) > .credential-card:not([data-seen]):not(:hover):not(:focus-visible) .credential-cue,
+    li:nth-child(2) > .credential-card:not([data-seen]):not(:hover):not(:focus-visible) .credential-cue::after {
+      animation-delay: 2s;
+    }
+  }
+  @keyframes credential-nudge {
+    0%, 70%, 100% { transform: translateX(0) scale(1); }
+    78% { transform: translateX(3px) scale(1.12); }
+    86% { transform: translateX(0) scale(1); }
+  }
+  @keyframes credential-ring {
+    0%, 70% { transform: scale(1); opacity: 0; }
+    74% { opacity: 0.55; }
+    100% { transform: scale(1.9); opacity: 0; }
+  }
+
   /* Widen the homepage hero description from md upward so the paragraph
      reads on two lines instead of three on landscape phones, tablets,
      and all laptop/desktop sizes. Scoped via the unique

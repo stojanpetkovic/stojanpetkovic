@@ -275,8 +275,8 @@ const siteConfig: SiteConfig = {
   // import this file, uses the same values. Change them there.
   name: SITE_NAME,
   description:
-    'Websites, lead generation systems and data-driven platforms — built with modern technology and a practical, business-focused mindset.',
-  tagline: 'Web developer building digital solutions that drive results',
+    'Engineering consulting and projects for the oil and gas industry, plus cloud-based software and engineering tools for technical B2B companies, by an engineer.',
+  tagline: 'Engineer building software and web systems for technical businesses',
   url: SITE_URL || SITE_URL_FALLBACK,
   // Generated at build time from `name`, `tagline` and the brand colour below.
   // Point this at a file in `public/` to use your own — it has to be a raster
@@ -302,7 +302,7 @@ const siteConfig: SiteConfig = {
   authorImage: '/avatar.svg',
   blogImageOverlay: true,
   effects: {
-    cursorTrail: true,
+    cursorTrail: false,
   },
   articleFeatures: {
     toc: {
@@ -376,8 +376,8 @@ const siteConfig: SiteConfig = {
   branding: {
     logo: {
       alt: SITE_NAME,
-      // The avatar portrait, cut on the same square as the favicons (192px).
-      image: '/logo.webp',
+      // The industrial hex mark, drawn as SVG (public/logo.svg).
+      image: '/logo.svg',
       imageUrl: '/favicon.svg',
     },
     favicon: {
