@@ -52,6 +52,12 @@ const example: Record<string, number> = {
   flowRate: 31,
 };
 
+/**
+ * Starting values: fresh water (8.33 lb/gal, Newtonian so n = 1, K = 1 cP = 0.00209 lbf·s/100 ft²) in the
+ * example string, so the page opens with a result before anything is typed.
+ */
+const defaults: Record<string, number> = { ...example, density: 8.33, n: 1, k: 0.00209 };
+
 const layout: { id: 'fluid' | 'geometry' | 'flow'; rows: { key: string; quantity: Quantity }[] }[] = [
   {
     id: 'fluid',
@@ -102,6 +108,7 @@ const resultRows = [
         id="ct-tool"
         class="grid gap-8 lg:grid-cols-[1.25fr_1fr]"
         data-example={JSON.stringify(example)}
+        data-defaults={JSON.stringify(defaults)}
         data-units={JSON.stringify(
           Object.fromEntries(Object.entries(UNITS).map(([q, u]) => [q, { label: u.label, metricToUs: u.metricToUs }]))
         )}
@@ -137,7 +144,7 @@ const resultRows = [
                           type="text"
                           inputmode="decimal"
                           autocomplete="off"
-                          value={String(example[key])}
+                          value={String(defaults[key])}
                           data-quantity={quantity}
                           aria-describedby={fields[key].hint ? `ct-${key}-hint` : undefined}
                         />
@@ -295,6 +302,7 @@ const resultRows = [
     root.dataset.init = 'true';
 
     const example: Record<string, number> = JSON.parse(root.dataset.example ?? '{}');
+    const defaults: Record<string, number> = JSON.parse(root.dataset.defaults ?? '{}');
     const regimeLabels: Record<string, string> = JSON.parse(root.dataset.regimes ?? '{}');
     const inputs = Array.from(form.querySelectorAll<HTMLInputElement>('input[data-quantity]'));
     const lang = document.documentElement.lang || 'en';
@@ -357,10 +365,10 @@ const resultRows = [
       byId('ct-dean').textContent = fixed(r.dean, 0);
     }
 
-    function fillExample() {
+    function fill(values: Record<string, number>) {
       for (const el of inputs) {
-        el.dataset.us = String(example[el.name]);
-        el.value = plain(fromUs(el.dataset.quantity as Quantity, system, example[el.name]));
+        el.dataset.us = String(values[el.name]);
+        el.value = plain(fromUs(el.dataset.quantity as Quantity, system, values[el.name]));
       }
       calculate();
     }
@@ -385,14 +393,14 @@ const resultRows = [
     root.querySelectorAll<HTMLButtonElement>('[data-system]').forEach((b) =>
       b.addEventListener('click', () => switchSystem(b.dataset.system as UnitSystem))
     );
-    byId('ct-example').addEventListener('click', fillExample);
+    byId('ct-example').addEventListener('click', () => fill(example));
     form.addEventListener('input', (e) => {
       delete (e.target as HTMLInputElement).dataset.us;
       calculate();
     });
     form.addEventListener('submit', (e) => e.preventDefault());
 
-    fillExample();
+    fill(defaults);
   }
 
   initCtTool();
