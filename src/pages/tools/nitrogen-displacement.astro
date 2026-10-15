@@ -1,0 +1,9 @@
+---
+import N2DisplacementView from '@/components/pages/views/N2DisplacementView.astro';
+import { defaultLocale } from '@/i18n';
+
+// The nitrogen displacement calculator for the default locale. Additional locales are
+// served by `src/pages/[locale]/tools/nitrogen-displacement.astro`.
+---
+
+<N2DisplacementView locale={defaultLocale} />

@@ -13,6 +13,8 @@ export interface UnitSpec {
   label: Record<UnitSystem, string>;
   /** Multiply a metric value by this to get the oilfield value. */
   metricToUs: number;
+  /** Added after the multiplication, for scales with a different zero (temperature). */
+  usOffset?: number;
 }
 
 /** 1 lb/gal = 119.826 kg/m³. */
@@ -47,17 +49,44 @@ export const UNITS = {
   force: { label: { us: 'lbf', metric: 'kN' }, metricToUs: 1 / LBF_TO_KN },
   ratio: { label: { us: '', metric: '' }, metricToUs: 1 },
   percent: { label: { us: '%', metric: '%' }, metricToUs: 1 },
+  temperature: { label: { us: '°F', metric: '°C' }, metricToUs: 1.8, usOffset: 32 },
+  /** Volume in m³ or barrels. */
+  volume: { label: { us: 'bbl', metric: 'm³' }, metricToUs: 6.28981077 },
+  /** Gas volume at standard conditions in sm³ or scf. */
+  gasVolume: { label: { us: 'scf', metric: 'sm³' }, metricToUs: 35.3146667 },
+  /** Gas volume factor: sm³/m³ or scf/bbl. */
+  gasRatio: { label: { us: 'scf/bbl', metric: 'sm³/m³' }, metricToUs: 35.3146667 / 6.28981077 },
+  liquidVolume: { label: { us: 'gal', metric: 'L' }, metricToUs: 0.264172052 },
+  mass: { label: { us: 'lb', metric: 'kg' }, metricToUs: 2.20462262 },
   velocity: { label: { us: 'ft/min', metric: 'm/s' }, metricToUs: 1 / FTMIN_TO_MS },
 } satisfies Record<string, UnitSpec>;
 
 export type Quantity = keyof typeof UNITS;
 
+/** A metric value expressed in oilfield units. */
+function metricToUs(quantity: Quantity, value: number): number {
+  const spec: UnitSpec = UNITS[quantity];
+  return value * spec.metricToUs + (spec.usOffset ?? 0);
+}
+
+/** An oilfield value expressed in metric units. */
+function usToMetric(quantity: Quantity, value: number): number {
+  const spec: UnitSpec = UNITS[quantity];
+  return (value - (spec.usOffset ?? 0)) / spec.metricToUs;
+}
+
 /** A value typed in `system` expressed in oilfield units. */
 export function toUs(quantity: Quantity, system: UnitSystem, value: number): number {
-  return system === 'us' ? value : value * UNITS[quantity].metricToUs;
+  return system === 'us' ? value : metricToUs(quantity, value);
 }
 
 /** A value in oilfield units expressed in `system`. */
 export function fromUs(quantity: Quantity, system: UnitSystem, value: number): number {
-  return system === 'us' ? value : value / UNITS[quantity].metricToUs;
+  return system === 'us' ? value : usToMetric(quantity, value);
+}
+
+/** A value in one unit system expressed in another. */
+export function convert(quantity: Quantity, from: UnitSystem, to: UnitSystem, value: number): number {
+  if (from === to) return value;
+  return from === 'metric' ? metricToUs(quantity, value) : usToMetric(quantity, value);
 }

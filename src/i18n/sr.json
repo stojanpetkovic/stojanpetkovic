@@ -1097,6 +1097,23 @@
             "Pucanje i kolaps (API 5C3, 5C7)",
             "Granice zatezanja i provera faktora tečenja"
           ]
+        },
+        {
+          "href": "/tools/nitrogen-displacement",
+          "tag": "Azot",
+          "icon": "wind",
+          "title": "Zamena fluida azotom",
+          "description": "Azot potreban da se fluid u bušotini zameni kroz coiled tubing, uključujući cev koja je ostala na bubnju.",
+          "inputs": [
+            "Dužina, veličina i dubina pumpanja coiled tubing-a",
+            "Proizvodni tubing i gustina fluida u bušotini",
+            "Temperature, kompresibilnost i gustina azota"
+          ],
+          "outputs": [
+            "Pritisak na dubini i na ušću",
+            "Zapremina gasa pri standardnim uslovima",
+            "Zapremina i masa tečnog azota"
+          ]
         }
       ]
     },
@@ -1205,6 +1222,98 @@
           "API jednačine kolapsa važe za opseg D/t iz standarda; proveri rezultate van njega."
         ],
         "reference": "Zasnovano na jednačinama API 5C3 i API RP 5C7, Timošenkovom kolapsu, Lamé jednačinama i Von Mises kriterijumu. Proračun reprodukuje referentnu tabelu za njen primer. Proveri standarde pre nego što se osloniš na rezultat; vek trajanja pod zamorom nije pokriven."
+      }
+    },
+    "nitrogenDisplacement": {
+      "meta": {
+        "title": "Zamena fluida azotom",
+        "description": "Izračunaj koliko je azota potrebno da se fluid u bušotini zameni kroz coiled tubing: gas pri standardnim uslovima, kao tečni azot i po masi, u metričkim ili oilfield jedinicama."
+      },
+      "hero": {
+        "badge": "Azot",
+        "title": "Zamena fluida azotom",
+        "description": "Koliko je azota potrebno da se fluid u bušotini zameni kroz coiled tubing, uključujući cev koja je ostala na bubnju. Metričke ili oilfield jedinice."
+      },
+      "groups": {
+        "coil": "Coiled tubing",
+        "well": "Bušotina",
+        "gas": "Azot"
+      },
+      "fields": {
+        "ctLength": {
+          "label": "Coiled tubing na bubnju",
+          "hint": "Ukupna dužina, uključujući deo koji ulazi u bušotinu"
+        },
+        "depth": {
+          "label": "Dubina pumpanja",
+          "hint": "Dubina sa koje se pumpa azot"
+        },
+        "ctOd": {
+          "label": "Spoljašnji prečnik coiled tubing-a"
+        },
+        "ctWall": {
+          "label": "Debljina zida coiled tubing-a"
+        },
+        "tubingOd": {
+          "label": "Spoljašnji prečnik proizvodnog tubinga"
+        },
+        "tubingWall": {
+          "label": "Debljina zida proizvodnog tubinga"
+        },
+        "fluidDensity": {
+          "label": "Fluid u bušotini",
+          "hint": "Gustina fluida koji se zamenjuje"
+        },
+        "tempDepth": {
+          "label": "Temperatura na dubini"
+        },
+        "tempSurface": {
+          "label": "Temperatura na ušću bušotine"
+        },
+        "compressibility": {
+          "label": "Faktor kompresibilnosti, Z",
+          "hint": "1 za idealan gas; azot pri visokom pritisku je veći, iz tablice gasa"
+        },
+        "nitrogenDensity": {
+          "label": "Srednja gustina azota u bušotini",
+          "hint": "Prosečna gustina gasnog stuba; određuje pritisak na ušću"
+        }
+      },
+      "results": {
+        "title": "Rezultat",
+        "totalMass": "Ukupno potrebno azota",
+        "conditions": "Uslovi gasa",
+        "pressureDepth": "Pritisak na dubini",
+        "pressureSurface": "Pritisak na ušću bušotine",
+        "pressureMean": "Srednji pritisak",
+        "factorMean": "Zapreminski faktor, srednji",
+        "factorSurface": "Zapreminski faktor, ušće",
+        "well": "Ispunjavanje bušotine",
+        "fillVolume": "Zapremina ispunjena gasom",
+        "reel": "Ispunjavanje cevi na bubnju",
+        "total": "Ukupno",
+        "gas": "Gas pri standardnim uslovima",
+        "liquid": "Kao tečni azot",
+        "mass": "Masa"
+      },
+      "method": {
+        "title": "Metoda",
+        "intro": "Fluid u bušotini se zamenjuje do dubine pumpanja; azot koji ispunjava stub i cev na bubnju sabira se kao gas, tečnost i masa.",
+        "steps": [
+          "Pritisak na dubini drži ravnotežu hidrostatičkom stubu fluida u bušotini: P = ρ·g·h. Pritisak na ušću je ta vrednost minus težina stuba azota, iz srednje gustine azota. Stub se uzima pri srednjoj vrednosti oba pritiska i obe temperature.",
+          "Zapreminski faktor azota: B = 2,8416·P / (Z·(273 + T)) u sm³/m³, sa P u kPa i T u °C. Konstanta odgovara standardnim uslovima od oko 15 °C i 101,3 kPa.",
+          "Zapremina ispunjena gasom: zapremina kanala proizvodnog tubinga minus čelik coiled tubing-a, puta dubina. To su prstenasti prostor i kanal coiled tubing-a, svaki brojan jednom.",
+          "Azot za bušotinu je ta zapremina puta faktor pri srednjim uslovima. Azot za cev na bubnju je zapremina njenog kanala puta faktor pri uslovima na ušću.",
+          "Tečni azot: 1 m³ tečnosti daje 696,5 sm³ gasa i teži 808 kg."
+        ],
+        "assumptionsTitle": "Pretpostavke",
+        "assumptions": [
+          "Fluid se u vertikalnoj bušotini potpuno zamenjuje do dubine pumpanja.",
+          "Faktor kompresibilnosti je konstantan duž stuba; temperatura je srednja vrednost oba kraja.",
+          "Srednja gustina azota je ulaz, ne izvodi se iz pritiska; pritisak na ušću iz nje sledi.",
+          "Nema dotoka fluida u bušotinu ni gubitka azota; gubici pri pumpanju i rezerva nisu uračunati."
+        ],
+        "reference": "Reprodukuje referentnu tabelu, uz jednu razliku: tabela kanal coiled tubing-a računa dvaput u zapremini ispunjenoj gasom, ovde se računa jednom, pa je azot za bušotinu manji nego u tabeli. Proveri osobine gasa prema tablici azota pre nego što se osloniš na rezultat."
       }
     },
     "ctPressureLoss": {

@@ -18,15 +18,17 @@ interface Props {
   description: string;
   hero: { badge: string; title: string; description: string };
   resultTitle: string;
-  /** Oilfield-unit values the example button loads. */
+  /** Values, in the base unit system, the example button loads. */
   example: Record<string, number>;
-  /** Oilfield-unit values the form opens with. */
+  /** Values, in the base unit system, the form opens with. */
   defaults: Record<string, number>;
+  /** Unit system the calculation and the values above are in. Defaults to oilfield. */
+  base?: 'us' | 'metric';
   /** Extra data attributes for the script, e.g. labels. */
   data?: Record<string, string>;
 }
 
-const { locale, title, description, hero, resultTitle, example, defaults, data = {} } = Astro.props;
+const { locale, title, description, hero, resultTitle, example, defaults, base = 'us', data = {} } = Astro.props;
 const system = tData<{ label: string; us: string; metric: string }>('pages.tools.form.system', locale)!;
 const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data-${k}`, v]));
 ---
@@ -58,13 +60,14 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
         class="grid gap-8 lg:grid-cols-[1.25fr_1fr]"
         data-example={JSON.stringify(example)}
         data-defaults={JSON.stringify(defaults)}
+        data-base={base}
         {...dataAttrs}
       >
         <form class="tool-card !p-6" novalidate>
           <div class="flex flex-wrap items-center justify-between gap-3">
             <div role="group" aria-label={system.label} class="tool-segment">
-              <button type="button" data-system="us" aria-pressed="true">{system.us}</button>
-              <button type="button" data-system="metric" aria-pressed="false">{system.metric}</button>
+              <button type="button" data-system="us" aria-pressed={base === 'us'}>{system.us}</button>
+              <button type="button" data-system="metric" aria-pressed={base === 'metric'}>{system.metric}</button>
             </div>
             <button
               type="button"

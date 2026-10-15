@@ -1097,6 +1097,23 @@
             "Platzen und Kollaps (API 5C3, 5C7)",
             "Zuggrenzen und Prüfung des Streckgrenzenfaktors"
           ]
+        },
+        {
+          "href": "/tools/nitrogen-displacement",
+          "tag": "Stickstoff",
+          "icon": "wind",
+          "title": "Stickstoff-Verdrängung",
+          "description": "Stickstoff, der nötig ist, um die Flüssigkeit in einer Bohrung über Coiled Tubing zu verdrängen, einschließlich des Rohrs auf der Haspel.",
+          "inputs": [
+            "Länge, Größe und Pumptiefe des Coiled Tubings",
+            "Förderrohr und Dichte der Bohrlochflüssigkeit",
+            "Temperaturen, Kompressibilität und Stickstoffdichte"
+          ],
+          "outputs": [
+            "Druck in der Tiefe und am Bohrlochkopf",
+            "Gasvolumen im Normzustand",
+            "Volumen und Masse des flüssigen Stickstoffs"
+          ]
         }
       ]
     },
@@ -1205,6 +1222,98 @@
           "Die API-Kollapsgleichungen gelten im D/t-Bereich der Normen; prüfen Sie Ergebnisse außerhalb davon."
         ],
         "reference": "Basiert auf den Gleichungen von API 5C3 und API RP 5C7, dem Timoshenko-Kollaps, den Lamé-Gleichungen und dem Kriterium nach von Mises. Die Berechnung reproduziert für ihren Beispielfall ein Referenz-Arbeitsblatt. Prüfen Sie die Normen, bevor Sie sich auf ein Ergebnis verlassen; die Lebensdauer unter Ermüdung ist nicht abgedeckt."
+      }
+    },
+    "nitrogenDisplacement": {
+      "meta": {
+        "title": "Stickstoff-Verdrängung",
+        "description": "Berechnen Sie, wie viel Stickstoff nötig ist, um die Flüssigkeit in einer Bohrung über Coiled Tubing zu verdrängen: Gas im Normzustand, als flüssiger Stickstoff und als Masse, in metrischen oder Feldeinheiten."
+      },
+      "hero": {
+        "badge": "Stickstoff",
+        "title": "Stickstoff-Verdrängung",
+        "description": "Wie viel Stickstoff nötig ist, um die Flüssigkeit in einer Bohrung über Coiled Tubing zu verdrängen, einschließlich des Rohrs auf der Haspel. Metrische oder Feldeinheiten."
+      },
+      "groups": {
+        "coil": "Coiled Tubing",
+        "well": "Bohrung",
+        "gas": "Stickstoff"
+      },
+      "fields": {
+        "ctLength": {
+          "label": "Coiled Tubing auf der Haspel",
+          "hint": "Gesamtlänge, einschließlich des Teils in der Bohrung"
+        },
+        "depth": {
+          "label": "Pumptiefe",
+          "hint": "Tiefe, aus der der Stickstoff gepumpt wird"
+        },
+        "ctOd": {
+          "label": "Außendurchmesser Coiled Tubing"
+        },
+        "ctWall": {
+          "label": "Wandstärke Coiled Tubing"
+        },
+        "tubingOd": {
+          "label": "Außendurchmesser Förderrohr"
+        },
+        "tubingWall": {
+          "label": "Wandstärke Förderrohr"
+        },
+        "fluidDensity": {
+          "label": "Flüssigkeit in der Bohrung",
+          "hint": "Dichte der verdrängten Flüssigkeit"
+        },
+        "tempDepth": {
+          "label": "Temperatur in der Tiefe"
+        },
+        "tempSurface": {
+          "label": "Temperatur am Bohrlochkopf"
+        },
+        "compressibility": {
+          "label": "Kompressibilitätsfaktor, Z",
+          "hint": "1 für ein ideales Gas; Stickstoff bei hohem Druck liegt höher, aus einer Gastabelle"
+        },
+        "nitrogenDensity": {
+          "label": "Mittlere Stickstoffdichte in der Bohrung",
+          "hint": "Mittlere Dichte der Gassäule; bestimmt den Druck am Bohrlochkopf"
+        }
+      },
+      "results": {
+        "title": "Ergebnis",
+        "totalMass": "Gesamter Stickstoffbedarf",
+        "conditions": "Gaszustand",
+        "pressureDepth": "Druck in der Tiefe",
+        "pressureSurface": "Druck am Bohrlochkopf",
+        "pressureMean": "Mittlerer Druck",
+        "factorMean": "Volumenfaktor, Mittel",
+        "factorSurface": "Volumenfaktor, Bohrlochkopf",
+        "well": "Füllen der Bohrung",
+        "fillVolume": "Mit Gas gefülltes Volumen",
+        "reel": "Füllen des Rohrs auf der Haspel",
+        "total": "Gesamt",
+        "gas": "Gas im Normzustand",
+        "liquid": "Als flüssiger Stickstoff",
+        "mass": "Masse"
+      },
+      "method": {
+        "title": "Methode",
+        "intro": "Die Bohrlochflüssigkeit wird bis zur Pumptiefe verdrängt; der Stickstoff, der die Säule und das Rohr auf der Haspel füllt, wird als Gas, Flüssigkeit und Masse summiert.",
+        "steps": [
+          "Der Druck in der Tiefe hält der hydrostatischen Säule der Bohrlochflüssigkeit die Waage: P = ρ·g·h. Der Druck am Bohrlochkopf ist dieser Wert minus das Gewicht der Stickstoffsäule, aus der mittleren Stickstoffdichte. Die Säule wird beim Mittel beider Drücke und beider Temperaturen betrachtet.",
+          "Volumenfaktor von Stickstoff: B = 2,8416·P / (Z·(273 + T)) in sm³/m³, mit P in kPa und T in °C. Die Konstante steht für einen Normzustand von etwa 15 °C und 101,3 kPa.",
+          "Mit Gas gefülltes Volumen: das Volumen der Förderrohrbohrung minus der Coiled-Tubing-Stahl, mal die Tiefe. Das sind der Ringraum und die Coiled-Tubing-Bohrung, jeweils einmal gezählt.",
+          "Der Stickstoff für die Bohrung ist dieses Volumen mal der Faktor bei mittleren Bedingungen. Der Stickstoff für das Rohr auf der Haspel ist dessen Bohrungsvolumen mal der Faktor bei Bedingungen am Bohrlochkopf.",
+          "Flüssiger Stickstoff: 1 m³ Flüssigkeit ergibt 696,5 sm³ Gas und wiegt 808 kg."
+        ],
+        "assumptionsTitle": "Annahmen",
+        "assumptions": [
+          "Die Flüssigkeit wird in einer vertikalen Bohrung vollständig bis zur Pumptiefe verdrängt.",
+          "Der Kompressibilitätsfaktor ist entlang der Säule konstant; die Temperatur ist das Mittel der beiden Enden.",
+          "Die mittlere Stickstoffdichte ist eine Eingabe und wird nicht aus dem Druck abgeleitet; der Druck am Bohrlochkopf folgt daraus.",
+          "Es fließt keine Flüssigkeit zu und es geht kein Stickstoff verloren; Pumpverluste oder eine Reserve sind nicht berücksichtigt."
+        ],
+        "reference": "Reproduziert ein Referenz-Arbeitsblatt, mit einem Unterschied: Das Arbeitsblatt zählt die Coiled-Tubing-Bohrung im gasgefüllten Volumen doppelt, hier wird sie einmal gezählt, sodass der Stickstoff für die Bohrung niedriger ausfällt als im Arbeitsblatt. Prüfen Sie die Gaseigenschaften an einer Stickstofftabelle, bevor Sie sich auf ein Ergebnis verlassen."
       }
     },
     "ctPressureLoss": {

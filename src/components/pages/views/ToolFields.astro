@@ -3,7 +3,7 @@
  * ToolFields — the grouped input fields of an engineering tool form.
  *
  * Each field is a text input with a unit label that `initToolForm` keeps in step
- * with the chosen unit system. The starting values are in oilfield units.
+ * with the chosen unit system. The starting values are in the base unit system.
  */
 import { UNITS, type Quantity } from '@/lib/tools/units';
 
@@ -11,9 +11,11 @@ interface Props {
   groups: { id: string; label: string; rows: { key: string; quantity: Quantity }[] }[];
   fields: Record<string, { label: string; hint?: string }>;
   values: Record<string, number>;
+  /** Unit system the starting values are in. Defaults to oilfield. */
+  base?: 'us' | 'metric';
 }
 
-const { groups, fields, values } = Astro.props;
+const { groups, fields, values, base = 'us' } = Astro.props;
 ---
 
 {
@@ -39,7 +41,7 @@ const { groups, fields, values } = Astro.props;
                 data-quantity={quantity}
                 aria-describedby={fields[key].hint ? `tool-${key}-hint` : undefined}
               />
-              <span data-unit-for={key}>{UNITS[quantity].label.us}</span>
+              <span data-unit-for={key}>{UNITS[quantity].label[base]}</span>
             </div>
             {fields[key].hint && (
               <p id={`tool-${key}-hint`} class="mt-1 text-xs leading-snug text-foreground-subtle">

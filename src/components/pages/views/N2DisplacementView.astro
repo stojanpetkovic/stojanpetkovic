@@ -1,0 +1,198 @@
+---
+/**
+ * N2DisplacementView — the nitrogen displacement calculator page.
+ *
+ * Inputs on the left (in metric units, the units of the field this was built
+ * for, with a switch to oilfield units), the nitrogen needed on the right,
+ * inside the shared `ToolPage` shell. The calculation runs in the browser with
+ * `src/lib/tools/n2-displacement.ts` through `initToolForm`. Copy comes from
+ * `pages.nitrogenDisplacement.*`.
+ */
+import ToolPage from './ToolPage.astro';
+import ToolFields from './ToolFields.astro';
+import ToolMethod from './ToolMethod.astro';
+import { t, tData, defaultLocale } from '@/i18n';
+import type { Quantity } from '@/lib/tools/units';
+
+interface Props {
+  /** Locale whose copy this page renders. Defaults to the site default. */
+  locale?: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+
+const p = (key: string) => `pages.nitrogenDisplacement.${key}`;
+const hero = tData<{ badge: string; title: string; description: string }>(p('hero'), locale)!;
+const groups = tData<Record<'coil' | 'well' | 'gas', string>>(p('groups'), locale)!;
+const fields = tData<Record<string, { label: string; hint?: string }>>(p('fields'), locale)!;
+const r = tData<Record<string, string>>(p('results'), locale)!;
+const method = tData<Parameters<typeof ToolMethod>[0]['method']>(p('method'), locale)!;
+
+/** A 5000 m string pumped from 3000 m in a 2⅞" string: the reference worksheet's example, in metric units. */
+const example: Record<string, number> = {
+  ctLength: 5000,
+  ctOd: 31.175,
+  ctWall: 2.77,
+  depth: 3000,
+  tubingOd: 73.02,
+  tubingWall: 5.51,
+  fluidDensity: 1000,
+  tempDepth: 120,
+  tempSurface: 15,
+  compressibility: 1,
+  nitrogenDensity: 227.5,
+};
+
+const layout: { id: keyof typeof groups; rows: { key: string; quantity: Quantity }[] }[] = [
+  {
+    id: 'coil',
+    rows: [
+      { key: 'ctLength', quantity: 'length' },
+      { key: 'depth', quantity: 'length' },
+      { key: 'ctOd', quantity: 'diameter' },
+      { key: 'ctWall', quantity: 'diameter' },
+    ],
+  },
+  {
+    id: 'well',
+    rows: [
+      { key: 'tubingOd', quantity: 'diameter' },
+      { key: 'tubingWall', quantity: 'diameter' },
+      { key: 'fluidDensity', quantity: 'density' },
+      { key: 'tempDepth', quantity: 'temperature' },
+      { key: 'tempSurface', quantity: 'temperature' },
+    ],
+  },
+  {
+    id: 'gas',
+    rows: [
+      { key: 'compressibility', quantity: 'ratio' },
+      { key: 'nitrogenDensity', quantity: 'density' },
+    ],
+  },
+];
+
+type Row = { key: string; label: string; quantity: string };
+const row = (key: string, label: string, quantity: string): Row => ({ key, label, quantity });
+const sections: { title: string; rows: Row[] }[] = [
+  {
+    title: r.conditions,
+    rows: [
+      row('pressureDepth', r.pressureDepth, 'pressure'),
+      row('pressureSurface', r.pressureSurface, 'pressure'),
+      row('pressureMean', r.pressureMean, 'pressure'),
+      row('factorMean', r.factorMean, 'gasRatio'),
+      row('factorSurface', r.factorSurface, 'gasRatio'),
+    ],
+  },
+  {
+    title: r.well,
+    rows: [
+      row('fillVolume', r.fillVolume, 'volume'),
+      row('wellGas', r.gas, 'gasVolume'),
+      row('wellLiquid', r.liquid, 'liquidVolume'),
+      row('wellMass', r.mass, 'mass'),
+    ],
+  },
+  {
+    title: r.reel,
+    rows: [
+      row('reelGas', r.gas, 'gasVolume'),
+      row('reelLiquid', r.liquid, 'liquidVolume'),
+      row('reelMass', r.mass, 'mass'),
+    ],
+  },
+  {
+    title: r.total,
+    rows: [row('totalGas', r.gas, 'gasVolume'), row('totalLiquid', r.liquid, 'liquidVolume')],
+  },
+];
+---
+
+<ToolPage
+  locale={locale}
+  title={t(p('meta.title'), locale)}
+  description={t(p('meta.description'), locale)}
+  hero={hero}
+  resultTitle={r.title}
+  example={example}
+  defaults={example}
+  base="metric"
+>
+  <ToolFields
+    groups={layout.map((g) => ({ id: g.id, label: groups[g.id], rows: g.rows }))}
+    fields={fields}
+    values={example}
+    base="metric"
+  />
+
+  <Fragment slot="results">
+    <p class="mt-4 text-sm text-foreground-muted">{r.totalMass}</p>
+    <p class="mt-1 font-display text-4xl font-bold tracking-tight text-brand-700">
+      <span data-out="totalMass" data-quantity="mass">–</span>
+      <span data-unit-out="mass" class="text-xl font-semibold text-foreground-muted"></span>
+    </p>
+
+    {
+      sections.map((section) => (
+        <section class="mt-5 border-t border-border pt-4">
+          <h3 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
+            {section.title}
+          </h3>
+          <dl class="mt-2 divide-y divide-border text-sm">
+            {section.rows.map((item) => (
+              <div class="flex items-baseline justify-between gap-3 py-2">
+                <dt class="text-foreground-muted">{item.label}</dt>
+                <dd class="whitespace-nowrap font-mono text-foreground">
+                  <span data-out={item.key} data-quantity={item.quantity}>
+                    –
+                  </span>{' '}
+                  <span data-unit-out={item.quantity} class="text-foreground-muted" />
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ))
+    }
+  </Fragment>
+
+  <ToolMethod slot="method" method={method} />
+</ToolPage>
+
+<script>
+  import { initToolForm } from '@/lib/tools/tool-form';
+  import { calculateN2Displacement, validateN2Input, type N2Input } from '@/lib/tools/n2-displacement';
+
+  function init() {
+    const root = document.getElementById('tool');
+    if (!root) return;
+    initToolForm(root, (input) => {
+      const errors = validateN2Input(input as unknown as N2Input);
+      if (errors.length > 0) return { errors };
+      const n = calculateN2Displacement(input as unknown as N2Input);
+      return {
+        values: {
+          totalMass: n.total.mass,
+          pressureDepth: n.pressureDepth,
+          pressureSurface: n.pressureSurface,
+          pressureMean: n.pressureMean,
+          factorMean: n.factorMean,
+          factorSurface: n.factorSurface,
+          fillVolume: n.fillVolume,
+          wellGas: n.well.gas,
+          wellLiquid: n.well.liquid,
+          wellMass: n.well.mass,
+          reelGas: n.reel.gas,
+          reelLiquid: n.reel.liquid,
+          reelMass: n.reel.mass,
+          totalGas: n.total.gas,
+          totalLiquid: n.total.liquid,
+        },
+      };
+    });
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>

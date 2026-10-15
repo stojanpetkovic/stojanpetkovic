@@ -3,8 +3,9 @@
  * oilfield or metric units, and result elements that show the outcome.
  *
  * The page marks up the pieces with data attributes and supplies `compute`,
- * which receives the inputs in oilfield units and returns either the names of
- * unusable fields or the output values (in oilfield units). The rest is shared:
+ * which receives the inputs in the tool's base unit system (`data-base` on the
+ * root, oilfield by default) and returns either the names of unusable fields or
+ * the output values in the same system. The rest is shared:
  * unit switching that converts the typed values from their exact oilfield value,
  * validation marks, the example button and number formatting for the page
  * language.
@@ -18,7 +19,7 @@
  * - `[data-out="<key>"]` for each output, with `data-quantity` to convert it and
  *   `[data-unit-out="<quantity>"]` for unit labels.
  */
-import { fromUs, toUs, UNITS, type Quantity, type UnitSystem } from './units';
+import { convert, UNITS, type Quantity, type UnitSystem } from './units';
 
 export type Outcome =
   | { errors: string[]; values?: undefined }
@@ -33,7 +34,9 @@ export function initToolForm(root: HTMLElement, compute: (input: Record<string, 
   const defaults: Record<string, number> = JSON.parse(root.dataset.defaults ?? '{}');
   const inputs = Array.from(form.querySelectorAll<HTMLInputElement>('input[data-quantity]'));
   const lang = document.documentElement.lang || 'en';
-  let system: UnitSystem = 'us';
+  /** The unit system the calculation works in; the form opens in it. */
+  const base: UnitSystem = root.dataset.base === 'metric' ? 'metric' : 'us';
+  let system: UnitSystem = base;
 
   const parse = (raw: string) => Number(raw.trim().replace(',', '.'));
   /** Plain number for an input field: no grouping, so it parses back unchanged. */
@@ -60,7 +63,7 @@ export function initToolForm(root: HTMLElement, compute: (input: Record<string, 
   function calculate() {
     const input: Record<string, number> = {};
     for (const el of inputs) {
-      input[el.name] = el.value.trim() === '' ? NaN : toUs(el.dataset.quantity as Quantity, system, parse(el.value));
+      input[el.name] = el.value.trim() === '' ? NaN : convert(el.dataset.quantity as Quantity, system, base, parse(el.value));
     }
     const outcome = compute(input);
     const errors = outcome.errors ?? [];
@@ -83,15 +86,15 @@ export function initToolForm(root: HTMLElement, compute: (input: Record<string, 
       } else {
         const quantity = el.dataset.quantity as Quantity | undefined;
         const decimals = el.dataset.decimals === undefined ? undefined : Number(el.dataset.decimals);
-        el.textContent = show(quantity ? fromUs(quantity, system, value) : value, decimals);
+        el.textContent = show(quantity ? convert(quantity, base, system, value) : value, decimals);
       }
     });
   }
 
   function fill(values: Record<string, number>) {
     for (const el of inputs) {
-      el.dataset.us = String(values[el.name]);
-      el.value = plain(fromUs(el.dataset.quantity as Quantity, system, values[el.name]));
+      el.dataset.base = String(values[el.name]);
+      el.value = plain(convert(el.dataset.quantity as Quantity, base, system, values[el.name]));
     }
     calculate();
   }
@@ -102,11 +105,11 @@ export function initToolForm(root: HTMLElement, compute: (input: Record<string, 
       const quantity = el.dataset.quantity as Quantity;
       const v = parse(el.value);
       if (el.value.trim() === '' || !Number.isFinite(v)) continue;
-      // Convert from the exact oilfield value while the field is untouched, so switching back and
+      // Convert from the exact base value while the field is untouched, so switching back and
       // forth does not accumulate rounding.
-      const us = el.dataset.us ? Number(el.dataset.us) : toUs(quantity, system, v);
-      el.dataset.us = String(us);
-      el.value = plain(fromUs(quantity, next, us));
+      const exact = el.dataset.base ? Number(el.dataset.base) : convert(quantity, system, base, v);
+      el.dataset.base = String(exact);
+      el.value = plain(convert(quantity, base, next, exact));
     }
     system = next;
     setUnits();
@@ -118,7 +121,7 @@ export function initToolForm(root: HTMLElement, compute: (input: Record<string, 
     .forEach((b) => b.addEventListener('click', () => switchSystem(b.dataset.system as UnitSystem)));
   root.querySelector('[data-tool-example]')?.addEventListener('click', () => fill(example));
   form.addEventListener('input', (e) => {
-    delete (e.target as HTMLInputElement).dataset.us;
+    delete (e.target as HTMLInputElement).dataset.base;
     calculate();
   });
   form.addEventListener('submit', (e) => e.preventDefault());

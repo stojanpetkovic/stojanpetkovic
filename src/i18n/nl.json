@@ -1097,6 +1097,23 @@
             "Barsten en instorten (API 5C3, 5C7)",
             "Trekgrenzen en toets van de vloeigrensfactor"
           ]
+        },
+        {
+          "href": "/tools/nitrogen-displacement",
+          "tag": "Stikstof",
+          "icon": "wind",
+          "title": "Stikstofverplaatsing",
+          "description": "Stikstof die nodig is om de vloeistof in een put via coiled tubing te verplaatsen, inclusief de buis die op de haspel blijft.",
+          "inputs": [
+            "Lengte, maat en pompdiepte van de coiled tubing",
+            "Productiebuis en dichtheid van de putvloeistof",
+            "Temperaturen, compressibiliteit en stikstofdichtheid"
+          ],
+          "outputs": [
+            "Druk op diepte en aan de putkop",
+            "Gasvolume onder standaardcondities",
+            "Volume en massa van vloeibare stikstof"
+          ]
         }
       ]
     },
@@ -1205,6 +1222,98 @@
           "De API-instortvergelijkingen gelden voor het D/t-bereik van de normen; controleer resultaten daarbuiten."
         ],
         "reference": "Gebaseerd op de vergelijkingen van API 5C3 en API RP 5C7, Timoshenko-instorten, de Lamé-vergelijkingen en het criterium van von Mises. De berekening reproduceert voor haar voorbeeldgeval een referentiewerkblad. Controleer de normen voordat je op een resultaat vertrouwt; levensduur onder vermoeiing valt hierbuiten."
+      }
+    },
+    "nitrogenDisplacement": {
+      "meta": {
+        "title": "Stikstofverplaatsing",
+        "description": "Bereken hoeveel stikstof nodig is om de vloeistof in een put via coiled tubing te verplaatsen: gas onder standaardcondities, als vloeibare stikstof en als massa, in metrische of oliveldeenheden."
+      },
+      "hero": {
+        "badge": "Stikstof",
+        "title": "Stikstofverplaatsing",
+        "description": "Hoeveel stikstof nodig is om de vloeistof in een put via coiled tubing te verplaatsen, inclusief de buis die nog op de haspel zit. Metrische of oliveldeenheden."
+      },
+      "groups": {
+        "coil": "Coiled tubing",
+        "well": "Put",
+        "gas": "Stikstof"
+      },
+      "fields": {
+        "ctLength": {
+          "label": "Coiled tubing op de haspel",
+          "hint": "Totale lengte, inclusief het deel dat de put in gaat"
+        },
+        "depth": {
+          "label": "Pompdiepte",
+          "hint": "Diepte waarvandaan de stikstof wordt gepompt"
+        },
+        "ctOd": {
+          "label": "Coiled tubing-OD"
+        },
+        "ctWall": {
+          "label": "Coiled tubing-wanddikte"
+        },
+        "tubingOd": {
+          "label": "OD productiebuis"
+        },
+        "tubingWall": {
+          "label": "Wanddikte productiebuis"
+        },
+        "fluidDensity": {
+          "label": "Vloeistof in de put",
+          "hint": "Dichtheid van de te verplaatsen vloeistof"
+        },
+        "tempDepth": {
+          "label": "Temperatuur op diepte"
+        },
+        "tempSurface": {
+          "label": "Temperatuur aan de putkop"
+        },
+        "compressibility": {
+          "label": "Compressibiliteitsfactor, Z",
+          "hint": "1 voor een ideaal gas; stikstof bij hoge druk ligt hoger, uit een gastabel"
+        },
+        "nitrogenDensity": {
+          "label": "Gemiddelde stikstofdichtheid in de put",
+          "hint": "Gemiddelde dichtheid van de gaskolom; bepaalt de druk aan de putkop"
+        }
+      },
+      "results": {
+        "title": "Resultaat",
+        "totalMass": "Totaal benodigde stikstof",
+        "conditions": "Gascondities",
+        "pressureDepth": "Druk op diepte",
+        "pressureSurface": "Druk aan de putkop",
+        "pressureMean": "Gemiddelde druk",
+        "factorMean": "Volumefactor, gemiddeld",
+        "factorSurface": "Volumefactor, putkop",
+        "well": "De put vullen",
+        "fillVolume": "Met gas gevuld volume",
+        "reel": "De buis op de haspel vullen",
+        "total": "Totaal",
+        "gas": "Gas onder standaardcondities",
+        "liquid": "Als vloeibare stikstof",
+        "mass": "Massa"
+      },
+      "method": {
+        "title": "Methode",
+        "intro": "De putvloeistof wordt verplaatst tot de pompdiepte; de stikstof die de kolom en de buis op de haspel vult, wordt opgeteld als gas, vloeistof en massa.",
+        "steps": [
+          "De druk op diepte houdt de hydrostatische kolom van de putvloeistof in evenwicht: P = ρ·g·h. De druk aan de putkop is die waarde minus het gewicht van de stikstofkolom, uit de gemiddelde stikstofdichtheid. De kolom wordt genomen bij het gemiddelde van beide drukken en beide temperaturen.",
+          "Volumefactor van stikstof: B = 2,8416·P / (Z·(273 + T)) in sm³/m³, met P in kPa en T in °C. De constante staat voor standaardcondities van ongeveer 15 °C en 101,3 kPa.",
+          "Met gas gevuld volume: het volume van de boring van de productiebuis min het staal van de coiled tubing, maal de diepte. Dat is de annulus en de boring van de coiled tubing, elk één keer geteld.",
+          "De stikstof voor de put is dat volume maal de factor bij gemiddelde condities. De stikstof voor de buis op de haspel is het boringvolume maal de factor bij condities aan de putkop.",
+          "Vloeibare stikstof: 1 m³ vloeistof geeft 696,5 sm³ gas en weegt 808 kg."
+        ],
+        "assumptionsTitle": "Aannames",
+        "assumptions": [
+          "De vloeistof wordt in een verticale put volledig verplaatst tot de pompdiepte.",
+          "De compressibiliteitsfactor is constant langs de kolom; de temperatuur is het gemiddelde van beide uiteinden.",
+          "De gemiddelde stikstofdichtheid is een invoer en wordt niet uit de druk afgeleid; de druk aan de putkop volgt daaruit.",
+          "Er stroomt geen vloeistof de put in en er gaat geen stikstof verloren; pompverliezen of een reserve zijn niet meegenomen."
+        ],
+        "reference": "Reproduceert een referentiewerkblad, met één verschil: het werkblad telt de boring van de coiled tubing dubbel in het met gas gevulde volume, hier wordt die één keer geteld, zodat de stikstof voor de put lager uitvalt dan in het werkblad. Controleer de gaseigenschappen aan een stikstoftabel voordat je op een resultaat vertrouwt."
       }
     },
     "ctPressureLoss": {

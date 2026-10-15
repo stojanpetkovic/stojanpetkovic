@@ -1097,6 +1097,23 @@
             "Burst and collapse (API 5C3, 5C7)",
             "Tension limits and the yield-factor check"
           ]
+        },
+        {
+          "href": "/tools/nitrogen-displacement",
+          "tag": "Nitrogen",
+          "icon": "wind",
+          "title": "Nitrogen Displacement",
+          "description": "Nitrogen needed to displace the fluid in a well through coiled tubing, including the tubing left on the reel.",
+          "inputs": [
+            "Coiled tubing length, size and pumping depth",
+            "Production tubing and well fluid density",
+            "Temperatures, compressibility and nitrogen density"
+          ],
+          "outputs": [
+            "Pressure at depth and at the wellhead",
+            "Gas volume at standard conditions",
+            "Liquid nitrogen volume and mass"
+          ]
         }
       ]
     },
@@ -1205,6 +1222,98 @@
           "The API collapse equations are valid for the D/t range of the standards; check results outside it."
         ],
         "reference": "Based on the API 5C3 and API RP 5C7 equations, Timoshenko collapse, the Lamé equations and the von Mises criterion. The calculation reproduces a reference worksheet for its example case. Check the standards before you rely on a result; fatigue life is not covered."
+      }
+    },
+    "nitrogenDisplacement": {
+      "meta": {
+        "title": "Nitrogen Displacement",
+        "description": "Calculate how much nitrogen is needed to displace the fluid in a well through coiled tubing: gas at standard conditions, as liquid nitrogen and by mass, in metric or oilfield units."
+      },
+      "hero": {
+        "badge": "Nitrogen",
+        "title": "Nitrogen Displacement",
+        "description": "How much nitrogen it takes to displace the fluid in a well through coiled tubing, including the tubing still on the reel. Metric or oilfield units."
+      },
+      "groups": {
+        "coil": "Coiled tubing",
+        "well": "Well",
+        "gas": "Nitrogen"
+      },
+      "fields": {
+        "ctLength": {
+          "label": "Coiled tubing on the reel",
+          "hint": "Total length, including what goes into the well"
+        },
+        "depth": {
+          "label": "Pumping depth",
+          "hint": "Depth the nitrogen is pumped from"
+        },
+        "ctOd": {
+          "label": "Coiled tubing OD"
+        },
+        "ctWall": {
+          "label": "Coiled tubing wall"
+        },
+        "tubingOd": {
+          "label": "Production tubing OD"
+        },
+        "tubingWall": {
+          "label": "Production tubing wall"
+        },
+        "fluidDensity": {
+          "label": "Fluid in the well",
+          "hint": "Density of the fluid being displaced"
+        },
+        "tempDepth": {
+          "label": "Temperature at depth"
+        },
+        "tempSurface": {
+          "label": "Temperature at the wellhead"
+        },
+        "compressibility": {
+          "label": "Compressibility factor, Z",
+          "hint": "1 for an ideal gas; nitrogen at high pressure is higher, from a gas table"
+        },
+        "nitrogenDensity": {
+          "label": "Mean nitrogen density in the well",
+          "hint": "Average density of the gas column; sets the pressure at the wellhead"
+        }
+      },
+      "results": {
+        "title": "Result",
+        "totalMass": "Total nitrogen required",
+        "conditions": "Gas conditions",
+        "pressureDepth": "Pressure at depth",
+        "pressureSurface": "Pressure at the wellhead",
+        "pressureMean": "Mean pressure",
+        "factorMean": "Volume factor, mean",
+        "factorSurface": "Volume factor, wellhead",
+        "well": "Filling the well",
+        "fillVolume": "Volume filled with gas",
+        "reel": "Filling the tubing on the reel",
+        "total": "Total",
+        "gas": "Gas at standard conditions",
+        "liquid": "As liquid nitrogen",
+        "mass": "Mass"
+      },
+      "method": {
+        "title": "Method",
+        "intro": "The well fluid is displaced down to the pumping depth; the nitrogen that fills the column, and the tubing left on the reel, is totalled as gas, liquid and mass.",
+        "steps": [
+          "Pressure at depth balances the hydrostatic column of the well fluid: P = ρ·g·h. The wellhead pressure is that minus the weight of the nitrogen column, from the mean nitrogen density. The column is taken at the mean of the two pressures and of the two temperatures.",
+          "Volume factor of nitrogen: B = 2.8416·P / (Z·(273 + T)) in sm³/m³, with P in kPa and T in °C. The constant stands for standard conditions of about 15 °C and 101.3 kPa.",
+          "Volume filled with gas: the production tubing bore minus the coiled tubing steel, times the depth. That is the annulus and the coiled tubing bore, each counted once.",
+          "Nitrogen for the well is that volume times the factor at mean conditions. Nitrogen for the tubing still on the reel is its bore volume times the factor at wellhead conditions.",
+          "Liquid nitrogen: 1 m³ of liquid gives 696.5 sm³ of gas and weighs 808 kg."
+        ],
+        "assumptionsTitle": "Assumptions",
+        "assumptions": [
+          "The fluid is displaced completely down to the pumping depth, in a vertical well.",
+          "The compressibility factor is constant along the column; the temperature is the mean of the two ends.",
+          "The mean nitrogen density is an input, not derived from the pressure, so the wellhead pressure follows from it.",
+          "No fluid enters the well and no nitrogen is lost; nothing is allowed for the pumping losses or a reserve."
+        ],
+        "reference": "Reproduces a reference worksheet, with one difference: the worksheet counts the coiled tubing bore twice in the volume filled with gas, which here is counted once, so the nitrogen for the well is lower than the worksheet’s. Check the gas properties against a nitrogen table before you rely on a result."
       }
     },
     "ctPressureLoss": {
