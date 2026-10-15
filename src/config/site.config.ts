@@ -299,7 +299,7 @@ const siteConfig: SiteConfig = {
     bing: BING_SITE_VERIFICATION,
     facebook: '5f4zoc49wf1r81vvnv3fe0muzi8k30',
   },
-  authorImage: '/avatar.svg',
+  authorImage: '/avatar.webp',
   blogImageOverlay: true,
   effects: {
     cursorTrail: false,
