@@ -375,8 +375,10 @@ export class WellBuilder {
     // Depth grid and axis.
     for (let d = 0; d <= maxDepth; d += step) {
       svg += `<line x1="${LEFT - 6}" x2="${VIEW_W - 10}" y1="${this.y(d)}" y2="${this.y(d)}" class="wb-grid"/>`;
+      svg += `<line x1="${LEFT - 6}" x2="${LEFT}" y1="${this.y(d)}" y2="${this.y(d)}" class="wb-tick"/>`;
       svg += `<text x="${LEFT - 10}" y="${this.y(d) + 4}" text-anchor="end" class="wb-axis">${fmt(d)}</text>`;
     }
+    svg += `<line x1="${LEFT}" x2="${LEFT}" y1="${y0}" y2="${this.y(maxDepth)}" class="wb-tick"/>`;
     svg += `<text x="6" y="${y0 - 18}" class="wb-axis">MD, ${this.unit}</text>`;
     if (items.length === 0) {
       svg += `<text x="${CENTRE}" y="${TOP + 120}" text-anchor="middle" class="wb-empty">${esc(this.copy.canvas.empty)}</text>`;

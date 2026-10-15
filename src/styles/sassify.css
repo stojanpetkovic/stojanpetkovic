@@ -703,6 +703,7 @@ html:root[data-theme='blue'] .wb-ghost {
 .wb-swatch[data-type='perforation'] { background: var(--destructive); }
 #wb-svg { touch-action: none; }
 #wb-svg .wb-grid { stroke: var(--color-border); stroke-width: 1; }
+#wb-svg .wb-tick { stroke: var(--color-foreground-muted); stroke-width: 1; }
 #wb-svg .wb-axis { fill: var(--color-foreground-muted); font-size: 11px; }
 #wb-svg .wb-empty { fill: var(--color-foreground-subtle); font-size: 13px; }
 #wb-svg .wb-bore { fill: var(--color-card); pointer-events: none; }
@@ -838,7 +839,9 @@ html:root[data-theme='blue'] .wb-ramp {
   body:has(#well-builder) .tool-card { border: 0; box-shadow: none; padding: 0 !important; overflow: visible; }
   body:has(#well-builder) .tool-card::before { display: none; }
   body:has(#well-builder) #wb-svg { height: auto; max-height: 200mm; width: 100%; }
-  body:has(#well-builder) #wb-svg .wb-grid { stroke: #ddd; }
+  /* The report has the depth axis only, without the grid lines across the drawing. */
+  body:has(#well-builder) #wb-svg .wb-grid { display: none; }
+  body:has(#well-builder) #wb-svg .wb-tick { stroke: #000; }
   body:has(#well-builder) #well-builder > .mt-6 > .tool-card h2 { display: none; }
   body:has(#well-builder) .wb-print-only { display: block; }
   body:has(#well-builder) .wb-print-components { break-before: page; margin-bottom: 14pt; }
