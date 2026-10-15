@@ -1115,6 +1115,7 @@
         "wall": {
           "label": "Wandstärke"
         },
+        "roughness": {"label": "Wandrauheit", "hint": "Absolute Rauheit der Innenwand; 0 für glattes Rohr. Wirkt nur bei turbulenter Strömung"},
         "totalLength": {
           "label": "Stranglänge"
         },
@@ -1154,6 +1155,7 @@
         ],
         "assumptionsTitle": "Annahmen",
         "assumptions": [
+          "Die Wandrauheit geht nur in den turbulenten Reibungsfaktor ein, als Verhältnis des Haaland-Faktors mit Rauheit zu dem ohne; bei Rauheit 0 ergibt sich das Ergebnis für glattes Rohr. Für n ungleich 1 ist das eine Schätzung.",
           "Ein einphasiges Potenzgesetz-Fluid ohne Feststoffe.",
           "Glattes Rohr und ausgebildete Strömung, mit entlang des Strangs konstanten Fluideigenschaften.",
           "Die Krümmung ist die des eingegebenen Haspeldurchmessers; Rohr außerhalb der Haspel ist gerade.",

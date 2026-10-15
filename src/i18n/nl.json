@@ -1115,6 +1115,7 @@
         "wall": {
           "label": "Wanddikte"
         },
+        "roughness": {"label": "Wandruwheid", "hint": "Absolute ruwheid van de binnenwand; 0 voor gladde buis. Werkt alleen bij turbulente stroming"},
         "totalLength": {
           "label": "Lengte van de string"
         },
@@ -1154,6 +1155,7 @@
         ],
         "assumptionsTitle": "Aannames",
         "assumptions": [
+          "De wandruwheid werkt alleen door in de turbulente wrijvingsfactor, als verhouding van de Haaland-factor met ruwheid tot die zonder, dus bij ruwheid 0 krijg je het resultaat voor gladde buis. Voor n ongelijk aan 1 is dit een schatting.",
           "Een eenfasige power-law-vloeistof zonder vaste stoffen.",
           "Gladde buis en volledig ontwikkelde stroming, met vloeistofeigenschappen die langs de string constant zijn.",
           "De kromming is die van de ingevoerde haspeldiameter; buis van de haspel is recht.",

@@ -163,3 +163,24 @@ describe('unit conversion', () => {
     expect(fromUs('pressure', 'metric', direct)).toBeCloseTo(280.1, 0);
   });
 });
+
+describe('wall roughness', () => {
+  const turbulent: CtInput = { ...example, flowRate: 200 };
+  it('leaves the smooth result unchanged at zero', () => {
+    expect(calculateCtPressureLoss({ ...turbulent, roughness: 0 }).total).toBe(calculateCtPressureLoss(turbulent).total);
+  });
+  it('raises turbulent loss and grows with roughness', () => {
+    const smooth = calculateCtPressureLoss(turbulent).total;
+    const a = calculateCtPressureLoss({ ...turbulent, roughness: 0.0006 }).total;
+    const b = calculateCtPressureLoss({ ...turbulent, roughness: 0.002 }).total;
+    expect(a).toBeGreaterThan(smooth);
+    expect(b).toBeGreaterThan(a);
+  });
+  it('does not change laminar flow', () => {
+    expect(calculateCtPressureLoss({ ...example, roughness: 0.002 }).total).toBeCloseTo(calculateCtPressureLoss(example).total, 9);
+  });
+  it('rejects a negative roughness or one as large as the radius', () => {
+    expect(validateCtInput({ ...example, roughness: -1 })).toContain('roughness');
+    expect(validateCtInput({ ...example, roughness: 1 })).toContain('roughness');
+  });
+});

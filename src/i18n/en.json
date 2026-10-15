@@ -1115,6 +1115,7 @@
         "wall": {
           "label": "Wall thickness"
         },
+        "roughness": {"label": "Wall roughness", "hint": "Absolute roughness of the inside wall; 0 for smooth tubing. Only affects turbulent flow"},
         "totalLength": {
           "label": "String length"
         },
@@ -1154,6 +1155,7 @@
         ],
         "assumptionsTitle": "Assumptions",
         "assumptions": [
+          "Wall roughness enters only the turbulent friction factor, as the ratio of the Haaland factor with roughness to the one without, so a roughness of 0 gives the smooth-tube result. For n other than 1 this is an estimate.",
           "A single-phase power-law fluid without solids.",
           "Smooth tubing and fully developed flow, with fluid properties constant along the string.",
           "The curvature is that of the reel diameter you enter; tubing off the reel is straight.",

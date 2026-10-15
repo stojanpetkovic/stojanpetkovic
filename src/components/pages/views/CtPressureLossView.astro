@@ -50,6 +50,7 @@ const example: Record<string, number> = {
   totalLength: 10220,
   lengthOffReel: 2690,
   flowRate: 31,
+  roughness: 0,
 };
 
 /**
@@ -73,6 +74,7 @@ const layout: { id: 'fluid' | 'geometry' | 'flow'; rows: { key: string; quantity
       { key: 'reelDiameter', quantity: 'diameter' },
       { key: 'od', quantity: 'diameter' },
       { key: 'wall', quantity: 'diameter' },
+      { key: 'roughness', quantity: 'diameter' },
       { key: 'totalLength', quantity: 'length' },
       { key: 'lengthOffReel', quantity: 'length' },
     ],

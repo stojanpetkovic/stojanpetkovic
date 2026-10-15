@@ -16,6 +16,12 @@
  *   laminar loss at the lower limit and the turbulent loss at the upper limit,
  *   each taken at the flow rate that gives that Reynolds number.
  *
+ * - Roughness: turbulent friction factors are multiplied by the ratio of the
+ *   Haaland friction factor with the wall roughness to the one without it, so a
+ *   roughness of zero gives the smooth-tube result unchanged. Laminar flow does
+ *   not depend on roughness. For n other than 1 this extends a Newtonian
+ *   correction by the generalised Reynolds number; treat it as an estimate.
+ *
  * All quantities are in oilfield units: density in lb/gal, K in
  * lbf·s^n/100 ft², lengths in ft, diameters in inches, flow rate in gal/min,
  * pressure in psi, velocity in ft/min. `units.ts` converts to and from metric.
@@ -46,6 +52,8 @@ export interface CtInput {
   lengthOffReel: number;
   /** Flow rate, gal/min. */
   flowRate: number;
+  /** Absolute roughness of the inside wall, in. Omitted or 0 for smooth tubing. */
+  roughness?: number;
 }
 
 export type Regime = 'laminar' | 'transitional' | 'turbulent';
@@ -91,7 +99,8 @@ export type CtError =
   | 'wall'
   | 'totalLength'
   | 'lengthOffReel'
-  | 'flowRate';
+  | 'flowRate'
+  | 'roughness';
 
 /** Fields that are not usable, empty when the input can be calculated. */
 export function validateCtInput(input: CtInput): CtError[] {
@@ -110,6 +119,10 @@ export function validateCtInput(input: CtInput): CtError[] {
     errors.push('lengthOffReel');
   }
   positive('flowRate', input.flowRate);
+  const roughness = input.roughness ?? 0;
+  if (!Number.isFinite(roughness) || roughness < 0 || (!errors.includes('od') && !errors.includes('wall') && roughness >= (input.od - 2 * input.wall) / 2)) {
+    errors.push('roughness');
+  }
   if (!errors.includes('od') && !errors.includes('wall') && input.reelDiameter <= input.od - 2 * input.wall) {
     errors.push('reelDiameter');
   }
@@ -121,6 +134,7 @@ const PRESSURE_CONSTANT = 154.63;
 
 export function calculateCtPressureLoss(input: CtInput): CtResult {
   const { density: rho, n, k, reelDiameter: D, od, wall, totalLength, lengthOffReel, flowRate: Q } = input;
+  const roughness = input.roughness ?? 0;
   const id = od - 2 * wall;
   const area = (Math.PI * id * id) / 4;
   const ratio = id / D;
@@ -144,6 +158,11 @@ export function calculateCtPressureLoss(input: CtInput): CtResult {
   const psi = 47.969 - 153.8 * n + 166.22 * n * n - 60.132 * n ** 3;
   const phi = 0.875 * n - 0.515;
 
+  // Wall roughness raises the turbulent factor by the Haaland rough/smooth ratio at the same Re.
+  const haaland = (re_: number, relRoughness: number) =>
+    Math.pow(-1.8 * Math.log10(Math.pow(relRoughness / 3.7, 1.11) + 6.9 / re_), -2);
+  const roughnessFactor = (re_: number) => (roughness > 0 ? haaland(re_, roughness / id) / haaland(re_, 0) : 1);
+
   const re = reynoldsAt(Q);
   const dean = deanAt(Q);
 
@@ -151,7 +170,7 @@ export function calculateCtPressureLoss(input: CtInput): CtResult {
   const sLow = 3470 - 1370 * n;
   const sHigh = 4270 - 1370 * n;
   const straightLaminar = (q: number, re_: number, length: number) => loss(16 / re_, length, q);
-  const straightTurbulent = (q: number, re_: number, length: number) => loss(a / Math.pow(re_, b), length, q);
+  const straightTurbulent = (q: number, re_: number, length: number) => loss((a / Math.pow(re_, b)) * roughnessFactor(re_), length, q);
   const straightLength = lengthOffReel;
   let straight: CtSection;
   if (re < sLow) {
@@ -168,7 +187,7 @@ export function calculateCtPressureLoss(input: CtInput): CtResult {
       regime: 'turbulent',
       length: straightLength,
       pressureLoss: straightTurbulent(Q, re, straightLength),
-      frictionFactor: a / Math.pow(re, b),
+      frictionFactor: (a / Math.pow(re, b)) * roughnessFactor(re),
       laminarLimit: sLow,
       turbulentLimit: sHigh,
     };
@@ -190,7 +209,7 @@ export function calculateCtPressureLoss(input: CtInput): CtResult {
   const cHigh = cLow + 800;
   const curvedLength = totalLength - lengthOffReel;
   const curvedLaminar = (q: number, re_: number) => loss((psi * Math.pow(deanAt(q), phi) * 16) / re_, curvedLength, q);
-  const curvedTurbulentFactor = (re_: number) => (1.069 * a * Math.pow(ratio, 0.1)) / Math.pow(re_, 0.8 * b);
+  const curvedTurbulentFactor = (re_: number) => ((1.069 * a * Math.pow(ratio, 0.1)) / Math.pow(re_, 0.8 * b)) * roughnessFactor(re_);
   let curved: CtSection;
   if (re < cLow) {
     curved = {

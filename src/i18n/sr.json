@@ -1115,6 +1115,7 @@
         "wall": {
           "label": "Debljina zida"
         },
+        "roughness": {"label": "Hrapavost zida", "hint": "Apsolutna hrapavost unutrašnjeg zida; 0 za glatku cev. Utiče samo na turbulentni tok"},
         "totalLength": {
           "label": "Dužina niza"
         },
@@ -1154,6 +1155,7 @@
         ],
         "assumptionsTitle": "Pretpostavke",
         "assumptions": [
+          "Hrapavost zida ulazi samo u turbulentni faktor trenja, kao odnos Haaland faktora sa hrapavošću i bez nje, pa hrapavost 0 daje rezultat za glatku cev. Za n različito od 1 ovo je procena.",
           "Jednofazni power-law fluid bez čvrstih čestica.",
           "Glatka cev i potpuno razvijen tok, sa osobinama fluida koje su konstantne duž niza.",
           "Zakrivljenost je ona koju daje uneti prečnik bubnja; cev van bubnja je ravna.",
