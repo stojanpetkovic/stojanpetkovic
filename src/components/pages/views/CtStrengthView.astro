@@ -1,0 +1,212 @@
+---
+/**
+ * CtStrengthView — the CT Strength Limits calculator page.
+ *
+ * Inputs on the left, stresses, burst, collapse and tension limits on the right,
+ * inside the shared `ToolPage` shell. The calculation runs in the browser with
+ * `src/lib/tools/ct-strength.ts` through `initToolForm`. Copy comes from
+ * `pages.ctStrength.*`.
+ */
+import ToolPage from './ToolPage.astro';
+import ToolFields from './ToolFields.astro';
+import ToolMethod from './ToolMethod.astro';
+import { t, tData, defaultLocale } from '@/i18n';
+import type { Quantity } from '@/lib/tools/units';
+
+interface Props {
+  /** Locale whose copy this page renders. Defaults to the site default. */
+  locale?: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+
+const p = (key: string) => `pages.ctStrength.${key}`;
+const hero = tData<{ badge: string; title: string; description: string }>(p('hero'), locale)!;
+const groups = tData<Record<'tubing' | 'material' | 'loads', string>>(p('groups'), locale)!;
+const fields = tData<Record<string, { label: string; hint?: string }>>(p('fields'), locale)!;
+const r = tData<Record<string, string>>(p('results'), locale)!;
+const method = tData<Parameters<typeof ToolMethod>[0]['method']>(p('method'), locale)!;
+
+/** A 1.75 in x 0.134 in, 80 ksi string under pressure and tension: the reference worksheet's example. */
+const example: Record<string, number> = {
+  od: 1.75,
+  wall: 0.134,
+  ovality: 0.05,
+  yieldStress: 80000,
+  yieldFactor: 80,
+  modulus: 30000000,
+  poisson: 0.33,
+  pressureIn: 3000,
+  pressureOut: 1700,
+  axialForce: 20000,
+  bendingRadius: 0,
+  safetyFactor: 1,
+};
+
+const layout: { id: keyof typeof groups; rows: { key: string; quantity: Quantity }[] }[] = [
+  {
+    id: 'tubing',
+    rows: [
+      { key: 'od', quantity: 'diameter' },
+      { key: 'wall', quantity: 'diameter' },
+      { key: 'ovality', quantity: 'ratio' },
+    ],
+  },
+  {
+    id: 'material',
+    rows: [
+      { key: 'yieldStress', quantity: 'stress' },
+      { key: 'yieldFactor', quantity: 'percent' },
+      { key: 'modulus', quantity: 'modulus' },
+      { key: 'poisson', quantity: 'ratio' },
+    ],
+  },
+  {
+    id: 'loads',
+    rows: [
+      { key: 'pressureIn', quantity: 'pressure' },
+      { key: 'pressureOut', quantity: 'pressure' },
+      { key: 'axialForce', quantity: 'force' },
+      { key: 'bendingRadius', quantity: 'length' },
+      { key: 'safetyFactor', quantity: 'ratio' },
+    ],
+  },
+];
+
+type Row = { key: string; label: string; quantity: string };
+const sections: { title: string; rows: Row[] }[] = [
+  {
+    title: r.stresses,
+    rows: [
+      { key: 'axial', label: r.axial, quantity: 'stress' },
+      { key: 'hoop', label: r.hoop, quantity: 'stress' },
+      { key: 'radial', label: r.radial, quantity: 'stress' },
+      { key: 'vonMises', label: r.vonMises, quantity: 'stress' },
+    ],
+  },
+  {
+    title: r.burst,
+    rows: [
+      { key: 'burstApi', label: r.burstApi, quantity: 'pressure' },
+      { key: 'burstCapped', label: r.burstCapped, quantity: 'pressure' },
+      { key: 'burstTrue', label: r.burstTrue, quantity: 'pressure' },
+    ],
+  },
+  {
+    title: r.collapse,
+    rows: [
+      { key: 'timoshenkoRound', label: r.timoshenkoRound, quantity: 'pressure' },
+      { key: 'api5c3', label: r.api5c3, quantity: 'pressure' },
+      { key: 'api5c7Oval', label: r.api5c7Oval, quantity: 'pressure' },
+      { key: 'timoshenkoOval', label: r.timoshenkoOval, quantity: 'pressure' },
+      { key: 'api5c7Tension', label: r.api5c7Tension, quantity: 'pressure' },
+    ],
+  },
+  {
+    title: r.tension,
+    rows: [
+      { key: 'tensionMax', label: r.tensionMax, quantity: 'force' },
+      { key: 'tensionAtPressure', label: r.tensionAtPressure, quantity: 'force' },
+    ],
+  },
+];
+---
+
+<ToolPage
+  locale={locale}
+  title={t(p('meta.title'), locale)}
+  description={t(p('meta.description'), locale)}
+  hero={hero}
+  resultTitle={r.title}
+  example={example}
+  defaults={example}
+  data={{ labels: JSON.stringify({ ok: r.withinYieldFactor, over: r.exceedsYieldFactor, noTension: r.noTension }) }}
+>
+  <ToolFields
+    groups={layout.map((g) => ({ id: g.id, label: groups[g.id], rows: g.rows }))}
+    fields={fields}
+    values={example}
+  />
+
+  <Fragment slot="results">
+    <div class="mt-4 flex items-baseline justify-between gap-3">
+      <p class="text-sm text-foreground-muted">{r.vonMisesPercent}</p>
+      <p class="font-display text-3xl font-bold tracking-tight text-brand-700">
+        <span data-out="vonMisesPercent" data-decimals="1">–</span><span class="text-xl"> %</span>
+      </p>
+    </div>
+    <p class="mt-1 text-sm font-medium text-foreground" data-out="status">–</p>
+
+    {
+      sections.map((section) => (
+        <section class="mt-5 border-t border-border pt-4">
+          <h3 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
+            {section.title}
+          </h3>
+          <dl class="mt-2 divide-y divide-border text-sm">
+            {section.rows.map((row) => (
+              <div class="flex items-baseline justify-between gap-3 py-2">
+                <dt class="text-foreground-muted">{row.label}</dt>
+                <dd class="whitespace-nowrap font-mono text-foreground">
+                  <span data-out={row.key} data-quantity={row.quantity}>
+                    –
+                  </span>{' '}
+                  <span data-unit-out={row.quantity} class="text-foreground-muted" />
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ))
+    }
+    <p class="mt-4 flex items-baseline justify-between gap-3 border-t border-border pt-3 text-sm">
+      <span class="text-foreground-muted">{r.differential}</span>
+      <span class="whitespace-nowrap font-mono text-foreground">
+        <span data-out="differential" data-quantity="pressure">–</span>{' '}
+        <span data-unit-out="pressure" class="text-foreground-muted"></span>
+      </span>
+    </p>
+  </Fragment>
+
+  <ToolMethod slot="method" method={method} />
+</ToolPage>
+
+<script>
+  import { initToolForm } from '@/lib/tools/tool-form';
+  import { calculateStrength, validateStrengthInput, type StrengthInput } from '@/lib/tools/ct-strength';
+
+  function init() {
+    const root = document.getElementById('tool');
+    if (!root) return;
+    const labels: Record<string, string> = JSON.parse(root.dataset.labels ?? '{}');
+    initToolForm(root, (input) => {
+      const errors = validateStrengthInput(input as unknown as StrengthInput);
+      if (errors.length > 0) return { errors };
+      const s = calculateStrength(input as unknown as StrengthInput);
+      return {
+        values: {
+          axial: s.stress.axialMax,
+          hoop: s.stress.hoop,
+          radial: s.stress.radial,
+          vonMises: s.stress.vonMises,
+          vonMisesPercent: s.stress.vonMisesPercent,
+          status: s.stress.withinYieldFactor ? labels.ok : labels.over,
+          burstApi: s.burst.api,
+          burstCapped: s.burst.cappedEnd,
+          burstTrue: s.burst.trueBurst,
+          timoshenkoRound: s.collapse.timoshenkoRound,
+          api5c3: s.collapse.api5c3,
+          api5c7Oval: s.collapse.api5c7Oval,
+          timoshenkoOval: s.collapse.timoshenkoOval,
+          api5c7Tension: s.collapse.api5c7WithTension ?? labels.noTension,
+          tensionMax: s.tension.max,
+          tensionAtPressure: s.tension.maxAtPressure,
+          differential: s.differentialPressure,
+        },
+      };
+    });
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>

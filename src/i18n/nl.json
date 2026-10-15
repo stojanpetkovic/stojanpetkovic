@@ -1044,6 +1044,17 @@
       "open": "Open de tool",
       "inputsLabel": "Invoer",
       "outputsLabel": "Resultaten",
+      "form": {
+        "system": {
+          "label": "Eenheden",
+          "us": "Oliveld (US)",
+          "metric": "Metrisch"
+        },
+        "example": "Voorbeeld laden",
+        "invalidTitle": "Controleer de invoer",
+        "invalidText": "Sommige waarden ontbreken of liggen buiten het bereik. Corrigeer de gemarkeerde velden om het resultaat te zien.",
+        "back": "Alle tools"
+      },
       "cta": "Vertel me wat je nodig hebt",
       "note": "De tools zijn hulpmiddelen voor ingenieurs. Controleer de invoer en de resultaten: de verantwoordelijkheid voor elke beslissing blijft bij de gebruiker.",
       "suggest": {
@@ -1069,8 +1080,132 @@
             "Stromingsregime, recht en gekromd",
             "Drukverlies per deel en totaal"
           ]
+        },
+        {
+          "href": "/tools/ct-strength-limits",
+          "tag": "Mechanica",
+          "icon": "shield-check",
+          "title": "CT-sterktegrenzen",
+          "description": "Spanningen, barst-, instort- en trekgrenzen van coiled tubing voor een gegeven belasting, met de von Mises-toets tegen de vloeigrensfactor.",
+          "inputs": [
+            "Buisgrootte, wand en ovaliteit",
+            "Vloeigrens, vloeigrensfactor en modulus",
+            "Drukken, axiale kracht en buigradius"
+          ],
+          "outputs": [
+            "Axiale, omtrek- en von Mises-spanning",
+            "Barsten en instorten (API 5C3, 5C7)",
+            "Trekgrenzen en toets van de vloeigrensfactor"
+          ]
         }
       ]
+    },
+    "ctStrength": {
+      "meta": {
+        "title": "CT-sterktegrenzen",
+        "description": "Toets coiled tubing op barsten, bezwijken en trek: spanningen, von Mises-vergelijkingsspanning en API-instort- en barstgrenzen, in oliveld- of metrische eenheden."
+      },
+      "hero": {
+        "badge": "Mechanica",
+        "title": "CT-sterktegrenzen",
+        "description": "Spanningen, barst-, instort- en trekgrenzen van coiled tubing voor de ingevoerde belasting, met de von Mises-toets tegen de vloeigrensfactor. Oliveld- of metrische eenheden."
+      },
+      "groups": {
+        "tubing": "Buis",
+        "material": "Materiaal",
+        "loads": "Belastingen"
+      },
+      "fields": {
+        "od": {
+          "label": "Buis-OD"
+        },
+        "wall": {
+          "label": "Wanddikte"
+        },
+        "ovality": {
+          "label": "Ovaliteit",
+          "hint": "(ODmax − ODmin) / OD; ongeveer 0,005 voor nieuwe buis"
+        },
+        "yieldStress": {
+          "label": "Vloeigrens",
+          "hint": "Minimale vloeigrens van het staal"
+        },
+        "yieldFactor": {
+          "label": "Vloeigrensfactor",
+          "hint": "Ontwerpfactor op de vloeigrens"
+        },
+        "modulus": {
+          "label": "Elasticiteitsmodulus",
+          "hint": "Staal: ongeveer 30 miljoen psi"
+        },
+        "poisson": {
+          "label": "Poissonverhouding",
+          "hint": "Staal: 0,33"
+        },
+        "pressureIn": {
+          "label": "Interne druk"
+        },
+        "pressureOut": {
+          "label": "Externe druk"
+        },
+        "axialForce": {
+          "label": "Axiale kracht",
+          "hint": "Positief bij trek, negatief bij druk"
+        },
+        "bendingRadius": {
+          "label": "Buigradius",
+          "hint": "Straal waarover de buis wordt gebogen; 0 voor rechte buis"
+        },
+        "safetyFactor": {
+          "label": "Veiligheidsfactor instorten",
+          "hint": "Veiligheidsfactor van de API 5C7-correctie voor trek, minimaal 1"
+        }
+      },
+      "results": {
+        "title": "Resultaat",
+        "stresses": "Spanningen aan de binnenwand",
+        "axial": "Axiale spanning (ongunstigste zijde)",
+        "hoop": "Omtrekspanning",
+        "radial": "Radiale spanning",
+        "vonMises": "Von Mises-spanning",
+        "vonMisesPercent": "Aandeel van de vloeigrens",
+        "withinYieldFactor": "Binnen de vloeigrensfactor",
+        "exceedsYieldFactor": "Overschrijdt de vloeigrensfactor",
+        "burst": "Barsten",
+        "burstApi": "API 5C3 interne vloeigrens",
+        "burstCapped": "Vloeigrens bij gesloten einde",
+        "burstTrue": "Werkelijke barstdruk",
+        "collapse": "Instorten",
+        "timoshenkoRound": "Timoshenko, rond",
+        "api5c3": "API 5C3, rond",
+        "api5c7Oval": "API 5C7, ovaal",
+        "timoshenkoOval": "Timoshenko, ovaal",
+        "api5c7Tension": "API 5C7, ovaal, met trek",
+        "noTension": "Trek nodig",
+        "tension": "Trekgrenzen",
+        "tensionMax": "Maximale trek",
+        "tensionAtPressure": "Maximale trek bij deze druk",
+        "differential": "Drukverschil (extern − intern)"
+      },
+      "method": {
+        "title": "Methode",
+        "intro": "De buis wordt getoetst als een dikwandige stalen buis onder interne en externe druk, axiale kracht en een optionele buiging.",
+        "steps": [
+          "De axiale spanning is de axiale kracht gedeeld door het staaloppervlak. Een buiging met straal R telt de buigspanning E·OD/(2R) op aan de bolle zijde en trekt die af aan de holle zijde; de grootste absolute waarde telt.",
+          "Omtrek- en radiale spanning aan de binnenwand volgen uit de Lamé-vergelijkingen voor een dikwandige cilinder; de radiale spanning daar is gelijk aan min de interne druk. De von Mises-spanning combineert de drie: √(σa² + σh² + σr² − σa·σh − σa·σr − σh·σr). Torsie is niet meegenomen.",
+          "Barsten: API 5C3 interne vloeigrens 0,875 · 2Y·t/D; vloeigrens bij gesloten einde (4Y/√3)·(t/D)·(1 − t/D), waar de von Mises-spanning aan de binnenwand Y bereikt; werkelijke barstdruk (2Y/√3)·ln(OD/ID), waar de hele wand vloeit.",
+          "Instorten: Timoshenko, Pc = [Py·R + Pe·(1 + 3·ov·D/2t) − √((Py·R + Pe·(1 + 3·ov·D/2t))² − 4·Py·Pe·R)] / 2, met Py = 2Y·t/D, Pe = 2E/(1 − ν²)·(t/D)³ en R de reductie voor axiale spanning; ronde buis heeft ov = 0. API 5C3 gebruikt het vloei-, plastische, overgangs- of elastische gebied van D/t, met een voor axiale spanning verlaagde vloeigrens. API RP 5C7 geeft het instorten van ovale buis uit het ronde instorten en de ovaliteit, en verlaagt dat bij trek met Kcf = ((1/SF)^(4/3) − (L/Ly)^(4/3))^0,75.",
+          "Trekgrenzen: Ly = vloeigrensfactor · Y · staaloppervlak, en de grootste axiale kracht waarbij de von Mises-spanning met de omtrek- en radiale spanning van de ingevoerde drukken de vloeigrensfactor bereikt."
+        ],
+        "assumptionsTitle": "Aannames",
+        "assumptions": [
+          "Een naadloze stalen buis met gelijkmatige wand en de ingevoerde nominale maten, zonder corrosie, slijtage of vermoeiing.",
+          "De drukken zijn gelijkmatig langs de buis; de spanningen gelden aan de binnenwand, het ongunstigste geval.",
+          "Torsie en schuifspanningen zijn niet meegenomen.",
+          "De API-instortvergelijkingen gelden voor het D/t-bereik van de normen; controleer resultaten daarbuiten."
+        ],
+        "reference": "Gebaseerd op de vergelijkingen van API 5C3 en API RP 5C7, Timoshenko-instorten, de Lamé-vergelijkingen en het criterium van von Mises. De berekening reproduceert voor haar voorbeeldgeval een referentiewerkblad. Controleer de normen voordat je op een resultaat vertrouwt; levensduur onder vermoeiing valt hierbuiten."
+      }
     },
     "ctPressureLoss": {
       "meta": {
@@ -1082,12 +1217,6 @@
         "title": "CT-drukverlies",
         "description": "Wrijvingsdrukverlies voor power-law-vloeistoffen in coiled tubing. Voer de vloeistof, de buis en het debiet in, in oliveld- of metrische eenheden."
       },
-      "system": {
-        "label": "Eenheden",
-        "us": "Oliveld (US)",
-        "metric": "Metrisch"
-      },
-      "example": "Voorbeeld laden",
       "groups": {
         "fluid": "Vloeistof",
         "geometry": "Buis en haspel",
@@ -1135,9 +1264,7 @@
         "velocity": "Snelheid",
         "reynolds": "Reynoldsgetal",
         "dean": "Deangetal",
-        "regime": "Stromingsregime",
-        "invalidTitle": "Controleer de invoer",
-        "invalidText": "Sommige waarden ontbreken of liggen buiten het bereik. Corrigeer de gemarkeerde velden om het resultaat te zien."
+        "regime": "Stromingsregime"
       },
       "regimes": {
         "laminar": "Laminair",
@@ -1162,8 +1289,7 @@
           "De correlaties gelden voor een beperkt bereik van n en ID/D. Controleer resultaten daarbuiten."
         ],
         "reference": "Gebaseerd op gepubliceerde correlaties voor power-law-vloeistoffen in coiled tubing (Zhou en Shah), met het Reynoldsgetal van Metzner–Reed en de turbulente factoren van Dodge–Metzner. De berekening reproduceert voor haar voorbeeldgeval een referentiewerkblad. Controleer de oorspronkelijke artikelen voordat je op een resultaat vertrouwt."
-      },
-      "back": "Alle tools"
+      }
     },
     "web": {
       "glance": {"label": "In één oogopslag", "items": [{"label": "Techniek", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Prijs", "value": "Eén vaste prijs, afgesproken voor aanvang"}, {"label": "Eigendom", "value": "Code, domein en hosting op jouw naam"}, {"label": "Reactie", "value": "Binnen één werkdag"}]},

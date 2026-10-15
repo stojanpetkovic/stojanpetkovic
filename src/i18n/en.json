@@ -1044,6 +1044,17 @@
       "open": "Open the tool",
       "inputsLabel": "Inputs",
       "outputsLabel": "Results",
+      "form": {
+        "system": {
+          "label": "Units",
+          "us": "Oilfield (US)",
+          "metric": "Metric"
+        },
+        "example": "Load example",
+        "invalidTitle": "Check the inputs",
+        "invalidText": "Some values are missing or out of range. Correct the highlighted fields to see the result.",
+        "back": "All tools"
+      },
       "cta": "Tell me what you need",
       "note": "The tools are aids for engineers. Check the inputs and the results: responsibility for any decision stays with the user.",
       "suggest": {
@@ -1069,8 +1080,132 @@
             "Flow regime, straight and curved",
             "Pressure loss per section and total"
           ]
+        },
+        {
+          "href": "/tools/ct-strength-limits",
+          "tag": "Mechanics",
+          "icon": "shield-check",
+          "title": "CT Strength Limits",
+          "description": "Stresses, burst, collapse and tension limits of coiled tubing for a given load, with the von Mises check against the yield factor.",
+          "inputs": [
+            "Tubing size, wall and ovality",
+            "Yield strength, yield factor and modulus",
+            "Pressures, axial force and bend radius"
+          ],
+          "outputs": [
+            "Axial, hoop and von Mises stress",
+            "Burst and collapse (API 5C3, 5C7)",
+            "Tension limits and the yield-factor check"
+          ]
         }
       ]
+    },
+    "ctStrength": {
+      "meta": {
+        "title": "CT Strength Limits",
+        "description": "Check coiled tubing against burst, collapse and tension: stresses, von Mises equivalent stress and API collapse and burst limits, in oilfield or metric units."
+      },
+      "hero": {
+        "badge": "Mechanics",
+        "title": "CT Strength Limits",
+        "description": "Stresses, burst, collapse and tension limits of coiled tubing for the load you enter, with the von Mises check against the yield factor. Oilfield or metric units."
+      },
+      "groups": {
+        "tubing": "Tubing",
+        "material": "Material",
+        "loads": "Loads"
+      },
+      "fields": {
+        "od": {
+          "label": "Tubing OD"
+        },
+        "wall": {
+          "label": "Wall thickness"
+        },
+        "ovality": {
+          "label": "Ovality",
+          "hint": "(ODmax − ODmin) / OD; about 0.005 for new tubing"
+        },
+        "yieldStress": {
+          "label": "Yield strength",
+          "hint": "Minimum yield strength of the steel"
+        },
+        "yieldFactor": {
+          "label": "Yield factor",
+          "hint": "Design factor on the yield strength"
+        },
+        "modulus": {
+          "label": "Young's modulus",
+          "hint": "Steel: about 30 million psi"
+        },
+        "poisson": {
+          "label": "Poisson's ratio",
+          "hint": "Steel: 0.33"
+        },
+        "pressureIn": {
+          "label": "Internal pressure"
+        },
+        "pressureOut": {
+          "label": "External pressure"
+        },
+        "axialForce": {
+          "label": "Axial force",
+          "hint": "Positive in tension, negative in compression"
+        },
+        "bendingRadius": {
+          "label": "Bend radius",
+          "hint": "Radius the tubing is bent over; 0 for straight tubing"
+        },
+        "safetyFactor": {
+          "label": "Collapse safety factor",
+          "hint": "Safety factor of the API 5C7 collapse correction for tension, at least 1"
+        }
+      },
+      "results": {
+        "title": "Result",
+        "stresses": "Stresses at the inside wall",
+        "axial": "Axial stress (worst side)",
+        "hoop": "Hoop stress",
+        "radial": "Radial stress",
+        "vonMises": "Von Mises stress",
+        "vonMisesPercent": "Share of yield strength",
+        "withinYieldFactor": "Within the yield factor",
+        "exceedsYieldFactor": "Exceeds the yield factor",
+        "burst": "Burst",
+        "burstApi": "API 5C3 internal yield",
+        "burstCapped": "Capped-end yield",
+        "burstTrue": "True burst",
+        "collapse": "Collapse",
+        "timoshenkoRound": "Timoshenko, round",
+        "api5c3": "API 5C3, round",
+        "api5c7Oval": "API 5C7, oval",
+        "timoshenkoOval": "Timoshenko, oval",
+        "api5c7Tension": "API 5C7, oval, with tension",
+        "noTension": "Needs tension",
+        "tension": "Tension limits",
+        "tensionMax": "Maximum tension",
+        "tensionAtPressure": "Maximum tension at this pressure",
+        "differential": "Differential pressure (external − internal)"
+      },
+      "method": {
+        "title": "Method",
+        "intro": "The tubing is checked as a thick-walled steel tube under internal and external pressure, axial force and an optional bend.",
+        "steps": [
+          "Axial stress is the axial force over the steel area. A bend of radius R adds the bending stress E·OD/(2R) on the convex side and subtracts it on the concave side; the larger absolute value is used.",
+          "Hoop and radial stress at the inside wall come from the Lamé equations for a thick cylinder; the radial stress there equals minus the internal pressure. The von Mises stress combines the three: √(σa² + σh² + σr² − σa·σh − σa·σr − σh·σr). Torque is not included.",
+          "Burst: API 5C3 internal yield 0.875 · 2Y·t/D; capped-end yield (4Y/√3)·(t/D)·(1 − t/D), where the von Mises stress at the inside wall reaches Y; true burst (2Y/√3)·ln(OD/ID), where the whole wall yields.",
+          "Collapse: Timoshenko, Pc = [Py·R + Pe·(1 + 3·ov·D/2t) − √((Py·R + Pe·(1 + 3·ov·D/2t))² − 4·Py·Pe·R)] / 2, with Py = 2Y·t/D, Pe = 2E/(1 − ν²)·(t/D)³ and R the reduction for axial stress; round tubing has ov = 0. API 5C3 uses the yield, plastic, transition or elastic range of D/t, with the yield strength reduced for axial stress. API RP 5C7 gives the collapse of oval tubing from the round collapse and the ovality, and in tension reduces it by Kcf = ((1/SF)^(4/3) − (L/Ly)^(4/3))^0.75.",
+          "Tension limits: Ly = yield factor · Y · steel area, and the largest axial force that keeps the von Mises stress at the yield factor with the hoop and radial stress of the entered pressures."
+        ],
+        "assumptionsTitle": "Assumptions",
+        "assumptions": [
+          "A seamless steel tube with uniform wall and the nominal dimensions entered, without corrosion, wear or fatigue.",
+          "Pressures are uniform along the tubing; the stresses are those at the inside wall, the worst case.",
+          "Torque and shear stresses are not included.",
+          "The API collapse equations are valid for the D/t range of the standards; check results outside it."
+        ],
+        "reference": "Based on the API 5C3 and API RP 5C7 equations, Timoshenko collapse, the Lamé equations and the von Mises criterion. The calculation reproduces a reference worksheet for its example case. Check the standards before you rely on a result; fatigue life is not covered."
+      }
     },
     "ctPressureLoss": {
       "meta": {
@@ -1082,12 +1217,6 @@
         "title": "CT Pressure Loss",
         "description": "Frictional pressure loss for power-law fluids pumped through coiled tubing. Enter the fluid, the tubing and the flow rate, in oilfield or metric units."
       },
-      "system": {
-        "label": "Units",
-        "us": "Oilfield (US)",
-        "metric": "Metric"
-      },
-      "example": "Load example",
       "groups": {
         "fluid": "Fluid",
         "geometry": "Tubing and reel",
@@ -1135,9 +1264,7 @@
         "velocity": "Velocity",
         "reynolds": "Reynolds number",
         "dean": "Dean number",
-        "regime": "Flow regime",
-        "invalidTitle": "Check the inputs",
-        "invalidText": "Some values are missing or out of range. Correct the highlighted fields to see the result."
+        "regime": "Flow regime"
       },
       "regimes": {
         "laminar": "Laminar",
@@ -1162,8 +1289,7 @@
           "The correlations cover a limited range of n and ID/D. Check results outside it."
         ],
         "reference": "Based on published correlations for power-law fluids in coiled tubing (Zhou and Shah), with the Metzner–Reed Reynolds number and Dodge–Metzner turbulent factors. The calculation reproduces a reference worksheet for its example case. Check the original papers before you rely on a result."
-      },
-      "back": "All tools"
+      }
     },
     "web": {
       "glance": {"label": "At a glance", "items": [{"label": "Stack", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Price", "value": "One fixed price, agreed before work starts"}, {"label": "Ownership", "value": "Code, domain and hosting in your name"}, {"label": "Reply", "value": "Within one business day"}]},

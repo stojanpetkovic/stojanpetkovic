@@ -2,42 +2,32 @@
 /**
  * CtPressureLossView — the CT Pressure Loss calculator page.
  *
- * A form on the left, the result on the right. The calculation runs in the
- * browser with `src/lib/tools/ct-pressure-loss.ts`; the page ships the typed
- * values in the unit system the visitor picks and converts them with
- * `src/lib/tools/units.ts` when the system is switched. Copy comes from
- * `pages.ctPressureLoss.*`; the script reads labels from data attributes so no
- * text is hard-coded in it.
+ * Inputs on the left, the result on the right, inside the shared `ToolPage`
+ * shell. The calculation runs in the browser with `src/lib/tools/ct-pressure-loss.ts`
+ * through `initToolForm`, which also handles the unit switch. Copy comes from
+ * `pages.ctPressureLoss.*`; the script reads the regime labels from a data
+ * attribute so no text is hard-coded in it.
  */
-import PageLayout from '@/layouts/PageLayout.astro';
-import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import { t, tData, defaultLocale, localizedPath } from '@/i18n';
-import { UNITS, type Quantity } from '@/lib/tools/units';
+import ToolPage from './ToolPage.astro';
+import ToolFields from './ToolFields.astro';
+import ToolMethod from './ToolMethod.astro';
+import { t, tData, defaultLocale } from '@/i18n';
+import type { Quantity } from '@/lib/tools/units';
 
 interface Props {
   /** Locale whose copy this page renders. Defaults to the site default. */
   locale?: string;
 }
 
-type Field = { label: string; hint?: string };
-
 const { locale = defaultLocale } = Astro.props;
 
 const p = (key: string) => `pages.ctPressureLoss.${key}`;
 const hero = tData<{ badge: string; title: string; description: string }>(p('hero'), locale)!;
-const system = tData<{ label: string; us: string; metric: string }>(p('system'), locale)!;
 const groups = tData<Record<'fluid' | 'geometry' | 'flow', string>>(p('groups'), locale)!;
-const fields = tData<Record<string, Field>>(p('fields'), locale)!;
+const fields = tData<Record<string, { label: string; hint?: string }>>(p('fields'), locale)!;
 const results = tData<Record<string, string>>(p('results'), locale)!;
 const regimes = tData<Record<string, string>>(p('regimes'), locale)!;
-const method = tData<{
-  title: string;
-  intro: string;
-  steps: string[];
-  assumptionsTitle: string;
-  assumptions: string[];
-  reference: string;
-}>(p('method'), locale)!;
+const method = tData<Parameters<typeof ToolMethod>[0]['method']>(p('method'), locale)!;
 
 /** Worked example in oilfield units: the reference case the calculation is checked against. */
 const example: Record<string, number> = {
@@ -47,19 +37,18 @@ const example: Record<string, number> = {
   reelDiameter: 83,
   od: 1.5,
   wall: 0.095,
+  roughness: 0,
   totalLength: 10220,
   lengthOffReel: 2690,
   flowRate: 31,
-  roughness: 0,
 };
-
 /**
  * Starting values: fresh water (8.33 lb/gal, Newtonian so n = 1, K = 1 cP = 0.00209 lbf·s/100 ft²) in the
  * example string, so the page opens with a result before anything is typed.
  */
 const defaults: Record<string, number> = { ...example, density: 8.33, n: 1, k: 0.00209 };
 
-const layout: { id: 'fluid' | 'geometry' | 'flow'; rows: { key: string; quantity: Quantity }[] }[] = [
+const layout: { id: keyof typeof groups; rows: { key: string; quantity: Quantity }[] }[] = [
   {
     id: 'fluid',
     rows: [
@@ -81,330 +70,100 @@ const layout: { id: 'fluid' | 'geometry' | 'flow'; rows: { key: string; quantity
   },
   { id: 'flow', rows: [{ key: 'flowRate', quantity: 'flowRate' }] },
 ];
-
-const toolsUrl = localizedPath('/tools', locale);
-const back = t(p('back'), locale);
-const resultRows = [
-  ['velocity', 'velocity'],
-  ['reynolds', 'reynolds'],
-  ['dean', 'dean'],
-] as const;
 ---
 
-<PageLayout title={t(p('meta.title'), locale)} description={t(p('meta.description'), locale)} footerBackground="secondary">
-  <section class="web-head border-b border-border pb-10 pt-14 sm:pt-16">
-    <div class="mx-auto max-w-5xl px-6">
-      <a href={toolsUrl} class="inline-flex items-center gap-1.5 text-sm font-medium text-foreground-muted hover:text-foreground">
-        <Icon name="arrow-left" size="sm" />
-        {back}
-      </a>
-      <p class="section-eyebrow mt-6 !mb-0"><span>{hero.badge}</span></p>
-      <h1 class="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-[2.5rem] sm:leading-[1.15]">{hero.title}</h1>
-      <p class="mt-4 max-w-2xl text-base leading-relaxed text-foreground-muted">{hero.description}</p>
-    </div>
-  </section>
+<ToolPage
+  locale={locale}
+  title={t(p('meta.title'), locale)}
+  description={t(p('meta.description'), locale)}
+  hero={hero}
+  resultTitle={results.title}
+  example={example}
+  defaults={defaults}
+  data={{ regimes: JSON.stringify(regimes) }}
+>
+  <ToolFields
+    groups={layout.map((g) => ({ id: g.id, label: groups[g.id], rows: g.rows }))}
+    fields={fields}
+    values={defaults}
+  />
 
-  <section class="bg-background py-10 sm:py-12">
-    <div class="mx-auto max-w-5xl px-6">
-      <div
-        id="ct-tool"
-        class="grid gap-8 lg:grid-cols-[1.25fr_1fr]"
-        data-example={JSON.stringify(example)}
-        data-defaults={JSON.stringify(defaults)}
-        data-units={JSON.stringify(
-          Object.fromEntries(Object.entries(UNITS).map(([q, u]) => [q, { label: u.label, metricToUs: u.metricToUs }]))
-        )}
-        data-regimes={JSON.stringify(regimes)}
-      >
-        <form id="ct-form" class="tool-card !p-6" novalidate>
-          <div class="flex flex-wrap items-center justify-between gap-3">
-            <div role="group" aria-label={system.label} class="ct-segment">
-              <button type="button" data-system="us" aria-pressed="true">{system.us}</button>
-              <button type="button" data-system="metric" aria-pressed="false">{system.metric}</button>
+  <Fragment slot="results">
+    <p class="mt-4 text-sm text-foreground-muted">{results.total}</p>
+    <p class="mt-1 font-display text-4xl font-bold tracking-tight text-brand-700">
+      <span data-out="total" data-quantity="pressure">–</span>
+      <span data-unit-out="pressure" class="text-xl font-semibold text-foreground-muted">psi</span>
+    </p>
+
+    <dl class="mt-5 divide-y divide-border border-t border-border text-sm">
+      {
+        (['straight', 'curved'] as const).map((s) => (
+          <div class="py-3">
+            <div class="flex items-baseline justify-between gap-3">
+              <dt class="font-medium text-foreground">{results[s]}</dt>
+              <dd class="font-mono text-foreground">
+                <span data-out={s} data-quantity="pressure">
+                  –
+                </span>{' '}
+                <span data-unit-out="pressure" class="text-foreground-muted">
+                  psi
+                </span>
+              </dd>
             </div>
-            <button type="button" id="ct-example" class="text-sm font-medium text-brand-700 underline-offset-4 hover:underline">
-              {t(p('example'), locale)}
-            </button>
+            <p class="mt-0.5 text-xs text-foreground-subtle">
+              {results.regime}: <span data-out={`${s}Regime`}>–</span>
+            </p>
           </div>
-
-          {
-            layout.map((group) => (
-              <fieldset class="mt-6 border-t border-border pt-5">
-                <legend class="float-left mb-3 w-full font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
-                  {groups[group.id]}
-                </legend>
-                <div class="clear-both grid gap-4 sm:grid-cols-2">
-                  {group.rows.map(({ key, quantity }) => (
-                    <div>
-                      <label for={`ct-${key}`} class="block text-sm font-medium text-foreground">
-                        {fields[key].label}
-                      </label>
-                      <div class="ct-input mt-1.5">
-                        <input
-                          id={`ct-${key}`}
-                          name={key}
-                          type="text"
-                          inputmode="decimal"
-                          autocomplete="off"
-                          value={String(defaults[key])}
-                          data-quantity={quantity}
-                          aria-describedby={fields[key].hint ? `ct-${key}-hint` : undefined}
-                        />
-                        <span data-unit-for={key}>{UNITS[quantity].label.us}</span>
-                      </div>
-                      {fields[key].hint && (
-                        <p id={`ct-${key}-hint`} class="mt-1 text-xs leading-snug text-foreground-subtle">
-                          {fields[key].hint}
-                        </p>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </fieldset>
-            ))
-          }
-        </form>
-
-        <div class="lg:sticky lg:top-24 lg:self-start">
-          <div class="tool-card !p-6" aria-live="polite">
-            <h2 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{results.title}</h2>
-
-            <div id="ct-invalid" hidden class="mt-4 rounded-lg border border-border bg-background-secondary p-4">
-              <p class="text-sm font-semibold text-foreground">{results.invalidTitle}</p>
-              <p class="mt-1 text-sm leading-relaxed text-foreground-muted">{results.invalidText}</p>
-            </div>
-
-            <div id="ct-output">
-              <p class="mt-4 text-sm text-foreground-muted">{results.total}</p>
-              <p class="mt-1 font-display text-4xl font-bold tracking-tight text-brand-700">
-                <span id="ct-total">–</span> <span id="ct-total-unit" class="text-xl font-semibold text-foreground-muted">psi</span>
-              </p>
-
-              <dl class="mt-5 divide-y divide-border border-t border-border text-sm">
-                {
-                  (['straight', 'curved'] as const).map((s) => (
-                    <div class="py-3">
-                      <div class="flex items-baseline justify-between gap-3">
-                        <dt class="font-medium text-foreground">{results[s]}</dt>
-                        <dd class="font-mono text-foreground">
-                          <span id={`ct-${s}`}>–</span> <span data-pressure-unit class="text-foreground-muted">psi</span>
-                        </dd>
-                      </div>
-                      <p class="mt-0.5 text-xs text-foreground-subtle">
-                        {results.regime}: <span id={`ct-${s}-regime`}>–</span>
-                      </p>
-                    </div>
-                  ))
-                }
-                {
-                  resultRows.map(([key, id]) => (
-                    <div class="flex items-baseline justify-between gap-3 py-3">
-                      <dt class="text-foreground-muted">{results[key]}</dt>
-                      <dd class="font-mono text-foreground">
-                        <span id={`ct-${id}`}>–</span>
-                        {key === 'velocity' && <span id="ct-velocity-unit" class="text-foreground-muted"> ft/min</span>}
-                      </dd>
-                    </div>
-                  ))
-                }
-              </dl>
-            </div>
-          </div>
-        </div>
+        ))
+      }
+      <div class="flex items-baseline justify-between gap-3 py-3">
+        <dt class="text-foreground-muted">{results.velocity}</dt>
+        <dd class="font-mono text-foreground">
+          <span data-out="velocity" data-quantity="velocity">–</span>
+          <span data-unit-out="velocity" class="text-foreground-muted">ft/min</span>
+        </dd>
       </div>
-
-      <!-- Method -->
-      <div class="mt-14 border-t border-border pt-10">
-        <h2 class="font-display text-2xl font-bold text-foreground">{method.title}</h2>
-        <p class="mt-3 max-w-3xl text-sm leading-relaxed text-foreground-muted">{method.intro}</p>
-        <ol class="mt-5 max-w-3xl list-decimal space-y-3 pl-5 text-sm leading-relaxed text-foreground-muted marker:font-mono marker:text-brand-700">
-          {method.steps.map((step) => <li>{step}</li>)}
-        </ol>
-        <h3 class="mt-8 text-sm font-semibold text-foreground">{method.assumptionsTitle}</h3>
-        <ul class="mt-3 max-w-3xl list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-foreground-muted" role="list">
-          {method.assumptions.map((a) => <li>{a}</li>)}
-        </ul>
-        <p class="mt-6 max-w-3xl text-sm leading-relaxed text-foreground-muted">{method.reference}</p>
-        <p class="mt-6 flex max-w-3xl items-start gap-2 text-xs leading-relaxed text-foreground-subtle">
-          <Icon name="info" size="xs" class="mt-0.5 shrink-0" />
-          {t('pages.tools.note', locale)}
-        </p>
+      <div class="flex items-baseline justify-between gap-3 py-3">
+        <dt class="text-foreground-muted">{results.reynolds}</dt>
+        <dd class="font-mono text-foreground"><span data-out="reynolds" data-decimals="0">–</span></dd>
       </div>
-    </div>
-  </section>
-</PageLayout>
+      <div class="flex items-baseline justify-between gap-3 py-3">
+        <dt class="text-foreground-muted">{results.dean}</dt>
+        <dd class="font-mono text-foreground"><span data-out="dean" data-decimals="0">–</span></dd>
+      </div>
+    </dl>
+  </Fragment>
 
-<style is:global>
-  html:root[data-theme='blue'] .ct-segment {
-    display: inline-flex;
-    padding: 3px;
-    border: 1px solid var(--color-border);
-    border-radius: 0.6rem;
-    background: var(--color-background-secondary);
-  }
-  html:root[data-theme='blue'] .ct-segment button {
-    padding: 0.4rem 0.9rem;
-    border-radius: 0.45rem;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    color: var(--color-foreground-muted);
-  }
-  html:root[data-theme='blue'] .ct-segment button[aria-pressed='true'] {
-    background: var(--color-brand-700);
-    color: #fff;
-  }
-  html:root[data-theme='blue'] .ct-input {
-    display: flex;
-    align-items: stretch;
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    background: var(--color-background);
-  }
-  html:root[data-theme='blue'] .ct-input:focus-within {
-    border-color: var(--color-brand-600);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-500) 25%, transparent);
-  }
-  html:root[data-theme='blue'] .ct-input input {
-    min-width: 0;
-    flex: 1;
-    padding: 0.55rem 0.7rem;
-    background: transparent;
-    font-family: var(--font-mono, monospace);
-    font-size: 0.9rem;
-    color: var(--color-foreground);
-    outline: none;
-  }
-  html:root[data-theme='blue'] .ct-input span {
-    display: flex;
-    align-items: center;
-    padding: 0 0.7rem;
-    border-left: 1px solid var(--color-border);
-    background: var(--color-background-secondary);
-    border-radius: 0 0.5rem 0.5rem 0;
-    font-size: 0.75rem;
-    color: var(--color-foreground-muted);
-    white-space: nowrap;
-  }
-  html:root[data-theme='blue'] .ct-input span:empty {
-    display: none;
-  }
-  html:root[data-theme='blue'] .ct-input[data-invalid] {
-    border-color: var(--color-error, #c0392b);
-  }
-</style>
+  <ToolMethod slot="method" method={method} />
+</ToolPage>
 
 <script>
+  import { initToolForm } from '@/lib/tools/tool-form';
   import { calculateCtPressureLoss, validateCtInput, type CtInput } from '@/lib/tools/ct-pressure-loss';
-  import { fromUs, toUs, UNITS, type Quantity, type UnitSystem } from '@/lib/tools/units';
 
-  function initCtTool() {
-    const root = document.getElementById('ct-tool');
-    const form = document.getElementById('ct-form') as HTMLFormElement | null;
-    if (!root || !form || root.dataset.init) return;
-    root.dataset.init = 'true';
-
-    const example: Record<string, number> = JSON.parse(root.dataset.example ?? '{}');
-    const defaults: Record<string, number> = JSON.parse(root.dataset.defaults ?? '{}');
-    const regimeLabels: Record<string, string> = JSON.parse(root.dataset.regimes ?? '{}');
-    const inputs = Array.from(form.querySelectorAll<HTMLInputElement>('input[data-quantity]'));
-    const lang = document.documentElement.lang || 'en';
-    let system: UnitSystem = 'us';
-
-    const byId = (id: string) => document.getElementById(id)!;
-    const parse = (raw: string) => Number(raw.trim().replace(',', '.'));
-    const format = (value: number, digits = 4) =>
-      new Intl.NumberFormat(lang, { maximumSignificantDigits: digits }).format(value);
-    /** Plain number for an input field: no grouping, so it parses back unchanged. */
-    const plain = (value: number) => String(Number(value.toPrecision(6)));
-    const fixed = (value: number, decimals: number) =>
-      new Intl.NumberFormat(lang, { minimumFractionDigits: decimals, maximumFractionDigits: decimals }).format(value);
-
-    function setUnits() {
-      for (const input of inputs) {
-        const label = UNITS[input.dataset.quantity as Quantity].label[system];
-        const unit = form!.querySelector(`[data-unit-for="${input.name}"]`);
-        if (unit) unit.textContent = label;
-      }
-      const pressure = UNITS.pressure.label[system];
-      byId('ct-total-unit').textContent = pressure;
-      document.querySelectorAll('[data-pressure-unit]').forEach((el) => (el.textContent = pressure));
-      byId('ct-velocity-unit').textContent = ' ' + UNITS.velocity.label[system];
-      root!.querySelectorAll<HTMLButtonElement>('[data-system]').forEach((b) =>
-        b.setAttribute('aria-pressed', String(b.dataset.system === system))
-      );
-    }
-
-    function calculate() {
-      const values: Record<string, number> = {};
-      const input: Record<string, number> = {};
-      for (const el of inputs) {
-        const v = parse(el.value);
-        values[el.name] = v;
-        input[el.name] = el.value.trim() === '' ? NaN : toUs(el.dataset.quantity as Quantity, system, v);
-      }
+  function init() {
+    const root = document.getElementById('tool');
+    if (!root) return;
+    const regimes: Record<string, string> = JSON.parse(root.dataset.regimes ?? '{}');
+    initToolForm(root, (input) => {
       const errors = validateCtInput(input as unknown as CtInput);
-      inputs.forEach((el) => {
-        const wrap = el.closest('.ct-input');
-        const bad = errors.includes(el.name as never);
-        if (bad) wrap?.setAttribute('data-invalid', '');
-        else wrap?.removeAttribute('data-invalid');
-        el.setAttribute('aria-invalid', String(bad));
-      });
-      const invalid = errors.length > 0;
-      byId('ct-invalid').hidden = !invalid;
-      byId('ct-output').hidden = invalid;
-      if (invalid) return;
-
+      if (errors.length > 0) return { errors };
       const r = calculateCtPressureLoss(input as unknown as CtInput);
-      const pressure = (psi: number) => fixed(fromUs('pressure', system, psi), system === 'us' ? 0 : 1);
-      byId('ct-total').textContent = pressure(r.total);
-      byId('ct-straight').textContent = pressure(r.straight.pressureLoss);
-      byId('ct-curved').textContent = pressure(r.curved.pressureLoss);
-      byId('ct-straight-regime').textContent = regimeLabels[r.straight.regime];
-      byId('ct-curved-regime').textContent = regimeLabels[r.curved.regime];
-      byId('ct-velocity').textContent = format(fromUs('velocity', system, r.velocity));
-      byId('ct-reynolds').textContent = fixed(r.reynolds, 0);
-      byId('ct-dean').textContent = fixed(r.dean, 0);
-    }
-
-    function fill(values: Record<string, number>) {
-      for (const el of inputs) {
-        el.dataset.us = String(values[el.name]);
-        el.value = plain(fromUs(el.dataset.quantity as Quantity, system, values[el.name]));
-      }
-      calculate();
-    }
-
-    function switchSystem(next: UnitSystem) {
-      if (next === system) return;
-      for (const el of inputs) {
-        const quantity = el.dataset.quantity as Quantity;
-        const v = parse(el.value);
-        if (el.value.trim() === '' || !Number.isFinite(v)) continue;
-        // Convert from the exact oilfield value while the field is untouched, so switching back and
-        // forth does not accumulate rounding.
-        const us = el.dataset.us ? Number(el.dataset.us) : toUs(quantity, system, v);
-        el.dataset.us = String(us);
-        el.value = plain(fromUs(quantity, next, us));
-      }
-      system = next;
-      setUnits();
-      calculate();
-    }
-
-    root.querySelectorAll<HTMLButtonElement>('[data-system]').forEach((b) =>
-      b.addEventListener('click', () => switchSystem(b.dataset.system as UnitSystem))
-    );
-    byId('ct-example').addEventListener('click', () => fill(example));
-    form.addEventListener('input', (e) => {
-      delete (e.target as HTMLInputElement).dataset.us;
-      calculate();
+      return {
+        values: {
+          total: r.total,
+          straight: r.straight.pressureLoss,
+          curved: r.curved.pressureLoss,
+          straightRegime: regimes[r.straight.regime],
+          curvedRegime: regimes[r.curved.regime],
+          velocity: r.velocity,
+          reynolds: r.reynolds,
+          dean: r.dean,
+        },
+      };
     });
-    form.addEventListener('submit', (e) => e.preventDefault());
-
-    fill(defaults);
   }
 
-  initCtTool();
-  document.addEventListener('astro:page-load', initCtTool);
+  init();
+  document.addEventListener('astro:page-load', init);
 </script>

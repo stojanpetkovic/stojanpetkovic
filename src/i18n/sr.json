@@ -1044,6 +1044,17 @@
       "open": "Otvori alat",
       "inputsLabel": "Ulazni podaci",
       "outputsLabel": "Rezultati",
+      "form": {
+        "system": {
+          "label": "Jedinice",
+          "us": "Oilfield (US)",
+          "metric": "Metričke"
+        },
+        "example": "Učitaj primer",
+        "invalidTitle": "Proveri unos",
+        "invalidText": "Neke vrednosti nedostaju ili su van opsega. Ispravi označena polja da vidiš rezultat.",
+        "back": "Svi alati"
+      },
       "cta": "Reci mi šta ti treba",
       "note": "Alati su pomoć za inženjere. Proveri ulazne podatke i rezultate: odgovornost za svaku odluku ostaje na korisniku.",
       "suggest": {
@@ -1069,8 +1080,132 @@
             "Režim toka, ravno i savijeno",
             "Pad pritiska po delu i ukupno"
           ]
+        },
+        {
+          "href": "/tools/ct-strength-limits",
+          "tag": "Mehanika",
+          "icon": "shield-check",
+          "title": "CT granice čvrstoće",
+          "description": "Naponi, granice pucanja, kolapsa i zatezanja coiled tubing-a za zadato opterećenje, sa Von Mises proverom prema faktoru tečenja.",
+          "inputs": [
+            "Veličina cevi, zid i ovalnost",
+            "Granica tečenja, faktor tečenja i modul",
+            "Pritisci, aksijalna sila i radijus savijanja"
+          ],
+          "outputs": [
+            "Aksijalni, obimni i Von Mises napon",
+            "Pucanje i kolaps (API 5C3, 5C7)",
+            "Granice zatezanja i provera faktora tečenja"
+          ]
         }
       ]
+    },
+    "ctStrength": {
+      "meta": {
+        "title": "CT granice čvrstoće",
+        "description": "Proveri coiled tubing na pucanje, kolaps i zatezanje: naponi, Von Mises ekvivalentni napon i API granice kolapsa i pucanja, u oilfield ili metričkim jedinicama."
+      },
+      "hero": {
+        "badge": "Mehanika",
+        "title": "CT granice čvrstoće",
+        "description": "Naponi, granice pucanja, kolapsa i zatezanja coiled tubing-a za opterećenje koje uneseš, sa Von Mises proverom prema faktoru granice tečenja. Oilfield ili metričke jedinice."
+      },
+      "groups": {
+        "tubing": "Cev",
+        "material": "Materijal",
+        "loads": "Opterećenja"
+      },
+      "fields": {
+        "od": {
+          "label": "Spoljašnji prečnik cevi"
+        },
+        "wall": {
+          "label": "Debljina zida"
+        },
+        "ovality": {
+          "label": "Ovalnost",
+          "hint": "(ODmax − ODmin) / OD; oko 0,005 za novu cev"
+        },
+        "yieldStress": {
+          "label": "Granica tečenja",
+          "hint": "Minimalna granica tečenja čelika"
+        },
+        "yieldFactor": {
+          "label": "Faktor granice tečenja",
+          "hint": "Projektni faktor na granicu tečenja"
+        },
+        "modulus": {
+          "label": "Jungov modul",
+          "hint": "Čelik: oko 30 miliona psi"
+        },
+        "poisson": {
+          "label": "Poasonov koeficijent",
+          "hint": "Čelik: 0,33"
+        },
+        "pressureIn": {
+          "label": "Unutrašnji pritisak"
+        },
+        "pressureOut": {
+          "label": "Spoljašnji pritisak"
+        },
+        "axialForce": {
+          "label": "Aksijalna sila",
+          "hint": "Pozitivna pri zatezanju, negativna pri pritisku"
+        },
+        "bendingRadius": {
+          "label": "Radijus savijanja",
+          "hint": "Radijus preko kojeg se cev savija; 0 za ravnu cev"
+        },
+        "safetyFactor": {
+          "label": "Faktor sigurnosti kolapsa",
+          "hint": "Faktor sigurnosti API 5C7 korekcije kolapsa za zatezanje, najmanje 1"
+        }
+      },
+      "results": {
+        "title": "Rezultat",
+        "stresses": "Naponi na unutrašnjem zidu",
+        "axial": "Aksijalni napon (nepovoljnija strana)",
+        "hoop": "Obimni napon",
+        "radial": "Radijalni napon",
+        "vonMises": "Von Mises napon",
+        "vonMisesPercent": "Udeo granice tečenja",
+        "withinYieldFactor": "U granicama faktora tečenja",
+        "exceedsYieldFactor": "Prelazi faktor tečenja",
+        "burst": "Pucanje",
+        "burstApi": "API 5C3 unutrašnja granica tečenja",
+        "burstCapped": "Granica tečenja sa zatvorenim krajem",
+        "burstTrue": "Stvarni pritisak pucanja",
+        "collapse": "Kolaps",
+        "timoshenkoRound": "Timošenko, okrugla",
+        "api5c3": "API 5C3, okrugla",
+        "api5c7Oval": "API 5C7, ovalna",
+        "timoshenkoOval": "Timošenko, ovalna",
+        "api5c7Tension": "API 5C7, ovalna, sa zatezanjem",
+        "noTension": "Potrebno zatezanje",
+        "tension": "Granice zatezanja",
+        "tensionMax": "Maksimalno zatezanje",
+        "tensionAtPressure": "Maksimalno zatezanje pri ovom pritisku",
+        "differential": "Diferencijalni pritisak (spoljašnji − unutrašnji)"
+      },
+      "method": {
+        "title": "Metoda",
+        "intro": "Cev se proverava kao debelozidna čelična cev pod unutrašnjim i spoljašnjim pritiskom, aksijalnom silom i opcionim savijanjem.",
+        "steps": [
+          "Aksijalni napon je aksijalna sila podeljena površinom čelika. Savijanje radijusa R dodaje napon savijanja E·OD/(2R) na konveksnoj strani i oduzima ga na konkavnoj; uzima se veća apsolutna vrednost.",
+          "Obimni i radijalni napon na unutrašnjem zidu dobijaju se iz Lamé jednačina za debelozidni cilindar; radijalni napon tu je jednak negativnom unutrašnjem pritisku. Von Mises napon spaja sva tri: √(σa² + σh² + σr² − σa·σh − σa·σr − σh·σr). Torzija nije uključena.",
+          "Pucanje: API 5C3 unutrašnja granica tečenja 0,875 · 2Y·t/D; granica tečenja sa zatvorenim krajem (4Y/√3)·(t/D)·(1 − t/D), gde Von Mises napon na unutrašnjem zidu dostiže Y; stvarni pritisak pucanja (2Y/√3)·ln(OD/ID), gde teče ceo zid.",
+          "Kolaps: Timošenko, Pc = [Py·R + Pe·(1 + 3·ov·D/2t) − √((Py·R + Pe·(1 + 3·ov·D/2t))² − 4·Py·Pe·R)] / 2, sa Py = 2Y·t/D, Pe = 2E/(1 − ν²)·(t/D)³ i R kao umanjenjem za aksijalni napon; okrugla cev ima ov = 0. API 5C3 koristi oblast tečenja, plastičnu, prelaznu ili elastičnu po D/t, sa granicom tečenja umanjenom za aksijalni napon. API RP 5C7 daje kolaps ovalne cevi iz kolapsa okrugle cevi i ovalnosti, a pri zatezanju ga umanjuje za Kcf = ((1/SF)^(4/3) − (L/Ly)^(4/3))^0,75.",
+          "Granice zatezanja: Ly = faktor tečenja · Y · površina čelika, i najveća aksijalna sila pri kojoj Von Mises napon sa obimnim i radijalnim naponom unetih pritisaka dostiže faktor tečenja."
+        ],
+        "assumptionsTitle": "Pretpostavke",
+        "assumptions": [
+          "Bešavna čelična cev ravnomernog zida i unetih nominalnih mera, bez korozije, habanja i zamora.",
+          "Pritisci su ravnomerni duž cevi; naponi su oni na unutrašnjem zidu, najnepovoljniji slučaj.",
+          "Torzija i smicajni naponi nisu uključeni.",
+          "API jednačine kolapsa važe za opseg D/t iz standarda; proveri rezultate van njega."
+        ],
+        "reference": "Zasnovano na jednačinama API 5C3 i API RP 5C7, Timošenkovom kolapsu, Lamé jednačinama i Von Mises kriterijumu. Proračun reprodukuje referentnu tabelu za njen primer. Proveri standarde pre nego što se osloniš na rezultat; vek trajanja pod zamorom nije pokriven."
+      }
     },
     "ctPressureLoss": {
       "meta": {
@@ -1082,12 +1217,6 @@
         "title": "CT pad pritiska",
         "description": "Pad pritiska usled trenja za power-law fluide u coiled tubing-u. Unesi fluid, cev i protok, u oilfield ili metričkim jedinicama."
       },
-      "system": {
-        "label": "Jedinice",
-        "us": "Oilfield (US)",
-        "metric": "Metričke"
-      },
-      "example": "Učitaj primer",
       "groups": {
         "fluid": "Fluid",
         "geometry": "Cev i bubanj",
@@ -1135,9 +1264,7 @@
         "velocity": "Brzina",
         "reynolds": "Rejnoldsov broj",
         "dean": "Dinov broj",
-        "regime": "Režim toka",
-        "invalidTitle": "Proveri unos",
-        "invalidText": "Neke vrednosti nedostaju ili su van opsega. Ispravi označena polja da vidiš rezultat."
+        "regime": "Režim toka"
       },
       "regimes": {
         "laminar": "Laminaran",
@@ -1162,8 +1289,7 @@
           "Korelacije važe za ograničen opseg n i ID/D. Proveri rezultate van njega."
         ],
         "reference": "Zasnovano na objavljenim korelacijama za power-law fluide u coiled tubing-u (Zhou i Shah), sa Rejnoldsovim brojem po Metzner–Reed-u i turbulentnim faktorima po Dodge–Metzner-u. Proračun reprodukuje referentnu tabelu za njen primer. Proveri originalne radove pre nego što se osloniš na rezultat."
-      },
-      "back": "Svi alati"
+      }
     },
     "web": {
       "glance": {"label": "Ukratko", "items": [{"label": "Tehnologije", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Cena", "value": "Jedna fiksna cena, dogovorena pre početka"}, {"label": "Vlasništvo", "value": "Kod, domen i hosting na tvoje ime"}, {"label": "Odgovor", "value": "U roku od jednog radnog dana"}]},

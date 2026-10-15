@@ -1,0 +1,54 @@
+---
+/**
+ * ToolFields — the grouped input fields of an engineering tool form.
+ *
+ * Each field is a text input with a unit label that `initToolForm` keeps in step
+ * with the chosen unit system. The starting values are in oilfield units.
+ */
+import { UNITS, type Quantity } from '@/lib/tools/units';
+
+interface Props {
+  groups: { id: string; label: string; rows: { key: string; quantity: Quantity }[] }[];
+  fields: Record<string, { label: string; hint?: string }>;
+  values: Record<string, number>;
+}
+
+const { groups, fields, values } = Astro.props;
+---
+
+{
+  groups.map((group) => (
+    <fieldset class="mt-6 border-t border-border pt-5">
+      <legend class="float-left mb-3 w-full font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
+        {group.label}
+      </legend>
+      <div class="clear-both grid gap-4 sm:grid-cols-2">
+        {group.rows.map(({ key, quantity }) => (
+          <div>
+            <label for={`tool-${key}`} class="block text-sm font-medium text-foreground">
+              {fields[key].label}
+            </label>
+            <div class="tool-input mt-1.5">
+              <input
+                id={`tool-${key}`}
+                name={key}
+                type="text"
+                inputmode="decimal"
+                autocomplete="off"
+                value={String(values[key])}
+                data-quantity={quantity}
+                aria-describedby={fields[key].hint ? `tool-${key}-hint` : undefined}
+              />
+              <span data-unit-for={key}>{UNITS[quantity].label.us}</span>
+            </div>
+            {fields[key].hint && (
+              <p id={`tool-${key}-hint`} class="mt-1 text-xs leading-snug text-foreground-subtle">
+                {fields[key].hint}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </fieldset>
+  ))
+}

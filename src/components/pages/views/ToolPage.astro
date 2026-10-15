@@ -1,0 +1,107 @@
+---
+/**
+ * ToolPage — the shell shared by the engineering tool pages.
+ *
+ * A header, the input form on the left (unit switch, example button and the
+ * `fields` slot), the result panel on the right (the `results` slot, with the
+ * invalid-input notice) and a method section (the `method` slot). The page that
+ * uses it supplies the fields, the result rows and a script that calls
+ * `initToolForm`. Shared labels come from `pages.tools.form`.
+ */
+import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import { t, tData, localizedPath } from '@/i18n';
+
+interface Props {
+  locale: string;
+  title: string;
+  description: string;
+  hero: { badge: string; title: string; description: string };
+  resultTitle: string;
+  /** Oilfield-unit values the example button loads. */
+  example: Record<string, number>;
+  /** Oilfield-unit values the form opens with. */
+  defaults: Record<string, number>;
+  /** Extra data attributes for the script, e.g. labels. */
+  data?: Record<string, string>;
+}
+
+const { locale, title, description, hero, resultTitle, example, defaults, data = {} } = Astro.props;
+const system = tData<{ label: string; us: string; metric: string }>('pages.tools.form.system', locale)!;
+const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data-${k}`, v]));
+---
+
+<PageLayout title={title} description={description} footerBackground="secondary">
+  <section class="web-head border-b border-border pb-10 pt-14 sm:pt-16">
+    <div class="mx-auto max-w-5xl px-6">
+      <a
+        href={localizedPath('/tools', locale)}
+        class="inline-flex items-center gap-1.5 text-sm font-medium text-foreground-muted hover:text-foreground"
+      >
+        <Icon name="arrow-left" size="sm" />
+        {t('pages.tools.form.back', locale)}
+      </a>
+      <p class="section-eyebrow mt-6 !mb-0"><span>{hero.badge}</span></p>
+      <h1
+        class="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-[2.5rem] sm:leading-[1.15]"
+      >
+        {hero.title}
+      </h1>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-foreground-muted">{hero.description}</p>
+    </div>
+  </section>
+
+  <section class="bg-background py-10 sm:py-12">
+    <div class="mx-auto max-w-5xl px-6">
+      <div
+        id="tool"
+        class="grid gap-8 lg:grid-cols-[1.25fr_1fr]"
+        data-example={JSON.stringify(example)}
+        data-defaults={JSON.stringify(defaults)}
+        {...dataAttrs}
+      >
+        <form class="tool-card !p-6" novalidate>
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div role="group" aria-label={system.label} class="tool-segment">
+              <button type="button" data-system="us" aria-pressed="true">{system.us}</button>
+              <button type="button" data-system="metric" aria-pressed="false">{system.metric}</button>
+            </div>
+            <button
+              type="button"
+              data-tool-example
+              class="text-sm font-medium text-brand-700 underline-offset-4 hover:underline"
+            >
+              {t('pages.tools.form.example', locale)}
+            </button>
+          </div>
+          <slot />
+        </form>
+
+        <div class="lg:sticky lg:top-24 lg:self-start">
+          <div class="tool-card !p-6" aria-live="polite">
+            <h2 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
+              {resultTitle}
+            </h2>
+            <div data-tool-invalid hidden class="mt-4 rounded-lg border border-border bg-background-secondary p-4">
+              <p class="text-sm font-semibold text-foreground">{t('pages.tools.form.invalidTitle', locale)}</p>
+              <p class="mt-1 text-sm leading-relaxed text-foreground-muted">
+                {t('pages.tools.form.invalidText', locale)}
+              </p>
+            </div>
+            <div data-tool-output>
+              <slot name="results" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-14 border-t border-border pt-10">
+        <slot name="method" />
+        <p class="mt-6 flex max-w-3xl items-start gap-2 text-xs leading-relaxed text-foreground-subtle">
+          <Icon name="info" size="xs" class="mt-0.5 shrink-0" />
+          {t('pages.tools.note', locale)}
+        </p>
+      </div>
+    </div>
+  </section>
+</PageLayout>

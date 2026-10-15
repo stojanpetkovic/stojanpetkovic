@@ -1,0 +1,9 @@
+---
+import CtStrengthView from '@/components/pages/views/CtStrengthView.astro';
+import { defaultLocale } from '@/i18n';
+
+// The CT Strength Limits calculator for the default locale. Additional locales are
+// served by `src/pages/[locale]/tools/ct-strength-limits.astro`.
+---
+
+<CtStrengthView locale={defaultLocale} />

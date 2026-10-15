@@ -1044,6 +1044,17 @@
       "open": "Werkzeug öffnen",
       "inputsLabel": "Eingaben",
       "outputsLabel": "Ergebnisse",
+      "form": {
+        "system": {
+          "label": "Einheiten",
+          "us": "Feldeinheiten (US)",
+          "metric": "Metrisch"
+        },
+        "example": "Beispiel laden",
+        "invalidTitle": "Eingaben prüfen",
+        "invalidText": "Einige Werte fehlen oder liegen außerhalb des Bereichs. Korrigieren Sie die markierten Felder, um das Ergebnis zu sehen.",
+        "back": "Alle Werkzeuge"
+      },
       "cta": "Sagen Sie mir, was Sie brauchen",
       "note": "Die Werkzeuge sind Hilfsmittel für Ingenieure. Prüfen Sie Eingaben und Ergebnisse: die Verantwortung für jede Entscheidung bleibt beim Nutzer.",
       "suggest": {
@@ -1069,8 +1080,132 @@
             "Strömungsregime, gerade und gekrümmt",
             "Druckverlust je Abschnitt und gesamt"
           ]
+        },
+        {
+          "href": "/tools/ct-strength-limits",
+          "tag": "Mechanik",
+          "icon": "shield-check",
+          "title": "CT-Festigkeitsgrenzen",
+          "description": "Spannungen, Platz-, Kollaps- und Zuggrenzen von Coiled Tubing für eine gegebene Last, mit der von-Mises-Prüfung gegen den Streckgrenzenfaktor.",
+          "inputs": [
+            "Rohrgröße, Wand und Ovalität",
+            "Streckgrenze, Streckgrenzenfaktor und E-Modul",
+            "Drücke, Axialkraft und Biegeradius"
+          ],
+          "outputs": [
+            "Axial-, Umfangs- und Vergleichsspannung",
+            "Platzen und Kollaps (API 5C3, 5C7)",
+            "Zuggrenzen und Prüfung des Streckgrenzenfaktors"
+          ]
         }
       ]
+    },
+    "ctStrength": {
+      "meta": {
+        "title": "CT-Festigkeitsgrenzen",
+        "description": "Prüfen Sie Coiled Tubing auf Platzen, Kollaps und Zug: Spannungen, Vergleichsspannung nach von Mises sowie API-Kollaps- und Berstgrenzen, in Feld- oder metrischen Einheiten."
+      },
+      "hero": {
+        "badge": "Mechanik",
+        "title": "CT-Festigkeitsgrenzen",
+        "description": "Spannungen, Platz-, Kollaps- und Zuggrenzen von Coiled Tubing für die eingegebene Last, mit der von-Mises-Prüfung gegen den Streckgrenzenfaktor. Feld- oder metrische Einheiten."
+      },
+      "groups": {
+        "tubing": "Rohr",
+        "material": "Werkstoff",
+        "loads": "Lasten"
+      },
+      "fields": {
+        "od": {
+          "label": "Rohr-Außendurchmesser"
+        },
+        "wall": {
+          "label": "Wandstärke"
+        },
+        "ovality": {
+          "label": "Ovalität",
+          "hint": "(ODmax − ODmin) / OD; etwa 0,005 bei neuem Rohr"
+        },
+        "yieldStress": {
+          "label": "Streckgrenze",
+          "hint": "Mindeststreckgrenze des Stahls"
+        },
+        "yieldFactor": {
+          "label": "Streckgrenzenfaktor",
+          "hint": "Auslegungsfaktor auf die Streckgrenze"
+        },
+        "modulus": {
+          "label": "Elastizitätsmodul",
+          "hint": "Stahl: etwa 30 Millionen psi"
+        },
+        "poisson": {
+          "label": "Querkontraktionszahl",
+          "hint": "Stahl: 0,33"
+        },
+        "pressureIn": {
+          "label": "Innendruck"
+        },
+        "pressureOut": {
+          "label": "Außendruck"
+        },
+        "axialForce": {
+          "label": "Axialkraft",
+          "hint": "Positiv bei Zug, negativ bei Druck"
+        },
+        "bendingRadius": {
+          "label": "Biegeradius",
+          "hint": "Radius, über den das Rohr gebogen wird; 0 für gerades Rohr"
+        },
+        "safetyFactor": {
+          "label": "Kollaps-Sicherheitsfaktor",
+          "hint": "Sicherheitsfaktor der API-5C7-Kollapskorrektur für Zug, mindestens 1"
+        }
+      },
+      "results": {
+        "title": "Ergebnis",
+        "stresses": "Spannungen an der Innenwand",
+        "axial": "Axialspannung (ungünstige Seite)",
+        "hoop": "Umfangsspannung",
+        "radial": "Radialspannung",
+        "vonMises": "Vergleichsspannung nach von Mises",
+        "vonMisesPercent": "Anteil der Streckgrenze",
+        "withinYieldFactor": "Innerhalb des Streckgrenzenfaktors",
+        "exceedsYieldFactor": "Überschreitet den Streckgrenzenfaktor",
+        "burst": "Platzen",
+        "burstApi": "API 5C3 Innendruck-Streckgrenze",
+        "burstCapped": "Streckgrenze bei geschlossenem Ende",
+        "burstTrue": "Tatsächlicher Berstdruck",
+        "collapse": "Kollaps",
+        "timoshenkoRound": "Timoshenko, rund",
+        "api5c3": "API 5C3, rund",
+        "api5c7Oval": "API 5C7, oval",
+        "timoshenkoOval": "Timoshenko, oval",
+        "api5c7Tension": "API 5C7, oval, mit Zug",
+        "noTension": "Zug erforderlich",
+        "tension": "Zuggrenzen",
+        "tensionMax": "Maximaler Zug",
+        "tensionAtPressure": "Maximaler Zug bei diesem Druck",
+        "differential": "Differenzdruck (außen − innen)"
+      },
+      "method": {
+        "title": "Methode",
+        "intro": "Das Rohr wird als dickwandiges Stahlrohr unter Innen- und Außendruck, Axialkraft und optionaler Biegung geprüft.",
+        "steps": [
+          "Die Axialspannung ist die Axialkraft geteilt durch die Stahlfläche. Eine Biegung mit Radius R addiert die Biegespannung E·OD/(2R) auf der konvexen Seite und zieht sie auf der konkaven ab; es zählt der größere Betrag.",
+          "Umfangs- und Radialspannung an der Innenwand folgen aus den Lamé-Gleichungen für den dickwandigen Zylinder; die Radialspannung dort ist gleich dem negativen Innendruck. Die Vergleichsspannung nach von Mises fasst die drei zusammen: √(σa² + σh² + σr² − σa·σh − σa·σr − σh·σr). Torsion ist nicht enthalten.",
+          "Platzen: API-5C3-Innendruck-Streckgrenze 0,875 · 2Y·t/D; Streckgrenze bei geschlossenem Ende (4Y/√3)·(t/D)·(1 − t/D), wenn die Vergleichsspannung an der Innenwand Y erreicht; tatsächlicher Berstdruck (2Y/√3)·ln(OD/ID), wenn die ganze Wand fließt.",
+          "Kollaps: Timoshenko, Pc = [Py·R + Pe·(1 + 3·ov·D/2t) − √((Py·R + Pe·(1 + 3·ov·D/2t))² − 4·Py·Pe·R)] / 2, mit Py = 2Y·t/D, Pe = 2E/(1 − ν²)·(t/D)³ und R als Abminderung für die Axialspannung; rundes Rohr hat ov = 0. API 5C3 nutzt den Fließ-, Plastik-, Übergangs- oder elastischen Bereich von D/t, mit für die Axialspannung abgeminderter Streckgrenze. API RP 5C7 liefert den Kollaps ovaler Rohre aus dem runden Kollaps und der Ovalität und mindert ihn bei Zug um Kcf = ((1/SF)^(4/3) − (L/Ly)^(4/3))^0,75.",
+          "Zuggrenzen: Ly = Streckgrenzenfaktor · Y · Stahlfläche sowie die größte Axialkraft, bei der die Vergleichsspannung mit den Umfangs- und Radialspannungen der eingegebenen Drücke den Streckgrenzenfaktor erreicht."
+        ],
+        "assumptionsTitle": "Annahmen",
+        "assumptions": [
+          "Ein nahtloses Stahlrohr mit gleichmäßiger Wand und den eingegebenen Nennmaßen, ohne Korrosion, Verschleiß oder Ermüdung.",
+          "Die Drücke sind entlang des Rohrs gleichmäßig; die Spannungen gelten an der Innenwand, dem ungünstigsten Fall.",
+          "Torsion und Schubspannungen sind nicht enthalten.",
+          "Die API-Kollapsgleichungen gelten im D/t-Bereich der Normen; prüfen Sie Ergebnisse außerhalb davon."
+        ],
+        "reference": "Basiert auf den Gleichungen von API 5C3 und API RP 5C7, dem Timoshenko-Kollaps, den Lamé-Gleichungen und dem Kriterium nach von Mises. Die Berechnung reproduziert für ihren Beispielfall ein Referenz-Arbeitsblatt. Prüfen Sie die Normen, bevor Sie sich auf ein Ergebnis verlassen; die Lebensdauer unter Ermüdung ist nicht abgedeckt."
+      }
     },
     "ctPressureLoss": {
       "meta": {
@@ -1082,12 +1217,6 @@
         "title": "CT-Druckverlust",
         "description": "Reibungsdruckverlust für Potenzgesetz-Fluide in Coiled Tubing. Geben Sie Fluid, Rohr und Förderrate ein, in Feld- oder metrischen Einheiten."
       },
-      "system": {
-        "label": "Einheiten",
-        "us": "Feldeinheiten (US)",
-        "metric": "Metrisch"
-      },
-      "example": "Beispiel laden",
       "groups": {
         "fluid": "Fluid",
         "geometry": "Rohr und Haspel",
@@ -1135,9 +1264,7 @@
         "velocity": "Geschwindigkeit",
         "reynolds": "Reynolds-Zahl",
         "dean": "Dean-Zahl",
-        "regime": "Strömungsregime",
-        "invalidTitle": "Eingaben prüfen",
-        "invalidText": "Einige Werte fehlen oder liegen außerhalb des Bereichs. Korrigieren Sie die markierten Felder, um das Ergebnis zu sehen."
+        "regime": "Strömungsregime"
       },
       "regimes": {
         "laminar": "Laminar",
@@ -1162,8 +1289,7 @@
           "Die Korrelationen decken nur einen begrenzten Bereich von n und ID/D ab. Prüfen Sie Ergebnisse außerhalb davon."
         ],
         "reference": "Basiert auf veröffentlichten Korrelationen für Potenzgesetz-Fluide in Coiled Tubing (Zhou und Shah), mit der Reynolds-Zahl nach Metzner–Reed und den turbulenten Faktoren nach Dodge–Metzner. Die Berechnung reproduziert für ihren Beispielfall ein Referenz-Arbeitsblatt. Prüfen Sie die Originalarbeiten, bevor Sie sich auf ein Ergebnis verlassen."
-      },
-      "back": "Alle Werkzeuge"
+      }
     },
     "web": {
       "glance": {"label": "Auf einen Blick", "items": [{"label": "Technik", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Preis", "value": "Ein Festpreis, vor Arbeitsbeginn vereinbart"}, {"label": "Eigentum", "value": "Code, Domain und Hosting auf Ihren Namen"}, {"label": "Antwort", "value": "Innerhalb eines Werktags"}]},

@@ -454,3 +454,61 @@ html:root[data-theme='blue'] .tool-card-suggest {
 html:root[data-theme='blue'] .tool-card-suggest::before {
   display: none;
 }
+
+/* Tool forms (Tools pages): unit switch and input with unit label. */
+html:root[data-theme='blue'] .tool-segment {
+  display: inline-flex;
+  padding: 3px;
+  border: 1px solid var(--color-border);
+  border-radius: 0.6rem;
+  background: var(--color-background-secondary);
+}
+html:root[data-theme='blue'] .tool-segment button {
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.45rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-foreground-muted);
+}
+html:root[data-theme='blue'] .tool-segment button[aria-pressed='true'] {
+  background: var(--color-brand-700);
+  color: #fff;
+}
+html:root[data-theme='blue'] .tool-input {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  background: var(--color-background);
+}
+html:root[data-theme='blue'] .tool-input:focus-within {
+  border-color: var(--color-brand-600);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-500) 25%, transparent);
+}
+html:root[data-theme='blue'] .tool-input input {
+  min-width: 0;
+  flex: 1;
+  padding: 0.55rem 0.7rem;
+  background: transparent;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.9rem;
+  color: var(--color-foreground);
+  outline: none;
+}
+html:root[data-theme='blue'] .tool-input span {
+  display: flex;
+  align-items: center;
+  padding: 0 0.7rem;
+  border-left: 1px solid var(--color-border);
+  background: var(--color-background-secondary);
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-size: 0.75rem;
+  color: var(--color-foreground-muted);
+  white-space: nowrap;
+}
+html:root[data-theme='blue'] .tool-input span:empty {
+  display: none;
+}
+html:root[data-theme='blue'] .tool-input[data-invalid] {
+  border-color: var(--color-error, #c0392b);
+}
