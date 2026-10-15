@@ -65,7 +65,7 @@ export async function getDerivedFooterGroups(
   // the site's own `order` within its group. Straight `order` put four
   // placeholders ahead of the second real project and the limit then cut it,
   // so a column meant for navigating led with the entries that do not.
-  const allProjects = await getVisibleProjects(locale);
+  const allProjects = await getVisibleProjects(locale, 'web');
   const projects = [...allProjects]
     .sort((a, b) => Number(!!a.data.placeholder) - Number(!!b.data.placeholder))
     .slice(0, PROJECTS_LIMIT)

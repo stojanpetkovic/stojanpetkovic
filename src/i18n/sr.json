@@ -157,12 +157,15 @@
     "galleryNextImage": "Sledeća slika",
     "galleryPreviousImage": "Prethodna slika",
     "metaTitle": "Projekti",
-    "metaDescription": "Izdvojeni radovi — sajtovi, alati i platforme koje je napravio Stojan Petković.",
+    "metaDescription": "Izabrani inženjerski projekti Stojana Petkovića.",
     "heroBadge": "Portfolio",
-    "heroDescription": "Sajtovi i platforme koje sam napravio za klijente.",
+    "heroDescription": "Inženjerski i industrijski projekti.",
+    "emptyTitle": "Industrijski projekti su u pripremi",
+    "emptyText": "Studije slučaja iz coiled tubing i azotnih operacija biće objavljene ovde. Sajtovi koje sam napravio nalaze se na stranici Web.",
+    "emptyWeb": "Pogledaj web projekte",
     "allProjects": "Svi projekti",
     "pageMetaTitle": "Projekti — strana {page}",
-    "pageMetaDescription": "Strana {page} od {total} — izdvojeni radovi, alati i platforme koje je napravio Stojan Petković.",
+    "pageMetaDescription": "Strana {page} od {total} — izabrani inženjerski projekti Stojana Petkovića.",
     "pageBadge": "Strana {page} od {total}",
     "tagMetaTitle": "#{tag} — Projekti",
     "tagMetaDescription": "Projekti na temu \"{tag}\".",
@@ -880,204 +883,6 @@
         "description": "Tri oblasti, jedan inženjer: konsultacije i projekti za naftu i gas, softver u oblaku za tehničke timove i sajtovi kao posebna usluga.",
         "jumpLabels": ["Konsultacije i projekti", "Softver i alati", "Web razvoj"]
       },
-      "design": {
-        "badge": "Dizajn",
-        "heading": "Web dizajn",
-        "paragraphs": [
-          "Web dizajn je kako tvoj sajt izgleda i kakav osećaj ostavlja: raspored, boje, slike i to koliko se lako posetioci snalaze.",
-          "Svaki sajt dizajniram oko tvog biznisa — tvog brenda, sadržaja i ljudi do kojih želiš da dođeš — tako da ostavi jak prvi utisak i vodi posetioce pravo na ono što je bitno. Čisto, moderno i napravljeno da radi na svakom ekranu, od velikog monitora do telefona."
-        ],
-        "included": [
-          {
-            "lead": "Dizajn samo za tebe",
-            "text": "skrojen po tvom biznisu, brendu i klijentima koje želiš da privučeš."
-          },
-          {
-            "lead": "Jak prvi utisak",
-            "text": "čist, moderan izgled koji odmah pokazuje ko si čim se stranica otvori."
-          },
-          {
-            "lead": "Laka navigacija",
-            "text": "raspored koji posetioce vodi pravo do onoga što ih zanima."
-          },
-          {
-            "lead": "Za svaki ekran",
-            "text": "izgleda i radi odlično na telefonu, tabletu i računaru."
-          },
-          {
-            "lead": "Sadržaj u najboljem svetlu",
-            "text": "tvoj tekst i slike složeni tako da se lako čitaju i lepo izgledaju."
-          }
-        ],
-        "ctaLabel": "Zakaži razgovor o dizajnu"
-      },
-      "development": {
-        "badge": "Izrada",
-        "heading": "Razvoj softvera i weba",
-        "paragraphs": [
-          "Razvoj je izgradnja tvog sistema: zahtevi i dizajn postaju kod koji pouzdano radi, u pregledaču ili iza njega.",
-          "Radim u Astro-u, modernom framework-u na kom rade neki od najbržih sajtova na internetu. Zato se tvoj sajt brzo učitava, bezbedan je i lako se održava godinama. I tvoj je od prvog dana — kod, domen i hosting su na tvoje ime."
-        ],
-        "included": [
-          {
-            "lead": "Brz sajt",
-            "text": "napravljen u Astro-u, framework-u iza nekih od najbržih sajtova na internetu."
-          },
-          {
-            "lead": "Bezbedan i pouzdan sajt",
-            "text": "koji ostaje siguran i radi bez problema, godinama."
-          },
-          {
-            "lead": "Sve je tvoje",
-            "text": "kod, domen i hosting na tvoje ime od prvog dana."
-          },
-          {
-            "lead": "Briga i posle lansiranja",
-            "text": "uz mesečni paket održavanja sajt je uvek ažuran i bezbedan, a ti se baviš svojim poslom."
-          },
-          {
-            "lead": "Prostor za rast",
-            "text": "nove stranice i funkcije dodajemo kad god ti zatrebaju."
-          }
-        ],
-        "ctaLabel": "Pogledaj projekte"
-      },
-      "performance": {
-        "badge": "SEO",
-        "heading": "SEO optimizacija",
-        "paragraphs": [
-          "SEO optimizacija je ono što tvoj sajt čini uspešnim: brzo se učitava, dobro je pozicioniran na Google-u i radi za svakoga.",
-          "Brzinu, SEO i pristupačnost ugrađujem od prve linije koda, a ne naknadno. Tako Google lako pronalazi i razume tvoj sajt, svaki posetilac ga brzo otvara i svako može da ga koristi bez problema."
-        ],
-        "included": [
-          {
-            "lead": "Sajt koji nalaze Google i AI",
-            "text": "napravljen tako da ga pretraživači i AI asistenti lako čitaju, razumeju i preporučuju."
-          },
-          {
-            "lead": "Brz na svakom uređaju",
-            "text": "stranice ostaju brze i na telefonu i na slabijoj konekciji."
-          },
-          {
-            "lead": "Sajt za sve",
-            "text": "pristupačan svakom posetiocu, bez obzira na uređaj ili mogućnosti."
-          },
-          {
-            "lead": "Odlične ocene",
-            "text": "visoki rezultati na Google-ovim testovima brzine i kvaliteta (Lighthouse)."
-          },
-          {
-            "lead": "Optimizovano od starta",
-            "text": "brzina, SEO i pristupačnost ugrađeni od prve linije koda."
-          }
-        ],
-        "ctaLabel": "Započni projekat"
-      },
-      "reporting": {
-        "badge": "Podaci i izveštaji",
-        "heading": "Merenje onoga što sajt radi",
-        "paragraphs": [
-          "Sajt je sistem, a sistem treba meriti. Postavljam jednostavno praćenje koje poštuje privatnost, da vidiš koliko ljudi dolazi, koje stranice čitaju i odakle stižu.",
-          "Jednom mesečno dobijaš kratak PDF izveštaj na običnom jeziku. Bez logovanja, bez dashboard-a koje treba učiti, bez podešavanja Google Analytics-a."
-        ],
-        "included": [
-          {
-            "lead": "Posete i stranice",
-            "text": "vidi koliko ljudi dolazi i koje stranice zaista čitaju."
-          },
-          {
-            "lead": "Poruke na email",
-            "text": "svaka poruka iz forme stiže u tvoj inbox, zajedno sa stranicom sa koje je poslata."
-          },
-          {
-            "lead": "Znaj šta radi",
-            "text": "vidi koji izvor dovodi posetioce: pretraga, društvene mreže ili direktni dolasci."
-          },
-          {
-            "lead": "Mesečni PDF izveštaj",
-            "text": "jasne stranice na običnom jeziku, na engleskom ili srpskom, spremne za deljenje sa timom."
-          },
-          {
-            "lead": "Bez kolačića",
-            "text": "posetioci se broje anonimno, bez kolačića i bez praćenja po drugim sajtovima."
-          }
-        ],
-        "imageAlt": "Primer mesečnog izveštaja o sajtu: posetioci, upiti, pozivi, stopa konverzije, grafikon po danu i izvori poseta.",
-        "imageCaption": "Primer mesečnog izveštaja (demo podaci).",
-        "benefits": {
-          "heading": "Šta to znači za tvoj projekat",
-          "lead": "Brojevi pretvaraju mišljenja u odluke. Praćenje pokazuje šta sajt radi, da ga poboljšaš na osnovu činjenica.",
-          "items": [
-            {
-              "icon": "target",
-              "title": "Odluke na osnovu činjenica",
-              "description": "Vidi koje stranice i izvori privlače pažnju i poboljšaj ono što je bitno."
-            },
-            {
-              "icon": "inbox",
-              "title": "Ništa se ne gubi",
-              "description": "Svaka poruka stiže odmah u tvoj inbox, sa odgovorom jednim klikom."
-            },
-            {
-              "icon": "trending-up",
-              "title": "Prati napredak",
-              "description": "Mesečni izveštaj pokazuje kako sajt raste, u brojevima koje možeš da podeliš."
-            },
-            {
-              "icon": "shield-check",
-              "title": "Jednostavno i diskretno",
-              "description": "Nema panela koje treba učiti, nema podešavanja Google Analytics-a, nema kolačića za tvoje posetioce. Samo jedan jasan izveštaj mesečno."
-            }
-          ]
-        }
-      },
-      "additional": {
-        "badge": "Još usluga",
-        "heading": "Ostale usluge",
-        "lead": "Pored izrade sajta, evo šta još mogu da uradim za tvoj biznis.",
-        "items": [
-          {
-            "icon": "palette",
-            "title": "Grafički dizajn",
-            "description": "Logo, grafike za društvene mreže i dizajn za štampu, da ti brend izgleda dobro svuda gde se pojavi — na ekranu i van njega."
-          },
-          {
-            "icon": "pen-line",
-            "title": "Content marketing",
-            "description": "Blog tekstovi i stranice usluga koji odgovaraju na pitanja koja tvoji klijenti već kucaju u Google, pa ti sajt donosi posete i dugo posle lansiranja."
-          },
-          {
-            "icon": "wrench",
-            "title": "Softver po meri",
-            "description": "Interni alati, dashboard-i i obrada podataka za tehničke timove, sa dokumentovanom logikom da se rezultati mogu proveriti."
-          },
-          {
-            "icon": "sparkles",
-            "title": "GEO i AI SEO",
-            "description": "Sadržaj i strukturirani podaci napisani tako da AI asistenti i AI pretraga tačno razumeju čime se baviš i preporučuju te."
-          },
-          {
-            "icon": "layout-template",
-            "title": "Paketi za izradu sajtova",
-            "description": "Paketi sa unapred definisanim obimom za firme koje tačno znaju šta im treba: jasna cena, jasan rezultat i bez dugog dogovaranja."
-          },
-          {
-            "icon": "book-open",
-            "title": "Tehničko pisanje",
-            "description": "Jasni članci i dokumentacija o inženjerskim temama, koje piše inženjer, da tvoja stručnost bude lako pronađena i lako poverljiva."
-          },
-          {
-            "icon": "gem",
-            "title": "Razvoj brenda",
-            "description": "Logo i vizuelni identitet od nule, da nova firma od prvog dana izgleda kao da postoji godinama."
-          },
-          {
-            "icon": "server",
-            "title": "Hosting i domeni",
-            "description": "Pouzdan hosting i domen — izabrani, podešeni i vođeni na tvoje ime, bez jurcanja različitih provajdera i datuma obnove."
-          }
-        ]
-      },
       "process": {
         "badge": "Kako to ide",
         "heading": "Kako izgleda saradnja",
@@ -1087,57 +892,6 @@
           { "title": "Ponuda", "description": "Posle razgovora dobijaš jedan jasan dokument: šta pravim, kad će biti gotovo i koliko košta — fiksno. Odlučuješ kad su ti sve karte na stolu." },
           { "title": "Rad u kratkim ciklusima", "description": "Pratiš napredak i vidiš kako rezultat dobija oblik, bilo da je dokument, alat ili sajt." },
           { "title": "Isporuka i podrška", "description": "Rad se predaje na tvoje ime i dokumentovan. Posle toga ostajem dostupan, a postoji i mesečni plan održavanja ako želiš redovna ažuriranja." }
-        ]
-      },
-      "faq": {
-        "badge": "Pitanja",
-        "heading": "Pitanja i odgovori",
-        "lead": "Ono što klijenti obično pitaju pre nego što krenemo.",
-        "cards": [
-          {
-            "icon": "tag",
-            "title": "Pre nego što krenemo",
-            "items": [
-              { "question": "Koliko košta sajt?", "answer": "Svaki projekat ima jednu fiksnu cenu, dogovorenu pre početka. Nema naplate po satu i nema iznenađenja posle. Iz besplatnog razgovora — i besplatne provere, ako već imaš sajt — vidim šta tvom projektu treba, a cenu dobijaš u jednoj jasnoj ponudi." },
-              { "question": "Koliko traje izrada?", "answer": "Zavisi od veličine sajta. U ponudi je rok zajedno sa cenom, pa oba znaš pre nego što počnemo." },
-              { "question": "Šta biva sa mojim trenutnim sajtom?", "answer": "Radi normalno dok novi ne bude spreman. Tvoj sadržaj, web adresa i pozicije na Google-u prelaze sa tobom. Trenutni sajt pregledam pre prvog razgovora, pa od starta dobijaš jasne odgovore." },
-              { "question": "Da li ja treba da obezbedim hosting ili domen?", "answer": "Ne treba. Hosting i domen podešavam ja, na tvoje ime. Ako već imaš domen, samo ga zadržimo." },
-              { "question": "Da li moramo da se vidimo uživo?", "answer": "Ne moramo. Većina projekata ide preko telefona, video poziva i email-a. Radim sa klijentima iz celog sveta i vremenske zone su retko problem." }
-            ]
-          },
-          {
-            "icon": "user",
-            "title": "Rad sa mnom",
-            "items": [
-              { "question": "Da li si firma ili agencija?", "answer": "Ni jedno ni drugo — ja sam freelancer. Radiš direktno sa čovekom koji radi posao, od prvog razgovora do gotovog sajta. Bez prodavaca, bez menadžera i bez prosleđivanja posla dalje." },
-              { "question": "Mogu li sam da menjam sajt posle lansiranja?", "answer": "Možeš samo da mi pošalješ izmene — mesečni paket održavanja postoji baš zbog toga. Ako želiš sam da menjaš sajt, reci mi na prvom razgovoru i tako ću ga podesiti." },
-              { "question": "Praviš li online prodavnice?", "answer": "Ne. Velike online prodavnice su jedino što ne radim. Sve ostalo što traži Astro sajt po meri — radim. Reci mi na prvom razgovoru šta imaš na umu i iskreno ću ti reći da li sam pravi čovek za to." },
-              { "question": "Da li je sajt stvarno moj?", "answer": "Sto posto. Domen, hosting i kod su na tvoje ime od prvog dana. Ako ikad poželiš da odeš, sve nosiš sa sobom — nisi ni za šta vezan." },
-              { "question": "Šta ako se nešto pokvari posle lansiranja?", "answer": "Malo toga uopšte može da se pokvari: sajt nema plugine ni bazu podataka koja bi mogla da otkaže. A tu sam i posle lansiranja; za redovna ažuriranja i praćenje postoji mesečni paket održavanja." }
-            ]
-          },
-          {
-            "icon": "sparkles",
-            "title": "Više od sajta",
-            "items": [
-              { "question": "Radiš li grafički dizajn ili brending posebno?", "answer": "Radim. Logo, vizuelni identitet ili stalni grafički dizajn možeš da dobiješ i bez izrade sajta — samo mi reci na prvom razgovoru šta ti treba." },
-              { "question": "Da li praviš softver po meri?", "answer": "Da: interne alate, dashboard-e i obradu podataka za tehničke timove. Prvo zajedno definišemo zahteve, zatim ga pravim i dokumentujem." },
-              { "question": "Pišeš li i tehničke tekstove?", "answer": "Da: članke i dokumentaciju o inženjerskim temama, koje piše neko ko je taj posao radio na terenu." },
-              { "question": "Šta je to GEO, odnosno AI SEO?", "answer": "To je posao da AI asistenti i AI pretraga — ChatGPT, Google AI Overviews i slični — tačno razumeju tvoj sajt i preporučuju tvoju firmu, uz klasičan SEO." },
-              { "question": "Imaš li pakete sajtova po fiksnoj ceni?", "answer": "Imam, za firme koje tačno znaju šta im treba: paket drži cenu i rezultat fiksnim od samog početka, bez dugog dogovaranja." }
-            ]
-          },
-          {
-            "icon": "globe",
-            "title": "Hosting i domeni",
-            "items": [
-              { "question": "Šta tačno ulazi u podešavanje hostinga i domena?", "answer": "Biram i podešavam pouzdan hosting za tvoj sajt i registrujem — ili prebacujem — tvoj domen, sve na tvoje ime od prvog dana. SSL, DNS i poslovni email na tvom domenu idu uz to." },
-              { "question": "Da li plaćam tebi ili direktno hosting provajderu?", "answer": "Nalozi za domen i hosting su tvoji i provajder ih naplaćuje direktno tebi. Ne stojim između tebe i računa — samo pazim da je sve dobro podešeno i da radi." },
-              { "question": "Mogu li da zadržim svoj domen?", "answer": "Možeš. Ako već imaš domen, samo ga usmerimo ili prebacimo na novi sajt — postojeće email adrese i istorija domena ostaju kakvi jesu." },
-              { "question": "Šta ako hosting ili domen napravi problem?", "answer": "To pokriva mesečni paket održavanja: pratim da li sajt radi i kad ističu domen i hosting, a ako nešto krene naopako, sam rešavam stvar sa hostingom ili registrarom." },
-              { "question": "Da li cene rastu posle prve godine?", "answer": "Cene obnove domena i hostinga određuju registrar i hosting provajder, ne ja — a ja ti javim pre nego što dođe obnova. Nema skrivenih poskupljenja u paketu." }
-            ]
-          }
         ]
       },
       "cta": {
@@ -1274,6 +1028,7 @@
       }
     },
     "web": {
+      "closing": "Imaš sajt na umu? Dovoljna je kratka poruka.",
       "meta": {
         "title": "Web razvoj",
         "description": "Brzi Astro sajtovi po meri i veb sistemi za inženjerske i tehničke B2B firme, od inženjera. Dizajn, razvoj, optimizacija i praćenje."

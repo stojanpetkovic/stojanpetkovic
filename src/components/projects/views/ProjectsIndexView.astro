@@ -33,7 +33,9 @@ interface Props {
 
 const { locale = defaultLocale } = Astro.props;
 
-const projects = await getVisibleProjects(locale);
+// Engineering projects only; client websites are listed on the Web page.
+const projects = await getVisibleProjects(locale, 'industry');
+const webUrl = localizedPath('/web', locale);
 const topTags = collectTopProjectTags(projects, PROJECT_TAG_CLOUD_LIMIT);
 
 // Page 1 lives here at /projects; /projects/page/2..N handle the rest.
@@ -62,6 +64,25 @@ const aboutUrl = localizedPath('/about', locale);
       {t('projects.heroDescription', locale)}
     </p>
   </Hero>
+
+  <!-- Nothing published yet -->
+  {projects.length === 0 && (
+    <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+      <div class="mx-auto max-w-2xl px-6 text-center" data-reveal>
+        <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-brand-700 text-white">
+          <Icon name="layers" size="md" />
+        </span>
+        <h2 class="mt-5 font-display text-2xl font-bold text-foreground">{t('projects.emptyTitle', locale)}</h2>
+        <p class="mt-3 text-foreground-muted leading-relaxed">{t('projects.emptyText', locale)}</p>
+        <div class="mt-6 flex justify-center">
+          <Button variant="brand-outline" href={webUrl}>
+            {t('projects.emptyWeb', locale)}
+            <Icon name="arrow-right" size="sm" />
+          </Button>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- All projects -->
   {projects.length > 0 && (

@@ -157,12 +157,15 @@
     "galleryNextImage": "Next image",
     "galleryPreviousImage": "Previous image",
     "metaTitle": "Projects",
-    "metaDescription": "Selected work — websites, tools, and projects built by Stojan Petkovic.",
+    "metaDescription": "Selected engineering projects by Stojan Petkovic.",
     "heroBadge": "Selected work",
-    "heroDescription": "Work I'm most proud of.",
+    "heroDescription": "Engineering and industrial projects.",
+    "emptyTitle": "Industrial projects are in preparation",
+    "emptyText": "Case studies from coiled tubing and nitrogen operations will be published here. The websites I have built are on the Web page.",
+    "emptyWeb": "See web projects",
     "allProjects": "All projects",
     "pageMetaTitle": "Projects — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — selected work, tools, and projects by Stojan Petkovic.",
+    "pageMetaDescription": "Page {page} of {total} — selected engineering projects by Stojan Petkovic.",
     "pageBadge": "Page {page} of {total}",
     "tagMetaTitle": "#{tag} — Projects",
     "tagMetaDescription": "Projects tagged \"{tag}\".",
@@ -880,204 +883,6 @@
         "description": "Three areas, one engineer: consulting and projects for oil and gas, cloud-based software for technical teams, and websites as a separate service.",
         "jumpLabels": ["Consulting & projects", "Software & tools", "Web development"]
       },
-      "design": {
-        "badge": "Design",
-        "heading": "Web design",
-        "paragraphs": [
-          "Web design is how your website looks and feels: the layout, the colours, the images, and the way visitors find their way around.",
-          "I design every website around your business — your brand, your content, and the customers you want to reach — so it makes a strong first impression and guides people straight to what matters. Clean, modern, and made to work on every screen, from a desktop monitor to a phone."
-        ],
-        "included": [
-          {
-            "lead": "A design that's yours",
-            "text": "shaped around your business, your brand, and the customers you want to reach."
-          },
-          {
-            "lead": "A strong first impression",
-            "text": "a clean, modern look that shows people who you are the moment your page opens."
-          },
-          {
-            "lead": "Clear navigation",
-            "text": "a layout that guides visitors straight to what matters to them."
-          },
-          {
-            "lead": "A design for every screen",
-            "text": "looks and works beautifully on phone, tablet, and desktop."
-          },
-          {
-            "lead": "Your content at its best",
-            "text": "your words and images given a layout that makes them easy to read and good to look at."
-          }
-        ],
-        "ctaLabel": "Discuss a design project"
-      },
-      "development": {
-        "badge": "Development",
-        "heading": "Software and web development",
-        "paragraphs": [
-          "Development is the building of your system: turning requirements and design into code that runs reliably, in the browser or behind it.",
-          "I build with Astro, a modern framework trusted for some of the fastest websites online. That makes your site quick to load, safe, and easy to look after for years to come. And it's yours from day one, with the code, the domain, and the hosting all in your name."
-        ],
-        "included": [
-          {
-            "lead": "A lightning-fast website",
-            "text": "built with Astro, the framework behind some of the fastest websites online."
-          },
-          {
-            "lead": "A secure, reliable website",
-            "text": "one that stays safe and keeps working, year after year."
-          },
-          {
-            "lead": "Full ownership",
-            "text": "the code, the domain, and the hosting all in your name from day one."
-          },
-          {
-            "lead": "Care after launch",
-            "text": "your website kept updated and secure with the monthly care plan, while you run your business."
-          },
-          {
-            "lead": "Room to grow",
-            "text": "space to add new pages and features whenever your business needs them."
-          }
-        ],
-        "ctaLabel": "See recent projects"
-      },
-      "performance": {
-        "badge": "Optimisation",
-        "heading": "Web optimisation",
-        "paragraphs": [
-          "Web optimisation is the work that makes your website perform: loading quickly, ranking well in search, and working for everyone.",
-          "I build speed, SEO, and accessibility in from the very first line, not as an afterthought. That means your website is easy for Google to find and understand, opens fast for every visitor, and can be used by everyone who lands on it."
-        ],
-        "included": [
-          {
-            "lead": "A website Google and AI can find",
-            "text": "built so search engines and AI assistants can read, understand, and recommend your pages."
-          },
-          {
-            "lead": "Speed on every device",
-            "text": "pages that stay quick, even on a phone or a slower connection."
-          },
-          {
-            "lead": "A website for everyone",
-            "text": "accessible for every visitor, whatever their device or ability."
-          },
-          {
-            "lead": "High performance scores",
-            "text": "strong marks on Google's own speed and quality checks (Lighthouse)."
-          },
-          {
-            "lead": "Optimisation from day one",
-            "text": "speed, SEO, and accessibility built in from the very first line."
-          }
-        ],
-        "ctaLabel": "Start a project"
-      },
-      "reporting": {
-        "badge": "Data & reports",
-        "heading": "Measuring what the website does",
-        "paragraphs": [
-          "A website is a system, and a system should be measured. I set up simple, privacy-friendly tracking so you can see how many people visit, which pages they read and where they come from.",
-          "Once a month you get a short PDF report in plain language. No logins, no dashboards to learn, no Google Analytics setup."
-        ],
-        "included": [
-          {
-            "lead": "Visits and pages",
-            "text": "see how many people visit and which pages they actually read."
-          },
-          {
-            "lead": "Messages by email",
-            "text": "every form message arrives in your inbox with the page it was sent from."
-          },
-          {
-            "lead": "Know what works",
-            "text": "see which source brings visitors: search, social or direct visits."
-          },
-          {
-            "lead": "A monthly PDF report",
-            "text": "clear pages in plain language, in English or Serbian, ready to share with your team."
-          },
-          {
-            "lead": "No cookies",
-            "text": "visitors are counted anonymously, without cookies and without following them across other websites."
-          }
-        ],
-        "imageAlt": "Example of a monthly website report: visitors, inquiries, calls, conversion rate, a daily chart and where visitors come from.",
-        "imageCaption": "An example monthly report (demo data).",
-        "benefits": {
-          "heading": "What it means for your project",
-          "lead": "Numbers turn opinions into decisions. Tracking shows what the website does, so you can improve it with facts.",
-          "items": [
-            {
-              "icon": "target",
-              "title": "Decide with facts",
-              "description": "See which pages and sources bring attention, and improve what matters."
-            },
-            {
-              "icon": "inbox",
-              "title": "Nothing gets lost",
-              "description": "Every message reaches your inbox instantly with a one-click reply."
-            },
-            {
-              "icon": "trending-up",
-              "title": "See progress",
-              "description": "A monthly report shows how your site grows, in numbers you can share."
-            },
-            {
-              "icon": "shield-check",
-              "title": "Simple and private",
-              "description": "No dashboards to learn, no Google Analytics setup, no cookies on your visitors. Just one clear report a month."
-            }
-          ]
-        }
-      },
-      "additional": {
-        "badge": "Also available",
-        "heading": "More ways to grow",
-        "lead": "Beyond the three services above, here's what else I bring to a project.",
-        "items": [
-          {
-            "icon": "palette",
-            "title": "Graphic Design",
-            "description": "Logos, social graphics, and print-ready designs that keep your brand looking sharp everywhere it shows up, on screen or off."
-          },
-          {
-            "icon": "pen-line",
-            "title": "Content Marketing",
-            "description": "Blog posts and service pages written to answer the questions your customers are already searching, so your site keeps earning traffic long after launch."
-          },
-          {
-            "icon": "wrench",
-            "title": "Custom Software",
-            "description": "Internal tools, dashboards and data handling for technical teams, with the logic documented so results can be reviewed."
-          },
-          {
-            "icon": "sparkles",
-            "title": "Generative Engine, AI SEO",
-            "description": "Content and structured data written so AI assistants and AI-powered search read your business correctly and recommend it."
-          },
-          {
-            "icon": "layout-template",
-            "title": "Website Design Packages",
-            "description": "Fixed-scope design packages for businesses that know what they need: a clear price and a clear deliverable, no lengthy discovery process."
-          },
-          {
-            "icon": "book-open",
-            "title": "Technical Writing",
-            "description": "Clear articles and documentation on engineering topics, written by an engineer, so your expertise is easy to find and easy to trust."
-          },
-          {
-            "icon": "gem",
-            "title": "Brand Development",
-            "description": "A logo and visual identity built from scratch, so a new business launches looking like it's been around for years."
-          },
-          {
-            "icon": "server",
-            "title": "Web Hosting & Domains",
-            "description": "Reliable hosting and a domain, chosen, set up, and kept in your own name — no juggling separate providers or renewal dates yourself."
-          }
-        ]
-      },
       "process": {
         "badge": "How it works",
         "heading": "How a project runs",
@@ -1087,57 +892,6 @@
           { "title": "Proposal", "description": "After our talk you get one clear document: what I'll build, when it's ready, and the fixed price. You decide with everything on the table." },
           { "title": "Work in short cycles", "description": "You follow the progress and see the result take shape, whether it is a document, a tool or a website." },
           { "title": "Delivery & support", "description": "The work is handed over in your name and documented. Afterwards I stay reachable, and there is a monthly care plan if you want regular updates." }
-        ]
-      },
-      "faq": {
-        "badge": "Questions",
-        "heading": "Questions and answers",
-        "lead": "The things clients ask before we start.",
-        "cards": [
-          {
-            "icon": "tag",
-            "title": "Before we start",
-            "items": [
-              { "question": "What does a website cost?", "answer": "Every project gets one fixed price, agreed before we start. No hourly billing, no surprises afterwards. The free talk — and the free check, if there's already a website — tells me what your project needs, and you get the price in one clear proposal." },
-              { "question": "How long does a project take?", "answer": "That depends on the size of the website. The proposal names the timeline together with the price, so you know both before we start." },
-              { "question": "What happens with my current website?", "answer": "It stays online until the new one is ready. Your content, your web address, and your Google rankings come along. I check your current website before our first talk, so you get clear answers from the start." },
-              { "question": "Do I need to arrange hosting or a domain?", "answer": "No. I set up the hosting and the domain for you, in your own name. If you already have a domain, we simply keep it." },
-              { "question": "Do we need to meet in person?", "answer": "It's not needed. Most projects run entirely by phone, video, and email. I work with clients worldwide, and time zones are rarely a problem." }
-            ]
-          },
-          {
-            "icon": "user",
-            "title": "Working with me",
-            "items": [
-              { "question": "Are you a company or agency?", "answer": "I'm a one-person business: a freelancer, not an agency. You work directly with the person doing the work, from the first talk to the finished website. No sales team, no account managers, no handoffs." },
-              { "question": "Can I change the website myself after launch?", "answer": "You can simply send me your changes, and the monthly care plan exists exactly for that. If you want to edit the website yourself, say so in the first talk and I set the site up for it." },
-              { "question": "Do you also build webshops?", "answer": "No. Big online shops are the one thing I don't build. Everything else that needs a custom Astro website, I build: tell me in the first talk what you have in mind, and I'll be honest about whether I'm the right builder for it." },
-              { "question": "Is the website really mine?", "answer": "Completely. The domain, the hosting, and the code are in your name from day one. If you ever want to move on, you take everything with you: you're never locked in." },
-              { "question": "What happens if something breaks after launch?", "answer": "Very little can break: the website has no plugins and no database to fail. And I stay reachable after launch; for regular updates and monitoring there is the monthly care plan." }
-            ]
-          },
-          {
-            "icon": "sparkles",
-            "title": "Beyond the website",
-            "items": [
-              { "question": "Do you offer graphic design or branding on its own?", "answer": "Yes. A logo, a brand identity, or ongoing graphic design work is available on its own, without a full website rebuild — tell me what you need in the first talk." },
-              { "question": "Do you build custom software?", "answer": "Yes: internal tools, dashboards and data handling for technical teams. We define the requirements together first, then I build and document it." },
-              { "question": "Do you write technical content?", "answer": "Yes: articles and documentation on engineering topics, written by someone who has done the work in the field." },
-              { "question": "What is Generative Engine or AI SEO?", "answer": "Making sure AI assistants and AI-powered search — ChatGPT, Google's AI Overviews — read your site correctly and recommend your business, alongside traditional SEO." },
-              { "question": "Do you offer fixed-price website packages?", "answer": "Yes, for businesses with a clear scope in mind: a packaged design keeps the price and the deliverable fixed from the start, without a lengthy discovery process." }
-            ]
-          },
-          {
-            "icon": "globe",
-            "title": "Hosting & domains",
-            "items": [
-              { "question": "What does hosting and domain setup actually include?", "answer": "I choose and set up reliable hosting for your site and register — or transfer — your domain, both in your own name from day one. SSL, DNS, and a business email address at your domain are part of the same setup." },
-              { "question": "Do I pay you or the hosting provider directly?", "answer": "The domain and hosting accounts are yours, billed directly to you by the provider. I don't sit between you and the bill — I just make sure it's the right setup and keep it running." },
-              { "question": "Can I keep my current domain?", "answer": "Yes. If you already have one, we point or transfer it to the new site — your existing email addresses and domain history don't need to change." },
-              { "question": "What if my hosting or domain has a problem?", "answer": "That's covered by the monthly care plan: I monitor uptime and renewal dates, and deal directly with the host or registrar if anything goes wrong." },
-              { "question": "Do prices change after the first year?", "answer": "Domain and hosting renewal prices are set by the registrar and host, not by me, and I flag them before they renew — no surprise increases hidden in a bundled fee." }
-            ]
-          }
         ]
       },
       "cta": {
@@ -1274,6 +1028,7 @@
       }
     },
     "web": {
+      "closing": "Have a website in mind? A short message is enough.",
       "meta": {
         "title": "Web development",
         "description": "Fast custom Astro websites and web systems for engineering and technical B2B companies, by an engineer. Design, development, optimisation and tracking."

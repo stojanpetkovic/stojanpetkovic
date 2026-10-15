@@ -37,7 +37,7 @@ interface Props {
 
 const { locale = defaultLocale, page, totalPages } = Astro.props;
 
-const projects = await getVisibleProjects(locale);
+const projects = await getVisibleProjects(locale, 'industry');
 const start = (page - 1) * PROJECTS_PER_PAGE;
 const pageProjects = projects.slice(start, start + PROJECTS_PER_PAGE);
 

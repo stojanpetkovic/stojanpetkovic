@@ -147,6 +147,12 @@ const projects = defineCollection({
         .default([]),
       tags: z.array(z.string()).default([]),
       featured: z.boolean().default(false),
+      /**
+       * Which part of the site shows the project: `web` for client websites
+       * (listed on the Web page), `industry` for engineering projects (listed
+       * on the Projects page). Existing projects are websites.
+       */
+      category: z.enum(['industry', 'web']).default('web'),
       order: z.number().default(99),
       year: z.number().optional(),
       client: z.string().optional(),

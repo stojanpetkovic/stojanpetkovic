@@ -81,9 +81,14 @@ export function getSecondaryLocales(): string[] {
  */
 export async function getVisibleProjects(
   locale: string = defaultLocale,
+  category?: 'industry' | 'web',
 ): Promise<CollectionEntry<'projects'>[]> {
   const all = await getCollection('projects', ({ data }) => {
-    return data.locale === locale && (import.meta.env.PROD ? data.draft !== true : true);
+    return (
+      data.locale === locale &&
+      (import.meta.env.PROD ? data.draft !== true : true) &&
+      (!category || data.category === category)
+    );
   });
   return all.sort((a, b) => a.data.order - b.data.order);
 }
@@ -108,7 +113,8 @@ export async function getRoutableProjects(locale: string = defaultLocale) {
 }
 
 export async function getProjectPageCount(locale: string = defaultLocale): Promise<number> {
-  const projects = await getVisibleProjects(locale);
+  // The Projects listing shows engineering projects only; websites are on /web.
+  const projects = await getVisibleProjects(locale, 'industry');
   return Math.max(1, Math.ceil(projects.length / PROJECTS_PER_PAGE));
 }
 

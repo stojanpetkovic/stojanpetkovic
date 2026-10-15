@@ -157,12 +157,15 @@
     "galleryNextImage": "Nächstes Bild",
     "galleryPreviousImage": "Vorheriges Bild",
     "metaTitle": "Projekte",
-    "metaDescription": "Ausgewählte Arbeiten — Websites, Tools und Plattformen von Stojan Petkovic.",
+    "metaDescription": "Ausgewählte Ingenieurprojekte von Stojan Petkovic.",
     "heroBadge": "Portfolio",
-    "heroDescription": "Websites und Plattformen, die ich für Kunden gebaut habe.",
+    "heroDescription": "Ingenieur- und Industrieprojekte.",
+    "emptyTitle": "Industrieprojekte sind in Vorbereitung",
+    "emptyText": "Fallstudien aus Coiled-Tubing- und Stickstoffeinsätzen werden hier veröffentlicht. Die Websites, die ich gebaut habe, finden Sie auf der Web-Seite.",
+    "emptyWeb": "Webprojekte ansehen",
     "allProjects": "Alle Projekte",
     "pageMetaTitle": "Projekte — Seite {page}",
-    "pageMetaDescription": "Seite {page} von {total} — ausgewählte Arbeiten, Tools und Plattformen von Stojan Petkovic.",
+    "pageMetaDescription": "Seite {page} von {total} — ausgewählte Ingenieurprojekte von Stojan Petkovic.",
     "pageBadge": "Seite {page} von {total}",
     "tagMetaTitle": "#{tag} — Projekte",
     "tagMetaDescription": "Projekte zum Thema „{tag}“.",
@@ -880,204 +883,6 @@
         "description": "Drei Bereiche, ein Ingenieur: Beratung und Projekte für Öl und Gas, Cloud-basierte Software für technische Teams und Websites als eigene Leistung.",
         "jumpLabels": ["Beratung & Projekte", "Software & Werkzeuge", "Webentwicklung"]
       },
-      "design": {
-        "badge": "Design",
-        "heading": "Webdesign",
-        "paragraphs": [
-          "Webdesign ist, wie Ihre Website aussieht und sich anfühlt: das Layout, die Farben, die Bilder und wie sich Besucher zurechtfinden.",
-          "Ich gestalte jede Website rund um Ihr Unternehmen — Ihre Marke, Ihre Inhalte und die Kunden, die Sie erreichen wollen — damit sie einen starken ersten Eindruck hinterlässt und Menschen direkt zum Wesentlichen führt. Klar, modern und für jeden Bildschirm gemacht, vom Monitor bis zum Smartphone."
-        ],
-        "included": [
-          {
-            "lead": "Ein Design, das zu Ihnen passt",
-            "text": "zugeschnitten auf Ihr Unternehmen, Ihre Marke und die Kunden, die Sie erreichen wollen."
-          },
-          {
-            "lead": "Ein starker erster Eindruck",
-            "text": "ein klares, modernes Erscheinungsbild, das sofort zeigt, wer Sie sind."
-          },
-          {
-            "lead": "Klare Navigation",
-            "text": "ein Aufbau, der Besucher direkt zu dem führt, was für sie wichtig ist."
-          },
-          {
-            "lead": "Ein Design für jeden Bildschirm",
-            "text": "sieht auf Smartphone, Tablet und Desktop gut aus und funktioniert einwandfrei."
-          },
-          {
-            "lead": "Ihre Inhalte im besten Licht",
-            "text": "Ihre Texte und Bilder in einem Layout, das sie leicht lesbar und angenehm anzusehen macht."
-          }
-        ],
-        "ctaLabel": "Über ein Designprojekt sprechen"
-      },
-      "development": {
-        "badge": "Entwicklung",
-        "heading": "Software- und Webentwicklung",
-        "paragraphs": [
-          "Entwicklung ist der Bau Ihres Systems: Anforderungen und Design werden zu Code, der zuverlässig läuft, im Browser oder dahinter.",
-          "Ich baue mit Astro, einem modernen Framework, dem einige der schnellsten Websites im Netz vertrauen. Dadurch lädt Ihre Website schnell, ist sicher und bleibt über Jahre leicht zu pflegen. Und sie gehört Ihnen vom ersten Tag an — Code, Domain und Hosting auf Ihren Namen."
-        ],
-        "included": [
-          {
-            "lead": "Eine blitzschnelle Website",
-            "text": "gebaut mit Astro, dem Framework hinter einigen der schnellsten Websites im Netz."
-          },
-          {
-            "lead": "Eine sichere, zuverlässige Website",
-            "text": "die sicher bleibt und Jahr für Jahr funktioniert."
-          },
-          {
-            "lead": "Volles Eigentum",
-            "text": "Code, Domain und Hosting vom ersten Tag an auf Ihren Namen."
-          },
-          {
-            "lead": "Betreuung nach dem Start",
-            "text": "Ihre Website bleibt mit dem monatlichen Wartungspaket aktuell und sicher, während Sie Ihr Geschäft führen."
-          },
-          {
-            "lead": "Raum zum Wachsen",
-            "text": "neue Seiten und Funktionen, wann immer Ihr Unternehmen sie braucht."
-          }
-        ],
-        "ctaLabel": "Aktuelle Projekte ansehen"
-      },
-      "performance": {
-        "badge": "Optimierung",
-        "heading": "Weboptimierung",
-        "paragraphs": [
-          "Weboptimierung ist die Arbeit, die Ihre Website erfolgreich macht: sie lädt schnell, rankt gut in der Suche und funktioniert für alle.",
-          "Geschwindigkeit, SEO und Barrierefreiheit baue ich ab der ersten Zeile ein, nicht nachträglich. So findet und versteht Google Ihre Website leicht, sie öffnet sich schnell für jeden Besucher und kann von allen genutzt werden."
-        ],
-        "included": [
-          {
-            "lead": "Eine Website, die Google und KI finden",
-            "text": "so gebaut, dass Suchmaschinen und KI-Assistenten Ihre Seiten lesen, verstehen und empfehlen können."
-          },
-          {
-            "lead": "Schnell auf jedem Gerät",
-            "text": "Seiten, die auch auf dem Smartphone oder bei langsamer Verbindung schnell bleiben."
-          },
-          {
-            "lead": "Eine Website für alle",
-            "text": "barrierefrei für jeden Besucher, unabhängig von Gerät oder Fähigkeiten."
-          },
-          {
-            "lead": "Hohe Leistungswerte",
-            "text": "starke Ergebnisse in Googles eigenen Geschwindigkeits- und Qualitätstests (Lighthouse)."
-          },
-          {
-            "lead": "Optimierung ab dem ersten Tag",
-            "text": "Geschwindigkeit, SEO und Barrierefreiheit ab der ersten Zeile eingebaut."
-          }
-        ],
-        "ctaLabel": "Projekt starten"
-      },
-      "reporting": {
-        "badge": "Daten & Berichte",
-        "heading": "Messen, was die Website tut",
-        "paragraphs": [
-          "Eine Website ist ein System, und ein System sollte gemessen werden. Ich richte einfaches, datenschutzfreundliches Tracking ein, damit Sie sehen, wie viele Menschen kommen, welche Seiten sie lesen und woher sie kommen.",
-          "Einmal im Monat erhalten Sie einen kurzen PDF-Bericht in klarer Sprache. Keine Logins, keine Dashboards zum Lernen, kein Google-Analytics-Setup."
-        ],
-        "included": [
-          {
-            "lead": "Besuche und Seiten",
-            "text": "sehen Sie, wie viele Menschen kommen und welche Seiten sie wirklich lesen."
-          },
-          {
-            "lead": "Nachrichten per E-Mail",
-            "text": "jede Formularnachricht kommt in Ihrem Postfach an, samt der Seite, von der sie gesendet wurde."
-          },
-          {
-            "lead": "Wissen, was wirkt",
-            "text": "sehen Sie, welche Quelle Besucher bringt: Suche, soziale Netzwerke oder direkte Besuche."
-          },
-          {
-            "lead": "Ein monatlicher PDF-Bericht",
-            "text": "klare Seiten in einfacher Sprache, auf Englisch oder Serbisch, bereit zum Teilen mit Ihrem Team."
-          },
-          {
-            "lead": "Keine Cookies",
-            "text": "Besucher werden anonym gezählt, ohne Cookies und ohne sie über andere Websites zu verfolgen."
-          }
-        ],
-        "imageAlt": "Beispiel eines monatlichen Website-Berichts: Besucher, Anfragen, Anrufe, Conversion-Rate, ein Tagesdiagramm und die Herkunft der Besucher.",
-        "imageCaption": "Ein Beispiel für einen Monatsbericht (Demodaten).",
-        "benefits": {
-          "heading": "Was das für Ihr Projekt bedeutet",
-          "lead": "Zahlen machen aus Meinungen Entscheidungen. Tracking zeigt, was die Website tut, damit Sie sie mit Fakten verbessern können.",
-          "items": [
-            {
-              "icon": "target",
-              "title": "Mit Fakten entscheiden",
-              "description": "Sehen Sie, welche Seiten und Quellen Aufmerksamkeit bringen, und verbessern Sie, was zählt."
-            },
-            {
-              "icon": "inbox",
-              "title": "Nichts geht verloren",
-              "description": "Jede Nachricht landet sofort in Ihrem Postfach, mit Antwort per Klick."
-            },
-            {
-              "icon": "trending-up",
-              "title": "Fortschritt sehen",
-              "description": "Ein Monatsbericht zeigt, wie Ihre Website wächst, in Zahlen, die Sie teilen können."
-            },
-            {
-              "icon": "shield-check",
-              "title": "Einfach und datensparsam",
-              "description": "Keine Dashboards, kein Google-Analytics-Setup, keine Cookies bei Ihren Besuchern. Nur ein klarer Bericht pro Monat."
-            }
-          ]
-        }
-      },
-      "additional": {
-        "badge": "Außerdem",
-        "heading": "Weitere Leistungen",
-        "lead": "Über die Website hinaus kann ich das für Ihr Unternehmen tun.",
-        "items": [
-          {
-            "icon": "palette",
-            "title": "Grafikdesign",
-            "description": "Logos, Social-Media-Grafiken und druckfertige Entwürfe, damit Ihre Marke überall gut aussieht — auf dem Bildschirm und auf Papier."
-          },
-          {
-            "icon": "pen-line",
-            "title": "Content-Marketing",
-            "description": "Blogbeiträge und Leistungsseiten, die die Fragen beantworten, nach denen Ihre Kunden bereits suchen — damit Ihre Website noch lange nach dem Start Besucher bringt."
-          },
-          {
-            "icon": "wrench",
-            "title": "Individuelle Software",
-            "description": "Interne Werkzeuge, Dashboards und Datenverarbeitung für technische Teams, mit dokumentierter Logik, damit Ergebnisse nachvollziehbar sind."
-          },
-          {
-            "icon": "sparkles",
-            "title": "GEO und KI-SEO",
-            "description": "Inhalte und strukturierte Daten, die so geschrieben sind, dass KI-Assistenten und KI-Suche Ihr Unternehmen richtig verstehen und empfehlen."
-          },
-          {
-            "icon": "layout-template",
-            "title": "Website-Pakete",
-            "description": "Pakete mit festem Umfang für Unternehmen, die genau wissen, was sie brauchen: klarer Preis, klares Ergebnis, ohne langwierige Abstimmung."
-          },
-          {
-            "icon": "book-open",
-            "title": "Technisches Schreiben",
-            "description": "Klare Artikel und Dokumentation zu Ingenieurthemen, geschrieben von einem Ingenieur, damit Ihre Expertise leicht zu finden und leicht zu vertrauen ist."
-          },
-          {
-            "icon": "gem",
-            "title": "Markenentwicklung",
-            "description": "Logo und visuelle Identität von Grund auf, damit ein neues Unternehmen startet, als gäbe es es schon seit Jahren."
-          },
-          {
-            "icon": "server",
-            "title": "Hosting & Domains",
-            "description": "Zuverlässiges Hosting und eine Domain — ausgewählt, eingerichtet und auf Ihren Namen geführt, ohne dass Sie mehrere Anbieter und Verlängerungstermine jonglieren müssen."
-          }
-        ]
-      },
       "process": {
         "badge": "So funktioniert es",
         "heading": "So läuft ein Projekt ab",
@@ -1087,57 +892,6 @@
           { "title": "Angebot", "description": "Nach dem Gespräch erhalten Sie ein klares Dokument: was ich baue, wann es fertig ist und den Festpreis. Sie entscheiden mit allen Karten auf dem Tisch." },
           { "title": "In kurzen Zyklen arbeiten", "description": "Sie verfolgen den Fortschritt und sehen, wie das Ergebnis entsteht, ob Dokument, Werkzeug oder Website." },
           { "title": "Übergabe & Betreuung", "description": "Die Arbeit wird auf Ihren Namen übergeben und dokumentiert. Danach bleibe ich erreichbar, und es gibt einen monatlichen Pflegeplan, wenn Sie regelmäßige Updates möchten." }
-        ]
-      },
-      "faq": {
-        "badge": "Fragen",
-        "heading": "Fragen und Antworten",
-        "lead": "Was Kunden fragen, bevor wir beginnen.",
-        "cards": [
-          {
-            "icon": "tag",
-            "title": "Bevor wir beginnen",
-            "items": [
-              { "question": "Was kostet eine Website?", "answer": "Jedes Projekt hat einen Festpreis, der vor Beginn vereinbart wird. Keine Abrechnung nach Stunden, keine Überraschungen. Das kostenlose Gespräch — und der kostenlose Check, falls es schon eine Website gibt — zeigt mir, was Ihr Projekt braucht, und Sie erhalten den Preis in einem klaren Angebot." },
-              { "question": "Wie lange dauert ein Projekt?", "answer": "Das hängt vom Umfang der Website ab. Das Angebot nennt den Zeitplan zusammen mit dem Preis, sodass Sie beides kennen, bevor wir beginnen." },
-              { "question": "Was passiert mit meiner aktuellen Website?", "answer": "Sie bleibt online, bis die neue fertig ist. Ihre Inhalte, Ihre Webadresse und Ihre Google-Platzierungen ziehen mit um. Ich prüfe Ihre aktuelle Website vor unserem ersten Gespräch, damit Sie von Anfang an klare Antworten bekommen." },
-              { "question": "Muss ich mich um Hosting oder Domain kümmern?", "answer": "Nein. Hosting und Domain richte ich für Sie ein, auf Ihren Namen. Wenn Sie bereits eine Domain haben, behalten wir sie einfach." },
-              { "question": "Müssen wir uns persönlich treffen?", "answer": "Nicht nötig. Die meisten Projekte laufen vollständig per Telefon, Video und E-Mail. Ich arbeite mit Kunden weltweit, und Zeitzonen sind selten ein Problem." }
-            ]
-          },
-          {
-            "icon": "user",
-            "title": "Zusammenarbeit mit mir",
-            "items": [
-              { "question": "Sind Sie eine Firma oder Agentur?", "answer": "Weder noch — ich bin Freiberufler. Sie arbeiten direkt mit der Person, die die Arbeit macht, vom ersten Gespräch bis zur fertigen Website. Kein Vertrieb, keine Account-Manager, keine Übergaben." },
-              { "question": "Kann ich die Website nach dem Start selbst ändern?", "answer": "Sie können mir Ihre Änderungen einfach schicken — genau dafür gibt es das monatliche Wartungspaket. Wenn Sie die Website selbst bearbeiten möchten, sagen Sie es im ersten Gespräch, und ich richte sie entsprechend ein." },
-              { "question": "Bauen Sie auch Onlineshops?", "answer": "Nein. Große Onlineshops sind das Einzige, was ich nicht baue. Alles andere, wofür eine maßgeschneiderte Astro-Website gebraucht wird, baue ich: Sagen Sie mir im ersten Gespräch, was Sie vorhaben, und ich sage Ihnen ehrlich, ob ich der Richtige dafür bin." },
-              { "question": "Gehört die Website wirklich mir?", "answer": "Vollständig. Domain, Hosting und Code laufen vom ersten Tag an auf Ihren Namen. Wenn Sie jemals wechseln möchten, nehmen Sie alles mit: Sie sind nie gebunden." },
-              { "question": "Was passiert, wenn nach dem Start etwas kaputtgeht?", "answer": "Sehr wenig kann kaputtgehen: Die Website hat keine Plugins und keine Datenbank, die ausfallen könnten. Und ich bleibe nach dem Start erreichbar; für regelmäßige Updates und Überwachung gibt es das monatliche Wartungspaket." }
-            ]
-          },
-          {
-            "icon": "sparkles",
-            "title": "Mehr als eine Website",
-            "items": [
-              { "question": "Bieten Sie Grafikdesign oder Branding auch einzeln an?", "answer": "Ja. Logo, visuelle Identität oder laufendes Grafikdesign gibt es auch ohne komplette Website — sagen Sie mir im ersten Gespräch, was Sie brauchen." },
-              { "question": "Bauen Sie auch individuelle Software?", "answer": "Ja: interne Werkzeuge, Dashboards und Datenverarbeitung für technische Teams. Zuerst legen wir gemeinsam die Anforderungen fest, dann baue und dokumentiere ich es." },
-              { "question": "Schreiben Sie auch technische Inhalte?", "answer": "Ja: Artikel und Dokumentation zu Ingenieurthemen, geschrieben von jemandem, der die Arbeit im Feld selbst gemacht hat." },
-              { "question": "Was ist GEO bzw. KI-SEO?", "answer": "Dafür zu sorgen, dass KI-Assistenten und KI-Suche — ChatGPT, Googles AI Overviews — Ihre Website richtig verstehen und Ihr Unternehmen empfehlen, ergänzend zum klassischen SEO." },
-              { "question": "Bieten Sie Website-Pakete zum Festpreis an?", "answer": "Ja, für Unternehmen mit klar umrissenem Bedarf: Ein Paket hält Preis und Ergebnis von Anfang an fest, ohne langwierige Abstimmung." }
-            ]
-          },
-          {
-            "icon": "globe",
-            "title": "Hosting & Domains",
-            "items": [
-              { "question": "Was umfasst die Einrichtung von Hosting und Domain genau?", "answer": "Ich wähle und richte zuverlässiges Hosting für Ihre Website ein und registriere — oder übertrage — Ihre Domain, beides vom ersten Tag an auf Ihren Namen. SSL, DNS und eine geschäftliche E-Mail-Adresse unter Ihrer Domain gehören dazu." },
-              { "question": "Bezahle ich Sie oder direkt den Hosting-Anbieter?", "answer": "Domain- und Hosting-Konten gehören Ihnen und werden Ihnen direkt vom Anbieter berechnet. Ich stehe nicht zwischen Ihnen und der Rechnung — ich sorge nur dafür, dass alles richtig eingerichtet ist und läuft." },
-              { "question": "Kann ich meine aktuelle Domain behalten?", "answer": "Ja. Wenn Sie bereits eine haben, verweisen oder übertragen wir sie auf die neue Website — Ihre bestehenden E-Mail-Adressen und die Domainhistorie müssen sich nicht ändern." },
-              { "question": "Was, wenn Hosting oder Domain ein Problem haben?", "answer": "Das deckt das monatliche Wartungspaket ab: Ich überwache die Erreichbarkeit und Verlängerungstermine und kläre Probleme direkt mit dem Hoster oder Registrar." },
-              { "question": "Ändern sich die Preise nach dem ersten Jahr?", "answer": "Die Verlängerungspreise für Domain und Hosting legen Registrar und Hoster fest, nicht ich — und ich weise Sie vor der Verlängerung darauf hin. Keine versteckten Preiserhöhungen in einem Paketpreis." }
-            ]
-          }
         ]
       },
       "cta": {
@@ -1274,6 +1028,7 @@
       }
     },
     "web": {
+      "closing": "Eine Website im Sinn? Eine kurze Nachricht genügt.",
       "meta": {
         "title": "Webentwicklung",
         "description": "Schnelle individuelle Astro-Websites und Websysteme für Ingenieur- und technische B2B-Unternehmen, von einem Ingenieur. Design, Entwicklung, Optimierung und Tracking."

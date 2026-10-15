@@ -157,12 +157,15 @@
     "galleryNextImage": "Volgende afbeelding",
     "galleryPreviousImage": "Vorige afbeelding",
     "metaTitle": "Projecten",
-    "metaDescription": "Geselecteerd werk — websites, tools en projecten gebouwd door Stojan Petkovic.",
+    "metaDescription": "Geselecteerde engineeringprojecten van Stojan Petkovic.",
     "heroBadge": "Geselecteerd werk",
-    "heroDescription": "Werk waar ik het meest trots op ben.",
+    "heroDescription": "Engineering- en industriële projecten.",
+    "emptyTitle": "Industriële projecten zijn in voorbereiding",
+    "emptyText": "Casestudy’s uit coiled tubing- en stikstofoperaties worden hier gepubliceerd. De websites die ik heb gebouwd staan op de Web-pagina.",
+    "emptyWeb": "Webprojecten bekijken",
     "allProjects": "Alle projecten",
     "pageMetaTitle": "Projecten — Pagina {page}",
-    "pageMetaDescription": "Pagina {page} van {total} — geselecteerd werk, tools en projecten door Stojan Petkovic.",
+    "pageMetaDescription": "Pagina {page} van {total} — geselecteerde engineeringprojecten van Stojan Petkovic.",
     "pageBadge": "Pagina {page} van {total}",
     "tagMetaTitle": "#{tag} — Projecten",
     "tagMetaDescription": "Projecten met tag \"{tag}\".",
@@ -880,204 +883,6 @@
         "description": "Drie gebieden, één ingenieur: advies en projecten voor olie en gas, cloudgebaseerde software voor technische teams en websites als aparte dienst.",
         "jumpLabels": ["Advies & projecten", "Software & tools", "Webdevelopment"]
       },
-      "design": {
-        "badge": "Design",
-        "heading": "Webdesign",
-        "paragraphs": [
-          "Webdesign is hoe je website eruitziet en aanvoelt: de lay-out, de kleuren, de beelden en de manier waarop bezoekers hun weg vinden.",
-          "Ik ontwerp elke website rond jouw bedrijf — je merk, je content en de klanten die je wilt bereiken — zodat hij een sterke eerste indruk maakt en mensen direct naar de kern leidt. Strak, modern en gemaakt om te werken op elk scherm, van beeldscherm tot telefoon."
-        ],
-        "included": [
-          {
-            "lead": "Een ontwerp dat van jou is",
-            "text": "gevormd rond je bedrijf, je merk en de klanten die je wilt bereiken."
-          },
-          {
-            "lead": "Een sterke eerste indruk",
-            "text": "een strakke, moderne uitstraling die mensen meteen laat zien wie je bent."
-          },
-          {
-            "lead": "Heldere navigatie",
-            "text": "een lay-out die bezoekers direct naar wat voor hen belangrijk is leidt."
-          },
-          {
-            "lead": "Een ontwerp voor elk scherm",
-            "text": "oogt en werkt prachtig op telefoon, tablet en desktop."
-          },
-          {
-            "lead": "Jouw content op z'n best",
-            "text": "je woorden en beelden in een lay-out die prettig leest en er goed uitziet."
-          }
-        ],
-        "ctaLabel": "Bespreek een ontwerpproject"
-      },
-      "development": {
-        "badge": "Development",
-        "heading": "Software- en webdevelopment",
-        "paragraphs": [
-          "Development is het bouwen van je systeem: eisen en ontwerp worden code die betrouwbaar draait, in de browser of erachter.",
-          "Ik bouw met Astro, een modern framework dat vertrouwd wordt voor een aantal van de snelste websites online. Dat maakt je site snel, veilig en jarenlang eenvoudig te onderhouden. En hij is vanaf dag één van jou, met de code, het domein en de hosting op jouw naam."
-        ],
-        "included": [
-          {
-            "lead": "Een razendsnelle website",
-            "text": "gebouwd met Astro, het framework achter een aantal van de snelste websites online."
-          },
-          {
-            "lead": "Een veilige, betrouwbare website",
-            "text": "eentje die veilig blijft en blijft werken, jaar na jaar."
-          },
-          {
-            "lead": "Volledig eigendom",
-            "text": "de code, het domein en de hosting vanaf dag één op jouw naam."
-          },
-          {
-            "lead": "Zorg na de lancering",
-            "text": "je website bijgehouden en beveiligd met het maandelijkse onderhoudsplan, terwijl jij onderneemt."
-          },
-          {
-            "lead": "Ruimte om te groeien",
-            "text": "plek voor nieuwe pagina's en functies wanneer je bedrijf ze nodig heeft."
-          }
-        ],
-        "ctaLabel": "Bekijk recente projecten"
-      },
-      "performance": {
-        "badge": "Optimalisatie",
-        "heading": "Weboptimalisatie",
-        "paragraphs": [
-          "Weboptimalisatie is het werk dat je website laat presteren: snel laden, goed scoren in zoekmachines en werken voor iedereen.",
-          "Ik bouw snelheid, SEO en toegankelijkheid vanaf de allereerste regel in, niet als sluitstuk. Zo is je website makkelijk te vinden en te begrijpen voor Google, opent hij snel voor elke bezoeker en kan iedereen die binnenkomt hem gebruiken."
-        ],
-        "included": [
-          {
-            "lead": "Een website die Google en AI vinden",
-            "text": "gebouwd zodat zoekmachines en AI-assistenten je pagina's kunnen lezen, begrijpen en aanraden."
-          },
-          {
-            "lead": "Snelheid op elk apparaat",
-            "text": "pagina's die snel blijven, ook op een telefoon of een tragere verbinding."
-          },
-          {
-            "lead": "Een website voor iedereen",
-            "text": "toegankelijk voor elke bezoeker, welk apparaat of welke beperking dan ook."
-          },
-          {
-            "lead": "Hoge prestatiescores",
-            "text": "sterke resultaten op Googles eigen snelheids- en kwaliteitschecks (Lighthouse)."
-          },
-          {
-            "lead": "Optimalisatie vanaf dag één",
-            "text": "snelheid, SEO en toegankelijkheid vanaf de allereerste regel ingebouwd."
-          }
-        ],
-        "ctaLabel": "Start een project"
-      },
-      "reporting": {
-        "badge": "Data & rapporten",
-        "heading": "Meten wat de website doet",
-        "paragraphs": [
-          "Een website is een systeem, en een systeem moet je meten. Ik zet eenvoudige, privacyvriendelijke tracking op, zodat je ziet hoeveel mensen langskomen, welke pagina’s ze lezen en waar ze vandaan komen.",
-          "Eén keer per maand krijg je een kort pdf-rapport in gewone taal. Geen logins, geen dashboards om te leren, geen Google Analytics-configuratie."
-        ],
-        "included": [
-          {
-            "lead": "Bezoeken en pagina’s",
-            "text": "zie hoeveel mensen langskomen en welke pagina’s ze echt lezen."
-          },
-          {
-            "lead": "Berichten per e-mail",
-            "text": "elk formulierbericht komt in je inbox, met de pagina waar het vandaan kwam."
-          },
-          {
-            "lead": "Weten wat werkt",
-            "text": "zie welke bron bezoekers brengt: zoeken, social of directe bezoeken."
-          },
-          {
-            "lead": "Een maandelijks pdf-rapport",
-            "text": "heldere pagina’s in gewone taal, in het Engels of Servisch, klaar om met je team te delen."
-          },
-          {
-            "lead": "Geen cookies",
-            "text": "bezoekers worden anoniem geteld, zonder cookies en zonder ze over andere websites te volgen."
-          }
-        ],
-        "imageAlt": "Voorbeeld van een maandrapport over een website: bezoekers, aanvragen, telefoontjes, conversieratio, een grafiek per dag en waar bezoekers vandaan komen.",
-        "imageCaption": "Een voorbeeld van een maandrapport (demogegevens).",
-        "benefits": {
-          "heading": "Wat het betekent voor je project",
-          "lead": "Cijfers maken van meningen beslissingen. Tracking laat zien wat de website doet, zodat je hem met feiten kunt verbeteren.",
-          "items": [
-            {
-              "icon": "target",
-              "title": "Beslissen met feiten",
-              "description": "Zie welke pagina’s en bronnen aandacht trekken en verbeter wat ertoe doet."
-            },
-            {
-              "icon": "inbox",
-              "title": "Niets gaat verloren",
-              "description": "Elk bericht komt direct in je inbox, met antwoord in één klik."
-            },
-            {
-              "icon": "trending-up",
-              "title": "Voortgang zien",
-              "description": "Een maandrapport laat zien hoe je site groeit, in cijfers die je kunt delen."
-            },
-            {
-              "icon": "shield-check",
-              "title": "Simpel en privacyvriendelijk",
-              "description": "Geen dashboards om te leren, geen Google Analytics om in te stellen, geen cookies voor je bezoekers. Gewoon één helder rapport per maand."
-            }
-          ]
-        }
-      },
-      "additional": {
-        "badge": "Ook mogelijk",
-        "heading": "Meer manieren om te groeien",
-        "lead": "Naast de drie diensten hierboven breng ik dit ook mee in een project.",
-        "items": [
-          {
-            "icon": "palette",
-            "title": "Grafisch ontwerp",
-            "description": "Logo's, social-mediabeelden en drukwerk die je merk er overal scherp laten uitzien, op het scherm en daarbuiten."
-          },
-          {
-            "icon": "pen-line",
-            "title": "Contentmarketing",
-            "description": "Blogartikelen en dienstenpagina's geschreven om de vragen te beantwoorden die je klanten al zoeken, zodat je site na de lancering verkeer blijft opleveren."
-          },
-          {
-            "icon": "wrench",
-            "title": "Maatwerksoftware",
-            "description": "Interne tools, dashboards en gegevensverwerking voor technische teams, met gedocumenteerde logica zodat resultaten te controleren zijn."
-          },
-          {
-            "icon": "sparkles",
-            "title": "Generative Engine, AI-SEO",
-            "description": "Content en gestructureerde data geschreven zodat AI-assistenten en AI-zoekmachines je bedrijf correct lezen en aanbevelen."
-          },
-          {
-            "icon": "layout-template",
-            "title": "Websiteontwerp-pakketten",
-            "description": "Ontwerppakketten met vaste omvang voor bedrijven die precies weten wat ze nodig hebben: een duidelijke prijs en een duidelijk eindresultaat, zonder lang vooronderzoek."
-          },
-          {
-            "icon": "book-open",
-            "title": "Technisch schrijven",
-            "description": "Heldere artikelen en documentatie over engineeringonderwerpen, geschreven door een ingenieur, zodat jouw expertise makkelijk te vinden en te vertrouwen is."
-          },
-          {
-            "icon": "gem",
-            "title": "Merkontwikkeling",
-            "description": "Een logo en visuele identiteit vanaf nul opgebouwd, zodat een nieuw bedrijf meteen oogt alsof het al jaren bestaat."
-          },
-          {
-            "icon": "server",
-            "title": "Webhosting & domeinen",
-            "description": "Betrouwbare hosting en een domein, gekozen, ingesteld en op jouw eigen naam gezet — zonder zelf providers of verlengdata bij te houden."
-          }
-        ]
-      },
       "process": {
         "badge": "Hoe het werkt",
         "heading": "Hoe een project verloopt",
@@ -1087,57 +892,6 @@
           { "title": "Voorstel", "description": "Na ons gesprek krijg je één helder document: wat ik bouw, wanneer het klaar is en de vaste prijs. Jij beslist met alles op tafel." },
           { "title": "In korte cycli werken", "description": "Je volgt de voortgang en ziet het resultaat vorm krijgen, of het nu een document, een tool of een website is." },
           { "title": "Oplevering & ondersteuning", "description": "Het werk wordt op jouw naam en gedocumenteerd overgedragen. Daarna blijf ik bereikbaar, en er is een maandelijks onderhoudsplan als je regelmatige updates wilt." }
-        ]
-      },
-      "faq": {
-        "badge": "Vragen",
-        "heading": "Vragen en antwoorden",
-        "lead": "De dingen die klanten vragen voordat we beginnen.",
-        "cards": [
-          {
-            "icon": "tag",
-            "title": "Voordat we beginnen",
-            "items": [
-              { "question": "Wat kost een website?", "answer": "Elk project krijgt één vaste prijs, afgesproken voordat we beginnen. Geen uurtje-factuurtje, geen verrassingen achteraf. Het gratis gesprek — en de gratis check, als er al een website is — vertelt me wat je project nodig heeft, en je krijgt de prijs in één helder voorstel." },
-              { "question": "Hoe lang duurt een project?", "answer": "Dat hangt af van de omvang van de website. Het voorstel noemt de planning samen met de prijs, zodat je beide kent voordat we beginnen." },
-              { "question": "Wat gebeurt er met mijn huidige website?", "answer": "Die blijft online tot de nieuwe klaar is. Je content, je webadres en je Google-posities gaan mee. Ik bekijk je huidige website vóór ons eerste gesprek, zodat je vanaf het begin duidelijke antwoorden krijgt." },
-              { "question": "Moet ik zelf hosting of een domein regelen?", "answer": "Nee. Ik zet de hosting en het domein voor je op, op jouw eigen naam. Heb je al een domein, dan houden we dat gewoon." },
-              { "question": "Moeten we elkaar in persoon ontmoeten?", "answer": "Dat hoeft niet. De meeste projecten verlopen volledig via telefoon, video en e-mail. Ik werk met klanten wereldwijd, en tijdzones zijn zelden een probleem." }
-            ]
-          },
-          {
-            "icon": "user",
-            "title": "Samenwerken met mij",
-            "items": [
-              { "question": "Ben je een bedrijf of bureau?", "answer": "Ik ben een eenmansbedrijf: een freelancer, geen bureau. Je werkt rechtstreeks met degene die het werk doet, van het eerste gesprek tot de afgeronde website. Geen salesteam, geen accountmanagers, geen overdrachten." },
-              { "question": "Kan ik de website zelf aanpassen na de lancering?", "answer": "Je kunt je wijzigingen simpelweg naar mij sturen, en daar is het maandelijkse onderhoudsplan precies voor. Wil je de website zelf bewerken, zeg het dan in het eerste gesprek en ik richt de site daarop in." },
-              { "question": "Bouw je ook webshops?", "answer": "Nee. Grote webwinkels zijn het enige dat ik niet bouw. Al het andere dat een custom Astro-website nodig heeft, bouw ik: vertel me in het eerste gesprek wat je voor ogen hebt, en ik ben eerlijk over of ik de juiste bouwer ervoor ben." },
-              { "question": "Is de website echt van mij?", "answer": "Helemaal. Het domein, de hosting en de code staan vanaf dag één op jouw naam. Wil je ooit verder, dan neem je alles mee: je zit nergens aan vast." },
-              { "question": "Wat als er na de lancering iets kapotgaat?", "answer": "Er kan maar weinig kapot: de website heeft geen plugins en geen database die kunnen falen. En ik blijf bereikbaar na de lancering; voor regelmatige updates en monitoring is er het maandelijkse onderhoudsplan." }
-            ]
-          },
-          {
-            "icon": "sparkles",
-            "title": "Meer dan de website",
-            "items": [
-              { "question": "Bied je ook losse grafisch ontwerp of branding aan?", "answer": "Ja. Een logo, een merkidentiteit of doorlopend grafisch ontwerp kan ook los worden afgenomen, zonder complete website. Vertel in het eerste gesprek wat je nodig hebt." },
-              { "question": "Bouw je ook maatwerksoftware?", "answer": "Ja: interne tools, dashboards en gegevensverwerking voor technische teams. Eerst bepalen we samen de eisen, daarna bouw en documenteer ik het." },
-              { "question": "Schrijf je ook technische content?", "answer": "Ja: artikelen en documentatie over engineeringonderwerpen, geschreven door iemand die het werk zelf in het veld heeft gedaan." },
-              { "question": "Wat is Generative Engine of AI-SEO?", "answer": "Ervoor zorgen dat AI-assistenten en AI-zoekmachines — ChatGPT, Google's AI Overviews — je site correct lezen en je bedrijf aanbevelen, naast traditionele SEO." },
-              { "question": "Bied je vaste-prijspakketten voor websites aan?", "answer": "Ja, voor bedrijven met een duidelijke scope: een pakketontwerp houdt de prijs en het eindresultaat vanaf het begin vast, zonder lang vooronderzoek." }
-            ]
-          },
-          {
-            "icon": "globe",
-            "title": "Hosting & domeinen",
-            "items": [
-              { "question": "Wat houdt het instellen van hosting en domein precies in?", "answer": "Ik kies en zet betrouwbare hosting voor je site op en registreer — of verhuis — je domein, beide vanaf dag één op jouw eigen naam. SSL, DNS en een zakelijk e-mailadres op je domein horen bij dezelfde installatie." },
-              { "question": "Betaal ik jou of rechtstreeks de hostingprovider?", "answer": "Het domein- en hostingaccount zijn van jou, rechtstreeks door de provider aan jou gefactureerd. Ik zit niet tussen jou en de rekening — ik zorg alleen dat het goed is ingesteld en blijft werken." },
-              { "question": "Kan ik mijn huidige domein behouden?", "answer": "Ja. Heb je er al een, dan wijzen of verhuizen we die naar de nieuwe site — je bestaande e-mailadressen en domeingeschiedenis hoeven niet te veranderen." },
-              { "question": "Wat als mijn hosting of domein een probleem heeft?", "answer": "Dat valt onder het maandelijkse onderhoudsplan: ik houd uptime en verlengdata in de gaten en regel het rechtstreeks met de host of registrar als er iets misgaat." },
-              { "question": "Veranderen de prijzen na het eerste jaar?", "answer": "Verlengprijzen voor domein en hosting worden bepaald door de registrar en de host, niet door mij, en ik meld ze voordat ze verlengen — geen verrassende verhogingen verstopt in een bundelprijs." }
-            ]
-          }
         ]
       },
       "cta": {
@@ -1274,6 +1028,7 @@
       }
     },
     "web": {
+      "closing": "Een website in gedachten? Een kort bericht is genoeg.",
       "meta": {
         "title": "Webontwikkeling",
         "description": "Snelle Astro-websites op maat en websystemen voor engineering- en technische B2B-bedrijven, door een ingenieur. Design, ontwikkeling, optimalisatie en tracking."
