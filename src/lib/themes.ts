@@ -29,7 +29,7 @@ export const colourThemes: ColourTheme[] = [
   { id: 'purple',  name: 'Purple',  color: 'oklch(59.7% 0.251 296)', showInSelector: true },
   { id: 'violet',  name: 'Violet',  color: 'oklch(59.9% 0.222 279)', showInSelector: true },
   { id: 'indigo',  name: 'Indigo',  color: 'oklch(58.9% 0.224 263)', showInSelector: true },
-  { id: 'blue',    name: 'Blue',    color: 'oklch(62.1% 0.207 255)', showInSelector: true },
+  { id: 'blue',    name: 'Blue',    color: 'oklch(53% 0.155 252)', showInSelector: true },
   { id: 'sky',     name: 'Sky',     color: 'oklch(66.5% 0.150 239)', showInSelector: true },
   { id: 'cyan',    name: 'Cyan',    color: 'oklch(67.2% 0.116 208)', showInSelector: true },
   { id: 'teal',    name: 'Teal',    color: 'oklch(67.2% 0.116 190)', showInSelector: true },

@@ -5,11 +5,11 @@ export const cardVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-card border border-brand-500/40 shadow-md hover:border-brand-500/80',
+        default: 'bg-card border border-border shadow-md hover:border-brand-300',
         solid: 'bg-secondary border border-transparent',
-        outline: 'bg-transparent border-2 border-brand-500/40 shadow-md hover:border-brand-500/80',
+        outline: 'bg-transparent border-2 border-border shadow-md hover:border-brand-300',
         ghost: 'bg-transparent border border-transparent',
-        elevated: 'bg-card border border-brand-500/40 shadow-lg hover:border-brand-500/80',
+        elevated: 'bg-card border border-border shadow-lg hover:border-brand-300',
       },
       padding: {
         none: '',

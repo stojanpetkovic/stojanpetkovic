@@ -57,10 +57,14 @@ describe('home page toolbar colour', () => {
     }
   });
 
-  it('the hero attribute carries the same value', () => {
-    const found = read(HOME).match(/data-bar-color="([^"]+)"/);
-    expect(found, `${HOME} sets data-bar-color`).not.toBeNull();
-    expect(found![1]).toBe(stylesheetValue());
+  it('the hero does not opt in while it is light', () => {
+    // The site ships one light appearance and its hero is a light wash, so the
+    // body colour under the toolbar already matches it. Painting the hero's
+    // old dark end stop there would put a black strip across a light hero.
+    // If the hero turns dark again, restore the attribute with the value
+    // `stylesheetValue()` returns and put the old assertion back.
+    expect(read(HOME)).not.toMatch(/data-bar-color/);
+    expect(stylesheetValue()).toBeTruthy();
   });
 
   it('the attribute is a value, not a bare flag', () => {

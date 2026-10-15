@@ -1,7 +1,7 @@
 ---
 import '@/styles/global.css';
-import outfitFont from '@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2?url';
-import manropeFont from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
+import lexendFont from '@fontsource-variable/lexend/files/lexend-latin-wght-normal.woff2?url';
+import interFont from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import SEO from '@/components/seo/SEO.astro';
 import JsonLd from '@/components/seo/JsonLd.astro';
 import Analytics from '@/components/layout/Analytics.astro';
@@ -32,6 +32,8 @@ interface Props {
   includeProfessionalServiceSchema?: boolean;
   extraSchemas?: WithContext<Thing>[];
   eagerReveal?: boolean;
+  /** An image that is the largest thing on first paint (a video poster, say). Preloaded at high priority. */
+  preloadImage?: string;
   /** Verified locale alternates for this page, forwarded to SEO for hreflang. */
   localeAlternates?: { locale: string; url: string }[];
 }
@@ -49,6 +51,7 @@ const {
   includeProfessionalServiceSchema = false,
   extraSchemas = [],
   eagerReveal = false,
+  preloadImage,
   localeAlternates,
 } = Astro.props;
 
@@ -90,15 +93,19 @@ if (commentsConfig?.enabled) {
 ---
 
 <!doctype html>
-<html lang={locale} class="scroll-smooth dark" data-theme="blue" data-theme-mode="system">
+<html lang={locale} class="scroll-smooth" data-theme="blue" data-theme-mode="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- The site ships one appearance: light. -->
+    <meta name="color-scheme" content="light" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Preload display + body fonts so they're ready for first paint -->
-    <link rel="preload" as="font" type="font/woff2" href={manropeFont} crossorigin="anonymous" />
-    <link rel="preload" as="font" type="font/woff2" href={outfitFont} crossorigin="anonymous" />
+    <!-- Preload the display (Lexend) and body (Inter) fonts of the default theme so they're ready for first paint -->
+    <link rel="preload" as="font" type="font/woff2" href={interFont} crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2" href={lexendFont} crossorigin="anonymous" />
+
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
 
     {commentsPreconnectHref && <link rel="preconnect" href={commentsPreconnectHref} crossorigin />}
 
@@ -145,32 +152,22 @@ if (commentsConfig?.enabled) {
          results, social previews and home-screen icon. -->
 
     <!-- Theme bootstrap (runs before body paint; no flash of wrong theme).
-         Implements a 3-state colour-mode contract:
-           localStorage.theme ∈ {'system','light','dark'}  (default 'system')
-           <html data-theme-mode="…">                      (mirrors saved mode)
-           <html class="dark">                              (resolved appearance)
-         When mode === 'system', <html>.dark tracks prefers-color-scheme live. -->
+         The site has one appearance, light, so the colour mode is fixed:
+           <html data-theme-mode="light">, never <html class="dark">.
+         It still applies the colour palette a visitor picked for the session. -->
     <script is:inline>
       (function () {
         const COLOR_THEMES = ['emerald', 'teal', 'cyan', 'sky', 'blue', 'indigo', 'violet', 'purple'];
-        const VALID_MODES = ['system', 'light', 'dark'];
 
+        // One appearance only: light. The dark mode and the system-follow mode
+        // were removed, so a mode saved by an earlier visit is ignored.
         function getMode() {
-          try {
-            const stored = localStorage.getItem('theme');
-            if (VALID_MODES.indexOf(stored) !== -1) return stored;
-          } catch { /* private mode / disabled storage */ }
-          return 'system';
+          return 'light';
         }
 
         function applyMode(el) {
-          const mode = getMode();
-          el.setAttribute('data-theme-mode', mode);
-          const isDark =
-            mode === 'dark' ||
-            (mode === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-          if (isDark) el.classList.add('dark');
-          else el.classList.remove('dark');
+          el.setAttribute('data-theme-mode', 'light');
+          el.classList.remove('dark');
         }
 
         function applyColorTheme(el) {

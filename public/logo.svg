@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Logo">
+  <path d="M32 3 58 18v28L32 61 6 46V18z" fill="#1f62b4"/>
+  <path d="M32 3 58 18v28L32 61 6 46V18z" fill="none" stroke="#0f3f7a" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="32" cy="32" r="15" fill="none" stroke="#ffffff" stroke-width="4"/>
+  <circle cx="32" cy="32" r="6" fill="#f58220"/>
+</svg>

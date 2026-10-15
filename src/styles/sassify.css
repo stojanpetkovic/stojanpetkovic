@@ -1,0 +1,412 @@
+/* =============================================================================
+   Sassify look for the blue (default) theme
+   =============================================================================
+   Layout-level overrides that give the default (blue) theme the look of the
+   Astro Sassify template (MIT, github.com/larry-xue/astro-sassify-template):
+   a light page with a soft blue wash behind the hero instead of a dark
+   panel, and a flat dark footer. Colours, fonts, radii and the orange buttons
+   live in themes/blue.css and global.css.
+
+   Every selector starts with `html:root[data-theme="blue"]`, which outranks
+   the generic hero and footer rules in global.css wherever this file is
+   imported, and leaves the other seven themes untouched.
+   ============================================================================= */
+
+/* Hero: a soft brand wash that fades into the page, in both colour modes. The
+   original hero is a dark panel in light mode too, with its text colours
+   inverted — undo that inversion so the copy follows the page. */
+html:root[data-theme='blue'] .hero-dark-gradient {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklch, var(--color-brand-500) 7%, var(--background)) 0%,
+    var(--background) 100%
+  );
+  --bar-color: var(--background);
+}
+html.dark:root[data-theme='blue'] .hero-dark-gradient {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklch, var(--color-brand-500) 22%, var(--background)) 0%,
+    var(--background) 100%
+  );
+}
+html:root:not(.dark)[data-theme='blue'] .hero-dark-gradient {
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-background: var(--background);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-ring: var(--ring);
+}
+
+/* Hero badge: the Sassify pill (brand-100 fill, brand-700 text) rather than the
+   glass pill made for the dark panel. In dark mode the glass pill stays. */
+html:root:not(.dark)[data-theme='blue'] .hero-dark-gradient .bg-brand-500\/10 {
+  background-color: var(--color-brand-100);
+  border-color: var(--color-brand-200);
+  color: var(--color-brand-700);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+html:root:not(.dark)[data-theme='blue']
+  .hero-dark-gradient
+  .bg-brand-500\/10
+  .bg-brand-500:not(.animate-ping) {
+  background-color: var(--color-brand-600);
+  box-shadow: none;
+}
+
+/* =============================================================================
+   Page furniture from the SF Tree Removal site (also adapted from Sassify):
+   a faint grid and two soft blobs behind the hero, a gradient on the last
+   title line, a framed intro video, and a short gradient rule under centred
+   section headings.
+   ============================================================================= */
+
+/* Grid and blobs. Both sit behind the content (z-index -1 inside the hero's own
+   stacking context, which `isolation: isolate` already creates). */
+html:root[data-theme='blue'] .hero-dark-gradient::before,
+html:root[data-theme='blue'] .hero-dark-gradient::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+html:root[data-theme='blue'] .hero-dark-gradient::before {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklch, var(--color-brand-600) 9%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklch, var(--color-brand-600) 9%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 40px 40px;
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+}
+html:root[data-theme='blue'] .hero-dark-gradient::after {
+  background:
+    radial-gradient(
+      22rem 22rem at 100% 0%,
+      color-mix(in oklch, var(--cta) 38%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      24rem 24rem at 0% 60%,
+      color-mix(in oklch, var(--color-brand-300) 38%, transparent),
+      transparent 70%
+    );
+}
+html.dark:root[data-theme='blue'] .hero-dark-gradient::after {
+  background:
+    radial-gradient(
+      22rem 22rem at 100% 0%,
+      color-mix(in oklch, var(--cta) 14%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      24rem 24rem at 0% 60%,
+      color-mix(in oklch, var(--color-brand-500) 28%, transparent),
+      transparent 70%
+    );
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:root[data-theme='blue'] .hero-dark-gradient::after {
+    animation: sassify-drift 16s ease-in-out infinite;
+  }
+}
+@keyframes sassify-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(18px, 12px);
+  }
+}
+
+/* Gradient on the last title line. */
+html:root[data-theme='blue'] .hero-dark-gradient h1 > span:last-of-type {
+  background: linear-gradient(to right, var(--color-brand-700), var(--color-brand-400));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+html.dark:root[data-theme='blue'] .hero-dark-gradient h1 > span:last-of-type {
+  background-image: linear-gradient(to right, var(--color-brand-300), var(--color-brand-500));
+}
+
+/* Intro video: a white-bordered frame with a deep shadow instead of a glass pill. */
+html:root[data-theme='blue'] .hero-video {
+  padding: 0;
+  border: 4px solid #fff;
+  border-radius: 2rem;
+  background: #fff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow:
+    0 25px 50px -12px rgb(0 0 0 / 0.25),
+    0 0 0 1px var(--border);
+}
+html:root[data-theme='blue'] .hero-video .hero-video-el {
+  border-radius: 1.65rem;
+}
+html.dark:root[data-theme='blue'] .hero-video {
+  border-color: var(--border-strong);
+  background: var(--background-elevated);
+}
+
+/* =============================================================================
+   Industrial touches
+   =============================================================================
+   Blueprint grid behind the hero (a fine 8px grid under the 40px one, as on a
+   drawing sheet) and a hazard stripe along the top of the footer, the same
+   orange-and-black marking used on the closing call-to-action band.
+   ============================================================================= */
+html:root[data-theme='blue'] .hero-dark-gradient::before {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklch, var(--color-brand-600) 14%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklch, var(--color-brand-600) 14%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to right,
+      color-mix(in oklch, var(--color-brand-600) 5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklch, var(--color-brand-600) 5%, transparent) 1px,
+      transparent 1px
+    );
+  background-size:
+    80px 80px,
+    80px 80px,
+    16px 16px,
+    16px 16px;
+}
+html:root[data-theme='blue'] footer.invert-section {
+  position: relative;
+}
+html:root[data-theme='blue'] footer.invert-section::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: repeating-linear-gradient(-45deg, var(--cta) 0 12px, oklch(16% 0 0) 12px 24px);
+}
+
+/* =============================================================================
+   Home hero, desktop: the video frame runs the full height of the copy column,
+   so the frame and the copy (badge to credential cards) share a top and a
+   bottom edge instead of the frame floating at the vertical middle.
+   ============================================================================= */
+@media (min-width: 1024px) {
+  html:root[data-theme='blue'] .hero-dark-gradient > .grid {
+    align-items: stretch;
+    max-width: 80rem;
+  }
+  /* The aside column is a plain block around the frame: make it a flex row so
+     the frame fills its height. */
+  html:root[data-theme='blue'] .hero-dark-gradient > .grid > div:has(> .hero-video) {
+    display: flex;
+  }
+  html:root[data-theme='blue'] .hero-dark-gradient .hero-video {
+    display: flex;
+    flex: 1 1 auto;
+  }
+  html:root[data-theme='blue'] .hero-dark-gradient .hero-video .hero-video-el {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 0;
+    flex: 1 1 auto;
+    object-position: 50% 30%;
+  }
+}
+
+/* =============================================================================
+   Fact sheet (home, About teaser)
+   =============================================================================
+   Hazard stripe along the top edge, blueprint grid in the header strip and a
+   soft brand wash behind the three headline figures.
+   ============================================================================= */
+html:root[data-theme='blue'] .fact-sheet {
+  position: relative;
+  border-top-width: 0;
+}
+html:root[data-theme='blue'] .fact-sheet::before {
+  content: '';
+  display: block;
+  height: 6px;
+  background: repeating-linear-gradient(-45deg, var(--cta) 0 12px, oklch(16% 0 0) 12px 24px);
+}
+html:root[data-theme='blue'] .fact-sheet-head {
+  background-color: var(--background-secondary);
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklch, var(--color-brand-600) 9%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklch, var(--color-brand-600) 9%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 16px 16px;
+}
+html:root[data-theme='blue'] .fact-sheet-figures {
+  background-image: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--color-brand-500) 7%, var(--color-card)),
+    var(--color-card)
+  );
+}
+
+/* =============================================================================
+   Home page sections
+   =============================================================================
+   An editorial section header (numbered mono eyebrow, large heading, lead on
+   the right), subgrid focus cards, a dark "why an engineer" band and a
+   gateway panel to the web part of the site.
+   ============================================================================= */
+html:root[data-theme='blue'] .section-head {
+  display: grid;
+  gap: 1rem 4rem;
+  align-items: end;
+}
+@media (min-width: 1024px) {
+  html:root[data-theme='blue'] .section-head {
+    grid-template-columns: 1.6fr 1fr;
+  }
+}
+html:root[data-theme='blue'] .section-lead {
+  max-width: 34rem;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--color-foreground-muted);
+}
+html:root[data-theme='blue'] .section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-brand-700);
+}
+html:root[data-theme='blue'] .section-eyebrow::after {
+  content: '';
+  width: 3rem;
+  height: 1px;
+  background: color-mix(in srgb, var(--color-brand-600) 45%, transparent);
+}
+html:root[data-theme='blue'] .section-eyebrow-num {
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  background: var(--color-brand-700);
+  color: #fff;
+}
+html:root[data-theme='blue'] .invert-section .section-eyebrow {
+  color: var(--color-brand-200);
+}
+html:root[data-theme='blue'] .invert-section .section-eyebrow-num {
+  background: var(--cta);
+  color: oklch(18% 0 0);
+}
+html:root[data-theme='blue'] .invert-section .section-eyebrow::after {
+  background: color-mix(in srgb, #fff 30%, transparent);
+}
+
+html:root[data-theme='blue'] .focus-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-card);
+  box-shadow: var(--theme-shadow-sm);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+html:root[data-theme='blue'] .focus-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-brand-700), var(--color-brand-400));
+}
+html:root[data-theme='blue'] .focus-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-brand-300);
+  box-shadow: var(--theme-shadow-lg);
+}
+
+html:root[data-theme='blue'] .why-band {
+  background:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px) 0 0 / 64px 64px,
+    linear-gradient(160deg, var(--color-brand-800), var(--color-brand-900));
+}
+html:root[data-theme='blue'] .why-grid {
+  border: 1px solid rgb(255 255 255 / 0.14);
+  border-radius: 1rem;
+  background: rgb(255 255 255 / 0.04);
+  overflow: hidden;
+}
+html:root[data-theme='blue'] .why-cell {
+  border-right: 1px solid rgb(255 255 255 / 0.12);
+  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+  transition: background-color 0.2s;
+}
+html:root[data-theme='blue'] .why-cell:hover {
+  background: rgb(255 255 255 / 0.06);
+}
+@media (min-width: 1024px) {
+  html:root[data-theme='blue'] .why-cell {
+    border-bottom: 0;
+  }
+  html:root[data-theme='blue'] .why-cell:last-child {
+    border-right: 0;
+  }
+}
+@media (max-width: 1023px) {
+  html:root[data-theme='blue'] .why-cell:nth-child(2n) {
+    border-right: 0;
+  }
+}
+
+html:root[data-theme='blue'] .gateway-panel {
+  background-color: var(--color-background-secondary);
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-brand-600) 8%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-brand-600) 8%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 24px 24px;
+}

@@ -21,6 +21,7 @@ interface Props {
   includeOrgSchema?: boolean;
   includePersonSchema?: boolean;
   includeProfessionalServiceSchema?: boolean;
+  preloadImage?: string;
 }
 
 const {
@@ -33,6 +34,7 @@ const {
   includeOrgSchema = false,
   includePersonSchema = false,
   includeProfessionalServiceSchema = false,
+  preloadImage,
 } = Astro.props;
 ---
 
@@ -46,12 +48,13 @@ const {
   includeOrgSchema={includeOrgSchema}
   includePersonSchema={includePersonSchema}
   includeProfessionalServiceSchema={includeProfessionalServiceSchema}
+  preloadImage={preloadImage}
 >
   <Header
     slot="header"
     position="fixed"
-    shape="floating"
-    variant="transparent"
+    shape="bar"
+    variant="default"
     colorScheme="default"
     size="lg"
     showCta={false}

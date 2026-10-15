@@ -8,8 +8,11 @@
 @import './tokens/colors.css';
 @import './tokens/typography.css';
 @import './tokens/spacing.css';
+@import './sassify.css';
 
 /* Self-hosted fonts via Fontsource (CSP-safe, no external requests) */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/lexend';
 @import '@fontsource-variable/manrope';
 @import '@fontsource-variable/outfit';
 @import '@fontsource-variable/jetbrains-mono';
@@ -1605,4 +1608,35 @@ html.dark[data-theme="emerald"] .mobile-menu-cta-wrap .btn-primary:hover,
 html.dark[data-theme="sky"] .mobile-menu-cta-wrap .btn-primary:hover,
 html.dark[data-theme="teal"] .mobile-menu-cta-wrap .btn-primary:hover {
   background-color: var(--color-brand-800);
+}
+
+/* -----------------------------------------------------------------------------
+   Blue theme: safety-orange call-to-action buttons. `:root` lifts the specificity
+   above the per-context primary-button rules earlier in this file, and
+   !important matches the hero and inverted-section rules there, which are
+   already important and sit in the utilities layer — important declarations
+   in a layer beat unlayered important ones, so these live in that layer too.
+   Higher specificity then decides, and the orange fill wins in every context.
+   ----------------------------------------------------------------------------- */
+@layer utilities {
+  html:root[data-theme="blue"] .btn-primary,
+  html:root[data-theme="blue"] .hero-dark-gradient .btn-primary,
+  html:root[data-theme="blue"] .invert-section .btn-primary,
+  html:root[data-theme="blue"] .cta-band.invert-section .btn-primary,
+  html.dark:root[data-theme="blue"] .btn-primary.project-live-btn,
+  html.dark:root[data-theme="blue"] .mobile-menu-cta-wrap .btn-primary {
+    background-color: var(--cta) !important;
+    background-image: none !important;
+    border-color: transparent !important;
+    color: var(--cta-foreground) !important;
+  }
+  html:root[data-theme="blue"] .btn-primary:hover,
+  html:root[data-theme="blue"] .hero-dark-gradient .btn-primary:hover,
+  html:root[data-theme="blue"] .invert-section .btn-primary:hover,
+  html:root[data-theme="blue"] .cta-band.invert-section .btn-primary:hover,
+  html.dark:root[data-theme="blue"] .btn-primary.project-live-btn:hover,
+  html.dark:root[data-theme="blue"] .mobile-menu-cta-wrap .btn-primary:hover {
+    background-color: var(--cta-hover) !important;
+    background-image: none !important;
+  }
 }

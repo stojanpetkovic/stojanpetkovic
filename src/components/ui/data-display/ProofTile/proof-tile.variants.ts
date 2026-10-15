@@ -2,10 +2,10 @@ import { cva, type VariantProps } from 'class-variance-authority';
 
 export const proofTileVariants = cva(
   [
-    'bg-background-tertiary rounded-xl flex flex-col items-center text-center',
-    'border border-brand-500/40 shadow-lg',
+    'bg-card rounded-xl flex flex-col items-center text-center',
+    'border border-border shadow-md',
     'transition-all duration-200',
-    'hover:-translate-y-1 hover:shadow-xl hover:border-brand-500/80',
+    'hover:-translate-y-1 hover:shadow-xl hover:border-brand-300',
     'h-full',
   ],
   {

@@ -101,7 +101,7 @@ const {
   cta = { label: 'Start a project', href: '/contact' },
   actions = [],
   showSearch = true,
-  showThemeToggle = true,
+  showThemeToggle = false,
   showThemeSelector = false,
   showMobileMenu = true,
   showSocialLinks = siteConfig.header?.showSocialLinks ?? false,
@@ -200,6 +200,7 @@ function getNavIcon(href: string): string {
   if (href.startsWith('/blog'))     return 'pen-line';
   if (href.startsWith('/projects')) return 'layers';
   if (href.startsWith('/services')) return 'sparkles';
+  if (href.startsWith('/web')) return 'code';
   if (href.startsWith('/about'))    return 'user';
   if (href.startsWith('/contact'))  return 'mail';
   if (href.startsWith('#'))         return 'hash';

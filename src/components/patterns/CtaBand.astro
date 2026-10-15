@@ -1,7 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import avatarPoint from '@/assets/blog/avatars/hoodie-point.png';
-
 /**
  * CtaBand — the block that closes a page.
  *
@@ -62,20 +59,7 @@ const widthClass = maxWidth === '7xl' ? 'max-w-7xl' : 'max-w-6xl';
   <div class="relative isolate">
     <div class="cta-band invert-section relative overflow-hidden rounded-3xl">
       {grid && <div class="cta-grid absolute inset-0" aria-hidden="true" />}
-        {/* The author pointing at the copy, standing on the band's bottom edge to the
-            left of the copy and turned toward it. Desktop only: below lg the
-            copy fills the band and there is no room beside it. From lg the
-            content takes a left inset (lg:pl-80) so the two never overlap. Decorative —
-            the heading carries the message. */}
-        <Image
-          src={avatarPoint}
-          alt=""
-          aria-hidden="true"
-          class="cta-avatar pointer-events-none absolute bottom-0 left-[4%] z-[5] hidden h-[82%] w-auto lg:block"
-          widths={[260, 520]}
-          sizes="260px"
-        />
-      <div class="relative z-10 px-6 py-20 sm:py-32 lg:pl-80" data-reveal>
+      <div class="relative z-10 px-6 py-16 sm:py-24" data-reveal>
         <div class="mx-auto max-w-2xl text-center">
           <slot />
         </div>
@@ -100,7 +84,7 @@ const widthClass = maxWidth === '7xl' ? 'max-w-7xl' : 'max-w-6xl';
   .cta-band {
     background: linear-gradient(
       180deg,
-      var(--color-brand-500) -16%,
+      var(--color-brand-700) -16%,
       var(--color-brand-900) 100%
     );
   }
@@ -134,6 +118,21 @@ const widthClass = maxWidth === '7xl' ? 'max-w-7xl' : 'max-w-6xl';
      can. It can, and that is the objection — a lit halo around a card reads as
      an effect rather than as depth. On a near-black page the band's own edge
      is the contrast. */
+  /* Industrial hazard stripe along the top edge: signal orange and near-black
+     at 45 degrees, the marking on barriers and equipment in the field. */
+  .cta-band::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: 5;
+    height: 10px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--cta, oklch(72% 0.19 55)) 0 14px,
+      oklch(16% 0 0) 14px 28px
+    );
+  }
+
   .cta-band {
     box-shadow:
       0 32px 64px -12px rgb(0 0 0 / 0.55),
