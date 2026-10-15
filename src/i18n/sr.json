@@ -1114,6 +1114,23 @@
             "Zapremina gasa pri standardnim uslovima",
             "Zapremina i masa tečnog azota"
           ]
+        },
+        {
+          "href": "/tools/nitrogen-vessel",
+          "tag": "Azot",
+          "icon": "wind",
+          "title": "Azot za sud",
+          "description": "Azot potreban da se sud na zadatoj temperaturi podigne na pritisak.",
+          "inputs": [
+            "Zapremina suda",
+            "Pritisak na koji se diže i početni pritisak",
+            "Temperatura i kompresibilnost"
+          ],
+          "outputs": [
+            "Zapremina gasa pri standardnim uslovima",
+            "Zapremina tečnog azota",
+            "Masa azota"
+          ]
         }
       ]
     },
@@ -1314,6 +1331,66 @@
           "Nema dotoka fluida u bušotinu ni gubitka azota; gubici pri pumpanju i rezerva nisu uračunati."
         ],
         "reference": "Reprodukuje referentnu tabelu, uz jednu razliku: tabela kanal coiled tubing-a računa dvaput u zapremini ispunjenoj gasom, ovde se računa jednom, pa je azot za bušotinu manji nego u tabeli. Proveri osobine gasa prema tablici azota pre nego što se osloniš na rezultat."
+      }
+    },
+    "nitrogenVessel": {
+      "meta": {
+        "title": "Azot za sud",
+        "description": "Izračunaj azot potreban da se sud na zadatoj temperaturi podigne na pritisak: gas pri standardnim uslovima, kao tečni azot i po masi, u metričkim ili oilfield jedinicama."
+      },
+      "hero": {
+        "badge": "Azot",
+        "title": "Azot za sud",
+        "description": "Unesi zapreminu suda, pritisak na koji se diže i temperaturu da dobiješ potrebnu količinu azota. Metričke ili oilfield jedinice."
+      },
+      "groups": {
+        "vessel": "Sud",
+        "gas": "Azot"
+      },
+      "fields": {
+        "volume": {
+          "label": "Zapremina suda"
+        },
+        "pressure": {
+          "label": "Pritisak na koji se diže",
+          "hint": "Manometarski pritisak"
+        },
+        "initialPressure": {
+          "label": "Početni pritisak",
+          "hint": "Manometarski pritisak; 0 za prazan sud pri atmosferskom pritisku"
+        },
+        "temperature": {
+          "label": "Temperatura u sudu"
+        },
+        "compressibility": {
+          "label": "Faktor kompresibilnosti, Z",
+          "hint": "1 za idealan gas; azot pri visokom pritisku je veći, iz tablice gasa"
+        }
+      },
+      "results": {
+        "title": "Rezultat",
+        "mass": "Potrebno azota",
+        "factor": "Zapreminski faktor pri krajnjem pritisku",
+        "gasInVessel": "Gas u sudu pri krajnjem pritisku",
+        "gas": "Gas koji se dodaje, pri standardnim uslovima",
+        "liquid": "Kao tečni azot"
+      },
+      "method": {
+        "title": "Metoda",
+        "intro": "Azot je gas koji treba dodati da se sud pri stalnoj temperaturi podigne sa početnog na krajnji pritisak.",
+        "steps": [
+          "Zapreminski faktor azota: B = 2,8416·P / (Z·(273 + T)) u sm³/m³, sa P u kPa (manometarski) i T u °C. Konstanta odgovara standardnim uslovima od oko 15 °C i 101,3 kPa.",
+          "Gas koji se dodaje: zapremina suda puta razlika faktora pri krajnjem i početnom pritisku.",
+          "Tečni azot: 1 m³ tečnosti daje 696,5 sm³ gasa i teži 808 kg."
+        ],
+        "assumptionsTitle": "Pretpostavke",
+        "assumptions": [
+          "Pritisci su manometarski, a sud na početku sadrži samo vazduh pri atmosferskom pritisku, koji se ne računa.",
+          "Temperatura je stalna dok se sud puni; zagrevanje usled kompresije nije uračunato.",
+          "Faktor kompresibilnosti je jedna vrednost za ceo opseg pritiska.",
+          "Azot se ne gubi pri produvavanju ni curenjem."
+        ],
+        "reference": "Koristi isti zapreminski faktor i osobine azota kao alat Zamena fluida azotom, koji reprodukuje referentnu tabelu. Proveri osobine gasa prema tablici azota pre nego što se osloniš na rezultat."
       }
     },
     "ctPressureLoss": {

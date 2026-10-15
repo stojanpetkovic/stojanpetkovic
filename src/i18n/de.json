@@ -1114,6 +1114,23 @@
             "Gasvolumen im Normzustand",
             "Volumen und Masse des flüssigen Stickstoffs"
           ]
+        },
+        {
+          "href": "/tools/nitrogen-vessel",
+          "tag": "Stickstoff",
+          "icon": "wind",
+          "title": "Stickstoff für einen Behälter",
+          "description": "Stickstoff, der nötig ist, um einen Behälter bei gegebener Temperatur auf einen Druck zu bringen.",
+          "inputs": [
+            "Behältervolumen",
+            "Zieldruck und Anfangsdruck",
+            "Temperatur und Kompressibilität"
+          ],
+          "outputs": [
+            "Gasvolumen im Normzustand",
+            "Volumen des flüssigen Stickstoffs",
+            "Stickstoffmasse"
+          ]
         }
       ]
     },
@@ -1314,6 +1331,66 @@
           "Es fließt keine Flüssigkeit zu und es geht kein Stickstoff verloren; Pumpverluste oder eine Reserve sind nicht berücksichtigt."
         ],
         "reference": "Reproduziert ein Referenz-Arbeitsblatt, mit einem Unterschied: Das Arbeitsblatt zählt die Coiled-Tubing-Bohrung im gasgefüllten Volumen doppelt, hier wird sie einmal gezählt, sodass der Stickstoff für die Bohrung niedriger ausfällt als im Arbeitsblatt. Prüfen Sie die Gaseigenschaften an einer Stickstofftabelle, bevor Sie sich auf ein Ergebnis verlassen."
+      }
+    },
+    "nitrogenVessel": {
+      "meta": {
+        "title": "Stickstoff für einen Behälter",
+        "description": "Berechnen Sie den Stickstoff, der nötig ist, um einen Behälter bei gegebener Temperatur auf einen Druck zu bringen: Gas im Normzustand, als flüssiger Stickstoff und als Masse, in metrischen oder Feldeinheiten."
+      },
+      "hero": {
+        "badge": "Stickstoff",
+        "title": "Stickstoff für einen Behälter",
+        "description": "Geben Sie das Behältervolumen, den Zieldruck und die Temperatur ein, um den nötigen Stickstoff zu erhalten. Metrische oder Feldeinheiten."
+      },
+      "groups": {
+        "vessel": "Behälter",
+        "gas": "Stickstoff"
+      },
+      "fields": {
+        "volume": {
+          "label": "Behältervolumen"
+        },
+        "pressure": {
+          "label": "Zieldruck",
+          "hint": "Überdruck"
+        },
+        "initialPressure": {
+          "label": "Anfangsdruck",
+          "hint": "Überdruck; 0 für einen leeren Behälter bei Atmosphärendruck"
+        },
+        "temperature": {
+          "label": "Temperatur im Behälter"
+        },
+        "compressibility": {
+          "label": "Kompressibilitätsfaktor, Z",
+          "hint": "1 für ein ideales Gas; Stickstoff bei hohem Druck liegt höher, aus einer Gastabelle"
+        }
+      },
+      "results": {
+        "title": "Ergebnis",
+        "mass": "Benötigter Stickstoff",
+        "factor": "Volumenfaktor beim Enddruck",
+        "gasInVessel": "Gas im Behälter beim Enddruck",
+        "gas": "Zuzuführendes Gas im Normzustand",
+        "liquid": "Als flüssiger Stickstoff"
+      },
+      "method": {
+        "title": "Methode",
+        "intro": "Der Stickstoff ist das Gas, das zugeführt werden muss, um den Behälter bei konstanter Temperatur vom Anfangsdruck auf den Enddruck zu bringen.",
+        "steps": [
+          "Volumenfaktor von Stickstoff: B = 2,8416·P / (Z·(273 + T)) in sm³/m³, mit P in kPa (Überdruck) und T in °C. Die Konstante steht für einen Normzustand von etwa 15 °C und 101,3 kPa.",
+          "Zuzuführendes Gas: das Behältervolumen mal die Differenz der Faktoren beim End- und beim Anfangsdruck.",
+          "Flüssiger Stickstoff: 1 m³ Flüssigkeit ergibt 696,5 sm³ Gas und wiegt 808 kg."
+        ],
+        "assumptionsTitle": "Annahmen",
+        "assumptions": [
+          "Die Drücke sind Überdrücke, und der Behälter enthält anfangs nur die Luft bei Atmosphärendruck, die nicht mitgezählt wird.",
+          "Die Temperatur bleibt beim Füllen konstant; die Erwärmung durch Verdichtung ist nicht berücksichtigt.",
+          "Der Kompressibilitätsfaktor ist ein einzelner Wert für den ganzen Druckbereich.",
+          "Es geht kein Stickstoff durch Spülen oder Leckagen verloren."
+        ],
+        "reference": "Verwendet denselben Volumenfaktor und dieselben Stickstoffeigenschaften wie das Werkzeug Stickstoff-Verdrängung, das ein Referenz-Arbeitsblatt reproduziert. Prüfen Sie die Gaseigenschaften an einer Stickstofftabelle, bevor Sie sich auf ein Ergebnis verlassen."
       }
     },
     "ctPressureLoss": {

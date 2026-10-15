@@ -1114,6 +1114,23 @@
             "Gas volume at standard conditions",
             "Liquid nitrogen volume and mass"
           ]
+        },
+        {
+          "href": "/tools/nitrogen-vessel",
+          "tag": "Nitrogen",
+          "icon": "wind",
+          "title": "Nitrogen for a Vessel",
+          "description": "Nitrogen needed to bring a vessel up to a pressure at a given temperature.",
+          "inputs": [
+            "Vessel volume",
+            "Pressure to raise to, and starting pressure",
+            "Temperature and compressibility"
+          ],
+          "outputs": [
+            "Gas volume at standard conditions",
+            "Liquid nitrogen volume",
+            "Nitrogen mass"
+          ]
         }
       ]
     },
@@ -1314,6 +1331,66 @@
           "No fluid enters the well and no nitrogen is lost; nothing is allowed for the pumping losses or a reserve."
         ],
         "reference": "Reproduces a reference worksheet, with one difference: the worksheet counts the coiled tubing bore twice in the volume filled with gas, which here is counted once, so the nitrogen for the well is lower than the worksheet’s. Check the gas properties against a nitrogen table before you rely on a result."
+      }
+    },
+    "nitrogenVessel": {
+      "meta": {
+        "title": "Nitrogen for a Vessel",
+        "description": "Calculate the nitrogen needed to bring a vessel up to a pressure at a given temperature: gas at standard conditions, as liquid nitrogen and by mass, in metric or oilfield units."
+      },
+      "hero": {
+        "badge": "Nitrogen",
+        "title": "Nitrogen for a Vessel",
+        "description": "Enter the volume of a vessel, the pressure it is raised to and its temperature to get the nitrogen needed. Metric or oilfield units."
+      },
+      "groups": {
+        "vessel": "Vessel",
+        "gas": "Nitrogen"
+      },
+      "fields": {
+        "volume": {
+          "label": "Vessel volume"
+        },
+        "pressure": {
+          "label": "Pressure to raise to",
+          "hint": "Gauge pressure"
+        },
+        "initialPressure": {
+          "label": "Starting pressure",
+          "hint": "Gauge pressure; 0 for an empty vessel at atmospheric pressure"
+        },
+        "temperature": {
+          "label": "Temperature in the vessel"
+        },
+        "compressibility": {
+          "label": "Compressibility factor, Z",
+          "hint": "1 for an ideal gas; nitrogen at high pressure is higher, from a gas table"
+        }
+      },
+      "results": {
+        "title": "Result",
+        "mass": "Nitrogen required",
+        "factor": "Volume factor at the final pressure",
+        "gasInVessel": "Gas in the vessel at the final pressure",
+        "gas": "Gas to add, at standard conditions",
+        "liquid": "As liquid nitrogen"
+      },
+      "method": {
+        "title": "Method",
+        "intro": "The nitrogen is the gas that has to be added to take the vessel from its starting pressure to the final pressure at constant temperature.",
+        "steps": [
+          "Volume factor of nitrogen: B = 2.8416·P / (Z·(273 + T)) in sm³/m³, with P in kPa (gauge) and T in °C. The constant stands for standard conditions of about 15 °C and 101.3 kPa.",
+          "Gas to add: the vessel volume times the difference of the factors at the final and at the starting pressure.",
+          "Liquid nitrogen: 1 m³ of liquid gives 696.5 sm³ of gas and weighs 808 kg."
+        ],
+        "assumptionsTitle": "Assumptions",
+        "assumptions": [
+          "The pressures are gauge pressures and the vessel starts with no other gas than the air at atmospheric pressure, which is not counted.",
+          "The temperature stays constant while the vessel is filled; heating from compression is not allowed for.",
+          "The compressibility factor is a single value for the whole range of pressure.",
+          "No nitrogen is lost to purging or leaks."
+        ],
+        "reference": "Uses the same volume factor and nitrogen properties as the Nitrogen Displacement tool, which reproduces a reference worksheet. Check the gas properties against a nitrogen table before you rely on a result."
       }
     },
     "ctPressureLoss": {

@@ -1114,6 +1114,23 @@
             "Gasvolume onder standaardcondities",
             "Volume en massa van vloeibare stikstof"
           ]
+        },
+        {
+          "href": "/tools/nitrogen-vessel",
+          "tag": "Stikstof",
+          "icon": "wind",
+          "title": "Stikstof voor een vat",
+          "description": "Stikstof die nodig is om een vat bij een gegeven temperatuur op druk te brengen.",
+          "inputs": [
+            "Vatvolume",
+            "Einddruk en begindruk",
+            "Temperatuur en compressibiliteit"
+          ],
+          "outputs": [
+            "Gasvolume onder standaardcondities",
+            "Volume vloeibare stikstof",
+            "Massa stikstof"
+          ]
         }
       ]
     },
@@ -1314,6 +1331,66 @@
           "Er stroomt geen vloeistof de put in en er gaat geen stikstof verloren; pompverliezen of een reserve zijn niet meegenomen."
         ],
         "reference": "Reproduceert een referentiewerkblad, met één verschil: het werkblad telt de boring van de coiled tubing dubbel in het met gas gevulde volume, hier wordt die één keer geteld, zodat de stikstof voor de put lager uitvalt dan in het werkblad. Controleer de gaseigenschappen aan een stikstoftabel voordat je op een resultaat vertrouwt."
+      }
+    },
+    "nitrogenVessel": {
+      "meta": {
+        "title": "Stikstof voor een vat",
+        "description": "Bereken de stikstof die nodig is om een vat bij een gegeven temperatuur op druk te brengen: gas onder standaardcondities, als vloeibare stikstof en als massa, in metrische of oliveldeenheden."
+      },
+      "hero": {
+        "badge": "Stikstof",
+        "title": "Stikstof voor een vat",
+        "description": "Voer het volume van een vat, de einddruk en de temperatuur in en krijg de benodigde stikstof. Metrische of oliveldeenheden."
+      },
+      "groups": {
+        "vessel": "Vat",
+        "gas": "Stikstof"
+      },
+      "fields": {
+        "volume": {
+          "label": "Vatvolume"
+        },
+        "pressure": {
+          "label": "Einddruk",
+          "hint": "Overdruk"
+        },
+        "initialPressure": {
+          "label": "Begindruk",
+          "hint": "Overdruk; 0 voor een leeg vat bij atmosferische druk"
+        },
+        "temperature": {
+          "label": "Temperatuur in het vat"
+        },
+        "compressibility": {
+          "label": "Compressibiliteitsfactor, Z",
+          "hint": "1 voor een ideaal gas; stikstof bij hoge druk ligt hoger, uit een gastabel"
+        }
+      },
+      "results": {
+        "title": "Resultaat",
+        "mass": "Benodigde stikstof",
+        "factor": "Volumefactor bij de einddruk",
+        "gasInVessel": "Gas in het vat bij de einddruk",
+        "gas": "Toe te voegen gas, onder standaardcondities",
+        "liquid": "Als vloeibare stikstof"
+      },
+      "method": {
+        "title": "Methode",
+        "intro": "De stikstof is het gas dat moet worden toegevoegd om het vat bij constante temperatuur van de begindruk op de einddruk te brengen.",
+        "steps": [
+          "Volumefactor van stikstof: B = 2,8416·P / (Z·(273 + T)) in sm³/m³, met P in kPa (overdruk) en T in °C. De constante staat voor standaardcondities van ongeveer 15 °C en 101,3 kPa.",
+          "Toe te voegen gas: het vatvolume maal het verschil van de factoren bij de eind- en de begindruk.",
+          "Vloeibare stikstof: 1 m³ vloeistof geeft 696,5 sm³ gas en weegt 808 kg."
+        ],
+        "assumptionsTitle": "Aannames",
+        "assumptions": [
+          "De drukken zijn overdrukken en het vat bevat aan het begin alleen de lucht bij atmosferische druk, die niet wordt meegeteld.",
+          "De temperatuur blijft constant tijdens het vullen; verwarming door compressie is niet meegenomen.",
+          "De compressibiliteitsfactor is één waarde voor het hele drukbereik.",
+          "Er gaat geen stikstof verloren door spoelen of lekkage."
+        ],
+        "reference": "Gebruikt dezelfde volumefactor en stikstofeigenschappen als de tool Stikstofverplaatsing, die een referentiewerkblad reproduceert. Controleer de gaseigenschappen aan een stikstoftabel voordat je op een resultaat vertrouwt."
       }
     },
     "ctPressureLoss": {

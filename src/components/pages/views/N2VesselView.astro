@@ -1,0 +1,121 @@
+---
+/**
+ * N2VesselView — the nitrogen-for-a-vessel calculator page.
+ *
+ * A vessel volume, the pressure to raise it to and the temperature give the
+ * nitrogen needed. Inputs are in metric units with a switch to oilfield units,
+ * inside the shared `ToolPage` shell; the calculation is
+ * `src/lib/tools/n2-vessel.ts`. Copy comes from `pages.nitrogenVessel.*`.
+ */
+import ToolPage from './ToolPage.astro';
+import ToolFields from './ToolFields.astro';
+import ToolMethod from './ToolMethod.astro';
+import { t, tData, defaultLocale } from '@/i18n';
+import type { Quantity } from '@/lib/tools/units';
+
+interface Props {
+  /** Locale whose copy this page renders. Defaults to the site default. */
+  locale?: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+
+const p = (key: string) => `pages.nitrogenVessel.${key}`;
+const hero = tData<{ badge: string; title: string; description: string }>(p('hero'), locale)!;
+const groups = tData<Record<'vessel' | 'gas', string>>(p('groups'), locale)!;
+const fields = tData<Record<string, { label: string; hint?: string }>>(p('fields'), locale)!;
+const r = tData<Record<string, string>>(p('results'), locale)!;
+const method = tData<Parameters<typeof ToolMethod>[0]['method']>(p('method'), locale)!;
+
+const example: Record<string, number> = {
+  volume: 10,
+  pressure: 100,
+  initialPressure: 0,
+  temperature: 20,
+  compressibility: 1,
+};
+
+const layout: { id: keyof typeof groups; rows: { key: string; quantity: Quantity }[] }[] = [
+  {
+    id: 'vessel',
+    rows: [
+      { key: 'volume', quantity: 'volume' },
+      { key: 'pressure', quantity: 'pressure' },
+      { key: 'initialPressure', quantity: 'pressure' },
+      { key: 'temperature', quantity: 'temperature' },
+    ],
+  },
+  { id: 'gas', rows: [{ key: 'compressibility', quantity: 'ratio' }] },
+];
+
+const rows = [
+  { key: 'factor', label: r.factor, quantity: 'gasRatio' },
+  { key: 'gasInVessel', label: r.gasInVessel, quantity: 'gasVolume' },
+  { key: 'gas', label: r.gas, quantity: 'gasVolume' },
+  { key: 'liquid', label: r.liquid, quantity: 'liquidVolume' },
+];
+---
+
+<ToolPage
+  locale={locale}
+  title={t(p('meta.title'), locale)}
+  description={t(p('meta.description'), locale)}
+  hero={hero}
+  resultTitle={r.title}
+  example={example}
+  defaults={example}
+  base="metric"
+>
+  <ToolFields
+    groups={layout.map((g) => ({ id: g.id, label: groups[g.id], rows: g.rows }))}
+    fields={fields}
+    values={example}
+    base="metric"
+  />
+
+  <Fragment slot="results">
+    <p class="mt-4 text-sm text-foreground-muted">{r.mass}</p>
+    <p class="mt-1 font-display text-4xl font-bold tracking-tight text-brand-700">
+      <span data-out="mass" data-quantity="mass">–</span>
+      <span data-unit-out="mass" class="text-xl font-semibold text-foreground-muted"></span>
+    </p>
+    <dl class="mt-5 divide-y divide-border border-t border-border text-sm">
+      {
+        rows.map((item) => (
+          <div class="flex items-baseline justify-between gap-3 py-2.5">
+            <dt class="text-foreground-muted">{item.label}</dt>
+            <dd class="whitespace-nowrap font-mono text-foreground">
+              <span data-out={item.key} data-quantity={item.quantity}>
+                –
+              </span>{' '}
+              <span data-unit-out={item.quantity} class="text-foreground-muted" />
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </Fragment>
+
+  <ToolMethod slot="method" method={method} />
+</ToolPage>
+
+<script>
+  import { initToolForm } from '@/lib/tools/tool-form';
+  import { calculateVessel, validateVesselInput, type VesselInput } from '@/lib/tools/n2-vessel';
+
+  function init() {
+    const root = document.getElementById('tool');
+    if (!root) return;
+    initToolForm(root, (input) => {
+      const errors = validateVesselInput(input as unknown as VesselInput);
+      if (errors.length > 0) return { errors };
+      const v = calculateVessel(input as unknown as VesselInput);
+      return {
+        values: { mass: v.mass, factor: v.factor, gasInVessel: v.gasInVessel, gas: v.gas, liquid: v.liquid },
+      };
+    });
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>

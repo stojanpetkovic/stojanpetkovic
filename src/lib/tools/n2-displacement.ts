@@ -91,6 +91,17 @@ const GRAVITY = 9.81;
 const GAS_PER_LIQUID = 696.5;
 const LIQUID_DENSITY = 0.808;
 
+/** Volume factor of nitrogen, sm³/m³, for a pressure in kPa and a temperature in °C. */
+export function nitrogenVolumeFactor(kpa: number, celsius: number, z: number): number {
+  return (2.8416 * kpa) / (z * (273 + celsius));
+}
+
+/** Standard gas volume, sm³, as liquid nitrogen in litres and as mass in kg. */
+export function nitrogenAmount(gas: number): N2Amount {
+  const liquid = (gas * 1000) / GAS_PER_LIQUID;
+  return { gas, liquid, mass: liquid * LIQUID_DENSITY };
+}
+
 export function validateN2Input(input: N2Input): N2Error[] {
   const errors: N2Error[] = [];
   const positive = (key: N2Error) => {
@@ -141,14 +152,9 @@ export function calculateN2Displacement(input: N2Input): N2Result {
   const pressureSurfaceKpa = pressureDepthKpa - (depth * nitrogenDensity * GRAVITY) / 1000;
   const pressureMeanKpa = (pressureDepthKpa + pressureSurfaceKpa) / 2;
   const tempMean = (input.tempDepth + input.tempSurface) / 2;
-  const factor = (kpa: number, t: number) => (2.8416 * kpa) / (z * (273 + t));
-  const factorMean = factor(pressureMeanKpa, tempMean);
-  const factorSurface = factor(pressureSurfaceKpa, input.tempSurface);
-
-  const amount = (gas: number): N2Amount => {
-    const liquid = (gas * 1000) / GAS_PER_LIQUID;
-    return { gas, liquid, mass: liquid * LIQUID_DENSITY };
-  };
+  const factorMean = nitrogenVolumeFactor(pressureMeanKpa, tempMean, z);
+  const factorSurface = nitrogenVolumeFactor(pressureSurfaceKpa, input.tempSurface, z);
+  const amount = nitrogenAmount;
   const fillVolume = (freeVolume * depth) / 1000;
   const well = amount(fillVolume * factorMean);
   const reel = amount(((ctLength - depth) * boreCapacity * factorSurface) / 1000);

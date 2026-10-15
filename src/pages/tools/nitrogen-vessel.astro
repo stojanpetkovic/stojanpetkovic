@@ -1,0 +1,9 @@
+---
+import N2VesselView from '@/components/pages/views/N2VesselView.astro';
+import { defaultLocale } from '@/i18n';
+
+// The nitrogen-for-a-vessel calculator for the default locale. Additional locales are
+// served by `src/pages/[locale]/tools/nitrogen-vessel.astro`.
+---
+
+<N2VesselView locale={defaultLocale} />
