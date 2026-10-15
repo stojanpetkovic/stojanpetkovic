@@ -25,6 +25,7 @@ const BLOCKS = [
   'pages.web.hero',
   'pages.web.services.cards',
   'pages.web.closing',
+  'pages.web.glance.items',
   'pages.about.faq.cards',
   'projects.emptyTitle',
   'projects.emptyText',

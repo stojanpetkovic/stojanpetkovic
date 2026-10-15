@@ -1028,6 +1028,7 @@
       }
     },
     "web": {
+      "glance": {"label": "At a glance", "items": [{"label": "Stack", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Price", "value": "One fixed price, agreed before work starts"}, {"label": "Ownership", "value": "Code, domain and hosting in your name"}, {"label": "Reply", "value": "Within one business day"}]},
       "closing": "Have a website in mind? A short message is enough.",
       "meta": {
         "title": "Web development",

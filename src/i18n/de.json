@@ -1028,6 +1028,7 @@
       }
     },
     "web": {
+      "glance": {"label": "Auf einen Blick", "items": [{"label": "Technik", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Preis", "value": "Ein Festpreis, vor Arbeitsbeginn vereinbart"}, {"label": "Eigentum", "value": "Code, Domain und Hosting auf Ihren Namen"}, {"label": "Antwort", "value": "Innerhalb eines Werktags"}]},
       "closing": "Eine Website im Sinn? Eine kurze Nachricht genügt.",
       "meta": {
         "title": "Webentwicklung",

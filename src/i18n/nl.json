@@ -1028,6 +1028,7 @@
       }
     },
     "web": {
+      "glance": {"label": "In één oogopslag", "items": [{"label": "Techniek", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Prijs", "value": "Eén vaste prijs, afgesproken voor aanvang"}, {"label": "Eigendom", "value": "Code, domein en hosting op jouw naam"}, {"label": "Reactie", "value": "Binnen één werkdag"}]},
       "closing": "Een website in gedachten? Een kort bericht is genoeg.",
       "meta": {
         "title": "Webontwikkeling",

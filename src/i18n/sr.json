@@ -1028,6 +1028,7 @@
       }
     },
     "web": {
+      "glance": {"label": "Ukratko", "items": [{"label": "Tehnologije", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Cena", "value": "Jedna fiksna cena, dogovorena pre početka"}, {"label": "Vlasništvo", "value": "Kod, domen i hosting na tvoje ime"}, {"label": "Odgovor", "value": "U roku od jednog radnog dana"}]},
       "closing": "Imaš sajt na umu? Dovoljna je kratka poruka.",
       "meta": {
         "title": "Web razvoj",
