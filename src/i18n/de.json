@@ -1053,6 +1053,9 @@
         "example": "Beispiel laden",
         "invalidTitle": "Eingaben prüfen",
         "invalidText": "Einige Werte fehlen oder liegen außerhalb des Bereichs. Korrigieren Sie die markierten Felder, um das Ergebnis zu sehen.",
+        "print": "Als PDF speichern",
+        "printInputs": "Eingaben",
+        "printFoot": "Berechnet auf {url} am {date}.",
         "back": "Alle Werkzeuge"
       },
       "cta": "Sagen Sie mir, was Sie brauchen",

@@ -1053,6 +1053,9 @@
         "example": "Load example",
         "invalidTitle": "Check the inputs",
         "invalidText": "Some values are missing or out of range. Correct the highlighted fields to see the result.",
+        "print": "Save as PDF",
+        "printInputs": "Inputs",
+        "printFoot": "Calculated at {url} on {date}.",
         "back": "All tools"
       },
       "cta": "Tell me what you need",

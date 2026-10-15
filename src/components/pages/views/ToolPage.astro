@@ -11,6 +11,7 @@
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import { t, tData, localizedPath } from '@/i18n';
+import siteConfig from '@/config/site.config';
 
 interface Props {
   locale: string;
@@ -34,6 +35,16 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
 ---
 
 <PageLayout title={title} description={description} footerBackground="secondary">
+  <!-- Print only: the report header with the site's name, mark and address. -->
+  <div class="tool-print-head" aria-hidden="true">
+    <img src={siteConfig.branding.logo.image} alt="" width="36" height="36" />
+    <div>
+      <p class="tool-print-site">{siteConfig.name}</p>
+      <p class="tool-print-url" data-print-url></p>
+    </div>
+  </div>
+  <h1 class="tool-print-title">{hero.title}</h1>
+
   <section class="web-head border-b border-border pb-10 pt-14 sm:pt-16">
     <div class="mx-auto max-w-5xl px-6">
       <a
@@ -63,7 +74,7 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
         data-base={base}
         {...dataAttrs}
       >
-        <form class="tool-card !p-6" novalidate>
+        <form class="tool-card !p-6" novalidate data-print-form>
           <div class="flex flex-wrap items-center justify-between gap-3">
             <div role="group" aria-label={system.label} class="tool-segment">
               <button type="button" data-system="us" aria-pressed={base === 'us'}>{system.us}</button>
@@ -81,10 +92,24 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
         </form>
 
         <div class="lg:sticky lg:top-24 lg:self-start">
+          <section class="tool-print-inputs">
+            <h2>{t('pages.tools.form.printInputs', locale)}</h2>
+            <dl data-print-inputs></dl>
+          </section>
           <div class="tool-card !p-6" aria-live="polite">
-            <h2 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
-              {resultTitle}
-            </h2>
+            <div class="flex items-center justify-between gap-3">
+              <h2 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
+                {resultTitle}
+              </h2>
+              <button
+                type="button"
+                data-print
+                class="no-print inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-2.5 py-1 text-xs font-medium text-foreground-muted transition hover:border-brand-300 hover:text-foreground"
+              >
+                <Icon name="download" size="xs" />
+                {t('pages.tools.form.print', locale)}
+              </button>
+            </div>
             <div data-tool-invalid hidden class="mt-4 rounded-lg border border-border bg-background-secondary p-4">
               <p class="text-sm font-semibold text-foreground">{t('pages.tools.form.invalidTitle', locale)}</p>
               <p class="mt-1 text-sm leading-relaxed text-foreground-muted">
@@ -98,7 +123,14 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
         </div>
       </div>
 
-      <div class="mt-14 border-t border-border pt-10">
+      <p
+        class="tool-print-foot"
+        data-print-foot={t('pages.tools.form.printFoot', locale)}
+        data-print-note={t('pages.tools.note', locale)}
+      >
+      </p>
+
+      <div class="no-print mt-14 border-t border-border pt-10">
         <slot name="method" />
         <p class="mt-6 flex max-w-3xl items-start gap-2 text-xs leading-relaxed text-foreground-subtle">
           <Icon name="info" size="xs" class="mt-0.5 shrink-0" />
@@ -108,3 +140,55 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
     </div>
   </section>
 </PageLayout>
+
+<script>
+  /**
+   * Save as PDF: the browser's print dialog with a print stylesheet that turns the page into a report with the
+   * site's name and address. The inputs are written out as a list when the page is printed, whether through the
+   * button or the browser's own print command.
+   */
+  function initPrint() {
+    const root = document.getElementById('tool');
+    if (!root || root.dataset.printInit) return;
+    root.dataset.printInit = 'true';
+    const lang = document.documentElement.lang || 'en';
+    const url = `${location.host}${location.pathname}`;
+
+    const prepare = () => {
+      document.querySelectorAll('[data-print-url]').forEach((el) => (el.textContent = url));
+      const list = root.querySelector('[data-print-inputs]');
+      if (list) {
+        const rows: HTMLElement[] = [];
+        root.querySelectorAll<HTMLFieldSetElement>('form fieldset').forEach((group) => {
+          const heading = document.createElement('dt');
+          heading.className = 'group';
+          heading.textContent = group.querySelector('legend')?.textContent?.trim() ?? '';
+          rows.push(heading);
+          group.querySelectorAll<HTMLInputElement>('input').forEach((input) => {
+            const term = document.createElement('dt');
+            term.textContent = document.querySelector(`label[for="${input.id}"]`)?.textContent?.trim() ?? input.name;
+            const value = document.createElement('dd');
+            const unit = input.closest('.tool-input')?.querySelector('span')?.textContent?.trim() ?? '';
+            value.textContent = `${input.value} ${unit}`.trim();
+            rows.push(term, value);
+          });
+        });
+        list.replaceChildren(...rows);
+      }
+      const foot = document.querySelector<HTMLElement>('[data-print-foot]');
+      if (foot) {
+        const date = new Intl.DateTimeFormat(lang, { dateStyle: 'long' }).format(new Date());
+        foot.textContent = `${foot.dataset.printFoot?.replace('{url}', url).replace('{date}', date) ?? ''} ${foot.dataset.printNote ?? ''}`;
+      }
+    };
+
+    window.addEventListener('beforeprint', prepare);
+    root.querySelector('[data-print]')?.addEventListener('click', () => {
+      prepare();
+      window.print();
+    });
+  }
+
+  initPrint();
+  document.addEventListener('astro:page-load', initPrint);
+</script>

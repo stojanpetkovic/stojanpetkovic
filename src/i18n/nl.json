@@ -1053,6 +1053,9 @@
         "example": "Voorbeeld laden",
         "invalidTitle": "Controleer de invoer",
         "invalidText": "Sommige waarden ontbreken of liggen buiten het bereik. Corrigeer de gemarkeerde velden om het resultaat te zien.",
+        "print": "Opslaan als PDF",
+        "printInputs": "Invoer",
+        "printFoot": "Berekend op {url} op {date}.",
         "back": "Alle tools"
       },
       "cta": "Vertel me wat je nodig hebt",

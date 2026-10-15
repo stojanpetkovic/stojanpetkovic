@@ -1053,6 +1053,9 @@
         "example": "Učitaj primer",
         "invalidTitle": "Proveri unos",
         "invalidText": "Neke vrednosti nedostaju ili su van opsega. Ispravi označena polja da vidiš rezultat.",
+        "print": "Sačuvaj kao PDF",
+        "printInputs": "Unos",
+        "printFoot": "Izračunato na {url}, {date}.",
         "back": "Svi alati"
       },
       "cta": "Reci mi šta ti treba",
