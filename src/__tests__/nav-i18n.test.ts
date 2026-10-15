@@ -28,6 +28,7 @@ describe('nav config — locale resolution (en default, nl secondary)', () => {
     expect(items.map((i) => i.href)).toEqual([
       '/nl',
       '/nl/services',
+      '/nl/tools',
       '/nl/web',
       '/nl/projects',
       '/nl/blog',

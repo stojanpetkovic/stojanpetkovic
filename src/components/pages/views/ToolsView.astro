@@ -1,0 +1,128 @@
+---
+/**
+ * ToolsView — the Tools page body.
+ *
+ * Cards for the small cloud-based tools and calculators. Each card names the
+ * area, the tool, what it does, what goes in and what comes out, and its
+ * status. A tool that has no page of its own yet says so ("In preparation")
+ * and the card leads to the contact page instead of a dead link. The last card
+ * asks which tool is missing. Copy comes from `pages.tools.*`, so adding a tool
+ * means adding one entry to `items` in each locale file.
+ */
+import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+
+interface Props {
+  /** Locale whose copy this page renders. Defaults to the site default. */
+  locale?: string;
+}
+
+interface Tool {
+  tag: string;
+  icon: string;
+  title: string;
+  description: string;
+  inputs: string[];
+  outputs: string[];
+}
+
+const { locale = defaultLocale } = Astro.props;
+
+const hero = tData<{ badge: string; titleLead: string; titleHighlight: string; description: string }>('pages.tools.hero', locale)!;
+const items = tData<Tool[]>('pages.tools.items', locale)!;
+const suggest = tData<{ title: string; text: string; cta: string }>('pages.tools.suggest', locale)!;
+
+const contactUrl = localizedPath('/contact', locale);
+---
+
+<PageLayout
+  title={t('pages.tools.meta.title', locale)}
+  description={t('pages.tools.meta.description', locale)}
+  footerBackground="secondary"
+>
+  <!-- Header -->
+  <section class="web-head border-b border-border pb-12 pt-16 sm:pt-20">
+    <div class="mx-auto max-w-5xl px-6">
+      <p class="section-eyebrow !mb-0"><span>{hero.badge}</span></p>
+      <h1 class="mt-4 max-w-3xl font-display text-3xl font-bold tracking-tight text-foreground sm:text-[2.5rem] sm:leading-[1.15]">
+        {hero.titleLead} <span class="text-brand-700">{hero.titleHighlight}</span>
+      </h1>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-foreground-muted">{hero.description}</p>
+    </div>
+  </section>
+
+  <!-- Cards -->
+  <section class="bg-background py-12 sm:py-14">
+    <div class="mx-auto max-w-5xl px-6">
+      <div class="grid gap-6 md:grid-cols-2">
+        {items.map((tool, i) => (
+          <article class="tool-card flex flex-col" data-reveal data-reveal-delay={i || undefined}>
+            <div class="flex items-center justify-between gap-3">
+              <span class="rounded border border-brand-200 bg-brand-50 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-widest text-brand-700">{tool.tag}</span>
+              <span class="rounded-full border border-border bg-background-secondary px-3 py-1 text-xs font-medium text-foreground-muted">
+                {t('pages.tools.status', locale)}
+              </span>
+            </div>
+
+            <div class="mt-5 flex items-center gap-4">
+              <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-white shadow-sm">
+                <Icon name={tool.icon} size="md" />
+              </span>
+              <h2 class="font-display text-xl font-bold leading-tight text-foreground">{tool.title}</h2>
+            </div>
+
+            <p class="mt-4 text-sm leading-relaxed text-foreground-muted">{tool.description}</p>
+
+            <div class="mt-5 grid gap-5 border-t border-border pt-5 sm:grid-cols-2">
+              <div>
+                <p class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{t('pages.tools.inputsLabel', locale)}</p>
+                <ul class="mt-2 space-y-1.5 text-sm text-foreground-muted" role="list">
+                  {tool.inputs.map((line) => (
+                    <li class="flex gap-2"><Icon name="chevron-right" size="sm" class="mt-0.5 shrink-0 text-brand-600" /><span>{line}</span></li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{t('pages.tools.outputsLabel', locale)}</p>
+                <ul class="mt-2 space-y-1.5 text-sm text-foreground-muted" role="list">
+                  {tool.outputs.map((line) => (
+                    <li class="flex gap-2"><Icon name="check" size="sm" class="mt-0.5 shrink-0 text-brand-600" /><span>{line}</span></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-1">
+              <Button variant="brand-outline" href={contactUrl}>
+                {t('pages.tools.cta', locale)}
+                <Icon name="arrow-right" size="sm" />
+              </Button>
+            </div>
+          </article>
+        ))}
+
+        <!-- Suggest a tool -->
+        <article class="tool-card tool-card-suggest flex flex-col justify-center" data-reveal data-reveal-delay={items.length || undefined}>
+          <span class="flex h-12 w-12 items-center justify-center rounded-xl border border-dashed border-brand-400 text-brand-700">
+            <Icon name="plus" size="md" />
+          </span>
+          <h2 class="mt-5 font-display text-xl font-bold leading-tight text-foreground">{suggest.title}</h2>
+          <p class="mt-3 text-sm leading-relaxed text-foreground-muted">{suggest.text}</p>
+          <div class="mt-6">
+            <Button variant="brand-outline" href={contactUrl}>
+              {suggest.cta}
+              <Icon name="arrow-right" size="sm" />
+            </Button>
+          </div>
+        </article>
+      </div>
+
+      <p class="mt-8 flex items-start gap-2 text-xs leading-relaxed text-foreground-subtle">
+        <Icon name="info" size="xs" class="mt-0.5 shrink-0" />
+        {t('pages.tools.note', locale)}
+      </p>
+    </div>
+  </section>
+</PageLayout>

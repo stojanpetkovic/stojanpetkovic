@@ -55,6 +55,7 @@
     "items": {
       "home": "Home",
       "services": "Services",
+      "tools": "Tools",
       "web": "Web",
       "projects": "Projects",
       "blog": "Blog",
@@ -1026,6 +1027,47 @@
         "successText": "I'll read it and reply within one business day with concrete next steps. Keep an eye on your inbox.",
         "error": "Something went wrong. Please try again, or email me directly."
       }
+    },
+    "tools": {
+      "meta": {
+        "title": "Tools",
+        "description": "Small cloud-based engineering tools and calculators for coiled tubing and oilfield work, built by an engineer, with the method explained."
+      },
+      "hero": {
+        "badge": "Tools",
+        "titleLead": "Engineering tools",
+        "titleHighlight": "that open in the browser",
+        "description": "Small cloud-based tools and calculators for coiled tubing and oilfield work. Each one explains its method, so you can check the result."
+      },
+      "status": "In preparation",
+      "inputsLabel": "Inputs",
+      "outputsLabel": "Results",
+      "cta": "Tell me what you need",
+      "note": "The tools are aids for engineers. Check the inputs and the results: responsibility for any decision stays with the user.",
+      "suggest": {
+        "title": "Missing a calculation?",
+        "text": "Tell me which calculation or small tool you use every day. If it helps others too, it may become the next one.",
+        "cta": "Suggest a tool"
+      },
+      "items": [
+        {
+          "tag": "Hydraulics",
+          "icon": "activity",
+          "title": "CT Pressure Loss",
+          "description": "Frictional pressure loss for power-law fluids pumped through coiled tubing, with the string split into straight and reel-wound sections.",
+          "inputs": [
+            "Fluid density, power-law n and K",
+            "Reel size, tubing size and wall",
+            "String length and length on the reel",
+            "Flow rate"
+          ],
+          "outputs": [
+            "Velocity and Reynolds number",
+            "Flow regime, straight and curved",
+            "Pressure loss per section and total"
+          ]
+        }
+      ]
     },
     "web": {
       "glance": {"label": "At a glance", "items": [{"label": "Stack", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Price", "value": "One fixed price, agreed before work starts"}, {"label": "Ownership", "value": "Code, domain and hosting in your name"}, {"label": "Reply", "value": "Within one business day"}]},

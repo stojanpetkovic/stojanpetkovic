@@ -55,6 +55,7 @@
     "items": {
       "home": "Start",
       "services": "Leistungen",
+      "tools": "Werkzeuge",
       "web": "Web",
       "projects": "Projekte",
       "blog": "Blog",
@@ -1026,6 +1027,47 @@
         "successText": "Ich lese sie und antworte innerhalb eines Werktags mit konkreten nächsten Schritten. Behalten Sie Ihr Postfach im Blick.",
         "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt."
       }
+    },
+    "tools": {
+      "meta": {
+        "title": "Werkzeuge",
+        "description": "Kleine Cloud-Werkzeuge und Rechner für Coiled Tubing und Öl- und Gasfeldarbeit, von einem Ingenieur gebaut, mit erklärter Methode."
+      },
+      "hero": {
+        "badge": "Werkzeuge",
+        "titleLead": "Engineering-Werkzeuge",
+        "titleHighlight": "im Browser",
+        "description": "Kleine Cloud-basierte Werkzeuge und Rechner für Coiled Tubing und Arbeiten im Ölfeld. Jedes erklärt seine Methode, damit Sie das Ergebnis prüfen können."
+      },
+      "status": "In Vorbereitung",
+      "inputsLabel": "Eingaben",
+      "outputsLabel": "Ergebnisse",
+      "cta": "Sagen Sie mir, was Sie brauchen",
+      "note": "Die Werkzeuge sind Hilfsmittel für Ingenieure. Prüfen Sie Eingaben und Ergebnisse: die Verantwortung für jede Entscheidung bleibt beim Nutzer.",
+      "suggest": {
+        "title": "Fehlt eine Berechnung?",
+        "text": "Sagen Sie mir, welche Berechnung oder welches kleine Werkzeug Sie täglich nutzen. Wenn es auch anderen hilft, wird es vielleicht das nächste.",
+        "cta": "Werkzeug vorschlagen"
+      },
+      "items": [
+        {
+          "tag": "Hydraulik",
+          "icon": "activity",
+          "title": "CT-Druckverlust",
+          "description": "Reibungsdruckverlust für Potenzgesetz-Fluide in Coiled Tubing, mit dem String aufgeteilt in gerade und auf der Haspel gewickelte Abschnitte.",
+          "inputs": [
+            "Fluiddichte, Potenzgesetz n und K",
+            "Haspel- und Rohrgröße, Wandstärke",
+            "Stranglänge und Länge auf der Haspel",
+            "Förderrate"
+          ],
+          "outputs": [
+            "Geschwindigkeit und Reynolds-Zahl",
+            "Strömungsregime, gerade und gekrümmt",
+            "Druckverlust je Abschnitt und gesamt"
+          ]
+        }
+      ]
     },
     "web": {
       "glance": {"label": "Auf einen Blick", "items": [{"label": "Technik", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Preis", "value": "Ein Festpreis, vor Arbeitsbeginn vereinbart"}, {"label": "Eigentum", "value": "Code, Domain und Hosting auf Ihren Namen"}, {"label": "Antwort", "value": "Innerhalb eines Werktags"}]},

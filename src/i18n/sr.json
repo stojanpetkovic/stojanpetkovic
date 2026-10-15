@@ -55,6 +55,7 @@
     "items": {
       "home": "Početna",
       "services": "Usluge",
+      "tools": "Alati",
       "web": "Web",
       "projects": "Projekti",
       "blog": "Blog",
@@ -1026,6 +1027,47 @@
         "successText": "Pročitaću ga i odgovoriti u roku od jednog radnog dana sa konkretnim sledećim koracima. Proveri inbox.",
         "error": "Nešto je pošlo naopako. Pokušaj ponovo ili mi piši direktno."
       }
+    },
+    "tools": {
+      "meta": {
+        "title": "Alati",
+        "description": "Mali inženjerski alati i kalkulatori u oblaku za coiled tubing i rad na naftnim poljima, od inženjera, sa objašnjenom metodom."
+      },
+      "hero": {
+        "badge": "Alati",
+        "titleLead": "Inženjerski alati",
+        "titleHighlight": "koji se otvaraju u pregledaču",
+        "description": "Mali alati i kalkulatori u oblaku za coiled tubing i rad na naftnim poljima. Svaki objašnjava svoju metodu, da možeš da proveriš rezultat."
+      },
+      "status": "U pripremi",
+      "inputsLabel": "Ulazni podaci",
+      "outputsLabel": "Rezultati",
+      "cta": "Reci mi šta ti treba",
+      "note": "Alati su pomoć za inženjere. Proveri ulazne podatke i rezultate: odgovornost za svaku odluku ostaje na korisniku.",
+      "suggest": {
+        "title": "Fali ti neki proračun?",
+        "text": "Reci mi koji proračun ili mali alat koristiš svaki dan. Ako pomaže i drugima, možda postane sledeći.",
+        "cta": "Predloži alat"
+      },
+      "items": [
+        {
+          "tag": "Hidraulika",
+          "icon": "activity",
+          "title": "CT pad pritiska",
+          "description": "Pad pritiska usled trenja za power-law fluide u coiled tubing-u, sa nizom podeljenim na ravne delove i delove namotane na bubanj.",
+          "inputs": [
+            "Gustina fluida, power-law n i K",
+            "Dimenzije bubnja i cevi, debljina zida",
+            "Dužina niza i dužina na bubnju",
+            "Protok"
+          ],
+          "outputs": [
+            "Brzina i Rejnoldsov broj",
+            "Režim toka, ravno i savijeno",
+            "Pad pritiska po delu i ukupno"
+          ]
+        }
+      ]
     },
     "web": {
       "glance": {"label": "Ukratko", "items": [{"label": "Tehnologije", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Cena", "value": "Jedna fiksna cena, dogovorena pre početka"}, {"label": "Vlasništvo", "value": "Kod, domen i hosting na tvoje ime"}, {"label": "Odgovor", "value": "U roku od jednog radnog dana"}]},

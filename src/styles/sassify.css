@@ -420,3 +420,37 @@ html:root[data-theme='blue'] .web-head {
     linear-gradient(to bottom, color-mix(in srgb, var(--color-brand-500) 10%, var(--background)), var(--background) 85%);
   background-size: 32px 32px, 32px 32px, 100% 100%;
 }
+
+/* Tool cards (Tools page). */
+html:root[data-theme='blue'] .tool-card {
+  position: relative;
+  overflow: hidden;
+  padding: 1.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-card);
+  box-shadow: var(--theme-shadow-sm);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+html:root[data-theme='blue'] .tool-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-brand-700), var(--color-brand-400));
+}
+html:root[data-theme='blue'] .tool-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-brand-300);
+  box-shadow: var(--theme-shadow-lg);
+}
+html:root[data-theme='blue'] .tool-card-suggest {
+  border-style: dashed;
+  background: var(--color-background-secondary);
+}
+html:root[data-theme='blue'] .tool-card-suggest::before {
+  display: none;
+}

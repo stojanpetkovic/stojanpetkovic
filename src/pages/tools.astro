@@ -1,0 +1,9 @@
+---
+import ToolsView from '@/components/pages/views/ToolsView.astro';
+import { defaultLocale } from '@/i18n';
+
+// The Tools page for the default locale. Additional locales are served by
+// `src/pages/[locale]/tools.astro`, which renders the same view.
+---
+
+<ToolsView locale={defaultLocale} />

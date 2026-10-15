@@ -55,6 +55,7 @@
     "items": {
       "home": "Home",
       "services": "Diensten",
+      "tools": "Tools",
       "web": "Web",
       "projects": "Projecten",
       "blog": "Blog",
@@ -1026,6 +1027,47 @@
         "successText": "Ik lees hem en reageer binnen één werkdag met concrete vervolgstappen. Houd je inbox in de gaten.",
         "error": "Er ging iets mis. Probeer het opnieuw of mail me direct."
       }
+    },
+    "tools": {
+      "meta": {
+        "title": "Tools",
+        "description": "Kleine cloudgebaseerde engineeringtools en rekenhulpen voor coiled tubing en olieveldwerk, gebouwd door een ingenieur, met uitleg van de methode."
+      },
+      "hero": {
+        "badge": "Tools",
+        "titleLead": "Engineeringtools",
+        "titleHighlight": "die in de browser openen",
+        "description": "Kleine cloudgebaseerde tools en rekenhulpen voor coiled tubing en olieveldwerk. Elke tool legt zijn methode uit, zodat je het resultaat kunt controleren."
+      },
+      "status": "In voorbereiding",
+      "inputsLabel": "Invoer",
+      "outputsLabel": "Resultaten",
+      "cta": "Vertel me wat je nodig hebt",
+      "note": "De tools zijn hulpmiddelen voor ingenieurs. Controleer de invoer en de resultaten: de verantwoordelijkheid voor elke beslissing blijft bij de gebruiker.",
+      "suggest": {
+        "title": "Mis je een berekening?",
+        "text": "Vertel me welke berekening of kleine tool je dagelijks gebruikt. Als het ook anderen helpt, wordt het misschien de volgende.",
+        "cta": "Een tool voorstellen"
+      },
+      "items": [
+        {
+          "tag": "Hydraulica",
+          "icon": "activity",
+          "title": "CT-drukverlies",
+          "description": "Wrijvingsdrukverlies voor power-law-vloeistoffen in coiled tubing, met de string verdeeld in rechte en op de haspel gewikkelde delen.",
+          "inputs": [
+            "Vloeistofdichtheid, power-law n en K",
+            "Haspel- en buismaat, wanddikte",
+            "Lengte van de string en op de haspel",
+            "Debiet"
+          ],
+          "outputs": [
+            "Snelheid en Reynoldsgetal",
+            "Stromingsregime, recht en gekromd",
+            "Drukverlies per deel en totaal"
+          ]
+        }
+      ]
     },
     "web": {
       "glance": {"label": "In één oogopslag", "items": [{"label": "Techniek", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Prijs", "value": "Eén vaste prijs, afgesproken voor aanvang"}, {"label": "Eigendom", "value": "Code, domein en hosting op jouw naam"}, {"label": "Reactie", "value": "Binnen één werkdag"}]},
