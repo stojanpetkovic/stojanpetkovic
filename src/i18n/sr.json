@@ -1448,6 +1448,8 @@
         "tubing": "Tubing",
         "ct": "Coiled tubing",
         "packer": "Paker",
+        "nipple": "Sedište (landing nipple)",
+        "sleeve": "Cirkulaciona spojnica (sliding sleeve)",
         "perforation": "Perforacije"
       },
       "canvas": {
@@ -1466,6 +1468,8 @@
         "delete": "Obriši",
         "duplicate": "Dupliraj",
         "none": "Izaberi komponentu da je urediš.",
+        "note": "Napomena",
+        "notePlaceholder": "npr. profil XN, ID 2,205\"",
         "id": "Unutrašnji prečnik",
         "drift": "Drift prečnik",
         "capacity": "Kapacitet",
@@ -1523,7 +1527,9 @@
         "tubing": "Kraj tubinga",
         "ct": "Kraj CT-a",
         "packer": "Paker",
-        "perforations": "Perforacije"
+        "perforations": "Perforacije",
+        "nipple": "Sedište",
+        "sleeve": "Cirkulaciona spojnica"
       },
       "print": {
         "button": "Sačuvaj kao PDF",

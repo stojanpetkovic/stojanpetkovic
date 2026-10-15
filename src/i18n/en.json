@@ -1448,6 +1448,8 @@
         "tubing": "Tubing",
         "ct": "Coiled tubing",
         "packer": "Packer",
+        "nipple": "Landing nipple",
+        "sleeve": "Sliding sleeve",
         "perforation": "Perforations"
       },
       "canvas": {
@@ -1466,6 +1468,8 @@
         "delete": "Delete",
         "duplicate": "Duplicate",
         "none": "Select a component to edit it.",
+        "note": "Note",
+        "notePlaceholder": "e.g. profile XN, ID 2.205\"",
         "id": "Inside diameter",
         "drift": "Drift diameter",
         "capacity": "Capacity",
@@ -1523,7 +1527,9 @@
         "tubing": "Tubing end",
         "ct": "CT end",
         "packer": "Packer",
-        "perforations": "Perforations"
+        "perforations": "Perforations",
+        "nipple": "Landing nipple",
+        "sleeve": "Sliding sleeve"
       },
       "print": {
         "button": "Save as PDF",

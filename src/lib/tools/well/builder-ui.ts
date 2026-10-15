@@ -10,7 +10,7 @@
  */
 import { pipeProperties, sizeLabel, type ApiPipe } from './api-pipe';
 import {
-  CT_WALLS, ITEM_TYPES, apiKind, createItem, emptyWell, exampleWell, isPipe, itemErrors, itemSize, newId,
+  CT_WALLS, ITEM_TYPES, apiKind, createItem, emptyWell, exampleWell, isPipe, isTubingTool, itemErrors, itemSize, newId,
   readWell, sizeOptions, snapStep, toUnit, weightOptions, withSize, withWeight, type ItemType, type WellItem, type WellState,
 } from './model';
 import { minimumCurvature, parseSurvey, pointAt, summarise, type DepthUnit, type PathPoint, type SurveyError } from './survey';
@@ -28,13 +28,15 @@ export interface BuilderCopy {
 }
 
 const STORAGE_KEY = 'well-builder:v1';
-const VIEW_W = 720;
+const VIEW_W = 640;
 const TOP = 62;
 const PLOT_H = 560;
 const LEFT = 64;
-const CENTRE = LEFT + (VIEW_W - LEFT) / 2 - 40;
-const MAX_WIDTH = 290;
+const MAX_WIDTH = 170;
+const CENTRE = LEFT + MAX_WIDTH / 2 + 30;
 
+/** A detail line with the item's own note after it. */
+const withNote = (detail: string, item: WellItem) => (item.note ? `${detail} · ${item.note}` : detail);
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 const num = (raw: string) => Number(raw.trim().replace(',', '.'));
 const fmt = (n: number, digits = 0) => n.toLocaleString(document.documentElement.lang || 'en', { maximumFractionDigits: digits });
@@ -53,6 +55,8 @@ const COLOUR: Record<ItemType, string> = {
   tubing: 'var(--color-brand-600)',
   ct: 'var(--cta)',
   packer: 'var(--color-foreground)',
+  nipple: 'var(--color-foreground-subtle)',
+  sleeve: 'var(--color-brand-800)',
   perforation: 'var(--destructive)',
 };
 
@@ -333,14 +337,36 @@ export class WellBuilder {
     this.geometry = this.locked ?? { maxDepth, perUnit: PLOT_H / maxDepth };
 
     const maxOd = Math.max(5, ...items.filter((i) => i.type !== 'perforation').map((i) => i.od));
-    const widthOf = (od: number) => Math.max(10, (MAX_WIDTH * od) / maxOd);
-    const wallOf = (item: WellItem) => Math.max(4, (item.wall * MAX_WIDTH) / maxOd);
+    // The strings are drawn close together: the width grows a little slower than the diameter.
+    const widthOf = (od: number) => Math.max(10, MAX_WIDTH * (od / maxOd) ** 0.85);
+    const wallOf = (item: WellItem) => Math.max(4, (item.wall * widthOf(item.od)) / item.od);
     const INK = 'var(--color-foreground)';
     // The innermost casing or liner that reaches a depth: what a packer seals against and perforations pass through.
     const hostAt = (depth: number) =>
       pipes
         .filter((i) => (i.type === 'casing' || i.type === 'liner') && i.top <= depth && i.bottom >= depth)
         .sort((a, b) => a.od - b.od)[0];
+
+    // Equipment symbols are larger than their length at this scale, so they are stacked upwards from the deepest
+    // one, which keeps its depth, with a small gap; the true depth stays in the label. The tubing string runs down
+    // through the last one.
+    const equipment = items
+      .filter((i) => i.type === 'packer' || i.type === 'nipple' || i.type === 'sleeve')
+      .sort((a, b) => b.top - a.top || b.bottom - a.bottom);
+    const placed = new Map<string, { y: number; h: number }>();
+    let nextTop = Infinity;
+    for (const item of equipment) {
+      const minimum = item.type === 'packer' ? 36 : item.type === 'nipple' ? 22 : 28;
+      const h = Math.max(minimum, this.y(item.bottom) - this.y(item.top));
+      const y = Math.max(TOP, Math.min(this.y(item.top), nextTop - 6 - h));
+      placed.set(item.id, { y, h });
+      nextTop = y;
+    }
+    const stringBottom = (item: WellItem) =>
+      Math.max(
+        this.y(item.bottom),
+        ...equipment.filter((e) => e.top <= item.bottom && item.type === 'tubing').map((e) => placed.get(e.id)!.y + placed.get(e.id)!.h)
+      );
 
     let svg = WellBuilder.DEFS;
     const y0 = this.y(0);
@@ -357,9 +383,8 @@ export class WellBuilder {
     }
 
     // Ground and wellhead.
-    const groundW = Math.max(60, widest / 2 + 36);
-    svg += `<rect x="${CENTRE - groundW - 90}" y="${y0}" width="${groundW + 90 - widest / 2 + 6}" height="9" fill="url(#wb-ground)"/>`;
-    svg += `<rect x="${CENTRE + widest / 2 - 6}" y="${y0}" width="${groundW + 90 - widest / 2 + 6}" height="9" fill="url(#wb-ground)"/>`;
+    svg += `<rect x="${LEFT}" y="${y0}" width="${CENTRE - widest / 2 + 6 - LEFT}" height="9" fill="url(#wb-ground)"/>`;
+    svg += `<rect x="${CENTRE + widest / 2 - 6}" y="${y0}" width="${CENTRE + widest / 2 - 6 - LEFT > 0 ? 44 : 0}" height="9" fill="url(#wb-ground)"/>`;
     svg += `<line x1="${LEFT}" x2="${VIEW_W - 10}" y1="${y0}" y2="${y0}" stroke="${INK}" stroke-width="1.6"/>`;
     const head = Math.max(34, widest * 0.3);
     svg += `<g class="wb-overlay" stroke="${INK}" stroke-width="0.8" fill="var(--color-foreground-muted)">`;
@@ -376,7 +401,7 @@ export class WellBuilder {
       const inner = Math.max(2, w - 2 * wall);
       const x = CENTRE - w / 2;
       const y1 = this.y(item.top);
-      const y2 = this.y(item.bottom);
+      const y2 = stringBottom(item);
       const sel = item.id === this.selected ? ' wb-selected' : '';
       const colour = COLOUR[item.type];
       const wallRect = (wx: number) =>
@@ -402,26 +427,63 @@ export class WellBuilder {
     const callouts: { y: number; x: number; name: string; detail: string; id: string }[] = [];
     for (const item of items) {
       const sel = item.id === this.selected ? ' wb-selected' : '';
-      const y1 = this.y(item.top);
+      const slot = placed.get(item.id);
+      const y1 = slot ? slot.y : this.y(item.top);
       if (item.type === 'packer') {
         const host = hostAt(item.top);
+        // The element seals against the casing it sits in, so it is drawn touching the wall.
         const seal = host ? widthOf(host.od) - 2 * wallOf(host) : widthOf(item.od);
-        const w = Math.max(16, Math.min(widthOf(item.od), seal));
+        const w = Math.max(16, seal);
         const tubing = pipes.find((i) => i.type === 'tubing' && i.top <= item.top && i.bottom >= item.top);
-        const m = Math.max(10, tubing ? widthOf(tubing.od) : 12) + 6;
-        const h = Math.max(34, this.y(item.bottom) - y1);
+        const tubingW = tubing ? widthOf(tubing.od) : 12;
+        const m = Math.max(12, tubingW) + 8;
+        const boreW = Math.max(4, tubing ? tubingW - 2 * wallOf(tubing) : 6);
+        const h = slot!.h;
         const cx = CENTRE;
         svg += `<g data-id="${item.id}" class="wb-item${sel}" stroke="${INK}" stroke-width="0.8">`;
         svg += `<rect x="${cx - m / 2}" y="${y1}" width="${m}" height="${h}" fill="${INK}"/>`;
-        svg += `<rect x="${cx - w / 2}" y="${y1 + h * 0.3}" width="${w}" height="${h * 0.4}" rx="3" fill="url(#wb-rubber)"/>`;
+        svg += `<rect x="${cx - w / 2}" y="${y1 + h * 0.3}" width="${w}" height="${h * 0.4}" rx="2" fill="url(#wb-rubber)"/>`;
         for (const side of [-1, 1]) {
           const edge = cx + (side * w) / 2;
           const near = cx + (side * m) / 2;
           svg += `<polygon points="${near},${y1 + 2} ${edge},${y1 + h * 0.3} ${near},${y1 + h * 0.3}" fill="${INK}"/>`;
           svg += `<polygon points="${near},${y1 + h * 0.7} ${edge},${y1 + h * 0.7} ${near},${y1 + h - 2}" fill="${INK}"/>`;
         }
+        svg += `<rect x="${cx - boreW / 2}" y="${y1}" width="${boreW}" height="${h}" class="wb-bore"/>`;
         svg += `</g>`;
-        callouts.push({ y: y1 + h / 2, x: cx + w / 2 + 4, name: `${this.copy.types.packer} ${itemSize(item)}`, detail: `${fmt(item.top)} ${this.unit}`, id: item.id });
+        callouts.push({ y: y1 + h / 2, x: cx + w / 2 + 4, name: `${this.copy.types.packer} ${itemSize(item)}`, detail: withNote(`${fmt(item.top)} ${this.unit}`, item), id: item.id });
+      } else if (isTubingTool(item.type)) {
+        // A landing nipple (a seat with lock grooves and a narrower bore) or a sliding sleeve (ports in the body
+        // and an inner sleeve), both made up in the tubing string.
+        const tubing = pipes.find((i) => i.type === 'tubing' && i.top <= item.top && i.bottom >= item.top);
+        const tubingW = tubing ? widthOf(tubing.od) : widthOf(item.od);
+        const tubingBore = tubing ? tubingW - 2 * wallOf(tubing) : tubingW * 0.6;
+        const w = tubingW + 10;
+        const h = slot!.h;
+        const cx = CENTRE;
+        svg += `<g data-id="${item.id}" class="wb-item${sel}" stroke="${INK}" stroke-width="0.8">`;
+        svg += `<rect x="${cx - w / 2}" y="${y1}" width="${w}" height="${h}" rx="2" fill="${COLOUR[item.type]}"/>`;
+        svg += `<rect x="${cx - w / 2}" y="${y1}" width="${w}" height="${h}" rx="2" fill="url(#wb-hatch)" class="wb-overlay"/>`;
+        if (item.type === 'nipple') {
+          const seat = Math.max(3, tubingBore * 0.6);
+          svg += `<rect x="${cx - tubingBore / 2}" y="${y1}" width="${tubingBore}" height="${h * 0.7}" class="wb-bore"/>`;
+          svg += `<rect x="${cx - seat / 2}" y="${y1 + h * 0.7}" width="${seat}" height="${h * 0.3}" class="wb-bore"/>`;
+          for (const f of [0.2, 0.38, 0.54]) {
+            svg += `<line x1="${cx - tubingBore / 2 - 3}" x2="${cx - tubingBore / 2}" y1="${y1 + h * f}" y2="${y1 + h * f}" stroke="#fff" stroke-width="1.6"/>`;
+            svg += `<line x1="${cx + tubingBore / 2}" x2="${cx + tubingBore / 2 + 3}" y1="${y1 + h * f}" y2="${y1 + h * f}" stroke="#fff" stroke-width="1.6"/>`;
+          }
+        } else {
+          svg += `<rect x="${cx - tubingBore / 2}" y="${y1}" width="${tubingBore}" height="${h}" class="wb-bore"/>`;
+          svg += `<rect x="${cx - tubingBore / 2}" y="${y1 + h * 0.12}" width="${tubingBore}" height="${h * 0.76}" fill="none" stroke-dasharray="3 2"/>`;
+          for (const f of [0.3, 0.62]) {
+            for (const side of [-1, 1]) {
+              const edge = cx + (side * tubingBore) / 2;
+              svg += `<rect x="${side < 0 ? edge - (w - tubingBore) / 2 : edge}" y="${y1 + h * f}" width="${(w - tubingBore) / 2}" height="4" fill="#fff"/>`;
+            }
+          }
+        }
+        svg += `</g>`;
+        callouts.push({ y: y1 + h / 2, x: cx + w / 2 + 4, name: `${this.copy.types[item.type]} ${itemSize(item)}`, detail: withNote(`${fmt(item.top)} ${this.unit}`, item), id: item.id });
       } else if (item.type === 'perforation') {
         const host = hostAt(item.top) ?? hostAt(item.bottom) ?? [...pipes].sort((a, b) => a.od - b.od)[0];
         const hostW = host ? widthOf(host.od) : widest || 40;
@@ -439,15 +501,15 @@ export class WellBuilder {
         }
         svg += `<rect x="${CENTRE - hostW / 2 - 14}" y="${y1 - 2}" width="${hostW + 28}" height="${yb - y1 + 4}" fill="transparent" stroke="none"/>`;
         svg += `</g>`;
-        callouts.push({ y: (y1 + yb) / 2, x: CENTRE + hostW / 2 + 16, name: this.copy.types.perforation, detail: `${fmt(item.top)}–${fmt(item.bottom)} ${this.unit}`, id: item.id });
+        callouts.push({ y: (y1 + yb) / 2, x: CENTRE + hostW / 2 + 16, name: this.copy.types.perforation, detail: withNote(`${fmt(item.top)}–${fmt(item.bottom)} ${this.unit}`, item), id: item.id });
       } else {
         const w = widthOf(item.od);
-        callouts.push({ y: this.y(item.bottom), x: CENTRE + w / 2 + 4, name: `${this.copy.types[item.type]} ${itemSize(item)}`, detail: `${fmt(item.top)}–${fmt(item.bottom)} ${this.unit}`, id: item.id });
+        callouts.push({ y: this.y(item.bottom), x: CENTRE + w / 2 + 4, name: `${this.copy.types[item.type]} ${itemSize(item)}`, detail: withNote(`${fmt(item.top)}–${fmt(item.bottom)} ${this.unit}`, item), id: item.id });
       }
     }
 
     // Callouts: a label for each item in a column on the right, joined to it by a leader line.
-    const labelX = CENTRE + widest / 2 + 58;
+    const labelX = CENTRE + widest / 2 + 48;
     let lastY = -Infinity;
     for (const c of callouts.sort((a, b) => a.y - b.y)) {
       const ly = Math.max(c.y, lastY + 27);
@@ -460,8 +522,9 @@ export class WellBuilder {
     // Handles on the selected item.
     const selected = this.item(this.selected);
     if (selected) {
+      const slot = placed.get(selected.id);
       for (const which of ['top', 'bottom'] as const) {
-        const cy = this.y(selected[which]);
+        const cy = slot ? (which === 'top' ? slot.y : slot.y + slot.h) : this.y(selected[which]);
         svg += `<circle data-handle="${which}" data-id="${selected.id}" cx="${CENTRE}" cy="${cy}" r="7" class="wb-handle"/>`;
       }
     }
@@ -536,6 +599,11 @@ export class WellBuilder {
         return Math.max(thousand, deepest(['tubing']) * 0.85 || casing * 0.8);
       case 'packer':
         return Math.max(thousand / 2, (deepest(['tubing']) || casing) - thousand / 30);
+      case 'nipple':
+        // Just above the packer, or near the bottom of the tubing.
+        return Math.max(thousand / 2, (deepest(['tubing']) || casing) - thousand / 10);
+      case 'sleeve':
+        return Math.max(thousand / 2, (deepest(['tubing']) || casing) - thousand / 3);
       case 'perforation':
         return Math.max(thousand / 2, (casing || thousand * 2) - thousand / 5);
     }
@@ -624,6 +692,8 @@ export class WellBuilder {
       }
     } else if (item.type === 'packer') {
       html += field('od', c.packerOd, input('od', item.od));
+    } else if (isTubingTool(item.type)) {
+      html += field('od', c.size, select('od', sizeOptions(item.type).map((od) => ({ value: od, label: `${sizeLabel(od)}"` })), item.od));
     }
     if (item.type === 'packer') {
       html += field('top', c.depth, input('top', item.top));
@@ -631,6 +701,7 @@ export class WellBuilder {
       html += field('top', c.top, input('top', item.top));
       html += field('bottom', c.bottom, input('bottom', item.bottom));
     }
+    html += field('note', c.note, `<input type="text" data-field="note" value="${esc(item.note ?? '')}" placeholder="${esc(c.notePlaceholder)}">`);
     html += `</div>`;
     if (isPipe(item.type)) html += this.properties(item);
     html += `<div class="wb-actions"><button type="button" data-action="duplicate">${esc(c.duplicate)}</button><button type="button" data-action="delete">${esc(c.delete)}</button></div></div>`;
@@ -680,6 +751,8 @@ export class WellBuilder {
       this.replace(item.id, item.type === 'packer' ? { ...item, od: num(el.value) } : withSize(item, num(el.value)));
     } else if (key === 'weight') {
       this.replace(item.id, withWeight(item, num(el.value)));
+    } else if (key === 'note') {
+      this.replace(item.id, { ...item, note: el.value.trim() || undefined }, false);
     } else if (key === 'wall') {
       this.replace(item.id, { ...item, wall: num(el.value) });
     } else if (key === 'top' || key === 'bottom') {
@@ -749,6 +822,8 @@ export class WellBuilder {
       else if (i.type === 'tubing') markers.push({ md: i.bottom, label: m.tubing, kind: 'tubing' });
       else if (i.type === 'ct') markers.push({ md: i.bottom, label: m.ct, kind: 'ct' });
       else if (i.type === 'packer') markers.push({ md: i.top, label: m.packer, kind: 'packer' });
+      else if (i.type === 'nipple') markers.push({ md: i.top, label: m.nipple, kind: 'tubing' });
+      else if (i.type === 'sleeve') markers.push({ md: i.top, label: m.sleeve, kind: 'tubing' });
     }
     this.viewer.setData({
       path,

@@ -1448,6 +1448,8 @@
         "tubing": "Tubing",
         "ct": "Coiled tubing",
         "packer": "Packer",
+        "nipple": "Landing nipple",
+        "sleeve": "Schuifhuls (circulatiehuls)",
         "perforation": "Perforaties"
       },
       "canvas": {
@@ -1466,6 +1468,8 @@
         "delete": "Verwijderen",
         "duplicate": "Dupliceren",
         "none": "Selecteer een onderdeel om het te bewerken.",
+        "note": "Notitie",
+        "notePlaceholder": "bijv. profiel XN, ID 2,205\"",
         "id": "Binnendiameter",
         "drift": "Driftdiameter",
         "capacity": "Inhoud",
@@ -1523,7 +1527,9 @@
         "tubing": "Tubing-einde",
         "ct": "CT-einde",
         "packer": "Packer",
-        "perforations": "Perforaties"
+        "perforations": "Perforaties",
+        "nipple": "Landing nipple",
+        "sleeve": "Schuifhuls"
       },
       "print": {
         "button": "Opslaan als PDF",

@@ -7,7 +7,7 @@
 import { pipeList, sizeLabel, type PipeKind } from './api-pipe';
 import type { DepthUnit } from './survey';
 
-export type ItemType = 'casing' | 'liner' | 'tubing' | 'ct' | 'packer' | 'perforation';
+export type ItemType = 'casing' | 'liner' | 'tubing' | 'ct' | 'packer' | 'nipple' | 'sleeve' | 'perforation';
 
 export interface WellItem {
   id: string;
@@ -18,9 +18,11 @@ export interface WellItem {
   weight: number;
   /** Wall thickness, in. */
   wall: number;
-  /** Top and bottom, measured depth. For a packer the bottom is the top plus its length. */
+  /** Top and bottom, measured depth. For a packer, nipple or sleeve the bottom is the top plus its length. */
   top: number;
   bottom: number;
+  /** A free note shown on the callout, e.g. the profile of a landing nipple. */
+  note?: string;
 }
 
 export interface WellState {
@@ -30,7 +32,10 @@ export interface WellState {
   survey: string;
 }
 
-export const ITEM_TYPES: readonly ItemType[] = ['casing', 'liner', 'tubing', 'ct', 'packer', 'perforation'];
+export const ITEM_TYPES: readonly ItemType[] = ['casing', 'liner', 'tubing', 'ct', 'packer', 'nipple', 'sleeve', 'perforation'];
+
+/** Components that sit on the tubing string and take their size from the tubing list. */
+export const isTubingTool = (type: ItemType) => type === 'nipple' || type === 'sleeve';
 
 /** Types drawn as a pipe: they have a size from a list. */
 export const isPipe = (type: ItemType) => type === 'casing' || type === 'liner' || type === 'tubing' || type === 'ct';
@@ -67,6 +72,10 @@ export function createItem(type: ItemType, unit: DepthUnit, depth: number): Well
       return { ...base, od: 1.75, weight: 0, wall: 0.134 };
     case 'packer':
       return { ...base, od: 5, weight: 0, wall: 0, top: depth, bottom: depth + (unit === 'ft' ? 10 : 3) };
+    case 'nipple':
+      return { ...base, od: 2.875, weight: 0, wall: 0, top: depth, bottom: depth + (unit === 'ft' ? 3 : 1) };
+    case 'sleeve':
+      return { ...base, od: 2.875, weight: 0, wall: 0, top: depth, bottom: depth + (unit === 'ft' ? 4 : 1.2) };
     case 'perforation':
       return { ...base, od: 0, weight: 0, wall: 0, top: depth, bottom: depth + (unit === 'ft' ? 100 : 30) };
   }
@@ -77,7 +86,7 @@ export const insideDiameter = (item: WellItem) => item.od - 2 * item.wall;
 
 /** The nominal sizes a type offers, as distinct ODs. */
 export function sizeOptions(type: ItemType): number[] {
-  const kind = apiKind(type);
+  const kind = apiKind(isTubingTool(type) ? 'tubing' : type);
   if (kind) return [...new Set(pipeList(kind).map((p) => p.od))];
   return type === 'ct' ? [...CT_ODS] : [];
 }
@@ -106,7 +115,7 @@ export function withWeight(item: WellItem, weight: number): WellItem {
 /** A short label of an item, e.g. "9-5/8 in 47 lb/ft casing" without the type word. */
 export function itemSize(item: WellItem): string {
   if (item.type === 'perforation') return '';
-  if (item.type === 'packer') return `${sizeLabel(item.od)}"`;
+  if (item.type === 'packer' || isTubingTool(item.type)) return `${sizeLabel(item.od)}"`;
   if (item.type === 'ct') return `${sizeLabel(item.od)}" × ${item.wall}"`;
   return `${sizeLabel(item.od)}" × ${item.weight} lb/ft`;
 }
@@ -138,7 +147,7 @@ export function readWell(raw: unknown): WellState | null {
     : [];
   return {
     unit,
-    items: items.map((i) => ({ ...i, id: typeof i.id === 'string' ? i.id : newId() })),
+    items: items.map((i) => ({ ...i, id: typeof i.id === 'string' ? i.id : newId(), note: typeof i.note === 'string' ? i.note : undefined })),
     survey: typeof data.survey === 'string' ? data.survey : '',
   };
 }
@@ -178,6 +187,8 @@ export function exampleWell(unit: DepthUnit): WellState {
       mk('casing', 9.625, 47, 0.472, 0, 6500),
       mk('liner', 7, 29, 0.408, 6300, 10000),
       mk('tubing', 2.875, 6.5, 0.217, 0, 8800),
+      mk('sleeve', 2.875, 0, 0, 8450, 8454),
+      mk('nipple', 2.875, 0, 0, 8700, 8703),
       mk('packer', 5.5, 0, 0, 8800, 8810),
       mk('perforation', 0, 0, 0, 9200, 9400),
     ],

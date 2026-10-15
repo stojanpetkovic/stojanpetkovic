@@ -698,6 +698,8 @@ html:root[data-theme='blue'] .wb-ghost {
 .wb-swatch[data-type='tubing'] { background: var(--color-brand-600); }
 .wb-swatch[data-type='ct'] { background: var(--cta); }
 .wb-swatch[data-type='packer'] { background: var(--color-foreground); }
+.wb-swatch[data-type='nipple'] { background: var(--color-foreground-subtle); }
+.wb-swatch[data-type='sleeve'] { background: var(--color-brand-800); }
 .wb-swatch[data-type='perforation'] { background: var(--destructive); }
 #wb-svg { touch-action: none; }
 #wb-svg .wb-grid { stroke: var(--color-border); stroke-width: 1; }
