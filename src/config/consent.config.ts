@@ -6,7 +6,7 @@ const consentConfig: ConsentConfig = {
 
   /** 'consent_mode_v2' = scripts load with denied defaults, cookieless pings
    *  'strict' = scripts fully blocked until consent granted */
-  mode: 'consent_mode_v2',
+  mode: 'strict',
 
   /** localStorage key for stored preferences */
   storageKey: 'cookie-consent',
