@@ -28,11 +28,11 @@ export interface BuilderCopy {
 }
 
 const STORAGE_KEY = 'well-builder:v1';
-const VIEW_W = 640;
+const VIEW_W = 560;
 const TOP = 62;
 const PLOT_H = 560;
 const LEFT = 64;
-const MAX_WIDTH = 170;
+const MAX_WIDTH = 108;
 const CENTRE = LEFT + MAX_WIDTH / 2 + 30;
 
 /** A detail line with the item's own note after it. */
@@ -338,8 +338,8 @@ export class WellBuilder {
 
     const maxOd = Math.max(5, ...items.filter((i) => i.type !== 'perforation').map((i) => i.od));
     // The strings are drawn close together: the width grows a little slower than the diameter.
-    const widthOf = (od: number) => Math.max(10, MAX_WIDTH * (od / maxOd) ** 0.85);
-    const wallOf = (item: WellItem) => Math.max(4, (item.wall * widthOf(item.od)) / item.od);
+    const widthOf = (od: number) => Math.max(10, MAX_WIDTH * (od / maxOd) ** 0.8);
+    const wallOf = (item: WellItem) => Math.max(3, (item.wall * widthOf(item.od)) / item.od);
     const INK = 'var(--color-foreground)';
     // The innermost casing or liner that reaches a depth: what a packer seals against and perforations pass through.
     const hostAt = (depth: number) =>
