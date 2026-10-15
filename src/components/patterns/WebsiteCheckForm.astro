@@ -24,14 +24,16 @@ interface Props {
   locale?: string;
   /** Where the form sits, stored with each lead (`landing`, `contact`). */
   source: string;
+  /** Dictionary namespace holding the `form.*` copy. The landing page uses its own; the Contact page asks engineering questions. */
+  copy?: string;
 }
 
-const { locale = defaultLocale, source } = Astro.props;
+const { locale = defaultLocale, source, copy = 'pages.landing' } = Astro.props;
 
 interface Option { value: string; label: string; icon?: string }
 
-const L = (key: string) => t(`pages.landing.${key}`, locale);
-const form = tData<{ stepLabels: string[]; services: Option[]; timelines: Option[] }>('pages.landing.form', locale)!;
+const L = (key: string) => t(`${copy}.${key}`, locale);
+const form = tData<{ stepLabels: string[]; services: Option[]; timelines: Option[] }>(`${copy}.form`, locale)!;
 const privacy = tData<{ toggle: string; title: string; items: string[] }>('pages.landing.privacy', locale)!;
 
 const unconfigured = !contactConfigured && !import.meta.env.DEV;

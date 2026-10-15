@@ -33,10 +33,10 @@
     }
   },
   "site": {
-    "name": "Mr. Petkovic"
+    "name": "Stojan Petkovic"
   },
   "llms": {
-    "summary": "Mr. Petkovic ist ein freiberuflicher Webentwickler aus Zrenjanin, Serbien, und arbeitet mit Kunden weltweit. Er entwickelt schnelle, maßgeschneiderte Astro-Websites, Systeme zur Lead-Gewinnung und datengestützte Plattformen und kümmert sich um SEO, Generative Engine Optimization (GEO), Google Ads und Social-Media-Werbung — vor allem für lokale Dienstleister, etwa Baumpflegefirmen in Südflorida und kleine Unternehmen in Serbien. Jedes Projekt hat einen Festpreis, der vor Beginn der Arbeit vereinbart wird, und Code, Domain und Hosting gehören dem Kunden vom ersten Tag an."
+    "summary": "Stojan Petkovic ist Ingenieur (Titel von der Bayerischen Ingenieurekammer-Bau genehmigt) und Webentwickler mit Sitz in Zrenjanin, Serbien, und arbeitet mit Kunden weltweit. Er hat Bergbau an der Universität Belgrad studiert (2010) und arbeitet seit 2013 mit Coiled Tubing und Stickstoff. Er baut schnelle, individuelle Astro-Websites, individuelle Software und datengestützte Plattformen für Ingenieur- und technische B2B-Unternehmen und bietet außerdem klassisches Webdesign, SEO und Generative Engine Optimization (GEO) an. Jedes Projekt hat einen Festpreis, der vor Arbeitsbeginn vereinbart wird, und der Kunde besitzt Code, Domain und Hosting vom ersten Tag an."
   },
   "nav": {
     "skipToContent": "Zum Inhalt springen",
@@ -55,6 +55,7 @@
     "items": {
       "home": "Start",
       "services": "Leistungen",
+      "web": "Web",
       "projects": "Projekte",
       "blog": "Blog",
       "about": "Über mich",
@@ -107,13 +108,13 @@
     "shareOn": "Auf {platform} teilen",
     "copyLink": "Link kopieren",
     "metaTitle": "Blog",
-    "metaDescription": "Praxisnahe Ratgeber zu SEO, KI-Suche und Kundengewinnung für lokale Dienstleister.",
+    "metaDescription": "Artikel über Ingenieurwesen, Software und Webentwicklung.",
     "heroBadge": "Alle Beiträge",
-    "heroDescription": "Praxisnahe Ratgeber zu SEO, KI-Suche und Kundengewinnung für lokale Dienstleister.",
+    "heroDescription": "Artikel über Ingenieurwesen, Software und Webentwicklung.",
     "allPosts": "Alle Beiträge",
     "noPosts": "Keine Beiträge gefunden",
     "pageMetaTitle": "Blog — Seite {page}",
-    "pageMetaDescription": "Seite {page} von {total} — Ratgeber zu SEO, KI-Suche und Kundengewinnung für lokale Dienstleister.",
+    "pageMetaDescription": "Seite {page} von {total} — Artikel über Ingenieurwesen, Software und Webentwicklung.",
     "pageBadge": "Seite {page} von {total}",
     "newestPosts": "Neueste Beiträge",
     "tagMetaTitle": "#{tag} — Blog",
@@ -156,12 +157,12 @@
     "galleryNextImage": "Nächstes Bild",
     "galleryPreviousImage": "Vorheriges Bild",
     "metaTitle": "Projekte",
-    "metaDescription": "Ausgewählte Arbeiten — Websites, Tools und Plattformen von Mr. Petkovic.",
+    "metaDescription": "Ausgewählte Arbeiten — Websites, Tools und Plattformen von Stojan Petkovic.",
     "heroBadge": "Portfolio",
     "heroDescription": "Websites und Plattformen, die ich für Kunden gebaut habe.",
     "allProjects": "Alle Projekte",
     "pageMetaTitle": "Projekte — Seite {page}",
-    "pageMetaDescription": "Seite {page} von {total} — ausgewählte Arbeiten, Tools und Plattformen von Mr. Petkovic.",
+    "pageMetaDescription": "Seite {page} von {total} — ausgewählte Arbeiten, Tools und Plattformen von Stojan Petkovic.",
     "pageBadge": "Seite {page} von {total}",
     "tagMetaTitle": "#{tag} — Projekte",
     "tagMetaDescription": "Projekte zum Thema „{tag}“.",
@@ -174,7 +175,7 @@
     "moreProjects": "Weitere Projekte",
     "ctaBadge": "Sprechen wir",
     "ctaHeading": "Sprechen wir über Ihr Projekt",
-    "ctaLead": "Jede Website, die ich baue, ist eine Maßanfertigung — mit der Sorgfalt, die Sie hier sehen. Erzählen Sie mir, was Sie vorhaben.",
+    "ctaLead": "Jedes Projekt, das ich übernehme, ist auf das Problem zugeschnitten, das es lösen soll. Erzählen Sie mir, was Sie vorhaben.",
     "ctaPrimary": "Nachricht senden",
     "ctaSecondary": "Mehr über mich",
     "closingHeading": "Haben Sie ein Projekt im Kopf?",
@@ -201,7 +202,7 @@
     "browseBlog": "Zum Blog",
     "tryInstead": "Vielleicht suchen Sie eines davon",
     "projectsDesc": "Ausgewählte Arbeiten und die Geschichten dahinter.",
-    "blogDesc": "Ratgeber zu SEO, KI-Suche und Marketing.",
+    "blogDesc": "Notizen zu Ingenieurwesen, Software und dem Web.",
     "contactTitle": "Kontakt",
     "contactDesc": "Schreiben Sie mir zu Ihrem Projekt."
   },
@@ -260,9 +261,11 @@
     "groups": {
       "site": "Website",
       "topics": "Themen",
-      "projects": "Projekte",
+      "projects": "Web-Projekte",
+      "engineering": "Ingenieurwesen",
       "questions": "Fragen?"
     },
+    "links": { "focus": "Projekte, Kurse und Software" },
     "followOn": "Folgen Sie mir auf {platform}"
   },
   "pages": {
@@ -295,7 +298,7 @@
             "label": "bis zur Antwort auf jede Anfrage"
           }
         ],
-        "imageAlt": "Mr. Petkovic, der Webentwickler, mit dem Sie direkt arbeiten",
+        "imageAlt": "Stojan Petkovic, der Webentwickler, mit dem Sie direkt arbeiten",
         "videoPlay": "Mit Ton abspielen",
         "videoLabel": "Vorstellungsvideo"
       },
@@ -408,7 +411,7 @@
         "quote": "Jede Woche, die ich gewartet habe, hat jemand anderes diese Anrufe bekommen.",
         "author": "Daniel",
         "role": "Ein erfundener Inhaber — eine Illustration, kein echter Kunde",
-        "imageAlt": "Eine Beispiel-Website einer Baumpflegefirma von Mr. Petkovic"
+        "imageAlt": "Eine Beispiel-Website einer Baumpflegefirma von Stojan Petkovic"
       },
       "report": {
         "badge": "Tracking & Monatsbericht",
@@ -604,7 +607,7 @@
         "toggle": "Wie ich mit Ihren Daten umgehe",
         "title": "Datenschutzhinweis",
         "items": [
-          "Wer: Mr. Petkovic, freiberuflicher Webentwickler. Kontakt: {email}.",
+          "Wer: Stojan Petkovic, freiberuflicher Webentwickler. Kontakt: {email}.",
           "Was: die Angaben, die Sie in dieses Formular eintragen — Name, E-Mail, Telefon, Website, Branche, Ihre Antworten und Ihre Nachricht.",
           "Wozu: ausschließlich, um Ihre Anfrage zu beantworten und ein Angebot zu erstellen. Kein Newsletter; Ihre Daten werden nie verkauft oder für Marketing weitergegeben.",
           "Wo: gespeichert bei den Hosting-, E-Mail- und Datenbankanbietern, über die diese Website läuft, auf Grundlage von Auftragsverarbeitungsverträgen.",
@@ -616,16 +619,26 @@
     },
     "about": {
       "meta": {
-        "title": "Über mich",
-        "description": "Wer ich bin und wie ich arbeite: ein freiberuflicher Webentwickler, der schnelle, praktische Websites und digitale Produkte mit moderner Technologie baut."
+        "title": "Über mich — Ingenieur & Webentwickler",
+        "description": "Stojan Petkovic: Ingenieur (Titel genehmigt von der Bayerischen Ingenieurekammer-Bau) und Webentwickler. Schnelle Websites für technische Unternehmen, mit über 13 Jahren Erfahrung in Öl- und Gasoperationen."
       },
       "hero": {
         "badge": "Über mich",
-        "titleLead": "Mr. Petkovic",
-        "typingWords": ["Webentwickler", "Problemlöser", "Cloud & Automatisierung", "Datengetrieben", "Detailverliebt"],
-        "typingWordsMobile": ["Webentwickler", "Cloud & Automatisierung", "Detailverliebt"],
-        "description": "Ein freiberuflicher Web­entwickler, der schnelle, praktische Websites und digitale Produkte baut.",
+        "titleLead": "Stojan\u00a0Petkovic",
+        "typingWords": ["Ingenieur", "Digital Architect", "Webentwickler", "Problemlöser"],
+        "typingWordsMobile": ["Ingenieur", "Digital Architect", "Webentwickler"],
+        "description": "Ingenieur und Webentwickler. Ich baue schnelle, praktische Websites und bringe die Disziplin eines Ingenieurs in jedes Projekt.",
         "imageAlt": "Eine Rakete fliegt am beleuchteten Rand eines Planeten vorbei, vor einem Sternenhimmel."
+      },
+      "background": {
+        "badge": "Hintergrund",
+        "heading": "Erst Ingenieurwesen, dann Code",
+        "paragraphs": [
+          "Ich habe Bergbau an der Universität Belgrad studiert (Abschluss 2010). 2026 stellte die Bayerische Ingenieurekammer-Bau fest, dass meine Ausbildung den deutschen Anforderungen gleichwertig ist, und genehmigte mir die Berufsbezeichnung Ingenieur.",
+          "Ich habe 2011 als Bergbauingenieur bei der Erkundung von Lagerstätten begonnen, auch unter Tage, und bin 2012 zum Bohren gewechselt, wo ich Erkundungsbohrungen geplant und überwacht habe. Seit 2013 arbeite ich mit Coiled Tubing und Stickstoff, vom Feldingenieur bis zum Operations Manager, bei mehr als 1.000 Einsätzen. Dabei habe ich gelernt, wie echte Operationen sich verhalten: Drücke, Grenzen und was kaputtgeht, wenn eine Zahl falsch ist. Diese Gewohnheit, Zahlen zu prüfen, bringe ich in jede Website und jedes Werkzeug ein, das ich baue.",
+          "Für technische Unternehmen heißt das: weniger erklären. Sie müssen mir nicht beibringen, wie ein Einsatz vor Ort aussieht, bevor ich die passende Seite dafür bauen kann."
+        ],
+        "credential": "Titel Ingenieur, genehmigt von der Bayerischen Ingenieurekammer-Bau, 2026"
       },
       "whatYouGet": {
         "badge": "Was ich mitbringe",
@@ -633,49 +646,34 @@
         "lead": "Die gleiche Sorgfalt bei jedem Projekt, von der ersten Codezeile bis zum Start.",
         "items": [
           {
-            "icon": "component",
-            "title": "Sauberer, wiederverwendbarer Code",
-            "description": "Gut strukturiert, typisiert und dokumentiert — Code, der auch lange nach dem Start leicht zu pflegen und zu erweitern ist."
-          },
-          {
-            "icon": "layout",
-            "title": "Alle Seiten, die Sie brauchen",
-            "description": "Startseite, Über uns, Leistungen, Kontakt und Blog — vollständig gestaltet und responsiv vom ersten Tag an."
-          },
-          {
-            "icon": "palette",
-            "title": "Ein Design, das zu Ihnen passt",
-            "description": "Ein Erscheinungsbild, das auf Ihre Marke zugeschnitten ist, mit hellem und dunklem Modus."
+            "icon": "award",
+            "title": "Felderfahrung",
+            "description": "Über 13 Jahre und mehr als 1.000 Einsätze in Coiled-Tubing- und Stickstoffoperationen."
           },
           {
             "icon": "book-open",
-            "title": "Inhalte, die leicht zu pflegen sind",
-            "description": "Ein Blog und ein Inhaltssystem, mit dem sich Texte einfach schreiben und aktualisieren lassen."
+            "title": "Dokumentierte Logik",
+            "description": "Formeln, Annahmen und Entscheidungen festgehalten, damit Ergebnisse nachvollziehbar sind."
           },
           {
-            "icon": "image",
-            "title": "Ein Portfolio, das Ihre Arbeit zeigt",
-            "description": "Galerien und Projektseiten, die Ihre Arbeit leicht durchsuchbar und teilbar machen."
-          },
-          {
-            "icon": "globe",
-            "title": "Bereit für ein internationales Publikum",
-            "description": "Mehrsprachigkeit, wenn Sie sie brauchen, von Anfang an eingebaut — ohne Mehrkosten, solange Sie sie nicht nutzen."
-          },
-          {
-            "icon": "search",
-            "title": "Schnelle Website-Suche",
-            "description": "Sofortige, statische Suche, damit Besucher finden, was sie brauchen, ohne auf einen Server zu warten."
-          },
-          {
-            "icon": "trending-up",
-            "title": "SEO von Anfang an",
-            "description": "Metadaten, Sitemaps, strukturierte Daten und Vorschaubilder für soziale Netzwerke — korrekt ab dem ersten Deployment."
+            "icon": "component",
+            "title": "Sauberer, wiederverwendbarer Code",
+            "description": "Gut strukturiert, typisiert und dokumentiert, damit er leicht zu pflegen und zu erweitern bleibt."
           },
           {
             "icon": "server",
-            "title": "Formulare, die einfach funktionieren",
-            "description": "Kontakt- und Newsletter-Formulare mit Spamschutz, dazu ein reibungsloser Weg zu Hosting und Veröffentlichung."
+            "title": "Standardmäßig in der Cloud",
+            "description": "Software, die auf einem Server läuft und im Browser öffnet, ohne Installation."
+          },
+          {
+            "icon": "layout",
+            "title": "Klare technische Inhalte",
+            "description": "Seiten, Dokumentation und Fallstudien so aufgebaut, dass technische Leser schnell finden, was sie brauchen."
+          },
+          {
+            "icon": "zap",
+            "title": "Schnelle Websites, wenn Sie sie brauchen",
+            "description": "Individuelle Astro-Websites, gebaut für schnelle Ladezeiten und gute Rankings, als eigene Leistung."
           }
         ]
       },
@@ -686,7 +684,7 @@
         "items": [
           { "icon": "zap", "title": "Geschwindigkeit zuerst", "description": "Jede Website optimiere ich ab der ersten Codezeile für Geschwindigkeit und Core Web Vitals." },
           { "icon": "award", "title": "Gebaut, um zu bleiben", "description": "Sauberer, typisierter Code und sinnvolle Voreinstellungen, die auch lange nach dem Start leicht zu pflegen sind." },
-          { "icon": "rocket", "title": "Moderne Werkzeuge", "description": "Astro, Tailwind CSS und eine klare Architektur, die mit Ihren Anforderungen leicht mitwächst." }
+          { "icon": "award", "title": "Ingenieursdisziplin", "description": "Erst die Anforderungen, dann Design, dann Code. Jede Zahl und jede Aussage wird geprüft, bevor sie live geht." }
         ]
       },
       "stack": {
@@ -703,7 +701,7 @@
             "icon": "user",
             "title": "Über mich",
             "items": [
-              { "question": "Welche Projekte übernehmen Sie?", "answer": "Unternehmenswebsites, Systeme zur Kundengewinnung und datengestützte Plattformen — das meiste, was ein wachsendes Unternehmen online braucht." },
+              { "question": "Welche Projekte übernehmen Sie?", "answer": "Websites, individuelle Software und datengestützte Plattformen für technische und Ingenieurunternehmen, dazu klassisches Webdesign für Unternehmen jeder Größe." },
               { "question": "Mit welchen Technologien arbeiten Sie?", "answer": "Mit modernen, schnellen Werkzeugen: Astro, TypeScript und Tailwind CSS im Frontend, dazu Cloud-Infrastruktur und Automatisierung, wo ein Projekt sie braucht." },
               { "question": "Arbeiten Sie auch mit Kunden außerhalb Ihrer Region?", "answer": "Ja. Die meisten Projekte laufen vollständig per Telefon, Video und E-Mail, und Zeitzonen sind selten ein Problem." },
               { "question": "Haben Sie Kapazität für neue Projekte?", "answer": "Meistens ja — sehen Sie auf der Startseite nach oder schreiben Sie mir einfach, und ich sage es Ihnen ehrlich." }
@@ -741,15 +739,15 @@
     "services": {
       "meta": {
         "title": "Leistungen — Webdesign, Entwicklung & Optimierung",
-        "description": "Webdesign, Entwicklung, Optimierung und Anfragen-Tracking: schnelle, maßgeschneiderte Astro-Websites mit monatlichen Berichten. Ein kostenloses Erstgespräch, ein Angebot, ein Festpreis."
+        "description": "Webdesign, Entwicklung, Optimierung und Tracking für technische Unternehmen, von einem Ingenieur. Schnelle individuelle Astro-Websites, kostenloses Erstgespräch, ein Angebot, ein Festpreis."
       },
       "includedLabel": "Was Sie bekommen",
       "hero": {
         "badge": "Leistungen",
-        "titleLead": "Webdesign, Entwicklung",
-        "titleHighlight": "und Optimierung",
-        "description": "Vier Leistungen, ein Ergebnis: eine elegante, blitzschnelle Astro-Website nach Maß, auf die Sie stolz Ihren Namen setzen — und klare Zahlen darüber, was sie einbringt.",
-        "jumpLabels": ["Webdesign", "Entwicklung", "Optimierung", "Tracking & Berichte"]
+        "titleLead": "Engineering-Software,",
+        "titleHighlight": "Webentwicklung und Design",
+        "description": "Individuelle Software und Websites für technische Unternehmen, gebaut von einem Ingenieur: klare Anforderungen, geprüfte Zahlen und ein schnelles Ergebnis, hinter dem Sie stehen können.",
+        "jumpLabels": ["Webdesign", "Software & Entwicklung", "Weboptimierung", "Daten & Berichte"]
       },
       "design": {
         "badge": "Design",
@@ -784,9 +782,9 @@
       },
       "development": {
         "badge": "Entwicklung",
-        "heading": "Webentwicklung",
+        "heading": "Software- und Webentwicklung",
         "paragraphs": [
-          "Webentwicklung ist der Bau Ihrer Website: das Design wird zu Code, der im Browser Ihrer Besucher läuft.",
+          "Entwicklung ist der Bau Ihres Systems: Anforderungen und Design werden zu Code, der zuverlässig läuft, im Browser oder dahinter.",
           "Ich baue mit Astro, einem modernen Framework, dem einige der schnellsten Websites im Netz vertrauen. Dadurch lädt Ihre Website schnell, ist sicher und bleibt über Jahre leicht zu pflegen. Und sie gehört Ihnen vom ersten Tag an — Code, Domain und Hosting auf Ihren Namen."
         ],
         "included": [
@@ -845,28 +843,28 @@
         "ctaLabel": "Projekt starten"
       },
       "reporting": {
-        "badge": "Tracking & Berichte",
-        "heading": "Anfragen-Tracking und monatliche Berichte",
+        "badge": "Daten & Berichte",
+        "heading": "Messen, was die Website tut",
         "paragraphs": [
-          "Eine Website lohnt sich erst, wenn sie Ihnen Kunden bringt. Deshalb kann jede Website, die ich baue, genau zeigen, was sie einbringt: jedes Anfrageformular, jeden Tipp auf Ihre Telefonnummer, jede WhatsApp-Nachricht — und woher diese Menschen kamen.",
-          "Jede Anfrage landet in dem Moment in Ihrem Postfach, in dem sie gesendet wird, mit allen Details und einer Antwort per Klick. Einmal im Monat erhalten Sie einen klaren PDF-Bericht: Besucher, Anfragen, Anrufe und welche Anzeigen, Suchen und Seiten Besucher wirklich zu Kunden machen. Keine Logins, keine Dashboards, kein Google-Analytics-Setup."
+          "Eine Website ist ein System, und ein System sollte gemessen werden. Ich richte einfaches, datenschutzfreundliches Tracking ein, damit Sie sehen, wie viele Menschen kommen, welche Seiten sie lesen und woher sie kommen.",
+          "Einmal im Monat erhalten Sie einen kurzen PDF-Bericht in klarer Sprache. Keine Logins, keine Dashboards zum Lernen, kein Google-Analytics-Setup."
         ],
         "included": [
           {
-            "lead": "Jede Anfrage per E-Mail",
-            "text": "das vollständige Formular, die Seite, von der es kam, und die Anzeige oder Suche, die den Besucher brachte — sofort in Ihrem Postfach."
+            "lead": "Besuche und Seiten",
+            "text": "sehen Sie, wie viele Menschen kommen und welche Seiten sie wirklich lesen."
           },
           {
-            "lead": "Auch Anrufe werden gezählt",
-            "text": "Tipps auf Ihre Telefonnummer, WhatsApp- und SMS-Links werden als Conversions erfasst, nicht verloren."
+            "lead": "Nachrichten per E-Mail",
+            "text": "jede Formularnachricht kommt in Ihrem Postfach an, samt der Seite, von der sie gesendet wurde."
           },
           {
-            "lead": "Wissen, was funktioniert",
-            "text": "sehen Sie, welche Quelle (Google, Facebook-Anzeigen, direkte Besuche) Besuche, Anfragen und Anrufe bringt — und mit welcher Quote."
+            "lead": "Wissen, was wirkt",
+            "text": "sehen Sie, welche Quelle Besucher bringt: Suche, soziale Netzwerke oder direkte Besuche."
           },
           {
             "lead": "Ein monatlicher PDF-Bericht",
-            "text": "klare Seiten in verständlicher Sprache, auf Englisch oder Serbisch, bereit zum Teilen mit Team oder Partnern."
+            "text": "klare Seiten in einfacher Sprache, auf Englisch oder Serbisch, bereit zum Teilen mit Ihrem Team."
           },
           {
             "lead": "Keine Cookies",
@@ -876,23 +874,23 @@
         "imageAlt": "Beispiel eines monatlichen Website-Berichts: Besucher, Anfragen, Anrufe, Conversion-Rate, ein Tagesdiagramm und die Herkunft der Besucher.",
         "imageCaption": "Ein Beispiel für einen Monatsbericht (Demodaten).",
         "benefits": {
-          "heading": "Was das für Ihr Unternehmen bedeutet",
-          "lead": "Die meisten kleinen Unternehmen bezahlen für Website und Anzeigen, ohne zu wissen, was zurückkommt. Tracking macht daraus Zahlen, nach denen Sie handeln können.",
+          "heading": "Was das für Ihr Projekt bedeutet",
+          "lead": "Zahlen machen aus Meinungen Entscheidungen. Tracking zeigt, was die Website tut, damit Sie sie mit Fakten verbessern können.",
           "items": [
             {
               "icon": "target",
-              "title": "Budget dort, wo es wirkt",
-              "description": "Sehen Sie, welche Anzeigen und Suchen Anrufe und Anfragen bringen, und investieren Sie in die Kanäle, die sich rechnen — nicht in die, die nur Klicks bringen."
+              "title": "Mit Fakten entscheiden",
+              "description": "Sehen Sie, welche Seiten und Quellen Aufmerksamkeit bringen, und verbessern Sie, was zählt."
             },
             {
               "icon": "inbox",
-              "title": "Keine Anfrage geht verloren",
-              "description": "Jede Anfrage erreicht sofort Ihr Postfach mit Antwort per Klick, und jeder Anruf über die Website wird gezählt."
+              "title": "Nichts geht verloren",
+              "description": "Jede Nachricht landet sofort in Ihrem Postfach, mit Antwort per Klick."
             },
             {
               "icon": "trending-up",
-              "title": "Der Beweis, dass es sich lohnt",
-              "description": "Ein Monatsbericht zeigt, wie Besucher zu Kunden werden — in Zahlen, die Sie Partnern oder Ihrem Steuerberater zeigen können."
+              "title": "Fortschritt sehen",
+              "description": "Ein Monatsbericht zeigt, wie Ihre Website wächst, in Zahlen, die Sie teilen können."
             },
             {
               "icon": "shield-check",
@@ -918,9 +916,9 @@
             "description": "Blogbeiträge und Leistungsseiten, die die Fragen beantworten, nach denen Ihre Kunden bereits suchen — damit Ihre Website noch lange nach dem Start Besucher bringt."
           },
           {
-            "icon": "megaphone",
-            "title": "Social-Media-Marketing",
-            "description": "Instagram- und Facebook-Kampagnen mit echtem Conversion-Tracking, damit jeder Beitrag und jede Anzeige nach Buchungen bewertet wird, nicht nach Likes."
+            "icon": "wrench",
+            "title": "Individuelle Software",
+            "description": "Interne Werkzeuge, Dashboards und Datenverarbeitung für technische Teams, mit dokumentierter Logik, damit Ergebnisse nachvollziehbar sind."
           },
           {
             "icon": "sparkles",
@@ -933,9 +931,9 @@
             "description": "Pakete mit festem Umfang für Unternehmen, die genau wissen, was sie brauchen: klarer Preis, klares Ergebnis, ohne langwierige Abstimmung."
           },
           {
-            "icon": "target",
-            "title": "Google Ads",
-            "description": "Google-Ads-Kampagnen, die ich von A bis Z betreue — Budget, Keywords und die Zielseiten — gemessen an den Kosten pro gewonnenem Auftrag, nicht pro Klick."
+            "icon": "book-open",
+            "title": "Technisches Schreiben",
+            "description": "Klare Artikel und Dokumentation zu Ingenieurthemen, geschrieben von einem Ingenieur, damit Ihre Expertise leicht zu finden und leicht zu vertrauen ist."
           },
           {
             "icon": "gem",
@@ -992,8 +990,8 @@
             "title": "Mehr als eine Website",
             "items": [
               { "question": "Bieten Sie Grafikdesign oder Branding auch einzeln an?", "answer": "Ja. Logo, visuelle Identität oder laufendes Grafikdesign gibt es auch ohne komplette Website — sagen Sie mir im ersten Gespräch, was Sie brauchen." },
-              { "question": "Betreuen Sie bezahlte Anzeigen wie Google Ads?", "answer": "Ja, von A bis Z: Kampagnenstruktur, Budget, Abstimmung von Keywords und Zielseiten und das Conversion-Tracking, das zeigt, was das Budget wirklich einbringt." },
-              { "question": "Können Sie mein Social-Media-Marketing übernehmen?", "answer": "Ja — Instagram- und Facebook-Kampagnen mit echtem Conversion-Tracking, sodass Ergebnisse an Buchungen und Anfragen gemessen werden, nicht nur an Interaktionen." },
+              { "question": "Bauen Sie auch individuelle Software?", "answer": "Ja: interne Werkzeuge, Dashboards und Datenverarbeitung für technische Teams. Zuerst legen wir gemeinsam die Anforderungen fest, dann baue und dokumentiere ich es." },
+              { "question": "Schreiben Sie auch technische Inhalte?", "answer": "Ja: Artikel und Dokumentation zu Ingenieurthemen, geschrieben von jemandem, der die Arbeit im Feld selbst gemacht hat." },
               { "question": "Was ist GEO bzw. KI-SEO?", "answer": "Dafür zu sorgen, dass KI-Assistenten und KI-Suche — ChatGPT, Googles AI Overviews — Ihre Website richtig verstehen und Ihr Unternehmen empfehlen, ergänzend zum klassischen SEO." },
               { "question": "Bieten Sie Website-Pakete zum Festpreis an?", "answer": "Ja, für Unternehmen mit klar umrissenem Bedarf: Ein Paket hält Preis und Ergebnis von Anfang an fest, ohne langwierige Abstimmung." }
             ]
@@ -1021,64 +1019,219 @@
     },
     "contact": {
       "meta": {
-        "title": "Kostenloser Website-Check",
-        "description": "Finden Sie heraus, was Ihre Website Sie kostet. Erzählen Sie mir von Ihrem Unternehmen und erhalten Sie innerhalb eines Werktags eine ehrliche Einschätzung zu Tempo, SEO und Anfragen. Kostenlos."
+        "title": "Kontakt",
+        "description": "Ingenieurberatung, Projekte, Cloud-Software oder eine Website: Sagen Sie mir, was Sie brauchen. Ich antworte innerhalb eines Werktags."
       },
       "hero": {
-        "badge": "Kostenloser Website-Check",
-        "titleLead": "Ihre Website verliert Ihnen möglicherweise Kunden",
-        "titleHighlight": "genau jetzt",
-        "description": "Langsame Seiten, versteckte Telefonnummern und Anfragen, die niemand sieht, kosten Sie Aufträge, und eine Warnung gibt es nicht. Erzählen Sie mir von Ihrem Unternehmen, und ich zeige Ihnen genau, wo Kunden abspringen. Kostenlos und unverbindlich."
+        "badge": "Kontakt",
+        "titleLead": "Erzählen Sie mir,",
+        "titleHighlight": "woran Sie arbeiten",
+        "description": "Ingenieurberatung und Projekte, Cloud-basierte Software und Werkzeuge oder eine Website. Eine kurze Nachricht genügt; ich antworte innerhalb eines Werktags."
       },
-      "painTitle": "Wo Kunden abspringen",
-      "risks": [
-        { "icon": "hourglass", "title": "Langsame Seiten", "text": "Besucher gehen, bevor sie Ihre Nummer sehen." },
-        { "icon": "search-x", "title": "Auf Google unsichtbar", "text": "Den Anruf, der Ihrer sein sollte, bekommt die Konkurrenz." },
-        { "icon": "mail-x", "title": "Unbeantwortete Anfragen", "text": "Bis Sie antworten, hat der Kunde schon jemand anderen angerufen." }
+      "helpTitle": "Wobei ich helfen kann",
+      "help": [
+        {
+          "icon": "award",
+          "title": "Beratung und Projekte",
+          "text": "Ingenieurberatung und Projektarbeit für die Öl- und Gasindustrie."
+        },
+        {
+          "icon": "code",
+          "title": "Software und Werkzeuge",
+          "text": "Cloud-basierte Software und Engineering-Werkzeuge für technische B2B-Unternehmen."
+        },
+        {
+          "icon": "layout",
+          "title": "Webentwicklung",
+          "text": "Schnelle Websites und Websysteme, als eigene Leistung."
+        }
       ],
-      "offerTitle": "Das bekommen Sie kostenlos",
+      "nextTitle": "Wie es weitergeht",
+      "next": [
+        "Ich antworte innerhalb eines Werktags.",
+        "Wir sprechen kurz, um zu klären, was Sie brauchen. Das ist kostenlos und unverbindlich.",
+        "Sie erhalten ein klares Angebot mit Umfang, Zeitplan und Festpreis."
+      ],
+      "facts": [
+        {
+          "value": "13+",
+          "label": "Jahre im Ingenieurwesen"
+        },
+        {
+          "value": "1.000+",
+          "label": "Einsätze im Feld"
+        },
+        {
+          "value": "< 1 Tag",
+          "label": "bis zur Antwort"
+        }
+      ],
       "emailLabel": "E-Mail",
-      "preferEmail": "Lieber per E-Mail? Schreiben Sie an"
+      "preferEmail": "Lieber per E-Mail? Schreiben Sie an",
+      "form": {
+        "badge": "Projektanfrage",
+        "heading": "Erzählen Sie mir von Ihrem Projekt",
+        "lead": "Drei kurze Schritte, unter einer Minute. Ich antworte innerhalb eines Werktags.",
+        "stepLabels": [
+          "Was Sie brauchen",
+          "Ihr Unternehmen",
+          "Ihr Kontakt"
+        ],
+        "stepCount": "Schritt {current} von {total}",
+        "serviceLegend": "Was brauchen Sie?",
+        "services": [
+          {
+            "value": "consulting",
+            "icon": "award",
+            "label": "Ingenieurberatung"
+          },
+          {
+            "value": "project",
+            "icon": "layers",
+            "label": "Ein Projekt"
+          },
+          {
+            "value": "software",
+            "icon": "code",
+            "label": "Software oder Engineering-Werkzeuge"
+          },
+          {
+            "value": "web",
+            "icon": "layout",
+            "label": "Eine Website oder ein Websystem"
+          },
+          {
+            "value": "other",
+            "icon": "message-circle",
+            "label": "Etwas anderes"
+          }
+        ],
+        "websiteLabel": "Website des Unternehmens (optional)",
+        "websitePlaceholder": "ihrunternehmen.de",
+        "businessLabel": "Unternehmen und Branche",
+        "businessPlaceholder": "z. B. Öl- und Gasdienstleister, Bergbaubetreiber",
+        "timelineLegend": "Wann möchten Sie starten?",
+        "timelines": [
+          {
+            "value": "asap",
+            "label": "So bald wie möglich"
+          },
+          {
+            "value": "1-3-months",
+            "label": "In 1–3 Monaten"
+          },
+          {
+            "value": "exploring",
+            "label": "Ich informiere mich nur"
+          }
+        ],
+        "nameLabel": "Ihr Name",
+        "emailLabel": "E-Mail",
+        "phoneLabel": "Telefon (optional)",
+        "messageLabel": "Noch etwas, das ich wissen sollte? (optional)",
+        "next": "Weiter",
+        "back": "Zurück",
+        "submit": "Anfrage senden",
+        "sending": "Wird gesendet…",
+        "chooseService": "Wählen Sie aus, was Sie brauchen, um fortzufahren.",
+        "required": "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse an.",
+        "privacy": "Ihre Angaben werden nur verwendet, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
+        "promise": "Antwort innerhalb eines Werktags",
+        "successTitle": "Danke — Ihre Anfrage ist eingegangen!",
+        "successText": "Ich lese sie und antworte innerhalb eines Werktags mit konkreten nächsten Schritten. Behalten Sie Ihr Postfach im Blick.",
+        "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt."
+      }
     },
-    "home": {
+    "web": {
       "meta": {
-        "title": "Webdesigner & Entwickler",
-        "description": "Websites, Systeme zur Kundengewinnung und datengestützte Plattformen — mit moderner Technologie und einem praktischen, geschäftsorientierten Blick gebaut."
+        "title": "Webentwicklung",
+        "description": "Schnelle individuelle Astro-Websites und Websysteme für Ingenieur- und technische B2B-Unternehmen, von einem Ingenieur. Design, Entwicklung, Optimierung und Tracking."
       },
       "hero": {
-        "badge": "Verfügbar für neue Projekte",
-        "titleLine1": "Mr. Petkovic",
-        "titleLine2": "Webdesigner",
-        "titleLine3": "& Entwickler",
-        "description": "Ich baue Websites, Systeme zur Kundengewinnung und datengestützte Plattformen — mit moderner Technologie und einem praktischen, geschäftsorientierten Blick.",
-        "descriptionMobile": "Ich baue Websites, Systeme zur Kundengewinnung und datengestützte Plattformen mit einem praktischen, geschäftsorientierten Blick.",
+        "badge": "Webentwicklung",
+        "titleLead": "Websites und Websysteme",
+        "titleHighlight": "für technische Unternehmen",
+        "description": "Design, Entwicklung und Optimierung von einem Ingenieur, der die Branche kennt. Ein Festpreis, und alles auf Ihren Namen.",
         "primaryCta": "Kontakt aufnehmen",
-        "secondaryCta": "Meine Arbeiten",
-        "videoPlay": "Mit Ton abspielen",
-        "videoLabel": "Vorstellungsvideo"
+        "secondaryCta": "Alle Leistungen"
       },
       "services": {
         "badge": "Was ich mache",
         "heading": "Gestalten, bauen, optimieren",
         "lead": "Jedes Projekt bekommt alle drei Leistungen.",
-        "learnMore": "Mehr erfahren",
         "cards": [
-          { "icon": "layout", "title": "Webdesign", "description": "Oberflächen, die selbsterklärend wirken. Layouts, die auf Ihre Inhalte, Ihre Marke und das Leseverhalten am Bildschirm zugeschnitten sind." },
-          { "icon": "code", "title": "Webentwicklung", "description": "Websites, die bleiben. Astro, Tailwind und eine klare Architektur: schnell am ersten Tag, leicht zu pflegen am fünfhundertsten." },
-          { "icon": "trending-up", "title": "Weboptimierung", "description": "SEO, Core Web Vitals und Barrierefreiheit von Anfang an eingebaut, damit Ihre Website gut rankt, schnell lädt und für jeden Besucher funktioniert." }
+          {
+            "icon": "layout",
+            "title": "Webdesign",
+            "description": "Oberflächen, die selbsterklärend wirken. Layouts, die auf Ihre Inhalte, Ihre Marke und das Leseverhalten am Bildschirm zugeschnitten sind."
+          },
+          {
+            "icon": "code",
+            "title": "Webentwicklung",
+            "description": "Websites, die bleiben. Astro, Tailwind und eine klare Architektur: schnell am ersten Tag, leicht zu pflegen am fünfhundertsten."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Weboptimierung",
+            "description": "SEO, Core Web Vitals und Barrierefreiheit von Anfang an eingebaut, damit Ihre Website gut rankt, schnell lädt und für jeden Besucher funktioniert."
+          }
+        ]
+      }
+    },
+    "home": {
+      "meta": {
+        "title": "Ingenieur & Digital Architect",
+        "description": "Ingenieurberatung und Projekte für die Öl- und Gasindustrie, dazu Cloud-basierte Software und Engineering-Werkzeuge für technische B2B-Unternehmen — von einem anerkannten Ingenieur."
+      },
+      "hero": {
+        "badge": "Verfügbar für neue Projekte",
+        "titleLine1": "Stojan\u00a0Petkovic",
+        "titleLine2": "Ingenieur\u00a0&",
+        "titleLine3": "Digital\u00a0Architect",
+        "description": "Ingenieurberatung und Projektarbeit für die Öl- und Gasindustrie. Für technische B2B-Unternehmen baue ich Cloud-basierte Software und Engineering-Werkzeuge.",
+        "descriptionMobile": "Ingenieurberatung und Projekte für Öl und Gas sowie Cloud-basierte Software für technische B2B-Unternehmen.",
+        "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Titel von der Bayerischen Ingenieurekammer-Bau genehmigt (2026)", "docTitle": "Bescheid der Bayerischen Ingenieurekammer-Bau", "docAlt": "Scan des Bescheids über die Genehmigung der Berufsbezeichnung Ingenieur, persönliche Angaben geschwärzt"}, {"icon": "shield-check", "tag": "RS", "title": "Fachprüfung bestanden (2019)", "text": "Gewinnung mineralischer Rohstoffe, Serbien", "docTitle": "Bescheinigung über die bestandene Fachprüfung", "docAlt": "Scan der Bescheinigung über die in Serbien bestandene Fachprüfung, persönliche Angaben geschwärzt"}],
+        "credentialsDialog": {"close": "Schließen", "note": "Persönliche Angaben wurden geschwärzt.", "hint": "Dokument ansehen", "zoom": "Seite antippen zum Vergrößern oder Verkleinern."},
+        "qualifications": {"label": "Qualifikationen & Schulungen", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Dipl.-Ing. Bergbau", "text": "Universität Belgrad · flüssige und gasförmige mineralische Rohstoffe"}, {"icon": "shield-check", "year": "2020", "title": "EU-Maschinenrichtlinie", "text": "Schulung Maschinensicherheit · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Technologiemanagement (STM)", "text": "System of Technology Management, Unternehmensprogramm"}, {"icon": "users", "year": "2018", "title": "Führungsakademie", "text": "Personalführung, unteres Management · Mokra Gora School of Management"}]},
+        "primaryCta": "Kontakt aufnehmen",
+        "secondaryCta": "Sehen, woran ich arbeite",
+        "videoPlay": "Mit Ton abspielen",
+        "videoLabel": "Vorstellungsvideo"
+      },
+      "services": {
+        "badge": "Schwerpunkt",
+        "heading": "Industrieprojekte, Kurse und Software",
+        "lead": "Drei Bereiche, ein Ingenieur. Die Inhalte werden vorbereitet und hier veröffentlicht.",
+        "learnMore": "Sagen Sie mir, was Sie brauchen",
+        "status": "In Vorbereitung",
+        "cards": [
+          { "icon": "layers", "title": "Industrieprojekte", "description": "Fallstudien aus Coiled-Tubing- und Stickstoffeinsätzen, für Ingenieure geschrieben.", "points": ["Einsatzplanung und die Überlegungen dahinter", "Was geplant war, was passiert ist, was sich geändert hat", "Klare Sprache, mit sichtbaren Zahlen"] },
+          { "icon": "book-open", "title": "Kurse", "description": "Praxisnahe Schulungen zu Coiled Tubing, von den Grundlagen im Feld bis zur Einsatzplanung.", "points": ["Grundlagen für Crews und junge Ingenieure", "Berechnungen Schritt für Schritt, mit durchgerechneten Beispielen", "Im eigenen Tempo, mit Material zum Behalten"] },
+          { "icon": "code", "title": "Engineering-Software", "description": "Cloud-basierte Werkzeuge und individuelle Software für technische Teams. Alles läuft auf einem Server und öffnet im Browser, ohne Installation.", "points": ["Rechner und Werkzeuge für den Alltag im Feld und im Büro", "Interne Dashboards und Datenverarbeitung", "Individuelle Industriesoftware, nach Maß gebaut"] }
         ]
       },
       "workWithMe": {
         "badge": "Zusammenarbeit",
-        "heading": "Eine Website, die für Sie arbeitet",
-        "lead": "Das bekommen Sie, wenn wir zusammenarbeiten.",
+        "heading": "Warum mit einem Ingenieur arbeiten",
+        "lead": "Was Sie bekommen, wenn die Person, die es baut, die Arbeit selbst im Feld gemacht hat.",
         "cards": [
-          { "icon": "palette", "title": "Individuelles Design", "description": "Gestaltet rund um Ihr Unternehmen, Ihre Inhalte und Ihre Kunden." },
-          { "icon": "zap", "title": "Eine blitzschnelle Website", "description": "Seiten, die sich sofort öffnen, auf jedem Smartphone und bei jeder Verbindung." },
-          { "icon": "search", "title": "Gefunden von Google und KI", "description": "Jede Seite so gebaut, dass Suchmaschinen und KI-Assistenten sie sauber lesen und Kunden Sie finden." },
-          { "icon": "shield-check", "title": "Keine Wartungssorgen", "description": "Mit dem Wartungspaket aktuell und sicher, damit Sie sich auf Ihr Geschäft konzentrieren können." }
+          { "icon": "award", "title": "Felderfahrung", "description": "Über 13 Jahre und mehr als 1.000 Einsätze in Coiled-Tubing- und Stickstoffoperationen." },
+          { "icon": "shield-check", "title": "Geprüfte Zahlen", "description": "Berechnungen werden geprüft, Annahmen festgehalten." },
+          { "icon": "book-open", "title": "Dokumentierte Logik", "description": "Formeln und Entscheidungen erklärt, damit Ergebnisse nachvollziehbar sind." },
+          { "icon": "globe", "title": "Titel Ingenieur", "description": "Von der Bayerischen Ingenieurekammer-Bau genehmigt, 2026." }
         ],
         "cta": "Alle Leistungen ansehen"
+      },
+      "webGateway": {
+        "badge": "Webentwicklung",
+        "heading": "Websites für technische Unternehmen",
+        "lead": "Ein eigener Bereich neben der Ingenieurarbeit: schnelle Astro-Websites und Websysteme für Ingenieur- und technische B2B-Unternehmen.",
+        "items": [
+          "Webdesign",
+          "Webentwicklung",
+          "Optimierung und Tracking"
+        ],
+        "cta": "Zur Webentwicklung"
       },
       "portfolio": {
         "badge": "Portfolio",
@@ -1097,16 +1250,18 @@
       },
       "aboutTeaser": {
         "badge": "Über mich",
-        "headingLine1": "Designer, Entwickler",
-        "headingLine2": "und Ingenieur.",
-        "para1WithLocation": "Sechzehn Jahre Praxiserfahrung, ansässig in {location} und für Kunden weltweit verfügbar. Ich baue mit Astro, weil es zu meiner Sicht auf das Web passt: schlank, zielgerichtet und gebaut, um zu bleiben.",
-        "para1NoLocation": "Sechzehn Jahre Praxiserfahrung und für Kunden weltweit verfügbar. Ich baue mit Astro, weil es zu meiner Sicht auf das Web passt: schlank, zielgerichtet und gebaut, um zu bleiben.",
-        "para2": "Im Blog schreibe ich über SEO, KI-Suche und darüber, wie eine Website Ihnen mehr Kunden bringt.",
+        "headingLine1": "Erst Ingenieur,",
+        "headingLine2": "dann Entwickler.",
+        "para1WithLocation": "Bergbauingenieur mit über 13 Jahren Erfahrung in Öl- und Gasoperationen und dem von der Bayerischen Ingenieurekammer-Bau genehmigten Titel Ingenieur. Mit Sitz in {location} und für Kunden weltweit verfügbar. Ich baue Software und Websysteme so, wie ich einen Einsatz fahre: erst die Anforderungen, Zahlen geprüft, nichts undokumentiert.",
+        "para1NoLocation": "Bergbauingenieur mit über 13 Jahren Erfahrung in Öl- und Gasoperationen und dem von der Bayerischen Ingenieurekammer-Bau genehmigten Titel Ingenieur. Für Kunden weltweit verfügbar. Ich baue Software und Websysteme so, wie ich einen Einsatz fahre: erst die Anforderungen, Zahlen geprüft, nichts undokumentiert.",
+        "para2": "Im Blog teile ich die Ideen und Entscheidungen hinter meiner Ingenieur- und Softwarearbeit.",
         "moreAboutMe": "Mehr über mich",
         "statsIntro": "Ein paar Dinge über mich.",
-        "stat1": "16 Jahre Erfahrung",
-        "stat2": "Ich baue mit Astro",
+        "stat1": "13+ Jahre Ingenieurpraxis",
+        "stat2": "1.000+ Einsätze im Feld",
         "stat3": "Weltweit tätig",
+        "stat4": "2 Länder mit Qualifikation",
+        "facts": [{"icon": "wrench", "label": "Spezialisierung", "value": "Coiled-Tubing- und Stickstoffeinsätze"}, {"icon": "graduation-cap", "label": "Ausbildung", "value": "Dipl.-Ing. Bergbau, Universität Belgrad (2010)"}, {"icon": "globe", "label": "Verfügbarkeit", "value": "Weltweit, Zeitzone MEZ"}, {"icon": "clock", "label": "Antwort", "value": "Innerhalb eines Werktags"}],
         "basedIn": "Standort:"
       },
       "blog": {

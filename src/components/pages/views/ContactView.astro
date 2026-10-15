@@ -3,11 +3,11 @@
  * ContactView — the Contact page body.
  *
  * Shared by the default-locale route (`/contact`) and the locale-prefixed route
- * (`/<locale>/contact`). It is the short form of the landing page: what a slow
- * or invisible website costs, what the free check covers, and the same step
- * form, with none of the case studies, process or FAQ. Page copy is read from
- * `pages.contact.*`; the offer list and the form reuse `pages.landing.*` so the
- * two pages cannot promise different things.
+ * (`/<locale>/contact`). An engineering enquiry: what I can help with, what
+ * happens after the message, three headline facts, and the three-step form. The
+ * copy is read from `pages.contact.*`; the form is the same component as the
+ * landing page's, pointed at its own `pages.contact.form` copy, and the
+ * privacy notice is shared with the landing page.
  */
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
@@ -28,9 +28,9 @@ const hero = tData<{ badge: string; titleLead: string; titleHighlight: string; d
   'pages.contact.hero',
   locale
 )!;
-const risks = tData<{ icon: string; title: string; text: string }[]>('pages.contact.risks', locale)!;
-const offerItems = tData<string[]>('pages.landing.offer.items', locale)!;
-const trust = tData<{ value: string; label: string }[]>('pages.landing.hero.trust', locale)!;
+const help = tData<{ icon: string; title: string; text: string }[]>('pages.contact.help', locale)!;
+const next = tData<string[]>('pages.contact.next', locale)!;
+const facts = tData<{ value: string; label: string }[]>('pages.contact.facts', locale)!;
 ---
 
 <PageLayout
@@ -40,7 +40,7 @@ const trust = tData<{ value: string; label: string }[]>('pages.landing.hero.trus
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>
-      <Icon name="search" size="sm" />
+      <Icon name="mail" size="sm" />
       {hero.badge}
     </Badge>
 
@@ -57,19 +57,19 @@ const trust = tData<{ value: string; label: string }[]>('pages.landing.hero.trus
     <div class="relative z-10 mx-auto max-w-5xl px-6">
       <div class="grid grid-cols-1 glitch:grid-cols-5 gap-10 glitch:gap-14 items-start">
 
-        <!-- Left column: the cost of waiting, then what the check gives -->
+        <!-- Left column: what I can help with, what happens next, the facts -->
         <div class="glitch:col-span-2 space-y-8 sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0 order-2 glitch:order-1" data-reveal data-reveal-ease="smooth">
           <div>
-            <h2 class="font-display text-lg font-bold text-foreground">{t('pages.contact.painTitle', locale)}</h2>
-            <ul class="mt-4 space-y-4">
-              {risks.map((risk) => (
+            <p class="section-eyebrow"><span>{t('pages.contact.helpTitle', locale)}</span></p>
+            <ul class="mt-4 space-y-4" role="list">
+              {help.map((item) => (
                 <li class="flex gap-3">
-                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
-                    <Icon name={risk.icon} size="sm" />
+                  <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-white">
+                    <Icon name={item.icon} size="sm" />
                   </span>
                   <div>
-                    <p class="font-semibold text-foreground">{risk.title}</p>
-                    <p class="mt-0.5 text-sm text-foreground-muted">{risk.text}</p>
+                    <p class="font-display font-bold text-foreground">{item.title}</p>
+                    <p class="mt-0.5 text-sm text-foreground-muted">{item.text}</p>
                   </div>
                 </li>
               ))}
@@ -77,23 +77,21 @@ const trust = tData<{ value: string; label: string }[]>('pages.landing.hero.trus
           </div>
 
           <div>
-            <h2 class="font-display text-lg font-bold text-foreground">{t('pages.contact.offerTitle', locale)}</h2>
-            <ul class="mt-4 space-y-3">
-              {offerItems.map((item) => (
+            <p class="section-eyebrow"><span>{t('pages.contact.nextTitle', locale)}</span></p>
+            <ol class="mt-4 space-y-3" role="list">
+              {next.map((item, i) => (
                 <li class="flex gap-3 text-sm text-foreground">
-                  <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-success/15 text-success">
-                    <Icon name="check" size="sm" />
-                  </span>
+                  <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded bg-brand-100 font-mono text-[11px] font-semibold text-brand-700">{i + 1}</span>
                   <span>{item}</span>
                 </li>
               ))}
-            </ul>
+            </ol>
           </div>
 
           <dl class="grid grid-cols-3 gap-3 border-t border-border pt-6">
-            {trust.map((item) => (
+            {facts.map((item) => (
               <div>
-                <dt class="font-display text-xl font-bold text-brand-600 dark:text-brand-400">{item.value}</dt>
+                <dt class="whitespace-nowrap font-display text-xl font-extrabold text-brand-700">{item.value}</dt>
                 <dd class="mt-0.5 text-xs text-foreground-muted">{item.label}</dd>
               </div>
             ))}
@@ -107,7 +105,7 @@ const trust = tData<{ value: string; label: string }[]>('pages.landing.hero.trus
 
         <!-- Right column: the form, first on phones -->
         <div class="glitch:col-span-3 sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0 order-1 glitch:order-2" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
-          <WebsiteCheckForm {locale} source="contact" />
+          <WebsiteCheckForm {locale} source="contact" copy="pages.contact" />
         </div>
 
       </div>

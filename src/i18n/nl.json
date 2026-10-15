@@ -33,10 +33,10 @@
     }
   },
   "site": {
-    "name": "Mr. Petkovic"
+    "name": "Stojan Petkovic"
   },
   "llms": {
-    "summary": "Mr. Petkovic is een freelance webontwikkelaar uit Zrenjanin, Servië, en werkt met klanten wereldwijd. Hij bouwt snelle Astro-websites op maat, leadgeneratiesystemen en datagedreven platforms, en verzorgt SEO, generative engine optimisation (GEO), Google Ads en advertenties op sociale media — vooral voor lokale dienstverleners, zoals boomverzorgingsbedrijven in Zuid-Florida en kleine bedrijven in Servië. Elk project heeft één vaste prijs, afgesproken voordat het werk begint, en de klant is vanaf dag één eigenaar van de code, het domein en de hosting."
+    "summary": "Stojan Petkovic is ingenieur (titel Ingenieur, verleend door de Beierse ingenieurskamer) en webontwikkelaar, gevestigd in Zrenjanin, Servië, en werkt met klanten wereldwijd. Hij studeerde mijnbouw aan de Universiteit van Belgrado (2010) en werkt sinds 2013 met coiled tubing en stikstof. Hij bouwt snelle Astro-websites op maat, maatwerksoftware en datagedreven platforms voor engineering- en technische B2B-bedrijven, en biedt daarnaast klassiek webdesign, SEO en generative engine optimisation (GEO). Elk project heeft één vaste prijs die vóór aanvang is afgesproken, en de klant bezit code, domein en hosting vanaf dag één."
   },
   "nav": {
     "skipToContent": "Naar inhoud",
@@ -55,6 +55,7 @@
     "items": {
       "home": "Home",
       "services": "Diensten",
+      "web": "Web",
       "projects": "Projecten",
       "blog": "Blog",
       "about": "Over",
@@ -107,13 +108,13 @@
     "shareOn": "Deel op {platform}",
     "copyLink": "Link kopiëren",
     "metaTitle": "Blog",
-    "metaDescription": "Praktische gidsen over SEO, AI-zoeken en leadgeneratie voor lokale dienstverleners.",
+    "metaDescription": "Artikelen over engineering, software en webontwikkeling.",
     "heroBadge": "Alle berichten",
-    "heroDescription": "Praktische gidsen over SEO, AI-zoeken en leadgeneratie voor lokale dienstverleners.",
+    "heroDescription": "Artikelen over engineering, software en webontwikkeling.",
     "allPosts": "Alle berichten",
     "noPosts": "Geen berichten gevonden",
     "pageMetaTitle": "Blog — Pagina {page}",
-    "pageMetaDescription": "Pagina {page} van {total} — gidsen over SEO, AI-zoeken en leadgeneratie voor lokale dienstverleners.",
+    "pageMetaDescription": "Pagina {page} van {total} — artikelen over engineering, software en webontwikkeling.",
     "pageBadge": "Pagina {page} van {total}",
     "newestPosts": "Nieuwste berichten",
     "tagMetaTitle": "#{tag} — Blog",
@@ -156,12 +157,12 @@
     "galleryNextImage": "Volgende afbeelding",
     "galleryPreviousImage": "Vorige afbeelding",
     "metaTitle": "Projecten",
-    "metaDescription": "Geselecteerd werk — websites, tools en projecten gebouwd door Mr. Petkovic.",
+    "metaDescription": "Geselecteerd werk — websites, tools en projecten gebouwd door Stojan Petkovic.",
     "heroBadge": "Geselecteerd werk",
     "heroDescription": "Werk waar ik het meest trots op ben.",
     "allProjects": "Alle projecten",
     "pageMetaTitle": "Projecten — Pagina {page}",
-    "pageMetaDescription": "Pagina {page} van {total} — geselecteerd werk, tools en projecten door Mr. Petkovic.",
+    "pageMetaDescription": "Pagina {page} van {total} — geselecteerd werk, tools en projecten door Stojan Petkovic.",
     "pageBadge": "Pagina {page} van {total}",
     "tagMetaTitle": "#{tag} — Projecten",
     "tagMetaDescription": "Projecten met tag \"{tag}\".",
@@ -174,7 +175,7 @@
     "moreProjects": "Meer projecten",
     "ctaBadge": "Laten we praten",
     "ctaHeading": "Laten we het over jouw wensen hebben",
-    "ctaLead": "Elke website die ik bouw is een eigen custom ontwerp, gemaakt met de zorg die je hier ziet. Vertel me wat je in gedachten hebt.",
+    "ctaLead": "Elk project dat ik aanneem is gebouwd rond het probleem dat het moet oplossen. Vertel me wat je in gedachten hebt.",
     "ctaPrimary": "Stuur een bericht",
     "ctaSecondary": "Meer over mij",
     "closingHeading": "Heb je een project in gedachten?",
@@ -201,7 +202,7 @@
     "browseBlog": "Bekijk de blog",
     "tryInstead": "Probeer een van deze",
     "projectsDesc": "Geselecteerd werk en casestudy's.",
-    "blogDesc": "Aantekeningen over ontwerp, code en het vak.",
+    "blogDesc": "Notities over engineering, software en het web.",
     "contactTitle": "Contact",
     "contactDesc": "Begin een gesprek over je project."
   },
@@ -260,9 +261,11 @@
     "groups": {
       "site": "Site",
       "topics": "Onderwerpen",
-      "projects": "Projecten",
+      "projects": "Webprojecten",
+      "engineering": "Engineering",
       "questions": "Vragen?"
     },
+    "links": { "focus": "Projecten, cursussen en software" },
     "followOn": "Volg ons op {platform}"
   },
   "pages": {
@@ -295,7 +298,7 @@
             "label": "to reply to every enquiry"
           }
         ],
-        "imageAlt": "Mr. Petkovic, the web developer you work with directly",
+        "imageAlt": "Stojan Petkovic, the web developer you work with directly",
         "videoPlay": "Afspelen met geluid",
         "videoLabel": "Introductievideo"
       },
@@ -408,7 +411,7 @@
         "quote": "Every week I waited, someone else got those calls.",
         "author": "Daniel",
         "role": "A fictional owner — an illustration, not a real client",
-        "imageAlt": "An example tree service website built by Mr. Petkovic"
+        "imageAlt": "An example tree service website built by Stojan Petkovic"
       },
       "report": {
         "badge": "Tracking & monthly report",
@@ -604,7 +607,7 @@
         "toggle": "How I handle your data",
         "title": "Privacy notice",
         "items": [
-          "Who: Mr. Petkovic, freelance web developer. Contact: {email}.",
+          "Who: Stojan Petkovic, freelance web developer. Contact: {email}.",
           "What: the details you enter in this form — name, email, phone, website, business type, your answers and message.",
           "Why: only to reply to your request and prepare a proposal. No newsletters, and your data is never sold or shared for marketing.",
           "Where: stored with the hosting, email and database providers that run this website, under data-processing agreements.",
@@ -616,16 +619,26 @@
     },
     "about": {
       "meta": {
-        "title": "Over",
-        "description": "Wie ik ben en hoe ik werk: een freelance webontwikkelaar die snelle, praktische websites en digitale producten bouwt met moderne technologie."
+        "title": "Over — Ingenieur & webontwikkelaar",
+        "description": "Stojan Petkovic: Ingenieur (titel verleend door de Beierse ingenieurskamer) en webontwikkelaar. Snelle websites voor technische bedrijven, met meer dan 13 jaar ervaring in olie- en gasoperaties."
       },
       "hero": {
         "badge": "Over",
-        "titleLead": "Mr.\u00a0Petkovic",
-        "typingWords": ["Webontwikkelaar", "Probleemoplosser", "Cloud & automatisering", "Datagedreven", "Oog voor detail"],
-        "typingWordsMobile": ["Webontwikkelaar", "Cloud & automatisering", "Oog voor detail"],
-        "description": "Een freelance webontwikkelaar die snelle, praktische websites en digitale producten bouwt.",
+        "titleLead": "Stojan\u00a0Petkovic",
+        "typingWords": ["Ingenieur", "Digital Architect", "Webontwikkelaar", "Probleemoplosser"],
+        "typingWordsMobile": ["Ingenieur", "Digital Architect", "Webontwikkelaar"],
+        "description": "Ingenieur en webontwikkelaar. Ik bouw snelle, praktische websites en breng de discipline van een ingenieur in elk project.",
         "imageAlt": "Een raket die langs de rand van een verlichte planeet lanceert, tegen een sterrenhemel."
+      },
+      "background": {
+        "badge": "Achtergrond",
+        "heading": "Eerst engineering, dan code",
+        "paragraphs": [
+          "Ik heb mijnbouw gestudeerd aan de Universiteit van Belgrado (afgestudeerd in 2010). In 2026 stelde de Beierse ingenieurskamer (Bayerische Ingenieurekammer-Bau) vast dat mijn opleiding gelijkwaardig is aan de Duitse eisen en verleende zij mij de beroepstitel Ingenieur.",
+          "Ik begon in 2011 als mijnbouwkundig ingenieur bij exploratieprojecten voor delfstoffen, ook ondergronds, en stapte in 2012 over op boren, waar ik exploratieboringen plande en begeleidde. Sinds 2013 werk ik met coiled tubing en stikstof, van veldingenieur tot operations manager, bij meer dan 1.000 klussen. Daar leerde ik hoe echte operaties zich gedragen: drukken, grenzen en wat breekt als een getal niet klopt. Die gewoonte om cijfers te controleren neem ik mee in elke website en tool die ik bouw.",
+          "Voor technische bedrijven betekent dat minder uitleg. Je hoeft me niet te leren hoe een klus op locatie eruitziet voordat ik er de pagina voor kan bouwen."
+        ],
+        "credential": "Titel Ingenieur, verleend door de Bayerische Ingenieurekammer-Bau, 2026"
       },
       "whatYouGet": {
         "badge": "Wat ik meebreng",
@@ -633,49 +646,34 @@
         "lead": "Dezelfde zorg en aandacht voor detail bij elk project, van de eerste regel code tot de lancering.",
         "items": [
           {
-            "icon": "component",
-            "title": "Schone, herbruikbare code",
-            "description": "Goed gestructureerd, getypeerd en gedocumenteerd — code die makkelijk te onderhouden en uit te breiden blijft na de lancering."
-          },
-          {
-            "icon": "layout",
-            "title": "Elke pagina die je nodig hebt",
-            "description": "Home, over, diensten, contact en blogpagina's, volledig ontworpen en responsive vanaf dag één."
-          },
-          {
-            "icon": "palette",
-            "title": "Een ontwerp dat van jou is",
-            "description": "Een uitstraling vormgegeven rond jouw merk, inclusief lichte en donkere modus."
+            "icon": "award",
+            "title": "Ervaring in het veld",
+            "description": "Meer dan 13 jaar en meer dan 1.000 klussen in coiled tubing- en stikstofoperaties."
           },
           {
             "icon": "book-open",
-            "title": "Content die makkelijk te beheren is",
-            "description": "Een blog en contentsysteem dat eenvoudig is om voor te schrijven en up-to-date te houden."
+            "title": "Gedocumenteerde logica",
+            "description": "Formules, aannames en keuzes vastgelegd, zodat resultaten te controleren zijn."
           },
           {
-            "icon": "image",
-            "title": "Een portfolio dat je werk laat zien",
-            "description": "Galerijen en projectpagina's die je werk makkelijk doorbladerbaar en deelbaar maken."
-          },
-          {
-            "icon": "globe",
-            "title": "Klaar voor een wereldwijd publiek",
-            "description": "Meertaligheid wanneer je het nodig hebt, vanaf het begin ingebouwd — zonder extra kosten wanneer je het niet gebruikt."
-          },
-          {
-            "icon": "search",
-            "title": "Snelle zoekfunctie op de site",
-            "description": "Directe, statische zoekfunctie zodat bezoekers vinden wat ze nodig hebben zonder te wachten op een server."
-          },
-          {
-            "icon": "trending-up",
-            "title": "SEO ingebouwd",
-            "description": "Metadata, sitemaps, structured data en social-preview-afbeeldingen, correct vanaf de eerste deploy."
+            "icon": "component",
+            "title": "Schone, herbruikbare code",
+            "description": "Goed gestructureerd, getypeerd en gedocumenteerd, zodat het makkelijk te onderhouden en uit te breiden blijft."
           },
           {
             "icon": "server",
-            "title": "Formulieren die gewoon werken",
-            "description": "Spam-beschermde contact- en nieuwsbriefformulieren, plus een soepel pad naar hosting en deployment."
+            "title": "Standaard in de cloud",
+            "description": "Software die op een server draait en in de browser opent, zonder installatie."
+          },
+          {
+            "icon": "layout",
+            "title": "Heldere technische content",
+            "description": "Pagina’s, documentatie en cases zo opgebouwd dat technische lezers snel vinden wat ze zoeken."
+          },
+          {
+            "icon": "zap",
+            "title": "Snelle websites als je ze nodig hebt",
+            "description": "Websites op maat met Astro, gebouwd om snel te laden en goed te scoren, als aparte dienst."
           }
         ]
       },
@@ -686,7 +684,7 @@
         "items": [
           { "icon": "zap", "title": "Prestaties eerst", "description": "Elke site die ik bouw is geoptimaliseerd voor snelheid en Core Web Vitals, vanaf de eerste regel code." },
           { "icon": "award", "title": "Gebouwd om te blijven", "description": "Schone, getypeerde code en verstandige standaardinstellingen die makkelijk te onderhouden blijven na de lancering." },
-          { "icon": "rocket", "title": "Moderne tools", "description": "Astro, Tailwind CSS en een schone architectuur die meegroeit met de behoeften van je project." }
+          { "icon": "award", "title": "Ingenieursdiscipline", "description": "Eerst de eisen, dan het ontwerp, dan de code. Elk cijfer en elke bewering wordt gecontroleerd voordat het live gaat." }
         ]
       },
       "stack": {
@@ -703,7 +701,7 @@
             "icon": "user",
             "title": "Over mij",
             "items": [
-              { "question": "Wat voor projecten neem je aan?", "answer": "Zakelijke websites, leadgeneratiesystemen en datagedreven platforms — het meeste van wat een groeiend bedrijf online nodig heeft." },
+              { "question": "Wat voor projecten neem je aan?", "answer": "Websites, maatwerksoftware en datagedreven platforms voor technische en engineeringbedrijven, plus klassiek webdesign voor bedrijven van elke omvang." },
               { "question": "Met welke technologieën werk je?", "answer": "Moderne, snelle tools: Astro, TypeScript en Tailwind CSS aan de voorkant, met cloud-infrastructuur en automatisering waar een project dat nodig heeft." },
               { "question": "Werk je ook met klanten buiten je eigen regio?", "answer": "Ja. De meeste projecten verlopen volledig via telefoon, video en e-mail, en tijdzones zijn zelden een probleem." },
               { "question": "Ben je beschikbaar voor nieuwe projecten?", "answer": "Meestal wel — kijk naar de badge op de homepage, of stuur gewoon een bericht en ik vertel je eerlijk of het past." }
@@ -741,15 +739,15 @@
     "services": {
       "meta": {
         "title": "Diensten — Webdesign, webdevelopment & weboptimalisatie",
-        "description": "Webdesign, webdevelopment, optimalisatie en leadtracking: snelle custom Astro-websites met maandrapporten. Gratis eerste gesprek, één voorstel, één vaste prijs."
+        "description": "Webdesign, ontwikkeling, optimalisatie en tracking voor technische bedrijven, door een ingenieur. Snelle Astro-websites op maat, gratis eerste gesprek, één voorstel, één vaste prijs."
       },
       "includedLabel": "Wat je krijgt",
       "hero": {
         "badge": "Diensten",
-        "titleLead": "Webdesign, webdevelopment,",
-        "titleHighlight": "en weboptimalisatie",
-        "description": "Vier diensten, één product: een strakke, razendsnelle custom Astro-website waar je trots je naam op zet, en heldere cijfers over wat hij oplevert.",
-        "jumpLabels": ["Webdesign", "Webdevelopment", "Weboptimalisatie", "Tracking & rapporten"]
+        "titleLead": "Engineeringsoftware,",
+        "titleHighlight": "webontwikkeling en design",
+        "description": "Maatwerksoftware en websites voor technische bedrijven, gebouwd door een ingenieur: heldere eisen, gecontroleerde cijfers en een snel resultaat waar je je naam aan verbindt.",
+        "jumpLabels": ["Webdesign", "Software & development", "Weboptimalisatie", "Data & rapporten"]
       },
       "design": {
         "badge": "Design",
@@ -784,9 +782,9 @@
       },
       "development": {
         "badge": "Development",
-        "heading": "Webdevelopment",
+        "heading": "Software- en webdevelopment",
         "paragraphs": [
-          "Webdevelopment is het bouwen van je website: het ontwerp omzetten in de code die in de browser van je bezoeker draait.",
+          "Development is het bouwen van je systeem: eisen en ontwerp worden code die betrouwbaar draait, in de browser of erachter.",
           "Ik bouw met Astro, een modern framework dat vertrouwd wordt voor een aantal van de snelste websites online. Dat maakt je site snel, veilig en jarenlang eenvoudig te onderhouden. En hij is vanaf dag één van jou, met de code, het domein en de hosting op jouw naam."
         ],
         "included": [
@@ -845,28 +843,28 @@
         "ctaLabel": "Start een project"
       },
       "reporting": {
-        "badge": "Tracking & rapporten",
-        "heading": "Leadtracking en maandrapporten",
+        "badge": "Data & rapporten",
+        "heading": "Meten wat de website doet",
         "paragraphs": [
-          "Een website verdient zichzelf pas terug als hij klanten oplevert. Daarom kan elke website die ik bouw precies laten zien wat hij oplevert: elk ingevuld formulier, elke tik op je telefoonnummer, elk WhatsApp-bericht, en waar elk van die mensen vandaan kwam.",
-          "Elke aanvraag staat direct in je inbox, met alle details en antwoorden met één klik. Eén keer per maand krijg je een helder PDF-rapport: bezoekers, aanvragen, telefoontjes en welke advertenties, zoekopdrachten en pagina's bezoekers echt in klanten veranderen. Geen logins, geen dashboards om te leren, geen Google Analytics om in te stellen."
+          "Een website is een systeem, en een systeem moet je meten. Ik zet eenvoudige, privacyvriendelijke tracking op, zodat je ziet hoeveel mensen langskomen, welke pagina’s ze lezen en waar ze vandaan komen.",
+          "Eén keer per maand krijg je een kort pdf-rapport in gewone taal. Geen logins, geen dashboards om te leren, geen Google Analytics-configuratie."
         ],
         "included": [
           {
-            "lead": "Elke aanvraag per e-mail",
-            "text": "het volledige formulier, de pagina waarop het is verstuurd en de advertentie of zoekopdracht die de bezoeker bracht, direct in je inbox."
+            "lead": "Bezoeken en pagina’s",
+            "text": "zie hoeveel mensen langskomen en welke pagina’s ze echt lezen."
           },
           {
-            "lead": "Ook telefoontjes geteld",
-            "text": "tikken op je telefoonnummer, WhatsApp- en sms-links worden als conversies vastgelegd, niet vergeten."
+            "lead": "Berichten per e-mail",
+            "text": "elk formulierbericht komt in je inbox, met de pagina waar het vandaan kwam."
           },
           {
             "lead": "Weten wat werkt",
-            "text": "zie welke bron (Google, Facebook-advertenties, directe bezoeken) bezoeken, aanvragen en telefoontjes oplevert, en met welke ratio."
+            "text": "zie welke bron bezoekers brengt: zoeken, social of directe bezoeken."
           },
           {
-            "lead": "Een maandelijks PDF-rapport",
-            "text": "heldere pagina's in gewone taal, in het Engels of Servisch, klaar om te delen met je team of partners."
+            "lead": "Een maandelijks pdf-rapport",
+            "text": "heldere pagina’s in gewone taal, in het Engels of Servisch, klaar om met je team te delen."
           },
           {
             "lead": "Geen cookies",
@@ -876,23 +874,23 @@
         "imageAlt": "Voorbeeld van een maandrapport over een website: bezoekers, aanvragen, telefoontjes, conversieratio, een grafiek per dag en waar bezoekers vandaan komen.",
         "imageCaption": "Een voorbeeld van een maandrapport (demogegevens).",
         "benefits": {
-          "heading": "Wat het je bedrijf oplevert",
-          "lead": "De meeste kleine bedrijven betalen voor een website en advertenties zonder te weten wat ze terugkrijgen. Tracking maakt daar cijfers van waarop je kunt handelen.",
+          "heading": "Wat het betekent voor je project",
+          "lead": "Cijfers maken van meningen beslissingen. Tracking laat zien wat de website doet, zodat je hem met feiten kunt verbeteren.",
           "items": [
             {
               "icon": "target",
-              "title": "Budget waar het werkt",
-              "description": "Zie welke advertenties en zoekopdrachten telefoontjes en aanvragen opleveren, en steek je budget in de kanalen die renderen, niet in die alleen klikken opleveren."
+              "title": "Beslissen met feiten",
+              "description": "Zie welke pagina’s en bronnen aandacht trekken en verbeter wat ertoe doet."
             },
             {
               "icon": "inbox",
-              "title": "Geen lead gaat verloren",
-              "description": "Elke aanvraag staat direct in je inbox, met antwoorden in één klik, en elk telefoontje vanaf de website wordt geteld."
+              "title": "Niets gaat verloren",
+              "description": "Elk bericht komt direct in je inbox, met antwoord in één klik."
             },
             {
               "icon": "trending-up",
-              "title": "Bewijs dat het rendeert",
-              "description": "Een maandrapport laat zien hoe bezoekers klanten worden, in cijfers die je aan je partners of je boekhouder kunt laten zien."
+              "title": "Voortgang zien",
+              "description": "Een maandrapport laat zien hoe je site groeit, in cijfers die je kunt delen."
             },
             {
               "icon": "shield-check",
@@ -918,9 +916,9 @@
             "description": "Blogartikelen en dienstenpagina's geschreven om de vragen te beantwoorden die je klanten al zoeken, zodat je site na de lancering verkeer blijft opleveren."
           },
           {
-            "icon": "megaphone",
-            "title": "Social-mediamarketing",
-            "description": "Instagram- en Facebookcampagnes met échte conversietracking, zodat elke post en advertentie wordt beoordeeld op boekingen, niet alleen op likes."
+            "icon": "wrench",
+            "title": "Maatwerksoftware",
+            "description": "Interne tools, dashboards en gegevensverwerking voor technische teams, met gedocumenteerde logica zodat resultaten te controleren zijn."
           },
           {
             "icon": "sparkles",
@@ -933,9 +931,9 @@
             "description": "Ontwerppakketten met vaste omvang voor bedrijven die precies weten wat ze nodig hebben: een duidelijke prijs en een duidelijk eindresultaat, zonder lang vooronderzoek."
           },
           {
-            "icon": "target",
-            "title": "Betaalde zoekmarketing",
-            "description": "Google Ads-campagnes die ik volledig beheer — budget, zoekwoorden en de landingspagina's waar ze naartoe leiden — afgerekend op kosten per geboekte klus, niet op kliks."
+            "icon": "book-open",
+            "title": "Technisch schrijven",
+            "description": "Heldere artikelen en documentatie over engineeringonderwerpen, geschreven door een ingenieur, zodat jouw expertise makkelijk te vinden en te vertrouwen is."
           },
           {
             "icon": "gem",
@@ -992,8 +990,8 @@
             "title": "Meer dan de website",
             "items": [
               { "question": "Bied je ook losse grafisch ontwerp of branding aan?", "answer": "Ja. Een logo, een merkidentiteit of doorlopend grafisch ontwerp kan ook los worden afgenomen, zonder complete website. Vertel in het eerste gesprek wat je nodig hebt." },
-              { "question": "Beheer je ook betaalde advertenties zoals Google Ads?", "answer": "Ja, volledig: campagnestructuur, budget, afstemming van zoekwoorden en landingspagina's, en de conversietracking die laat zien wat het budget echt oplevert." },
-              { "question": "Kun je mijn social-mediamarketing doen?", "answer": "Ja — Instagram- en Facebookcampagnes met echte conversietracking, zodat resultaten worden beoordeeld op boekingen en leads, niet alleen op engagement." },
+              { "question": "Bouw je ook maatwerksoftware?", "answer": "Ja: interne tools, dashboards en gegevensverwerking voor technische teams. Eerst bepalen we samen de eisen, daarna bouw en documenteer ik het." },
+              { "question": "Schrijf je ook technische content?", "answer": "Ja: artikelen en documentatie over engineeringonderwerpen, geschreven door iemand die het werk zelf in het veld heeft gedaan." },
               { "question": "Wat is Generative Engine of AI-SEO?", "answer": "Ervoor zorgen dat AI-assistenten en AI-zoekmachines — ChatGPT, Google's AI Overviews — je site correct lezen en je bedrijf aanbevelen, naast traditionele SEO." },
               { "question": "Bied je vaste-prijspakketten voor websites aan?", "answer": "Ja, voor bedrijven met een duidelijke scope: een pakketontwerp houdt de prijs en het eindresultaat vanaf het begin vast, zonder lang vooronderzoek." }
             ]
@@ -1021,64 +1019,219 @@
     },
     "contact": {
       "meta": {
-        "title": "Gratis websitecheck",
-        "description": "Ontdek wat je website je kost. Vertel me over je bedrijf en ontvang binnen één werkdag een eerlijke beoordeling van snelheid, SEO en aanvragen. Gratis."
+        "title": "Contact",
+        "description": "Engineeringadvies, projecten, cloudsoftware of een website: vertel me wat je nodig hebt. Ik reageer binnen één werkdag."
       },
       "hero": {
-        "badge": "Gratis websitecheck",
-        "titleLead": "Je website kost je misschien klanten",
-        "titleHighlight": "op dit moment",
-        "description": "Trage pagina's, verstopte telefoonnummers en aanvragen die niemand ziet kosten je opdrachten, zonder waarschuwing. Vertel me over je bedrijf en ik laat precies zien waar klanten afhaken. Gratis en vrijblijvend."
+        "badge": "Contact",
+        "titleLead": "Vertel me waar je",
+        "titleHighlight": "mee bezig bent",
+        "description": "Engineeringadvies en projecten, cloudgebaseerde software en tools, of een website. Een kort bericht is genoeg; ik reageer binnen één werkdag."
       },
-      "painTitle": "Waar klanten afhaken",
-      "risks": [
-        { "icon": "hourglass", "title": "Trage pagina's", "text": "Bezoekers vertrekken voordat ze je nummer zien." },
-        { "icon": "search-x", "title": "Onzichtbaar op Google", "text": "Het telefoontje dat van jou had moeten zijn gaat naar de concurrent." },
-        { "icon": "mail-x", "title": "Onbeantwoorde aanvragen", "text": "Tegen de tijd dat je reageert, heeft de klant al iemand anders gebeld." }
+      "helpTitle": "Waarmee ik kan helpen",
+      "help": [
+        {
+          "icon": "award",
+          "title": "Advies en projecten",
+          "text": "Engineeringadvies en projectwerk voor de olie- en gasindustrie."
+        },
+        {
+          "icon": "code",
+          "title": "Software en tools",
+          "text": "Cloudgebaseerde software en engineeringtools voor technische B2B-bedrijven."
+        },
+        {
+          "icon": "layout",
+          "title": "Webdevelopment",
+          "text": "Snelle websites en websystemen, als aparte dienst."
+        }
       ],
-      "offerTitle": "Dit krijg je gratis",
+      "nextTitle": "Wat er daarna gebeurt",
+      "next": [
+        "Ik reageer binnen één werkdag.",
+        "We bellen kort om te bepalen wat je nodig hebt. Dat is gratis en vrijblijvend.",
+        "Je krijgt één helder voorstel met scope, planning en een vaste prijs."
+      ],
+      "facts": [
+        {
+          "value": "13+",
+          "label": "Jaar in engineering"
+        },
+        {
+          "value": "1.000+",
+          "label": "Klussen in het veld"
+        },
+        {
+          "value": "< 1 dag",
+          "label": "tot een reactie"
+        }
+      ],
       "emailLabel": "E-mail",
-      "preferEmail": "Liever e-mail? Schrijf naar"
+      "preferEmail": "Liever per e-mail? Schrijf naar",
+      "form": {
+        "badge": "Projectaanvraag",
+        "heading": "Vertel me over je project",
+        "lead": "Drie korte stappen, minder dan een minuut. Ik reageer binnen één werkdag.",
+        "stepLabels": [
+          "Wat je nodig hebt",
+          "Je bedrijf",
+          "Je contactgegevens"
+        ],
+        "stepCount": "Stap {current} van {total}",
+        "serviceLegend": "Wat heb je nodig?",
+        "services": [
+          {
+            "value": "consulting",
+            "icon": "award",
+            "label": "Engineeringadvies"
+          },
+          {
+            "value": "project",
+            "icon": "layers",
+            "label": "Een project"
+          },
+          {
+            "value": "software",
+            "icon": "code",
+            "label": "Software of engineeringtools"
+          },
+          {
+            "value": "web",
+            "icon": "layout",
+            "label": "Een website of websysteem"
+          },
+          {
+            "value": "other",
+            "icon": "message-circle",
+            "label": "Iets anders"
+          }
+        ],
+        "websiteLabel": "Website van het bedrijf (optioneel)",
+        "websitePlaceholder": "jouwbedrijf.nl",
+        "businessLabel": "Bedrijf en branche",
+        "businessPlaceholder": "bijv. olie- en gasdienstverlener, mijnbouwbedrijf",
+        "timelineLegend": "Wanneer wil je beginnen?",
+        "timelines": [
+          {
+            "value": "asap",
+            "label": "Zo snel mogelijk"
+          },
+          {
+            "value": "1-3-months",
+            "label": "Over 1–3 maanden"
+          },
+          {
+            "value": "exploring",
+            "label": "Ik orienteer me nog"
+          }
+        ],
+        "nameLabel": "Je naam",
+        "emailLabel": "E-mail",
+        "phoneLabel": "Telefoon (optioneel)",
+        "messageLabel": "Nog iets wat ik moet weten? (optioneel)",
+        "next": "Verder",
+        "back": "Terug",
+        "submit": "Aanvraag versturen",
+        "sending": "Versturen…",
+        "chooseService": "Kies wat je nodig hebt om door te gaan.",
+        "required": "Vul je naam en een geldig e-mailadres in.",
+        "privacy": "Je gegevens worden alleen gebruikt om je te antwoorden. Geen nieuwsbrieven, niets wordt gedeeld.",
+        "promise": "Reactie binnen één werkdag",
+        "successTitle": "Bedankt — je aanvraag is binnen!",
+        "successText": "Ik lees hem en reageer binnen één werkdag met concrete vervolgstappen. Houd je inbox in de gaten.",
+        "error": "Er ging iets mis. Probeer het opnieuw of mail me direct."
+      }
     },
-    "home": {
+    "web": {
       "meta": {
-        "title": "Webdesigner & Ontwikkelaar",
-        "description": "Websites, leadgeneratiesystemen en datagedreven platforms — gebouwd met moderne technologie en een praktische, zakelijke mindset."
+        "title": "Webontwikkeling",
+        "description": "Snelle Astro-websites op maat en websystemen voor engineering- en technische B2B-bedrijven, door een ingenieur. Design, ontwikkeling, optimalisatie en tracking."
       },
       "hero": {
-        "badge": "Beschikbaar voor nieuwe projecten",
-        "titleLine1": "Mr.\u00a0Petkovic",
-        "titleLine2": "Webdesigner",
-        "titleLine3": "& Ontwikkelaar",
-        "description": "Ik bouw websites, leadgeneratiesystemen en datagedreven platforms — met moderne technologie en een praktische, zakelijke mindset.",
-        "descriptionMobile": "Ik bouw websites, leadgeneratiesystemen en datagedreven platforms met een praktische, zakelijke mindset.",
+        "badge": "Webontwikkeling",
+        "titleLead": "Websites en websystemen",
+        "titleHighlight": "voor technische bedrijven",
+        "description": "Design, ontwikkeling en optimalisatie door een ingenieur die de sector kent. Eén vaste prijs, en alles op jouw naam.",
         "primaryCta": "Neem contact op",
-        "secondaryCta": "Bekijk mijn werk",
-        "videoPlay": "Afspelen met geluid",
-        "videoLabel": "Introductievideo"
+        "secondaryCta": "Alle diensten"
       },
       "services": {
         "badge": "Wat ik doe",
         "heading": "Ontwerpen, bouwen, optimaliseren",
         "lead": "Elk project krijgt alle drie de diensten.",
-        "learnMore": "Meer weten",
         "cards": [
-          { "icon": "layout", "title": "Webdesign", "description": "Interfaces die vanzelfsprekend aanvoelen. Lay-outs gevormd rond je content, je merk en hoe mensen echt lezen op een scherm." },
-          { "icon": "code", "title": "Webdevelopment", "description": "Sites gebouwd om lang mee te gaan. Astro, Tailwind en een schone architectuur: snel op dag één, eenvoudig te onderhouden op dag 500." },
-          { "icon": "trending-up", "title": "Weboptimalisatie", "description": "SEO, Core Web Vitals en toegankelijkheid, vanaf dag één ingebouwd, zodat je site scoort, snel laadt en werkt voor elke bezoeker." }
+          {
+            "icon": "layout",
+            "title": "Webdesign",
+            "description": "Interfaces die vanzelfsprekend aanvoelen. Lay-outs gevormd rond je content, je merk en hoe mensen echt lezen op een scherm."
+          },
+          {
+            "icon": "code",
+            "title": "Webdevelopment",
+            "description": "Sites gebouwd om lang mee te gaan. Astro, Tailwind en een schone architectuur: snel op dag één, eenvoudig te onderhouden op dag 500."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Weboptimalisatie",
+            "description": "SEO, Core Web Vitals en toegankelijkheid, vanaf dag één ingebouwd, zodat je site scoort, snel laadt en werkt voor elke bezoeker."
+          }
+        ]
+      }
+    },
+    "home": {
+      "meta": {
+        "title": "Ingenieur & Digital Architect",
+        "description": "Engineeringadvies en projecten voor de olie- en gasindustrie, plus cloudgebaseerde software en engineeringtools voor technische B2B-bedrijven — door een erkend ingenieur."
+      },
+      "hero": {
+        "badge": "Beschikbaar voor nieuwe projecten",
+        "titleLine1": "Stojan\u00a0Petkovic",
+        "titleLine2": "Ingenieur\u00a0&",
+        "titleLine3": "Digital\u00a0Architect",
+        "description": "Engineeringadvies en projectwerk voor de olie- en gasindustrie. Voor technische B2B-bedrijven bouw ik cloudgebaseerde software en engineeringtools.",
+        "descriptionMobile": "Engineeringadvies en projecten voor olie en gas, en cloudgebaseerde software voor technische B2B-bedrijven.",
+        "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Titel verleend door de Bayerische Ingenieurekammer-Bau (2026)", "docTitle": "Besluit van de Bayerische Ingenieurekammer-Bau", "docAlt": "Scan van het besluit waarmee de titel Ingenieur is verleend, persoonlijke gegevens zwartgemaakt"}, {"icon": "shield-check", "tag": "RS", "title": "Vakexamen behaald (2019)", "text": "Winning van mineraalgrondstoffen, Servië", "docTitle": "Getuigschrift van het behaalde vakexamen", "docAlt": "Scan van het getuigschrift van het in Servië behaalde vakexamen, persoonlijke gegevens zwartgemaakt"}],
+        "credentialsDialog": {"close": "Sluiten", "note": "Persoonlijke gegevens zijn zwartgemaakt.", "hint": "Document bekijken", "zoom": "Tik op de pagina om in of uit te zoomen."},
+        "qualifications": {"label": "Kwalificaties & trainingen", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Mijnbouwkundig ingenieur", "text": "Universiteit van Belgrado · vloeibare en gasvormige mineraalgrondstoffen"}, {"icon": "shield-check", "year": "2020", "title": "EU-Machinerichtlijn", "text": "Training machineveiligheid · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Technologiemanagement (STM)", "text": "System of Technology Management, bedrijfsprogramma"}, {"icon": "users", "year": "2018", "title": "Leiderschapsacademie", "text": "Mensen aansturen, lager management · Mokra Gora School of Management"}]},
+        "primaryCta": "Neem contact op",
+        "secondaryCta": "Bekijk waar ik aan werk",
+        "videoPlay": "Afspelen met geluid",
+        "videoLabel": "Introductievideo"
+      },
+      "services": {
+        "badge": "Focus",
+        "heading": "Industriële projecten, cursussen en software",
+        "lead": "Drie gebieden, één ingenieur. De inhoud wordt voorbereid en hier gepubliceerd.",
+        "learnMore": "Vertel me wat je nodig hebt",
+        "status": "In voorbereiding",
+        "cards": [
+          { "icon": "layers", "title": "Industriële projecten", "description": "Casestudy’s uit coiled tubing- en stikstofoperaties, geschreven voor ingenieurs.", "points": ["Jobontwerp en de redenering erachter", "Wat gepland was, wat er gebeurde, wat er veranderde", "Heldere taal, met de cijfers erbij"] },
+          { "icon": "book-open", "title": "Cursussen", "description": "Praktische training in coiled tubing, van de basis in het veld tot jobontwerp.", "points": ["Basis voor crews en jonge ingenieurs", "Berekeningen stap voor stap, met uitgewerkte voorbeelden", "In eigen tempo, met materiaal om te bewaren"] },
+          { "icon": "code", "title": "Engineeringsoftware", "description": "Cloudgebaseerde tools en maatwerksoftware voor technische teams. Alles draait op een server en opent in de browser, zonder installatie.", "points": ["Rekenhulpen en tools voor het dagelijks werk in het veld en op kantoor", "Interne dashboards en gegevensverwerking", "Maatwerk industriële software, op bestelling gebouwd"] }
         ]
       },
       "workWithMe": {
         "badge": "Samenwerken",
-        "heading": "Laten we jouw website bouwen",
-        "lead": "Wat je krijgt als we samenwerken.",
+        "heading": "Waarom werken met een ingenieur",
+        "lead": "Wat je krijgt als degene die het bouwt het werk zelf in het veld heeft gedaan.",
         "cards": [
-          { "icon": "palette", "title": "Custom design", "description": "Ontworpen rond je bedrijf, je content en je klanten." },
-          { "icon": "zap", "title": "Een razendsnelle website", "description": "Pagina's die direct openen, op elke telefoon en elke verbinding." },
-          { "icon": "search", "title": "Gevonden door Google en AI", "description": "Elke pagina zo gebouwd dat zoekmachines en AI-assistenten hem goed lezen en klanten je vinden." },
-          { "icon": "shield-check", "title": "Geen onderhoud", "description": "Bijgehouden en beveiligd met het onderhoudsplan, zodat jij je op je bedrijf kunt richten." }
+          { "icon": "award", "title": "Ervaring in het veld", "description": "Meer dan 13 jaar en meer dan 1.000 klussen in coiled tubing- en stikstofoperaties." },
+          { "icon": "shield-check", "title": "Gecontroleerde cijfers", "description": "Berekeningen worden gecontroleerd en aannames vastgelegd." },
+          { "icon": "book-open", "title": "Gedocumenteerde logica", "description": "Formules en keuzes uitgelegd, zodat resultaten te controleren zijn." },
+          { "icon": "globe", "title": "Titel Ingenieur", "description": "Verleend door de Bayerische Ingenieurekammer-Bau, 2026." }
         ],
         "cta": "Lees mijn dienstenpagina"
+      },
+      "webGateway": {
+        "badge": "Webontwikkeling",
+        "heading": "Websites voor technische bedrijven",
+        "lead": "Een aparte dienst naast het engineeringwerk: snelle Astro-websites en websystemen voor engineering- en technische B2B-bedrijven.",
+        "items": [
+          "Webdesign",
+          "Webdevelopment",
+          "Optimalisatie en tracking"
+        ],
+        "cta": "Naar webdevelopment"
       },
       "portfolio": {
         "badge": "Geselecteerd werk",
@@ -1097,16 +1250,18 @@
       },
       "aboutTeaser": {
         "badge": "Over mij",
-        "headingLine1": "Designer, ontwikkelaar,",
-        "headingLine2": "en ingenieur.",
-        "para1WithLocation": "Zestien jaar praktijkervaring, gevestigd in {location} en beschikbaar voor klanten wereldwijd. Ik bouw met Astro omdat het aansluit bij hoe ik over het web denk: compact, doelgericht en gebouwd om lang mee te gaan.",
-        "para1NoLocation": "Zestien jaar praktijkervaring en beschikbaar voor klanten wereldwijd. Ik bouw met Astro omdat het aansluit bij hoe ik over het web denk: compact, doelgericht en gebouwd om lang mee te gaan.",
-        "para2": "Op de blog deel ik de ideeën en keuzes die mijn werk vormgeven.",
+        "headingLine1": "Eerst ingenieur,",
+        "headingLine2": "daarna ontwikkelaar.",
+        "para1WithLocation": "Mijnbouwkundig ingenieur, met meer dan 13 jaar ervaring in olie- en gasoperaties en de titel Ingenieur, verleend door de Beierse ingenieurskamer. Gevestigd in {location} en beschikbaar voor klanten wereldwijd. Ik bouw software en websystemen zoals ik een klus uitvoer: eerst de eisen, cijfers gecontroleerd, niets ongedocumenteerd.",
+        "para1NoLocation": "Mijnbouwkundig ingenieur, met meer dan 13 jaar ervaring in olie- en gasoperaties en de titel Ingenieur, verleend door de Beierse ingenieurskamer. Beschikbaar voor klanten wereldwijd. Ik bouw software en websystemen zoals ik een klus uitvoer: eerst de eisen, cijfers gecontroleerd, niets ongedocumenteerd.",
+        "para2": "Op de blog deel ik de ideeën en keuzes achter mijn engineering- en softwarewerk.",
         "moreAboutMe": "Meer over mij",
         "statsIntro": "Een paar dingen over mij.",
-        "stat1": "16 jaar ervaring",
-        "stat2": "Bouwen met Astro",
+        "stat1": "13+ jaar engineering",
+        "stat2": "1.000+ klussen in het veld",
         "stat3": "Wereldwijd werkzaam",
+        "stat4": "2 landen van kwalificatie",
+        "facts": [{"icon": "wrench", "label": "Specialisatie", "value": "Coiled tubing- en stikstofoperaties"}, {"icon": "graduation-cap", "label": "Opleiding", "value": "Mijnbouwkundig ingenieur, Universiteit van Belgrado (2010)"}, {"icon": "globe", "label": "Beschikbaarheid", "value": "Wereldwijd, tijdzone CET"}, {"icon": "clock", "label": "Reactie", "value": "Binnen één werkdag"}],
         "basedIn": "Gevestigd in"
       },
       "blog": {

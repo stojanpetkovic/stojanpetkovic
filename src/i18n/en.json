@@ -33,10 +33,10 @@
     }
   },
   "site": {
-    "name": "Mr. Petkovic"
+    "name": "Stojan Petkovic"
   },
   "llms": {
-    "summary": "Mr. Petkovic is a freelance web developer based in Zrenjanin, Serbia, working with clients worldwide. He builds fast, custom Astro websites, lead generation systems and data-driven platforms, and handles SEO, generative engine optimisation (GEO), Google Ads and social media advertising — mostly for local service businesses, such as tree service companies in South Florida and small businesses in Serbia. Every project has one fixed price agreed before work starts, and the client owns the code, the domain and the hosting from day one."
+    "summary": "Stojan Petkovic is an engineer (Ingenieur, title granted by the Bavarian Chamber of Engineers) and web developer based in Zrenjanin, Serbia, working with clients worldwide. He holds a degree in Mining Engineering from the University of Belgrade (2010) and has worked in coiled tubing and nitrogen operations since 2013. He builds fast, custom Astro websites, custom software and data-driven platforms for engineering and technical B2B companies, and also offers classic web design, SEO and generative engine optimisation (GEO). Every project has one fixed price agreed before work starts, and the client owns the code, the domain and the hosting from day one."
   },
   "nav": {
     "skipToContent": "Skip to content",
@@ -55,6 +55,7 @@
     "items": {
       "home": "Home",
       "services": "Services",
+      "web": "Web",
       "projects": "Projects",
       "blog": "Blog",
       "about": "About",
@@ -107,13 +108,13 @@
     "shareOn": "Share on {platform}",
     "copyLink": "Copy link",
     "metaTitle": "Blog",
-    "metaDescription": "Practical guides on SEO, AI search, and lead generation for local service businesses.",
+    "metaDescription": "Articles on engineering, software and web development.",
     "heroBadge": "All posts",
-    "heroDescription": "Practical guides on SEO, AI search, and lead generation for local service businesses.",
+    "heroDescription": "Articles on engineering, software and web development.",
     "allPosts": "All posts",
     "noPosts": "No posts found",
     "pageMetaTitle": "Blog — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — guides on SEO, AI search, and lead generation for local service businesses.",
+    "pageMetaDescription": "Page {page} of {total} — articles on engineering, software and web development.",
     "pageBadge": "Page {page} of {total}",
     "newestPosts": "Newest posts",
     "tagMetaTitle": "#{tag} — Blog",
@@ -156,12 +157,12 @@
     "galleryNextImage": "Next image",
     "galleryPreviousImage": "Previous image",
     "metaTitle": "Projects",
-    "metaDescription": "Selected work — websites, tools, and projects built by Mr. Petkovic.",
+    "metaDescription": "Selected work — websites, tools, and projects built by Stojan Petkovic.",
     "heroBadge": "Selected work",
     "heroDescription": "Work I'm most proud of.",
     "allProjects": "All projects",
     "pageMetaTitle": "Projects — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — selected work, tools, and projects by Mr. Petkovic.",
+    "pageMetaDescription": "Page {page} of {total} — selected work, tools, and projects by Stojan Petkovic.",
     "pageBadge": "Page {page} of {total}",
     "tagMetaTitle": "#{tag} — Projects",
     "tagMetaDescription": "Projects tagged \"{tag}\".",
@@ -174,7 +175,7 @@
     "moreProjects": "More projects",
     "ctaBadge": "Let's talk",
     "ctaHeading": "Let's talk about what you need",
-    "ctaLead": "Every website I build is its own custom design, made with the care you see here. Tell me what you have in mind.",
+    "ctaLead": "Every project I take on is built around the problem it has to solve. Tell me what you have in mind.",
     "ctaPrimary": "Send a message",
     "ctaSecondary": "More about me",
     "closingHeading": "Have a project in mind?",
@@ -201,7 +202,7 @@
     "browseBlog": "Browse the blog",
     "tryInstead": "Try one of these instead",
     "projectsDesc": "Selected work and case studies.",
-    "blogDesc": "Notes on design, code, and the craft.",
+    "blogDesc": "Notes on engineering, software and the web.",
     "contactTitle": "Contact",
     "contactDesc": "Start a conversation about your project."
   },
@@ -260,9 +261,11 @@
     "groups": {
       "site": "Site",
       "topics": "Topics",
-      "projects": "Projects",
+      "projects": "Web projects",
+      "engineering": "Engineering",
       "questions": "Got questions?"
     },
+    "links": { "focus": "Projects, courses and software" },
     "followOn": "Follow us on {platform}"
   },
   "pages": {
@@ -295,7 +298,7 @@
             "label": "to reply to every enquiry"
           }
         ],
-        "imageAlt": "Mr. Petkovic, the web developer you work with directly",
+        "imageAlt": "Stojan Petkovic, the web developer you work with directly",
         "videoPlay": "Play with sound",
         "videoLabel": "Video introduction"
       },
@@ -408,7 +411,7 @@
         "quote": "Every week I waited, someone else got those calls.",
         "author": "Daniel",
         "role": "A fictional owner — an illustration, not a real client",
-        "imageAlt": "An example tree service website built by Mr. Petkovic"
+        "imageAlt": "An example tree service website built by Stojan Petkovic"
       },
       "report": {
         "badge": "Tracking & monthly report",
@@ -604,7 +607,7 @@
         "toggle": "How I handle your data",
         "title": "Privacy notice",
         "items": [
-          "Who: Mr. Petkovic, freelance web developer. Contact: {email}.",
+          "Who: Stojan Petkovic, freelance web developer. Contact: {email}.",
           "What: the details you enter in this form — name, email, phone, website, business type, your answers and message.",
           "Why: only to reply to your request and prepare a proposal. No newsletters, and your data is never sold or shared for marketing.",
           "Where: stored with the hosting, email and database providers that run this website, under data-processing agreements.",
@@ -616,16 +619,26 @@
     },
     "about": {
       "meta": {
-        "title": "About",
-        "description": "Who I am and how I work: a freelance web developer building fast, practical websites and digital products with modern technology."
+        "title": "About — Engineer & Web Developer",
+        "description": "Stojan Petkovic: Ingenieur (title granted by the Bavarian Chamber of Engineers) and web developer. Fast websites for technical businesses, backed by 13+ years in oilfield operations."
       },
       "hero": {
         "badge": "About",
-        "titleLead": "Mr.\u00a0Petkovic",
-        "typingWords": ["Web Developer", "Problem Solver", "Cloud & Automation", "Data-Driven", "Detail-Oriented"],
-        "typingWordsMobile": ["Web Developer", "Cloud & Automation", "Detail-Oriented"],
-        "description": "A freelance web\u00a0developer building fast, practical websites and digital products.",
+        "titleLead": "Stojan\u00a0Petkovic",
+        "typingWords": ["Engineer", "Digital Architect", "Web Developer", "Problem Solver"],
+        "typingWordsMobile": ["Engineer", "Digital Architect", "Web Developer"],
+        "description": "Engineer (Ingenieur) and web\u00a0developer. I build fast, practical websites, and I bring an engineer's discipline to every project.",
         "imageAlt": "A rocket launching past a lit planet's edge, against a starfield."
+      },
+      "background": {
+        "badge": "Background",
+        "heading": "Engineering first, then code",
+        "paragraphs": [
+          "I hold a degree in Mining Engineering from the University of Belgrade (graduated 2010). In 2026 the Bavarian Chamber of Engineers (Bayerische Ingenieurekammer-Bau) found my education equivalent to German requirements and granted me the professional title Ingenieur.",
+          "I started in 2011 as a mining engineer on mineral exploration projects, including underground work, then moved into drilling in 2012, planning and supervising exploration wells. Since 2013 I have worked in coiled tubing and nitrogen operations, from field engineer to operations manager, on more than 1,000 jobs. That work taught me how real operations behave: pressures, limits, and what breaks when a number is wrong. I bring that habit of checking the numbers into every website and tool I build.",
+          "For technical companies this means less explaining. You do not have to teach me what a job looks like on site before I can build the page for it."
+        ],
+        "credential": "Title Ingenieur granted by the Bavarian Chamber of Engineers, 2026"
       },
       "whatYouGet": {
         "badge": "What I bring",
@@ -633,49 +646,34 @@
         "lead": "The same care and attention to detail on every project, from the first line of code to launch.",
         "items": [
           {
-            "icon": "component",
-            "title": "Clean, reusable code",
-            "description": "Well-structured, typed, and documented — code that stays easy to maintain and extend long after launch."
-          },
-          {
-            "icon": "layout",
-            "title": "Every page you need",
-            "description": "Home, about, services, contact, and blog pages, fully designed and responsive from day one."
-          },
-          {
-            "icon": "palette",
-            "title": "A design that's yours",
-            "description": "A look and feel shaped around your brand, with light and dark mode included."
+            "icon": "award",
+            "title": "Field experience",
+            "description": "13+ years and more than 1,000 jobs in coiled tubing and nitrogen operations."
           },
           {
             "icon": "book-open",
-            "title": "Content that's easy to manage",
-            "description": "A blog and content system that's simple to write for and easy to keep updated."
+            "title": "Documented logic",
+            "description": "Formulas, assumptions and decisions written down, so results can be reviewed."
           },
           {
-            "icon": "image",
-            "title": "A portfolio that shows your work",
-            "description": "Galleries and project pages that make your work easy to browse and share."
-          },
-          {
-            "icon": "globe",
-            "title": "Ready for a global audience",
-            "description": "Multi-language support when you need it, built in from the start — at no extra cost when you don't."
-          },
-          {
-            "icon": "search",
-            "title": "Fast site search",
-            "description": "Instant, static search so visitors find what they need without waiting on a server."
-          },
-          {
-            "icon": "trending-up",
-            "title": "SEO built in",
-            "description": "Metadata, sitemaps, structured data, and social preview images, correct from the first deploy."
+            "icon": "component",
+            "title": "Clean, reusable code",
+            "description": "Well-structured, typed and documented, so it stays easy to maintain and extend."
           },
           {
             "icon": "server",
-            "title": "Forms that just work",
-            "description": "Spam-protected contact and newsletter forms, plus a smooth path to hosting and deployment."
+            "title": "Cloud-based by default",
+            "description": "Software that runs on a server and opens in the browser, with nothing to install."
+          },
+          {
+            "icon": "layout",
+            "title": "Clear technical content",
+            "description": "Pages, documentation and case studies laid out so technical readers find what they need fast."
+          },
+          {
+            "icon": "zap",
+            "title": "Fast websites when you need them",
+            "description": "Custom Astro websites, built to load quickly and rank well, as a separate service."
           }
         ]
       },
@@ -685,8 +683,8 @@
         "lead": "Every project I take on is guided by the same three principles.",
         "items": [
           { "icon": "zap", "title": "Performance First", "description": "Every site I build is optimised for speed and Core Web Vitals from the first line of code." },
-          { "icon": "award", "title": "Built to Last", "description": "Clean, typed code and sensible defaults that stay easy to maintain long after launch." },
-          { "icon": "rocket", "title": "Modern Tools", "description": "Astro, Tailwind CSS, and a clean architecture that's easy to extend as your needs grow." }
+          { "icon": "award", "title": "Engineering Discipline", "description": "Requirements first, then design, then code. Every number and every claim gets checked before it goes live." },
+          { "icon": "award", "title": "Engineering Discipline", "description": "Requirements first, then design, then code. Every number and every claim gets checked before it goes live." }
         ]
       },
       "stack": {
@@ -703,7 +701,7 @@
             "icon": "user",
             "title": "About me",
             "items": [
-              { "question": "What kind of projects do you take on?", "answer": "Business websites, lead generation systems, and data-driven platforms — most of what a growing business needs online." },
+              { "question": "What kind of projects do you take on?", "answer": "Websites, custom software and data-driven platforms for technical and engineering businesses, plus classic web design for companies of any size." },
               { "question": "What technologies do you work with?", "answer": "Modern, fast tools: Astro, TypeScript, and Tailwind CSS on the front end, with cloud infrastructure and automation where a project needs it." },
               { "question": "Do you work with clients outside your local area?", "answer": "Yes. Most projects run entirely by phone, video, and email, and time zones are rarely a problem." },
               { "question": "Are you available for new projects?", "answer": "Usually, yes — check the badge on the homepage, or just send a message and I'll tell you honestly." }
@@ -741,15 +739,15 @@
     "services": {
       "meta": {
         "title": "Services — Web Design, Development & Optimisation",
-        "description": "Web design, development, optimisation and lead tracking: fast custom Astro websites with monthly reports. A free first talk, one proposal, one fixed price."
+        "description": "Web design, development, optimisation and lead tracking for technical businesses, by an engineer. Fast custom Astro websites, free first talk, one proposal, one fixed price."
       },
       "includedLabel": "What you get",
       "hero": {
         "badge": "Services",
-        "titleLead": "Web design, development,",
-        "titleHighlight": "and optimisation",
-        "description": "Four services, one product: a sleek, lightning-fast custom Astro website you're proud to put your name on, and clear numbers on what it brings in.",
-        "jumpLabels": ["Web design", "Web development", "Web optimisation", "Tracking & reports"]
+        "titleLead": "Engineering software,",
+        "titleHighlight": "web development and design",
+        "description": "Custom software and websites for technical businesses, built by an engineer: clear requirements, checked numbers, and a fast result you're proud to put your name on.",
+        "jumpLabels": ["Web design", "Software & development", "Web optimisation", "Data & reports"]
       },
       "design": {
         "badge": "Design",
@@ -784,9 +782,9 @@
       },
       "development": {
         "badge": "Development",
-        "heading": "Web development",
+        "heading": "Software and web development",
         "paragraphs": [
-          "Web development is the building of your website: turning the design into the code that runs in your visitor's browser.",
+          "Development is the building of your system: turning requirements and design into code that runs reliably, in the browser or behind it.",
           "I build with Astro, a modern framework trusted for some of the fastest websites online. That makes your site quick to load, safe, and easy to look after for years to come. And it's yours from day one, with the code, the domain, and the hosting all in your name."
         ],
         "included": [
@@ -845,28 +843,28 @@
         "ctaLabel": "Start a project"
       },
       "reporting": {
-        "badge": "Tracking & reports",
-        "heading": "Lead tracking and monthly reports",
+        "badge": "Data & reports",
+        "heading": "Measuring what the website does",
         "paragraphs": [
-          "A website only earns its keep when it brings you customers. So every website I build can show exactly what it brings in: every inquiry form, every tap on your phone number, every WhatsApp message, and where each of those people came from.",
-          "Each inquiry lands in your inbox the moment it's sent, with all the details and a one-click reply. Once a month you get a clear PDF report: visitors, inquiries, calls, and which ads, searches and pages actually turn visitors into customers. No logins, no dashboards to learn, no Google Analytics setup."
+          "A website is a system, and a system should be measured. I set up simple, privacy-friendly tracking so you can see how many people visit, which pages they read and where they come from.",
+          "Once a month you get a short PDF report in plain language. No logins, no dashboards to learn, no Google Analytics setup."
         ],
         "included": [
           {
-            "lead": "Every inquiry by email",
-            "text": "the full form, the page it was sent from, and the ad or search that brought the visitor, in your inbox straight away."
+            "lead": "Visits and pages",
+            "text": "see how many people visit and which pages they actually read."
           },
           {
-            "lead": "Calls counted too",
-            "text": "taps on your phone number, WhatsApp and text links are recorded as conversions, not lost."
+            "lead": "Messages by email",
+            "text": "every form message arrives in your inbox with the page it was sent from."
           },
           {
             "lead": "Know what works",
-            "text": "see which source (Google, Facebook ads, direct visits) brings visits, inquiries and calls, and at what rate."
+            "text": "see which source brings visitors: search, social or direct visits."
           },
           {
             "lead": "A monthly PDF report",
-            "text": "clear pages in plain language, in English or Serbian, ready to share with your team or partners."
+            "text": "clear pages in plain language, in English or Serbian, ready to share with your team."
           },
           {
             "lead": "No cookies",
@@ -876,23 +874,23 @@
         "imageAlt": "Example of a monthly website report: visitors, inquiries, calls, conversion rate, a daily chart and where visitors come from.",
         "imageCaption": "An example monthly report (demo data).",
         "benefits": {
-          "heading": "What it means for your business",
-          "lead": "Most small businesses pay for a website and ads without knowing what they get back. Tracking turns that into numbers you can act on.",
+          "heading": "What it means for your project",
+          "lead": "Numbers turn opinions into decisions. Tracking shows what the website does, so you can improve it with facts.",
           "items": [
             {
               "icon": "target",
-              "title": "Spend on what works",
-              "description": "See which ads and searches bring calls and inquiries, and put your budget into the channels that pay off, not the ones that only bring clicks."
+              "title": "Decide with facts",
+              "description": "See which pages and sources bring attention, and improve what matters."
             },
             {
               "icon": "inbox",
-              "title": "No lead slips through",
-              "description": "Every inquiry reaches your inbox instantly with a one-click reply, and every call made from the website is counted."
+              "title": "Nothing gets lost",
+              "description": "Every message reaches your inbox instantly with a one-click reply."
             },
             {
               "icon": "trending-up",
-              "title": "Proof it pays off",
-              "description": "A monthly report shows visitors turning into customers, in numbers you can show your partners or your accountant."
+              "title": "See progress",
+              "description": "A monthly report shows how your site grows, in numbers you can share."
             },
             {
               "icon": "shield-check",
@@ -918,9 +916,9 @@
             "description": "Blog posts and service pages written to answer the questions your customers are already searching, so your site keeps earning traffic long after launch."
           },
           {
-            "icon": "megaphone",
-            "title": "Social Media Marketing",
-            "description": "Instagram and Facebook campaigns built around real conversion tracking, so every post and ad is judged by bookings, not just likes."
+            "icon": "wrench",
+            "title": "Custom Software",
+            "description": "Internal tools, dashboards and data handling for technical teams, with the logic documented so results can be reviewed."
           },
           {
             "icon": "sparkles",
@@ -933,9 +931,9 @@
             "description": "Fixed-scope design packages for businesses that know what they need: a clear price and a clear deliverable, no lengthy discovery process."
           },
           {
-            "icon": "target",
-            "title": "Paid Search Marketing",
-            "description": "Google Ads campaigns managed end to end — budget, keywords, and the landing pages they point to — measured by cost per booked job, not clicks."
+            "icon": "book-open",
+            "title": "Technical Writing",
+            "description": "Clear articles and documentation on engineering topics, written by an engineer, so your expertise is easy to find and easy to trust."
           },
           {
             "icon": "gem",
@@ -992,8 +990,8 @@
             "title": "Beyond the website",
             "items": [
               { "question": "Do you offer graphic design or branding on its own?", "answer": "Yes. A logo, a brand identity, or ongoing graphic design work is available on its own, without a full website rebuild — tell me what you need in the first talk." },
-              { "question": "Do you run paid ads like Google Ads?", "answer": "Yes, end to end: campaign structure, budget, keyword and landing-page alignment, and the conversion tracking that shows what the spend is actually buying." },
-              { "question": "Can you handle my social media marketing?", "answer": "Yes — Instagram and Facebook campaigns with real conversion tracking built in, so results are judged by bookings and leads, not just engagement." },
+              { "question": "Do you build custom software?", "answer": "Yes: internal tools, dashboards and data handling for technical teams. We define the requirements together first, then I build and document it." },
+              { "question": "Do you write technical content?", "answer": "Yes: articles and documentation on engineering topics, written by someone who has done the work in the field." },
               { "question": "What is Generative Engine or AI SEO?", "answer": "Making sure AI assistants and AI-powered search — ChatGPT, Google's AI Overviews — read your site correctly and recommend your business, alongside traditional SEO." },
               { "question": "Do you offer fixed-price website packages?", "answer": "Yes, for businesses with a clear scope in mind: a packaged design keeps the price and the deliverable fixed from the start, without a lengthy discovery process." }
             ]
@@ -1021,64 +1019,219 @@
     },
     "contact": {
       "meta": {
-        "title": "Free website check",
-        "description": "Find out what your website is losing you. Tell me about your business and get an honest review of speed, SEO and enquiries within one business day, free."
+        "title": "Contact",
+        "description": "Engineering consulting, projects, cloud software or a website: tell me what you need. I reply within one business day."
       },
       "hero": {
-        "badge": "Free website check",
-        "titleLead": "Your website may be losing you clients",
-        "titleHighlight": "right now",
-        "description": "Slow pages, buried phone numbers and enquiries nobody sees cost you jobs, and you never get a warning. Tell me about your business and I'll show you exactly where clients slip away. Free, no obligation."
+        "badge": "Contact",
+        "titleLead": "Tell me what you're",
+        "titleHighlight": "working on",
+        "description": "Engineering consulting and projects, cloud-based software and tools, or a website. A short message is enough; I reply within one business day."
       },
-      "painTitle": "Where clients slip away",
-      "risks": [
-        { "icon": "hourglass", "title": "Slow pages", "text": "Visitors leave before they see your number." },
-        { "icon": "search-x", "title": "Invisible on Google", "text": "The call that should have been yours goes to a competitor." },
-        { "icon": "mail-x", "title": "Enquiries nobody answers", "text": "By the time you reply, they've already called someone else." }
+      "helpTitle": "What I can help with",
+      "help": [
+        {
+          "icon": "award",
+          "title": "Consulting and projects",
+          "text": "Engineering consulting and project work for the oil and gas industry."
+        },
+        {
+          "icon": "code",
+          "title": "Software and tools",
+          "text": "Cloud-based software and engineering tools for technical B2B companies."
+        },
+        {
+          "icon": "layout",
+          "title": "Web development",
+          "text": "Fast websites and web systems, as a separate service."
+        }
       ],
-      "offerTitle": "What you get, free",
+      "nextTitle": "What happens next",
+      "next": [
+        "I reply within one business day.",
+        "We have a short call to define what you need. It is free and without obligation.",
+        "You get one clear proposal with scope, timeline and a fixed price."
+      ],
+      "facts": [
+        {
+          "value": "13+",
+          "label": "Years in engineering"
+        },
+        {
+          "value": "1,000+",
+          "label": "Jobs in the field"
+        },
+        {
+          "value": "< 1 day",
+          "label": "To reply"
+        }
+      ],
       "emailLabel": "Email",
-      "preferEmail": "Prefer email? Write to"
+      "preferEmail": "Prefer email? Write to",
+      "form": {
+        "badge": "Project enquiry",
+        "heading": "Tell me about your project",
+        "lead": "Three short steps, under a minute. I reply within one business day.",
+        "stepLabels": [
+          "What you need",
+          "Your company",
+          "Your contact"
+        ],
+        "stepCount": "Step {current} of {total}",
+        "serviceLegend": "What do you need?",
+        "services": [
+          {
+            "value": "consulting",
+            "icon": "award",
+            "label": "Engineering consulting"
+          },
+          {
+            "value": "project",
+            "icon": "layers",
+            "label": "A project"
+          },
+          {
+            "value": "software",
+            "icon": "code",
+            "label": "Software or engineering tools"
+          },
+          {
+            "value": "web",
+            "icon": "layout",
+            "label": "A website or web system"
+          },
+          {
+            "value": "other",
+            "icon": "message-circle",
+            "label": "Something else"
+          }
+        ],
+        "websiteLabel": "Company website (optional)",
+        "websitePlaceholder": "yourcompany.com",
+        "businessLabel": "Company and industry",
+        "businessPlaceholder": "e.g. oilfield services company, mining operator",
+        "timelineLegend": "When would you like to start?",
+        "timelines": [
+          {
+            "value": "asap",
+            "label": "As soon as possible"
+          },
+          {
+            "value": "1-3-months",
+            "label": "In 1–3 months"
+          },
+          {
+            "value": "exploring",
+            "label": "Just exploring"
+          }
+        ],
+        "nameLabel": "Your name",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone (optional)",
+        "messageLabel": "Anything else I should know? (optional)",
+        "next": "Continue",
+        "back": "Back",
+        "submit": "Send enquiry",
+        "sending": "Sending…",
+        "chooseService": "Choose what you need to continue.",
+        "required": "Please fill in your name and a valid email.",
+        "privacy": "Your details are used only to reply to you. No newsletters, no sharing.",
+        "promise": "Reply within one business day",
+        "successTitle": "Thank you — your enquiry is in!",
+        "successText": "I'll read it and reply within one business day with concrete next steps. Keep an eye on your inbox.",
+        "error": "Something went wrong. Please try again, or email me directly."
+      }
     },
-    "home": {
+    "web": {
       "meta": {
-        "title": "Web Designer & Developer",
-        "description": "Websites, lead generation systems and data-driven platforms — built with modern technology and a practical, business-focused mindset."
+        "title": "Web development",
+        "description": "Fast custom Astro websites and web systems for engineering and technical B2B companies, by an engineer. Design, development, optimisation and tracking."
       },
       "hero": {
-        "badge": "Available for new projects",
-        "titleLine1": "Mr.\u00a0Petkovic",
-        "titleLine2": "Web Designer",
-        "titleLine3": "& Developer",
-        "description": "I build websites, lead generation systems and data-driven platforms — with modern technology and a practical, business-focused mindset.",
-        "descriptionMobile": "I build websites, lead generation systems and data-driven platforms with a practical, business-focused mindset.",
+        "badge": "Web development",
+        "titleLead": "Websites and web systems",
+        "titleHighlight": "for technical companies",
+        "description": "Design, development and optimisation by an engineer who knows the industry. One fixed price, and everything in your name.",
         "primaryCta": "Get in touch",
-        "secondaryCta": "See my work",
-        "videoPlay": "Play with sound",
-        "videoLabel": "Video introduction"
+        "secondaryCta": "Full services"
       },
       "services": {
         "badge": "What I do",
         "heading": "Design, build, optimise",
         "lead": "Every project gets all three services.",
-        "learnMore": "Learn more",
         "cards": [
-          { "icon": "layout", "title": "Web Design", "description": "Interfaces that feel obvious. Layouts shaped around your content, your brand, and how people actually read on a screen." },
-          { "icon": "code", "title": "Web Development", "description": "Sites built to last. Astro, Tailwind, and a clean architecture: fast on day one, easy to maintain on day 500." },
-          { "icon": "trending-up", "title": "Web Optimisation", "description": "SEO, Core Web Vitals, and accessibility, built in from day one so your site ranks, loads well, and works for every visitor." }
+          {
+            "icon": "layout",
+            "title": "Web Design",
+            "description": "Interfaces that feel obvious. Layouts shaped around your content, your brand, and how people actually read on a screen."
+          },
+          {
+            "icon": "code",
+            "title": "Web Development",
+            "description": "Sites built to last. Astro, Tailwind, and a clean architecture: fast on day one, easy to maintain on day 500."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Web Optimisation",
+            "description": "SEO, Core Web Vitals, and accessibility, built in from day one so your site ranks, loads well, and works for every visitor."
+          }
+        ]
+      }
+    },
+    "home": {
+      "meta": {
+        "title": "Engineer & Digital Architect",
+        "description": "Engineering consulting and projects for the oil and gas industry, plus cloud-based software and engineering tools for technical B2B companies, by a recognised Ingenieur."
+      },
+      "hero": {
+        "badge": "Available for new projects",
+        "titleLine1": "Stojan\u00a0Petkovic",
+        "titleLine2": "Engineer\u00a0&",
+        "titleLine3": "Digital\u00a0Architect",
+        "description": "Engineering consulting and project work for the oil and gas industry. For technical B2B companies, I build cloud-based software and engineering tools.",
+        "descriptionMobile": "Engineering consulting and projects for oil and gas, and cloud-based software for technical B2B companies.",
+        "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Title granted by the Bavarian Chamber of Engineers (2026)", "docTitle": "Decision of the Bavarian Chamber of Engineers", "docAlt": "Scan of the decision granting the title Ingenieur, personal details covered in black"}, {"icon": "shield-check", "tag": "RS", "title": "Professional exam passed (2019)", "text": "Exploitation of mineral resources, Serbia", "docTitle": "Certificate of the professional exam passed", "docAlt": "Scan of the certificate of the professional exam passed in Serbia, personal details covered in black"}],
+        "credentialsDialog": {"close": "Close", "note": "Personal details have been covered in black.", "hint": "View the document", "zoom": "Tap the page to zoom in or out."},
+        "qualifications": {"label": "Qualifications & training", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Mining Engineer (Dipl.)", "text": "University of Belgrade · liquid and gaseous mineral resources"}, {"icon": "shield-check", "year": "2020", "title": "EU Machinery Directive", "text": "Machine safety training · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Technology Management (STM)", "text": "System of Technology Management, corporate programme"}, {"icon": "users", "year": "2018", "title": "Leadership Academy", "text": "Managing people, lower management · Mokra Gora School of Management"}]},
+        "primaryCta": "Get in touch",
+        "secondaryCta": "See what I'm building",
+        "videoPlay": "Play with sound",
+        "videoLabel": "Video introduction"
+      },
+      "services": {
+        "badge": "Focus",
+        "heading": "Industrial projects, courses and software",
+        "lead": "Three areas, one engineer. The content is being prepared and will be published here.",
+        "learnMore": "Tell me what you need",
+        "status": "In preparation",
+        "cards": [
+          { "icon": "layers", "title": "Industrial Projects", "description": "Case studies from coiled tubing and nitrogen operations, written for engineers.", "points": ["Job design and the reasoning behind it", "What was planned, what happened, what changed", "Plain language, with the numbers shown"] },
+          { "icon": "book-open", "title": "Courses", "description": "Practical training in coiled tubing, from the field fundamentals to job design.", "points": ["Fundamentals for crews and young engineers", "Calculations step by step, with worked examples", "Self-paced, with material to keep"] },
+          { "icon": "code", "title": "Engineering Software", "description": "Cloud-based tools and custom software for technical teams. Everything runs on a server and opens in the browser, with nothing to install.", "points": ["Calculators and tools for everyday field and office work", "Internal dashboards and data handling", "Custom industrial software, built to order"] }
         ]
       },
       "workWithMe": {
         "badge": "Work with me",
-        "heading": "Let's build your website",
-        "lead": "What you get when we work together.",
+        "heading": "Why work with an engineer",
+        "lead": "What you get when the person building it has done the work in the field.",
         "cards": [
-          { "icon": "palette", "title": "Custom design", "description": "Designed around your business, your content, and your customers." },
-          { "icon": "zap", "title": "A lightning-fast website", "description": "Pages that open instantly, on every phone and every connection." },
-          { "icon": "search", "title": "Found by Google and AI", "description": "Every page built so search engines and AI assistants read it cleanly and customers can find you." },
-          { "icon": "shield-check", "title": "Zero maintenance", "description": "Kept up to date and secure with the care plan, so you can focus on your business." }
+          { "icon": "award", "title": "Field experience", "description": "13+ years and more than 1,000 jobs in coiled tubing and nitrogen operations." },
+          { "icon": "shield-check", "title": "Numbers checked", "description": "Calculations are verified and assumptions written down." },
+          { "icon": "book-open", "title": "Documented logic", "description": "Formulas and decisions explained, so results can be reviewed." },
+          { "icon": "globe", "title": "Title Ingenieur", "description": "Granted by the Bavarian Chamber of Engineers, 2026." }
         ],
         "cta": "Read my services page"
+      },
+      "webGateway": {
+        "badge": "Web development",
+        "heading": "Websites for technical companies",
+        "lead": "A separate service, run alongside the engineering work: fast Astro websites and web systems for engineering and technical B2B companies.",
+        "items": [
+          "Web design",
+          "Web development",
+          "Optimisation and tracking"
+        ],
+        "cta": "Go to web development"
       },
       "portfolio": {
         "badge": "Selected work",
@@ -1097,16 +1250,18 @@
       },
       "aboutTeaser": {
         "badge": "About me",
-        "headingLine1": "Designer, developer,",
-        "headingLine2": "and engineer.",
-        "para1WithLocation": "Sixteen years of hands-on experience, based in {location} and available for clients worldwide. I build with Astro because it aligns with how I think about the web: lean, purposeful, and built to last.",
-        "para1NoLocation": "Sixteen years of hands-on experience and available for clients worldwide. I build with Astro because it aligns with how I think about the web: lean, purposeful, and built to last.",
-        "para2": "On the blog, I share the ideas and decisions that shape my work.",
+        "headingLine1": "Engineer first,",
+        "headingLine2": "then developer.",
+        "para1WithLocation": "Mining engineer by degree, with 13+ years in oilfield operations and the title Ingenieur granted by the Bavarian Chamber of Engineers. Based in {location} and available for clients worldwide. I build software and web systems the way I run a job: requirements first, numbers checked, nothing left undocumented.",
+        "para1NoLocation": "Mining engineer by degree, with 13+ years in oilfield operations and the title Ingenieur granted by the Bavarian Chamber of Engineers. Available for clients worldwide. I build software and web systems the way I run a job: requirements first, numbers checked, nothing left undocumented.",
+        "para2": "On the blog, I share the ideas and decisions behind my engineering and software work.",
         "moreAboutMe": "More about me",
         "statsIntro": "A few things about me.",
-        "stat1": "16 Years Experience",
-        "stat2": "Building with Astro",
+        "stat1": "13+ Years in Engineering",
+        "stat2": "1,000+ Jobs in the Field",
         "stat3": "Working worldwide",
+        "stat4": "2 Countries of qualification",
+        "facts": [{"icon": "wrench", "label": "Specialisation", "value": "Coiled tubing and nitrogen operations"}, {"icon": "graduation-cap", "label": "Education", "value": "Dipl. Mining Engineer, University of Belgrade (2010)"}, {"icon": "globe", "label": "Availability", "value": "Worldwide, CET time zone"}, {"icon": "clock", "label": "Reply", "value": "Within one business day"}],
         "basedIn": "Based in"
       },
       "blog": {

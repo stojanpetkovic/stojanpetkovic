@@ -86,19 +86,21 @@ export interface ResolvedNavItem {
 export const navItems: NavItem[] = [
   { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
   { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Projects', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
-  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
+  { label: 'Web', href: '/web', order: 2, labelKey: 'nav.items.web' },
+  { label: 'Projects', href: '/projects', order: 3, labelKey: 'nav.items.projects' },
+  { label: 'Blog', href: '/blog', order: 4, labelKey: 'nav.items.blog' },
+  { label: 'About', href: '/about', order: 5, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 6, labelKey: 'nav.items.contact' },
 ];
 
 export const footerNavItems: NavItem[] = [
   { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
   { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Projects', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
-  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
+  { label: 'Web', href: '/web', order: 2, labelKey: 'nav.items.web' },
+  { label: 'Projects', href: '/projects', order: 3, labelKey: 'nav.items.projects' },
+  { label: 'Blog', href: '/blog', order: 4, labelKey: 'nav.items.blog' },
+  { label: 'About', href: '/about', order: 5, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 6, labelKey: 'nav.items.contact' },
 ];
 
 export const legalLinks: LegalLink[] = [];
@@ -121,6 +123,15 @@ export const legalLinks: LegalLink[] = [];
  * fork: they inherit whatever is here.
  */
 export const footerLinkGroups: FooterLinkGroupConfig[] = [
+  {
+    titleKey: 'footer.groups.engineering',
+    title: 'Engineering',
+    links: [
+      { label: 'Projects, courses and software', href: '/#focus', labelKey: 'footer.links.focus' },
+      { label: 'About', href: '/about', labelKey: 'nav.items.about' },
+      { label: 'Contact', href: '/contact', labelKey: 'nav.items.contact' },
+    ],
+  },
   {
     titleKey: 'footer.groups.questions',
     title: 'Got questions?',

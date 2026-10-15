@@ -18,7 +18,6 @@ import Card from '@/components/ui/data-display/Card/Card.astro';
 import ProofTile from '@/components/ui/data-display/ProofTile/ProofTile.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
-import ProjectImageSVG from '@/components/projects/ProjectImageSVG.astro';
 import TypingEffect from '@/components/ui/TypingEffect.astro';
 import TechStack from '@/components/landing/TechStack.astro';
 import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
@@ -59,8 +58,11 @@ const hero = tData<{
   /** Shorter set for phones (below sm), dropping the one word wide enough to clip at the hero size. */
   typingWordsMobile: string[];
   description: string;
-  imageAlt: string;
 }>('pages.about.hero', locale)!;
+const background = tData<{ badge: string; heading: string; paragraphs: string[]; credential: string }>(
+  'pages.about.background',
+  locale
+)!;
 const whatYouGet = tData<{ badge: string; heading: string; lead: string; items: IconText[] }>(
   'pages.about.whatYouGet',
   locale
@@ -103,56 +105,38 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
     <p slot="description" class="!text-balance">
       {hero.description}
     </p>
-
-    <!-- Hero's default slot renders directly under the actions, inside the
-         content column, which is `items-center text-center` on a centred
-         layout — so this needs no centring of its own.
-
-         Spacing is the same two-value scale the hero already runs on:
-         --space-section-md at the section edge, carried by the pb override
-         above, and --space-section-gap between the copy and the image.
-         --space-stack-lg is the block value and leaves an image this size
-         crowding the copy; a section-edge value above it would put a
-         boundary-scale gap inside a section.
-
-         The subtraction is why this is a calc rather than the token on its
-         own. Hero gives the description slot mb-[var(--space-stack-lg)],
-         because a row of buttons normally follows it. Nothing does here, so
-         that 32px stacks under the paragraph before this margin even starts,
-         and the token alone renders 80px at desktop and 64px on a phone
-         against the 48 and 32 it is meant to be. Taking --space-stack-lg back
-         off lands the total on the token at every width: 16 + 32 = 48 at
-         desktop, 0 + 32 = 32 on a phone. Delete the subtraction if the
-         paragraph ever gains buttons after it.
-
-         max-w-4xl also decides which of the two canvases renders, because
-         ProjectImageSVG switches on the image's own width rather than the
-         viewport's: 896px keeps the wide one, a phone's ~382px column takes
-         the tall one. -->
-    <div class="mt-[calc(var(--space-section-gap)_-_var(--space-stack-lg))] w-full max-w-4xl mx-auto">
-      <ProjectImageSVG
-        slug="astro-rocket"
-        title={hero.imageAlt}
-      />
-    </div>
   </Hero>
+
+  <!-- Engineering background -->
+  <section class="py-[var(--space-section-md)] bg-background border-t border-border">
+    <div class="mx-auto max-w-3xl px-6 flex flex-col gap-6">
+      <div class="flex flex-col items-center gap-6 text-center" data-reveal data-reveal-eager data-reveal-ease="smooth">
+        <p class="section-eyebrow !mb-0 justify-center"><span class="section-eyebrow-num">01</span><span>{background.badge}</span></p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
+          {background.heading}
+        </h2>
+      </div>
+      <div class="flex flex-col gap-4" data-reveal data-reveal-delay="1">
+        {background.paragraphs.map((paragraph) => (
+          <p class="text-lg text-foreground-muted leading-relaxed">{paragraph}</p>
+        ))}
+      </div>
+      <p class="self-center inline-flex items-center gap-2 rounded-full border border-border bg-background-secondary px-4 py-2 text-sm font-medium text-foreground" data-reveal data-reveal-delay="2">
+        <Icon name="award" size="sm" class="text-brand-500" />
+        {background.credential}
+      </p>
+    </div>
+  </section>
 
   <!-- What you get -->
   <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-4 text-center" data-reveal data-reveal-eager data-reveal-ease="smooth">
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>
-            <Icon name="list-checks" size="sm" />
-            {whatYouGet.badge}
-          </Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-balance">
-            {whatYouGet.heading}
-          </h2>
+      <div class="section-head" data-reveal data-reveal-eager data-reveal-ease="smooth">
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">02</span><span>{whatYouGet.badge}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground">{whatYouGet.heading}</h2>
         </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
-          {whatYouGet.lead}
-        </p>
+        <p class="section-lead">{whatYouGet.lead}</p>
       </div>
 
       <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -170,10 +154,7 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
     <div class="mx-auto max-w-6xl px-6">
       <div class="mb-8 text-center flex flex-col items-center gap-4" data-reveal>
         <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>
-            <Icon name="pen-tool" size="sm" />
-            {principles.badge}
-          </Badge>
+          <p class="section-eyebrow !mb-0 justify-center"><span class="section-eyebrow-num">03</span><span>{principles.badge}</span></p>
           <h2 class="font-display text-4xl font-bold text-foreground">
             {principles.heading}
           </h2>
@@ -205,19 +186,12 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
        without it there was no way to point at this section. -->
   <section id="faq" class="scroll-mt-24 py-[var(--space-section-md)] bg-background border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-      <div class="flex flex-col items-center gap-4 text-center" data-reveal>
-        <div class="flex flex-col items-center gap-6">
-          <Badge variant="brand" pill>
-            <Icon name="info" size="sm" />
-            {faq.badge}
-          </Badge>
-          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
-            {faq.heading}
-          </h2>
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">04</span><span>{faq.badge}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground">{faq.heading}</h2>
         </div>
-        <p class="text-lg text-foreground-muted max-w-2xl mx-auto text-balance">
-          {faq.lead}
-        </p>
+        <p class="section-lead">{faq.lead}</p>
       </div>
 
       <div class="grid gap-6 md:grid-cols-2">
@@ -252,10 +226,7 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
       <div class="grid gap-8 sm:gap-10 glitch:grid-cols-2 glitch:items-center">
         <!-- Text -->
         <div class="flex flex-col gap-4 sm:items-center sm:text-center glitch:items-start glitch:justify-center glitch:text-left" data-reveal data-reveal-ease="smooth">
-          <Badge variant="brand" pill class="self-start sm:self-center glitch:self-start">
-            <Icon name="handshake" size="sm" />
-            {openSource.badge}
-          </Badge>
+          <p class="section-eyebrow !mb-0 sm:justify-center glitch:justify-start"><span class="section-eyebrow-num">05</span><span>{openSource.badge}</span></p>
           <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground">
             {openSource.heading}
           </h2>

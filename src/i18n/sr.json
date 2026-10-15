@@ -33,10 +33,10 @@
     }
   },
   "site": {
-    "name": "Mr. Petković"
+    "name": "Stojan Petković"
   },
   "llms": {
-    "summary": "Mr. Petković je freelance web developer iz Zrenjanina, Srbija, i radi sa klijentima iz celog sveta. Bavi se izradom brzih Astro sajtova po meri, sistema za prikupljanje upita i platformi zasnovanih na podacima, kao i SEO optimizacijom, GEO optimizacijom (vidljivost u AI pretrazi), Google Ads oglašavanjem i oglašavanjem na društvenim mrežama — najviše za lokalne uslužne firme, kao što su firme za usluge sa drvećem u Južnoj Floridi i mali biznisi u Srbiji. Svaki projekat ima jednu fiksnu cenu dogovorenu pre početka rada, a kod, domen i hosting su na ime klijenta od prvog dana."
+    "summary": "Stojan Petković je inženjer (zvanje Ingenieur odobrila je Bavarska inženjerska komora) i web developer iz Zrenjanina u Srbiji, koji radi sa klijentima širom sveta. Diplomirao je rudarstvo na Univerzitetu u Beogradu (2010), a od 2013. radi sa coiled tubing i azotnim operacijama. Pravi brze Astro sajtove po meri, softver po meri i platforme zasnovane na podacima za inženjerske i tehničke B2B firme, a nudi i klasičan web dizajn, SEO i optimizaciju za generativne pretraživače (GEO). Svaki projekat ima jednu fiksnu cenu dogovorenu pre početka rada, a klijent je vlasnik koda, domena i hostinga od prvog dana."
   },
   "nav": {
     "skipToContent": "Preskoči na sadržaj",
@@ -55,6 +55,7 @@
     "items": {
       "home": "Početna",
       "services": "Usluge",
+      "web": "Web",
       "projects": "Projekti",
       "blog": "Blog",
       "about": "O meni",
@@ -107,13 +108,13 @@
     "shareOn": "Podeli na {platform}",
     "copyLink": "Kopiraj link",
     "metaTitle": "Blog",
-    "metaDescription": "Praktični vodiči o SEO-u, AI pretrazi i tome kako lokalne firme da dođu do više klijenata.",
+    "metaDescription": "Članci o inženjerstvu, softveru i web razvoju.",
     "heroBadge": "Svi tekstovi",
-    "heroDescription": "Praktični vodiči o SEO-u, AI pretrazi i tome kako lokalne firme da dođu do više klijenata.",
+    "heroDescription": "Članci o inženjerstvu, softveru i web razvoju.",
     "allPosts": "Svi tekstovi",
     "noPosts": "Još nema tekstova",
     "pageMetaTitle": "Blog — strana {page}",
-    "pageMetaDescription": "Strana {page} od {total} — vodiči o SEO-u, AI pretrazi i tome kako lokalne firme da dođu do više klijenata.",
+    "pageMetaDescription": "Strana {page} od {total} — članci o inženjerstvu, softveru i web razvoju.",
     "pageBadge": "Strana {page} od {total}",
     "newestPosts": "Najnoviji tekstovi",
     "tagMetaTitle": "#{tag} — Blog",
@@ -156,12 +157,12 @@
     "galleryNextImage": "Sledeća slika",
     "galleryPreviousImage": "Prethodna slika",
     "metaTitle": "Projekti",
-    "metaDescription": "Izdvojeni radovi — sajtovi, alati i platforme koje je napravio Mr. Petković.",
+    "metaDescription": "Izdvojeni radovi — sajtovi, alati i platforme koje je napravio Stojan Petković.",
     "heroBadge": "Portfolio",
     "heroDescription": "Sajtovi i platforme koje sam napravio za klijente.",
     "allProjects": "Svi projekti",
     "pageMetaTitle": "Projekti — strana {page}",
-    "pageMetaDescription": "Strana {page} od {total} — izdvojeni radovi, alati i platforme koje je napravio Mr. Petković.",
+    "pageMetaDescription": "Strana {page} od {total} — izdvojeni radovi, alati i platforme koje je napravio Stojan Petković.",
     "pageBadge": "Strana {page} od {total}",
     "tagMetaTitle": "#{tag} — Projekti",
     "tagMetaDescription": "Projekti na temu \"{tag}\".",
@@ -174,7 +175,7 @@
     "moreProjects": "Još projekata",
     "ctaBadge": "Popričajmo",
     "ctaHeading": "Popričajmo o tvom projektu",
-    "ctaLead": "Svaki sajt pravim po meri, sa istom pažnjom koju vidiš ovde. Reci mi šta imaš na umu.",
+    "ctaLead": "Svaki projekat koji preuzimam gradi se oko problema koji treba da reši. Reci mi šta imaš na umu.",
     "ctaPrimary": "Pošalji poruku",
     "ctaSecondary": "Više o meni",
     "closingHeading": "Imaš projekat na umu?",
@@ -201,7 +202,7 @@
     "browseBlog": "Pogledaj blog",
     "tryInstead": "Možda tražiš nešto od ovoga",
     "projectsDesc": "Izdvojeni radovi i priče iza njih.",
-    "blogDesc": "Vodiči o SEO-u, AI pretrazi i marketingu.",
+    "blogDesc": "Beleške o inženjerstvu, softveru i webu.",
     "contactTitle": "Kontakt",
     "contactDesc": "Piši mi o svom projektu."
   },
@@ -260,9 +261,11 @@
     "groups": {
       "site": "Sajt",
       "topics": "Teme",
-      "projects": "Projekti",
+      "projects": "Web projekti",
+      "engineering": "Inženjering",
       "questions": "Imaš pitanje?"
     },
+    "links": { "focus": "Projekti, kursevi i softver" },
     "followOn": "Prati me na {platform}"
   },
   "pages": {
@@ -295,7 +298,7 @@
             "label": "da odgovorim na svaki upit"
           }
         ],
-        "imageAlt": "Mr. Petković, web developer sa kojim radiš direktno",
+        "imageAlt": "Stojan Petković, web developer sa kojim radiš direktno",
         "videoPlay": "Pusti sa zvukom",
         "videoLabel": "Video predstavljanje"
       },
@@ -408,7 +411,7 @@
         "quote": "Svake nedelje koju sam čekao, te pozive je dobijao neko drugi.",
         "author": "Dragan",
         "role": "Izmišljeni vlasnik — ilustracija, a ne stvarni klijent",
-        "imageAlt": "Primer sajta firme za uklanjanje drveća koji je napravio Mr. Petković"
+        "imageAlt": "Primer sajta firme za uklanjanje drveća koji je napravio Stojan Petković"
       },
       "report": {
         "badge": "Praćenje i mesečni izveštaj",
@@ -604,7 +607,7 @@
         "toggle": "Kako postupam sa tvojim podacima",
         "title": "Izjava o privatnosti",
         "items": [
-          "Ko: Mr. Petković, freelance web developer. Kontakt: {email}.",
+          "Ko: Stojan Petković, freelance web developer. Kontakt: {email}.",
           "Šta: podaci koje upišeš u ovu formu — ime, email, telefon, sajt, delatnost, tvoji odgovori i poruka.",
           "Zašto: samo da odgovorim na tvoj zahtev i pripremim ponudu. Bez newslettera, a podaci se nikad ne prodaju i ne dele za marketing.",
           "Gde: čuvaju se kod hosting, email i database servisa preko kojih radi ovaj sajt, uz ugovore o obradi podataka.",
@@ -616,16 +619,26 @@
     },
     "about": {
       "meta": {
-        "title": "O meni",
-        "description": "Ko sam i kako radim: freelance web developer — izrada brzih, preglednih sajtova i digitalnih proizvoda na modernoj tehnologiji."
+        "title": "O meni — inženjer i web developer",
+        "description": "Stojan Petković: Ingenieur (titulu je odobrila Bavarska inženjerska komora) i web developer. Brzi sajtovi za tehničke firme, uz više od 13 godina iskustva u naftnim operacijama."
       },
       "hero": {
         "badge": "O meni",
-        "titleLead": "Mr.\u00a0Petković",
-        "typingWords": ["Web developer", "Rešavam probleme", "Cloud i automatizacija", "Odluke na osnovu podataka", "Pazim na detalje"],
-        "typingWordsMobile": ["Web developer", "Cloud i automatizacija", "Pazim na detalje"],
-        "description": "Freelance web developer koji pravi brze, praktične sajtove i digitalne proizvode.",
+        "titleLead": "Stojan\u00a0Petković",
+        "typingWords": ["Inženjer", "Digital Architect", "Web developer", "Rešavam probleme"],
+        "typingWordsMobile": ["Inženjer", "Digital Architect", "Web developer"],
+        "description": "Inženjer i web\u00a0developer. Pravim brze, praktične sajtove i u svaki projekat unosim disciplinu inženjera.",
         "imageAlt": "Raketa koja leti pored osvetljene ivice planete, na pozadini zvezdanog neba."
+      },
+      "background": {
+        "badge": "Pozadina",
+        "heading": "Prvo inženjerstvo, zatim kod",
+        "paragraphs": [
+          "Završio sam rudarstvo na Univerzitetu u Beogradu (diplomirao 2010). Bavarska inženjerska komora (Bayerische Ingenieurekammer-Bau) je 2026. utvrdila da je moje obrazovanje ravnopravno nemačkim zahtevima i odobrila mi je zvanje Ingenieur.",
+          "Počeo sam 2011. kao rudarski inženjer na projektima istraživanja mineralnih ležišta, uključujući rad pod zemljom, a 2012. prešao sam na bušenje, gde sam planirao i nadgledao istražne bušotine. Od 2013. radim sa coiled tubing-om i azotom, od terenskog inženjera do operations manager-a, na više od 1.000 poslova. Tako sam naučio kako se prave operacije ponašaju: pritisci, granice i šta pukne kada broj nije tačan. Tu naviku da proveravam brojeve unosim u svaki sajt i alat koji pravim.",
+          "Za tehničke firme to znači manje objašnjavanja. Ne moraš da me učiš kako izgleda posao na terenu pre nego što napravim stranicu za njega."
+        ],
+        "credential": "Zvanje Ingenieur odobreno od Bavarske inženjerske komore, 2026."
       },
       "whatYouGet": {
         "badge": "Šta dobijaš",
@@ -633,49 +646,34 @@
         "lead": "Ista pažnja na svakom projektu, od prve linije koda do puštanja sajta uživo.",
         "items": [
           {
-            "icon": "component",
-            "title": "Čist kod koji traje",
-            "description": "Pregledan, tipiziran i dokumentovan kod — lako se održava i nadograđuje i godinama posle lansiranja."
-          },
-          {
-            "icon": "layout",
-            "title": "Sve stranice koje ti trebaju",
-            "description": "Početna, o nama, usluge, kontakt i blog — dizajnirane i prilagođene svakom ekranu od prvog dana."
-          },
-          {
-            "icon": "palette",
-            "title": "Dizajn koji je samo tvoj",
-            "description": "Izgled skrojen po tvom brendu, sa svetlom i tamnom temom u paketu."
+            "icon": "award",
+            "title": "Iskustvo sa terena",
+            "description": "Više od 13 godina i više od 1.000 poslova u coiled tubing i azotnim operacijama."
           },
           {
             "icon": "book-open",
-            "title": "Sadržaj koji lako menjaš",
-            "description": "Blog i sadržaj koji se pišu i ažuriraju bez muke."
+            "title": "Dokumentovana logika",
+            "description": "Formule, pretpostavke i odluke su zapisane, da se rezultati mogu proveriti."
           },
           {
-            "icon": "image",
-            "title": "Portfolio koji prodaje",
-            "description": "Galerije i stranice projekata koje tvoj rad pokazuju u najboljem svetlu i lako se dele."
-          },
-          {
-            "icon": "globe",
-            "title": "Sajt na više jezika",
-            "description": "Više jezika kad ti zatreba, ugrađeno od starta — i ništa ne košta dok ga ne koristiš."
-          },
-          {
-            "icon": "search",
-            "title": "Brza pretraga sajta",
-            "description": "Pretraga koja radi trenutno, pa posetioci nađu šta im treba bez čekanja."
-          },
-          {
-            "icon": "trending-up",
-            "title": "SEO od prvog dana",
-            "description": "Meta podaci, sitemap, strukturirani podaci i slike za deljenje na mrežama — sve kako treba od prvog dana."
+            "icon": "component",
+            "title": "Čist kod koji se može ponovo koristiti",
+            "description": "Dobro strukturiran, tipiziran i dokumentovan, da ostane lak za održavanje i proširenje."
           },
           {
             "icon": "server",
-            "title": "Forme koje stvarno rade",
-            "description": "Kontakt i newsletter forme zaštićene od spama, plus jednostavan put do hostinga i objave."
+            "title": "Podrazumevano u oblaku",
+            "description": "Softver koji radi na serveru i otvara se u pregledaču, bez instalacije."
+          },
+          {
+            "icon": "layout",
+            "title": "Jasan tehnički sadržaj",
+            "description": "Stranice, dokumentacija i studije slučaja raspoređeni tako da tehnički čitaoci brzo nađu ono što traže."
+          },
+          {
+            "icon": "zap",
+            "title": "Brzi sajtovi kada ti trebaju",
+            "description": "Astro sajtovi po meri, napravljeni da se brzo učitavaju i dobro rangiraju, kao posebna usluga."
           }
         ]
       },
@@ -686,7 +684,7 @@
         "items": [
           { "icon": "zap", "title": "Brzina na prvom mestu", "description": "Svaki sajt optimizujem za brzinu i Core Web Vitals od prve linije koda." },
           { "icon": "award", "title": "Pravljeno da traje", "description": "Čist, tipiziran kod i pametna podešavanja koja se lako održavaju i posle lansiranja." },
-          { "icon": "rocket", "title": "Moderni alati", "description": "Astro, Tailwind CSS i čista arhitektura koja lako raste zajedno sa tvojim potrebama." }
+          { "icon": "award", "title": "Inženjerska disciplina", "description": "Prvo zahtevi, pa dizajn, pa kod. Svaki broj i svaka tvrdnja proverava se pre objave." }
         ]
       },
       "stack": {
@@ -703,7 +701,7 @@
             "icon": "user",
             "title": "O meni",
             "items": [
-              { "question": "Kakve projekte radiš?", "answer": "Sajtove za firme, sisteme koji donose upite i klijente, i platforme zasnovane na podacima — praktično sve što biznisu u razvoju treba na internetu." },
+              { "question": "Kakve projekte radiš?", "answer": "Sajtovi, softver po meri i platforme zasnovane na podacima za tehničke i inženjerske firme, plus klasičan web dizajn za firme svake veličine." },
               { "question": "Sa kojim tehnologijama radiš?", "answer": "Sa modernim, brzim alatima: Astro, TypeScript i Tailwind CSS za frontend, plus cloud i automatizacija kad projekat to traži." },
               { "question": "Radiš li sa klijentima iz drugih gradova i zemalja?", "answer": "Naravno. Većina projekata ide preko telefona, video poziva i email-a, a vremenske zone su retko problem." },
               { "question": "Imaš li trenutno vremena za nove projekte?", "answer": "Uglavnom imam — pogledaj oznaku na početnoj ili mi samo pošalji poruku, pa ću ti iskreno reći." }
@@ -741,15 +739,15 @@
     "services": {
       "meta": {
         "title": "Usluge — izrada sajtova, web dizajn i SEO optimizacija",
-        "description": "Izrada sajtova, web dizajn, SEO i praćenje upita: brzi Astro sajtovi po meri sa mesečnim izveštajima. Besplatne konsultacije, jasna ponuda, fiksna cena."
+        "description": "Web dizajn, razvoj, optimizacija i praćenje za tehničke firme, od inženjera. Brzi Astro sajtovi po meri, prvi razgovor je besplatan, jedna ponuda, jedna fiksna cena."
       },
       "includedLabel": "Šta dobijaš",
       "hero": {
         "badge": "Usluge",
-        "titleLead": "Izrada sajtova, web dizajn",
-        "titleHighlight": "i SEO optimizacija",
-        "description": "Četiri usluge, jedan rezultat: moderan i brz sajt po meri, na koji ćeš biti ponosan, i jasni brojevi o tome šta ti donosi.",
-        "jumpLabels": ["Web dizajn", "Izrada sajtova", "SEO optimizacija", "Praćenje i izveštaji"]
+        "titleLead": "Inženjerski softver,",
+        "titleHighlight": "web razvoj i dizajn",
+        "description": "Softver i sajtovi po meri za tehničke firme, od inženjera: jasni zahtevi, proverene brojke i brz rezultat na koji si ponosan.",
+        "jumpLabels": ["Web dizajn", "Softver i razvoj", "Web optimizacija", "Podaci i izveštaji"]
       },
       "design": {
         "badge": "Dizajn",
@@ -784,9 +782,9 @@
       },
       "development": {
         "badge": "Izrada",
-        "heading": "Izrada sajtova",
+        "heading": "Razvoj softvera i weba",
         "paragraphs": [
-          "Izrada sajta je pretvaranje dizajna u kod koji radi u pregledaču tvojih posetilaca.",
+          "Razvoj je izgradnja tvog sistema: zahtevi i dizajn postaju kod koji pouzdano radi, u pregledaču ili iza njega.",
           "Radim u Astro-u, modernom framework-u na kom rade neki od najbržih sajtova na internetu. Zato se tvoj sajt brzo učitava, bezbedan je i lako se održava godinama. I tvoj je od prvog dana — kod, domen i hosting su na tvoje ime."
         ],
         "included": [
@@ -845,28 +843,28 @@
         "ctaLabel": "Započni projekat"
       },
       "reporting": {
-        "badge": "Praćenje i izveštaji",
-        "heading": "Praćenje upita i mesečni izveštaji",
+        "badge": "Podaci i izveštaji",
+        "heading": "Merenje onoga što sajt radi",
         "paragraphs": [
-          "Sajt ima smisla samo ako ti donosi klijente. Zato svaki sajt koji napravim može tačno da pokaže šta donosi: svaki popunjen upit, svaki klik na tvoj broj telefona, svaku WhatsApp poruku, i odakle je svaka od tih osoba došla.",
-          "Svaki upit stiže ti na email čim je poslat, sa svim podacima i odgovorom na jedan klik. Jednom mesečno dobijaš jasan PDF izveštaj: posetioci, upiti, pozivi i koji oglasi, pretrage i stranice zaista pretvaraju posetioce u kupce. Bez naloga, bez komplikovanih panela i bez podešavanja Google Analytics-a."
+          "Sajt je sistem, a sistem treba meriti. Postavljam jednostavno praćenje koje poštuje privatnost, da vidiš koliko ljudi dolazi, koje stranice čitaju i odakle stižu.",
+          "Jednom mesečno dobijaš kratak PDF izveštaj na običnom jeziku. Bez logovanja, bez dashboard-a koje treba učiti, bez podešavanja Google Analytics-a."
         ],
         "included": [
           {
-            "lead": "Svaki upit na email",
-            "text": "cela forma, stranica sa koje je poslata i oglas ili pretraga koja je dovela posetioca, odmah u tvom inboksu."
+            "lead": "Posete i stranice",
+            "text": "vidi koliko ljudi dolazi i koje stranice zaista čitaju."
           },
           {
-            "lead": "Brojanje poziva",
-            "text": "klikovi na broj telefona, WhatsApp i SMS beleže se kao konverzije i ne gube se."
+            "lead": "Poruke na email",
+            "text": "svaka poruka iz forme stiže u tvoj inbox, zajedno sa stranicom sa koje je poslata."
           },
           {
-            "lead": "Znaš šta radi",
-            "text": "vidiš koji izvor (Google, Facebook oglasi, direktne posete) donosi posete, upite i pozive, i sa kojom stopom."
+            "lead": "Znaj šta radi",
+            "text": "vidi koji izvor dovodi posetioce: pretraga, društvene mreže ili direktni dolasci."
           },
           {
             "lead": "Mesečni PDF izveštaj",
-            "text": "jasne strane, jednostavnim jezikom, na srpskom ili engleskom, spremne da ih podeliš sa timom ili partnerima."
+            "text": "jasne stranice na običnom jeziku, na engleskom ili srpskom, spremne za deljenje sa timom."
           },
           {
             "lead": "Bez kolačića",
@@ -876,23 +874,23 @@
         "imageAlt": "Primer mesečnog izveštaja o sajtu: posetioci, upiti, pozivi, stopa konverzije, grafikon po danu i izvori poseta.",
         "imageCaption": "Primer mesečnog izveštaja (demo podaci).",
         "benefits": {
-          "heading": "Šta ti to donosi",
-          "lead": "Većina malih firmi plaća sajt i oglase, a ne zna šta dobija zauzvrat. Praćenje to pretvara u brojeve na osnovu kojih možeš da odlučuješ.",
+          "heading": "Šta to znači za tvoj projekat",
+          "lead": "Brojevi pretvaraju mišljenja u odluke. Praćenje pokazuje šta sajt radi, da ga poboljšaš na osnovu činjenica.",
           "items": [
             {
               "icon": "target",
-              "title": "Novac ide tamo gde radi",
-              "description": "Vidiš koji oglasi i pretrage donose pozive i upite, pa budžet ulažeš u kanale koji se isplate, a ne u one koji donose samo klikove."
+              "title": "Odluke na osnovu činjenica",
+              "description": "Vidi koje stranice i izvori privlače pažnju i poboljšaj ono što je bitno."
             },
             {
               "icon": "inbox",
-              "title": "Nijedan upit se ne gubi",
-              "description": "Svaki upit odmah stiže na email sa odgovorom na jedan klik, a svaki poziv sa sajta je zabeležen."
+              "title": "Ništa se ne gubi",
+              "description": "Svaka poruka stiže odmah u tvoj inbox, sa odgovorom jednim klikom."
             },
             {
               "icon": "trending-up",
-              "title": "Dokaz da se sajt isplati",
-              "description": "Mesečni izveštaj pokazuje kako posetioci postaju klijenti, u brojevima koje možeš da pokažeš partnerima ili knjigovođi."
+              "title": "Prati napredak",
+              "description": "Mesečni izveštaj pokazuje kako sajt raste, u brojevima koje možeš da podeliš."
             },
             {
               "icon": "shield-check",
@@ -918,9 +916,9 @@
             "description": "Blog tekstovi i stranice usluga koji odgovaraju na pitanja koja tvoji klijenti već kucaju u Google, pa ti sajt donosi posete i dugo posle lansiranja."
           },
           {
-            "icon": "megaphone",
-            "title": "Marketing na društvenim mrežama",
-            "description": "Instagram i Facebook kampanje sa pravim praćenjem konverzija, pa se svaki post i oglas meri rezervacijama, a ne lajkovima."
+            "icon": "wrench",
+            "title": "Softver po meri",
+            "description": "Interni alati, dashboard-i i obrada podataka za tehničke timove, sa dokumentovanom logikom da se rezultati mogu proveriti."
           },
           {
             "icon": "sparkles",
@@ -933,9 +931,9 @@
             "description": "Paketi sa unapred definisanim obimom za firme koje tačno znaju šta im treba: jasna cena, jasan rezultat i bez dugog dogovaranja."
           },
           {
-            "icon": "target",
-            "title": "Google Ads oglašavanje",
-            "description": "Google Ads kampanje koje vodim od A do Ž — budžet, ključne reči i stranice na koje oglasi vode — i merim ih cenom po dobijenom poslu, a ne po kliku."
+            "icon": "book-open",
+            "title": "Tehničko pisanje",
+            "description": "Jasni članci i dokumentacija o inženjerskim temama, koje piše inženjer, da tvoja stručnost bude lako pronađena i lako poverljiva."
           },
           {
             "icon": "gem",
@@ -992,8 +990,8 @@
             "title": "Više od sajta",
             "items": [
               { "question": "Radiš li grafički dizajn ili brending posebno?", "answer": "Radim. Logo, vizuelni identitet ili stalni grafički dizajn možeš da dobiješ i bez izrade sajta — samo mi reci na prvom razgovoru šta ti treba." },
-              { "question": "Vodiš li plaćene oglase, recimo Google Ads?", "answer": "Vodim, od A do Ž: strukturu kampanja, budžet, ključne reči usklađene sa landing stranicama i praćenje konverzija, pa tačno vidiš šta ti budžet donosi." },
-              { "question": "Možeš li da vodiš društvene mreže?", "answer": "Mogu — Instagram i Facebook kampanje sa pravim praćenjem konverzija, pa se rezultati mere rezervacijama i upitima, a ne samo lajkovima." },
+              { "question": "Da li praviš softver po meri?", "answer": "Da: interne alate, dashboard-e i obradu podataka za tehničke timove. Prvo zajedno definišemo zahteve, zatim ga pravim i dokumentujem." },
+              { "question": "Pišeš li i tehničke tekstove?", "answer": "Da: članke i dokumentaciju o inženjerskim temama, koje piše neko ko je taj posao radio na terenu." },
               { "question": "Šta je to GEO, odnosno AI SEO?", "answer": "To je posao da AI asistenti i AI pretraga — ChatGPT, Google AI Overviews i slični — tačno razumeju tvoj sajt i preporučuju tvoju firmu, uz klasičan SEO." },
               { "question": "Imaš li pakete sajtova po fiksnoj ceni?", "answer": "Imam, za firme koje tačno znaju šta im treba: paket drži cenu i rezultat fiksnim od samog početka, bez dugog dogovaranja." }
             ]
@@ -1021,64 +1019,219 @@
     },
     "contact": {
       "meta": {
-        "title": "Besplatna provera sajta",
-        "description": "Saznaj šta ti sajt gubi. Ispričaj mi o svom biznisu i u roku od jednog radnog dana dobijaš iskren pregled brzine, SEO-a i upita. Besplatno."
+        "title": "Kontakt",
+        "description": "Inženjerske konsultacije, projekti, softver u oblaku ili sajt: reci mi šta ti treba. Odgovaram u roku od jednog radnog dana."
       },
       "hero": {
-        "badge": "Besplatna provera sajta",
-        "titleLead": "Tvoj sajt ti možda gubi klijente",
-        "titleHighlight": "baš sada",
-        "description": "Spore stranice, sakriven telefon i upiti koje niko ne vidi koštaju te poslova, a upozorenja nema. Ispričaj mi o svom biznisu i pokazaću ti tačno gde klijenti odlaze. Besplatno, bez obaveze."
+        "badge": "Kontakt",
+        "titleLead": "Reci mi na čemu",
+        "titleHighlight": "radiš",
+        "description": "Inženjerske konsultacije i projekti, softver i alati u oblaku ili sajt. Dovoljna je kratka poruka; odgovaram u roku od jednog radnog dana."
       },
-      "painTitle": "Gde klijenti odlaze",
-      "risks": [
-        { "icon": "hourglass", "title": "Spore stranice", "text": "Posetioci odu pre nego što vide tvoj broj." },
-        { "icon": "search-x", "title": "Nevidljivost na Google-u", "text": "Poziv koji je trebalo da bude tvoj odlazi konkurenciji." },
-        { "icon": "mail-x", "title": "Upiti bez odgovora", "text": "Dok odgovoriš, klijent je već pozvao nekog drugog." }
+      "helpTitle": "Čime mogu da pomognem",
+      "help": [
+        {
+          "icon": "award",
+          "title": "Konsultacije i projekti",
+          "text": "Inženjerske konsultacije i projekti za naftnu i gasnu industriju."
+        },
+        {
+          "icon": "code",
+          "title": "Softver i alati",
+          "text": "Softver u oblaku i inženjerski alati za tehničke B2B firme."
+        },
+        {
+          "icon": "layout",
+          "title": "Web razvoj",
+          "text": "Brzi sajtovi i veb sistemi, kao posebna usluga."
+        }
       ],
-      "offerTitle": "Šta dobijaš besplatno",
+      "nextTitle": "Šta sledi",
+      "next": [
+        "Odgovaram u roku od jednog radnog dana.",
+        "Kratko razgovaramo da definišemo šta ti treba. Besplatno je i bez obaveza.",
+        "Dobijaš jednu jasnu ponudu sa obimom posla, rokom i fiksnom cenom."
+      ],
+      "facts": [
+        {
+          "value": "13+",
+          "label": "godina u inženjerstvu"
+        },
+        {
+          "value": "1.000+",
+          "label": "poslova na terenu"
+        },
+        {
+          "value": "< 1 dan",
+          "label": "do odgovora"
+        }
+      ],
       "emailLabel": "Email",
-      "preferEmail": "Više voliš email? Piši na"
+      "preferEmail": "Više voliš email? Piši na",
+      "form": {
+        "badge": "Upit za projekat",
+        "heading": "Reci mi o svom projektu",
+        "lead": "Tri kratka koraka, manje od minuta. Odgovaram u roku od jednog radnog dana.",
+        "stepLabels": [
+          "Šta ti treba",
+          "Tvoja firma",
+          "Tvoj kontakt"
+        ],
+        "stepCount": "Korak {current} od {total}",
+        "serviceLegend": "Šta ti treba?",
+        "services": [
+          {
+            "value": "consulting",
+            "icon": "award",
+            "label": "Inženjerske konsultacije"
+          },
+          {
+            "value": "project",
+            "icon": "layers",
+            "label": "Projekat"
+          },
+          {
+            "value": "software",
+            "icon": "code",
+            "label": "Softver ili inženjerski alati"
+          },
+          {
+            "value": "web",
+            "icon": "layout",
+            "label": "Sajt ili veb sistem"
+          },
+          {
+            "value": "other",
+            "icon": "message-circle",
+            "label": "Nešto drugo"
+          }
+        ],
+        "websiteLabel": "Sajt firme (opciono)",
+        "websitePlaceholder": "tvojafirma.rs",
+        "businessLabel": "Firma i delatnost",
+        "businessPlaceholder": "npr. naftni servisi, rudarska kompanija",
+        "timelineLegend": "Kada želiš da počnemo?",
+        "timelines": [
+          {
+            "value": "asap",
+            "label": "Što pre"
+          },
+          {
+            "value": "1-3-months",
+            "label": "Za 1–3 meseca"
+          },
+          {
+            "value": "exploring",
+            "label": "Samo se informišem"
+          }
+        ],
+        "nameLabel": "Tvoje ime",
+        "emailLabel": "Email",
+        "phoneLabel": "Telefon (opciono)",
+        "messageLabel": "Još nešto što treba da znam? (opciono)",
+        "next": "Nastavi",
+        "back": "Nazad",
+        "submit": "Pošalji upit",
+        "sending": "Šaljem…",
+        "chooseService": "Izaberi šta ti treba da nastaviš.",
+        "required": "Unesi ime i ispravnu email adresu.",
+        "privacy": "Podaci se koriste samo da ti odgovorim. Bez newslettera i bez deljenja.",
+        "promise": "Odgovor u roku od jednog radnog dana",
+        "successTitle": "Hvala — upit je stigao!",
+        "successText": "Pročitaću ga i odgovoriti u roku od jednog radnog dana sa konkretnim sledećim koracima. Proveri inbox.",
+        "error": "Nešto je pošlo naopako. Pokušaj ponovo ili mi piši direktno."
+      }
     },
-    "home": {
+    "web": {
       "meta": {
-        "title": "Izrada sajtova i web dizajn",
-        "description": "Izrada sajtova, sistema za prikupljanje upita i platformi zasnovanih na podacima — brzo, moderno i sa fokusom na rezultate tvog biznisa."
+        "title": "Web razvoj",
+        "description": "Brzi Astro sajtovi po meri i veb sistemi za inženjerske i tehničke B2B firme, od inženjera. Dizajn, razvoj, optimizacija i praćenje."
       },
       "hero": {
-        "badge": "Dostupan za nove projekte",
-        "titleLine1": "Mr.\u00a0Petković",
-        "titleLine2": "Web dizajner",
-        "titleLine3": "i developer",
-        "description": "Izrada sajtova, sistema za prikupljanje upita i platformi zasnovanih na podacima — na modernoj tehnologiji, sa fokusom na rezultate tvog biznisa.",
-        "descriptionMobile": "Izrada sajtova, sistema za prikupljanje upita i platformi zasnovanih na podacima, sa fokusom na rezultate tvog biznisa.",
+        "badge": "Web razvoj",
+        "titleLead": "Sajtovi i veb sistemi",
+        "titleHighlight": "za tehničke firme",
+        "description": "Dizajn, razvoj i optimizacija od inženjera koji poznaje industriju. Jedna fiksna cena, a sve na tvoje ime.",
         "primaryCta": "Javi se",
-        "secondaryCta": "Pogledaj radove",
-        "videoPlay": "Pusti sa zvukom",
-        "videoLabel": "Video predstavljanje"
+        "secondaryCta": "Sve usluge"
       },
       "services": {
         "badge": "Čime se bavim",
         "heading": "Web dizajn, izrada sajtova i SEO",
         "lead": "Sve tri usluge u svakom projektu.",
-        "learnMore": "Saznaj više",
         "cards": [
-          { "icon": "layout", "title": "Web dizajn", "description": "Pregledan i moderan dizajn, prilagođen tvom brendu, sadržaju i načinu na koji ljudi stvarno koriste sajt." },
-          { "icon": "code", "title": "Izrada sajtova", "description": "Sajtovi koji traju. Astro, Tailwind i čist kod: brzi od prvog dana i laki za održavanje i godinama kasnije." },
-          { "icon": "trending-up", "title": "SEO optimizacija", "description": "SEO, brzina učitavanja i pristupačnost ugrađeni od starta, da sajt bude dobro pozicioniran na Google-u i radi za svakog posetioca." }
+          {
+            "icon": "layout",
+            "title": "Web dizajn",
+            "description": "Pregledan i moderan dizajn, prilagođen tvom brendu, sadržaju i načinu na koji ljudi stvarno koriste sajt."
+          },
+          {
+            "icon": "code",
+            "title": "Izrada sajtova",
+            "description": "Sajtovi koji traju. Astro, Tailwind i čist kod: brzi od prvog dana i laki za održavanje i godinama kasnije."
+          },
+          {
+            "icon": "trending-up",
+            "title": "SEO optimizacija",
+            "description": "SEO, brzina učitavanja i pristupačnost ugrađeni od starta, da sajt bude dobro pozicioniran na Google-u i radi za svakog posetioca."
+          }
+        ]
+      }
+    },
+    "home": {
+      "meta": {
+        "title": "Inženjer i Digital Architect",
+        "description": "Inženjerske konsultacije i projekti za naftnu i gasnu industriju, uz softver u oblaku i inženjerske alate za tehničke B2B firme — gradi ih priznati inženjer."
+      },
+      "hero": {
+        "badge": "Dostupan za nove projekte",
+        "titleLine1": "Stojan\u00a0Petković",
+        "titleLine2": "Inženjer\u00a0i",
+        "titleLine3": "Digital\u00a0Architect",
+        "description": "Inženjerske konsultacije i projekti za naftnu i gasnu industriju. Za tehničke B2B firme pravim softver u oblaku i inženjerske alate.",
+        "descriptionMobile": "Inženjerske konsultacije i projekti za naftu i gas, i softver u oblaku za tehničke B2B firme.",
+        "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Zvanje odobrila Bavarska inženjerska komora (2026)", "docTitle": "Rešenje Bavarske inženjerske komore", "docAlt": "Sken rešenja o odobravanju zvanja Ingenieur, lični podaci su precrtani"}, {"icon": "shield-check", "tag": "RS", "title": "Položen stručni ispit (2019)", "text": "Eksploatacija mineralnih sirovina, Srbija", "docTitle": "Uverenje o položenom stručnom ispitu", "docAlt": "Sken uverenja o stručnom ispitu položenom u Srbiji, lični podaci su precrtani"}],
+        "credentialsDialog": {"close": "Zatvori", "note": "Lični podaci su precrtani.", "hint": "Pogledaj dokument", "zoom": "Dodirni stranicu za uvećanje ili umanjenje."},
+        "qualifications": {"label": "Kvalifikacije i obuke", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Diplomirani inženjer rudarstva", "text": "Univerzitet u Beogradu · tečne i gasovite mineralne sirovine"}, {"icon": "shield-check", "year": "2020", "title": "Evropska direktiva o mašinama", "text": "Obuka o bezbednosti mašina · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Upravljanje tehnologijom (STM)", "text": "System of Technology Management, korporativni program"}, {"icon": "users", "year": "2018", "title": "Akademija liderstva", "text": "Upravljanje ljudima, niži menadžment · Mokra Gora School of Management"}]},
+        "primaryCta": "Javi se",
+        "secondaryCta": "Pogledaj na čemu radim",
+        "videoPlay": "Pusti sa zvukom",
+        "videoLabel": "Video predstavljanje"
+      },
+      "services": {
+        "badge": "Fokus",
+        "heading": "Industrijski projekti, kursevi i softver",
+        "lead": "Tri oblasti, jedan inženjer. Sadržaj se priprema i biće objavljen ovde.",
+        "learnMore": "Reci mi šta ti treba",
+        "status": "U pripremi",
+        "cards": [
+          { "icon": "layers", "title": "Industrijski projekti", "description": "Studije slučaja iz coiled tubing i azotnih operacija, pisane za inženjere.", "points": ["Projektovanje posla i razlozi iza njega", "Šta je planirano, šta se desilo, šta se promenilo", "Jasan jezik, sa prikazanim brojevima"] },
+          { "icon": "book-open", "title": "Kursevi", "description": "Praktična obuka iz coiled tubing-a, od osnova na terenu do projektovanja poslova.", "points": ["Osnove za ekipe i mlade inženjere", "Proračuni korak po korak, sa urađenim primerima", "Svojim tempom, sa materijalom koji ostaje"] },
+          { "icon": "code", "title": "Inženjerski softver", "description": "Alati i softver po meri u oblaku za tehničke timove. Sve radi na serveru i otvara se u pregledaču, bez instalacije.", "points": ["Kalkulatori i alati za svakodnevni rad na terenu i u kancelariji", "Interni dashboard-i i obrada podataka", "Industrijski softver po meri, izrađen po narudžbini"] }
         ]
       },
       "workWithMe": {
         "badge": "Zašto ja",
-        "heading": "Sajt koji radi za tebe",
-        "lead": "Evo šta dobijaš uz saradnju sa mnom.",
+        "heading": "Zašto raditi sa inženjerom",
+        "lead": "Šta dobijaš kada onaj ko pravi rešenje taj posao zaista radio na terenu.",
         "cards": [
-          { "icon": "palette", "title": "Dizajn po meri", "description": "Skrojen po tvom biznisu, sadržaju i klijentima." },
-          { "icon": "zap", "title": "Brz sajt", "description": "Stranice se otvaraju odmah, na svakom telefonu i svakoj konekciji." },
-          { "icon": "search", "title": "Vidljiv na Google-u i u AI pretrazi", "description": "Svaka stranica je napravljena tako da je pretraživači i AI asistenti lako čitaju — a klijenti lako nalaze tebe." },
-          { "icon": "shield-check", "title": "Održavanje sajta", "description": "Uz mesečno održavanje sajt je uvek ažuran i bezbedan, a ti se baviš svojim poslom." }
+          { "icon": "award", "title": "Iskustvo sa terena", "description": "Više od 13 godina i više od 1.000 poslova u coiled tubing i azotnim operacijama." },
+          { "icon": "shield-check", "title": "Proverene brojke", "description": "Proračuni se proveravaju, a pretpostavke zapisuju." },
+          { "icon": "book-open", "title": "Dokumentovana logika", "description": "Formule i odluke su objašnjene, da se rezultati mogu proveriti." },
+          { "icon": "globe", "title": "Zvanje Ingenieur", "description": "Odobrila Bavarska inženjerska komora, 2026." }
         ],
         "cta": "Pogledaj sve usluge"
+      },
+      "webGateway": {
+        "badge": "Web razvoj",
+        "heading": "Sajtovi za tehničke firme",
+        "lead": "Poseban servis uz inženjerski rad: brzi Astro sajtovi i veb sistemi za inženjerske i tehničke B2B firme.",
+        "items": [
+          "Web dizajn",
+          "Web razvoj",
+          "Optimizacija i praćenje"
+        ],
+        "cta": "Idi na web razvoj"
       },
       "portfolio": {
         "badge": "Portfolio",
@@ -1097,16 +1250,18 @@
       },
       "aboutTeaser": {
         "badge": "O meni",
-        "headingLine1": "Dizajner, developer",
-        "headingLine2": "i inženjer.",
-        "para1WithLocation": "Šesnaest godina iskustva u praksi, baza mi je {location}, a radim sa klijentima iz celog sveta. Radim u Astro-u jer se poklapa sa tim kako ja gledam na web: jednostavno, svrsishodno i napravljeno da traje.",
-        "para1NoLocation": "Šesnaest godina iskustva u praksi i klijenti iz celog sveta. Radim u Astro-u jer se poklapa sa tim kako ja gledam na web: jednostavno, svrsishodno i napravljeno da traje.",
-        "para2": "Na blogu pišem o SEO-u, AI pretrazi i tome kako sajt može da ti donese više klijenata.",
+        "headingLine1": "Prvo inženjer,",
+        "headingLine2": "zatim developer.",
+        "para1WithLocation": "Rudarski inženjer sa više od 13 godina iskustva u radu na naftnim bušotinama i titulom Ingenieur koju je odobrila Bavarska inženjerska komora. Sa sedištem u {location}, dostupan za klijente širom sveta. Softver i veb sisteme pravim onako kako vodim posao na terenu: prvo zahtevi, brojke provereno, ništa nedokumentovano.",
+        "para1NoLocation": "Rudarski inženjer sa više od 13 godina iskustva u radu na naftnim bušotinama i titulom Ingenieur koju je odobrila Bavarska inženjerska komora. Dostupan za klijente širom sveta. Softver i veb sisteme pravim onako kako vodim posao na terenu: prvo zahtevi, brojke provereno, ništa nedokumentovano.",
+        "para2": "Na blogu delim ideje i odluke iza mog inženjerskog i softverskog rada.",
         "moreAboutMe": "Više o meni",
         "statsIntro": "Par stvari o meni.",
-        "stat1": "16 godina iskustva",
-        "stat2": "Radim u Astro-u",
+        "stat1": "13+ godina u inženjerstvu",
+        "stat2": "1.000+ poslova na terenu",
         "stat3": "Klijenti iz celog sveta",
+        "stat4": "2 države kvalifikacija",
+        "facts": [{"icon": "wrench", "label": "Specijalnost", "value": "Coiled tubing i azotne operacije"}, {"icon": "graduation-cap", "label": "Obrazovanje", "value": "Dipl. inženjer rudarstva, Univerzitet u Beogradu (2010)"}, {"icon": "globe", "label": "Dostupnost", "value": "Širom sveta, vremenska zona CET"}, {"icon": "clock", "label": "Odgovor", "value": "U roku od jednog radnog dana"}],
         "basedIn": "Baza:"
       },
       "blog": {

@@ -45,7 +45,24 @@ export function createPersonSchema(locale: Locale = defaultLocale): WithContext<
     '@context': 'https://schema.org',
     '@type': 'Person',
     ...brandName(locale),
-    jobTitle: 'Web Designer & Developer',
+    jobTitle: 'Engineer',
+    description: siteConfig.description,
+    alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Belgrade' },
+    hasCredential: [
+      {
+        '@type': 'EducationalOccupationalCredential',
+        name: 'Ingenieur',
+        credentialCategory: 'Professional title',
+        recognizedBy: { '@type': 'Organization', name: 'Bayerische Ingenieurekammer-Bau' },
+      },
+    ],
+    knowsAbout: [
+      'Coiled tubing',
+      'Nitrogen operations',
+      'Oil and gas engineering',
+      'Cloud-based industrial software',
+      'Web development',
+    ],
     url: siteConfig.url,
     email: siteConfig.email,
     ...(siteConfig.authorImage ? { image: `${siteConfig.url}${siteConfig.authorImage}` } : {}),
@@ -85,6 +102,11 @@ export function createProfessionalServiceSchema(locale: Locale = defaultLocale):
           },
         }
       : {}),
+    description: siteConfig.description,
+    makesOffer: ['Engineering consulting', 'Industrial software development', 'Web development'].map((name) => ({
+      '@type': 'Offer' as const,
+      itemOffered: { '@type': 'Service' as const, name },
+    })),
     areaServed: [{ '@type': 'Country', name: 'Worldwide' }],
     sameAs: siteConfig.socialLinks,
   };

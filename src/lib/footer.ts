@@ -1,5 +1,6 @@
 import { getFooterNavItems, footerLinkGroups, resolveNavItem } from '@/config/nav.config';
 import { getPublishedPosts, collectTopTags, getTagUrl } from '@/lib/blog';
+import { isEngineeringTag } from '@/lib/engineering';
 import { getVisibleProjects, getProjectUrl } from '@/lib/projects';
 import { defaultLocale, t } from '@/i18n';
 import type { FooterLinkGroup } from '@/components/layout/Footer.astro';
@@ -44,7 +45,11 @@ export async function getDerivedFooterGroups(
   // time — a footer full of a site's own subjects reads better than a footer
   // full of its section names twice over.
   const posts = await getPublishedPosts(locale);
-  const topics = collectTopTags(posts, TOPICS_LIMIT).map((tag) => ({
+  // Only engineering tags: the web and marketing tags stay on the blog.
+  const topics = collectTopTags(posts, 50)
+    .filter(isEngineeringTag)
+    .slice(0, TOPICS_LIMIT)
+    .map((tag) => ({
     label: tag,
     href: getTagUrl(tag, locale),
   }));
