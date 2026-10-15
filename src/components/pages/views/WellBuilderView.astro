@@ -13,6 +13,7 @@ import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
 import siteConfig from '@/config/site.config';
+import { SIGN_PRINTS } from '@/lib/tools/print';
 import { ITEM_TYPES } from '@/lib/tools/well/model';
 
 interface Props {
@@ -46,13 +47,13 @@ const toolsUrl = localizedPath('/tools', locale);
 
 <PageLayout title={t(p('meta.title'), locale)} description={t(p('meta.description'), locale)} footerBackground="secondary">
   <!-- Print only: the report header with the site's name, mark and address. -->
-  <div class="tool-print-head" aria-hidden="true">
+  {SIGN_PRINTS && (<div class="tool-print-head" aria-hidden="true">
     <img src={siteConfig.branding.logo.image} alt="" width="36" height="36" />
     <div>
       <p class="tool-print-site">{siteConfig.name}</p>
       <p class="tool-print-url" data-print-url></p>
     </div>
-  </div>
+  </div>)}
   <h1 class="tool-print-title">{copy.print.title}</h1>
 
   <section class="web-head border-b border-border pb-10 pt-14 sm:pt-16">
@@ -84,10 +85,15 @@ const toolsUrl = localizedPath('/tools', locale);
         </label>
         <button type="button" id="wb-export" class="wb-link">{data.export}</button>
         <button type="button" id="wb-reset" class="wb-link">{data.reset}</button>
-        <button type="button" id="wb-print" class="wb-link inline-flex items-center gap-1.5">
-          <Icon name="download" size="xs" />
-          {copy.print.button}
-        </button>
+        <span class="inline-flex flex-wrap items-center gap-x-4 gap-y-1">
+          <button type="button" id="wb-print" class="wb-link inline-flex items-center gap-1.5">
+            <Icon name="download" size="xs" />
+            {copy.print.button}
+          </button>
+          <span class="text-xs text-foreground-subtle">{copy.print.include}</span>
+          <label class="inline-flex items-center gap-1.5 text-xs text-foreground-muted"><input type="checkbox" id="wb-print-data" checked /> {copy.print.optionData}</label>
+          <label class="inline-flex items-center gap-1.5 text-xs text-foreground-muted"><input type="checkbox" id="wb-print-3d" checked /> {copy.print.option3d}</label>
+        </span>
         <span class="text-xs text-foreground-subtle">{data.note}</span>
       </div>
 
@@ -145,7 +151,7 @@ const toolsUrl = localizedPath('/tools', locale);
       </div>
 
       <!-- 3D view -->
-      <div class="mt-10">
+      <div class="wb-3d-section mt-10">
         <div class="flex flex-wrap items-end justify-between gap-3">
           <div>
             <h2 class="font-display text-xl font-bold text-foreground">{view.title}</h2>
@@ -169,7 +175,7 @@ const toolsUrl = localizedPath('/tools', locale);
         </p>
       </div>
 
-      <p id="wb-print-foot" data-note={`${t('pages.tools.note', locale)} ${data.sizes}`} class="wb-print-only wb-print-foot"></p>
+      <p id="wb-print-foot" data-signed={String(SIGN_PRINTS)} data-note={`${t('pages.tools.note', locale)} ${data.sizes}`} class="wb-print-only wb-print-foot"></p>
 
       <p class="wb-noprint-note mt-10 flex max-w-3xl items-start gap-2 text-xs leading-relaxed text-foreground-subtle">
         <Icon name="info" size="xs" class="mt-0.5 shrink-0" />

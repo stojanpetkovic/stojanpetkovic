@@ -228,7 +228,13 @@ export class WellBuilder {
     const date = new Intl.DateTimeFormat(lang, { dateStyle: 'long' }).format(new Date());
     document.querySelectorAll('[data-print-url]').forEach((el) => (el.textContent = url));
     const foot = this.root.querySelector<HTMLElement>('#wb-print-foot');
-    if (foot) foot.textContent = `${c.print.generated.replace('{url}', url).replace('{date}', date)} ${foot.dataset.note ?? ''}`;
+    if (foot) {
+      const signed = foot.dataset.signed === 'true' ? `${c.print.generated.replace('{url}', url).replace('{date}', date)} ` : '';
+      foot.textContent = `${signed}${foot.dataset.note ?? ''}`.trim();
+    }
+    // What goes into the report: the well data and the 3D view are optional, the schematic is always there.
+    this.root.classList.toggle('wb-print-no-data', !this.root.querySelector<HTMLInputElement>('#wb-print-data')?.checked);
+    this.root.classList.toggle('wb-print-no-3d', !this.root.querySelector<HTMLInputElement>('#wb-print-3d')?.checked);
 
     const table = this.root.querySelector<HTMLElement>('#wb-print-table');
     if (table) {

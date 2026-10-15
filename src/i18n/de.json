@@ -1540,7 +1540,10 @@
         "size": "Größe",
         "weight": "Gewicht",
         "length": "Länge",
-        "generated": "Erstellt auf {url} am {date}."
+        "generated": "Erstellt auf {url} am {date}.",
+        "include": "Im PDF:",
+        "optionData": "Bohrungsdaten",
+        "option3d": "3D-Ansicht"
       },
       "data": {
         "example": "Beispielbohrung laden",

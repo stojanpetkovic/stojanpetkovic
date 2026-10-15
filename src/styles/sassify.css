@@ -851,6 +851,9 @@ html:root[data-theme='blue'] .wb-ramp {
   body:has(#well-builder) .wb-print-components td { padding: 3pt 4pt; border-bottom: 1px solid #ccc; font-family: var(--font-mono, monospace); }
   body:has(#well-builder) .wb-summary { margin: 10pt 0; grid-template-columns: repeat(3, 1fr); }
   body:has(#well-builder) #wb-3d { display: none; }
+  body:has(#well-builder) .wb-print-no-data .wb-print-components,
+  body:has(#well-builder) .wb-print-no-data .wb-summary,
+  body:has(#well-builder) .wb-print-no-3d .wb-3d-section { display: none !important; }
   body:has(#well-builder) #wb-3d-print { width: 100%; height: auto; max-height: 120mm; object-fit: contain; }
   body:has(#well-builder) .wb-print-foot { margin-top: 14pt; padding-top: 6pt; border-top: 1px solid #999; font-size: 8pt; color: #444; }
 }

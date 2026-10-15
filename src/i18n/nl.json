@@ -1540,7 +1540,10 @@
         "size": "Maat",
         "weight": "Gewicht",
         "length": "Lengte",
-        "generated": "Gemaakt op {url} op {date}."
+        "generated": "Gemaakt op {url} op {date}.",
+        "include": "In de pdf:",
+        "optionData": "Putgegevens",
+        "option3d": "3D-weergave"
       },
       "data": {
         "example": "Voorbeeldput laden",

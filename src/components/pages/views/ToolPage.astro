@@ -12,6 +12,7 @@ import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import { t, tData, localizedPath } from '@/i18n';
 import siteConfig from '@/config/site.config';
+import { SIGN_PRINTS } from '@/lib/tools/print';
 
 interface Props {
   locale: string;
@@ -36,13 +37,13 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
 
 <PageLayout title={title} description={description} footerBackground="secondary">
   <!-- Print only: the report header with the site's name, mark and address. -->
-  <div class="tool-print-head" aria-hidden="true">
+  {SIGN_PRINTS && (<div class="tool-print-head" aria-hidden="true">
     <img src={siteConfig.branding.logo.image} alt="" width="36" height="36" />
     <div>
       <p class="tool-print-site">{siteConfig.name}</p>
       <p class="tool-print-url" data-print-url></p>
     </div>
-  </div>
+  </div>)}
   <h1 class="tool-print-title">{hero.title}</h1>
 
   <section class="web-head border-b border-border pb-10 pt-14 sm:pt-16">
@@ -125,7 +126,7 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
 
       <p
         class="tool-print-foot"
-        data-print-foot={t('pages.tools.form.printFoot', locale)}
+        data-print-foot={SIGN_PRINTS ? t('pages.tools.form.printFoot', locale) : ''}
         data-print-note={t('pages.tools.note', locale)}
       >
       </p>
@@ -178,7 +179,7 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
       const foot = document.querySelector<HTMLElement>('[data-print-foot]');
       if (foot) {
         const date = new Intl.DateTimeFormat(lang, { dateStyle: 'long' }).format(new Date());
-        foot.textContent = `${foot.dataset.printFoot?.replace('{url}', url).replace('{date}', date) ?? ''} ${foot.dataset.printNote ?? ''}`;
+        foot.textContent = `${foot.dataset.printFoot?.replace('{url}', url).replace('{date}', date) ?? ''} ${foot.dataset.printNote ?? ''}`.trim();
       }
     };
 

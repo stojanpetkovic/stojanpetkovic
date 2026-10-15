@@ -1540,7 +1540,10 @@
         "size": "Dimenzija",
         "weight": "Težina",
         "length": "Dužina",
-        "generated": "Napravljeno na {url}, {date}."
+        "generated": "Napravljeno na {url}, {date}.",
+        "include": "U PDF-u:",
+        "optionData": "Podaci o bušotini",
+        "option3d": "3D prikaz"
       },
       "data": {
         "example": "Učitaj primer bušotine",

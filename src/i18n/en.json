@@ -1540,7 +1540,10 @@
         "size": "Size",
         "weight": "Weight",
         "length": "Length",
-        "generated": "Created at {url} on {date}."
+        "generated": "Created at {url} on {date}.",
+        "include": "In the PDF:",
+        "optionData": "Well data",
+        "option3d": "3D view"
       },
       "data": {
         "example": "Load an example well",
