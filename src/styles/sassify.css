@@ -410,3 +410,13 @@ html:root[data-theme='blue'] .gateway-panel {
     );
   background-size: 24px 24px;
 }
+
+/* Web page header: a soft brand wash with a faint grid, quieter than the home hero. */
+html:root[data-theme='blue'] .web-head {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-brand-600) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-brand-600) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-brand-500) 10%, var(--background)), var(--background) 85%);
+  background-size: 32px 32px, 32px 32px, 100% 100%;
+}
