@@ -323,7 +323,7 @@ export class WellBuilder {
   private static DEFS = `<defs>
     <pattern id="wb-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#fff" stroke-opacity="0.4" stroke-width="1.1"/></pattern>
     <pattern id="wb-rubber" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#2b2b2b"/><path d="M0 0L5 5M5 0L0 5" stroke="#8a8a8a" stroke-width="0.7"/></pattern>
-    <pattern id="wb-ground" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#666" stroke-width="1"/></pattern>
+    <pattern id="wb-ground" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#222" stroke-width="1.3"/></pattern>
     <linearGradient id="wb-shine" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0.38"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.22"/></linearGradient>
   </defs>`;
 
@@ -384,10 +384,13 @@ export class WellBuilder {
       svg += `<text x="${CENTRE}" y="${TOP + 120}" text-anchor="middle" class="wb-empty">${esc(this.copy.canvas.empty)}</text>`;
     }
 
-    // Ground and wellhead.
-    svg += `<rect x="${LEFT}" y="${y0}" width="${CENTRE - widest / 2 + 6 - LEFT}" height="9" fill="url(#wb-ground)"/>`;
-    svg += `<rect x="${CENTRE + widest / 2 - 6}" y="${y0}" width="${CENTRE + widest / 2 - 6 - LEFT > 0 ? 44 : 0}" height="9" fill="url(#wb-ground)"/>`;
-    svg += `<line x1="${LEFT}" x2="${VIEW_W - 10}" y1="${y0}" y2="${y0}" stroke="${INK}" stroke-width="1.6"/>`;
+    // Ground and wellhead: a heavy surface line, hatched ground on both sides of the well and a label.
+    const groundLeft = LEFT + 4;
+    const groundRight = VIEW_W - 12;
+    svg += `<rect x="${groundLeft}" y="${y0}" width="${CENTRE - widest / 2 + 6 - groundLeft}" height="14" fill="url(#wb-ground)"/>`;
+    svg += `<rect x="${CENTRE + widest / 2 - 6}" y="${y0}" width="${groundRight - (CENTRE + widest / 2 - 6)}" height="14" fill="url(#wb-ground)"/>`;
+    svg += `<line x1="${LEFT}" x2="${VIEW_W - 10}" y1="${y0}" y2="${y0}" stroke="${INK}" stroke-width="2.6"/>`;
+    svg += `<text x="${CENTRE + widest / 2 + 48}" y="${y0 - 6}" class="wb-label wb-label-selected">${esc(this.copy.canvas.surface)}</text>`;
     const head = Math.max(34, widest * 0.3);
     svg += `<g class="wb-overlay" stroke="${INK}" stroke-width="0.8" fill="var(--color-foreground-muted)">`;
     svg += `<rect x="${CENTRE - head / 2}" y="${y0 - 26}" width="${head}" height="26"/>`;

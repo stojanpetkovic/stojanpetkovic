@@ -1455,7 +1455,8 @@
       "canvas": {
         "title": "Bohrungsschema (gemessene Tiefe)",
         "empty": "Ziehen Sie eine Komponente hierher, um die Bohrung zu beginnen.",
-        "notToScale": "Tiefe maßstäblich; Breiten nicht maßstäblich."
+        "notToScale": "Tiefe maßstäblich; Breiten nicht maßstäblich.",
+        "surface": "Oberfläche (Geländeoberkante)"
       },
       "editor": {
         "size": "Größe",

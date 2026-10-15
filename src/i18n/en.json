@@ -1455,7 +1455,8 @@
       "canvas": {
         "title": "Well schematic (measured depth)",
         "empty": "Drag a component here to start the well.",
-        "notToScale": "Depth to scale; widths are not to scale."
+        "notToScale": "Depth to scale; widths are not to scale.",
+        "surface": "Surface"
       },
       "editor": {
         "size": "Size",

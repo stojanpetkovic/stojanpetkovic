@@ -1455,7 +1455,8 @@
       "canvas": {
         "title": "Šema bušotine (merena dubina)",
         "empty": "Prevuci komponentu ovde da započneš bušotinu.",
-        "notToScale": "Dubina u razmeri; širine nisu u razmeri."
+        "notToScale": "Dubina u razmeri; širine nisu u razmeri.",
+        "surface": "Površina (surface)"
       },
       "editor": {
         "size": "Dimenzija",

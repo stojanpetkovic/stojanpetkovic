@@ -1455,7 +1455,8 @@
       "canvas": {
         "title": "Putschema (gemeten diepte)",
         "empty": "Sleep een onderdeel hierheen om de put te beginnen.",
-        "notToScale": "Diepte op schaal; breedtes niet op schaal."
+        "notToScale": "Diepte op schaal; breedtes niet op schaal.",
+        "surface": "Maaiveld (oppervlak)"
       },
       "editor": {
         "size": "Maat",
