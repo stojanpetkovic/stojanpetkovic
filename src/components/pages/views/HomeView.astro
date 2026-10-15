@@ -56,7 +56,7 @@ const posts = [...postItems]
 /** The redacted scans behind the two credential cards, in page order. */
 const credentialScans: string[][] = [
   ['/credentials/ingenieur-1.webp?v=3', '/credentials/ingenieur-2.webp?v=3'],
-  ['/credentials/exam-rs.webp?v=3'],
+  ['/credentials/exam-rs.webp?v=3', '/credentials/exam-de-1.webp', '/credentials/exam-de-2.webp'],
 ];
 
 const hero = tData<{
@@ -72,7 +72,7 @@ const hero = tData<{
   videoPlay: string;
   videoLabel: string;
   /** Credentials shown as badges under the hero buttons. */
-  badges: { icon: string; tag: string; title: string; text: string; docTitle: string; docAlt: string }[];
+  badges: { icon: string; tag: string; title: string; text: string; docTitle: string; docAlt: string; docDescription: string }[];
   credentialsDialog: { close: string; note: string; hint: string; zoom: string };
   qualifications: { label: string; items: { icon: string; year: string; title: string; text: string }[] };
 }>('pages.home.hero', locale)!;
@@ -241,6 +241,7 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
             data-credential
             data-title={badge.docTitle}
             data-alt={badge.docAlt}
+            data-description={badge.docDescription}
             data-images={JSON.stringify(credentialScans[index])}
             aria-haspopup="dialog"
             aria-label={`${badge.title}. ${hero.credentialsDialog.hint}`}
@@ -606,6 +607,13 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
             return img;
           })
         );
+        // The description follows the documents, as the last item of the scroll area.
+        if (card.dataset.description) {
+          const note = document.createElement('p');
+          note.className = 'credential-dialog-note';
+          note.textContent = card.dataset.description;
+          pages.append(note);
+        }
         pages.scrollTop = 0;
         card.dataset.seen = 'true';
         dialog.showModal();
@@ -769,6 +777,17 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
     .credential-dialog-zoomhint {
       display: flex;
     }
+  }
+  .credential-dialog-note {
+    flex-shrink: 0;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-brand-600);
+    border-radius: 0.5rem;
+    background: var(--color-card);
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--color-foreground-secondary);
   }
   html:has(.credential-dialog[open]) {
     overflow: hidden;
