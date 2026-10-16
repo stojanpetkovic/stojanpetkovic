@@ -60,7 +60,29 @@
       "projects": "Projects",
       "blog": "Blog",
       "about": "About",
-      "contact": "Contact"
+      "contact": "Contact",
+      "courses": "Courses"
+    },
+    "mega": {
+      "overview": "All services",
+      "groups": {
+        "engineering": "Engineering",
+        "tools": "Engineering tools",
+        "web": "Software & web"
+      },
+      "links": {
+        "consulting": "Consulting & projects",
+        "allTools": "All tools",
+        "web": "Web development",
+        "software": "Engineering software"
+      },
+      "descriptions": {
+        "consulting": "Job design, calculations, procedures and reviews.",
+        "courses": "Practical coiled tubing training.",
+        "projects": "Case studies from the field.",
+        "software": "Cloud-based tools built to order.",
+        "web": "Fast websites for technical companies."
+      }
     }
   },
   "common": {
@@ -148,6 +170,10 @@
     "viewProject": "View project",
     "viewSource": "View source",
     "viewLiveSite": "View live site",
+    "metaClient": "Client",
+    "metaRole": "Role",
+    "metaYear": "Year",
+    "metaHighlights": "Highlights",
     "carouselGoToSlide": "Go to slide {number}",
     "noProjectsFound": "No projects found.",
     "carouselChooseSlide": "Choose slide",
@@ -1045,6 +1071,10 @@
       "inputsLabel": "Inputs",
       "outputsLabel": "Results",
       "form": {
+        "reportCreated": "Created {date}",
+        "reportInputs": "Inputs",
+        "reportResults": "Results",
+        "reportMethod": "Method and assumptions",
         "system": {
           "label": "Units",
           "us": "Oilfield (US)",
@@ -1078,6 +1108,23 @@
         "outside": "Outside the table: the value at the edge is shown."
       },
       "items": [
+        {
+          "href": "/tools/ct-simulator",
+          "tag": "Mechanics",
+          "icon": "layout-dashboard",
+          "title": "CT Simulator",
+          "description": "Draw the well, build the CT string and the BHA, set the job and read the weight indicator, lock-up depth, set-down weight and overpull.",
+          "inputs": [
+            "Well, survey and tubulars from the Well Builder",
+            "CT string and BHA from the BHA Builder",
+            "Fluids, friction and surface equipment"
+          ],
+          "outputs": [
+            "Weight indicator against depth",
+            "Lock-up depth, set-down weight and overpull",
+            "Axial force and buckling along the string"
+          ]
+        },
         {
           "href": "/tools/ct-pressure-loss",
           "tag": "Hydraulics",
@@ -1145,6 +1192,40 @@
             "Gas volume at standard conditions",
             "Liquid nitrogen volume",
             "Nitrogen mass"
+          ]
+        },
+        {
+          "href": "/tools/well-kill",
+          "tag": "Well control",
+          "icon": "shield-check",
+          "title": "Well Kill",
+          "description": "Kill fluid density, volumes and bullheading pressure for a producing well, and the kill sheet of a drilling well.",
+          "inputs": [
+            "Depth, pressures and fluid density",
+            "Tubing and casing sizes, or string and annulus volumes",
+            "Pump rate or kill-rate pressure"
+          ],
+          "outputs": [
+            "Kill fluid density",
+            "Volumes, strokes and times",
+            "Bullheading pressure, or ICP, FCP and the pressure schedule"
+          ]
+        },
+        {
+          "href": "/tools/bha-builder",
+          "tag": "Coiled tubing",
+          "icon": "wrench",
+          "title": "BHA Builder",
+          "description": "Draw a coiled tubing bottom hole assembly tool by tool, with sizes, connections and total length, and print it as a sheet.",
+          "inputs": [
+            "Tools from the top of the string to the bottom",
+            "Outside and inside diameters",
+            "Lengths and connections"
+          ],
+          "outputs": [
+            "Drawing of the assembly",
+            "Total length, largest OD and smallest bore",
+            "Sheet to save as PDF"
           ]
         },
         {
@@ -1560,17 +1641,19 @@
     "ctPressureLoss": {
       "meta": {
         "title": "CT Pressure Loss",
-        "description": "Calculate the friction pressure loss of a power-law fluid pumped through coiled tubing, split into straight and reel-wound sections, in oilfield or metric units."
+        "description": "Calculate the friction pressure loss of a Newtonian, Bingham plastic, power-law, Herschel–Bulkley or empirically measured fluid pumped through coiled tubing, split into straight and reel-wound sections, in oilfield or metric units."
       },
       "hero": {
         "badge": "Hydraulics",
         "title": "CT Pressure Loss",
-        "description": "Frictional pressure loss for power-law fluids pumped through coiled tubing. Enter the fluid, the tubing and the flow rate, in oilfield or metric units."
+        "description": "Frictional pressure loss for fluids pumped through coiled tubing. Choose the rheology model, enter the fluid, the tubing and the flow rate, in oilfield or metric units."
       },
       "groups": {
         "fluid": "Fluid",
         "geometry": "Tubing and reel",
-        "flow": "Flow"
+        "flow": "Flow",
+        "fann": "Fann readings",
+        "temperature": "Temperature effects"
       },
       "fields": {
         "density": {
@@ -1594,7 +1677,10 @@
         "wall": {
           "label": "Wall thickness"
         },
-        "roughness": {"label": "Wall roughness", "hint": "Absolute roughness of the inside wall; 0 for smooth tubing. Only affects turbulent flow"},
+        "roughness": {
+          "label": "Wall roughness",
+          "hint": "Absolute roughness of the inside wall; 0 for smooth tubing. Only affects turbulent flow"
+        },
         "totalLength": {
           "label": "String length"
         },
@@ -1604,6 +1690,25 @@
         },
         "flowRate": {
           "label": "Flow rate"
+        },
+        "fluidType": {
+          "label": "Fluid type"
+        },
+        "model": {
+          "label": "Rheology model",
+          "hint": "How the flow curve of the fluid is described"
+        },
+        "pv": {
+          "label": "Plastic viscosity (PV)",
+          "hint": "For a Newtonian fluid, its viscosity"
+        },
+        "yp": {
+          "label": "Yield point (YP)",
+          "hint": "Yield stress of the fluid"
+        },
+        "fluidTemperature": {
+          "label": "Fluid temperature",
+          "hint": "Temperature at which PV and YP are taken from the table; empty uses the values above"
         }
       },
       "results": {
@@ -1614,7 +1719,11 @@
         "velocity": "Velocity",
         "reynolds": "Reynolds number",
         "dean": "Dean number",
-        "regime": "Flow regime"
+        "regime": "Flow regime",
+        "effN": "Equivalent flow index n′",
+        "effK": "Equivalent consistency K",
+        "pvUsed": "PV at fluid temperature",
+        "ypUsed": "YP at fluid temperature"
       },
       "regimes": {
         "laminar": "Laminar",
@@ -1625,6 +1734,9 @@
         "title": "Method",
         "intro": "The loss is calculated separately for the part of the string off the reel (straight) and the part on the reel (curved), and the two are added.",
         "steps": [
+          "Rheology: the model gives the wall shear stress τ at a wall shear rate γ. Newtonian: τ = μγ. Bingham plastic: τ = YP + PV·γ. Power law: τ = Kγⁿ. Herschel–Bulkley: τ = τ₀ + Kγⁿ. Empirical: the measured Fann points joined by straight lines on log–log axes. Fann speed N rpm gives γ = 1.7023 N 1/s and τ = 1.0678 θ lbf/100 ft².",
+          "Equivalent power law: at the flow in question the pseudo shear rate is Γ = 8V/D. The wall shear rate γw = Γ(3n′+1)/(4n′) is found by iterating with n′, the local slope of the flow curve, and the model's K and n′ are those that give the same wall stress and slope. A power-law fluid returns its own n and K.",
+          "Fann fit: Bingham plastic PV = θ600 − θ300 and YP = θ300 − PV; Herschel–Bulkley τ₀ = 2τ3 − τ6 and a log–log fit for n and K; power law a log–log fit; Newtonian a fit through the origin. The deviation is the root-mean-square relative error of the model against the readings.",
           "Reynolds number (Metzner–Reed): Re = 31.042 ρ Q^(2−n) / (9.804^n K ID^(4−3n)) · (n/(1+3n))^n, with ρ in lb/gal, Q in gal/min, ID in inches and K in lbf·sⁿ/100 ft².",
           "Straight tubing: laminar below Re = 3470 − 1370n and turbulent above 4270 − 1370n. Laminar f = 16/Re. Turbulent f = a/Re^b, with a = (log n + 3.93)/50 and b = (1.75 − log n)/7.",
           "Coiled tubing: the laminar factor is multiplied by ψ·De^φ, where De = Re_g·(ID/D)^0.5 is the Dean number, ψ = 47.969 − 153.8n + 166.22n² − 60.132n³ and φ = 0.875n − 0.515. Turbulent: f = 1.069·a/Re^(0.8b)·(ID/D)^0.1. The laminar limit is (4n/(3n+1))^n · [2100 ψ (ID/D)^(0.5φ)]^(1/(1−φ)) and the turbulent limit is 800 above it.",
@@ -1633,12 +1745,629 @@
         "assumptionsTitle": "Assumptions",
         "assumptions": [
           "Wall roughness enters only the turbulent friction factor, as the ratio of the Haaland factor with roughness to the one without, so a roughness of 0 gives the smooth-tube result. For n other than 1 this is an estimate.",
+          "For models with a yield stress the equivalent power law is evaluated at the flow rate entered. This is sound for laminar flow; turbulent and transitional values for such fluids are estimates, and the critical Reynolds numbers are those of a power-law fluid.",
           "A single-phase power-law fluid without solids.",
           "Smooth tubing and fully developed flow, with fluid properties constant along the string.",
           "The curvature is that of the reel diameter you enter; tubing off the reel is straight.",
           "The correlations cover a limited range of n and ID/D. Check results outside it."
         ],
         "reference": "Based on published correlations for power-law fluids in coiled tubing (Zhou and Shah), with the Metzner–Reed Reynolds number and Dodge–Metzner turbulent factors. The calculation reproduces a reference worksheet for its example case. Check the original papers before you rely on a result."
+      },
+      "models": {
+        "newtonian": "Newtonian",
+        "bingham": "Bingham plastic",
+        "powerLaw": "Power law",
+        "herschelBulkley": "Herschel–Bulkley",
+        "empirical": "Empirical model"
+      },
+      "fluidTypes": {
+        "liquid": "Liquid",
+        "gas": "Gas",
+        "foam": "Foam",
+        "multiphase": "Multiphase"
+      },
+      "soon": "not yet available",
+      "fann": {
+        "note": "Dial readings θ of a Fann 35 viscometer at each speed. The standard R1-B1 rotor-bob combination and F1 torsion spring are assumed.",
+        "fit": "Fit the model to the readings",
+        "fitted": "Fitted. Deviation from the readings: {dev} %",
+        "direct": "The empirical model uses the readings directly.",
+        "failed": "The readings do not support this model. Enter all 12 readings, or at least 600 and 300 rpm for Bingham plastic."
+      },
+      "temp": {
+        "note": "For Newtonian and Bingham fluids PV and YP are interpolated between the rows at the fluid temperature. Leave the table empty to use the surface values.",
+        "title": "Rheology at different temperatures",
+        "temperature": "Temp.",
+        "pv": "PV",
+        "yp": "YP"
+      }
+    },
+    "wellKill": {
+      "meta": {
+        "title": "Well Kill",
+        "description": "Calculate the kill fluid density and the volumes and pressures for killing a producing well by bullheading or circulation, and the kill sheet of a drilling well for the driller's and wait-and-weight methods, in metric or oilfield units."
+      },
+      "hero": {
+        "badge": "Well control",
+        "title": "Well Kill",
+        "description": "Kill fluid, volumes and pressures for a producing well, or the kill sheet of a drilling well. Pick the method, enter the well, in metric or oilfield units."
+      },
+      "groups": {
+        "wellFluid": "Well and fluid",
+        "kill": "Kill and bullheading",
+        "tubing": "Tubing and casing",
+        "pumping": "Pumping",
+        "drillWell": "Well and mud",
+        "drillPump": "Pump and circulation",
+        "drillVolumes": "Volumes"
+      },
+      "fields": {
+        "wTvd": {
+          "label": "True vertical depth",
+          "hint": "Depth of the formation"
+        },
+        "wMd": {
+          "label": "Tubing length",
+          "hint": "Measured depth of the tubing shoe"
+        },
+        "wDensity": {
+          "label": "Fluid density in the well"
+        },
+        "wSitp": {
+          "label": "Shut-in tubing pressure"
+        },
+        "wMargin": {
+          "label": "Overbalance",
+          "hint": "Pressure the kill fluid adds over the formation pressure"
+        },
+        "wInject": {
+          "label": "Injection pressure above formation",
+          "hint": "Pressure above the formation pressure needed to push fluid into it when bullheading"
+        },
+        "wFracture": {
+          "label": "Fracture pressure",
+          "hint": "At the formation depth; 0 leaves the check out"
+        },
+        "wTubingId": {
+          "label": "Tubing ID"
+        },
+        "wTubingOd": {
+          "label": "Tubing OD"
+        },
+        "wCasingId": {
+          "label": "Casing ID"
+        },
+        "wRate": {
+          "label": "Pump rate"
+        },
+        "dTvd": {
+          "label": "True vertical depth"
+        },
+        "dMud": {
+          "label": "Mud density"
+        },
+        "dSidpp": {
+          "label": "Shut-in drill pipe pressure (SIDPP)"
+        },
+        "dShoeTvd": {
+          "label": "Casing shoe depth (TVD)"
+        },
+        "dLeakoff": {
+          "label": "Leak-off, as mud density",
+          "hint": "Mud density equivalent to the leak-off pressure at the shoe"
+        },
+        "dScr": {
+          "label": "Circulating pressure at the kill rate"
+        },
+        "dSpm": {
+          "label": "Pump speed",
+          "hint": "Strokes per minute at the kill rate"
+        },
+        "dPump": {
+          "label": "Pump output",
+          "hint": "Volume per stroke"
+        },
+        "dStringVolume": {
+          "label": "Drill string volume",
+          "hint": "Inside the drill string"
+        },
+        "dAnnulusVolume": {
+          "label": "Annulus volume",
+          "hint": "Bit to surface"
+        }
+      },
+      "results": {
+        "title": "Result",
+        "killFluid": "Kill fluid density",
+        "killMud": "Kill mud density",
+        "formationPressure": "Formation pressure",
+        "densityIncrease": "Density increase",
+        "hydrostatic": "Hydrostatic pressure of the kill fluid",
+        "tubingVolume": "Tubing volume (bullhead)",
+        "annulusVolume": "Annulus volume",
+        "tubingTime": "Time to pump the tubing",
+        "circulationTime": "Time to pump tubing and annulus",
+        "startPressure": "Surface pressure at the start of bullheading",
+        "endPressure": "Surface pressure at the end of bullheading",
+        "injectionPressure": "Bottomhole pressure while injecting",
+        "fractureMargin": "Margin to fracture pressure",
+        "icp": "Initial circulating pressure (ICP)",
+        "fcp": "Final circulating pressure (FCP)",
+        "strokesToBit": "Strokes to the bit",
+        "strokesToSurface": "Strokes, bit to surface",
+        "timeToBit": "Time to the bit",
+        "timeToSurface": "Time, bit to surface",
+        "totalStrokes": "Strokes of the whole kill",
+        "totalTime": "Time of the whole kill",
+        "maasp": "Maximum allowable annular pressure (MAASP)",
+        "min": "min",
+        "strokes": "strokes"
+      },
+      "schedule": {
+        "title": "Drill pipe pressure schedule",
+        "strokes": "Strokes",
+        "time": "Time",
+        "pressure": "Pressure",
+        "note": "While the kill mud goes down the string, hold the drill pipe pressure to this schedule, then hold the final circulating pressure until the kill mud is at surface."
+      },
+      "methods": {
+        "label": "Method",
+        "hint": "Producing well kill, or a drilling well killed by one of the two circulation methods",
+        "options": {
+          "workover": "Producing well: bullheading and circulation",
+          "drillers": "Drilling well: driller's method",
+          "waitWeight": "Drilling well: wait and weight"
+        }
+      },
+      "method": {
+        "title": "Method",
+        "intro": "The tool calculates the kill from the balance of hydrostatic pressures.",
+        "steps": [
+          "Hydrostatic pressure: P = ρ·g·TVD, with g = 9.80665 m/s². The formation pressure is the shut-in pressure plus the hydrostatic pressure of the fluid in the well.",
+          "Producing well: the kill fluid density balances the formation pressure plus the overbalance, ρ = (P + overbalance) / (g·TVD). Volumes are π/4·ID²·L for the tubing and π/4·(casing ID² − tubing OD²)·L for the annulus.",
+          "Bullheading: the surface pressure is the injection pressure (formation pressure plus the pressure needed to inject) minus the hydrostatic pressure of the fluid in the tubing. It starts at the shut-in pressure plus the injection margin and falls as the kill fluid goes in. The bottomhole pressure is checked against the fracture pressure.",
+          "Drilling well: kill mud density = mud density + SIDPP / (g·TVD). ICP = SIDPP + circulating pressure at the kill rate; FCP = circulating pressure × kill mud / mud density. The drill pipe pressure falls linearly from ICP to FCP over the strokes to the bit.",
+          "Wait and weight circulates once with the kill mud. The driller's method circulates the influx out with the original mud first, holding ICP, and then circulates the kill mud. MAASP = (leak-off density − mud density)·g·shoe TVD."
+        ],
+        "assumptionsTitle": "Assumptions",
+        "assumptions": [
+          "A vertical column of one fluid: no gas in the fluid, no friction while bullheading and no temperature or compressibility effect on the density.",
+          "Pressures are gauge. Check the kill against the casing, tubing and wellhead pressure ratings.",
+          "The kill sheet is for the method the page names; choke operation and the response to a gas influx need judgement on location."
+        ],
+        "reference": "This tool is a planning aid, not a substitute for the operator's well control procedures and the well control certification of the crew. Check the result against the company's own kill sheet."
+      }
+    },
+    "bhaBuilder": {
+      "meta": {
+        "title": "BHA Builder",
+        "description": "Draw a coiled tubing bottom hole assembly from its tools, with diameters, lengths and connections, a drawing of the string and the total length, in oilfield or metric units."
+      },
+      "hero": {
+        "badge": "Coiled tubing",
+        "title": "BHA Builder",
+        "description": "Add the tools of a coiled tubing bottom hole assembly from the top of the string to the bottom, enter their sizes, and get a drawing, the total length and a sheet to print."
+      },
+      "palette": {
+        "title": "Tools",
+        "hint": "Select a tool to add it at the bottom of the assembly, then edit its sizes."
+      },
+      "types": {
+        "connector": "Coil connector",
+        "crossover": "Cross-over sub",
+        "swivel": "Swivel",
+        "checkValve": "Check valve",
+        "disconnect": "Disconnect",
+        "circSub": "Circulation sub",
+        "motorhead": "Motorhead",
+        "jar": "Jar",
+        "accelerator": "Accelerator",
+        "centralizer": "Centraliser",
+        "nozzle": "Jetting nozzle",
+        "mill": "Mill",
+        "motor": "Mud motor",
+        "packer": "Packer",
+        "overshot": "Overshot",
+        "generic": "Other tool"
+      },
+      "examples": {
+        "sheet": "Sheet example: 1-1/2\" coil, 10 tools",
+        "motorhead1_11_16": "Motorhead 1-11/16\"",
+        "motorhead2_1_8": "Motorhead 2-1/8\"",
+        "motorhead2_3_8": "Motorhead 2-3/8\"",
+        "motorhead2_7_8": "Motorhead 2-7/8\"",
+        "motorhead3_1_8": "Motorhead 3-1/8\""
+      },
+      "fields": {
+        "bhaNo": "BHA no.",
+        "runNo": "Run no.",
+        "preparedBy": "Prepared by"
+      },
+      "drawing": {
+        "title": "Assembly, top to bottom"
+      },
+      "units": {
+        "label": "Units"
+      },
+      "editor": {
+        "description": "Description",
+        "od": "Outside diameter",
+        "bore": "Inside diameter",
+        "length": "Length",
+        "connection": "Connection",
+        "weight": "Weight in air",
+        "up": "Move up",
+        "down": "Move down",
+        "copy": "Duplicate",
+        "remove": "Remove",
+        "empty": "No tools yet. Pick one from the list above, or load an example."
+      },
+      "summary": {
+        "length": "Total length",
+        "maxOd": "Largest OD",
+        "minBore": "Smallest bore",
+        "count": "Tools",
+        "weight": "Weight"
+      },
+      "data": {
+        "example": "Load an example",
+        "export": "Export a BHA",
+        "reset": "Clear the BHA",
+        "note": "Saved in this browser only.",
+        "confirmExample": "Replace the current BHA with the example?",
+        "confirmReset": "Clear the BHA?",
+        "importError": "That file is not a BHA exported from this page.",
+        "disclaimer": "Sizes and lengths are the ones you enter; the examples are typical values from a BHA sheet. Check them against the manufacturer's data before the job.",
+        "import": "Import a BHA"
+      },
+      "print": {
+        "button": "Save as PDF",
+        "title": "Bottom hole assembly",
+        "bhaNo": "BHA no.",
+        "runNo": "Run no.",
+        "preparedBy": "Prepared by",
+        "total": "Total length"
+      }
+    },
+    "ctForces": {
+      "groups": {
+        "well": "Well",
+        "string": "CT string",
+        "bha": "BHA",
+        "fluids": "Fluids, friction and surface",
+        "limits": "Material and limits"
+      },
+      "fields": {
+        "depth": {
+          "label": "BHA depth (MD)",
+          "hint": "Measured depth of the bottom of the BHA to analyse"
+        },
+        "holeId": {
+          "label": "Hole inside diameter",
+          "hint": "Casing or tubing the CT runs in"
+        },
+        "ctOd": {
+          "label": "CT outside diameter"
+        },
+        "s1Len": {
+          "label": "Section 1 length",
+          "hint": "Sections run from the BHA end towards the reel; leave sections 2 and 3 empty for one wall thickness"
+        },
+        "s1Wall": {
+          "label": "Section 1 wall"
+        },
+        "s2Len": {
+          "label": "Section 2 length"
+        },
+        "s2Wall": {
+          "label": "Section 2 wall"
+        },
+        "s3Len": {
+          "label": "Section 3 length"
+        },
+        "s3Wall": {
+          "label": "Section 3 wall"
+        },
+        "bhaLength": {
+          "label": "BHA length"
+        },
+        "bhaWeight": {
+          "label": "BHA weight in air"
+        },
+        "bhaOd": {
+          "label": "BHA outside diameter",
+          "hint": "Used for buoyancy; the BHA is taken as rigid"
+        },
+        "rhoIn": {
+          "label": "Fluid density inside the CT"
+        },
+        "rhoOut": {
+          "label": "Fluid density outside the CT"
+        },
+        "whp": {
+          "label": "Wellhead pressure"
+        },
+        "cf": {
+          "label": "Friction coefficient",
+          "hint": "About 0.30–0.35 water-wet steel, 0.20–0.25 lubricated, 0.15–0.20 oil-wet"
+        },
+        "stripperFriction": {
+          "label": "Stripper friction"
+        },
+        "reelTension": {
+          "label": "Reel back tension"
+        },
+        "modulus": {
+          "label": "Young's modulus"
+        },
+        "yieldStrength": {
+          "label": "Yield strength"
+        },
+        "designFactor": {
+          "label": "Design factor in tension",
+          "hint": "Fraction of the yield force allowed at the surface"
+        },
+        "snubLimit": {
+          "label": "Injector push limit",
+          "hint": "The most the injector can push the CT with; lock-up is declared beyond it"
+        }
+      },
+      "results": {
+        "title": "Result",
+        "reach": "Depth reached before lock-up",
+        "reachTd": "TD, no lock-up",
+        "slackoff": "Weight indicator, RIH",
+        "pickup": "Weight indicator, POOH",
+        "injectorPush": "Injector push at this depth",
+        "maxSetdown": "Maximum set-down weight",
+        "maxOverpull": "Maximum overpull",
+        "tensionLimit": "Tension limit at the surface",
+        "buckleOnset": "Helical buckling starts at",
+        "buckledLength": "Buckled length at this depth",
+        "lockup": "Lock-up"
+      },
+      "charts": {
+        "ctwiTitle": "Weight indicator against depth",
+        "forceTitle": "Axial force along the string",
+        "rih": "RIH",
+        "pooh": "POOH",
+        "limit": "Lock-up limit",
+        "critical": "Critical buckling force",
+        "ctwiAxis": "Weight indicator",
+        "forceAxis": "Axial force",
+        "depthAxis": "Depth",
+        "bha": "BHA"
+      }
+    },
+    "ctSimulator": {
+      "meta": {
+        "title": "CT Simulator",
+        "description": "Plan a coiled tubing job in four steps: draw the well, build the CT string and the BHA, set the job, and read the weight indicator, lock-up depth, set-down weight and overpull."
+      },
+      "hero": {
+        "badge": "Coiled tubing",
+        "title": "CT Simulator",
+        "description": "Draw the well, build the string and the BHA, set the job and read the results. The well and the BHA are kept in this browser, so the editors you used elsewhere on this site open here as they were left."
+      },
+      "tabs": {
+        "well": "Well",
+        "ct": "CT string",
+        "bha": "BHA",
+        "job": "Job",
+        "results": "Results",
+        "label": "Steps",
+        "next": "Next",
+        "back": "Back"
+      },
+      "ui": {
+        "printAll": "Save the whole job as PDF",
+        "printStep": "Save this step as PDF",
+        "preview": {
+          "title": "String preview",
+          "reel": "Reel",
+          "string": "CT string",
+          "bha": "BHA",
+          "empty": "Enter the CT outside diameter and a wall section",
+          "wall": "wall"
+        },
+        "example": "Load an example project",
+        "confirm": "Replace the well and the BHA with the example project?",
+        "groups": {
+          "job": "Job"
+        },
+        "fields": {
+          "reelDiameter": {
+            "label": "Reel core diameter",
+            "hint": "Kept for the bending and fatigue checks to come; the forces do not use it yet"
+          }
+        },
+        "strip": {
+          "well": "Well",
+          "pipes": "tubulars",
+          "td": "TD",
+          "bhaTools": "BHA tools",
+          "job": "Depth",
+          "ct": "CT",
+          "bha": "BHA"
+        },
+        "missing": {
+          "title": "Fill in these before the results mean anything",
+          "holes": "Well: add casing, liner or tubing in the Well step, so the CT has a hole to run in.",
+          "surveyError": "Well: the deviation survey cannot be read; correct it in the Well step.",
+          "bha": "BHA: add the tools of the BHA in the BHA step.",
+          "string": "CT string: enter the CT outside diameter and at least one wall section in the CT string step.",
+          "depth": "Job: the BHA depth must be deeper than the BHA length and not deeper than the well.",
+          "survey": "No deviation survey in the Well step: the well is taken as vertical."
+        }
+      },
+      "report": {
+        "title": "CT job report",
+        "created": "Created {date}",
+        "bhaNo": "BHA no.",
+        "runNo": "Run no.",
+        "preparedBy": "Prepared by",
+        "summary": "Summary of the job",
+        "incomplete": "The project is not complete, so there are no results. Fill in:",
+        "depth": "BHA depth (MD)",
+        "reach": "Depth reached before lock-up",
+        "reachTd": "TD, no lock-up",
+        "slackoff": "Weight indicator, RIH",
+        "pickup": "Weight indicator, POOH",
+        "maxSetdown": "Maximum set-down weight",
+        "maxOverpull": "Maximum overpull",
+        "lockup": "Lock-up",
+        "well": "Well",
+        "tubulars": "Tubulars",
+        "type": "Type",
+        "size": "Size",
+        "id": "ID",
+        "top": "Top MD",
+        "bottom": "Bottom MD",
+        "wellTools": "Tools in the well",
+        "survey": "Deviation survey",
+        "vertical": "No deviation survey was entered; the well is taken as vertical.",
+        "stations": "Stations",
+        "tdMd": "Depth, MD",
+        "tdTvd": "Depth, TVD",
+        "maxInc": "Maximum inclination",
+        "maxDls": "Maximum dogleg",
+        "dlsBase": "100 ft",
+        "inc": "Inclination",
+        "azi": "Azimuth",
+        "dls": "Dogleg",
+        "ct": "CT string",
+        "ctOd": "Outside diameter",
+        "reel": "Reel core diameter",
+        "stringLength": "String length",
+        "length": "Length",
+        "wall": "Wall",
+        "weightAir": "Weight in air",
+        "weightBuoyed": "Buoyed weight",
+        "bha": "Bottom hole assembly",
+        "description": "Description",
+        "weight": "Weight in air",
+        "connection": "Connection",
+        "total": "Total",
+        "job": "Job",
+        "rhoIn": "Fluid density inside the CT",
+        "rhoOut": "Fluid density outside the CT",
+        "whp": "Wellhead pressure",
+        "cf": "Friction coefficient",
+        "stripper": "Stripper friction",
+        "reelTension": "Reel back tension",
+        "modulus": "Young's modulus",
+        "yieldStrength": "Yield strength",
+        "designFactor": "Design factor in tension",
+        "snubLimit": "Injector push limit",
+        "results": "Results",
+        "injectorPush": "Injector push at this depth",
+        "tensionLimit": "Tension limit at the surface",
+        "buckleOnset": "Helical buckling starts at",
+        "buckledLength": "Buckled length at this depth",
+        "ctwiTitle": "Weight indicator against depth",
+        "forceTitle": "Axial force along the string",
+        "rih": "RIH",
+        "pooh": "POOH",
+        "limit": "Lock-up limit",
+        "critical": "Critical buckling force",
+        "notesTitle": "Method and assumptions",
+        "disclaimer": "Planning aid, not a substitute for the operator's procedures or a field simulator. Check the result against your own data before the job.",
+        "notes": [
+          "Soft-string model (CTES coiled tubing manual, chapters 6 and 7): no bending moments, constant friction coefficient.",
+          "The BHA is taken as one rigid body; no torque, hydraulic drag or fatigue.",
+          "The buckling threshold is the frictionless one, which is conservative.",
+          "The overpull limit is a simple tension limit on the top section, not the von Mises check with pressure."
+        ]
+      }
+    },
+    "courses": {
+      "meta": {
+        "title": "Courses — Coiled Tubing Training",
+        "description": "Practical coiled tubing training, from the field fundamentals to job design, with worked calculations and material to keep. In preparation."
+      },
+      "hero": {
+        "badge": "Courses",
+        "title": "Coiled tubing courses",
+        "description": "Practical training in coiled tubing, from the field fundamentals to job design. The courses are in preparation: tell me what you need and I will let you know when they open."
+      },
+      "status": "In preparation",
+      "audience": {
+        "heading": "Who it is for",
+        "items": [
+          {
+            "icon": "hard-hat",
+            "title": "Crews and field technicians",
+            "text": "What the equipment is, what each step of a job is for and why it is done in that order."
+          },
+          {
+            "icon": "graduation-cap",
+            "title": "Young engineers",
+            "text": "The calculations behind a job, step by step, with worked examples you can reproduce."
+          },
+          {
+            "icon": "clipboard-check",
+            "title": "Engineers and supervisors",
+            "text": "Designing a job and reviewing a plan against what the numbers say."
+          }
+        ]
+      },
+      "modules": {
+        "heading": "Planned modules",
+        "lead": "Each module that has a calculation comes with the matching tool on this site, so you can try the numbers as you read.",
+        "tool": "Open the tool",
+        "items": [
+          {
+            "icon": "layers",
+            "title": "Coiled tubing fundamentals",
+            "text": "The string, the reel, the injector and the surface equipment, and what each is for.",
+            "href": null
+          },
+          {
+            "icon": "activity",
+            "title": "Hydraulics and pressure loss",
+            "text": "Friction pressure in straight and reel-wound tubing, and how the fluid model changes the answer.",
+            "href": "/tools/ct-pressure-loss"
+          },
+          {
+            "icon": "shield-check",
+            "title": "Tubing limits",
+            "text": "Burst, collapse and tension limits, and the von Mises check against the yield strength.",
+            "href": "/tools/ct-strength-limits"
+          },
+          {
+            "icon": "wind",
+            "title": "Nitrogen operations",
+            "text": "Nitrogen volumes and displacement, and how the gas behaves with pressure and temperature.",
+            "href": "/tools/nitrogen-displacement"
+          },
+          {
+            "icon": "shield-alert",
+            "title": "Well control",
+            "text": "Killing a well by bullheading or circulation, and the kill sheet of a drilling well.",
+            "href": "/tools/well-kill"
+          },
+          {
+            "icon": "wrench",
+            "title": "Bottom hole assembly",
+            "text": "Choosing and arranging the tools on the end of the string, and drawing the BHA.",
+            "href": "/tools/bha-builder"
+          }
+        ]
+      },
+      "how": {
+        "heading": "How it will work",
+        "points": [
+          "Self-paced, with material to keep.",
+          "Calculations step by step, with worked examples.",
+          "Plain language, with the numbers shown."
+        ],
+        "note": "Dates, formats and prices are not set yet."
+      },
+      "cta": {
+        "heading": "Tell me what you need",
+        "lead": "Say which module or which crew the training is for, and I will come back with what is planned.",
+        "primary": "Get in touch",
+        "secondary": "Open the tools"
       }
     },
     "web": {
@@ -1706,10 +2435,41 @@
         "learnMore": "Tell me what you need",
         "status": "In preparation",
         "cards": [
-          { "icon": "layers", "title": "Industrial Projects", "description": "Case studies from coiled tubing and nitrogen operations, written for engineers.", "points": ["Job design and the reasoning behind it", "What was planned, what happened, what changed", "Plain language, with the numbers shown"] },
-          { "icon": "book-open", "title": "Courses", "description": "Practical training in coiled tubing, from the field fundamentals to job design.", "points": ["Fundamentals for crews and young engineers", "Calculations step by step, with worked examples", "Self-paced, with material to keep"] },
-          { "icon": "code", "title": "Engineering Software", "description": "Cloud-based tools and custom software for technical teams. Everything runs on a server and opens in the browser, with nothing to install.", "points": ["Calculators and tools for everyday field and office work", "Internal dashboards and data handling", "Custom industrial software, built to order"] }
-        ]
+          {
+            "icon": "layers",
+            "title": "Industrial Projects",
+            "description": "Case studies from coiled tubing and nitrogen operations, written for engineers.",
+            "points": [
+              "Job design and the reasoning behind it",
+              "What was planned, what happened, what changed",
+              "Plain language, with the numbers shown"
+            ],
+            "href": "/projects"
+          },
+          {
+            "icon": "book-open",
+            "title": "Courses",
+            "description": "Practical training in coiled tubing, from the field fundamentals to job design.",
+            "points": [
+              "Fundamentals for crews and young engineers",
+              "Calculations step by step, with worked examples",
+              "Self-paced, with material to keep"
+            ],
+            "href": "/courses"
+          },
+          {
+            "icon": "code",
+            "title": "Engineering Software",
+            "description": "Cloud-based tools and custom software for technical teams. Everything runs on a server and opens in the browser, with nothing to install.",
+            "points": [
+              "Calculators and tools for everyday field and office work",
+              "Internal dashboards and data handling",
+              "Custom industrial software, built to order"
+            ],
+            "href": "/tools"
+          }
+        ],
+        "openLabel": "Open"
       },
       "workWithMe": {
         "badge": "Work with me",

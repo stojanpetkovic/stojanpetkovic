@@ -17,6 +17,8 @@ interface Props {
   trendText?: string;
   /** Icon name from the Icon component */
   icon?: string;
+  /** Tighter padding and smaller figure, for supporting numbers. */
+  compact?: boolean;
   class?: string;
 }
 
@@ -26,6 +28,7 @@ const {
   trend,
   trendText,
   icon,
+  compact = false,
   class: className,
 } = Astro.props;
 
@@ -42,11 +45,11 @@ const trendIcons = {
 };
 ---
 
-<Card variant="default" padding="md" hover class={className}>
-  <div class="flex items-start justify-between">
-    <div>
-      <p class="text-sm text-foreground-muted">{label}</p>
-      <p class="text-2xl font-bold text-foreground mt-1">{value}</p>
+<Card variant="default" padding={compact ? 'sm' : 'md'} hover={!compact} class={className}>
+  <div class:list={['flex items-start justify-between', compact && 'h-full']}>
+    <div class:list={[compact && 'flex h-full flex-col justify-between gap-2']}>
+      <p class={cn('text-foreground-muted', compact ? 'text-xs leading-snug' : 'text-sm')}>{label}</p>
+      <p class={cn('font-bold text-foreground', compact ? 'text-xl' : 'mt-1 text-2xl')}>{value}</p>
       {trend && trendText && (
         <div class={cn('flex items-center gap-1 mt-2 text-xs font-medium', trendColors[trend])}>
           <Icon name={trendIcons[trend]} size="xs" />
@@ -54,7 +57,7 @@ const trendIcons = {
         </div>
       )}
     </div>
-    {icon && (
+    {icon && !compact && (
       <div class="p-2.5 rounded-lg bg-secondary text-foreground-muted">
         <Icon name={icon} size="md" />
       </div>

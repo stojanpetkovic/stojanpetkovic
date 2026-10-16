@@ -1640,3 +1640,12 @@ html.dark[data-theme="teal"] .mobile-menu-cta-wrap .btn-primary:hover {
     background-image: none !important;
   }
 }
+
+/* Phones: page containers use a 16px side gutter instead of 24px, so content
+   runs closer to the screen edges the way native Android screens do. Applies
+   to the `mx-auto … px-6` wrappers every page and section is built from. */
+@media (max-width: 639px) {
+  .mx-auto.px-6 {
+    padding-inline: 1rem;
+  }
+}

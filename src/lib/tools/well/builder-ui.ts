@@ -108,6 +108,8 @@ export class WellBuilder {
     } catch {
       /* private mode or storage blocked: the well still works, it just is not remembered */
     }
+    // The CT Simulator reads this well; tell it the well changed.
+    window.dispatchEvent(new CustomEvent('ct-project-change', { detail: { part: 'well' } }));
   }
 
   private get unit(): DepthUnit {

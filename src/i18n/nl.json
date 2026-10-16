@@ -60,7 +60,29 @@
       "projects": "Projecten",
       "blog": "Blog",
       "about": "Over",
-      "contact": "Contact"
+      "contact": "Contact",
+      "courses": "Cursussen"
+    },
+    "mega": {
+      "overview": "Alle diensten",
+      "groups": {
+        "engineering": "Engineering",
+        "tools": "Engineering-tools",
+        "web": "Software & web"
+      },
+      "links": {
+        "consulting": "Advies & projecten",
+        "allTools": "Alle tools",
+        "web": "Webontwikkeling",
+        "software": "Engineering-software"
+      },
+      "descriptions": {
+        "consulting": "Werkontwerp, berekeningen, procedures en reviews.",
+        "courses": "Praktische coiled tubing-training.",
+        "projects": "Casestudies uit het veld.",
+        "software": "Cloudtools op maat.",
+        "web": "Snelle websites voor technische bedrijven."
+      }
     }
   },
   "common": {
@@ -148,6 +170,10 @@
     "viewProject": "Bekijk project",
     "viewSource": "Bekijk broncode",
     "viewLiveSite": "Bekijk live site",
+    "metaClient": "Klant",
+    "metaRole": "Rol",
+    "metaYear": "Jaar",
+    "metaHighlights": "Kerngegevens",
     "carouselGoToSlide": "Ga naar dia {number}",
     "noProjectsFound": "Geen projecten gevonden.",
     "carouselChooseSlide": "Kies dia",
@@ -1045,6 +1071,10 @@
       "inputsLabel": "Invoer",
       "outputsLabel": "Resultaten",
       "form": {
+        "reportCreated": "Gemaakt op {date}",
+        "reportInputs": "Invoer",
+        "reportResults": "Resultaten",
+        "reportMethod": "Methode en aannames",
         "system": {
           "label": "Eenheden",
           "us": "Oliveld (US)",
@@ -1078,6 +1108,23 @@
         "outside": "Buiten de tabel: de waarde aan de rand wordt getoond."
       },
       "items": [
+        {
+          "href": "/tools/ct-simulator",
+          "tag": "Mechanica",
+          "icon": "layout-dashboard",
+          "title": "CT-simulator",
+          "description": "Teken de put, bouw de CT-streng en de BHA, stel de klus in en lees de gewichtsaanwijzing, lock-updiepte, afzetgewicht en overtrek af.",
+          "inputs": [
+            "Put, meting en buizen uit de Putbouwer",
+            "CT-streng en BHA uit de BHA Builder",
+            "Vloeistoffen, wrijving en oppervlakteapparatuur"
+          ],
+          "outputs": [
+            "Gewichtsaanwijzing tegen diepte",
+            "Lock-updiepte, afzetgewicht en overtrek",
+            "Axiale kracht en knik langs de streng"
+          ]
+        },
         {
           "href": "/tools/ct-pressure-loss",
           "tag": "Hydraulica",
@@ -1145,6 +1192,40 @@
             "Gasvolume onder standaardcondities",
             "Volume vloeibare stikstof",
             "Massa stikstof"
+          ]
+        },
+        {
+          "href": "/tools/well-kill",
+          "tag": "Putbeheersing",
+          "icon": "shield-check",
+          "title": "Putkill",
+          "description": "Dichtheid van de killvloeistof, volumes en bullheadingdruk voor een productieput, en het kill sheet van een boorput.",
+          "inputs": [
+            "Diepte, drukken en vloeistofdichtheid",
+            "Buis- en casingmaten, of streng- en annulusvolumes",
+            "Pompdebiet of druk bij killsnelheid"
+          ],
+          "outputs": [
+            "Dichtheid killvloeistof",
+            "Volumes, slagen en tijden",
+            "Bullheadingdruk, of ICP, FCP en het drukschema"
+          ]
+        },
+        {
+          "href": "/tools/bha-builder",
+          "tag": "Coiled tubing",
+          "icon": "wrench",
+          "title": "BHA Builder",
+          "description": "Teken een coiled tubing bottom hole assembly gereedschap voor gereedschap, met maten, verbindingen en totale lengte, en print het als blad.",
+          "inputs": [
+            "Gereedschappen van boven naar beneden",
+            "Buiten- en binnendiameters",
+            "Lengtes en verbindingen"
+          ],
+          "outputs": [
+            "Tekening van de assembly",
+            "Totale lengte, grootste OD en kleinste doorgang",
+            "Blad om als PDF op te slaan"
           ]
         },
         {
@@ -1560,17 +1641,19 @@
     "ctPressureLoss": {
       "meta": {
         "title": "CT-drukverlies",
-        "description": "Bereken het wrijvingsdrukverlies van een power-law-vloeistof in coiled tubing, verdeeld in rechte en op de haspel gewikkelde delen, in oliveld- of metrische eenheden."
+        "description": "Bereken het wrijvingsdrukverlies van een newtoniaanse, Bingham-plastische, machtswet-, Herschel–Bulkley- of empirisch gemeten vloeistof door coiled tubing, verdeeld in een recht deel en een deel op de haspel, in oilfield- of metrische eenheden."
       },
       "hero": {
         "badge": "Hydraulica",
         "title": "CT-drukverlies",
-        "description": "Wrijvingsdrukverlies voor power-law-vloeistoffen in coiled tubing. Voer de vloeistof, de buis en het debiet in, in oliveld- of metrische eenheden."
+        "description": "Wrijvingsdrukverlies voor vloeistoffen door coiled tubing. Kies het reologiemodel en voer vloeistof, buis en debiet in, in oilfield- of metrische eenheden."
       },
       "groups": {
         "fluid": "Vloeistof",
         "geometry": "Buis en haspel",
-        "flow": "Stroming"
+        "flow": "Stroming",
+        "fann": "Fann-metingen",
+        "temperature": "Temperatuureffecten"
       },
       "fields": {
         "density": {
@@ -1594,7 +1677,10 @@
         "wall": {
           "label": "Wanddikte"
         },
-        "roughness": {"label": "Wandruwheid", "hint": "Absolute ruwheid van de binnenwand; 0 voor gladde buis. Werkt alleen bij turbulente stroming"},
+        "roughness": {
+          "label": "Wandruwheid",
+          "hint": "Absolute ruwheid van de binnenwand; 0 voor gladde buis. Werkt alleen bij turbulente stroming"
+        },
         "totalLength": {
           "label": "Lengte van de string"
         },
@@ -1604,6 +1690,25 @@
         },
         "flowRate": {
           "label": "Debiet"
+        },
+        "fluidType": {
+          "label": "Vloeistoftype"
+        },
+        "model": {
+          "label": "Reologiemodel",
+          "hint": "Hoe de stromingscurve van de vloeistof wordt beschreven"
+        },
+        "pv": {
+          "label": "Plastische viscositeit (PV)",
+          "hint": "Bij een newtoniaanse vloeistof de viscositeit zelf"
+        },
+        "yp": {
+          "label": "Vloeigrens (YP)",
+          "hint": "Vloeispanning van de vloeistof"
+        },
+        "fluidTemperature": {
+          "label": "Vloeistoftemperatuur",
+          "hint": "Temperatuur waarbij PV en YP uit de tabel worden gehaald; leeg gebruikt de waarden hierboven"
         }
       },
       "results": {
@@ -1614,7 +1719,11 @@
         "velocity": "Snelheid",
         "reynolds": "Reynoldsgetal",
         "dean": "Deangetal",
-        "regime": "Stromingsregime"
+        "regime": "Stromingsregime",
+        "effN": "Equivalente stromingsindex n′",
+        "effK": "Equivalente consistentie-index K",
+        "pvUsed": "PV bij vloeistoftemperatuur",
+        "ypUsed": "YP bij vloeistoftemperatuur"
       },
       "regimes": {
         "laminar": "Laminair",
@@ -1625,6 +1734,9 @@
         "title": "Methode",
         "intro": "Het verlies wordt apart berekend voor het deel van de string van de haspel (recht) en het deel op de haspel (gekromd), en beide worden opgeteld.",
         "steps": [
+          "Reologie: het model geeft de wandschuifspanning τ bij een wandschuifsnelheid γ. Newtoniaans: τ = μγ. Bingham-plastisch: τ = YP + PV·γ. Machtswet: τ = Kγⁿ. Herschel–Bulkley: τ = τ₀ + Kγⁿ. Empirisch: de gemeten Fann-punten verbonden met rechte lijnen op log–log-assen. Fann-snelheid N rpm geeft γ = 1,7023 N 1/s en τ = 1,0678 θ lbf/100 ft².",
+          "Equivalente machtswet: bij het betreffende debiet is de pseudo-schuifsnelheid Γ = 8V/D. De wandschuifsnelheid γw = Γ(3n′+1)/(4n′) volgt iteratief met n′, de lokale helling van de stromingscurve, en K en n′ van het model zijn die met dezelfde wandspanning en helling. Een machtswetvloeistof geeft zijn eigen n en K terug.",
+          "Fann-fit: Bingham-plastisch PV = θ600 − θ300 en YP = θ300 − PV; Herschel–Bulkley τ₀ = 2τ3 − τ6 en een log–log-fit voor n en K; machtswet een log–log-fit; newtoniaans een fit door de oorsprong. De afwijking is de kwadratisch gemiddelde relatieve fout van het model ten opzichte van de metingen.",
           "Reynoldsgetal (Metzner–Reed): Re = 31,042 ρ Q^(2−n) / (9,804^n K ID^(4−3n)) · (n/(1+3n))^n, met ρ in lb/gal, Q in gal/min, ID in inch en K in lbf·sⁿ/100 ft².",
           "Rechte buis: laminair onder Re = 3470 − 1370n en turbulent boven 4270 − 1370n. Laminair f = 16/Re. Turbulent f = a/Re^b, met a = (log n + 3,93)/50 en b = (1,75 − log n)/7.",
           "Coiled tubing: de laminaire factor wordt vermenigvuldigd met ψ·De^φ, waarbij De = Re_g·(ID/D)^0,5 het Deangetal is, ψ = 47,969 − 153,8n + 166,22n² − 60,132n³ en φ = 0,875n − 0,515. Turbulent: f = 1,069·a/Re^(0,8b)·(ID/D)^0,1. De laminaire grens is (4n/(3n+1))^n · [2100 ψ (ID/D)^(0,5φ)]^(1/(1−φ)) en de turbulente grens ligt 800 hoger.",
@@ -1633,12 +1745,629 @@
         "assumptionsTitle": "Aannames",
         "assumptions": [
           "De wandruwheid werkt alleen door in de turbulente wrijvingsfactor, als verhouding van de Haaland-factor met ruwheid tot die zonder, dus bij ruwheid 0 krijg je het resultaat voor gladde buis. Voor n ongelijk aan 1 is dit een schatting.",
+          "Bij modellen met vloeispanning wordt de equivalente machtswet berekend voor het ingevoerde debiet. Dat is betrouwbaar voor laminaire stroming; turbulente en overgangswaarden voor zulke vloeistoffen zijn schattingen en de kritieke Reynolds-getallen zijn die van een machtswetvloeistof.",
           "Een eenfasige power-law-vloeistof zonder vaste stoffen.",
           "Gladde buis en volledig ontwikkelde stroming, met vloeistofeigenschappen die langs de string constant zijn.",
           "De kromming is die van de ingevoerde haspeldiameter; buis van de haspel is recht.",
           "De correlaties gelden voor een beperkt bereik van n en ID/D. Controleer resultaten daarbuiten."
         ],
         "reference": "Gebaseerd op gepubliceerde correlaties voor power-law-vloeistoffen in coiled tubing (Zhou en Shah), met het Reynoldsgetal van Metzner–Reed en de turbulente factoren van Dodge–Metzner. De berekening reproduceert voor haar voorbeeldgeval een referentiewerkblad. Controleer de oorspronkelijke artikelen voordat je op een resultaat vertrouwt."
+      },
+      "models": {
+        "newtonian": "Newtoniaans",
+        "bingham": "Bingham-plastisch",
+        "powerLaw": "Machtswet",
+        "herschelBulkley": "Herschel–Bulkley",
+        "empirical": "Empirisch model"
+      },
+      "fluidTypes": {
+        "liquid": "Vloeistof",
+        "gas": "Gas",
+        "foam": "Schuim",
+        "multiphase": "Meerfasig"
+      },
+      "soon": "nog niet beschikbaar",
+      "fann": {
+        "note": "Schaalwaarden θ van een Fann 35-viscometer bij elke snelheid. Uitgegaan wordt van de standaardcombinatie rotor-bob R1-B1 en torsieveer F1.",
+        "fit": "Model aan metingen fitten",
+        "fitted": "Gefit. Afwijking van de metingen: {dev} %",
+        "direct": "Het empirische model gebruikt de metingen rechtstreeks.",
+        "failed": "De metingen ondersteunen dit model niet. Voer alle 12 metingen in, voor Bingham-plastisch minstens 600 en 300 rpm."
+      },
+      "temp": {
+        "note": "Voor newtoniaanse en Bingham-vloeistoffen worden PV en YP tussen de rijen geïnterpoleerd bij de vloeistoftemperatuur. Laat de tabel leeg om de oppervlaktewaarden te gebruiken.",
+        "title": "Reologie bij verschillende temperaturen",
+        "temperature": "Temp.",
+        "pv": "PV",
+        "yp": "YP"
+      }
+    },
+    "wellKill": {
+      "meta": {
+        "title": "Putkill",
+        "description": "Bereken de dichtheid van de killvloeistof en de volumes en drukken voor het doden van een productieput door bullheading of circulatie, en het kill sheet van een boorput voor de driller's method en wait-and-weight, in metrische of oilfield-eenheden."
+      },
+      "hero": {
+        "badge": "Putbeheersing",
+        "title": "Putkill",
+        "description": "Killvloeistof, volumes en drukken voor een productieput, of het kill sheet van een boorput. Kies de methode en voer de put in, in metrische of oilfield-eenheden."
+      },
+      "groups": {
+        "wellFluid": "Put en vloeistof",
+        "kill": "Kill en bullheading",
+        "tubing": "Buis en casing",
+        "pumping": "Pompen",
+        "drillWell": "Put en spoeling",
+        "drillPump": "Pomp en circulatie",
+        "drillVolumes": "Volumes"
+      },
+      "fields": {
+        "wTvd": {
+          "label": "Ware verticale diepte",
+          "hint": "Diepte van de formatie"
+        },
+        "wMd": {
+          "label": "Buislengte",
+          "hint": "Gemeten diepte van de buisschoen"
+        },
+        "wDensity": {
+          "label": "Dichtheid van de vloeistof in de put"
+        },
+        "wSitp": {
+          "label": "Afgesloten buisdruk"
+        },
+        "wMargin": {
+          "label": "Overbalans",
+          "hint": "Druk die de killvloeistof boven de formatiedruk toevoegt"
+        },
+        "wInject": {
+          "label": "Injectiedruk boven formatie",
+          "hint": "Druk boven de formatiedruk die nodig is om vloeistof bij bullheading in te persen"
+        },
+        "wFracture": {
+          "label": "Breukdruk",
+          "hint": "Op formatiediepte; 0 laat de controle weg"
+        },
+        "wTubingId": {
+          "label": "Binnendiameter buis"
+        },
+        "wTubingOd": {
+          "label": "Buitendiameter buis"
+        },
+        "wCasingId": {
+          "label": "Binnendiameter casing"
+        },
+        "wRate": {
+          "label": "Pompdebiet"
+        },
+        "dTvd": {
+          "label": "Ware verticale diepte"
+        },
+        "dMud": {
+          "label": "Spoelingdichtheid"
+        },
+        "dSidpp": {
+          "label": "Afgesloten boorpijpdruk (SIDPP)"
+        },
+        "dShoeTvd": {
+          "label": "Diepte casingschoen (TVD)"
+        },
+        "dLeakoff": {
+          "label": "Leak-off, als spoelingdichtheid",
+          "hint": "Spoelingdichtheid die overeenkomt met de leak-offdruk bij de schoen"
+        },
+        "dScr": {
+          "label": "Circulatiedruk bij killsnelheid"
+        },
+        "dSpm": {
+          "label": "Pompsnelheid",
+          "hint": "Slagen per minuut bij killsnelheid"
+        },
+        "dPump": {
+          "label": "Pompopbrengst",
+          "hint": "Volume per slag"
+        },
+        "dStringVolume": {
+          "label": "Volume boorstreng",
+          "hint": "In de boorstreng"
+        },
+        "dAnnulusVolume": {
+          "label": "Annulusvolume",
+          "hint": "Beitel tot oppervlak"
+        }
+      },
+      "results": {
+        "title": "Resultaat",
+        "killFluid": "Dichtheid killvloeistof",
+        "killMud": "Dichtheid killspoeling",
+        "formationPressure": "Formatiedruk",
+        "densityIncrease": "Dichtheidstoename",
+        "hydrostatic": "Hydrostatische druk van de killvloeistof",
+        "tubingVolume": "Buisvolume (bullhead)",
+        "annulusVolume": "Annulusvolume",
+        "tubingTime": "Tijd om de buis te pompen",
+        "circulationTime": "Tijd om buis en annulus te pompen",
+        "startPressure": "Oppervlaktedruk bij start bullheading",
+        "endPressure": "Oppervlaktedruk aan het einde van bullheading",
+        "injectionPressure": "Bodemdruk tijdens injectie",
+        "fractureMargin": "Marge tot breukdruk",
+        "icp": "Initiële circulatiedruk (ICP)",
+        "fcp": "Eindcirculatiedruk (FCP)",
+        "strokesToBit": "Slagen tot de beitel",
+        "strokesToSurface": "Slagen, beitel tot oppervlak",
+        "timeToBit": "Tijd tot de beitel",
+        "timeToSurface": "Tijd, beitel tot oppervlak",
+        "totalStrokes": "Slagen van de hele kill",
+        "totalTime": "Tijd van de hele kill",
+        "maasp": "Maximaal toegestane annulusdruk (MAASP)",
+        "min": "min",
+        "strokes": "slagen"
+      },
+      "schedule": {
+        "title": "Drukschema boorpijp",
+        "strokes": "Slagen",
+        "time": "Tijd",
+        "pressure": "Druk",
+        "note": "Zolang de killspoeling door de streng naar beneden gaat, houdt u de boorpijpdruk volgens dit schema aan, en daarna de eindcirculatiedruk tot de killspoeling aan het oppervlak is."
+      },
+      "methods": {
+        "label": "Methode",
+        "hint": "Productieput doden, of een boorput die met een van de twee circulatiemethoden wordt gedood",
+        "options": {
+          "workover": "Productieput: bullheading en circulatie",
+          "drillers": "Boorput: driller's method",
+          "waitWeight": "Boorput: wait and weight"
+        }
+      },
+      "method": {
+        "title": "Methode",
+        "intro": "Het hulpmiddel berekent de kill uit het evenwicht van hydrostatische drukken.",
+        "steps": [
+          "Hydrostatische druk: P = ρ·g·TVD, met g = 9,80665 m/s². De formatiedruk is de afsluitdruk plus de hydrostatische druk van de vloeistof in de put.",
+          "Productieput: de dichtheid van de killvloeistof balanceert de formatiedruk plus overbalans, ρ = (P + overbalans) / (g·TVD). Volumes zijn π/4·ID²·L voor de buis en π/4·(casing-ID² − buis-OD²)·L voor de annulus.",
+          "Bullheading: de oppervlaktedruk is de injectiedruk (formatiedruk plus de druk die nodig is om te injecteren) min de hydrostatische druk van de vloeistof in de buis. Hij begint bij de afsluitdruk plus de injectiemarge en daalt naarmate de killvloeistof binnenkomt. De bodemdruk wordt getoetst aan de breukdruk.",
+          "Boorput: killspoelingdichtheid = spoelingdichtheid + SIDPP / (g·TVD). ICP = SIDPP + circulatiedruk bij killsnelheid; FCP = circulatiedruk × killspoeling / spoelingdichtheid. De boorpijpdruk daalt lineair van ICP naar FCP over de slagen tot de beitel.",
+          "Wait and weight circuleert één keer met de killspoeling. De driller's method circuleert eerst de instroom uit met de oorspronkelijke spoeling, met ICP aangehouden, en daarna de killspoeling. MAASP = (leak-offdichtheid − spoelingdichtheid)·g·schoen-TVD."
+        ],
+        "assumptionsTitle": "Aannames",
+        "assumptions": [
+          "Een verticale kolom van één vloeistof: geen gas in de vloeistof, geen wrijving bij bullheading en geen invloed van temperatuur en samendrukbaarheid op de dichtheid.",
+          "Drukken zijn overdrukken. Toets de kill aan de drukklassen van casing, buis en putkop.",
+          "Het kill sheet geldt voor de genoemde methode; chokebediening en de reactie op een gasinstroom vragen om beoordeling ter plaatse."
+        ],
+        "reference": "Het hulpmiddel is een planningshulp en geen vervanging van de putbeheersingsprocedures van de operator en de certificering van de bemanning. Toets het resultaat aan het eigen kill sheet van het bedrijf."
+      }
+    },
+    "bhaBuilder": {
+      "meta": {
+        "title": "BHA Builder",
+        "description": "Teken een coiled tubing bottom hole assembly (BHA) uit zijn gereedschappen, met diameters, lengtes en verbindingen, een tekening van de string en de totale lengte, in oilfield- of metrische eenheden."
+      },
+      "hero": {
+        "badge": "Coiled tubing",
+        "title": "BHA Builder",
+        "description": "Voeg de gereedschappen van een coiled tubing bottom hole assembly toe van boven naar beneden, voer hun maten in en krijg een tekening, de totale lengte en een blad om af te drukken."
+      },
+      "palette": {
+        "title": "Gereedschappen",
+        "hint": "Kies een gereedschap om het onderaan de assembly toe te voegen en pas dan de maten aan."
+      },
+      "types": {
+        "connector": "Coil-connector",
+        "crossover": "Overgangsstuk",
+        "swivel": "Swivel",
+        "checkValve": "Terugslagklep",
+        "disconnect": "Disconnect",
+        "circSub": "Circulatiesub",
+        "motorhead": "Motorhead",
+        "jar": "Jar",
+        "accelerator": "Accelerator",
+        "centralizer": "Centralizer",
+        "nozzle": "Spoelmondstuk",
+        "mill": "Frees",
+        "motor": "Boormotor",
+        "packer": "Packer",
+        "overshot": "Overshot",
+        "generic": "Ander gereedschap"
+      },
+      "examples": {
+        "sheet": "Voorbeeld uit het blad: coil 1-1/2\", 10 gereedschappen",
+        "motorhead1_11_16": "Motorhead 1-11/16\"",
+        "motorhead2_1_8": "Motorhead 2-1/8\"",
+        "motorhead2_3_8": "Motorhead 2-3/8\"",
+        "motorhead2_7_8": "Motorhead 2-7/8\"",
+        "motorhead3_1_8": "Motorhead 3-1/8\""
+      },
+      "fields": {
+        "bhaNo": "BHA-nr.",
+        "runNo": "Run-nr.",
+        "preparedBy": "Opgesteld door"
+      },
+      "drawing": {
+        "title": "Assembly, van boven naar beneden"
+      },
+      "units": {
+        "label": "Eenheden"
+      },
+      "editor": {
+        "description": "Omschrijving",
+        "od": "Buitendiameter",
+        "bore": "Binnendiameter",
+        "length": "Lengte",
+        "connection": "Verbinding",
+        "weight": "Gewicht in lucht",
+        "up": "Omhoog",
+        "down": "Omlaag",
+        "copy": "Dupliceren",
+        "remove": "Verwijderen",
+        "empty": "Nog geen gereedschappen. Kies er hierboven een of laad een voorbeeld."
+      },
+      "summary": {
+        "length": "Totale lengte",
+        "maxOd": "Grootste OD",
+        "minBore": "Kleinste doorgang",
+        "count": "Gereedschappen",
+        "weight": "Gewicht"
+      },
+      "data": {
+        "example": "Voorbeeld laden",
+        "export": "BHA exporteren",
+        "reset": "BHA wissen",
+        "note": "Alleen in deze browser opgeslagen.",
+        "confirmExample": "De huidige BHA vervangen door het voorbeeld?",
+        "confirmReset": "BHA wissen?",
+        "importError": "Dat bestand is geen BHA die vanaf deze pagina is geëxporteerd.",
+        "disclaimer": "Maten en lengtes zijn wat u invoert; de voorbeelden zijn typische waarden uit een BHA-blad. Controleer ze voor het werk aan de hand van de gegevens van de fabrikant.",
+        "import": "BHA importeren"
+      },
+      "print": {
+        "button": "Opslaan als PDF",
+        "title": "Bottom hole assembly",
+        "bhaNo": "BHA-nr.",
+        "runNo": "Run-nr.",
+        "preparedBy": "Opgesteld door",
+        "total": "Totale lengte"
+      }
+    },
+    "ctForces": {
+      "groups": {
+        "well": "Put",
+        "string": "CT-streng",
+        "bha": "BHA",
+        "fluids": "Vloeistoffen, wrijving en oppervlak",
+        "limits": "Materiaal en grenzen"
+      },
+      "fields": {
+        "depth": {
+          "label": "BHA-diepte (MD)",
+          "hint": "Gemeten diepte van de onderkant van de BHA die wordt geanalyseerd"
+        },
+        "holeId": {
+          "label": "Binnendiameter put",
+          "hint": "Casing of buis waarin de CT loopt"
+        },
+        "ctOd": {
+          "label": "CT-buitendiameter"
+        },
+        "s1Len": {
+          "label": "Lengte sectie 1",
+          "hint": "De secties lopen van het BHA-uiteinde naar de haspel; laat sectie 2 en 3 leeg voor één wanddikte"
+        },
+        "s1Wall": {
+          "label": "Wand sectie 1"
+        },
+        "s2Len": {
+          "label": "Lengte sectie 2"
+        },
+        "s2Wall": {
+          "label": "Wand sectie 2"
+        },
+        "s3Len": {
+          "label": "Lengte sectie 3"
+        },
+        "s3Wall": {
+          "label": "Wand sectie 3"
+        },
+        "bhaLength": {
+          "label": "BHA-lengte"
+        },
+        "bhaWeight": {
+          "label": "BHA-gewicht in lucht"
+        },
+        "bhaOd": {
+          "label": "BHA-buitendiameter",
+          "hint": "Voor de opwaartse kracht; de BHA geldt als stijf"
+        },
+        "rhoIn": {
+          "label": "Vloeistofdichtheid in de CT"
+        },
+        "rhoOut": {
+          "label": "Vloeistofdichtheid buiten de CT"
+        },
+        "whp": {
+          "label": "Putkopdruk"
+        },
+        "cf": {
+          "label": "Wrijvingscoëfficiënt",
+          "hint": "Ongeveer 0,30–0,35 waternat staal, 0,20–0,25 gesmeerd, 0,15–0,20 oliënat"
+        },
+        "stripperFriction": {
+          "label": "Stripperwrijving"
+        },
+        "reelTension": {
+          "label": "Haspelterugspanning"
+        },
+        "modulus": {
+          "label": "Elasticiteitsmodulus"
+        },
+        "yieldStrength": {
+          "label": "Vloeigrens"
+        },
+        "designFactor": {
+          "label": "Ontwerpfactor op trek",
+          "hint": "Deel van de vloeikracht dat aan het oppervlak is toegestaan"
+        },
+        "snubLimit": {
+          "label": "Duwgrens van de injector",
+          "hint": "Het meeste waarmee de injector de CT kan duwen; daarboven geldt lock-up"
+        }
+      },
+      "results": {
+        "title": "Resultaat",
+        "reach": "Diepte tot lock-up",
+        "reachTd": "TD, geen lock-up",
+        "slackoff": "Gewichtsaanwijzing, RIH",
+        "pickup": "Gewichtsaanwijzing, POOH",
+        "injectorPush": "Injectorduw op deze diepte",
+        "maxSetdown": "Maximaal afzetgewicht",
+        "maxOverpull": "Maximale overtrek",
+        "tensionLimit": "Trekgrens aan het oppervlak",
+        "buckleOnset": "Spiraalvormige knik begint op",
+        "buckledLength": "Geknikte lengte op deze diepte",
+        "lockup": "Lock-up"
+      },
+      "charts": {
+        "ctwiTitle": "Gewichtsaanwijzing tegen diepte",
+        "forceTitle": "Axiale kracht langs de streng",
+        "rih": "RIH",
+        "pooh": "POOH",
+        "limit": "Lock-upgrens",
+        "critical": "Kritische knikkracht",
+        "ctwiAxis": "Gewichtsaanwijzing",
+        "forceAxis": "Axiale kracht",
+        "depthAxis": "Diepte",
+        "bha": "BHA"
+      }
+    },
+    "ctSimulator": {
+      "meta": {
+        "title": "CT-simulator",
+        "description": "Plan een coiled tubing-klus in vier stappen: teken de put, bouw de CT-streng en de BHA, stel de klus in en lees de gewichtsaanwijzing, lock-updiepte, afzetgewicht en overtrek af."
+      },
+      "hero": {
+        "badge": "Coiled tubing",
+        "title": "CT-simulator",
+        "description": "Teken de put, bouw de streng en de BHA, stel de klus in en lees de resultaten. De put en de BHA worden in deze browser bewaard, dus de editors die u elders op deze site gebruikte, openen hier zoals u ze achterliet."
+      },
+      "tabs": {
+        "well": "Put",
+        "ct": "CT-streng",
+        "bha": "BHA",
+        "job": "Klus",
+        "results": "Resultaten",
+        "label": "Stappen",
+        "next": "Volgende",
+        "back": "Terug"
+      },
+      "ui": {
+        "printAll": "Hele klus opslaan als PDF",
+        "printStep": "Deze stap opslaan als PDF",
+        "preview": {
+          "title": "Strengvoorbeeld",
+          "reel": "Haspel",
+          "string": "CT-streng",
+          "bha": "BHA",
+          "empty": "Voer de CT-buitendiameter en een wandsectie in",
+          "wall": "wand"
+        },
+        "example": "Voorbeeldproject laden",
+        "confirm": "De put en de BHA vervangen door het voorbeeldproject?",
+        "groups": {
+          "job": "Klus"
+        },
+        "fields": {
+          "reelDiameter": {
+            "label": "Haspelkerndiameter",
+            "hint": "Bewaard voor de komende buig- en vermoeiingscontroles; de krachten gebruiken hem nog niet"
+          }
+        },
+        "strip": {
+          "well": "Put",
+          "pipes": "buizen",
+          "td": "TD",
+          "bhaTools": "BHA-gereedschappen",
+          "job": "Diepte",
+          "ct": "CT",
+          "bha": "BHA"
+        },
+        "missing": {
+          "title": "Vul dit in voordat de resultaten iets betekenen",
+          "holes": "Put: voeg in de stap Put casing, liner of buis toe, zodat de CT een gat heeft om in te lopen.",
+          "surveyError": "Put: de afwijkingsmeting is niet leesbaar; corrigeer die in de stap Put.",
+          "bha": "BHA: voeg in de stap BHA de gereedschappen van de BHA toe.",
+          "string": "CT-streng: voer in de stap CT-streng de CT-buitendiameter en minstens één wandsectie in.",
+          "depth": "Klus: de BHA-diepte moet groter zijn dan de BHA-lengte en niet groter dan de put.",
+          "survey": "Geen afwijkingsmeting in de stap Put: de put geldt als verticaal."
+        }
+      },
+      "report": {
+        "title": "CT-klusrapport",
+        "created": "Gemaakt op {date}",
+        "bhaNo": "BHA-nr.",
+        "runNo": "Run-nr.",
+        "preparedBy": "Opgesteld door",
+        "summary": "Samenvatting van de klus",
+        "incomplete": "Het project is niet compleet, dus er zijn geen resultaten. Vul in:",
+        "depth": "BHA-diepte (MD)",
+        "reach": "Diepte tot lock-up",
+        "reachTd": "TD, geen lock-up",
+        "slackoff": "Gewichtsaanwijzing, RIH",
+        "pickup": "Gewichtsaanwijzing, POOH",
+        "maxSetdown": "Maximaal afzetgewicht",
+        "maxOverpull": "Maximale overtrek",
+        "lockup": "Lock-up",
+        "well": "Put",
+        "tubulars": "Buizen",
+        "type": "Type",
+        "size": "Maat",
+        "id": "ID",
+        "top": "Boven MD",
+        "bottom": "Onder MD",
+        "wellTools": "Gereedschappen in de put",
+        "survey": "Afwijkingsmeting",
+        "vertical": "Er is geen afwijkingsmeting ingevoerd; de put geldt als verticaal.",
+        "stations": "Stations",
+        "tdMd": "Diepte, MD",
+        "tdTvd": "Diepte, TVD",
+        "maxInc": "Maximale hoek",
+        "maxDls": "Maximale dogleg",
+        "dlsBase": "100 ft",
+        "inc": "Hoek",
+        "azi": "Azimut",
+        "dls": "Dogleg",
+        "ct": "CT-streng",
+        "ctOd": "Buitendiameter",
+        "reel": "Haspelkerndiameter",
+        "stringLength": "Lengte streng",
+        "length": "Lengte",
+        "wall": "Wand",
+        "weightAir": "Gewicht in lucht",
+        "weightBuoyed": "Gewicht onder opwaartse kracht",
+        "bha": "Bottom hole assembly",
+        "description": "Omschrijving",
+        "weight": "Gewicht in lucht",
+        "connection": "Verbinding",
+        "total": "Totaal",
+        "job": "Klus",
+        "rhoIn": "Vloeistofdichtheid in de CT",
+        "rhoOut": "Vloeistofdichtheid buiten de CT",
+        "whp": "Putkopdruk",
+        "cf": "Wrijvingscoëfficiënt",
+        "stripper": "Stripperwrijving",
+        "reelTension": "Haspelterugspanning",
+        "modulus": "Elasticiteitsmodulus",
+        "yieldStrength": "Vloeigrens",
+        "designFactor": "Ontwerpfactor op trek",
+        "snubLimit": "Duwgrens van de injector",
+        "results": "Resultaten",
+        "injectorPush": "Injectorduw op deze diepte",
+        "tensionLimit": "Trekgrens aan het oppervlak",
+        "buckleOnset": "Spiraalvormige knik begint op",
+        "buckledLength": "Geknikte lengte op deze diepte",
+        "ctwiTitle": "Gewichtsaanwijzing tegen diepte",
+        "forceTitle": "Axiale kracht langs de streng",
+        "rih": "RIH",
+        "pooh": "POOH",
+        "limit": "Lock-upgrens",
+        "critical": "Kritische knikkracht",
+        "notesTitle": "Methode en aannames",
+        "disclaimer": "Planningshulp, geen vervanging van de procedures van de operator of een veldsimulator. Toets het resultaat voor de klus aan uw eigen gegevens.",
+        "notes": [
+          "Soft-stringmodel (CTES-handboek coiled tubing, hoofdstuk 6 en 7): geen buigmomenten, constante wrijvingscoëfficiënt.",
+          "De BHA geldt als één stijf lichaam; geen torsie, hydraulische weerstand of vermoeiing.",
+          "De knikdrempel is die zonder wrijving en dus conservatief.",
+          "De overtrekgrens is een eenvoudige trekgrens van de bovenste sectie, niet de von Mises-toets met druk."
+        ]
+      }
+    },
+    "courses": {
+      "meta": {
+        "title": "Cursussen — coiled tubing-training",
+        "description": "Praktische coiled tubing-training, van de basis in het veld tot werkontwerp, met stap-voor-stap berekeningen en materiaal om te bewaren. In voorbereiding."
+      },
+      "hero": {
+        "badge": "Cursussen",
+        "title": "Coiled tubing-cursussen",
+        "description": "Praktische training in coiled tubing, van de basis in het veld tot werkontwerp. De cursussen zijn in voorbereiding: vertel me wat u nodig heeft en ik laat u weten wanneer ze starten."
+      },
+      "status": "In voorbereiding",
+      "audience": {
+        "heading": "Voor wie",
+        "items": [
+          {
+            "icon": "hard-hat",
+            "title": "Ploegen en technici in het veld",
+            "text": "Wat de apparatuur is, waarvoor elke stap van een klus dient en waarom in die volgorde."
+          },
+          {
+            "icon": "graduation-cap",
+            "title": "Jonge ingenieurs",
+            "text": "De berekeningen achter een klus, stap voor stap, met uitgewerkte voorbeelden die u kunt herhalen."
+          },
+          {
+            "icon": "clipboard-check",
+            "title": "Ingenieurs en opzichters",
+            "text": "Een klus ontwerpen en een plan toetsen aan wat de cijfers zeggen."
+          }
+        ]
+      },
+      "modules": {
+        "heading": "Geplande modules",
+        "lead": "Bij elke module met een berekening hoort de bijbehorende tool op deze site, zodat u de cijfers kunt uitproberen terwijl u leest.",
+        "tool": "Tool openen",
+        "items": [
+          {
+            "icon": "layers",
+            "title": "Basis van coiled tubing",
+            "text": "De streng, de haspel, de injector en de oppervlakteapparatuur en waarvoor elk onderdeel dient.",
+            "href": null
+          },
+          {
+            "icon": "activity",
+            "title": "Hydraulica en drukverlies",
+            "text": "Wrijvingsdruk in rechte en opgehaspelde buis en hoe het vloeistofmodel het antwoord verandert.",
+            "href": "/tools/ct-pressure-loss"
+          },
+          {
+            "icon": "shield-check",
+            "title": "Buisgrenzen",
+            "text": "Barst-, collaps- en trekgrenzen en de von Mises-toets tegen de vloeigrens.",
+            "href": "/tools/ct-strength-limits"
+          },
+          {
+            "icon": "wind",
+            "title": "Stikstofwerk",
+            "text": "Stikstofvolumes en verplaatsing en hoe het gas zich gedraagt met druk en temperatuur.",
+            "href": "/tools/nitrogen-displacement"
+          },
+          {
+            "icon": "shield-alert",
+            "title": "Putbeheersing",
+            "text": "Een put doden door bullheading of circulatie en het kill sheet van een boorput.",
+            "href": "/tools/well-kill"
+          },
+          {
+            "icon": "wrench",
+            "title": "Bottom hole assembly",
+            "text": "Gereedschappen kiezen en rangschikken aan het eind van de streng en de BHA tekenen.",
+            "href": "/tools/bha-builder"
+          }
+        ]
+      },
+      "how": {
+        "heading": "Hoe het gaat werken",
+        "points": [
+          "In eigen tempo, met materiaal om te bewaren.",
+          "Berekeningen stap voor stap, met uitgewerkte voorbeelden.",
+          "In gewone taal, met de cijfers erbij."
+        ],
+        "note": "Data, vormen en prijzen liggen nog niet vast."
+      },
+      "cta": {
+        "heading": "Vertel me wat u nodig heeft",
+        "lead": "Geef aan welke module of welke ploeg de training nodig heeft, en ik kom terug met wat gepland is.",
+        "primary": "Neem contact op",
+        "secondary": "Tools openen"
       }
     },
     "web": {
@@ -1706,10 +2435,41 @@
         "learnMore": "Vertel me wat je nodig hebt",
         "status": "In voorbereiding",
         "cards": [
-          { "icon": "layers", "title": "Industriële projecten", "description": "Casestudy’s uit coiled tubing- en stikstofoperaties, geschreven voor ingenieurs.", "points": ["Jobontwerp en de redenering erachter", "Wat gepland was, wat er gebeurde, wat er veranderde", "Heldere taal, met de cijfers erbij"] },
-          { "icon": "book-open", "title": "Cursussen", "description": "Praktische training in coiled tubing, van de basis in het veld tot jobontwerp.", "points": ["Basis voor crews en jonge ingenieurs", "Berekeningen stap voor stap, met uitgewerkte voorbeelden", "In eigen tempo, met materiaal om te bewaren"] },
-          { "icon": "code", "title": "Engineeringsoftware", "description": "Cloudgebaseerde tools en maatwerksoftware voor technische teams. Alles draait op een server en opent in de browser, zonder installatie.", "points": ["Rekenhulpen en tools voor het dagelijks werk in het veld en op kantoor", "Interne dashboards en gegevensverwerking", "Maatwerk industriële software, op bestelling gebouwd"] }
-        ]
+          {
+            "icon": "layers",
+            "title": "Industriële projecten",
+            "description": "Casestudy’s uit coiled tubing- en stikstofoperaties, geschreven voor ingenieurs.",
+            "points": [
+              "Jobontwerp en de redenering erachter",
+              "Wat gepland was, wat er gebeurde, wat er veranderde",
+              "Heldere taal, met de cijfers erbij"
+            ],
+            "href": "/projects"
+          },
+          {
+            "icon": "book-open",
+            "title": "Cursussen",
+            "description": "Praktische training in coiled tubing, van de basis in het veld tot jobontwerp.",
+            "points": [
+              "Basis voor crews en jonge ingenieurs",
+              "Berekeningen stap voor stap, met uitgewerkte voorbeelden",
+              "In eigen tempo, met materiaal om te bewaren"
+            ],
+            "href": "/courses"
+          },
+          {
+            "icon": "code",
+            "title": "Engineeringsoftware",
+            "description": "Cloudgebaseerde tools en maatwerksoftware voor technische teams. Alles draait op een server en opent in de browser, zonder installatie.",
+            "points": [
+              "Rekenhulpen en tools voor het dagelijks werk in het veld en op kantoor",
+              "Interne dashboards en gegevensverwerking",
+              "Maatwerk industriële software, op bestelling gebouwd"
+            ],
+            "href": "/tools"
+          }
+        ],
+        "openLabel": "Openen"
       },
       "workWithMe": {
         "badge": "Samenwerken",

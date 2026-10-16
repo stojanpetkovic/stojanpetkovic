@@ -23,7 +23,7 @@
  */
 import type { HTMLAttributes } from 'astro/types';
 import { cn } from '@/lib/cn';
-import { getNavItems, getLogoHref } from '@/config/nav.config';
+import { getNavItems, getLogoHref, type ResolvedMegaMenu } from '@/config/nav.config';
 import { headerVariants, headerInnerVariants } from './header.variants';
 import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
@@ -40,6 +40,8 @@ import { getSiteName } from '@/lib/site-name';
 export interface NavItem {
   label: string;
   href: string;
+  /** Opens a mega menu instead of being a plain link. */
+  mega?: ResolvedMegaMenu;
 }
 
 export interface HeaderAction {
@@ -140,6 +142,7 @@ const isLandingPage = currentPath === '/';
 const defaultNav = getNavItems(locale).map((item) => ({
   label: item.label,
   href: item.href,
+  mega: item.mega,
 }));
 const navItems: NavItem[] = nav || [...extraNav, ...defaultNav];
 const logoHref = getLogoHref(locale);
@@ -172,6 +175,14 @@ const headerClasses = cn(
 );
 
 const innerClasses = cn(headerInnerVariants({ size, shape }), !isFloating && maxWidthClass);
+
+/** A mega menu item is current on every page of the sections it covers. */
+function isItemActive(item: NavItem): boolean {
+  if (item.mega) {
+    return showActiveState && item.mega.activePrefixes.some((prefix) => currentPath === prefix || currentPath.startsWith(prefix + '/'));
+  }
+  return isActive(item.href);
+}
 
 function isActive(href: string): boolean {
   if (!showActiveState) return false;
@@ -262,26 +273,70 @@ const buttonId = `${menuId}-button`;
           </nav>
         ) : (
           <nav class="hidden items-center gap-1 lg:flex" aria-label={t('nav.mainNav', locale)}>
-            {navItems.map(({ label, href }) => (
-              <a
-                href={href.startsWith('#') && !isLandingPage ? `/${href}` : href}
-                class={cn(
-                  'nav-link relative rounded-md px-3 py-2 text-sm',
-                  'transition-all duration-(--transition-fast)',
-                  isFloating && 'hdr-invert-text',
-                  isFloating
-                    ? (isActive(href)
-                        ? 'hdr-nav-active font-semibold'
-                        : 'font-medium')
-                    : (isActive(href)
-                        ? 'nav-link-active font-semibold text-foreground bg-secondary'
-                        : 'nav-link-inactive font-medium text-foreground-muted hover:text-foreground hover:bg-secondary/70')
-                )}
-                aria-current={isActive(href) ? 'page' : undefined}
-              >
-                {label}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const { label, href, mega } = item;
+              const active = isItemActive(item);
+              const linkClass = cn(
+                'nav-link relative rounded-md px-3 py-2 text-sm',
+                'transition-all duration-(--transition-fast)',
+                isFloating && 'hdr-invert-text',
+                isFloating
+                  ? (active ? 'hdr-nav-active font-semibold' : 'font-medium')
+                  : (active
+                      ? 'nav-link-active font-semibold text-foreground bg-secondary'
+                      : 'nav-link-inactive font-medium text-foreground-muted hover:text-foreground hover:bg-secondary/70')
+              );
+              if (!mega) {
+                return (
+                  <a
+                    href={href.startsWith('#') && !isLandingPage ? `/${href}` : href}
+                    class={linkClass}
+                    aria-current={active ? 'page' : undefined}
+                  >
+                    {label}
+                  </a>
+                );
+              }
+              const panelId = `${menuId}-mega`;
+              return (
+                <div class="mega" data-mega>
+                  <button type="button" class={cn(linkClass, 'inline-flex items-center gap-1')} aria-expanded="false" aria-controls={panelId} aria-haspopup="true" data-mega-trigger>
+                    {label}
+                    <Icon name="chevron-down" size="xs" class="mega-chevron" />
+                  </button>
+                  <div id={panelId} class="mega-panel" role="region" aria-label={label} hidden data-mega-panel>
+                    <div class="mx-auto grid max-w-6xl gap-x-10 gap-y-6 px-6 py-7 lg:grid-cols-[1fr_1.35fr_1fr]">
+                      {mega.groups.map((group) => (
+                        <div>
+                          <p class="mega-title">{group.title}</p>
+                          <ul class="mt-3 space-y-0.5" role="list">
+                            {group.links.map((link) => (
+                              <li>
+                                <a href={link.href} class="mega-link" aria-current={currentPath === link.href ? 'page' : undefined}>
+                                  <span class="mega-tile"><Icon name={link.icon} size="sm" /></span>
+                                  <span class="min-w-0">
+                                    <span class="mega-link-label">{link.label}</span>
+                                    {link.description && <span class="mega-link-text">{link.description}</span>}
+                                  </span>
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                    <div class="border-t border-border bg-background-secondary">
+                      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
+                        <a href={mega.overview.href} class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 underline-offset-4 hover:underline">
+                          {mega.overview.label}
+                          <Icon name="arrow-right" size="sm" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </nav>
         ))
     }
@@ -482,19 +537,55 @@ const buttonId = `${menuId}-button`;
             <section class="mobile-menu-section">
               <p class="mobile-menu-label">{t('nav.sectionNavigate', locale)}</p>
               <ul class="space-y-0.5">
-                {navItems.map(({ label, href }, idx) => {
-                  const active = isActive(href);
+                {navItems.map((item, idx) => {
+                  const { label, href, mega } = item;
+                  const active = isItemActive(item);
                   const resolvedHref = href.startsWith('#') && !isLandingPage ? `/${href}` : href;
+                  const rowClass = cn(
+                    'mobile-menu-row mobile-menu-stagger group flex items-center gap-3 rounded-xl px-3 py-3 text-base transition-colors',
+                    active ? 'mobile-menu-row-active' : 'mobile-menu-row-inactive'
+                  );
+                  if (mega) {
+                    return (
+                      <li>
+                        <details class="mobile-group" open={active}>
+                          <summary class={cn(rowClass, 'cursor-pointer list-none [&::-webkit-details-marker]:hidden')} style={`--stagger-index: ${idx}`}>
+                            <span class="mobile-menu-tile">
+                              <Icon name={getNavIcon(href)} size="sm" />
+                            </span>
+                            <span class="flex-1">{label}</span>
+                            <Icon name="chevron-down" size="sm" class="mobile-group-chevron" />
+                          </summary>
+                          <div class="mobile-group-body">
+                            {mega.groups.map((group) => (
+                              <div class="mobile-group-section">
+                                <p class="mobile-group-title">{group.title}</p>
+                                <ul role="list">
+                                  {group.links.map((link) => (
+                                    <li>
+                                      <a href={link.href} class="mobile-group-link" aria-current={currentPath === link.href ? 'page' : undefined}>
+                                        <Icon name={link.icon} size="xs" class="shrink-0 text-brand-600" />
+                                        <span>{link.label}</span>
+                                      </a>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+                            <a href={mega.overview.href} class="mobile-group-link mobile-group-overview">
+                              <span>{mega.overview.label}</span>
+                              <Icon name="arrow-right" size="xs" />
+                            </a>
+                          </div>
+                        </details>
+                      </li>
+                    );
+                  }
                   return (
                     <li>
                       <a
                         href={resolvedHref}
-                        class={cn(
-                          'mobile-menu-row mobile-menu-stagger group flex items-center gap-3 rounded-xl px-3 py-3 text-base transition-colors',
-                          active
-                            ? 'mobile-menu-row-active'
-                            : 'mobile-menu-row-inactive'
-                        )}
+                        class={rowClass}
                         style={`--stagger-index: ${idx}`}
                         aria-current={active ? 'page' : undefined}
                       >
@@ -1332,5 +1423,183 @@ const buttonId = `${menuId}-button`;
   .mobile-menu-stagger:has(.ttg-panel:not(.hidden)) {
     position: relative;
     z-index: 60;
+  }
+</style>
+
+<script>
+  /**
+   * Mega menu: opens on hover or focus on a pointer device, toggles on click
+   * and tap, closes on Escape, on a click elsewhere and when focus leaves.
+   */
+  function initMega() {
+    document.querySelectorAll<HTMLElement>('[data-mega]').forEach((wrap) => {
+      if (wrap.dataset.megaInit) return;
+      wrap.dataset.megaInit = 'true';
+      const trigger = wrap.querySelector<HTMLButtonElement>('[data-mega-trigger]')!;
+      const panel = wrap.querySelector<HTMLElement>('[data-mega-panel]')!;
+      let timer: number | undefined;
+
+      const set = (open: boolean) => {
+        window.clearTimeout(timer);
+        panel.hidden = !open;
+        trigger.setAttribute('aria-expanded', String(open));
+        wrap.toggleAttribute('data-open', open);
+      };
+      const hover = window.matchMedia('(hover: hover)');
+
+      wrap.addEventListener('pointerenter', (e) => {
+        if (e.pointerType !== 'mouse' || !hover.matches) return;
+        window.clearTimeout(timer);
+        timer = window.setTimeout(() => set(true), 60);
+      });
+      wrap.addEventListener('pointerleave', (e) => {
+        if (e.pointerType !== 'mouse' || !hover.matches) return;
+        window.clearTimeout(timer);
+        timer = window.setTimeout(() => set(false), 160);
+      });
+      trigger.addEventListener('click', () => set(panel.hidden));
+      wrap.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !panel.hidden) {
+          set(false);
+          trigger.focus();
+        }
+      });
+      wrap.addEventListener('focusout', (e) => {
+        if (!wrap.contains(e.relatedTarget as Node | null)) set(false);
+      });
+      document.addEventListener('click', (e) => {
+        if (!wrap.contains(e.target as Node)) set(false);
+      });
+    });
+  }
+
+  initMega();
+  document.addEventListener('astro:page-load', initMega);
+</script>
+
+<style is:global>
+  /* Mega menu panel, hung from the bottom of the fixed header. */
+  .mega-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid var(--color-border-strong, var(--color-border));
+    background: var(--color-background);
+    box-shadow: 0 18px 32px -20px rgb(0 0 0 / 0.25);
+  }
+  .mega-panel[hidden] {
+    display: none;
+  }
+  .mega-chevron {
+    transition: transform 0.18s;
+  }
+  .mega[data-open] .mega-chevron {
+    transform: rotate(180deg);
+  }
+  .mega-title {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-foreground-subtle);
+  }
+  .mega-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.5rem 0.6rem;
+    margin-inline: -0.6rem;
+    border-radius: 0.6rem;
+    transition: background-color 0.15s;
+  }
+  .mega-link:hover,
+  .mega-link:focus-visible {
+    background: var(--color-background-secondary);
+  }
+  .mega-link[aria-current='page'] .mega-link-label {
+    color: var(--color-brand-700);
+  }
+  .mega-tile {
+    display: inline-flex;
+    height: 2rem;
+    width: 2rem;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background: var(--color-background-secondary);
+    color: var(--color-brand-700);
+  }
+  .mega-link:hover .mega-tile {
+    background: var(--color-brand-700);
+    color: #fff;
+  }
+  .mega-link-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-foreground);
+  }
+  .mega-link-text {
+    display: block;
+    margin-top: 0.1rem;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--color-foreground-muted);
+  }
+
+  /* Phones: Services opens as an accordion inside the drawer. */
+  .mobile-group[open] .mobile-group-chevron {
+    transform: rotate(180deg);
+  }
+  .mobile-group-chevron {
+    transition: transform 0.18s;
+    color: var(--color-foreground-subtle);
+  }
+  .mobile-group-body {
+    margin: 0.15rem 0 0.4rem 1.2rem;
+    padding-left: 1.1rem;
+    border-left: 1px solid var(--color-border);
+  }
+  .mobile-group-section + .mobile-group-section {
+    margin-top: 0.6rem;
+  }
+  .mobile-group-title {
+    padding: 0.4rem 0.5rem 0.15rem;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-foreground-subtle);
+  }
+  .mobile-group-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    color: var(--color-foreground-muted);
+  }
+  .mobile-group-link:hover,
+  .mobile-group-link[aria-current='page'] {
+    color: var(--color-foreground);
+    background: var(--color-background-secondary);
+  }
+  .mobile-group-overview {
+    margin-top: 0.4rem;
+    justify-content: space-between;
+    font-weight: 600;
+    color: var(--color-brand-700);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mega-chevron,
+    .mobile-group-chevron {
+      transition: none;
+    }
   }
 </style>

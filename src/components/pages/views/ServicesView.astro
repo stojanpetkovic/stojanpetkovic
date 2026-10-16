@@ -123,10 +123,18 @@ const sections = [
                 {paragraph}
               </p>
             ))}
-            <Button variant="brand-outline" href={href} class="mt-2 self-start sm:self-center glitch:self-start">
-              {area.ctaLabel}
-              <Icon name="arrow-right" size="sm" />
-            </Button>
+            <div class="mt-2 flex flex-wrap items-center gap-x-6 gap-y-3 self-start sm:justify-center glitch:justify-start">
+              <Button variant="brand-outline" href={href}>
+                {area.ctaLabel}
+                <Icon name="arrow-right" size="sm" />
+              </Button>
+              {id === 'consulting' && (
+                <a href={localizedPath('/courses', locale)} class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 underline-offset-4 hover:underline">
+                  {t('nav.items.courses', locale)}
+                  <Icon name="arrow-right" size="sm" />
+                </a>
+              )}
+            </div>
           </div>
           <!-- Card -->
           <div class={`sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0 ${i % 2 ? 'glitch:order-1' : ''}`} data-reveal data-reveal-delay="1" data-reveal-ease="smooth">

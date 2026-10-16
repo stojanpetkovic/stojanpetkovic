@@ -1,0 +1,673 @@
+---
+/**
+ * CtSimulatorView — the CT Simulator page.
+ *
+ * One workspace in four steps: the Well (the Well Builder), the Tools (the CT
+ * string and the BHA Builder), the Job (depth, fluids, friction and limits)
+ * and the Results. The editors keep their own state in the browser; the
+ * simulator reads it, says what is missing, and runs the forces calculation of
+ * `src/lib/tools/ct-forces.ts`. Copy comes from `pages.ctSimulator.*`, with
+ * the field and result labels shared with the CT Forces page.
+ */
+import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import WellBuilderPanel from './WellBuilderPanel.astro';
+import BhaBuilderPanel from './BhaBuilderPanel.astro';
+import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+import { UNITS, type Quantity } from '@/lib/tools/units';
+
+interface Props {
+  /** Locale whose copy this page renders. Defaults to the site default. */
+  locale?: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+
+const p = (key: string) => `pages.ctSimulator.${key}`;
+const f = (key: string) => `pages.ctForces.${key}`;
+const hero = tData<{ badge: string; title: string; description: string }>(p('hero'), locale)!;
+const tabs = tData<Record<'well' | 'ct' | 'bha' | 'job' | 'results' | 'label' | 'next' | 'back', string>>(p('tabs'), locale)!;
+const own = tData<{ example: string; confirm: string; printAll: string; printStep: string; preview: Record<string, string>; groups: Record<string, string>; fields: Record<string, { label: string; hint?: string }>; strip: Record<string, string>; missing: Record<string, string>; units: string }>(p('ui'), locale)!;
+const groups = tData<Record<string, string>>(f('groups'), locale)!;
+const fields = { ...tData<Record<string, { label: string; hint?: string }>>(f('fields'), locale)!, ...own.fields };
+const r = tData<Record<string, string>>(f('results'), locale)!;
+const charts = tData<Record<string, string>>(f('charts'), locale)!;
+const system = tData<{ label: string; us: string; metric: string }>('pages.tools.form.system', locale)!;
+const toolsUrl = localizedPath('/tools', locale);
+
+/** Starting values in oilfield units for the CT string and the job. */
+const defaults: Record<string, number> = {
+  ctOd: 1.75,
+  s1Len: 20000,
+  s1Wall: 0.134,
+  reelDiameter: 72,
+  depth: 8000,
+  rhoIn: 8.35,
+  rhoOut: 8.35,
+  whp: 0,
+  cf: 0.3,
+  stripperFriction: 500,
+  reelTension: 300,
+  modulus: 27e6,
+  yieldStrength: 80000,
+  designFactor: 0.8,
+  snubLimit: 15000,
+};
+
+interface Row {
+  key: string;
+  quantity: Quantity;
+}
+const stringRows: Row[] = [
+  { key: 'ctOd', quantity: 'diameter' },
+  { key: 'reelDiameter', quantity: 'diameter' },
+  { key: 's1Len', quantity: 'length' },
+  { key: 's1Wall', quantity: 'diameter' },
+  { key: 's2Len', quantity: 'length' },
+  { key: 's2Wall', quantity: 'diameter' },
+  { key: 's3Len', quantity: 'length' },
+  { key: 's3Wall', quantity: 'diameter' },
+];
+const jobGroups: { id: string; label: string; rows: Row[] }[] = [
+  { id: 'job', label: own.groups.job, rows: [{ key: 'depth', quantity: 'length' }] },
+  {
+    id: 'fluids',
+    label: groups.fluids,
+    rows: [
+      { key: 'rhoIn', quantity: 'density' },
+      { key: 'rhoOut', quantity: 'density' },
+      { key: 'whp', quantity: 'pressure' },
+      { key: 'cf', quantity: 'ratio' },
+      { key: 'stripperFriction', quantity: 'force' },
+      { key: 'reelTension', quantity: 'force' },
+    ],
+  },
+  {
+    id: 'limits',
+    label: groups.limits,
+    rows: [
+      { key: 'modulus', quantity: 'modulus' },
+      { key: 'yieldStrength', quantity: 'stress' },
+      { key: 'designFactor', quantity: 'ratio' },
+      { key: 'snubLimit', quantity: 'force' },
+    ],
+  },
+];
+const lines: { key: string; label: string; quantity?: Quantity }[] = [
+  { key: 'slackoff', label: r.slackoff, quantity: 'force' },
+  { key: 'pickup', label: r.pickup, quantity: 'force' },
+  { key: 'injectorPush', label: r.injectorPush, quantity: 'force' },
+  { key: 'maxSetdown', label: r.maxSetdown, quantity: 'force' },
+  { key: 'maxOverpull', label: r.maxOverpull, quantity: 'force' },
+  { key: 'tensionLimit', label: r.tensionLimit, quantity: 'force' },
+  { key: 'buckleOnset', label: r.buckleOnset, quantity: 'length' },
+  { key: 'buckledLength', label: r.buckledLength, quantity: 'length' },
+];
+const steps = [
+  { id: 'well', n: 1 },
+  { id: 'ct', n: 2 },
+  { id: 'bha', n: 3 },
+  { id: 'job', n: 4 },
+  { id: 'results', n: 5 },
+] as const;
+
+const report = tData<Record<string, unknown>>(p('report'), locale)!;
+const wellTypes = tData<Record<string, string>>('pages.wellBuilder.types', locale)!;
+const copy = { missing: own.missing, charts, r, strip: own.strip, confirm: own.confirm, preview: own.preview, report: { ...report, types: wellTypes } };
+
+const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key, hint: fields[row.key]?.hint });
+---
+
+<PageLayout title={t(p('meta.title'), locale)} description={t(p('meta.description'), locale)} footerBackground="secondary">
+  <section class="web-head border-b border-border pb-8 pt-14 sm:pt-16">
+    <div class="mx-auto max-w-6xl px-6">
+      <a href={toolsUrl} class="inline-flex items-center gap-1.5 text-sm font-medium text-foreground-muted hover:text-foreground">
+        <Icon name="arrow-left" size="sm" />
+        {t('pages.tools.form.back', locale)}
+      </a>
+      <p class="section-eyebrow mt-6 !mb-0"><span>{hero.badge}</span></p>
+      <h1 class="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-[2.5rem] sm:leading-[1.15]">{hero.title}</h1>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-foreground-muted">{hero.description}</p>
+    </div>
+  </section>
+
+  <section class="bg-background pb-12">
+    <div
+      id="ct-sim"
+      class="mx-auto max-w-6xl px-6"
+      data-no-form
+      data-example={JSON.stringify(defaults)}
+      data-defaults={JSON.stringify(defaults)}
+      data-base="us"
+      data-copy={JSON.stringify(copy)}
+    >
+      <!-- Steps: one tab per part of the project, with a dot that says whether it is complete -->
+      <div class="sim-bar sticky top-16 z-30 -mx-6 border-b border-border bg-background/95 px-6 backdrop-blur">
+        <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 py-2">
+          <div role="tablist" aria-label={tabs.label} class="sim-tabs flex gap-1 overflow-x-auto">
+            {
+              steps.map((s) => (
+                <button type="button" role="tab" id={`tab-${s.id}`} aria-controls={`panel-${s.id}`} aria-selected={s.id === 'well'} data-tab={s.id} class="sim-tab">
+                  <span class="sim-num">{s.n}</span>
+                  <span>{tabs[s.id]}</span>
+                  <span class="sim-dot" data-status={s.id} aria-hidden="true"></span>
+                </button>
+              ))
+            }
+          </div>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:w-full">
+            <button type="button" class="wb-link" data-load-example>{own.example}</button>
+            <button type="button" class="wb-link inline-flex items-center gap-1.5" data-sim-print="all"><Icon name="download" size="xs" />{own.printAll}</button>
+            <div role="group" aria-label={system.label} class="tool-segment max-sm:w-full">
+              <button type="button" data-system="us" aria-pressed="true">{system.us}</button>
+              <button type="button" data-system="metric" aria-pressed="false">{system.metric}</button>
+            </div>
+          </div>
+        </div>
+        <p class="sim-strip pb-2 text-xs text-foreground-muted" data-strip aria-live="polite"></p>
+      </div>
+
+      <!-- The report: filled when Save as PDF is pressed, shown only in print -->
+      <div class="sim-report" id="ct-report" aria-hidden="true"></div>
+
+      <!-- 1. Well -->
+      <div role="tabpanel" id="panel-well" aria-labelledby="tab-well" data-panel="well" class="sim-panel">
+        <WellBuilderPanel locale={locale} />
+        <div class="sim-nav"><button type="button" class="sim-next sim-back" data-sim-print="well"><Icon name="download" size="sm" /> {own.printStep}</button><button type="button" class="sim-next" data-go="ct">{tabs.next} <Icon name="arrow-right" size="sm" /></button></div>
+      </div>
+
+      <!-- 2. CT string -->
+      <div role="tabpanel" id="panel-ct" aria-labelledby="tab-ct" data-panel="ct" class="sim-panel" hidden>
+        <div class="tool-card mt-6 !p-4 sm:!p-6">
+          <h2 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{groups.string}</h2>
+          <div class="mt-4 grid gap-6 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start">
+          <div class="tool-fields">
+            {
+              stringRows.map(field).map((row) => (
+                <div class="tool-field">
+                  <label for={`sim-${row.key}`} class="block text-sm font-medium text-foreground">{row.label}</label>
+                  <div class="tool-input mt-1.5">
+                    <input id={`sim-${row.key}`} name={row.key} type="text" inputmode="decimal" autocomplete="off" value={defaults[row.key] === undefined ? '' : String(defaults[row.key])} data-quantity={row.quantity} />
+                    <span data-unit-for={row.key}>{UNITS[row.quantity].label.us}</span>
+                  </div>
+                  {row.hint && <p class="mt-1 text-xs leading-snug text-foreground-subtle">{row.hint}</p>}
+                </div>
+              ))
+            }
+          </div>
+          <figure class="cs-preview min-w-0 rounded-lg border border-border bg-background-secondary p-3 lg:sticky lg:top-40">
+            <figcaption class="font-mono text-[10px] font-semibold uppercase tracking-widest text-foreground-subtle">{own.preview.title}</figcaption>
+            <div id="cs-svg" class="mt-2"></div>
+          </figure>
+          </div>
+        </div>
+        <div class="sim-nav">
+          <button type="button" class="sim-next sim-back" data-go="well"><Icon name="arrow-left" size="sm" /> {tabs.back}</button>
+          <button type="button" class="sim-next sim-back" data-sim-print="ct"><Icon name="download" size="sm" /> {own.printStep}</button>
+          <button type="button" class="sim-next" data-go="bha">{tabs.next} <Icon name="arrow-right" size="sm" /></button>
+        </div>
+      </div>
+
+      <!-- 3. BHA -->
+      <div role="tabpanel" id="panel-bha" aria-labelledby="tab-bha" data-panel="bha" class="sim-panel" hidden>
+        <BhaBuilderPanel locale={locale} />
+        <div class="sim-nav">
+          <button type="button" class="sim-next sim-back" data-go="ct"><Icon name="arrow-left" size="sm" /> {tabs.back}</button>
+          <button type="button" class="sim-next sim-back" data-sim-print="bha"><Icon name="download" size="sm" /> {own.printStep}</button>
+          <button type="button" class="sim-next" data-go="job">{tabs.next} <Icon name="arrow-right" size="sm" /></button>
+        </div>
+      </div>
+
+      <!-- 4. Job -->
+      <div role="tabpanel" id="panel-job" aria-labelledby="tab-job" data-panel="job" class="sim-panel" hidden>
+        <div class="tool-card mt-6 !p-4 sm:!p-6">
+          {
+            jobGroups.map((g) => (
+              <fieldset class="mt-5 min-w-0 border-t border-border pt-5 first:mt-0 first:border-0 first:pt-0">
+                <legend class="float-left mb-3 w-full font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{g.label}</legend>
+                <div class="tool-fields clear-both">
+                  {g.rows.map(field).map((row) => (
+                    <div class="tool-field">
+                      <label for={`sim-${row.key}`} class="block text-sm font-medium text-foreground">{row.label}</label>
+                      <div class="tool-input mt-1.5">
+                        <input id={`sim-${row.key}`} name={row.key} type="text" inputmode="decimal" autocomplete="off" value={String(defaults[row.key])} data-quantity={row.quantity} />
+                        <span data-unit-for={row.key}>{UNITS[row.quantity].label.us}</span>
+                      </div>
+                      {row.hint && <p class="mt-1 text-xs leading-snug text-foreground-subtle">{row.hint}</p>}
+                    </div>
+                  ))}
+                </div>
+              </fieldset>
+            ))
+          }
+        </div>
+        <div class="sim-nav">
+          <button type="button" class="sim-next sim-back" data-go="bha"><Icon name="arrow-left" size="sm" /> {tabs.back}</button>
+          <button type="button" class="sim-next sim-back" data-sim-print="job"><Icon name="download" size="sm" /> {own.printStep}</button>
+          <button type="button" class="sim-next" data-go="results">{tabs.next} <Icon name="arrow-right" size="sm" /></button>
+        </div>
+      </div>
+
+      <!-- 5. Results -->
+      <div role="tabpanel" id="panel-results" aria-labelledby="tab-results" data-panel="results" class="sim-panel" hidden>
+        <div class="tool-card mt-6 !p-4 sm:!p-6" aria-live="polite">
+          <div data-tool-invalid hidden>
+            <p class="text-sm font-semibold text-foreground">{own.missing.title}</p>
+            <ul class="mt-2 space-y-1.5 text-sm text-foreground-muted" data-missing role="list"></ul>
+            <button type="button" class="sim-next mt-4" data-load-example>{own.example}</button>
+          </div>
+          <div data-tool-output>
+            <p class="sim-warn mt-0 text-xs text-foreground-subtle" data-warning hidden></p>
+            <p class="text-sm text-foreground-muted">{r.reach}</p>
+            <p class="mt-1 font-display text-3xl font-bold tracking-tight text-brand-700"><span data-out="reach">–</span></p>
+            <div class="mt-5 grid gap-x-10 lg:grid-cols-2">
+              <dl class="divide-y divide-border border-t border-border text-sm">
+                {
+                  lines.map((line) => (
+                    <div class="flex items-baseline justify-between gap-3 py-2.5">
+                      <dt class="text-foreground-muted">{line.label}</dt>
+                      <dd class="whitespace-nowrap text-right font-mono text-foreground">
+                        <span data-out={line.key} data-quantity={line.quantity}>–</span>{' '}
+                        {line.quantity && <span data-unit-out={line.quantity} class="text-foreground-muted" />}
+                      </dd>
+                    </div>
+                  ))
+                }
+              </dl>
+              <div class="mt-6 lg:mt-0">
+                <p class="text-xs leading-relaxed text-foreground-subtle" data-summary></p>
+              </div>
+            </div>
+            <div class="mt-8 grid gap-8 lg:grid-cols-2">
+              <div>
+                <h3 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{charts.ctwiTitle}</h3>
+                <div id="ct-chart-ctwi" class="ct-chart mt-2"></div>
+                <p class="ct-legend">
+                  <span class="ct-key dc-rih">{charts.rih}</span><span class="ct-key dc-pooh">{charts.pooh}</span><span class="ct-key dc-limit">{charts.limit}</span>
+                </p>
+              </div>
+              <div>
+                <h3 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{charts.forceTitle}</h3>
+                <div id="ct-chart-force" class="ct-chart mt-2"></div>
+                <p class="ct-legend">
+                  <span class="ct-key dc-rih">{charts.rih}</span><span class="ct-key dc-pooh">{charts.pooh}</span><span class="ct-key dc-critical">{charts.critical}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sim-nav"><button type="button" class="sim-next sim-back" data-go="job"><Icon name="arrow-left" size="sm" /> {tabs.back}</button><button type="button" class="sim-next sim-back" data-sim-print="results"><Icon name="download" size="sm" /> {own.printStep}</button></div>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<script>
+  import { initToolForm, type Outcome } from '@/lib/tools/tool-form';
+  import { exampleWell, readWell } from '@/lib/tools/well/model';
+  import { exampleItems, fromFile, toFile } from '@/lib/tools/bha';
+  import { calculateForces, validateForces, type CtSection, type ForcesInput } from '@/lib/tools/ct-forces';
+  import { forceCharts, type ChartCopy } from '@/lib/tools/ct-forces-ui';
+  import {
+    BHA_KEY,
+    SIM_KEY,
+    WELL_KEY,
+    bhaForSim,
+    fallbackHole,
+    missingParts,
+    readStorage,
+    stationsOrVertical,
+    wellForSim,
+    type Missing,
+  } from '@/lib/tools/ct-project';
+  import { renderStringSvg } from '@/lib/tools/ct-string-drawing';
+  import { buildReport, type Fmt, type ReportCopyShape, type ReportScope } from '@/lib/tools/ct-report';
+  import { minimumCurvature } from '@/lib/tools/well/survey';
+  import { toUnit } from '@/lib/tools/well/model';
+  import { renderSvg as renderBhaSvg } from '@/lib/tools/bha';
+  import { convert, type UnitSystem } from '@/lib/tools/units';
+
+  const FIELDS = ['ctOd', 'rhoIn', 'rhoOut', 'whp', 'cf', 'stripperFriction', 'reelTension', 'modulus', 'yieldStrength', 'designFactor', 'snubLimit'] as const;
+  const TABS = ['well', 'ct', 'bha', 'job', 'results'] as const;
+  type Tab = (typeof TABS)[number];
+
+  function init() {
+    const root = document.getElementById('ct-sim');
+    if (!root || root.dataset.init) return;
+    const copy = JSON.parse(root.dataset.copy ?? '{}') as {
+      missing: Record<string, string>;
+      charts: ChartCopy & Record<string, string>;
+      r: Record<string, string>;
+      strip: Record<string, string>;
+      confirm: string;
+      preview: Record<string, string>;
+      report: ReportCopyShape;
+    };
+    const lang = document.documentElement.lang || 'en';
+    const number = (v: number, d = 0) => new Intl.NumberFormat(lang, { maximumFractionDigits: d, useGrouping: false }).format(v);
+    const system = (): UnitSystem =>
+      (root.querySelector('[data-system][aria-pressed="true"]') as HTMLElement | null)?.dataset.system === 'metric' ? 'metric' : 'us';
+
+    // An example project: the example well, the workbook BHA and the starting job.
+    const loadExample = () => {
+      try {
+        localStorage.setItem(WELL_KEY, JSON.stringify(exampleWell('ft')));
+        localStorage.setItem(BHA_KEY, JSON.stringify({ file: toFile(exampleItems('sheet'), { bhaNo: '', runNo: '', preparedBy: '' }), system: 'us' }));
+        localStorage.removeItem(SIM_KEY);
+      } catch {
+        /* storage blocked */
+      }
+      location.hash = '#results';
+      location.reload();
+    };
+    root.querySelectorAll('[data-load-example]').forEach((b) =>
+      b.addEventListener('click', () => {
+        if (readStorage(WELL_KEY, readWell)?.items.length && !confirm(copy.confirm)) return;
+        loadExample();
+      })
+    );
+    // A first visit opens with the example, so there is something to look at.
+    try {
+      if (localStorage.getItem(WELL_KEY) === null && localStorage.getItem(SIM_KEY) === null && !sessionStorage.getItem('ct-simulator:seeded')) {
+        sessionStorage.setItem('ct-simulator:seeded', '1');
+        loadExample();
+        return;
+      }
+    } catch {
+      /* storage blocked */
+    }
+
+    // Restore what the visitor entered before: the CT string and the job.
+    const saved = readStorage<Record<string, number | null>>(SIM_KEY, (raw) => (raw && typeof raw === 'object' ? (raw as Record<string, number | null>) : null));
+    if (saved) {
+      const defaults = JSON.parse(root.dataset.defaults ?? '{}') as Record<string, number>;
+      for (const [k, v] of Object.entries(saved)) if (typeof v === 'number' && Number.isFinite(v)) defaults[k] = v;
+      // A section left empty last time stays empty.
+      for (const k of ['s2Len', 's2Wall', 's3Len', 's3Wall']) if (typeof saved[k] !== 'number') delete defaults[k];
+      root.dataset.defaults = JSON.stringify(defaults);
+    }
+
+    // --- tabs ---
+    let active: Tab = 'well';
+    const results = () => active === 'results';
+    const show = (tab: Tab) => {
+      active = tab;
+      for (const id of TABS) {
+        const panel = root.querySelector<HTMLElement>(`[data-panel="${id}"]`)!;
+        const button = root.querySelector<HTMLElement>(`[data-tab="${id}"]`)!;
+        panel.hidden = id !== tab;
+        button.setAttribute('aria-selected', String(id === tab));
+        button.tabIndex = id === tab ? 0 : -1;
+      }
+      history.replaceState(null, '', `#${tab}`);
+      // Editors drawn while hidden have no width; tell them they are visible now.
+      window.dispatchEvent(new Event('resize'));
+      if (tab === 'results') root.dispatchEvent(new Event('input', { bubbles: true }));
+      window.scrollTo({ top: root.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+    };
+    root.querySelectorAll<HTMLElement>('[data-tab]').forEach((b) => b.addEventListener('click', () => show(b.dataset.tab as Tab)));
+    root.querySelectorAll<HTMLElement>('[data-go]').forEach((b) => b.addEventListener('click', () => show(b.dataset.go as Tab)));
+    root.querySelector('[role="tablist"]')!.addEventListener('keydown', (e) => {
+      const key = (e as KeyboardEvent).key;
+      if (key !== 'ArrowRight' && key !== 'ArrowLeft') return;
+      const next = TABS[(TABS.indexOf(active) + (key === 'ArrowRight' ? 1 : TABS.length - 1)) % TABS.length];
+      show(next);
+      root.querySelector<HTMLElement>(`[data-tab="${next}"]`)!.focus();
+    });
+
+    // --- the project ---
+    const project = () => {
+      const well = wellForSim(readStorage(WELL_KEY, readWell) ?? { unit: 'ft', items: [], survey: '' });
+      const items = readStorage(BHA_KEY, (raw) => fromFile((raw as { file?: unknown } | null)?.file))?.items ?? [];
+      return { well, bha: bhaForSim(items), bhaCount: items.length };
+    };
+
+    const sectionsOf = (input: Record<string, number>): CtSection[] =>
+      [1, 2, 3].map((i) => ({ length: input[`s${i}Len`], wall: input[`s${i}Wall`] })).filter((s) => Number.isFinite(s.length) && Number.isFinite(s.wall));
+
+    /** Status dots and the one-line summary under the tabs. */
+    const refreshStatus = (input: Record<string, number>) => {
+      const { well, bha, bhaCount } = project();
+      const sections = sectionsOf(input);
+      const missing = missingParts(well, bha, sections.length, input.depth);
+      const done = (ok: boolean) => (ok ? 'done' : 'todo');
+      const set = (id: string, state: string) => root.querySelector<HTMLElement>(`[data-status="${id}"]`)?.setAttribute('data-state', state);
+      set('well', done(!missing.includes('holes') && !missing.includes('surveyError')));
+      set('ct', done(!missing.includes('string')));
+      set('bha', done(!missing.includes('bha')));
+      set('job', done(!missing.includes('depth')));
+      set('results', done(missing.filter((m) => m !== 'survey').length === 0));
+      const sys = system();
+      const ft = (v: number) => `${number(convert('length', 'us', sys, v), 0)} ${sys === 'us' ? 'ft' : 'm'}`;
+      const s = copy.strip;
+      root.querySelector('[data-strip]')!.textContent = [
+        `${s.well}: ${well.holes.length > 0 ? `${well.holes.length} ${s.pipes}, ${s.td} ${ft(well.td)}` : '–'}`,
+        `${s.ct}: ${sections.length > 0 ? `${number(convert('diameter', 'us', sys, input.ctOd), sys === 'us' ? 3 : 1)} ${sys === 'us' ? 'in' : 'mm'}` : '–'}`,
+        `${s.bha}: ${bhaCount > 0 ? `${bhaCount} ${s.bhaTools}, ${ft(bha.length)}` : '–'}`,
+        `${s.job}: ${Number.isFinite(input.depth) ? ft(input.depth) : '–'}`,
+      ].join('  ·  ');
+      // The picture of the string in the Tools step.
+      const d = (inches: number) => `${number(convert('diameter', 'us', sys, inches), sys === 'us' ? 3 : 1)} ${sys === 'us' ? 'in' : 'mm'}`;
+      root.querySelector('#cs-svg')!.innerHTML = renderStringSvg({
+        od: input.ctOd,
+        reelDiameter: Number.isFinite(input.reelDiameter) ? input.reelDiameter : null,
+        sections,
+        bha: bhaCount > 0 ? { length: bha.length, od: bha.od, tools: bhaCount } : null,
+        label: {
+          reel: copy.preview.reel,
+          string: copy.preview.string,
+          bha: copy.preview.bha,
+          empty: copy.preview.empty,
+          formatLength: ft,
+          formatDiameter: d,
+          formatWall: (inches) => `${copy.preview.wall} ${d(inches)}`,
+        },
+      });
+      return { well, bha, sections, missing };
+    };
+
+    window.addEventListener('ct-project-change', () => {
+      root.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+
+    /** The calculation for the project as it stands: the result, or what is missing. */
+    const evaluate = (input: Record<string, number>) => {
+      const { well, bha, sections, missing } = refreshStatus(input);
+      const blocking = missing.filter((m: Missing) => m !== 'survey');
+      if (blocking.length > 0) return { missing, blocking, forces: null, result: null, errors: [] as string[], well, bha, sections };
+      const base = Object.fromEntries(FIELDS.map((k) => [k, input[k]])) as Pick<ForcesInput, (typeof FIELDS)[number]>;
+      const forces: ForcesInput = {
+        ...base,
+        stations: stationsOrVertical(well, input.depth),
+        holes: well.holes,
+        holeId: fallbackHole(well),
+        sections,
+        bhaLength: bha.length,
+        bhaWeight: bha.weight,
+        bhaOd: Math.min(bha.od, fallbackHole(well) - 0.01),
+      };
+      const errors: string[] = validateForces(forces).filter((e) => e !== 'stations' && e !== 'holeId' && e !== 'bhaOd');
+      const total = sections.reduce((s, x) => s + x.length, 0);
+      if (total < input.depth - bha.length) errors.push('s1Len', 's1Wall');
+      if (errors.length > 0) return { missing, blocking, forces, result: null, errors, well, bha, sections };
+      return { missing, blocking, forces, result: calculateForces(forces, input.depth), errors, well, bha, sections };
+    };
+
+    // --- the report ---
+    let lastInput: Record<string, number> = {};
+    /** Which part of the report the next print is: the whole job, or one step. */
+    let scope: ReportScope = 'all';
+    const buildDocument = () => {
+      const input = lastInput;
+      const sys = system();
+      const us = sys === 'us';
+      const ev = evaluate(input);
+      const meta = readStorage(BHA_KEY, (raw) => fromFile((raw as { file?: unknown } | null)?.file))?.meta ?? { bhaNo: '', runNo: '', preparedBy: '' };
+      const items = readStorage(BHA_KEY, (raw) => fromFile((raw as { file?: unknown } | null)?.file))?.items ?? [];
+      const wellState = readStorage(WELL_KEY, readWell) ?? { unit: 'ft' as const, items: [], survey: '' };
+      const c = copy.report;
+      const unitLabel = { length: us ? 'ft' : 'm', diameter: us ? 'in' : 'mm', force: us ? 'lbf' : 't' };
+      const num = (v: number, d: number) => number(v, d);
+      const fmt: Fmt = {
+        length: (v) => `${num(convert('length', 'us', sys, v), us ? 0 : 1)} ${unitLabel.length}`,
+        lengthShort: (v) => `${num(convert('length', 'us', sys, v), 2)} ${unitLabel.length}`,
+        diameter: (v) => `${num(convert('diameter', 'us', sys, v), us ? 3 : 1)} ${unitLabel.diameter}`,
+        force: (v) => `${num(convert('force', 'us', sys, v), us ? 0 : 2)} ${unitLabel.force}`,
+        density: (v) => `${num(convert('density', 'us', sys, v), us ? 2 : 0)} ${us ? 'lb/gal' : 'kg/m³'}`,
+        pressure: (v) => `${num(convert('pressure', 'us', sys, v), us ? 0 : 1)} ${us ? 'psi' : 'bar'}`,
+        stress: (v) => `${num(convert('stress', 'us', sys, v), us ? 0 : 0)} ${us ? 'psi' : 'MPa'}`,
+        modulus: (v) => (us ? `${num(v / 1e6, 1)} × 10⁶ psi` : `${num(convert('modulus', 'us', sys, v), 0)} GPa`),
+        mass: (v) => `${num(convert('mass', 'us', sys, v), us ? 0 : 1)} ${us ? 'lb' : 'kg'}`,
+        linearWeight: (v) => `${num(us ? v : v * 1.48816394, 2)} ${us ? 'lb/ft' : 'kg/m'}`,
+        ratio: (v) => num(v, 2),
+        angle: (v) => `${num(v, 1)}°`,
+      };
+      // Depths in the Well Builder are in its own unit; the report works in feet.
+      const items2 = wellState.items.map((i) => ({ ...i, top: toUnit(i.top, wellState.unit, 'ft'), bottom: toUnit(i.bottom, wellState.unit, 'ft') }));
+      const path = ev.well.stations.length > 0 ? minimumCurvature(ev.well.stations, 'ft') : [];
+      const wellSvg = document.getElementById('wb-svg');
+      const wellCopy = wellSvg ? (wellSvg.cloneNode(true) as SVGElement) : null;
+      if (wellCopy) {
+        wellCopy.removeAttribute('id');
+        wellCopy.classList.add('wb-svg-copy');
+      }
+      const dn = (v: number) => num(convert('diameter', 'us', sys, v), us ? 3 : 1);
+      const bhaSvg = renderBhaSvg(items, {
+        formatLength: (ft) => num(convert('length', 'us', sys, ft), 2),
+        formatDiameter: dn,
+        totalLabel: `${c.total} (${unitLabel.length}):`,
+        empty: '',
+      });
+      const stringSvg = renderStringSvg({
+        od: input.ctOd,
+        reelDiameter: Number.isFinite(input.reelDiameter) ? input.reelDiameter : null,
+        sections: ev.sections,
+        bha: items.length > 0 ? { length: ev.bha.length, od: ev.bha.od, tools: items.length } : null,
+        label: {
+          reel: copy.preview.reel,
+          string: copy.preview.string,
+          bha: copy.preview.bha,
+          empty: '',
+          formatLength: (ft) => fmt.length(ft),
+          formatDiameter: (v) => fmt.diameter(v),
+          formatWall: (v) => `${copy.preview.wall} ${fmt.diameter(v)}`,
+        },
+      });
+      const charts = ev.result ? forceCharts(ev.result, sys, copy.charts, number) : null;
+      const missingText = ev.blocking.map((m) => copy.missing[m]);
+      return buildReport(
+        {
+          date: new Intl.DateTimeFormat(lang, { dateStyle: 'long' }).format(new Date()),
+          meta,
+          depth: input.depth,
+          well: { items: items2, path, svg: wellCopy ? wellCopy.outerHTML : '' },
+          ct: { od: input.ctOd, reelDiameter: Number.isFinite(input.reelDiameter) ? input.reelDiameter : null, sections: ev.sections, svg: stringSvg },
+          bha: { items, svg: bhaSvg },
+          job: {
+            rhoIn: input.rhoIn,
+            rhoOut: input.rhoOut,
+            whp: input.whp,
+            cf: input.cf,
+            stripperFriction: input.stripperFriction,
+            reelTension: input.reelTension,
+            modulus: input.modulus,
+            yieldStrength: input.yieldStrength,
+            designFactor: input.designFactor,
+            snubLimit: input.snubLimit,
+          },
+          results: ev.result,
+          missing: missingText,
+          charts,
+          verticalAssumed: ev.well.stations.length === 0,
+        },
+        fmt,
+        c,
+        scope
+      );
+    };
+    const fillReport = () => {
+      root.querySelector('#ct-report')!.innerHTML = buildDocument();
+    };
+    root.querySelectorAll<HTMLElement>('[data-sim-print]').forEach((b) =>
+      b.addEventListener('click', () => {
+        scope = b.dataset.simPrint as ReportScope;
+        fillReport();
+        window.print();
+      })
+    );
+    // The save buttons inside the Well Builder and the BHA Builder print their own step.
+    root.querySelector('#wb-print')?.addEventListener('click', () => (scope = 'well'), true);
+    root.querySelector('#bha-print')?.addEventListener('click', () => (scope = 'bha'), true);
+    window.addEventListener('afterprint', () => (scope = 'all'));
+    window.addEventListener('beforeprint', fillReport);
+
+    initToolForm(root, (input): Outcome => {
+      // Remember the CT string and the job, in oilfield units.
+      try {
+        localStorage.setItem(SIM_KEY, JSON.stringify(input));
+      } catch {
+        /* storage blocked: the page still works */
+      }
+      lastInput = input;
+      // The calculation is the heavy part; it runs only while its results are on screen.
+      if (!results()) {
+        refreshStatus(input);
+        return { values: {} };
+      }
+      const ev = evaluate(input);
+      const list = root.querySelector<HTMLElement>('[data-missing]')!;
+      list.replaceChildren(
+        ...ev.blocking.map((m) => {
+          const li = document.createElement('li');
+          li.textContent = copy.missing[m];
+          return li;
+        })
+      );
+      const warning = root.querySelector<HTMLElement>('[data-warning]')!;
+      warning.hidden = !ev.missing.includes('survey');
+      warning.textContent = copy.missing.survey;
+      if (ev.blocking.length > 0) return { errors: ['__missing'] };
+      if (ev.errors.length > 0 || !ev.result) return { errors: ev.errors };
+      const result = ev.result;
+      const sys = system();
+      const ft = (v: number) => convert('length', 'us', sys, v);
+      const unitL = sys === 'us' ? 'ft' : 'm';
+      const charts = forceCharts(result, sys, copy.charts, number);
+      root.querySelector('#ct-chart-ctwi')!.innerHTML = charts.ctwi;
+      root.querySelector('#ct-chart-force')!.innerHTML = charts.force;
+      const lockup = copy.r.lockup;
+      return {
+        values: {
+          reach: result.reach.toTd ? copy.r.reachTd : `${number(ft(result.reach.depth), 0)} ${unitL}`,
+          slackoff: Number.isFinite(result.slackoff) ? result.slackoff : lockup,
+          pickup: result.pickup,
+          injectorPush: Number.isFinite(result.injectorPush) ? result.injectorPush : lockup,
+          maxSetdown: result.maxSetdown,
+          maxOverpull: result.maxOverpull,
+          tensionLimit: result.tensionLimit,
+          buckleOnset: result.buckleOnset,
+          buckledLength: result.rih.buckledLength,
+        },
+      };
+    });
+
+    // A link to another step of this page (#tools, #results) switches the step without a reload.
+    window.addEventListener('hashchange', () => {
+      const tab = location.hash.slice(1) === 'tools' ? 'ct' : (location.hash.slice(1) as Tab);
+      if (TABS.includes(tab) && tab !== active) show(tab);
+    });
+
+    // Open on the tab in the address, else the first.
+    const fromHash = () => {
+      const raw = location.hash.slice(1);
+      // The CT string and the BHA used to share one step called tools.
+      const tab = (raw === 'tools' ? 'ct' : raw) as Tab;
+      return TABS.includes(tab) ? tab : null;
+    };
+    show(fromHash() ?? 'well');
+    window.scrollTo(0, 0);
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>

@@ -55,73 +55,68 @@ const contactUrl = localizedPath('/contact', locale);
     </div>
   </section>
 
-  <!-- Cards -->
-  <section class="bg-background py-12 sm:py-14">
+  <!-- Tool list: one ruled row per tool -->
+  <section class="bg-background py-10 sm:py-12">
     <div class="mx-auto max-w-5xl px-6">
-      <div class="grid gap-6 md:grid-cols-2">
-        {items.map((tool, i) => (
-          <article class="tool-card flex flex-col" data-reveal data-reveal-delay={i || undefined}>
-            <div class="flex items-center justify-between gap-3">
-              <span class="rounded border border-brand-200 bg-brand-50 px-2 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-widest text-brand-700">{tool.tag}</span>
-              <span class="rounded-full border border-border bg-background-secondary px-3 py-1 text-xs font-medium text-foreground-muted">
-                {t(tool.href ? 'pages.tools.statusAvailable' : 'pages.tools.status', locale)}
-              </span>
-            </div>
+      <ul class="divide-y divide-border overflow-hidden rounded-xl border border-border bg-card shadow-sm" role="list">
+        {items.map((tool) => {
+          const href = tool.href ? localizedPath(tool.href, locale) : contactUrl;
+          return (
+            <li>
+              <a href={href} class="group grid gap-4 p-5 transition-colors hover:bg-background-secondary sm:p-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)_auto] lg:items-center lg:gap-8">
+                <div class="flex items-start gap-4">
+                  <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-700 text-white">
+                    <Icon name={tool.icon} size="md" />
+                  </span>
+                  <div class="min-w-0">
+                    <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+                      <h2 class="font-display text-lg font-bold leading-tight text-foreground">{tool.title}</h2>
+                      <span class="font-mono text-[10px] font-semibold uppercase tracking-widest text-brand-700">{tool.tag}</span>
+                    </div>
+                    <p class="mt-1.5 text-sm leading-relaxed text-foreground-muted">{tool.description}</p>
+                  </div>
+                </div>
 
-            <div class="mt-5 flex items-center gap-4">
-              <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-white shadow-sm">
-                <Icon name={tool.icon} size="md" />
-              </span>
-              <h2 class="font-display text-xl font-bold leading-tight text-foreground">{tool.title}</h2>
-            </div>
+                <dl class="grid gap-2.5 text-sm">
+                  <div class="grid grid-cols-[4.5rem_1fr] gap-3">
+                    <dt class="pt-0.5 font-mono text-[10px] font-semibold uppercase tracking-widest text-foreground-subtle">{t('pages.tools.inputsLabel', locale)}</dt>
+                    <dd class="leading-snug text-foreground-muted">{tool.inputs.join(' · ')}</dd>
+                  </div>
+                  <div class="grid grid-cols-[4.5rem_1fr] gap-3">
+                    <dt class="pt-0.5 font-mono text-[10px] font-semibold uppercase tracking-widest text-foreground-subtle">{t('pages.tools.outputsLabel', locale)}</dt>
+                    <dd class="leading-snug text-foreground-muted">{tool.outputs.join(' · ')}</dd>
+                  </div>
+                </dl>
 
-            <p class="mt-4 text-sm leading-relaxed text-foreground-muted">{tool.description}</p>
+                <div class="flex items-center justify-between gap-4 lg:flex-col lg:items-end lg:justify-center lg:gap-3">
+                  <span class:list={['inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium', tool.href ? 'border-brand-200 bg-brand-50 text-brand-700' : 'border-border bg-background-secondary text-foreground-muted']}>
+                    <span class:list={['h-1.5 w-1.5 rounded-full', tool.href ? 'bg-brand-600' : 'bg-foreground-subtle']} aria-hidden="true"></span>
+                    {t(tool.href ? 'pages.tools.statusAvailable' : 'pages.tools.status', locale)}
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 group-hover:underline underline-offset-4">
+                    {t(tool.href ? 'pages.tools.open' : 'pages.tools.cta', locale)}
+                    <Icon name="arrow-right" size="sm" class="transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                </div>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
 
-            <div class="mt-5 grid gap-5 border-t border-border pt-5 sm:grid-cols-2">
-              <div>
-                <p class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{t('pages.tools.inputsLabel', locale)}</p>
-                <ul class="mt-2 space-y-1.5 text-sm text-foreground-muted" role="list">
-                  {tool.inputs.map((line) => (
-                    <li class="flex gap-2"><Icon name="chevron-right" size="sm" class="mt-0.5 shrink-0 text-brand-600" /><span>{line}</span></li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <p class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{t('pages.tools.outputsLabel', locale)}</p>
-                <ul class="mt-2 space-y-1.5 text-sm text-foreground-muted" role="list">
-                  {tool.outputs.map((line) => (
-                    <li class="flex gap-2"><Icon name="check" size="sm" class="mt-0.5 shrink-0 text-brand-600" /><span>{line}</span></li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div class="mt-6 pt-1">
-              <Button variant="brand-outline" href={tool.href ? localizedPath(tool.href, locale) : contactUrl}>
-                {t(tool.href ? 'pages.tools.open' : 'pages.tools.cta', locale)}
-                <Icon name="arrow-right" size="sm" />
-              </Button>
-            </div>
-          </article>
-        ))}
-
-        <!-- Suggest a tool -->
-        <article class="tool-card tool-card-suggest flex flex-col justify-center" data-reveal data-reveal-delay={items.length || undefined}>
-          <span class="flex h-12 w-12 items-center justify-center rounded-xl border border-dashed border-brand-400 text-brand-700">
-            <Icon name="plus" size="md" />
-          </span>
-          <h2 class="mt-5 font-display text-xl font-bold leading-tight text-foreground">{suggest.title}</h2>
-          <p class="mt-3 text-sm leading-relaxed text-foreground-muted">{suggest.text}</p>
-          <div class="mt-6">
-            <Button variant="brand-outline" href={contactUrl}>
-              {suggest.cta}
-              <Icon name="arrow-right" size="sm" />
-            </Button>
-          </div>
-        </article>
+      <!-- Suggest a tool -->
+      <div class="mt-6 flex flex-col gap-4 rounded-xl border border-dashed border-border bg-background-secondary p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+        <div>
+          <h2 class="font-display text-base font-bold text-foreground">{suggest.title}</h2>
+          <p class="mt-1 text-sm leading-relaxed text-foreground-muted">{suggest.text}</p>
+        </div>
+        <Button variant="brand-outline" href={contactUrl} class="shrink-0 self-start sm:self-auto">
+          {suggest.cta}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
       </div>
 
-      <p class="mt-8 flex items-start gap-2 text-xs leading-relaxed text-foreground-subtle">
+      <p class="mt-6 flex items-start gap-2 text-xs leading-relaxed text-foreground-subtle">
         <Icon name="info" size="xs" class="mt-0.5 shrink-0" />
         {t('pages.tools.note', locale)}
       </p>

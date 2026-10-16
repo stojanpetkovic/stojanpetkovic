@@ -60,7 +60,29 @@
       "projects": "Projekti",
       "blog": "Blog",
       "about": "O meni",
-      "contact": "Kontakt"
+      "contact": "Kontakt",
+      "courses": "Kursevi"
+    },
+    "mega": {
+      "overview": "Sve usluge",
+      "groups": {
+        "engineering": "Inženjering",
+        "tools": "Inženjerski alati",
+        "web": "Softver i web"
+      },
+      "links": {
+        "consulting": "Konsalting i projekti",
+        "allTools": "Svi alati",
+        "web": "Web razvoj",
+        "software": "Inženjerski softver"
+      },
+      "descriptions": {
+        "consulting": "Projektovanje poslova, proračuni, procedure i pregledi.",
+        "courses": "Praktična obuka za coiled tubing.",
+        "projects": "Studije slučaja sa terena.",
+        "software": "Alati u oblaku rađeni po meri.",
+        "web": "Brzi sajtovi za tehničke firme."
+      }
     }
   },
   "common": {
@@ -148,6 +170,10 @@
     "viewProject": "Pogledaj projekat",
     "viewSource": "Pogledaj kod",
     "viewLiveSite": "Pogledaj sajt uživo",
+    "metaClient": "Klijent",
+    "metaRole": "Uloga",
+    "metaYear": "Godina",
+    "metaHighlights": "Ključno",
     "carouselGoToSlide": "Idi na slajd {number}",
     "noProjectsFound": "Još nema projekata.",
     "carouselChooseSlide": "Izaberi slajd",
@@ -1045,6 +1071,10 @@
       "inputsLabel": "Ulazni podaci",
       "outputsLabel": "Rezultati",
       "form": {
+        "reportCreated": "Napravljeno {date}",
+        "reportInputs": "Ulazni podaci",
+        "reportResults": "Rezultati",
+        "reportMethod": "Metod i pretpostavke",
         "system": {
           "label": "Jedinice",
           "us": "Oilfield (US)",
@@ -1078,6 +1108,23 @@
         "outside": "Van tablice: prikazana je vrednost na ivici."
       },
       "items": [
+        {
+          "href": "/tools/ct-simulator",
+          "tag": "Mehanika",
+          "icon": "layout-dashboard",
+          "title": "CT simulator",
+          "description": "Nacrtajte bušotinu, sastavite CT niz i BHA, podesite posao i pročitajte indikator težine, dubinu lock-up-a, težinu oslanjanja i prekoračenje zatezanja.",
+          "inputs": [
+            "Bušotina, survey i cevi iz Well Buildera",
+            "CT niz i BHA iz BHA Buildera",
+            "Fluidi, trenje i površinska oprema"
+          ],
+          "outputs": [
+            "Indikator težine po dubini",
+            "Dubina lock-up-a, težina oslanjanja i prekoračenje zatezanja",
+            "Aksijalna sila i izvijanje duž niza"
+          ]
+        },
         {
           "href": "/tools/ct-pressure-loss",
           "tag": "Hidraulika",
@@ -1145,6 +1192,40 @@
             "Zapremina gasa pri standardnim uslovima",
             "Zapremina tečnog azota",
             "Masa azota"
+          ]
+        },
+        {
+          "href": "/tools/well-kill",
+          "tag": "Kontrola bušotine",
+          "icon": "shield-check",
+          "title": "Gušenje bušotine",
+          "description": "Gustina fluida za gušenje, zapremine i pritisak utiskivanja za proizvodnu bušotinu, i kill sheet bušotine u bušenju.",
+          "inputs": [
+            "Dubina, pritisci i gustina fluida",
+            "Prečnici tubinga i zaštitnih cevi, ili zapremine šipki i prstenastog prostora",
+            "Protok pumpe ili pritisak pri brzini gušenja"
+          ],
+          "outputs": [
+            "Gustina fluida za gušenje",
+            "Zapremine, hodovi i vremena",
+            "Pritisak utiskivanja, ili ICP, FCP i raspored pritiska"
+          ]
+        },
+        {
+          "href": "/tools/bha-builder",
+          "tag": "Coiled tubing",
+          "icon": "wrench",
+          "title": "BHA Builder",
+          "description": "Nacrtajte coiled tubing sklop na dnu bušotine alat po alat, sa dimenzijama, spojevima i ukupnom dužinom, i odštampajte ga kao list.",
+          "inputs": [
+            "Alati od vrha niza do dna",
+            "Spoljašnji i unutrašnji prečnici",
+            "Dužine i spojevi"
+          ],
+          "outputs": [
+            "Crtež sklopa",
+            "Ukupna dužina, najveći OD i najmanji otvor",
+            "List za čuvanje kao PDF"
           ]
         },
         {
@@ -1560,17 +1641,19 @@
     "ctPressureLoss": {
       "meta": {
         "title": "CT pad pritiska",
-        "description": "Izračunaj pad pritiska usled trenja za power-law fluid u coiled tubing-u, podeljen na ravne delove i delove namotane na bubanj, u oilfield ili metričkim jedinicama."
+        "description": "Izračunajte pad pritiska usled trenja za njutnovski, Bingamov plastični, stepeni, Herschel–Bulkley ili empirijski izmeren fluid koji se pumpa kroz koiled tubing, podeljen na ravni deo i deo na bubnju, u oilfield ili metričkim jedinicama."
       },
       "hero": {
         "badge": "Hidraulika",
         "title": "CT pad pritiska",
-        "description": "Pad pritiska usled trenja za power-law fluide u coiled tubing-u. Unesi fluid, cev i protok, u oilfield ili metričkim jedinicama."
+        "description": "Pad pritiska usled trenja za fluide koji se pumpaju kroz koiled tubing. Izaberite reološki model, unesite fluid, cev i protok, u oilfield ili metričkim jedinicama."
       },
       "groups": {
         "fluid": "Fluid",
         "geometry": "Cev i bubanj",
-        "flow": "Protok"
+        "flow": "Protok",
+        "fann": "Fann očitavanja",
+        "temperature": "Uticaj temperature"
       },
       "fields": {
         "density": {
@@ -1594,7 +1677,10 @@
         "wall": {
           "label": "Debljina zida"
         },
-        "roughness": {"label": "Hrapavost zida", "hint": "Apsolutna hrapavost unutrašnjeg zida; 0 za glatku cev. Utiče samo na turbulentni tok"},
+        "roughness": {
+          "label": "Hrapavost zida",
+          "hint": "Apsolutna hrapavost unutrašnjeg zida; 0 za glatku cev. Utiče samo na turbulentni tok"
+        },
         "totalLength": {
           "label": "Dužina niza"
         },
@@ -1604,6 +1690,25 @@
         },
         "flowRate": {
           "label": "Protok"
+        },
+        "fluidType": {
+          "label": "Tip fluida"
+        },
+        "model": {
+          "label": "Reološki model",
+          "hint": "Kako se opisuje kriva tečenja fluida"
+        },
+        "pv": {
+          "label": "Plastična viskoznost (PV)",
+          "hint": "Za njutnovski fluid, njegova viskoznost"
+        },
+        "yp": {
+          "label": "Granica tečenja (YP)",
+          "hint": "Napon tečenja fluida"
+        },
+        "fluidTemperature": {
+          "label": "Temperatura fluida",
+          "hint": "Temperatura za koju se PV i YP uzimaju iz tabele; prazno koristi vrednosti iznad"
         }
       },
       "results": {
@@ -1614,7 +1719,11 @@
         "velocity": "Brzina",
         "reynolds": "Rejnoldsov broj",
         "dean": "Dinov broj",
-        "regime": "Režim toka"
+        "regime": "Režim toka",
+        "effN": "Ekvivalentni indeks tečenja n′",
+        "effK": "Ekvivalentni indeks konzistencije K",
+        "pvUsed": "PV na temperaturi fluida",
+        "ypUsed": "YP na temperaturi fluida"
       },
       "regimes": {
         "laminar": "Laminaran",
@@ -1625,6 +1734,9 @@
         "title": "Metoda",
         "intro": "Pad se računa odvojeno za deo niza van bubnja (ravno) i deo na bubnju (savijeno), a zatim se sabiraju.",
         "steps": [
+          "Reologija: model daje napon smicanja na zidu τ pri brzini smicanja γ. Njutnovski: τ = μγ. Bingamov plastični: τ = YP + PV·γ. Stepeni zakon: τ = Kγⁿ. Herschel–Bulkley: τ = τ₀ + Kγⁿ. Empirijski: izmerene Fann tačke spojene pravim linijama na log–log osama. Fann brzina N rpm daje γ = 1,7023 N 1/s i τ = 1,0678 θ lbf/100 ft².",
+          "Ekvivalentni stepeni zakon: za dati protok pseudo brzina smicanja je Γ = 8V/D. Brzina smicanja na zidu γw = Γ(3n′+1)/(4n′) određuje se iteracijom sa n′, lokalnim nagibom krive tečenja, a K i n′ modela su oni koji daju isti napon na zidu i isti nagib. Fluid sa stepenim zakonom vraća sopstvene n i K.",
+          "Fann prilagođavanje: Bingamov plastični PV = θ600 − θ300 i YP = θ300 − PV; Herschel–Bulkley τ₀ = 2τ3 − τ6 i log–log prilagođavanje za n i K; stepeni zakon log–log prilagođavanje; njutnovski prilagođavanje kroz koordinatni početak. Odstupanje je srednje kvadratno relativno odstupanje modela od očitavanja.",
           "Rejnoldsov broj (Metzner–Reed): Re = 31,042 ρ Q^(2−n) / (9,804^n K ID^(4−3n)) · (n/(1+3n))^n, sa ρ u lb/gal, Q u gal/min, ID u inčima i K u lbf·sⁿ/100 ft².",
           "Ravna cev: laminarno ispod Re = 3470 − 1370n, turbulentno iznad 4270 − 1370n. Laminarno f = 16/Re. Turbulentno f = a/Re^b, gde je a = (log n + 3,93)/50 i b = (1,75 − log n)/7.",
           "Coiled tubing: laminarni faktor se množi sa ψ·De^φ, gde je De = Re_g·(ID/D)^0,5 Dinov broj, ψ = 47,969 − 153,8n + 166,22n² − 60,132n³ i φ = 0,875n − 0,515. Turbulentno: f = 1,069·a/Re^(0,8b)·(ID/D)^0,1. Laminarna granica je (4n/(3n+1))^n · [2100 ψ (ID/D)^(0,5φ)]^(1/(1−φ)), a turbulentna je 800 iznad nje.",
@@ -1633,12 +1745,629 @@
         "assumptionsTitle": "Pretpostavke",
         "assumptions": [
           "Hrapavost zida ulazi samo u turbulentni faktor trenja, kao odnos Haaland faktora sa hrapavošću i bez nje, pa hrapavost 0 daje rezultat za glatku cev. Za n različito od 1 ovo je procena.",
+          "Za modele sa naponom tečenja ekvivalentni stepeni zakon računa se za unetu vrednost protoka. To je pouzdano za laminarno strujanje; turbulentne i prelazne vrednosti za takve fluide su procena, a kritični Rejnoldsovi brojevi su oni za fluid sa stepenim zakonom.",
           "Jednofazni power-law fluid bez čvrstih čestica.",
           "Glatka cev i potpuno razvijen tok, sa osobinama fluida koje su konstantne duž niza.",
           "Zakrivljenost je ona koju daje uneti prečnik bubnja; cev van bubnja je ravna.",
           "Korelacije važe za ograničen opseg n i ID/D. Proveri rezultate van njega."
         ],
         "reference": "Zasnovano na objavljenim korelacijama za power-law fluide u coiled tubing-u (Zhou i Shah), sa Rejnoldsovim brojem po Metzner–Reed-u i turbulentnim faktorima po Dodge–Metzner-u. Proračun reprodukuje referentnu tabelu za njen primer. Proveri originalne radove pre nego što se osloniš na rezultat."
+      },
+      "models": {
+        "newtonian": "Njutnovski",
+        "bingham": "Bingamov plastični",
+        "powerLaw": "Stepeni zakon",
+        "herschelBulkley": "Herschel–Bulkley",
+        "empirical": "Empirijski model"
+      },
+      "fluidTypes": {
+        "liquid": "Tečnost",
+        "gas": "Gas",
+        "foam": "Pena",
+        "multiphase": "Višefazni"
+      },
+      "soon": "još nije dostupno",
+      "fann": {
+        "note": "Očitavanja θ Fann 35 viskozimetra pri svakoj brzini. Pretpostavlja se standardna kombinacija rotor-bob R1-B1 i torziona opruga F1.",
+        "fit": "Prilagodi model očitavanjima",
+        "fitted": "Prilagođeno. Odstupanje od očitavanja: {dev} %",
+        "direct": "Empirijski model koristi očitavanja direktno.",
+        "failed": "Očitavanja ne podržavaju ovaj model. Unesite svih 12 očitavanja, ili bar 600 i 300 rpm za Bingamov plastični model."
+      },
+      "temp": {
+        "note": "Za njutnovske i Bingamove fluide PV i YP se interpoliraju između redova na temperaturi fluida. Ostavite tabelu praznom da se koriste površinske vrednosti.",
+        "title": "Reologija na različitim temperaturama",
+        "temperature": "Temp.",
+        "pv": "PV",
+        "yp": "YP"
+      }
+    },
+    "wellKill": {
+      "meta": {
+        "title": "Gušenje bušotine",
+        "description": "Izračunajte gustinu fluida za gušenje, zapremine i pritiske za gušenje proizvodne bušotine utiskivanjem (bullheading) ili cirkulacijom, kao i kill sheet bušotine u bušenju za metod bušača i metod čekaj i otežaj, u metričkim ili oilfield jedinicama."
+      },
+      "hero": {
+        "badge": "Kontrola bušotine",
+        "title": "Gušenje bušotine",
+        "description": "Fluid za gušenje, zapremine i pritisci za proizvodnu bušotinu, ili kill sheet bušotine u bušenju. Izaberite metod i unesite bušotinu, u metričkim ili oilfield jedinicama."
+      },
+      "groups": {
+        "wellFluid": "Bušotina i fluid",
+        "kill": "Gušenje i utiskivanje",
+        "tubing": "Cevi i zaštitne cevi",
+        "pumping": "Pumpanje",
+        "drillWell": "Bušotina i isplaka",
+        "drillPump": "Pumpa i cirkulacija",
+        "drillVolumes": "Zapremine"
+      },
+      "fields": {
+        "wTvd": {
+          "label": "Prava vertikalna dubina",
+          "hint": "Dubina formacije"
+        },
+        "wMd": {
+          "label": "Dužina tubinga",
+          "hint": "Merena dubina cipele tubinga"
+        },
+        "wDensity": {
+          "label": "Gustina fluida u bušotini"
+        },
+        "wSitp": {
+          "label": "Pritisak u tubingu pri zatvorenoj bušotini"
+        },
+        "wMargin": {
+          "label": "Nadpritisak",
+          "hint": "Pritisak koji fluid za gušenje dodaje iznad pritiska formacije"
+        },
+        "wInject": {
+          "label": "Pritisak utiskivanja iznad formacije",
+          "hint": "Pritisak iznad pritiska formacije potreban da se fluid utisne u nju pri utiskivanju"
+        },
+        "wFracture": {
+          "label": "Pritisak frakturiranja",
+          "hint": "Na dubini formacije; 0 izostavlja proveru"
+        },
+        "wTubingId": {
+          "label": "Unutrašnji prečnik tubinga"
+        },
+        "wTubingOd": {
+          "label": "Spoljašnji prečnik tubinga"
+        },
+        "wCasingId": {
+          "label": "Unutrašnji prečnik zaštitnih cevi"
+        },
+        "wRate": {
+          "label": "Protok pumpe"
+        },
+        "dTvd": {
+          "label": "Prava vertikalna dubina"
+        },
+        "dMud": {
+          "label": "Gustina isplake"
+        },
+        "dSidpp": {
+          "label": "Pritisak u bušaćim šipkama pri zatvaranju (SIDPP)"
+        },
+        "dShoeTvd": {
+          "label": "Dubina cipele zaštitnih cevi (TVD)"
+        },
+        "dLeakoff": {
+          "label": "Leak-off, kao gustina isplake",
+          "hint": "Gustina isplake ekvivalentna pritisku leak-off na cipeli"
+        },
+        "dScr": {
+          "label": "Cirkulacioni pritisak pri brzini gušenja"
+        },
+        "dSpm": {
+          "label": "Brzina pumpe",
+          "hint": "Hodova u minuti pri brzini gušenja"
+        },
+        "dPump": {
+          "label": "Izlaz pumpe",
+          "hint": "Zapremina po hodu"
+        },
+        "dStringVolume": {
+          "label": "Zapremina bušaćih šipki",
+          "hint": "Unutar bušaćih šipki"
+        },
+        "dAnnulusVolume": {
+          "label": "Zapremina prstenastog prostora",
+          "hint": "Od dleta do površine"
+        }
+      },
+      "results": {
+        "title": "Rezultat",
+        "killFluid": "Gustina fluida za gušenje",
+        "killMud": "Gustina isplake za gušenje",
+        "formationPressure": "Pritisak formacije",
+        "densityIncrease": "Povećanje gustine",
+        "hydrostatic": "Hidrostatički pritisak fluida za gušenje",
+        "tubingVolume": "Zapremina tubinga (utiskivanje)",
+        "annulusVolume": "Zapremina prstenastog prostora",
+        "tubingTime": "Vreme pumpanja tubinga",
+        "circulationTime": "Vreme pumpanja tubinga i prstenastog prostora",
+        "startPressure": "Površinski pritisak na početku utiskivanja",
+        "endPressure": "Površinski pritisak na kraju utiskivanja",
+        "injectionPressure": "Pritisak na dnu pri utiskivanju",
+        "fractureMargin": "Rezerva do pritiska frakturiranja",
+        "icp": "Početni cirkulacioni pritisak (ICP)",
+        "fcp": "Završni cirkulacioni pritisak (FCP)",
+        "strokesToBit": "Hodova do dleta",
+        "strokesToSurface": "Hodova, dleto do površine",
+        "timeToBit": "Vreme do dleta",
+        "timeToSurface": "Vreme, dleto do površine",
+        "totalStrokes": "Hodova celog gušenja",
+        "totalTime": "Vreme celog gušenja",
+        "maasp": "Najveći dozvoljeni pritisak u prstenastom prostoru (MAASP)",
+        "min": "min",
+        "strokes": "hodova"
+      },
+      "schedule": {
+        "title": "Raspored pritiska u bušaćim šipkama",
+        "strokes": "Hodova",
+        "time": "Vreme",
+        "pressure": "Pritisak",
+        "note": "Dok isplaka za gušenje ide niz šipke, držite pritisak u šipkama po ovom rasporedu, a zatim držite završni cirkulacioni pritisak dok isplaka za gušenje ne stigne na površinu."
+      },
+      "methods": {
+        "label": "Metod",
+        "hint": "Gušenje proizvodne bušotine, ili bušotina u bušenju koja se guši jednim od dva cirkulacijska metoda",
+        "options": {
+          "workover": "Proizvodna bušotina: utiskivanje i cirkulacija",
+          "drillers": "Bušotina u bušenju: metod bušača",
+          "waitWeight": "Bušotina u bušenju: čekaj i otežaj"
+        }
+      },
+      "method": {
+        "title": "Metod",
+        "intro": "Alat računa gušenje iz ravnoteže hidrostatičkih pritisaka.",
+        "steps": [
+          "Hidrostatički pritisak: P = ρ·g·TVD, sa g = 9,80665 m/s². Pritisak formacije je pritisak pri zatvorenoj bušotini plus hidrostatički pritisak fluida u bušotini.",
+          "Proizvodna bušotina: gustina fluida za gušenje uravnotežuje pritisak formacije plus nadpritisak, ρ = (P + nadpritisak) / (g·TVD). Zapremine su π/4·ID²·L za tubing i π/4·(ID zaštitnih cevi² − OD tubinga²)·L za prstenasti prostor.",
+          "Utiskivanje: površinski pritisak je pritisak utiskivanja (pritisak formacije plus pritisak potreban za utiskivanje) minus hidrostatički pritisak fluida u tubingu. Počinje na pritisku zatvaranja plus rezerva utiskivanja i opada kako fluid za gušenje ulazi. Pritisak na dnu proverava se prema pritisku frakturiranja.",
+          "Bušotina u bušenju: gustina isplake za gušenje = gustina isplake + SIDPP / (g·TVD). ICP = SIDPP + cirkulacioni pritisak pri brzini gušenja; FCP = cirkulacioni pritisak × isplaka za gušenje / gustina isplake. Pritisak u šipkama linearno opada od ICP do FCP tokom hodova do dleta.",
+          "Čekaj i otežaj cirkuliše jednom sa isplakom za gušenje. Metod bušača prvo izbacuje prilivak originalnom isplakom držeći ICP, a zatim cirkuliše isplaku za gušenje. MAASP = (gustina leak-off − gustina isplake)·g·TVD cipele."
+        ],
+        "assumptionsTitle": "Pretpostavke",
+        "assumptions": [
+          "Vertikalni stub jednog fluida: bez gasa u fluidu, bez trenja pri utiskivanju i bez uticaja temperature i stišljivosti na gustinu.",
+          "Pritisci su manometarski. Gušenje proverite prema nazivnim pritiscima zaštitnih cevi, tubinga i glave bušotine.",
+          "Kill sheet važi za metod koji strana navodi; rad na čoku i reakcija na prilivak gasa traže procenu na lokaciji."
+        ],
+        "reference": "Alat je pomoć u planiranju, a ne zamena za procedure kontrole bušotine operatora i sertifikate posade. Rezultat proverite prema kill sheet-u kompanije."
+      }
+    },
+    "bhaBuilder": {
+      "meta": {
+        "title": "BHA Builder",
+        "description": "Nacrtajte coiled tubing sklop na dnu bušotine (BHA) od njegovih alata, sa prečnicima, dužinama i spojevima, crtežom niza i ukupnom dužinom, u oilfield ili metričkim jedinicama."
+      },
+      "hero": {
+        "badge": "Coiled tubing",
+        "title": "BHA Builder",
+        "description": "Dodajte alate coiled tubing sklopa na dnu bušotine od vrha niza do dna, unesite njihove dimenzije i dobijte crtež, ukupnu dužinu i list za štampu."
+      },
+      "palette": {
+        "title": "Alati",
+        "hint": "Izaberite alat da ga dodate na dno sklopa, pa izmenite njegove dimenzije."
+      },
+      "types": {
+        "connector": "Coil connector",
+        "crossover": "Prelazni nastavak",
+        "swivel": "Swivel",
+        "checkValve": "Nepovratni ventil",
+        "disconnect": "Disconnect",
+        "circSub": "Cirkulacioni nastavak",
+        "motorhead": "Motorhead",
+        "jar": "Jar",
+        "accelerator": "Akcelerator",
+        "centralizer": "Centralizer",
+        "nozzle": "Mlaznica za ispiranje",
+        "mill": "Glodalo",
+        "motor": "Motor isplake",
+        "packer": "Paker",
+        "overshot": "Overshot",
+        "generic": "Drugi alat"
+      },
+      "examples": {
+        "sheet": "Primer sa lista: coil 1-1/2\", 10 alata",
+        "motorhead1_11_16": "Motorhead 1-11/16\"",
+        "motorhead2_1_8": "Motorhead 2-1/8\"",
+        "motorhead2_3_8": "Motorhead 2-3/8\"",
+        "motorhead2_7_8": "Motorhead 2-7/8\"",
+        "motorhead3_1_8": "Motorhead 3-1/8\""
+      },
+      "fields": {
+        "bhaNo": "BHA br.",
+        "runNo": "Spuštanje br.",
+        "preparedBy": "Pripremio"
+      },
+      "drawing": {
+        "title": "Sklop, odozgo nadole"
+      },
+      "units": {
+        "label": "Jedinice"
+      },
+      "editor": {
+        "description": "Opis",
+        "od": "Spoljašnji prečnik",
+        "bore": "Unutrašnji prečnik",
+        "length": "Dužina",
+        "connection": "Spoj",
+        "weight": "Težina u vazduhu",
+        "up": "Pomeri gore",
+        "down": "Pomeri dole",
+        "copy": "Dupliraj",
+        "remove": "Ukloni",
+        "empty": "Još nema alata. Izaberite alat sa liste iznad ili učitajte primer."
+      },
+      "summary": {
+        "length": "Ukupna dužina",
+        "maxOd": "Najveći OD",
+        "minBore": "Najmanji otvor",
+        "count": "Alata",
+        "weight": "Težina"
+      },
+      "data": {
+        "example": "Učitaj primer",
+        "export": "Izvezi BHA",
+        "reset": "Obriši BHA",
+        "note": "Sačuvano samo u ovom pregledaču.",
+        "confirmExample": "Zameniti trenutni BHA primerom?",
+        "confirmReset": "Obrisati BHA?",
+        "importError": "Ta datoteka nije BHA izvezen sa ove strane.",
+        "disclaimer": "Dimenzije i dužine su one koje unesete; primeri su tipične vrednosti sa BHA lista. Proverite ih prema podacima proizvođača pre rada.",
+        "import": "Uvezi BHA"
+      },
+      "print": {
+        "button": "Sačuvaj kao PDF",
+        "title": "Sklop na dnu bušotine",
+        "bhaNo": "BHA br.",
+        "runNo": "Spuštanje br.",
+        "preparedBy": "Pripremio",
+        "total": "Ukupna dužina"
+      }
+    },
+    "ctForces": {
+      "groups": {
+        "well": "Bušotina",
+        "string": "CT niz",
+        "bha": "BHA",
+        "fluids": "Fluidi, trenje i površina",
+        "limits": "Materijal i granice"
+      },
+      "fields": {
+        "depth": {
+          "label": "Dubina BHA (MD)",
+          "hint": "Merena dubina dna BHA koja se analizira"
+        },
+        "holeId": {
+          "label": "Unutrašnji prečnik kanala",
+          "hint": "Zaštitne cevi ili tubing kroz koje CT ide"
+        },
+        "ctOd": {
+          "label": "Spoljašnji prečnik CT"
+        },
+        "s1Len": {
+          "label": "Dužina sekcije 1",
+          "hint": "Sekcije idu od kraja sa BHA ka bubnju; sekcije 2 i 3 ostavite prazne za jednu debljinu zida"
+        },
+        "s1Wall": {
+          "label": "Zid sekcije 1"
+        },
+        "s2Len": {
+          "label": "Dužina sekcije 2"
+        },
+        "s2Wall": {
+          "label": "Zid sekcije 2"
+        },
+        "s3Len": {
+          "label": "Dužina sekcije 3"
+        },
+        "s3Wall": {
+          "label": "Zid sekcije 3"
+        },
+        "bhaLength": {
+          "label": "Dužina BHA"
+        },
+        "bhaWeight": {
+          "label": "Težina BHA u vazduhu"
+        },
+        "bhaOd": {
+          "label": "Spoljašnji prečnik BHA",
+          "hint": "Koristi se za uzgon; BHA se smatra krutim"
+        },
+        "rhoIn": {
+          "label": "Gustina fluida u CT"
+        },
+        "rhoOut": {
+          "label": "Gustina fluida izvan CT"
+        },
+        "whp": {
+          "label": "Pritisak na glavi bušotine"
+        },
+        "cf": {
+          "label": "Koeficijent trenja",
+          "hint": "Oko 0,30–0,35 čelik u vodi, 0,20–0,25 sa lubrikantom, 0,15–0,20 u nafti"
+        },
+        "stripperFriction": {
+          "label": "Trenje strippera"
+        },
+        "reelTension": {
+          "label": "Zatezanje bubnja"
+        },
+        "modulus": {
+          "label": "Jangov modul"
+        },
+        "yieldStrength": {
+          "label": "Granica tečenja"
+        },
+        "designFactor": {
+          "label": "Faktor projekta u zatezanju",
+          "hint": "Deo sile tečenja dozvoljen na površini"
+        },
+        "snubLimit": {
+          "label": "Granica potiskivanja injektora",
+          "hint": "Najviše čime injektor može da gura CT; iznad toga se proglašava lock-up"
+        }
+      },
+      "results": {
+        "title": "Rezultat",
+        "reach": "Dubina do lock-up-a",
+        "reachTd": "TD, bez lock-up-a",
+        "slackoff": "Indikator težine, RIH",
+        "pickup": "Indikator težine, POOH",
+        "injectorPush": "Potiskivanje injektora na ovoj dubini",
+        "maxSetdown": "Najveća težina oslanjanja",
+        "maxOverpull": "Najveće prekoračenje zatezanja",
+        "tensionLimit": "Granica zatezanja na površini",
+        "buckleOnset": "Heliksno izvijanje počinje na",
+        "buckledLength": "Izvijena dužina na ovoj dubini",
+        "lockup": "Lock-up"
+      },
+      "charts": {
+        "ctwiTitle": "Indikator težine po dubini",
+        "forceTitle": "Aksijalna sila duž niza",
+        "rih": "RIH",
+        "pooh": "POOH",
+        "limit": "Granica lock-up-a",
+        "critical": "Kritična sila izvijanja",
+        "ctwiAxis": "Indikator težine",
+        "forceAxis": "Aksijalna sila",
+        "depthAxis": "Dubina",
+        "bha": "BHA"
+      }
+    },
+    "ctSimulator": {
+      "meta": {
+        "title": "CT simulator",
+        "description": "Isplanirajte coiled tubing posao u četiri koraka: nacrtajte bušotinu, sastavite CT niz i BHA, podesite posao i pročitajte indikator težine, dubinu lock-up-a, težinu oslanjanja i prekoračenje zatezanja."
+      },
+      "hero": {
+        "badge": "Coiled tubing",
+        "title": "CT simulator",
+        "description": "Nacrtajte bušotinu, sastavite niz i BHA, podesite posao i pročitajte rezultate. Bušotina i BHA se čuvaju u ovom pregledaču, pa se editori koje ste koristili drugde na sajtu ovde otvaraju kako ste ih ostavili."
+      },
+      "tabs": {
+        "well": "Bušotina",
+        "ct": "CT niz",
+        "bha": "BHA",
+        "job": "Posao",
+        "results": "Rezultati",
+        "label": "Koraci",
+        "next": "Dalje",
+        "back": "Nazad"
+      },
+      "ui": {
+        "printAll": "Sačuvaj ceo posao kao PDF",
+        "printStep": "Sačuvaj ovaj korak kao PDF",
+        "preview": {
+          "title": "Pregled niza",
+          "reel": "Bubanj",
+          "string": "CT niz",
+          "bha": "BHA",
+          "empty": "Unesite spoljašnji prečnik CT i sekciju zida",
+          "wall": "zid"
+        },
+        "example": "Učitaj primer projekta",
+        "confirm": "Zameniti bušotinu i BHA primerom projekta?",
+        "groups": {
+          "job": "Posao"
+        },
+        "fields": {
+          "reelDiameter": {
+            "label": "Prečnik jezgra bubnja",
+            "hint": "Čuva se za provere savijanja i zamora koje slede; sile ga za sada ne koriste"
+          }
+        },
+        "strip": {
+          "well": "Bušotina",
+          "pipes": "cevi",
+          "td": "TD",
+          "bhaTools": "alata BHA",
+          "job": "Dubina",
+          "ct": "CT",
+          "bha": "BHA"
+        },
+        "missing": {
+          "title": "Popunite ovo da bi rezultati imali smisla",
+          "holes": "Bušotina: dodajte zaštitne cevi, liner ili tubing u koraku Bušotina, da CT ima kanal u koji ide.",
+          "surveyError": "Bušotina: survey otklona se ne može pročitati; ispravite ga u koraku Bušotina.",
+          "bha": "BHA: dodajte alate BHA u koraku BHA.",
+          "string": "CT niz: unesite spoljašnji prečnik CT i bar jednu sekciju zida u koraku CT niz.",
+          "depth": "Posao: dubina BHA mora biti veća od dužine BHA i ne veća od bušotine.",
+          "survey": "Nema survey-a otklona u koraku Bušotina: bušotina se uzima kao vertikalna."
+        }
+      },
+      "report": {
+        "title": "Izveštaj o CT poslu",
+        "created": "Napravljeno {date}",
+        "bhaNo": "BHA br.",
+        "runNo": "Spuštanje br.",
+        "preparedBy": "Pripremio",
+        "summary": "Rezime posla",
+        "incomplete": "Projekat nije kompletan, pa nema rezultata. Popunite:",
+        "depth": "Dubina BHA (MD)",
+        "reach": "Dubina do lock-up-a",
+        "reachTd": "TD, bez lock-up-a",
+        "slackoff": "Indikator težine, RIH",
+        "pickup": "Indikator težine, POOH",
+        "maxSetdown": "Najveća težina oslanjanja",
+        "maxOverpull": "Najveće prekoračenje zatezanja",
+        "lockup": "Lock-up",
+        "well": "Bušotina",
+        "tubulars": "Cevi",
+        "type": "Tip",
+        "size": "Veličina",
+        "id": "ID",
+        "top": "Vrh MD",
+        "bottom": "Dno MD",
+        "wellTools": "Alati u bušotini",
+        "survey": "Survey otklona",
+        "vertical": "Survey otklona nije unet; bušotina se uzima kao vertikalna.",
+        "stations": "Stanice",
+        "tdMd": "Dubina, MD",
+        "tdTvd": "Dubina, TVD",
+        "maxInc": "Najveći nagib",
+        "maxDls": "Najveći dogleg",
+        "dlsBase": "100 ft",
+        "inc": "Nagib",
+        "azi": "Azimut",
+        "dls": "Dogleg",
+        "ct": "CT niz",
+        "ctOd": "Spoljašnji prečnik",
+        "reel": "Prečnik jezgra bubnja",
+        "stringLength": "Dužina niza",
+        "length": "Dužina",
+        "wall": "Zid",
+        "weightAir": "Težina u vazduhu",
+        "weightBuoyed": "Težina sa uzgonom",
+        "bha": "Sklop na dnu bušotine",
+        "description": "Opis",
+        "weight": "Težina u vazduhu",
+        "connection": "Spoj",
+        "total": "Ukupno",
+        "job": "Posao",
+        "rhoIn": "Gustina fluida u CT",
+        "rhoOut": "Gustina fluida izvan CT",
+        "whp": "Pritisak na glavi bušotine",
+        "cf": "Koeficijent trenja",
+        "stripper": "Trenje strippera",
+        "reelTension": "Zatezanje bubnja",
+        "modulus": "Jangov modul",
+        "yieldStrength": "Granica tečenja",
+        "designFactor": "Faktor projekta u zatezanju",
+        "snubLimit": "Granica potiskivanja injektora",
+        "results": "Rezultati",
+        "injectorPush": "Potiskivanje injektora na ovoj dubini",
+        "tensionLimit": "Granica zatezanja na površini",
+        "buckleOnset": "Heliksno izvijanje počinje na",
+        "buckledLength": "Izvijena dužina na ovoj dubini",
+        "ctwiTitle": "Indikator težine po dubini",
+        "forceTitle": "Aksijalna sila duž niza",
+        "rih": "RIH",
+        "pooh": "POOH",
+        "limit": "Granica lock-up-a",
+        "critical": "Kritična sila izvijanja",
+        "notesTitle": "Metod i pretpostavke",
+        "disclaimer": "Pomoć u planiranju, ne zamena za procedure operatera ili terenski simulator. Rezultat proverite prema svojim podacima pre posla.",
+        "notes": [
+          "Model mekog niza (CTES priručnik za coiled tubing, poglavlja 6 i 7): bez momenata savijanja, sa stalnim koeficijentom trenja.",
+          "BHA se uzima kao jedno kruto telo; bez torzije, hidrauličkog otpora i zamora.",
+          "Prag izvijanja je onaj bez trenja, što je konzervativno.",
+          "Granica prekoračenja je jednostavna granica zatezanja gornje sekcije, ne von Mises provera sa pritiskom."
+        ]
+      }
+    },
+    "courses": {
+      "meta": {
+        "title": "Kursevi — obuka za coiled tubing",
+        "description": "Praktična obuka za coiled tubing, od osnova na terenu do projektovanja posla, sa proračunima korak po korak i materijalom koji ostaje vama. U pripremi."
+      },
+      "hero": {
+        "badge": "Kursevi",
+        "title": "Kursevi za coiled tubing",
+        "description": "Praktična obuka za coiled tubing, od osnova na terenu do projektovanja posla. Kursevi su u pripremi: recite mi šta vam treba i javiću vam kad se otvore."
+      },
+      "status": "U pripremi",
+      "audience": {
+        "heading": "Za koga je",
+        "items": [
+          {
+            "icon": "hard-hat",
+            "title": "Posade i tehničari na terenu",
+            "text": "Šta je oprema, čemu služi svaki korak posla i zašto se radi tim redom."
+          },
+          {
+            "icon": "graduation-cap",
+            "title": "Mladi inženjeri",
+            "text": "Proračuni iza posla, korak po korak, sa primerima koje možete da ponovite."
+          },
+          {
+            "icon": "clipboard-check",
+            "title": "Inženjeri i nadzornici",
+            "text": "Projektovanje posla i provera plana prema onome što brojevi kažu."
+          }
+        ]
+      },
+      "modules": {
+        "heading": "Planirani moduli",
+        "lead": "Uz svaki modul sa proračunom ide odgovarajući alat na ovom sajtu, pa brojeve možete da isprobate dok čitate.",
+        "tool": "Otvori alat",
+        "items": [
+          {
+            "icon": "layers",
+            "title": "Osnove coiled tubinga",
+            "text": "Niz, bubanj, injektor i površinska oprema, i čemu služi svaki deo.",
+            "href": null
+          },
+          {
+            "icon": "activity",
+            "title": "Hidraulika i pad pritiska",
+            "text": "Pad pritiska usled trenja u pravoj cevi i cevi na bubnju, i kako model fluida menja rezultat.",
+            "href": "/tools/ct-pressure-loss"
+          },
+          {
+            "icon": "shield-check",
+            "title": "Granice cevi",
+            "text": "Granice pucanja, kolapsa i zatezanja, i von Mises provera prema granici tečenja.",
+            "href": "/tools/ct-strength-limits"
+          },
+          {
+            "icon": "wind",
+            "title": "Rad sa azotom",
+            "text": "Zapremine azota i zamena fluida, i kako se gas ponaša sa pritiskom i temperaturom.",
+            "href": "/tools/nitrogen-displacement"
+          },
+          {
+            "icon": "shield-alert",
+            "title": "Kontrola bušotine",
+            "text": "Gušenje bušotine utiskivanjem ili cirkulacijom, i kill sheet bušotine u bušenju.",
+            "href": "/tools/well-kill"
+          },
+          {
+            "icon": "wrench",
+            "title": "Sklop na dnu bušotine",
+            "text": "Izbor i raspored alata na kraju niza, i crtanje BHA.",
+            "href": "/tools/bha-builder"
+          }
+        ]
+      },
+      "how": {
+        "heading": "Kako će raditi",
+        "points": [
+          "Sopstvenim tempom, sa materijalom koji ostaje vama.",
+          "Proračuni korak po korak, sa rešenim primerima.",
+          "Jednostavnim jezikom, sa prikazanim brojevima."
+        ],
+        "note": "Termini, formati i cene još nisu određeni."
+      },
+      "cta": {
+        "heading": "Recite mi šta vam treba",
+        "lead": "Navedite koji modul ili koja posada treba obuku, a ja ću se javiti sa onim što je planirano.",
+        "primary": "Kontaktirajte me",
+        "secondary": "Otvori alate"
       }
     },
     "web": {
@@ -1706,10 +2435,41 @@
         "learnMore": "Reci mi šta ti treba",
         "status": "U pripremi",
         "cards": [
-          { "icon": "layers", "title": "Industrijski projekti", "description": "Studije slučaja iz coiled tubing i azotnih operacija, pisane za inženjere.", "points": ["Projektovanje posla i razlozi iza njega", "Šta je planirano, šta se desilo, šta se promenilo", "Jasan jezik, sa prikazanim brojevima"] },
-          { "icon": "book-open", "title": "Kursevi", "description": "Praktična obuka iz coiled tubing-a, od osnova na terenu do projektovanja poslova.", "points": ["Osnove za ekipe i mlade inženjere", "Proračuni korak po korak, sa urađenim primerima", "Svojim tempom, sa materijalom koji ostaje"] },
-          { "icon": "code", "title": "Inženjerski softver", "description": "Alati i softver po meri u oblaku za tehničke timove. Sve radi na serveru i otvara se u pregledaču, bez instalacije.", "points": ["Kalkulatori i alati za svakodnevni rad na terenu i u kancelariji", "Interni dashboard-i i obrada podataka", "Industrijski softver po meri, izrađen po narudžbini"] }
-        ]
+          {
+            "icon": "layers",
+            "title": "Industrijski projekti",
+            "description": "Studije slučaja iz coiled tubing i azotnih operacija, pisane za inženjere.",
+            "points": [
+              "Projektovanje posla i razlozi iza njega",
+              "Šta je planirano, šta se desilo, šta se promenilo",
+              "Jasan jezik, sa prikazanim brojevima"
+            ],
+            "href": "/projects"
+          },
+          {
+            "icon": "book-open",
+            "title": "Kursevi",
+            "description": "Praktična obuka iz coiled tubing-a, od osnova na terenu do projektovanja poslova.",
+            "points": [
+              "Osnove za ekipe i mlade inženjere",
+              "Proračuni korak po korak, sa urađenim primerima",
+              "Svojim tempom, sa materijalom koji ostaje"
+            ],
+            "href": "/courses"
+          },
+          {
+            "icon": "code",
+            "title": "Inženjerski softver",
+            "description": "Alati i softver po meri u oblaku za tehničke timove. Sve radi na serveru i otvara se u pregledaču, bez instalacije.",
+            "points": [
+              "Kalkulatori i alati za svakodnevni rad na terenu i u kancelariji",
+              "Interni dashboard-i i obrada podataka",
+              "Industrijski softver po meri, izrađen po narudžbini"
+            ],
+            "href": "/tools"
+          }
+        ],
+        "openLabel": "Otvori"
       },
       "workWithMe": {
         "badge": "Zašto ja",

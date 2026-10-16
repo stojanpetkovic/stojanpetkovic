@@ -28,15 +28,20 @@ const FT_TO_M = 0.3048;
 const GPM_TO_LPM = 3.785411784;
 /** 1 psi = 0.0689476 bar. */
 const PSI_TO_BAR = 0.0689475729;
-/** 1 psi = 0.00689476 MPa; 1 lbf = 0.00444822 kN. */
+/** 1 psi = 0.00689476 MPa. */
 const PSI_TO_MPA = 0.00689475729;
-const LBF_TO_KN = 0.00444822162;
+/** Force in tonnes-force: 1 lbf = 0.45359237 kgf = 0.00045359237 tf. */
+const LBF_TO_TONNE = 0.00045359237;
 /** 1 ft/min = 0.00508 m/s. */
 const FTMIN_TO_MS = 0.00508;
 
 export const UNITS = {
   density: { label: { us: 'lb/gal', metric: 'kg/m³' }, metricToUs: 1 / PPG_TO_KGM3 },
   n: { label: { us: '', metric: '' }, metricToUs: 1 },
+  /** Viscosity in cP in both systems (1 cP = 1 mPa·s). */
+  viscosity: { label: { us: 'cP', metric: 'mPa·s' }, metricToUs: 1 },
+  /** Yield point: lbf/100 ft² or Pa. */
+  yieldPoint: { label: { us: 'lbf/100 ft²', metric: 'Pa' }, metricToUs: 1 / LBF100FT2_TO_PA },
   k: { label: { us: 'lbf·sⁿ/100 ft²', metric: 'Pa·sⁿ' }, metricToUs: 1 / LBF100FT2_TO_PA },
   diameter: { label: { us: 'in', metric: 'mm' }, metricToUs: 1 / IN_TO_MM },
   length: { label: { us: 'ft', metric: 'm' }, metricToUs: 1 / FT_TO_M },
@@ -46,7 +51,7 @@ export const UNITS = {
   stress: { label: { us: 'psi', metric: 'MPa' }, metricToUs: 1 / PSI_TO_MPA },
   /** Elastic modulus in psi or GPa. */
   modulus: { label: { us: 'psi', metric: 'GPa' }, metricToUs: 1000 / PSI_TO_MPA },
-  force: { label: { us: 'lbf', metric: 'kN' }, metricToUs: 1 / LBF_TO_KN },
+  force: { label: { us: 'lbf', metric: 't' }, metricToUs: 1 / LBF_TO_TONNE },
   ratio: { label: { us: '', metric: '' }, metricToUs: 1 },
   percent: { label: { us: '%', metric: '%' }, metricToUs: 1 },
   temperature: { label: { us: '°F', metric: '°C' }, metricToUs: 1.8, usOffset: 32 },

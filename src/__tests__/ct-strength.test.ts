@@ -92,7 +92,7 @@ describe('metric units', () => {
   it('round-trips and matches the known factors', () => {
     expect(fromUs('stress', 'metric', 80000)).toBeCloseTo(551.58, 2);
     expect(fromUs('modulus', 'metric', 30e6)).toBeCloseTo(206.84, 2);
-    expect(fromUs('force', 'metric', 20000)).toBeCloseTo(88.96, 2);
+    expect(fromUs('force', 'metric', 20000)).toBeCloseTo(9.0718, 3);
     expect(toUs('stress', 'metric', fromUs('stress', 'metric', 80000))).toBeCloseTo(80000, 6);
   });
 });

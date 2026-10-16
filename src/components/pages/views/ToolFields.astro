@@ -8,7 +8,7 @@
 import { UNITS, type Quantity } from '@/lib/tools/units';
 
 interface Props {
-  groups: { id: string; label: string; rows: { key: string; quantity: Quantity }[] }[];
+  groups: { id: string; label: string; rows: { key: string; quantity: Quantity; models?: string[] }[] }[];
   fields: Record<string, { label: string; hint?: string }>;
   values: Record<string, number>;
   /** Unit system the starting values are in. Defaults to oilfield. */
@@ -20,13 +20,13 @@ const { groups, fields, values, base = 'us' } = Astro.props;
 
 {
   groups.map((group) => (
-    <fieldset class="mt-6 border-t border-border pt-5">
+    <fieldset class="mt-6 min-w-0 border-t border-border pt-5">
       <legend class="float-left mb-3 w-full font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
         {group.label}
       </legend>
-      <div class="clear-both grid gap-4 sm:grid-cols-2">
-        {group.rows.map(({ key, quantity }) => (
-          <div>
+      <div class="tool-fields clear-both">
+        {group.rows.map(({ key, quantity, models }) => (
+          <div class="tool-field" data-models={models?.join(' ')}>
             <label for={`tool-${key}`} class="block text-sm font-medium text-foreground">
               {fields[key].label}
             </label>
@@ -37,7 +37,7 @@ const { groups, fields, values, base = 'us' } = Astro.props;
                 type="text"
                 inputmode="decimal"
                 autocomplete="off"
-                value={String(values[key])}
+                value={values[key] === undefined ? '' : String(values[key])}
                 data-quantity={quantity}
                 aria-describedby={fields[key].hint ? `tool-${key}-hint` : undefined}
               />

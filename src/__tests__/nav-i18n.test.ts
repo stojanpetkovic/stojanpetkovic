@@ -14,6 +14,8 @@ vi.mock('@/config/i18n.config', () => ({
   },
 }));
 
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { getNavItems, getLogoHref, resolveNavItem, type NavItem } from '@/config/nav.config';
 
 describe('nav config — locale resolution (en default, nl secondary)', () => {
@@ -28,8 +30,6 @@ describe('nav config — locale resolution (en default, nl secondary)', () => {
     expect(items.map((i) => i.href)).toEqual([
       '/nl',
       '/nl/services',
-      '/nl/tools',
-      '/nl/web',
       '/nl/projects',
       '/nl/blog',
       '/nl/about',
@@ -84,5 +84,36 @@ describe('nav config — locale resolution (en default, nl secondary)', () => {
 
   it('falls back to the literal label when no labelKey is set', () => {
     expect(resolveNavItem({ label: 'Docs', href: '/docs', order: 1 }, 'nl').label).toBe('Docs');
+  });
+});
+
+describe('Services mega menu', () => {
+  const services = (locale: 'en' | 'nl') => getNavItems(locale).find((i) => i.mega)!;
+
+  it('groups the service pages under Services and keeps the top bar short', () => {
+    const items = getNavItems('en');
+    expect(items.map((i) => i.label)).toEqual(['Home', 'Services', 'Projects', 'Blog', 'About', 'Contact']);
+    const hrefs = services('en').mega!.groups.flatMap((g) => g.links.map((l) => l.href));
+    expect(hrefs).toContain('/courses');
+    expect(hrefs).toContain('/tools');
+    expect(hrefs).toContain('/web');
+    expect(hrefs).toContain('/tools/well-kill');
+  });
+
+  it('prefixes every link and the covered sections with the locale', () => {
+    const mega = services('nl').mega!;
+    for (const link of [...mega.groups.flatMap((g) => g.links), mega.overview]) {
+      expect(link.href.startsWith('/nl/'), link.href).toBe(true);
+    }
+    expect(mega.activePrefixes).toContain('/nl/courses');
+  });
+
+  it('every link has a label and goes to a page that exists', () => {
+    const pages = resolve(__dirname, '../pages');
+    for (const link of services('en').mega!.groups.flatMap((g) => g.links)) {
+      expect(link.label, link.href).toBeTruthy();
+      const path = link.href.split('#')[0].replace(/^\//, '');
+      expect(existsSync(resolve(pages, `${path}.astro`)) || existsSync(resolve(pages, path, 'index.astro')), link.href).toBe(true);
+    }
   });
 });

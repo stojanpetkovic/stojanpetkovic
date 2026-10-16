@@ -60,7 +60,29 @@
       "projects": "Projekte",
       "blog": "Blog",
       "about": "Über mich",
-      "contact": "Kontakt"
+      "contact": "Kontakt",
+      "courses": "Kurse"
+    },
+    "mega": {
+      "overview": "Alle Leistungen",
+      "groups": {
+        "engineering": "Engineering",
+        "tools": "Engineering-Werkzeuge",
+        "web": "Software & Web"
+      },
+      "links": {
+        "consulting": "Beratung & Projekte",
+        "allTools": "Alle Werkzeuge",
+        "web": "Webentwicklung",
+        "software": "Engineering-Software"
+      },
+      "descriptions": {
+        "consulting": "Einsatzplanung, Berechnungen, Verfahren und Prüfungen.",
+        "courses": "Praxisnahe Coiled-Tubing-Schulung.",
+        "projects": "Fallstudien aus dem Feld.",
+        "software": "Cloud-Werkzeuge nach Maß.",
+        "web": "Schnelle Websites für technische Firmen."
+      }
     }
   },
   "common": {
@@ -148,6 +170,10 @@
     "viewProject": "Projekt ansehen",
     "viewSource": "Quellcode ansehen",
     "viewLiveSite": "Live-Website ansehen",
+    "metaClient": "Kunde",
+    "metaRole": "Rolle",
+    "metaYear": "Jahr",
+    "metaHighlights": "Eckdaten",
     "carouselGoToSlide": "Zu Folie {number}",
     "noProjectsFound": "Keine Projekte gefunden.",
     "carouselChooseSlide": "Folie wählen",
@@ -1045,6 +1071,10 @@
       "inputsLabel": "Eingaben",
       "outputsLabel": "Ergebnisse",
       "form": {
+        "reportCreated": "Erstellt am {date}",
+        "reportInputs": "Eingaben",
+        "reportResults": "Ergebnisse",
+        "reportMethod": "Methode und Annahmen",
         "system": {
           "label": "Einheiten",
           "us": "Feldeinheiten (US)",
@@ -1078,6 +1108,23 @@
         "outside": "Außerhalb der Tabelle: der Wert am Rand wird angezeigt."
       },
       "items": [
+        {
+          "href": "/tools/ct-simulator",
+          "tag": "Mechanik",
+          "icon": "layout-dashboard",
+          "title": "CT-Simulator",
+          "description": "Bohrung zeichnen, CT-Strang und BHA aufbauen, den Einsatz festlegen und Gewichtsanzeige, Lock-up-Tiefe, Aufsetzgewicht und Überzug ablesen.",
+          "inputs": [
+            "Bohrung, Messung und Rohre aus dem Bohrungs-Builder",
+            "CT-Strang und BHA aus dem BHA Builder",
+            "Fluide, Reibung und Oberflächenausrüstung"
+          ],
+          "outputs": [
+            "Gewichtsanzeige über der Tiefe",
+            "Lock-up-Tiefe, Aufsetzgewicht und Überzug",
+            "Axialkraft und Knickung entlang des Strangs"
+          ]
+        },
         {
           "href": "/tools/ct-pressure-loss",
           "tag": "Hydraulik",
@@ -1145,6 +1192,40 @@
             "Gasvolumen im Normzustand",
             "Volumen des flüssigen Stickstoffs",
             "Stickstoffmasse"
+          ]
+        },
+        {
+          "href": "/tools/well-kill",
+          "tag": "Bohrlochkontrolle",
+          "icon": "shield-check",
+          "title": "Bohrlochkill",
+          "description": "Dichte der Kill-Flüssigkeit, Volumen und Bullheading-Druck für eine Förderbohrung und das Kill-Sheet einer Bohrung im Bohrbetrieb.",
+          "inputs": [
+            "Tiefe, Drücke und Flüssigkeitsdichte",
+            "Rohr- und Casing-Größen oder Strang- und Ringraumvolumen",
+            "Pumprate oder Druck bei Kill-Rate"
+          ],
+          "outputs": [
+            "Dichte der Kill-Flüssigkeit",
+            "Volumen, Hübe und Zeiten",
+            "Bullheading-Druck oder ICP, FCP und Druckplan"
+          ]
+        },
+        {
+          "href": "/tools/bha-builder",
+          "tag": "Coiled Tubing",
+          "icon": "wrench",
+          "title": "BHA Builder",
+          "description": "Zeichnen Sie eine Coiled-Tubing-Bohrlochgarnitur Werkzeug für Werkzeug mit Maßen, Verbindungen und Gesamtlänge und drucken Sie sie als Blatt.",
+          "inputs": [
+            "Werkzeuge von oben nach unten",
+            "Außen- und Innendurchmesser",
+            "Längen und Verbindungen"
+          ],
+          "outputs": [
+            "Zeichnung der Garnitur",
+            "Gesamtlänge, größter AD und kleinste Bohrung",
+            "Blatt zum Speichern als PDF"
           ]
         },
         {
@@ -1560,17 +1641,19 @@
     "ctPressureLoss": {
       "meta": {
         "title": "CT-Druckverlust",
-        "description": "Berechnen Sie den Reibungsdruckverlust eines Potenzgesetz-Fluids in Coiled Tubing, aufgeteilt in gerade und auf der Haspel gewickelte Abschnitte, in Feld- oder metrischen Einheiten."
+        "description": "Berechnen Sie den Reibungsdruckverlust eines newtonschen, Bingham-plastischen, Potenzgesetz-, Herschel-Bulkley- oder empirisch gemessenen Fluids im Coiled Tubing, getrennt nach geradem Abschnitt und Abschnitt auf der Haspel, in Oilfield- oder metrischen Einheiten."
       },
       "hero": {
         "badge": "Hydraulik",
         "title": "CT-Druckverlust",
-        "description": "Reibungsdruckverlust für Potenzgesetz-Fluide in Coiled Tubing. Geben Sie Fluid, Rohr und Förderrate ein, in Feld- oder metrischen Einheiten."
+        "description": "Reibungsdruckverlust für Fluide im Coiled Tubing. Wählen Sie das Rheologiemodell und geben Sie Fluid, Rohr und Förderrate in Oilfield- oder metrischen Einheiten ein."
       },
       "groups": {
         "fluid": "Fluid",
         "geometry": "Rohr und Haspel",
-        "flow": "Förderung"
+        "flow": "Förderung",
+        "fann": "Fann-Messwerte",
+        "temperature": "Temperatureinfluss"
       },
       "fields": {
         "density": {
@@ -1594,7 +1677,10 @@
         "wall": {
           "label": "Wandstärke"
         },
-        "roughness": {"label": "Wandrauheit", "hint": "Absolute Rauheit der Innenwand; 0 für glattes Rohr. Wirkt nur bei turbulenter Strömung"},
+        "roughness": {
+          "label": "Wandrauheit",
+          "hint": "Absolute Rauheit der Innenwand; 0 für glattes Rohr. Wirkt nur bei turbulenter Strömung"
+        },
         "totalLength": {
           "label": "Stranglänge"
         },
@@ -1604,6 +1690,25 @@
         },
         "flowRate": {
           "label": "Förderrate"
+        },
+        "fluidType": {
+          "label": "Fluidtyp"
+        },
+        "model": {
+          "label": "Rheologiemodell",
+          "hint": "Wie die Fließkurve des Fluids beschrieben wird"
+        },
+        "pv": {
+          "label": "Plastische Viskosität (PV)",
+          "hint": "Bei einem newtonschen Fluid seine Viskosität"
+        },
+        "yp": {
+          "label": "Fließgrenze (YP)",
+          "hint": "Fließspannung des Fluids"
+        },
+        "fluidTemperature": {
+          "label": "Fluidtemperatur",
+          "hint": "Temperatur, bei der PV und YP aus der Tabelle entnommen werden; leer verwendet die obigen Werte"
         }
       },
       "results": {
@@ -1614,7 +1719,11 @@
         "velocity": "Geschwindigkeit",
         "reynolds": "Reynolds-Zahl",
         "dean": "Dean-Zahl",
-        "regime": "Strömungsregime"
+        "regime": "Strömungsregime",
+        "effN": "Äquivalenter Fließindex n′",
+        "effK": "Äquivalenter Konsistenzindex K",
+        "pvUsed": "PV bei Fluidtemperatur",
+        "ypUsed": "YP bei Fluidtemperatur"
       },
       "regimes": {
         "laminar": "Laminar",
@@ -1625,6 +1734,9 @@
         "title": "Methode",
         "intro": "Der Verlust wird getrennt für den Teil des Strangs außerhalb der Haspel (gerade) und den Teil auf der Haspel (gekrümmt) berechnet und addiert.",
         "steps": [
+          "Rheologie: Das Modell liefert die Wandschubspannung τ bei der Wandschergeschwindigkeit γ. Newtonsch: τ = μγ. Bingham-plastisch: τ = YP + PV·γ. Potenzgesetz: τ = Kγⁿ. Herschel–Bulkley: τ = τ₀ + Kγⁿ. Empirisch: die gemessenen Fann-Punkte, auf log–log-Achsen durch Geraden verbunden. Die Fann-Drehzahl N ergibt γ = 1,7023 N 1/s und τ = 1,0678 θ lbf/100 ft².",
+          "Äquivalentes Potenzgesetz: Für die betrachtete Förderung ist die Pseudo-Schergeschwindigkeit Γ = 8V/D. Die Wandschergeschwindigkeit γw = Γ(3n′+1)/(4n′) wird iterativ mit n′, der lokalen Steigung der Fließkurve, bestimmt; K und n′ des Modells sind die mit gleicher Wandspannung und Steigung. Ein Potenzgesetz-Fluid liefert seine eigenen n und K.",
+          "Fann-Anpassung: Bingham-plastisch PV = θ600 − θ300 und YP = θ300 − PV; Herschel–Bulkley τ₀ = 2τ3 − τ6 und log–log-Anpassung für n und K; Potenzgesetz log–log-Anpassung; newtonsch Anpassung durch den Ursprung. Die Abweichung ist der quadratische Mittelwert des relativen Fehlers des Modells gegenüber den Messwerten.",
           "Reynolds-Zahl (Metzner–Reed): Re = 31,042 ρ Q^(2−n) / (9,804^n K ID^(4−3n)) · (n/(1+3n))^n, mit ρ in lb/gal, Q in gal/min, ID in Zoll und K in lbf·sⁿ/100 ft².",
           "Gerades Rohr: laminar unter Re = 3470 − 1370n und turbulent über 4270 − 1370n. Laminar f = 16/Re. Turbulent f = a/Re^b, mit a = (log n + 3,93)/50 und b = (1,75 − log n)/7.",
           "Coiled Tubing: Der laminare Faktor wird mit ψ·De^φ multipliziert, wobei De = Re_g·(ID/D)^0,5 die Dean-Zahl ist, ψ = 47,969 − 153,8n + 166,22n² − 60,132n³ und φ = 0,875n − 0,515. Turbulent: f = 1,069·a/Re^(0,8b)·(ID/D)^0,1. Die laminare Grenze ist (4n/(3n+1))^n · [2100 ψ (ID/D)^(0,5φ)]^(1/(1−φ)), die turbulente Grenze liegt 800 darüber.",
@@ -1633,12 +1745,629 @@
         "assumptionsTitle": "Annahmen",
         "assumptions": [
           "Die Wandrauheit geht nur in den turbulenten Reibungsfaktor ein, als Verhältnis des Haaland-Faktors mit Rauheit zu dem ohne; bei Rauheit 0 ergibt sich das Ergebnis für glattes Rohr. Für n ungleich 1 ist das eine Schätzung.",
+          "Bei Modellen mit Fließspannung wird das äquivalente Potenzgesetz für die eingegebene Förderrate ausgewertet. Das ist für laminare Strömung belastbar; turbulente und Übergangswerte für solche Fluide sind Schätzungen, und die kritischen Reynolds-Zahlen sind die eines Potenzgesetz-Fluids.",
           "Ein einphasiges Potenzgesetz-Fluid ohne Feststoffe.",
           "Glattes Rohr und ausgebildete Strömung, mit entlang des Strangs konstanten Fluideigenschaften.",
           "Die Krümmung ist die des eingegebenen Haspeldurchmessers; Rohr außerhalb der Haspel ist gerade.",
           "Die Korrelationen decken nur einen begrenzten Bereich von n und ID/D ab. Prüfen Sie Ergebnisse außerhalb davon."
         ],
         "reference": "Basiert auf veröffentlichten Korrelationen für Potenzgesetz-Fluide in Coiled Tubing (Zhou und Shah), mit der Reynolds-Zahl nach Metzner–Reed und den turbulenten Faktoren nach Dodge–Metzner. Die Berechnung reproduziert für ihren Beispielfall ein Referenz-Arbeitsblatt. Prüfen Sie die Originalarbeiten, bevor Sie sich auf ein Ergebnis verlassen."
+      },
+      "models": {
+        "newtonian": "Newtonsch",
+        "bingham": "Bingham-plastisch",
+        "powerLaw": "Potenzgesetz",
+        "herschelBulkley": "Herschel–Bulkley",
+        "empirical": "Empirisches Modell"
+      },
+      "fluidTypes": {
+        "liquid": "Flüssigkeit",
+        "gas": "Gas",
+        "foam": "Schaum",
+        "multiphase": "Mehrphasig"
+      },
+      "soon": "noch nicht verfügbar",
+      "fann": {
+        "note": "Skalenwerte θ eines Fann-35-Viskosimeters bei jeder Drehzahl. Angenommen werden die Standardkombination Rotor-Bob R1-B1 und die Torsionsfeder F1.",
+        "fit": "Modell an Messwerte anpassen",
+        "fitted": "Angepasst. Abweichung von den Messwerten: {dev} %",
+        "direct": "Das empirische Modell verwendet die Messwerte direkt.",
+        "failed": "Die Messwerte tragen dieses Modell nicht. Geben Sie alle 12 Messwerte ein, für Bingham-plastisch mindestens 600 und 300 U/min."
+      },
+      "temp": {
+        "note": "Bei newtonschen und Bingham-Fluiden werden PV und YP zwischen den Zeilen bei der Fluidtemperatur interpoliert. Tabelle leer lassen, um die Oberflächenwerte zu verwenden.",
+        "title": "Rheologie bei verschiedenen Temperaturen",
+        "temperature": "Temp.",
+        "pv": "PV",
+        "yp": "YP"
+      }
+    },
+    "wellKill": {
+      "meta": {
+        "title": "Bohrlochkill",
+        "description": "Berechnen Sie die Dichte der Kill-Flüssigkeit sowie Volumen und Drücke für das Töten einer Förderbohrung durch Bullheading oder Zirkulation und das Kill-Sheet einer Bohrung im Bohrbetrieb für Driller's Method und Wait-and-Weight, in metrischen oder Oilfield-Einheiten."
+      },
+      "hero": {
+        "badge": "Bohrlochkontrolle",
+        "title": "Bohrlochkill",
+        "description": "Kill-Flüssigkeit, Volumen und Drücke für eine Förderbohrung oder das Kill-Sheet einer Bohrung im Bohrbetrieb. Wählen Sie das Verfahren und geben Sie die Bohrung in metrischen oder Oilfield-Einheiten ein."
+      },
+      "groups": {
+        "wellFluid": "Bohrung und Flüssigkeit",
+        "kill": "Kill und Bullheading",
+        "tubing": "Rohre und Verrohrung",
+        "pumping": "Pumpen",
+        "drillWell": "Bohrung und Spülung",
+        "drillPump": "Pumpe und Zirkulation",
+        "drillVolumes": "Volumen"
+      },
+      "fields": {
+        "wTvd": {
+          "label": "Wahre vertikale Tiefe",
+          "hint": "Tiefe der Formation"
+        },
+        "wMd": {
+          "label": "Rohrlänge",
+          "hint": "Gemessene Tiefe des Rohrschuhs"
+        },
+        "wDensity": {
+          "label": "Dichte der Flüssigkeit in der Bohrung"
+        },
+        "wSitp": {
+          "label": "Geschlossener Rohrdruck"
+        },
+        "wMargin": {
+          "label": "Überdruck",
+          "hint": "Druck, den die Kill-Flüssigkeit über dem Formationsdruck liefert"
+        },
+        "wInject": {
+          "label": "Injektionsdruck über Formation",
+          "hint": "Druck über dem Formationsdruck, der zum Einpressen beim Bullheading nötig ist"
+        },
+        "wFracture": {
+          "label": "Frac-Druck",
+          "hint": "In der Formationstiefe; 0 lässt die Prüfung weg"
+        },
+        "wTubingId": {
+          "label": "Rohr-Innendurchmesser"
+        },
+        "wTubingOd": {
+          "label": "Rohr-Außendurchmesser"
+        },
+        "wCasingId": {
+          "label": "Casing-Innendurchmesser"
+        },
+        "wRate": {
+          "label": "Pumprate"
+        },
+        "dTvd": {
+          "label": "Wahre vertikale Tiefe"
+        },
+        "dMud": {
+          "label": "Spülungsdichte"
+        },
+        "dSidpp": {
+          "label": "Geschlossener Bohrgestängedruck (SIDPP)"
+        },
+        "dShoeTvd": {
+          "label": "Tiefe des Casing-Schuhs (TVD)"
+        },
+        "dLeakoff": {
+          "label": "Leak-off, als Spülungsdichte",
+          "hint": "Spülungsdichte, die dem Leak-off-Druck am Schuh entspricht"
+        },
+        "dScr": {
+          "label": "Zirkulationsdruck bei Kill-Rate"
+        },
+        "dSpm": {
+          "label": "Pumpengeschwindigkeit",
+          "hint": "Hübe pro Minute bei Kill-Rate"
+        },
+        "dPump": {
+          "label": "Pumpenleistung",
+          "hint": "Volumen pro Hub"
+        },
+        "dStringVolume": {
+          "label": "Bohrstrangvolumen",
+          "hint": "Im Bohrstrang"
+        },
+        "dAnnulusVolume": {
+          "label": "Ringraumvolumen",
+          "hint": "Meißel bis Oberfläche"
+        }
+      },
+      "results": {
+        "title": "Ergebnis",
+        "killFluid": "Dichte der Kill-Flüssigkeit",
+        "killMud": "Dichte der Kill-Spülung",
+        "formationPressure": "Formationsdruck",
+        "densityIncrease": "Dichteerhöhung",
+        "hydrostatic": "Hydrostatischer Druck der Kill-Flüssigkeit",
+        "tubingVolume": "Rohrvolumen (Bullheading)",
+        "annulusVolume": "Ringraumvolumen",
+        "tubingTime": "Zeit zum Pumpen des Rohrs",
+        "circulationTime": "Zeit zum Pumpen von Rohr und Ringraum",
+        "startPressure": "Oberflächendruck zu Beginn des Bullheadings",
+        "endPressure": "Oberflächendruck am Ende des Bullheadings",
+        "injectionPressure": "Sohlendruck beim Einpressen",
+        "fractureMargin": "Abstand zum Frac-Druck",
+        "icp": "Anfänglicher Zirkulationsdruck (ICP)",
+        "fcp": "Endzirkulationsdruck (FCP)",
+        "strokesToBit": "Hübe bis zum Meißel",
+        "strokesToSurface": "Hübe, Meißel bis Oberfläche",
+        "timeToBit": "Zeit bis zum Meißel",
+        "timeToSurface": "Zeit, Meißel bis Oberfläche",
+        "totalStrokes": "Hübe des gesamten Kills",
+        "totalTime": "Zeit des gesamten Kills",
+        "maasp": "Maximal zulässiger Ringraumdruck (MAASP)",
+        "min": "min",
+        "strokes": "Hübe"
+      },
+      "schedule": {
+        "title": "Druckplan im Bohrgestänge",
+        "strokes": "Hübe",
+        "time": "Zeit",
+        "pressure": "Druck",
+        "note": "Solange die Kill-Spülung im Strang nach unten geht, halten Sie den Gestängedruck nach diesem Plan und danach den Endzirkulationsdruck, bis die Kill-Spülung die Oberfläche erreicht."
+      },
+      "methods": {
+        "label": "Verfahren",
+        "hint": "Töten einer Förderbohrung oder einer Bohrung im Bohrbetrieb mit einem der beiden Zirkulationsverfahren",
+        "options": {
+          "workover": "Förderbohrung: Bullheading und Zirkulation",
+          "drillers": "Bohrung im Bohrbetrieb: Driller's Method",
+          "waitWeight": "Bohrung im Bohrbetrieb: Wait and Weight"
+        }
+      },
+      "method": {
+        "title": "Methode",
+        "intro": "Das Werkzeug berechnet den Kill aus dem Gleichgewicht der hydrostatischen Drücke.",
+        "steps": [
+          "Hydrostatischer Druck: P = ρ·g·TVD, mit g = 9,80665 m/s². Der Formationsdruck ist der Schließdruck plus der hydrostatische Druck der Flüssigkeit in der Bohrung.",
+          "Förderbohrung: Die Dichte der Kill-Flüssigkeit gleicht den Formationsdruck plus Überdruck aus, ρ = (P + Überdruck) / (g·TVD). Volumen: π/4·ID²·L für das Rohr und π/4·(Casing-ID² − Rohr-AD²)·L für den Ringraum.",
+          "Bullheading: Der Oberflächendruck ist der Injektionsdruck (Formationsdruck plus Einpressdruck) minus der hydrostatische Druck der Flüssigkeit im Rohr. Er beginnt beim Schließdruck plus Injektionsreserve und fällt, während die Kill-Flüssigkeit einströmt. Der Sohlendruck wird mit dem Frac-Druck verglichen.",
+          "Bohrung im Bohrbetrieb: Kill-Spülungsdichte = Spülungsdichte + SIDPP / (g·TVD). ICP = SIDPP + Zirkulationsdruck bei Kill-Rate; FCP = Zirkulationsdruck × Kill-Spülung / Spülungsdichte. Der Gestängedruck fällt linear von ICP auf FCP über die Hübe bis zum Meißel.",
+          "Wait and Weight zirkuliert einmal mit der Kill-Spülung. Die Driller's Method zirkuliert zuerst den Zufluss mit der Originalspülung aus und hält dabei ICP, dann die Kill-Spülung. MAASP = (Leak-off-Dichte − Spülungsdichte)·g·Schuh-TVD."
+        ],
+        "assumptionsTitle": "Annahmen",
+        "assumptions": [
+          "Eine vertikale Säule eines Fluids: kein Gas im Fluid, keine Reibung beim Bullheading und kein Temperatur- oder Kompressibilitätseinfluss auf die Dichte.",
+          "Drücke sind Überdrücke. Prüfen Sie den Kill gegen die Druckwerte von Casing, Rohr und Bohrlochkopf.",
+          "Das Kill-Sheet gilt für das genannte Verfahren; Chokebedienung und Reaktion auf einen Gaszufluss erfordern Urteil vor Ort."
+        ],
+        "reference": "Das Werkzeug ist eine Planungshilfe und kein Ersatz für die Bohrlochkontrollverfahren des Betreibers und die Zertifizierung der Mannschaft. Prüfen Sie das Ergebnis gegen das eigene Kill-Sheet des Unternehmens."
+      }
+    },
+    "bhaBuilder": {
+      "meta": {
+        "title": "BHA Builder",
+        "description": "Zeichnen Sie eine Coiled-Tubing-Bohrlochgarnitur (BHA) aus ihren Werkzeugen mit Durchmessern, Längen und Verbindungen, einer Zeichnung des Strangs und der Gesamtlänge, in Oilfield- oder metrischen Einheiten."
+      },
+      "hero": {
+        "badge": "Coiled Tubing",
+        "title": "BHA Builder",
+        "description": "Fügen Sie die Werkzeuge einer Coiled-Tubing-Bohrlochgarnitur von oben nach unten hinzu, geben Sie ihre Maße ein und erhalten Sie eine Zeichnung, die Gesamtlänge und ein Blatt zum Drucken."
+      },
+      "palette": {
+        "title": "Werkzeuge",
+        "hint": "Wählen Sie ein Werkzeug, um es unten an die Garnitur anzufügen, und bearbeiten Sie dann seine Maße."
+      },
+      "types": {
+        "connector": "Coil-Konnektor",
+        "crossover": "Übergangsstück",
+        "swivel": "Swivel",
+        "checkValve": "Rückschlagventil",
+        "disconnect": "Disconnect",
+        "circSub": "Zirkulationssub",
+        "motorhead": "Motorhead",
+        "jar": "Jar",
+        "accelerator": "Akzelerator",
+        "centralizer": "Zentrierer",
+        "nozzle": "Spüldüse",
+        "mill": "Fräser",
+        "motor": "Bohrmotor",
+        "packer": "Packer",
+        "overshot": "Overshot",
+        "generic": "Sonstiges Werkzeug"
+      },
+      "examples": {
+        "sheet": "Beispiel aus dem Blatt: Coil 1-1/2\", 10 Werkzeuge",
+        "motorhead1_11_16": "Motorhead 1-11/16\"",
+        "motorhead2_1_8": "Motorhead 2-1/8\"",
+        "motorhead2_3_8": "Motorhead 2-3/8\"",
+        "motorhead2_7_8": "Motorhead 2-7/8\"",
+        "motorhead3_1_8": "Motorhead 3-1/8\""
+      },
+      "fields": {
+        "bhaNo": "BHA-Nr.",
+        "runNo": "Fahrt-Nr.",
+        "preparedBy": "Erstellt von"
+      },
+      "drawing": {
+        "title": "Garnitur, von oben nach unten"
+      },
+      "units": {
+        "label": "Einheiten"
+      },
+      "editor": {
+        "description": "Beschreibung",
+        "od": "Außendurchmesser",
+        "bore": "Innendurchmesser",
+        "length": "Länge",
+        "connection": "Verbindung",
+        "weight": "Gewicht in Luft",
+        "up": "Nach oben",
+        "down": "Nach unten",
+        "copy": "Duplizieren",
+        "remove": "Entfernen",
+        "empty": "Noch keine Werkzeuge. Wählen Sie oben eines aus oder laden Sie ein Beispiel."
+      },
+      "summary": {
+        "length": "Gesamtlänge",
+        "maxOd": "Größter AD",
+        "minBore": "Kleinste Bohrung",
+        "count": "Werkzeuge",
+        "weight": "Gewicht"
+      },
+      "data": {
+        "example": "Beispiel laden",
+        "export": "BHA exportieren",
+        "reset": "BHA leeren",
+        "note": "Nur in diesem Browser gespeichert.",
+        "confirmExample": "Die aktuelle BHA durch das Beispiel ersetzen?",
+        "confirmReset": "BHA leeren?",
+        "importError": "Diese Datei ist keine von dieser Seite exportierte BHA.",
+        "disclaimer": "Maße und Längen sind Ihre Eingaben; die Beispiele sind typische Werte aus einem BHA-Blatt. Prüfen Sie sie vor dem Einsatz anhand der Herstellerdaten.",
+        "import": "BHA importieren"
+      },
+      "print": {
+        "button": "Als PDF speichern",
+        "title": "Bohrlochgarnitur",
+        "bhaNo": "BHA-Nr.",
+        "runNo": "Fahrt-Nr.",
+        "preparedBy": "Erstellt von",
+        "total": "Gesamtlänge"
+      }
+    },
+    "ctForces": {
+      "groups": {
+        "well": "Bohrung",
+        "string": "CT-Strang",
+        "bha": "BHA",
+        "fluids": "Fluide, Reibung und Oberfläche",
+        "limits": "Werkstoff und Grenzen"
+      },
+      "fields": {
+        "depth": {
+          "label": "BHA-Tiefe (MD)",
+          "hint": "Gemessene Tiefe des unteren Endes der BHA, die untersucht wird"
+        },
+        "holeId": {
+          "label": "Innendurchmesser des Bohrlochs",
+          "hint": "Casing oder Rohr, in dem das CT läuft"
+        },
+        "ctOd": {
+          "label": "CT-Außendurchmesser"
+        },
+        "s1Len": {
+          "label": "Länge Abschnitt 1",
+          "hint": "Die Abschnitte laufen vom BHA-Ende zur Haspel; Abschnitte 2 und 3 für eine Wanddicke leer lassen"
+        },
+        "s1Wall": {
+          "label": "Wand Abschnitt 1"
+        },
+        "s2Len": {
+          "label": "Länge Abschnitt 2"
+        },
+        "s2Wall": {
+          "label": "Wand Abschnitt 2"
+        },
+        "s3Len": {
+          "label": "Länge Abschnitt 3"
+        },
+        "s3Wall": {
+          "label": "Wand Abschnitt 3"
+        },
+        "bhaLength": {
+          "label": "BHA-Länge"
+        },
+        "bhaWeight": {
+          "label": "BHA-Gewicht in Luft"
+        },
+        "bhaOd": {
+          "label": "BHA-Außendurchmesser",
+          "hint": "Für den Auftrieb; die BHA gilt als starr"
+        },
+        "rhoIn": {
+          "label": "Fluiddichte im CT"
+        },
+        "rhoOut": {
+          "label": "Fluiddichte außerhalb des CT"
+        },
+        "whp": {
+          "label": "Bohrlochkopfdruck"
+        },
+        "cf": {
+          "label": "Reibungskoeffizient",
+          "hint": "Etwa 0,30–0,35 wassernasser Stahl, 0,20–0,25 geschmiert, 0,15–0,20 ölnass"
+        },
+        "stripperFriction": {
+          "label": "Stripper-Reibung"
+        },
+        "reelTension": {
+          "label": "Haspel-Rückspannung"
+        },
+        "modulus": {
+          "label": "Elastizitätsmodul"
+        },
+        "yieldStrength": {
+          "label": "Streckgrenze"
+        },
+        "designFactor": {
+          "label": "Auslegungsfaktor auf Zug",
+          "hint": "Anteil der Streckkraft, der an der Oberfläche zulässig ist"
+        },
+        "snubLimit": {
+          "label": "Schubgrenze des Injektors",
+          "hint": "Das Meiste, womit der Injektor das CT schieben kann; darüber gilt Lock-up"
+        }
+      },
+      "results": {
+        "title": "Ergebnis",
+        "reach": "Tiefe bis zum Lock-up",
+        "reachTd": "TD, kein Lock-up",
+        "slackoff": "Gewichtsanzeige, RIH",
+        "pickup": "Gewichtsanzeige, POOH",
+        "injectorPush": "Injektorschub in dieser Tiefe",
+        "maxSetdown": "Maximales Aufsetzgewicht",
+        "maxOverpull": "Maximaler Überzug",
+        "tensionLimit": "Zuggrenze an der Oberfläche",
+        "buckleOnset": "Helikale Knickung beginnt bei",
+        "buckledLength": "Geknickte Länge in dieser Tiefe",
+        "lockup": "Lock-up"
+      },
+      "charts": {
+        "ctwiTitle": "Gewichtsanzeige über der Tiefe",
+        "forceTitle": "Axialkraft entlang des Strangs",
+        "rih": "RIH",
+        "pooh": "POOH",
+        "limit": "Lock-up-Grenze",
+        "critical": "Kritische Knickkraft",
+        "ctwiAxis": "Gewichtsanzeige",
+        "forceAxis": "Axialkraft",
+        "depthAxis": "Tiefe",
+        "bha": "BHA"
+      }
+    },
+    "ctSimulator": {
+      "meta": {
+        "title": "CT-Simulator",
+        "description": "Planen Sie einen Coiled-Tubing-Einsatz in vier Schritten: Bohrung zeichnen, CT-Strang und BHA aufbauen, den Einsatz festlegen und Gewichtsanzeige, Lock-up-Tiefe, Aufsetzgewicht und Überzug ablesen."
+      },
+      "hero": {
+        "badge": "Coiled Tubing",
+        "title": "CT-Simulator",
+        "description": "Zeichnen Sie die Bohrung, bauen Sie Strang und BHA auf, legen Sie den Einsatz fest und lesen Sie die Ergebnisse ab. Bohrung und BHA werden in diesem Browser gespeichert; die Editoren, die Sie anderswo auf dieser Website benutzt haben, öffnen sich hier wie Sie sie verlassen haben."
+      },
+      "tabs": {
+        "well": "Bohrung",
+        "ct": "CT-Strang",
+        "bha": "BHA",
+        "job": "Einsatz",
+        "results": "Ergebnisse",
+        "label": "Schritte",
+        "next": "Weiter",
+        "back": "Zurück"
+      },
+      "ui": {
+        "printAll": "Ganzen Einsatz als PDF speichern",
+        "printStep": "Diesen Schritt als PDF speichern",
+        "preview": {
+          "title": "Strangvorschau",
+          "reel": "Haspel",
+          "string": "CT-Strang",
+          "bha": "BHA",
+          "empty": "CT-Außendurchmesser und einen Wandabschnitt eingeben",
+          "wall": "Wand"
+        },
+        "example": "Beispielprojekt laden",
+        "confirm": "Bohrung und BHA durch das Beispielprojekt ersetzen?",
+        "groups": {
+          "job": "Einsatz"
+        },
+        "fields": {
+          "reelDiameter": {
+            "label": "Haspelkern-Durchmesser",
+            "hint": "Für die kommenden Biege- und Ermüdungsprüfungen gespeichert; die Kräfte nutzen ihn noch nicht"
+          }
+        },
+        "strip": {
+          "well": "Bohrung",
+          "pipes": "Rohre",
+          "td": "TD",
+          "bhaTools": "BHA-Werkzeuge",
+          "job": "Tiefe",
+          "ct": "CT",
+          "bha": "BHA"
+        },
+        "missing": {
+          "title": "Füllen Sie dies aus, bevor die Ergebnisse etwas bedeuten",
+          "holes": "Bohrung: Fügen Sie im Schritt Bohrung Casing, Liner oder Rohr hinzu, damit das CT ein Bohrloch hat.",
+          "surveyError": "Bohrung: Die Ablenkungsmessung ist nicht lesbar; korrigieren Sie sie im Schritt Bohrung.",
+          "bha": "BHA: Fügen Sie im Schritt BHA die Werkzeuge der BHA hinzu.",
+          "string": "CT-Strang: Geben Sie im Schritt CT-Strang den CT-Außendurchmesser und mindestens einen Wandabschnitt ein.",
+          "depth": "Einsatz: Die BHA-Tiefe muss größer als die BHA-Länge und nicht größer als die Bohrung sein.",
+          "survey": "Keine Ablenkungsmessung im Schritt Bohrung: Die Bohrung gilt als vertikal."
+        }
+      },
+      "report": {
+        "title": "CT-Einsatzbericht",
+        "created": "Erstellt am {date}",
+        "bhaNo": "BHA-Nr.",
+        "runNo": "Fahrt-Nr.",
+        "preparedBy": "Erstellt von",
+        "summary": "Zusammenfassung des Einsatzes",
+        "incomplete": "Das Projekt ist nicht vollständig, daher gibt es keine Ergebnisse. Bitte ausfüllen:",
+        "depth": "BHA-Tiefe (MD)",
+        "reach": "Tiefe bis zum Lock-up",
+        "reachTd": "TD, kein Lock-up",
+        "slackoff": "Gewichtsanzeige, RIH",
+        "pickup": "Gewichtsanzeige, POOH",
+        "maxSetdown": "Maximales Aufsetzgewicht",
+        "maxOverpull": "Maximaler Überzug",
+        "lockup": "Lock-up",
+        "well": "Bohrung",
+        "tubulars": "Rohre",
+        "type": "Typ",
+        "size": "Größe",
+        "id": "ID",
+        "top": "Oberkante MD",
+        "bottom": "Unterkante MD",
+        "wellTools": "Werkzeuge in der Bohrung",
+        "survey": "Ablenkungsmessung",
+        "vertical": "Es wurde keine Ablenkungsmessung eingegeben; die Bohrung gilt als vertikal.",
+        "stations": "Stationen",
+        "tdMd": "Tiefe, MD",
+        "tdTvd": "Tiefe, TVD",
+        "maxInc": "Maximale Neigung",
+        "maxDls": "Maximaler Dogleg",
+        "dlsBase": "100 ft",
+        "inc": "Neigung",
+        "azi": "Azimut",
+        "dls": "Dogleg",
+        "ct": "CT-Strang",
+        "ctOd": "Außendurchmesser",
+        "reel": "Haspelkern-Durchmesser",
+        "stringLength": "Stranglänge",
+        "length": "Länge",
+        "wall": "Wand",
+        "weightAir": "Gewicht in Luft",
+        "weightBuoyed": "Auftriebsgewicht",
+        "bha": "Bohrlochgarnitur",
+        "description": "Beschreibung",
+        "weight": "Gewicht in Luft",
+        "connection": "Verbindung",
+        "total": "Gesamt",
+        "job": "Einsatz",
+        "rhoIn": "Fluiddichte im CT",
+        "rhoOut": "Fluiddichte außerhalb des CT",
+        "whp": "Bohrlochkopfdruck",
+        "cf": "Reibungskoeffizient",
+        "stripper": "Stripper-Reibung",
+        "reelTension": "Haspel-Rückspannung",
+        "modulus": "Elastizitätsmodul",
+        "yieldStrength": "Streckgrenze",
+        "designFactor": "Auslegungsfaktor auf Zug",
+        "snubLimit": "Schubgrenze des Injektors",
+        "results": "Ergebnisse",
+        "injectorPush": "Injektorschub in dieser Tiefe",
+        "tensionLimit": "Zuggrenze an der Oberfläche",
+        "buckleOnset": "Helikale Knickung beginnt bei",
+        "buckledLength": "Geknickte Länge in dieser Tiefe",
+        "ctwiTitle": "Gewichtsanzeige über der Tiefe",
+        "forceTitle": "Axialkraft entlang des Strangs",
+        "rih": "RIH",
+        "pooh": "POOH",
+        "limit": "Lock-up-Grenze",
+        "critical": "Kritische Knickkraft",
+        "notesTitle": "Methode und Annahmen",
+        "disclaimer": "Planungshilfe, kein Ersatz für die Verfahren des Betreibers oder einen Feldsimulator. Prüfen Sie das Ergebnis vor dem Einsatz anhand Ihrer eigenen Daten.",
+        "notes": [
+          "Soft-String-Modell (CTES-Coiled-Tubing-Handbuch, Kapitel 6 und 7): keine Biegemomente, konstanter Reibungskoeffizient.",
+          "Die BHA gilt als ein starrer Körper; kein Drehmoment, hydraulischer Widerstand oder Ermüdung.",
+          "Die Knickschwelle ist die reibungsfreie und damit konservativ.",
+          "Die Überzuggrenze ist eine einfache Zuggrenze des oberen Abschnitts, nicht die von-Mises-Prüfung mit Druck."
+        ]
+      }
+    },
+    "courses": {
+      "meta": {
+        "title": "Kurse — Coiled-Tubing-Schulung",
+        "description": "Praxisnahe Coiled-Tubing-Schulung, von den Grundlagen im Feld bis zur Einsatzplanung, mit Berechnungen Schritt für Schritt und Material zum Behalten. In Vorbereitung."
+      },
+      "hero": {
+        "badge": "Kurse",
+        "title": "Coiled-Tubing-Kurse",
+        "description": "Praxisnahe Schulung zu Coiled Tubing, von den Grundlagen im Feld bis zur Einsatzplanung. Die Kurse sind in Vorbereitung: Sagen Sie mir, was Sie brauchen, und ich melde mich, sobald sie starten."
+      },
+      "status": "In Vorbereitung",
+      "audience": {
+        "heading": "Für wen",
+        "items": [
+          {
+            "icon": "hard-hat",
+            "title": "Mannschaften und Techniker im Feld",
+            "text": "Was die Ausrüstung ist, wofür jeder Schritt eines Einsatzes dient und warum er in dieser Reihenfolge erfolgt."
+          },
+          {
+            "icon": "graduation-cap",
+            "title": "Junge Ingenieure",
+            "text": "Die Berechnungen hinter einem Einsatz, Schritt für Schritt, mit durchgerechneten Beispielen zum Nachvollziehen."
+          },
+          {
+            "icon": "clipboard-check",
+            "title": "Ingenieure und Aufsichten",
+            "text": "Einen Einsatz planen und einen Plan an dem messen, was die Zahlen sagen."
+          }
+        ]
+      },
+      "modules": {
+        "heading": "Geplante Module",
+        "lead": "Zu jedem Modul mit einer Berechnung gehört das passende Werkzeug auf dieser Website, sodass Sie die Zahlen beim Lesen ausprobieren können.",
+        "tool": "Werkzeug öffnen",
+        "items": [
+          {
+            "icon": "layers",
+            "title": "Grundlagen des Coiled Tubing",
+            "text": "Strang, Haspel, Injektor und Oberflächenausrüstung und wofür jedes Teil da ist.",
+            "href": null
+          },
+          {
+            "icon": "activity",
+            "title": "Hydraulik und Druckverlust",
+            "text": "Reibungsdruck in geradem und aufgehaspeltem Rohr und wie das Fluidmodell das Ergebnis verändert.",
+            "href": "/tools/ct-pressure-loss"
+          },
+          {
+            "icon": "shield-check",
+            "title": "Rohrgrenzen",
+            "text": "Berst-, Kollaps- und Zuggrenzen und die von-Mises-Prüfung gegen die Streckgrenze.",
+            "href": "/tools/ct-strength-limits"
+          },
+          {
+            "icon": "wind",
+            "title": "Stickstoffeinsätze",
+            "text": "Stickstoffmengen und Verdrängung und wie sich das Gas mit Druck und Temperatur verhält.",
+            "href": "/tools/nitrogen-displacement"
+          },
+          {
+            "icon": "shield-alert",
+            "title": "Bohrlochkontrolle",
+            "text": "Töten einer Bohrung durch Bullheading oder Zirkulation und das Kill-Sheet einer Bohrung im Bohrbetrieb.",
+            "href": "/tools/well-kill"
+          },
+          {
+            "icon": "wrench",
+            "title": "Bohrlochgarnitur",
+            "text": "Auswahl und Anordnung der Werkzeuge am Strangende und das Zeichnen der BHA.",
+            "href": "/tools/bha-builder"
+          }
+        ]
+      },
+      "how": {
+        "heading": "So wird es ablaufen",
+        "points": [
+          "Im eigenen Tempo, mit Material zum Behalten.",
+          "Berechnungen Schritt für Schritt, mit durchgerechneten Beispielen.",
+          "In einfacher Sprache, mit sichtbaren Zahlen."
+        ],
+        "note": "Termine, Formate und Preise stehen noch nicht fest."
+      },
+      "cta": {
+        "heading": "Sagen Sie mir, was Sie brauchen",
+        "lead": "Nennen Sie das Modul oder die Mannschaft, für die die Schulung gedacht ist, und ich melde mich mit dem, was geplant ist.",
+        "primary": "Kontakt aufnehmen",
+        "secondary": "Werkzeuge öffnen"
       }
     },
     "web": {
@@ -1706,10 +2435,41 @@
         "learnMore": "Sagen Sie mir, was Sie brauchen",
         "status": "In Vorbereitung",
         "cards": [
-          { "icon": "layers", "title": "Industrieprojekte", "description": "Fallstudien aus Coiled-Tubing- und Stickstoffeinsätzen, für Ingenieure geschrieben.", "points": ["Einsatzplanung und die Überlegungen dahinter", "Was geplant war, was passiert ist, was sich geändert hat", "Klare Sprache, mit sichtbaren Zahlen"] },
-          { "icon": "book-open", "title": "Kurse", "description": "Praxisnahe Schulungen zu Coiled Tubing, von den Grundlagen im Feld bis zur Einsatzplanung.", "points": ["Grundlagen für Crews und junge Ingenieure", "Berechnungen Schritt für Schritt, mit durchgerechneten Beispielen", "Im eigenen Tempo, mit Material zum Behalten"] },
-          { "icon": "code", "title": "Engineering-Software", "description": "Cloud-basierte Werkzeuge und individuelle Software für technische Teams. Alles läuft auf einem Server und öffnet im Browser, ohne Installation.", "points": ["Rechner und Werkzeuge für den Alltag im Feld und im Büro", "Interne Dashboards und Datenverarbeitung", "Individuelle Industriesoftware, nach Maß gebaut"] }
-        ]
+          {
+            "icon": "layers",
+            "title": "Industrieprojekte",
+            "description": "Fallstudien aus Coiled-Tubing- und Stickstoffeinsätzen, für Ingenieure geschrieben.",
+            "points": [
+              "Einsatzplanung und die Überlegungen dahinter",
+              "Was geplant war, was passiert ist, was sich geändert hat",
+              "Klare Sprache, mit sichtbaren Zahlen"
+            ],
+            "href": "/projects"
+          },
+          {
+            "icon": "book-open",
+            "title": "Kurse",
+            "description": "Praxisnahe Schulungen zu Coiled Tubing, von den Grundlagen im Feld bis zur Einsatzplanung.",
+            "points": [
+              "Grundlagen für Crews und junge Ingenieure",
+              "Berechnungen Schritt für Schritt, mit durchgerechneten Beispielen",
+              "Im eigenen Tempo, mit Material zum Behalten"
+            ],
+            "href": "/courses"
+          },
+          {
+            "icon": "code",
+            "title": "Engineering-Software",
+            "description": "Cloud-basierte Werkzeuge und individuelle Software für technische Teams. Alles läuft auf einem Server und öffnet im Browser, ohne Installation.",
+            "points": [
+              "Rechner und Werkzeuge für den Alltag im Feld und im Büro",
+              "Interne Dashboards und Datenverarbeitung",
+              "Individuelle Industriesoftware, nach Maß gebaut"
+            ],
+            "href": "/tools"
+          }
+        ],
+        "openLabel": "Öffnen"
       },
       "workWithMe": {
         "badge": "Zusammenarbeit",

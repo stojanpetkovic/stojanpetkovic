@@ -2,124 +2,135 @@
 import type { ImageMetadata } from 'astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import ProjectCarousel from '@/components/projects/ProjectCarousel.astro';
-import ProjectTagList from '@/components/projects/ProjectTagList.astro';
 import HeroGrid from '@/components/effects/HeroGrid.astro';
 import HeroBeam from '@/components/effects/HeroBeam.astro';
+import ProjectCarousel from '@/components/projects/ProjectCarousel.astro';
 import type { GallerySlide } from '@/lib/gallery';
+import Breadcrumbs from '@/components/seo/Breadcrumbs.astro';
 import { t, getLocaleFromPath } from '@/i18n';
 
+/**
+ * Project header, laid out like the Web page: an eyebrow, the title and the
+ * description on the left, a small fact panel on the right, and the
+ * screenshots in a quiet row underneath.
+ */
 interface Props {
   title: string;
   description: string;
   meta?: string[];
+  client?: string;
+  role?: string;
+  year?: number;
   url?: string;
   repo?: string;
   image?: ImageMetadata;
   imageAlt?: string;
   gallery?: GallerySlide[];
   tags?: string[];
+  breadcrumbs?: { label: string; href?: string }[];
 }
 
 const {
   title,
   description,
   meta = [],
+  client,
+  role,
+  year,
   url,
   repo,
   image,
   imageAlt,
   gallery = [],
-  tags = [],
+  breadcrumbs = [],
 } = Astro.props;
 
-// Prefer gallery when provided; fall back to the single hero image; build a
-// 1-slide carousel out of the image so the visual frame stays consistent.
 const slides: GallerySlide[] =
-  gallery.length > 0
-    ? gallery
-    : image
-      ? [{ src: image, alt: imageAlt || title }]
-      : [];
-const hasMedia = slides.length > 0;
+  gallery.length > 0 ? gallery : image ? [{ src: image, alt: imageAlt || title }] : [];
 
-// Tag links must stay inside the active locale (`/<locale>/projects/tag/…`).
 const locale = getLocaleFromPath(Astro.url.pathname);
+const primary = [
+  { label: t('projects.metaClient', locale), value: client },
+  { label: t('projects.metaRole', locale), value: role },
+  { label: t('projects.metaYear', locale), value: year ? String(year) : undefined },
+].filter((f) => f.value);
 ---
 
-<header class="relative isolate overflow-hidden pt-[var(--space-page-top-sm)] pb-[var(--space-section-md)]">
+<header class="project-hero relative isolate overflow-hidden border-b border-border pb-14 pt-4">
   <HeroGrid />
   <HeroBeam />
 
-  <div class="relative z-10 mx-auto max-w-7xl px-6">
-    <div
-      class:list={[
-        'grid items-center gap-10',
-        'lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-14',
-      ]}
-    >
-      <!-- Text column -->
-      <div class="animate-hero-stagger min-w-0">
-        <h1 class="font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl mb-[var(--space-heading-gap)] text-balance">
-          {title}
-        </h1>
-
-        <p class="text-lg md:text-xl text-foreground-muted leading-relaxed mb-[var(--space-stack-lg)]">
-          {description}
-        </p>
-
-        {tags.length > 0 && (
-          <ProjectTagList tags={tags} locale={locale} class="mb-[var(--space-stack-lg)] tag-pills-opaque" />
-        )}
-
-        {meta.length > 0 && (
-          <p class="mb-[var(--space-stack-lg)] flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-foreground-muted">
-            {meta.map((item, i) => (
-              <>
-                {i > 0 && (
-                  <span class="text-brand-500" aria-hidden="true">·</span>
-                )}
-                <span>{item}</span>
-              </>
-            ))}
-          </p>
-        )}
-
-        {(url || repo) && (
-          <div class="flex flex-wrap gap-3 mb-[var(--space-stack-lg)]">
-            {url && (
-              <Button href={url} target="_blank" rel="noopener noreferrer" size="md" class="project-live-btn">
-                <Icon name="external-link" size="sm" />
-                {t('projects.viewLiveSite', locale)}
-              </Button>
-            )}
-            {repo && (
-              <Button href={repo} target="_blank" rel="noopener noreferrer" variant="brand-outline" size="md" class="hero-btn-opaque-brand">
-                <Icon name="github" size="sm" />
-                {t('projects.viewSource', locale)}
-              </Button>
-            )}
-          </div>
-        )}
-      </div>
-
-      <!-- Media column (carousel, single image, or branded placeholder) -->
-      {/* min-w-0: a grid item's minimum width defaults to its content's, and
-          the carousel track is every slide side by side — without it the
-          single-column phone grid widened to the whole track and the image
-          ran off the screen. */}
-      <div class="min-w-0 animate-hero-slide-up [animation-delay:300ms]">
-        {hasMedia ? (
-          <ProjectCarousel slides={slides} label={`${title} screenshots`} />
-        ) : (
-          <div
-            class="aspect-video w-full rounded-xl border border-border bg-gradient-to-br from-brand-500/20 via-brand-500/5 to-transparent flex items-center justify-center shadow-lg"
-            aria-hidden="true"
-          >
-            <Icon name="layers" size="lg" class="text-brand-500/60" />
-          </div>
-        )}
-      </div>
+  {breadcrumbs.length > 0 && (
+    <div class="relative z-10 mx-auto max-w-6xl px-6 pt-6">
+      <Breadcrumbs items={breadcrumbs} />
     </div>
+  )}
+
+  <div class="relative z-10 mx-auto mt-8 grid max-w-6xl items-center gap-10 px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-14">
+   <div class="min-w-0">
+    <h1 class="font-display text-3xl font-bold tracking-tight text-foreground text-balance sm:text-[2.5rem] sm:leading-[1.15]">
+      {title}
+    </h1>
+    <p class="mt-4 text-base leading-relaxed text-foreground-muted md:text-lg">{description}</p>
+
+    {(url || repo) && (
+      <div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
+        {url && (
+          <Button href={url} target="_blank" rel="noopener noreferrer">
+            {t('projects.viewLiveSite', locale)}
+            <Icon name="external-link" size="sm" />
+          </Button>
+        )}
+        {repo && (
+          <a href={repo} target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-foreground-muted underline-offset-4 hover:text-foreground hover:underline">
+            {t('projects.viewSource', locale)}
+          </a>
+        )}
+      </div>
+    )}
+
+    {(client || role || year || meta.length > 0) && (
+      <div class="mt-10 overflow-hidden rounded-xl border border-border bg-card/80 shadow-sm backdrop-blur-sm">
+        <dl class="grid grid-cols-[1.2fr_1.6fr_0.6fr] divide-x divide-border">
+          {primary.map((f) => (
+            <div class="px-4 py-3.5 sm:px-5">
+              <dt class="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground-subtle">{f.label}</dt>
+              <dd class="mt-1 text-sm font-semibold leading-snug text-foreground">{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+        {meta.length > 0 && (
+          <div class="border-t border-border bg-background-secondary/70 px-4 py-3.5 sm:px-5">
+            <p class="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-foreground-subtle">{t('projects.metaHighlights', locale)}</p>
+            <ul class="mt-2 grid gap-x-6 gap-y-1.5 text-sm text-foreground" role="list">
+              {meta.map((item) => (
+                <li class="flex items-start gap-2">
+                  <span class="mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-brand-600" aria-hidden="true"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    )}
+   </div>
+
+    {slides.length > 0 && (
+      <div class="min-w-0">
+        <ProjectCarousel slides={slides} label={`${title} screenshots`} />
+      </div>
+    )}
   </div>
 </header>
+
+<style>
+  /* Soft brand wash from the top-right, fading to the page colour, so the
+     grid and beam sit on a surface rather than on flat white. */
+  .project-hero {
+    background:
+      radial-gradient(60rem 28rem at 85% -10%, color-mix(in oklab, var(--color-brand-500) 14%, transparent), transparent 70%),
+      radial-gradient(40rem 24rem at 0% 100%, color-mix(in oklab, var(--color-brand-500) 7%, transparent), transparent 70%),
+      linear-gradient(to bottom, var(--color-background-secondary), var(--color-background));
+  }
+</style>

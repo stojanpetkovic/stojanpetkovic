@@ -1,0 +1,411 @@
+---
+/**
+ * WellKillView — the Well Kill calculator page.
+ *
+ * Three methods in one form: killing a producing well (kill fluid, volumes and
+ * bullheading pressure) and the kill sheet of a drilling well for the driller's
+ * and wait-and-weight methods. The method select shows the fields and the
+ * result panel of that method; the calculation is `src/lib/tools/well-kill.ts`.
+ * Inputs are metric with a switch to oilfield units, inside the shared
+ * `ToolPage` shell. Copy comes from `pages.wellKill.*`.
+ */
+import ToolPage from './ToolPage.astro';
+import ToolMethod from './ToolMethod.astro';
+import { t, tData, defaultLocale } from '@/i18n';
+import { UNITS, type Quantity } from '@/lib/tools/units';
+
+interface Props {
+  /** Locale whose copy this page renders. Defaults to the site default. */
+  locale?: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+
+type Method = 'workover' | 'drillers' | 'waitWeight';
+
+const p = (key: string) => `pages.wellKill.${key}`;
+const hero = tData<{ badge: string; title: string; description: string }>(p('hero'), locale)!;
+const methods = tData<{ label: string; hint: string; options: Record<Method, string> }>(p('methods'), locale)!;
+const groups = tData<Record<string, string>>(p('groups'), locale)!;
+const fields = tData<Record<string, { label: string; hint?: string }>>(p('fields'), locale)!;
+const r = tData<Record<string, string>>(p('results'), locale)!;
+const schedule = tData<Record<string, string>>(p('schedule'), locale)!;
+const method = tData<Parameters<typeof ToolMethod>[0]['method']>(p('method'), locale)!;
+
+/** Starting values in metric units: a producing well and a drilling well that opens with a result. */
+const defaults: Record<string, number> = {
+  wTvd: 2300,
+  wMd: 2400,
+  wDensity: 1000,
+  wSitp: 60,
+  wMargin: 10,
+  wInject: 20,
+  wFracture: 450,
+  wTubingId: 62,
+  wTubingOd: 73,
+  wCasingId: 160,
+  wRate: 300,
+  dTvd: 2500,
+  dMud: 1200,
+  dSidpp: 20,
+  dShoeTvd: 1800,
+  dLeakoff: 1700,
+  dScr: 35,
+  dSpm: 30,
+  dPump: 15,
+  dStringVolume: 20,
+  dAnnulusVolume: 60,
+};
+
+interface Group {
+  label: string;
+  models: Method[];
+  rows: { key: string; quantity: Quantity }[];
+}
+
+const layout: Group[] = [
+  {
+    label: groups.wellFluid,
+    models: ['workover'],
+    rows: [
+      { key: 'wTvd', quantity: 'length' },
+      { key: 'wMd', quantity: 'length' },
+      { key: 'wDensity', quantity: 'density' },
+      { key: 'wSitp', quantity: 'pressure' },
+    ],
+  },
+  {
+    label: groups.kill,
+    models: ['workover'],
+    rows: [
+      { key: 'wMargin', quantity: 'pressure' },
+      { key: 'wInject', quantity: 'pressure' },
+      { key: 'wFracture', quantity: 'pressure' },
+    ],
+  },
+  {
+    label: groups.tubing,
+    models: ['workover'],
+    rows: [
+      { key: 'wTubingId', quantity: 'diameter' },
+      { key: 'wTubingOd', quantity: 'diameter' },
+      { key: 'wCasingId', quantity: 'diameter' },
+    ],
+  },
+  { label: groups.pumping, models: ['workover'], rows: [{ key: 'wRate', quantity: 'flowRate' }] },
+  {
+    label: groups.drillWell,
+    models: ['drillers', 'waitWeight'],
+    rows: [
+      { key: 'dTvd', quantity: 'length' },
+      { key: 'dMud', quantity: 'density' },
+      { key: 'dSidpp', quantity: 'pressure' },
+      { key: 'dShoeTvd', quantity: 'length' },
+      { key: 'dLeakoff', quantity: 'density' },
+    ],
+  },
+  {
+    label: groups.drillPump,
+    models: ['drillers', 'waitWeight'],
+    rows: [
+      { key: 'dScr', quantity: 'pressure' },
+      { key: 'dSpm', quantity: 'ratio' },
+      { key: 'dPump', quantity: 'liquidVolume' },
+    ],
+  },
+  {
+    label: groups.drillVolumes,
+    models: ['drillers', 'waitWeight'],
+    rows: [
+      { key: 'dStringVolume', quantity: 'volume' },
+      { key: 'dAnnulusVolume', quantity: 'volume' },
+    ],
+  },
+];
+
+/** A result line: label, output key, the quantity it converts with and its decimals. */
+interface Line {
+  key: string;
+  label: string;
+  quantity?: Quantity;
+  unit?: string;
+  decimals?: number;
+}
+const workoverLines: Line[] = [
+  { key: 'formationPressure', label: r.formationPressure, quantity: 'pressure' },
+  { key: 'densityIncrease', label: r.densityIncrease, quantity: 'density' },
+  { key: 'hydrostatic', label: r.hydrostatic, quantity: 'pressure' },
+  { key: 'tubingVolume', label: r.tubingVolume, quantity: 'volume' },
+  { key: 'annulusVolume', label: r.annulusVolume, quantity: 'volume' },
+  { key: 'tubingTime', label: r.tubingTime, unit: r.min, decimals: 0 },
+  { key: 'circulationTime', label: r.circulationTime, unit: r.min, decimals: 0 },
+  { key: 'startPressure', label: r.startPressure, quantity: 'pressure' },
+  { key: 'endPressure', label: r.endPressure, quantity: 'pressure' },
+  { key: 'injectionPressure', label: r.injectionPressure, quantity: 'pressure' },
+  { key: 'fractureMargin', label: r.fractureMargin, quantity: 'pressure' },
+];
+const drillLines: Line[] = [
+  { key: 'icp', label: r.icp, quantity: 'pressure' },
+  { key: 'fcp', label: r.fcp, quantity: 'pressure' },
+  { key: 'strokesToBit', label: r.strokesToBit, unit: r.strokes, decimals: 0 },
+  { key: 'strokesToSurface', label: r.strokesToSurface, unit: r.strokes, decimals: 0 },
+  { key: 'timeToBit', label: r.timeToBit, unit: r.min, decimals: 0 },
+  { key: 'timeToSurface', label: r.timeToSurface, unit: r.min, decimals: 0 },
+  { key: 'totalStrokes', label: r.totalStrokes, unit: r.strokes, decimals: 0 },
+  { key: 'totalTime', label: r.totalTime, unit: r.min, decimals: 0 },
+  { key: 'maasp', label: r.maasp, quantity: 'pressure' },
+];
+---
+
+<ToolPage
+  locale={locale}
+  title={t(p('meta.title'), locale)}
+  description={t(p('meta.description'), locale)}
+  hero={hero}
+  resultTitle={r.title}
+  example={defaults}
+  defaults={defaults}
+  base="metric"
+>
+  <fieldset class="mt-6 min-w-0 border-t border-border pt-5">
+    <legend class="float-left mb-3 w-full font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
+      {methods.label}
+    </legend>
+    <div class="clear-both">
+      <div class="tool-input">
+        <select id="tool-method" name="method" aria-label={methods.label}>
+          {(Object.keys(methods.options) as Method[]).map((m) => <option value={m}>{methods.options[m]}</option>)}
+        </select>
+      </div>
+      <p class="mt-1 text-xs leading-snug text-foreground-subtle">{methods.hint}</p>
+    </div>
+  </fieldset>
+
+  {
+    layout.map((group) => (
+      <fieldset class="mt-6 min-w-0 border-t border-border pt-5" data-models={group.models.join(' ')} hidden={!group.models.includes('workover')}>
+        <legend class="float-left mb-3 w-full font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
+          {group.label}
+        </legend>
+        <div class="tool-fields clear-both">
+          {group.rows.map(({ key, quantity }) => (
+            <div class="tool-field">
+              <label for={`tool-${key}`} class="block text-sm font-medium text-foreground">
+                {fields[key].label}
+              </label>
+              <div class="tool-input mt-1.5">
+                <input
+                  id={`tool-${key}`}
+                  name={key}
+                  type="text"
+                  inputmode="decimal"
+                  autocomplete="off"
+                  value={String(defaults[key])}
+                  data-quantity={quantity}
+                  aria-describedby={fields[key].hint ? `tool-${key}-hint` : undefined}
+                />
+                <span data-unit-for={key}>{UNITS[quantity].label.metric}</span>
+              </div>
+              {fields[key].hint && (
+                <p id={`tool-${key}-hint`} class="mt-1 text-xs leading-snug text-foreground-subtle">
+                  {fields[key].hint}
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </fieldset>
+    ))
+  }
+
+  <Fragment slot="results">
+    <!-- Producing well -->
+    <div data-panel="workover">
+      <p class="mt-4 text-sm text-foreground-muted">{r.killFluid}</p>
+      <p class="mt-1 font-display text-4xl font-bold tracking-tight text-brand-700">
+        <span data-out="killFluid" data-quantity="density">–</span>
+        <span data-unit-out="density" class="text-xl font-semibold text-foreground-muted"></span>
+      </p>
+      <dl class="mt-5 divide-y divide-border border-t border-border text-sm">
+        {
+          workoverLines.map((line) => (
+            <div class="flex items-baseline justify-between gap-3 py-2.5">
+              <dt class="text-foreground-muted">{line.label}</dt>
+              <dd class="whitespace-nowrap text-right font-mono text-foreground">
+                <span data-out={line.key} data-quantity={line.quantity} data-decimals={line.decimals}>–</span>{' '}
+                {line.quantity ? (
+                  <span data-unit-out={line.quantity} class="text-foreground-muted" />
+                ) : (
+                  <span class="text-foreground-muted">{line.unit}</span>
+                )}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <!-- Drilling well -->
+    <div data-panel="drillers waitWeight" hidden>
+      <p class="mt-4 text-sm text-foreground-muted">{r.killMud}</p>
+      <p class="mt-1 font-display text-4xl font-bold tracking-tight text-brand-700">
+        <span data-out="killMud" data-quantity="density">–</span>
+        <span data-unit-out="density" class="text-xl font-semibold text-foreground-muted"></span>
+      </p>
+      <dl class="mt-5 divide-y divide-border border-t border-border text-sm">
+        {
+          drillLines.map((line) => (
+            <div class="flex items-baseline justify-between gap-3 py-2.5">
+              <dt class="text-foreground-muted">{line.label}</dt>
+              <dd class="whitespace-nowrap text-right font-mono text-foreground">
+                <span data-out={line.key} data-quantity={line.quantity} data-decimals={line.decimals}>–</span>{' '}
+                {line.quantity ? (
+                  <span data-unit-out={line.quantity} class="text-foreground-muted" />
+                ) : (
+                  <span class="text-foreground-muted">{line.unit}</span>
+                )}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <h3 class="mt-6 font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{schedule.title}</h3>
+      <table class="mt-2 w-full text-sm" data-schedule>
+        <thead>
+          <tr class="border-b border-border text-left text-xs text-foreground-muted">
+            <th class="py-1.5 pr-2 font-medium">{schedule.strokes}</th>
+            <th class="py-1.5 pr-2 font-medium">{schedule.time} ({r.min})</th>
+            <th class="py-1.5 text-right font-medium">{schedule.pressure} (<span data-unit-out="pressure"></span>)</th>
+          </tr>
+        </thead>
+        <tbody class="font-mono text-foreground"></tbody>
+      </table>
+      <p class="mt-2 text-xs leading-snug text-foreground-subtle">{schedule.note}</p>
+    </div>
+  </Fragment>
+
+  <ToolMethod slot="method" method={method} />
+</ToolPage>
+
+<script>
+  import { initToolForm, type Outcome } from '@/lib/tools/tool-form';
+  import { convert } from '@/lib/tools/units';
+  import {
+    calculateDrill,
+    calculateWorkover,
+    validateDrill,
+    validateWorkover,
+    type DrillInput,
+    type DrillMethod,
+    type WorkoverInput,
+  } from '@/lib/tools/well-kill';
+
+  /** The inputs of each method, with the prefix its field names carry. */
+  const WORKOVER_KEYS = ['tvd', 'md', 'density', 'sitp', 'margin', 'inject', 'fracture', 'tubingId', 'tubingOd', 'casingId', 'rate'] as const;
+  const DRILL_KEYS = ['tvd', 'mud', 'sidpp', 'shoeTvd', 'leakoff', 'scr', 'spm', 'pump', 'stringVolume', 'annulusVolume'] as const;
+  const capital = (s: string) => s[0].toUpperCase() + s.slice(1);
+
+  function init() {
+    const root = document.getElementById('tool');
+    if (!root) return;
+    const form = root.querySelector('form')!;
+    const select = form.querySelector<HTMLSelectElement>('select[name="method"]')!;
+    const method = () => select.value as 'workover' | DrillMethod;
+
+    const showMethod = () => {
+      const m = method();
+      root.querySelectorAll<HTMLElement>('[data-models]').forEach((el) => (el.hidden = !el.dataset.models!.split(' ').includes(m)));
+      root.querySelectorAll<HTMLElement>('[data-panel]').forEach((el) => (el.hidden = !el.dataset.panel!.split(' ').includes(m)));
+    };
+    select.addEventListener('change', () => {
+      showMethod();
+      form.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    showMethod();
+
+    const system = () =>
+      (root.querySelector('[data-system][aria-pressed="true"]') as HTMLElement | null)?.dataset.system === 'us' ? 'us' : 'metric';
+    const format = (value: number, digits: number) =>
+      new Intl.NumberFormat(document.documentElement.lang || 'en', { maximumFractionDigits: digits }).format(value);
+
+    // The pressure schedule is a table; the form fills single values, so the rows are written here.
+    document.addEventListener('tool-result', (e) => {
+      const json = (e as CustomEvent).detail?.scheduleJson as string | undefined;
+      const body = root.querySelector('[data-schedule] tbody');
+      if (!body || !json) return;
+      const rows = JSON.parse(json) as { strokes: number; time: number; pressure: number }[];
+      const sys = system();
+      body.replaceChildren(
+        ...rows.map((row) => {
+          const tr = document.createElement('tr');
+          tr.className = 'border-b border-border/60';
+          const cells = [
+            format(row.strokes, 0),
+            format(row.time, 1),
+            format(convert('pressure', 'metric', sys, row.pressure), sys === 'us' ? 0 : 1),
+          ];
+          cells.forEach((text, i) => {
+            const td = document.createElement('td');
+            td.className = i === 2 ? 'py-1.5 text-right' : 'py-1.5 pr-2';
+            td.textContent = text;
+            tr.append(td);
+          });
+          return tr;
+        })
+      );
+    });
+
+    initToolForm(root, (input): Outcome => {
+      const pick = <K extends string>(prefix: string, keys: readonly K[]) =>
+        Object.fromEntries(keys.map((k) => [k, input[`${prefix}${capital(k)}`]])) as Record<K, number>;
+
+      if (method() === 'workover') {
+        const data = pick('w', WORKOVER_KEYS) as unknown as WorkoverInput;
+        const errors = validateWorkover(data).map((k) => `w${capital(k)}`);
+        if (errors.length > 0) return { errors };
+        const w = calculateWorkover(data);
+        return {
+          values: {
+            killFluid: w.killDensity,
+            formationPressure: w.formationPressure,
+            densityIncrease: w.densityIncrease,
+            hydrostatic: w.hydrostatic,
+            tubingVolume: w.tubingVolume,
+            annulusVolume: w.annulusVolume,
+            tubingTime: w.tubingTime,
+            circulationTime: w.circulationTime,
+            startPressure: w.startPressure,
+            endPressure: w.endPressure,
+            injectionPressure: w.injectionPressure,
+            fractureMargin: w.fractureMargin,
+          },
+        };
+      }
+
+      const data = pick('d', DRILL_KEYS) as unknown as DrillInput;
+      const errors = validateDrill(data).map((k) => `d${capital(k)}`);
+      if (errors.length > 0) return { errors };
+      const d = calculateDrill(data);
+      const m = method() as DrillMethod;
+      return {
+        values: {
+          killMud: d.killMud,
+          icp: d.icp,
+          fcp: d.fcp,
+          strokesToBit: d.strokesToBit,
+          strokesToSurface: d.strokesToSurface,
+          timeToBit: d.timeToBit,
+          timeToSurface: d.timeToSurface,
+          totalStrokes: d.totalStrokes[m],
+          totalTime: d.totalTime[m],
+          maasp: d.maasp,
+          scheduleJson: JSON.stringify(d.schedule),
+        },
+      };
+    });
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
+</script>

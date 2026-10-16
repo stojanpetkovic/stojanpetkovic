@@ -1,20 +1,14 @@
 ---
 /**
- * WellBuilderView — the Well Builder page.
- *
- * A palette of well components dragged onto a schematic of measured depth, an
- * editor with the API casing and tubing sizes, a deviation survey that is
- * pasted or imported, and a 3D view of the resulting well path. The behaviour is
- * in `src/lib/tools/well/builder-ui.ts`; this page supplies the markup and the
- * copy, which the script reads from a JSON block. Copy comes from
- * `pages.wellBuilder.*`.
+ * WellBuilderView — the Well Builder page: a header and the shared
+ * `WellBuilderPanel`. Copy comes from `pages.wellBuilder.*`.
  */
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import WellBuilderPanel from './WellBuilderPanel.astro';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
 import siteConfig from '@/config/site.config';
 import { SIGN_PRINTS } from '@/lib/tools/print';
-import { ITEM_TYPES } from '@/lib/tools/well/model';
 
 interface Props {
   /** Locale whose copy this page renders. Defaults to the site default. */
@@ -25,25 +19,10 @@ const { locale = defaultLocale } = Astro.props;
 
 const p = (key: string) => `pages.wellBuilder.${key}`;
 const hero = tData<{ badge: string; title: string; description: string }>(p('hero'), locale)!;
-const palette = tData<{ title: string; hint: string }>(p('palette'), locale)!;
-const types = tData<Record<string, string>>(p('types'), locale)!;
-const canvas = tData<{ title: string }>(p('canvas'), locale)!;
-const survey = tData<{ title: string; intro: string; placeholder: string; import: string; clear: string }>(p('survey'), locale)!;
-const view = tData<Record<string, string>>(p('view'), locale)!;
-const data = tData<Record<string, string>>(p('data'), locale)!;
-const units = tData<{ label: string }>(p('units'), locale)!;
-const copy = {
-  types,
-  editor: tData<Record<string, string>>(p('editor'), locale)!,
-  canvas: tData<Record<string, string>>(p('canvas'), locale)!,
-  survey: tData<unknown>(p('survey'), locale)!,
-  view,
-  marker: tData<Record<string, string>>(p('marker'), locale)!,
-  data,
-  print: tData<Record<string, string>>(p('print'), locale)!,
-};
+const print = tData<Record<string, string>>(p('print'), locale)!;
 const toolsUrl = localizedPath('/tools', locale);
 ---
+
 
 <PageLayout title={t(p('meta.title'), locale)} description={t(p('meta.description'), locale)} footerBackground="secondary">
   <!-- Print only: the report header with the site's name, mark and address. -->
@@ -54,7 +33,7 @@ const toolsUrl = localizedPath('/tools', locale);
       <p class="tool-print-url" data-print-url></p>
     </div>
   </div>)}
-  <h1 class="tool-print-title">{copy.print.title}</h1>
+  <h1 class="tool-print-title">{print.title}</h1>
 
   <section class="web-head border-b border-border pb-10 pt-14 sm:pt-16">
     <div class="mx-auto max-w-6xl px-6">
@@ -69,133 +48,6 @@ const toolsUrl = localizedPath('/tools', locale);
   </section>
 
   <section class="bg-background py-10 sm:py-12">
-    <div id="well-builder" class="mx-auto max-w-6xl px-6">
-      <script type="application/json" id="wb-copy" set:html={JSON.stringify(copy)} />
-
-      <!-- Toolbar -->
-      <div class="wb-noprint flex flex-wrap items-center gap-x-4 gap-y-3">
-        <div role="group" aria-label={units.label} class="tool-segment">
-          <button type="button" data-unit="ft" aria-pressed="true">ft</button>
-          <button type="button" data-unit="m" aria-pressed="false">m</button>
-        </div>
-        <button type="button" id="wb-example" class="wb-link">{data.example}</button>
-        <label class="wb-link cursor-pointer">
-          {data.import}
-          <input type="file" id="wb-import" accept="application/json,.json" class="sr-only" />
-        </label>
-        <button type="button" id="wb-export" class="wb-link">{data.export}</button>
-        <button type="button" id="wb-reset" class="wb-link">{data.reset}</button>
-        <span class="inline-flex flex-wrap items-center gap-x-4 gap-y-1">
-          <button type="button" id="wb-print" class="wb-link inline-flex items-center gap-1.5">
-            <Icon name="download" size="xs" />
-            {copy.print.button}
-          </button>
-          <span class="text-xs text-foreground-subtle">{copy.print.include}</span>
-          <label class="inline-flex items-center gap-1.5 text-xs text-foreground-muted"><input type="checkbox" id="wb-print-data" checked /> {copy.print.optionData}</label>
-          <label class="inline-flex items-center gap-1.5 text-xs text-foreground-muted"><input type="checkbox" id="wb-print-3d" checked /> {copy.print.option3d}</label>
-        </span>
-        <span class="text-xs text-foreground-subtle">{data.note}</span>
-      </div>
-
-      <!-- Schematic -->
-      <div class="mt-6 grid gap-6 lg:grid-cols-[19rem_1fr]">
-        <div class="wb-noprint min-w-0 space-y-5">
-          <div class="tool-card !p-4">
-            <h2 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{palette.title}</h2>
-            <p class="mt-2 text-xs leading-snug text-foreground-subtle">{palette.hint}</p>
-            <div class="mt-3 grid grid-cols-2 gap-2">
-              {
-                ITEM_TYPES.map((type) => (
-                  <div class="wb-tile" role="button" tabindex="0" data-add={type} data-type={type}>
-                    <span class="wb-swatch" data-type={type} />
-                    {types[type]}
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-          <div class="tool-card !p-4" id="wb-editor" aria-live="polite"></div>
-        </div>
-
-        <div class="tool-card min-w-0 !p-4">
-          <h2 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{canvas.title}</h2>
-          <svg id="wb-svg" class="mt-2 h-auto w-full select-none" role="img" aria-label={canvas.title}></svg>
-        </div>
-      </div>
-
-      <!-- Print only: the components as a table -->
-      <section class="wb-print-only wb-print-components">
-        <h2>{copy.print.components}</h2>
-        <div id="wb-print-table"></div>
-      </section>
-
-      <!-- Deviation survey -->
-      <div class="mt-10 grid gap-6 lg:grid-cols-[19rem_1fr]">
-        <div class="wb-noprint min-w-0">
-          <h2 class="font-display text-xl font-bold text-foreground">{survey.title}</h2>
-          <p class="mt-2 text-sm leading-relaxed text-foreground-muted">{survey.intro}</p>
-          <textarea id="wb-survey" rows="9" spellcheck="false" placeholder={survey.placeholder} class="wb-text mt-3 w-full"></textarea>
-          <div class="mt-2 flex flex-wrap gap-4">
-            <label class="wb-link cursor-pointer">
-              {survey.import}
-              <input type="file" id="wb-survey-file" accept=".csv,.txt,text/plain,text/csv" class="sr-only" />
-            </label>
-            <button type="button" id="wb-survey-clear" class="wb-link">{survey.clear}</button>
-          </div>
-          <p id="wb-survey-error" class="wb-error mt-3" role="alert" hidden></p>
-        </div>
-        <div class="min-w-0">
-          <dl id="wb-survey-summary" class="wb-summary"></dl>
-          <div id="wb-survey-table" class="wb-table wb-noprint mt-4"></div>
-        </div>
-      </div>
-
-      <!-- 3D view -->
-      <div class="wb-3d-section mt-10">
-        <div class="flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <h2 class="font-display text-xl font-bold text-foreground">{view.title}</h2>
-            <p class="wb-noprint mt-2 max-w-2xl text-sm leading-relaxed text-foreground-muted">{view.hint}</p>
-          </div>
-          <div class="wb-noprint flex flex-wrap gap-2">
-            <button type="button" class="wb-btn" data-view="top">{view.top}</button>
-            <button type="button" class="wb-btn" data-view="side">{view.side}</button>
-            <button type="button" class="wb-btn" data-view="reset">{view.reset}</button>
-            <button type="button" class="wb-btn" data-view="in" aria-label={view.zoomIn}>+</button>
-            <button type="button" class="wb-btn" data-view="out" aria-label={view.zoomOut}>−</button>
-          </div>
-        </div>
-        <div class="tool-card mt-4 !p-2">
-          <img id="wb-3d-print" alt="" class="wb-print-only" />
-          <canvas id="wb-3d" class="block h-[26rem] w-full cursor-grab touch-none sm:h-[32rem]" role="img" aria-label={view.title}></canvas>
-        </div>
-        <p id="wb-3d-note" class="mt-2 text-xs text-foreground-subtle" hidden>{view.noSurvey}</p>
-        <p class="mt-2 flex items-center gap-3 text-xs text-foreground-subtle">
-          <span class="wb-ramp"></span>{view.legend}
-        </p>
-      </div>
-
-      <p id="wb-print-foot" data-signed={String(SIGN_PRINTS)} data-note={`${t('pages.tools.note', locale)} ${data.sizes}`} class="wb-print-only wb-print-foot"></p>
-
-      <p class="wb-noprint-note mt-10 flex max-w-3xl items-start gap-2 text-xs leading-relaxed text-foreground-subtle">
-        <Icon name="info" size="xs" class="mt-0.5 shrink-0" />
-        {t('pages.tools.note', locale)} {data.sizes}
-      </p>
-    </div>
+    <WellBuilderPanel locale={locale} />
   </section>
 </PageLayout>
-
-<script>
-  import { WellBuilder, type BuilderCopy } from '@/lib/tools/well/builder-ui';
-
-  function init() {
-    const root = document.getElementById('well-builder');
-    const copy = document.getElementById('wb-copy');
-    if (!root || !copy || root.dataset.init) return;
-    root.dataset.init = 'true';
-    new WellBuilder(root, JSON.parse(copy.textContent ?? '{}') as BuilderCopy);
-  }
-
-  init();
-  document.addEventListener('astro:page-load', init);
-</script>

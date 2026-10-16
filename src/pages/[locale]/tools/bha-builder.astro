@@ -1,0 +1,14 @@
+---
+import BhaBuilderView from '@/components/pages/views/BhaBuilderView.astro';
+import { getSecondaryLocales } from '@/i18n';
+
+// Locale-prefixed calculator page (`/<locale>/tools/bha-builder`). One page
+// per non-default locale; emits nothing when i18n is off.
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<BhaBuilderView locale={locale} />

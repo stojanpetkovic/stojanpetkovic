@@ -1,0 +1,14 @@
+---
+import CtSimulatorView from '@/components/pages/views/CtSimulatorView.astro';
+import { getSecondaryLocales } from '@/i18n';
+
+// Locale-prefixed calculator page (`/<locale>/tools/ct-simulator`). One page
+// per non-default locale; emits nothing when i18n is off.
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<CtSimulatorView locale={locale} />

@@ -1,0 +1,14 @@
+---
+import CoursesView from '@/components/pages/views/CoursesView.astro';
+import { getSecondaryLocales } from '@/i18n';
+
+// Locale-prefixed Courses page (`/<locale>/courses`). One page
+// per non-default locale; emits nothing when i18n is off.
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({ params: { locale } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<CoursesView locale={locale} />

@@ -40,10 +40,42 @@ export interface NavItemOverride {
   href?: string;
 }
 
+/**
+ * A link inside a mega menu: label and optional one-line description from the
+ * locale files, and an icon.
+ */
+export interface MegaLinkConfig {
+  label: string;
+  labelKey: string;
+  href: string;
+  icon: string;
+  descriptionKey?: string;
+}
+
+/** A column of a mega menu. */
+export interface MegaGroupConfig {
+  title: string;
+  titleKey: string;
+  links: MegaLinkConfig[];
+}
+
+/**
+ * The panel a nav item opens. `activePrefixes` are the sections the panel
+ * covers, so the item shows as current on any page inside them.
+ */
+export interface MegaMenuConfig {
+  groups: MegaGroupConfig[];
+  /** Link at the foot of the panel, to the item's own page. */
+  overview: MegaLinkConfig;
+  activePrefixes: string[];
+}
+
 export interface NavItem {
   label: string;
   href: string;
   order: number;
+  /** Opens a mega menu instead of being a plain link; `href` is the overview page. */
+  mega?: MegaMenuConfig;
   external?: boolean;
   /** i18n dictionary key for the label (e.g. `'nav.items.blog'`). Falls back to `label`. */
   labelKey?: string;
@@ -76,33 +108,89 @@ export interface LegalLink {
   locales?: Record<string, NavItemOverride>;
 }
 
+export interface ResolvedMegaLink {
+  label: string;
+  href: string;
+  icon: string;
+  description?: string;
+}
+
+export interface ResolvedMegaMenu {
+  groups: { title: string; links: ResolvedMegaLink[] }[];
+  overview: ResolvedMegaLink;
+  /** Locale-prefixed sections the menu covers. */
+  activePrefixes: string[];
+}
+
 /** A nav item resolved for one locale: label translated, href locale-prefixed. */
 export interface ResolvedNavItem {
   label: string;
   href: string;
   external?: boolean;
+  mega?: ResolvedMegaMenu;
 }
+
+/**
+ * The Services mega menu. The site offers three kinds of work and each has its
+ * own pages; grouping them here keeps the top bar short and shows a visitor
+ * everything under Services without opening each page.
+ */
+const servicesMega: MegaMenuConfig = {
+  activePrefixes: ['/services', '/tools', '/web', '/courses'],
+  overview: { label: 'All services', labelKey: 'nav.mega.overview', href: '/services', icon: 'arrow-right' },
+  groups: [
+    {
+      title: 'Engineering',
+      titleKey: 'nav.mega.groups.engineering',
+      links: [
+        { label: 'Consulting & projects', labelKey: 'nav.mega.links.consulting', descriptionKey: 'nav.mega.descriptions.consulting', href: '/services#consulting', icon: 'award' },
+        { label: 'Courses', labelKey: 'nav.items.courses', descriptionKey: 'nav.mega.descriptions.courses', href: '/courses', icon: 'book-open' },
+        { label: 'Projects', labelKey: 'nav.items.projects', descriptionKey: 'nav.mega.descriptions.projects', href: '/projects', icon: 'layers' },
+      ],
+    },
+    {
+      title: 'Engineering tools',
+      titleKey: 'nav.mega.groups.tools',
+      links: [
+        { label: 'CT Simulator', labelKey: 'pages.ctSimulator.hero.title', href: '/tools/ct-simulator', icon: 'layout-dashboard' },
+        { label: 'CT Pressure Loss', labelKey: 'pages.ctPressureLoss.hero.title', href: '/tools/ct-pressure-loss', icon: 'activity' },
+        { label: 'CT Strength Limits', labelKey: 'pages.ctStrength.hero.title', href: '/tools/ct-strength-limits', icon: 'shield-check' },
+        { label: 'Nitrogen Displacement', labelKey: 'pages.nitrogenDisplacement.hero.title', href: '/tools/nitrogen-displacement', icon: 'wind' },
+        { label: 'Well Kill', labelKey: 'pages.wellKill.hero.title', href: '/tools/well-kill', icon: 'shield-check' },
+        { label: 'BHA Builder', labelKey: 'pages.bhaBuilder.hero.title', href: '/tools/bha-builder', icon: 'wrench' },
+        { label: 'All tools', labelKey: 'nav.mega.links.allTools', href: '/tools', icon: 'arrow-right' },
+      ],
+    },
+    {
+      title: 'Software & web',
+      titleKey: 'nav.mega.groups.web',
+      links: [
+        { label: 'Engineering software', labelKey: 'nav.mega.links.software', descriptionKey: 'nav.mega.descriptions.software', href: '/services#software', icon: 'code' },
+        { label: 'Web development', labelKey: 'nav.mega.links.web', descriptionKey: 'nav.mega.descriptions.web', href: '/web', icon: 'layout' },
+      ],
+    },
+  ],
+};
 
 export const navItems: NavItem[] = [
   { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
-  { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Tools', href: '/tools', order: 2, labelKey: 'nav.items.tools' },
-  { label: 'Web', href: '/web', order: 3, labelKey: 'nav.items.web' },
-  { label: 'Projects', href: '/projects', order: 4, labelKey: 'nav.items.projects' },
-  { label: 'Blog', href: '/blog', order: 5, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 6, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 7, labelKey: 'nav.items.contact' },
+  { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services', mega: servicesMega },
+  { label: 'Projects', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
+  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
+  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
 ];
 
 export const footerNavItems: NavItem[] = [
   { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
   { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Tools', href: '/tools', order: 2, labelKey: 'nav.items.tools' },
-  { label: 'Web', href: '/web', order: 3, labelKey: 'nav.items.web' },
-  { label: 'Projects', href: '/projects', order: 4, labelKey: 'nav.items.projects' },
-  { label: 'Blog', href: '/blog', order: 5, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 6, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 7, labelKey: 'nav.items.contact' },
+  { label: 'Courses', href: '/courses', order: 2, labelKey: 'nav.items.courses' },
+  { label: 'Tools', href: '/tools', order: 3, labelKey: 'nav.items.tools' },
+  { label: 'Web', href: '/web', order: 4, labelKey: 'nav.items.web' },
+  { label: 'Projects', href: '/projects', order: 5, labelKey: 'nav.items.projects' },
+  { label: 'Blog', href: '/blog', order: 6, labelKey: 'nav.items.blog' },
+  { label: 'About', href: '/about', order: 7, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 8, labelKey: 'nav.items.contact' },
 ];
 
 export const legalLinks: LegalLink[] = [];
@@ -130,6 +218,7 @@ export const footerLinkGroups: FooterLinkGroupConfig[] = [
     title: 'Engineering',
     links: [
       { label: 'Projects, courses and software', href: '/#focus', labelKey: 'footer.links.focus' },
+      { label: 'Courses', href: '/courses', labelKey: 'nav.items.courses' },
       { label: 'About', href: '/about', labelKey: 'nav.items.about' },
       { label: 'Contact', href: '/contact', labelKey: 'nav.items.contact' },
     ],
@@ -170,7 +259,30 @@ export function resolveNavItem(item: NavItem | LegalLink, locale: Locale): Resol
   const rawHref = override?.href ?? item.href;
   const href =
     item.external || isExternalOrAnchorHref(rawHref) ? rawHref : localizedPath(rawHref, locale);
-  return { label, href, external: item.external };
+  const resolved: ResolvedNavItem = { label, href, external: item.external };
+  if ('mega' in item && item.mega) resolved.mega = resolveMega(item.mega, locale);
+  return resolved;
+}
+
+function resolveMegaLink(link: MegaLinkConfig, locale: Locale): ResolvedMegaLink {
+  return {
+    label: t(link.labelKey, locale),
+    href: localizedPath(link.href, locale),
+    icon: link.icon,
+    description: link.descriptionKey ? t(link.descriptionKey, locale) : undefined,
+  };
+}
+
+/** A mega menu resolved for one locale. */
+function resolveMega(menu: MegaMenuConfig, locale: Locale): ResolvedMegaMenu {
+  return {
+    groups: menu.groups.map((group) => ({
+      title: t(group.titleKey, locale),
+      links: group.links.map((link) => resolveMegaLink(link, locale)),
+    })),
+    overview: resolveMegaLink(menu.overview, locale),
+    activePrefixes: menu.activePrefixes.map((prefix) => localizedPath(prefix, locale)),
+  };
 }
 
 /**

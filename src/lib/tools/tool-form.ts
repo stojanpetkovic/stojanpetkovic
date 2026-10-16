@@ -28,7 +28,8 @@ export type Outcome =
   | { errors?: undefined; values: Record<string, number | string | null> };
 
 export function initToolForm(root: HTMLElement, compute: (input: Record<string, number>) => Outcome) {
-  const form = root.querySelector<HTMLFormElement>('form');
+  // A page with several panels has no single form; the root itself then holds the fields.
+  const form: HTMLElement | null = root.dataset.noForm !== undefined ? root : root.querySelector<HTMLFormElement>('form');
   if (!form || root.dataset.init) return;
   root.dataset.init = 'true';
 
@@ -100,8 +101,15 @@ export function initToolForm(root: HTMLElement, compute: (input: Record<string, 
 
   function fill(values: Record<string, number>) {
     for (const el of inputs) {
-      el.dataset.base = String(values[el.name]);
-      el.value = plain(convert(el.dataset.quantity as Quantity, base, system, values[el.name]));
+      const v = values[el.name];
+      // A field the preset does not mention (an optional one) opens empty.
+      if (v === undefined || !Number.isFinite(v)) {
+        delete el.dataset.base;
+        el.value = '';
+        continue;
+      }
+      el.dataset.base = String(v);
+      el.value = plain(convert(el.dataset.quantity as Quantity, base, system, v));
     }
     calculate();
   }

@@ -12,7 +12,8 @@ import ToolPage from './ToolPage.astro';
 import ToolFields from './ToolFields.astro';
 import ToolMethod from './ToolMethod.astro';
 import { t, tData, defaultLocale } from '@/i18n';
-import type { Quantity } from '@/lib/tools/units';
+import { UNITS, type Quantity } from '@/lib/tools/units';
+import { FANN_RPM, RHEOLOGY_MODELS, type RheologyModel } from '@/lib/tools/ct-rheology';
 
 interface Props {
   /** Locale whose copy this page renders. Defaults to the site default. */
@@ -23,17 +24,33 @@ const { locale = defaultLocale } = Astro.props;
 
 const p = (key: string) => `pages.ctPressureLoss.${key}`;
 const hero = tData<{ badge: string; title: string; description: string }>(p('hero'), locale)!;
-const groups = tData<Record<'fluid' | 'geometry' | 'flow', string>>(p('groups'), locale)!;
+const groups = tData<Record<'fluid' | 'fann' | 'temperature' | 'geometry' | 'flow', string>>(p('groups'), locale)!;
 const fields = tData<Record<string, { label: string; hint?: string }>>(p('fields'), locale)!;
 const results = tData<Record<string, string>>(p('results'), locale)!;
 const regimes = tData<Record<string, string>>(p('regimes'), locale)!;
+const models = tData<Record<RheologyModel, string>>(p('models'), locale)!;
+const fluidTypes = tData<Record<'liquid' | 'gas' | 'foam' | 'multiphase', string>>(p('fluidTypes'), locale)!;
+const soon = t(p('soon'), locale);
+const fann = tData<Record<'note' | 'fit' | 'fitted' | 'direct' | 'failed', string>>(p('fann'), locale)!;
+const temp = tData<Record<'note' | 'title' | 'temperature' | 'pv' | 'yp', string>>(p('temp'), locale)!;
 const method = tData<Parameters<typeof ToolMethod>[0]['method']>(p('method'), locale)!;
 
-/** Worked example in oilfield units: the reference case the calculation is checked against. */
-const example: Record<string, number> = {
-  density: 15.52,
+/**
+ * Starting values, in oilfield units: a cement slurry (1890 kg/m³, PV 25.5 cP, YP 7.25 Pa) as a Bingham plastic in
+ * the reference string. The Fann readings are those such a fluid would give, so every model has something to fit.
+ */
+const PV = 25.5;
+const YP_LBF = 7.25 / 0.478802589;
+const readings = Object.fromEntries(
+  FANN_RPM.map((rpm) => [`r${rpm}`, Number((YP_LBF / 1.0678 + (PV * rpm) / 300).toFixed(2))])
+);
+const defaults: Record<string, number> = {
+  density: 15.77,
+  pv: PV,
+  yp: Number(YP_LBF.toFixed(3)),
   n: 0.78,
   k: 0.836,
+  ...readings,
   reelDiameter: 83,
   od: 1.5,
   wall: 0.095,
@@ -42,21 +59,25 @@ const example: Record<string, number> = {
   lengthOffReel: 2690,
   flowRate: 31,
 };
-/**
- * Starting values: fresh water (8.33 lb/gal, Newtonian so n = 1, K = 1 cP = 0.00209 lbf·s/100 ft²) in the
- * example string, so the page opens with a result before anything is typed.
- */
-const defaults: Record<string, number> = { ...example, density: 8.33, n: 1, k: 0.00209 };
+/** The reference worksheet case: a power-law fluid in the same string. */
+const example: Record<string, number> = { ...defaults, density: 15.52, n: 0.78, k: 0.836 };
 
-const layout: { id: keyof typeof groups; rows: { key: string; quantity: Quantity }[] }[] = [
-  {
-    id: 'fluid',
-    rows: [
-      { key: 'density', quantity: 'density' },
-      { key: 'n', quantity: 'n' },
-      { key: 'k', quantity: 'k' },
-    ],
-  },
+const modelFields: Record<string, RheologyModel[]> = {
+  pv: ['newtonian', 'bingham'],
+  yp: ['bingham', 'herschelBulkley'],
+  n: ['powerLaw', 'herschelBulkley'],
+  k: ['powerLaw', 'herschelBulkley'],
+};
+
+const fluidRows: { key: string; quantity: Quantity; models?: string[] }[] = [
+  { key: 'density', quantity: 'density' },
+  { key: 'pv', quantity: 'viscosity', models: modelFields.pv },
+  { key: 'yp', quantity: 'yieldPoint', models: modelFields.yp },
+  { key: 'n', quantity: 'n', models: modelFields.n },
+  { key: 'k', quantity: 'k', models: modelFields.k },
+];
+
+const layout: { id: keyof typeof groups; rows: { key: string; quantity: Quantity; models?: string[] }[] }[] = [
   {
     id: 'geometry',
     rows: [
@@ -80,8 +101,142 @@ const layout: { id: keyof typeof groups; rows: { key: string; quantity: Quantity
   resultTitle={results.title}
   example={example}
   defaults={defaults}
-  data={{ regimes: JSON.stringify(regimes) }}
+  data={{ regimes: JSON.stringify(regimes), fann: JSON.stringify(fann) }}
 >
+  <!-- Fluid: type, rheology model and the properties the model needs -->
+  <fieldset class="mt-6 min-w-0 border-t border-border pt-5">
+    <legend class="float-left mb-3 w-full font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
+      {groups.fluid}
+    </legend>
+    <div class="tool-fields clear-both">
+      <div class="tool-field">
+        <label for="tool-fluidType" class="block text-sm font-medium text-foreground">{fields.fluidType.label}</label>
+        <div class="tool-input mt-1.5">
+          <select id="tool-fluidType" name="fluidType">
+            <option value="liquid" selected>{fluidTypes.liquid}</option>
+            <option value="gas" disabled>{fluidTypes.gas} ({soon})</option>
+            <option value="foam" disabled>{fluidTypes.foam} ({soon})</option>
+            <option value="multiphase" disabled>{fluidTypes.multiphase} ({soon})</option>
+          </select>
+        </div>
+      </div>
+      <div class="tool-field">
+        <label for="tool-model" class="block text-sm font-medium text-foreground">{fields.model.label}</label>
+        <div class="tool-input mt-1.5">
+          <select id="tool-model" name="model">
+            {RHEOLOGY_MODELS.map((m) => <option value={m} selected={m === 'bingham'}>{models[m]}</option>)}
+          </select>
+        </div>
+        <p class="mt-1 text-xs leading-snug text-foreground-subtle">{fields.model.hint}</p>
+      </div>
+      {
+        fluidRows.map(({ key, quantity, models: only }) => (
+          <div class="tool-field" data-models={only?.join(' ')}>
+            <label for={`tool-${key}`} class="block text-sm font-medium text-foreground">{fields[key].label}</label>
+            <div class="tool-input mt-1.5">
+              <input
+                id={`tool-${key}`}
+                name={key}
+                type="text"
+                inputmode="decimal"
+                autocomplete="off"
+                value={String(defaults[key])}
+                data-quantity={quantity}
+                aria-describedby={fields[key].hint ? `tool-${key}-hint` : undefined}
+              />
+              <span data-unit-for={key}>{UNITS[quantity].label.us}</span>
+            </div>
+            {fields[key].hint && (
+              <p id={`tool-${key}-hint`} class="mt-1 text-xs leading-snug text-foreground-subtle">{fields[key].hint}</p>
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </fieldset>
+
+  <!-- Fann readings: fit the chosen model, or use them directly for the empirical model -->
+  <details class="mt-6 border-t border-border pt-5" data-fann-details>
+    <summary class="flex cursor-pointer list-none items-center justify-between font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle [&::-webkit-details-marker]:hidden">
+      {groups.fann}
+      <span aria-hidden="true" class="text-base leading-none">+</span>
+    </summary>
+    <p class="mt-3 text-xs leading-snug text-foreground-subtle">{fann.note}</p>
+    <div class="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 sm:grid-cols-3 lg:grid-cols-4">
+      {
+        FANN_RPM.map((rpm) => (
+          <div>
+            <label for={`tool-r${rpm}`} class="block text-xs font-medium text-foreground-muted">{rpm} rpm</label>
+            <div class="tool-input mt-1">
+              <input
+                id={`tool-r${rpm}`}
+                name={`r${rpm}`}
+                type="text"
+                inputmode="decimal"
+                autocomplete="off"
+                value={String(defaults[`r${rpm}`])}
+                data-quantity="ratio"
+                data-dial
+              />
+              <span data-unit-for={`r${rpm}`}></span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="mt-4 flex flex-wrap items-center gap-3">
+      <button
+        type="button"
+        data-fann-fit
+        class="rounded-md border border-border bg-background px-3 py-1.5 text-sm font-medium text-foreground transition hover:border-brand-300"
+      >
+        {fann.fit}
+      </button>
+      <p class="text-xs text-foreground-muted" data-fann-status role="status"></p>
+    </div>
+  </details>
+
+  <!-- Temperature effects: PV and YP at different temperatures -->
+  <details class="mt-6 border-t border-border pt-5">
+    <summary class="flex cursor-pointer list-none items-center justify-between font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle [&::-webkit-details-marker]:hidden">
+      {groups.temperature}
+      <span aria-hidden="true" class="text-base leading-none">+</span>
+    </summary>
+    <p class="mt-3 text-xs leading-snug text-foreground-subtle">{temp.note}</p>
+    <div class="mt-4 max-w-xs">
+      <label for="tool-fluidTemperature" class="block text-sm font-medium text-foreground">{fields.fluidTemperature.label}</label>
+      <div class="tool-input mt-1.5">
+        <input id="tool-fluidTemperature" name="fluidTemperature" type="text" inputmode="decimal" autocomplete="off" value="" data-quantity="temperature" />
+        <span data-unit-for="fluidTemperature">{UNITS.temperature.label.us}</span>
+      </div>
+      <p class="mt-1 text-xs leading-snug text-foreground-subtle">{fields.fluidTemperature.hint}</p>
+    </div>
+    <p class="mt-5 text-sm font-medium text-foreground">{temp.title}</p>
+    <div class="mt-2 grid grid-cols-[repeat(3,minmax(0,1fr))] gap-2 [&>*]:min-w-0">
+      <p class="text-xs text-foreground-muted">{temp.temperature}</p>
+      <p class="text-xs text-foreground-muted">{temp.pv}</p>
+      <p class="text-xs text-foreground-muted">{temp.yp}</p>
+      {
+        [1, 2, 3, 4].map((row) => (
+          <>
+            <div class="tool-input">
+              <input name={`tTemp${row}`} aria-label={`${temp.temperature} ${row}`} type="text" inputmode="decimal" autocomplete="off" value="" data-quantity="temperature" />
+              <span data-unit-for={`tTemp${row}`}>{UNITS.temperature.label.us}</span>
+            </div>
+            <div class="tool-input">
+              <input name={`tPv${row}`} aria-label={`${temp.pv} ${row}`} type="text" inputmode="decimal" autocomplete="off" value="" data-quantity="viscosity" />
+              <span data-unit-for={`tPv${row}`}>{UNITS.viscosity.label.us}</span>
+            </div>
+            <div class="tool-input">
+              <input name={`tYp${row}`} aria-label={`${temp.yp} ${row}`} type="text" inputmode="decimal" autocomplete="off" value="" data-quantity="yieldPoint" />
+              <span data-unit-for={`tYp${row}`}>{UNITS.yieldPoint.label.us}</span>
+            </div>
+          </>
+        ))
+      }
+    </div>
+  </details>
+
   <ToolFields
     groups={layout.map((g) => ({ id: g.id, label: groups[g.id], rows: g.rows }))}
     fields={fields}
@@ -128,6 +283,17 @@ const layout: { id: keyof typeof groups; rows: { key: string; quantity: Quantity
         <dd class="font-mono text-foreground"><span data-out="reynolds" data-decimals="0">–</span></dd>
       </div>
       <div class="flex items-baseline justify-between gap-3 py-3">
+        <dt class="text-foreground-muted">{results.effN}</dt>
+        <dd class="font-mono text-foreground"><span data-out="effN" data-decimals="3">–</span></dd>
+      </div>
+      <div class="flex items-baseline justify-between gap-3 py-3">
+        <dt class="text-foreground-muted">{results.effK}</dt>
+        <dd class="font-mono text-foreground">
+          <span data-out="effK" data-quantity="k" data-decimals="4">–</span>
+          <span data-unit-out="k" class="text-foreground-muted">lbf·sⁿ/100 ft²</span>
+        </dd>
+      </div>
+      <div class="flex items-baseline justify-between gap-3 py-3">
         <dt class="text-foreground-muted">{results.dean}</dt>
         <dd class="font-mono text-foreground"><span data-out="dean" data-decimals="0">–</span></dd>
       </div>
@@ -140,15 +306,121 @@ const layout: { id: keyof typeof groups; rows: { key: string; quantity: Quantity
 <script>
   import { initToolForm } from '@/lib/tools/tool-form';
   import { calculateCtPressureLoss, validateCtInput, type CtInput } from '@/lib/tools/ct-pressure-loss';
+  import {
+    equivalentPowerLaw,
+    fitFann,
+    FANN_RPM,
+    interpolateByTemperature,
+    stressFunction,
+    type FluidParameters,
+    type RheologyModel,
+  } from '@/lib/tools/ct-rheology';
+  import { convert, type Quantity } from '@/lib/tools/units';
+
+  /** The fields each model reads, for the validation marks. */
+  const MODEL_FIELDS: Record<RheologyModel, string[]> = {
+    newtonian: ['pv'],
+    bingham: ['pv', 'yp'],
+    powerLaw: ['n', 'k'],
+    herschelBulkley: ['yp', 'n', 'k'],
+    empirical: FANN_RPM.map((r) => `r${r}`),
+  };
 
   function init() {
     const root = document.getElementById('tool');
     if (!root) return;
+    const form = root.querySelector('form')!;
     const regimes: Record<string, string> = JSON.parse(root.dataset.regimes ?? '{}');
+    const text: Record<string, string> = JSON.parse(root.dataset.fann ?? '{}');
+    const modelSelect = form.querySelector<HTMLSelectElement>('select[name="model"]')!;
+    const fannDetails = form.querySelector<HTMLDetailsElement>('[data-fann-details]')!;
+    const status = form.querySelector<HTMLElement>('[data-fann-status]')!;
+    const model = () => modelSelect.value as RheologyModel;
+
+    const showModelFields = () => {
+      form.querySelectorAll<HTMLElement>('[data-models]').forEach((el) => {
+        el.hidden = !el.dataset.models!.split(' ').includes(model());
+      });
+      if (model() === 'empirical') fannDetails.open = true;
+      status.textContent = '';
+    };
+    modelSelect.addEventListener('change', showModelFields);
+    showModelFields();
+
+    // The example is a power-law fluid; switch the model with it.
+    root.querySelector('[data-tool-example]')?.addEventListener('click', () => {
+      modelSelect.value = 'powerLaw';
+      showModelFields();
+      form.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+
+    const system = () => (root.querySelector('[data-system][aria-pressed="true"]') as HTMLElement | null)?.dataset.system === 'metric' ? 'metric' : 'us';
+
+    /** Write a value given in oilfield units into a field, in the unit system on screen. */
+    const setField = (name: string, valueUs: number) => {
+      const el = form.querySelector<HTMLInputElement>(`input[name="${name}"]`);
+      if (!el) return;
+      const shown = convert(el.dataset.quantity as Quantity, 'us', system(), valueUs);
+      el.value = String(Number(shown.toPrecision(6)));
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+    };
+
+    form.querySelector('[data-fann-fit]')?.addEventListener('click', () => {
+      const readings = FANN_RPM.map((rpm) => {
+        const el = form.querySelector<HTMLInputElement>(`input[name="r${rpm}"]`)!;
+        return el.value.trim() === '' ? NaN : Number(el.value.trim().replace(',', '.'));
+      });
+      const m = model();
+      const fit = fitFann(m, readings);
+      if (!fit) {
+        status.textContent = text.failed;
+        return;
+      }
+      const { pv, yp, n, k } = fit.params;
+      if (pv !== undefined) setField('pv', pv);
+      if (yp !== undefined) setField('yp', yp);
+      if (n !== undefined) setField('n', n);
+      if (k !== undefined) setField('k', k);
+      status.textContent =
+        m === 'empirical'
+          ? text.direct
+          : text.fitted.replace('{dev}', new Intl.NumberFormat(document.documentElement.lang || 'en', { maximumFractionDigits: 1 }).format(fit.deviation));
+    });
+
     initToolForm(root, (input) => {
-      const errors = validateCtInput(input as unknown as CtInput);
+      const m = model();
+      const wanted = MODEL_FIELDS[m];
+
+      // Temperature table: PV and YP at the fluid temperature, for the models that use them.
+      let pv = input.pv;
+      let yp = input.yp;
+      let tempUsed: { pv: number; yp: number } | null = null;
+      if ((m === 'newtonian' || m === 'bingham') && Number.isFinite(input.fluidTemperature)) {
+        const rows = [1, 2, 3, 4].map((i) => ({ temperature: input[`tTemp${i}`], pv: input[`tPv${i}`], yp: input[`tYp${i}`] }));
+        tempUsed = interpolateByTemperature(rows, input.fluidTemperature);
+        if (tempUsed) {
+          pv = tempUsed.pv;
+          yp = m === 'bingham' ? tempUsed.yp : yp;
+        }
+      }
+
+      const params: FluidParameters = { pv, yp, n: input.n, k: input.k, readings: FANN_RPM.map((r) => input[`r${r}`]) };
+      const f = stressFunction(m, params);
+
+      const geometry = { ...input, n: 1, k: 1 } as unknown as CtInput;
+      const errors = validateCtInput(geometry).filter((e) => e !== 'n' && e !== 'k');
+      if (!f) errors.push(...(wanted as never[]));
       if (errors.length > 0) return { errors };
-      const r = calculateCtPressureLoss(input as unknown as CtInput);
+
+      // Pseudo shear rate 8V/D, 1/s, of this flow.
+      const id = input.od - 2 * input.wall;
+      const velocity = (input.flowRate * 0.1337 * 144) / ((Math.PI * id * id) / 4) / 60;
+      const eq = equivalentPowerLaw(f!, (8 * velocity) / (id / 12));
+      const withFluid = { ...input, n: eq.n, k: eq.k } as unknown as CtInput;
+      const fluidErrors = validateCtInput(withFluid);
+      if (fluidErrors.length > 0) return { errors: wanted };
+
+      const r = calculateCtPressureLoss(withFluid);
       return {
         values: {
           total: r.total,
@@ -159,6 +431,8 @@ const layout: { id: keyof typeof groups; rows: { key: string; quantity: Quantity
           velocity: r.velocity,
           reynolds: r.reynolds,
           dean: r.dean,
+          effN: eq.n,
+          effK: eq.k,
         },
       };
     });

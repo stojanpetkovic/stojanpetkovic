@@ -35,7 +35,7 @@ const { data } = project;
 ---
 
 <Card
-  variant="elevated"
+  variant="outline"
   hover
   padding="none"
   href={data.placeholder ? undefined : getProjectUrl(project.id, locale)}
@@ -49,7 +49,7 @@ const { data } = project;
       alt={data.imageAlt ?? data.title}
       widths={[320, 640, 960]}
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-      class="aspect-video w-full object-cover transition-transform duration-300 group-hover:scale-105"
+      class="aspect-video w-full object-cover transition-transform duration-300 "
       loading="lazy"
     />
   )}
@@ -64,7 +64,7 @@ const { data } = project;
     wants re-measuring: border to top of icon, and bottom of the tag pills to
     border.
   -->
-  <div class="flex flex-1 flex-col p-6 pb-[53px]">
+  <div class="flex flex-1 flex-col p-6">
     <!-- The year and the arrow square off the top corners, leaving the middle
          of the card to the project itself. -->
     <div class="mb-3 flex items-start justify-between gap-4">
@@ -73,7 +73,6 @@ const { data } = project;
       ) : (
         <span />
       )}
-      <Icon name="arrow-up-right" size="sm" class="text-foreground-muted group-hover:text-brand-500 transition-colors shrink-0" />
     </div>
 
     <!--
@@ -85,23 +84,14 @@ const { data } = project;
       other card in the theme. The size only works centred: left-aligned in a
       corner it has nothing to balance against and towers over the title.
     -->
-    <div class="mb-3 flex flex-col items-center gap-2 text-center">
-      {!data.image && <Icon name={data.icon ?? 'layers'} class="w-10 h-10 text-brand-500 shrink-0" />}
-      {/* h2, as BlogCard's title already is. The projects index and the tag
-          archives put these cards straight under the page's h1 with no
-          section heading between, so an h3 skipped a level there. On the home
-          page they still sit below the section's own h2, which a repeat of
-          the same level does not break. The size comes from the classes, so
-          the level carries no visual weight of its own. */}
-      <h2 class="font-display text-lg font-bold text-foreground">{data.title}</h2>
-    </div>
+    <h2 class="font-display text-lg font-semibold text-foreground mb-2">{data.title}</h2>
 
-    <p class="text-sm text-foreground-muted leading-relaxed mb-4 flex-1 text-center">{data.description}</p>
+    <p class="text-sm text-foreground-muted leading-relaxed mb-4 flex-1">{data.description}</p>
 
     {data.tags && data.tags.length > 0 && (
-      <div class="flex flex-wrap justify-center gap-1.5">
+      <div class="flex flex-wrap gap-x-3 gap-y-1">
         {data.tags.map((tag) => (
-          <span class="inline-flex items-center rounded-full bg-transparent px-2.5 py-0.5 text-xs font-medium text-brand-700 dark:text-brand-400 ring-1 ring-inset ring-brand-500/40 transition-colors group-hover:ring-brand-500/80">
+          <span class="text-xs text-foreground-muted">
             #{tag}
           </span>
         ))}

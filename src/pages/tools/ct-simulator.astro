@@ -1,0 +1,9 @@
+---
+import CtSimulatorView from '@/components/pages/views/CtSimulatorView.astro';
+import { defaultLocale } from '@/i18n';
+
+// The CT Simulator calculator for the default locale. Additional locales are
+// served by `src/pages/[locale]/tools/ct-simulator.astro`.
+---
+
+<CtSimulatorView locale={defaultLocale} />

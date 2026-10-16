@@ -31,6 +31,8 @@ interface Props {
   staggered?: boolean;
   /** Defaults to Astro Rocket's own 100/100/100/100 result. */
   scores?: Score[];
+  /** Smaller cards for pages where the figures are supporting detail. */
+  compact?: boolean;
 }
 
 const defaultScores: Score[] = [
@@ -40,7 +42,7 @@ const defaultScores: Score[] = [
   { label: 'SEO',            value: 100, icon: 'search' },
 ];
 
-const { staggered = true, scores = defaultScores } = Astro.props;
+const { staggered = true, scores = defaultScores, compact = false } = Astro.props;
 
 const wrapperProps = staggered ? { 'data-reveal-children': true } : {};
 // A literal class per branch, not an interpolated one, so Tailwind's
@@ -48,23 +50,23 @@ const wrapperProps = staggered ? { 'data-reveal-children': true } : {};
 const gridColsClass = scores.length >= 5 ? 'md:grid-cols-5' : 'md:grid-cols-4';
 ---
 
-<div class:list={['grid grid-cols-2 gap-[var(--space-content-gap)]', gridColsClass]} {...wrapperProps}>
+<div class:list={['grid grid-cols-2', compact ? 'gap-3 max-w-xl' : 'gap-[var(--space-content-gap)]', gridColsClass]} {...wrapperProps}>
   {scores.map((score, i) => (
-    <div class="bg-background-tertiary rounded-xl p-5 text-center border border-brand-500/40 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:border-brand-500/80 cursor-default h-full">
-      <div class="flex flex-col items-center gap-[var(--space-stack-sm)]">
-        <Icon name={score.icon} class="w-10 h-10 text-brand-500" />
+    <div class:list={["bg-background-tertiary rounded-xl text-center border border-brand-500/40 transition-all duration-200 cursor-default h-full", compact ? "p-3" : "p-5 shadow-lg hover:-translate-y-1 hover:shadow-xl hover:border-brand-500/80"]}>
+      <div class:list={["flex flex-col items-center", compact ? "gap-1" : "gap-[var(--space-stack-sm)]"]}>
+        <Icon name={score.icon} class:list={[compact ? "w-5 h-5" : "w-10 h-10", "text-brand-500"]} />
         <span class="flex items-baseline">
           <span
-            class="lh-number font-display text-4xl font-bold text-brand-500"
+            class:list={["lh-number font-display font-bold text-brand-500", compact ? "text-2xl" : "text-4xl"]}
             data-target={score.value}
             data-stagger={i}
             aria-label={`${score.label}: ${score.value} out of ${score.suffix ? score.suffix.replace('/', '') : '100'}`}
           >0</span>
           {score.suffix && (
-            <span class="font-display text-4xl font-bold text-brand-500" aria-hidden="true">{score.suffix}</span>
+            <span class:list={["font-display font-bold text-brand-500", compact ? "text-2xl" : "text-4xl"]} aria-hidden="true">{score.suffix}</span>
           )}
         </span>
-        <span class="text-base font-medium text-foreground-muted">{score.label}</span>
+        <span class:list={["font-medium text-foreground-muted", compact ? "text-xs" : "text-base"]}>{score.label}</span>
       </div>
     </div>
   ))}

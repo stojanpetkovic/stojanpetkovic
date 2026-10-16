@@ -1,0 +1,151 @@
+---
+/**
+ * CoursesView — the Courses page body.
+ *
+ * Shared by the default-locale route (`/courses`) and the locale-prefixed
+ * route. The courses are in preparation, so the page says so and shows what
+ * is planned: who they are for, the modules, and how they will work. Every
+ * module that has a calculation links to the tool on this site that does it.
+ * No dates, prices or certificates are promised. Copy comes from
+ * `pages.courses.*`.
+ */
+import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+
+interface Props {
+  /** Locale whose copy this page renders. Defaults to the site default. */
+  locale?: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+
+const p = (key: string) => `pages.courses.${key}`;
+const hero = tData<{ badge: string; title: string; description: string }>(p('hero'), locale)!;
+const audience = tData<{ heading: string; items: { icon: string; title: string; text: string }[] }>(p('audience'), locale)!;
+const modules = tData<{
+  heading: string;
+  lead: string;
+  tool: string;
+  items: { icon: string; title: string; text: string; href: string | null }[];
+}>(p('modules'), locale)!;
+const how = tData<{ heading: string; points: string[]; note: string }>(p('how'), locale)!;
+const cta = tData<{ heading: string; lead: string; primary: string; secondary: string }>(p('cta'), locale)!;
+const status = t(p('status'), locale);
+
+const contactUrl = localizedPath('/contact', locale);
+const toolsUrl = localizedPath('/tools', locale);
+---
+
+<PageLayout title={t(p('meta.title'), locale)} description={t(p('meta.description'), locale)} footerBackground="secondary">
+  <!-- Header -->
+  <section class="web-head border-b border-border pb-12 pt-16 sm:pt-20">
+    <div class="mx-auto max-w-5xl px-6">
+      <p class="section-eyebrow !mb-0"><span>{hero.badge}</span></p>
+      <h1 class="mt-4 max-w-3xl font-display text-3xl font-bold tracking-tight text-foreground sm:text-[2.5rem] sm:leading-[1.15]">
+        {hero.title}
+      </h1>
+      <p class="mt-4 max-w-2xl text-base leading-relaxed text-foreground-muted">{hero.description}</p>
+      <p class="mt-6 inline-flex items-center gap-1.5 rounded-full border border-border bg-background-secondary px-3 py-1 text-xs font-medium text-foreground-muted">
+        <span class="h-1.5 w-1.5 rounded-full bg-foreground-subtle" aria-hidden="true"></span>
+        {status}
+      </p>
+    </div>
+  </section>
+
+  <!-- Who it is for -->
+  <section class="bg-background py-12">
+    <div class="mx-auto max-w-5xl px-6">
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-foreground-muted">{audience.heading}</h2>
+      <ul class="mt-5 grid gap-x-8 gap-y-6 sm:grid-cols-3" role="list">
+        {
+          audience.items.map((item) => (
+            <li class="flex gap-3">
+              <Icon name={item.icon} size="sm" class="mt-1 shrink-0 text-brand-700" />
+              <div>
+                <h3 class="text-sm font-semibold text-foreground">{item.title}</h3>
+                <p class="mt-1 text-sm leading-relaxed text-foreground-muted">{item.text}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <!-- Modules: one ruled row each, with the tool that does its calculation -->
+  <section class="border-t border-border bg-background-secondary py-12">
+    <div class="mx-auto max-w-5xl px-6">
+      <h2 class="font-display text-2xl font-bold text-foreground">{modules.heading}</h2>
+      <p class="mt-2 max-w-2xl text-sm leading-relaxed text-foreground-muted">{modules.lead}</p>
+      <ol class="mt-6 divide-y divide-border overflow-hidden rounded-xl border border-border bg-card shadow-sm" role="list">
+        {
+          modules.items.map((item, i) => (
+            <li class="grid gap-3 p-5 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:items-center sm:gap-5 sm:p-6">
+              <div class="flex items-center gap-3 sm:contents">
+                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-700 text-white">
+                  <Icon name={item.icon} size="md" />
+                </span>
+                <span class="font-mono text-xs font-semibold tracking-widest text-brand-700 sm:hidden">{String(i + 1).padStart(2, '0')}</span>
+              </div>
+              <div class="min-w-0">
+                <h3 class="font-display text-lg font-bold leading-tight text-foreground">
+                  <span class="mr-2 hidden font-mono text-xs font-semibold tracking-widest text-brand-700 sm:inline">{String(i + 1).padStart(2, '0')}</span>{item.title}
+                </h3>
+                <p class="mt-1.5 text-sm leading-relaxed text-foreground-muted">{item.text}</p>
+              </div>
+              {item.href && (
+                <a
+                  href={localizedPath(item.href, locale)}
+                  class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 underline-offset-4 hover:underline sm:justify-end"
+                >
+                  {modules.tool}
+                  <Icon name="arrow-right" size="sm" />
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- How it will work -->
+  <section class="border-t border-border bg-background py-12">
+    <div class="mx-auto max-w-5xl px-6">
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-foreground-muted">{how.heading}</h2>
+      <ul class="mt-5 grid gap-4 sm:grid-cols-3" role="list">
+        {
+          how.points.map((point) => (
+            <li class="flex items-start gap-2.5 text-sm leading-relaxed text-foreground-muted">
+              <Icon name="check" size="sm" class="mt-0.5 shrink-0 text-brand-600" />
+              <span>{point}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="mt-6 flex items-start gap-2 text-xs leading-relaxed text-foreground-subtle">
+        <Icon name="info" size="xs" class="mt-0.5 shrink-0" />
+        {how.note}
+      </p>
+    </div>
+  </section>
+
+  <!-- Enquiry -->
+  <section class="border-t border-border bg-background-secondary py-12">
+    <div class="mx-auto flex max-w-5xl flex-col gap-6 px-6 sm:flex-row sm:items-center sm:justify-between">
+      <div class="max-w-xl">
+        <h2 class="font-display text-2xl font-bold text-foreground">{cta.heading}</h2>
+        <p class="mt-2 text-sm leading-relaxed text-foreground-muted">{cta.lead}</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+        <Button href={contactUrl}>
+          {cta.primary}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+        <a href={toolsUrl} class="text-sm font-medium text-foreground-muted underline-offset-4 hover:text-foreground hover:underline">{cta.secondary}</a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

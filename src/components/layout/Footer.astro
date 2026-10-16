@@ -433,17 +433,18 @@ function getSocialIcon(platform: string): string {
             <slot name="columns" />
           ) : (
             resolvedLinkGroups.map((group) => (
-              <div class="space-y-[var(--space-stack-md)]">
-                <h3 class="font-semibold text-sm text-foreground">
-                  {group.title}
-                </h3>
-                <ul class="space-y-2">
+              <details class="footer-group border-b border-border md:border-0" data-footer-group>
+                <summary class="footer-group-summary flex cursor-pointer list-none items-center justify-between py-3.5 md:cursor-default md:py-0 md:pb-[var(--space-stack-md)] [&::-webkit-details-marker]:hidden">
+                  <h3 class="font-semibold text-sm text-foreground">{group.title}</h3>
+                  <Icon name="chevron-down" size="sm" class="footer-group-chevron text-foreground-muted transition-transform duration-200 md:hidden" />
+                </summary>
+                <ul class="space-y-2 pb-4 md:pb-0">
                   {group.links.map((link) => (
                     <li>
                       {link.href ? (
                         <a
                           href={link.href}
-                          class="text-sm transition-colors text-foreground-muted hover:text-foreground"
+                          class="inline-block py-0.5 text-sm transition-colors text-foreground-muted hover:text-foreground"
                           target={link.external || link.href.startsWith('http') ? '_blank' : undefined}
                           rel={link.external || link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                         >
@@ -455,7 +456,7 @@ function getSocialIcon(platform: string): string {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </details>
             ))
           )}
         </div>
@@ -599,3 +600,42 @@ function getSocialIcon(platform: string): string {
   {/* Default slot for additional content */}
   <slot />
 </footer>
+
+<style>
+  /* Phones: each link group is a collapsed section; the chevron turns when it
+     opens. From md up the groups sit in columns and are always shown, so the
+     summary stops being a control. */
+  .footer-group[open] .footer-group-chevron {
+    transform: rotate(180deg);
+  }
+  @media (min-width: 768px) {
+    .footer-group::details-content {
+      content-visibility: visible;
+      display: block;
+    }
+    .footer-group-summary {
+      pointer-events: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .footer-group-chevron {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Browsers without ::details-content support still need the groups open on
+  // wide screens; keep them open at md+ and leave them as the visitor set them
+  // on phones.
+  const wide = window.matchMedia('(min-width: 768px)');
+  const sync = () => {
+    if (!wide.matches) return;
+    document
+      .querySelectorAll<HTMLDetailsElement>('[data-footer-group]')
+      .forEach((d) => (d.open = true));
+  };
+  sync();
+  wide.addEventListener('change', sync);
+  document.addEventListener('astro:page-load', sync);
+</script>

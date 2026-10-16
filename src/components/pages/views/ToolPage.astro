@@ -32,6 +32,13 @@ interface Props {
 
 const { locale, title, description, hero, resultTitle, example, defaults, base = 'us', data = {} } = Astro.props;
 const system = tData<{ label: string; us: string; metric: string }>('pages.tools.form.system', locale)!;
+const reportCopy = JSON.stringify({
+  created: t('pages.tools.form.reportCreated', locale),
+  inputs: t('pages.tools.form.reportInputs', locale),
+  results: t('pages.tools.form.reportResults', locale),
+  method: t('pages.tools.form.reportMethod', locale),
+  note: t('pages.tools.note', locale),
+});
 const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data-${k}`, v]));
 ---
 
@@ -75,7 +82,7 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
         data-base={base}
         {...dataAttrs}
       >
-        <form class="tool-card !p-6" novalidate data-print-form>
+        <form class="tool-card !p-4 sm:!p-6" novalidate data-print-form>
           <div class="flex flex-wrap items-center justify-between gap-3">
             <div role="group" aria-label={system.label} class="tool-segment">
               <button type="button" data-system="us" aria-pressed={base === 'us'}>{system.us}</button>
@@ -97,7 +104,7 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
             <h2>{t('pages.tools.form.printInputs', locale)}</h2>
             <dl data-print-inputs></dl>
           </section>
-          <div class="tool-card !p-6" aria-live="polite">
+          <div class="tool-card !p-4 sm:!p-6" aria-live="polite">
             <div class="flex items-center justify-between gap-3">
               <h2 class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">
                 {resultTitle}
@@ -124,6 +131,9 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
         </div>
       </div>
 
+      <!-- The report: filled when the page is printed, shown only in print -->
+      <div class="sim-report tool-report" id="tool-report" data-copy={reportCopy} aria-hidden="true"></div>
+
       <p
         class="tool-print-foot"
         data-print-foot={SIGN_PRINTS ? t('pages.tools.form.printFoot', locale) : ''}
@@ -148,6 +158,8 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
    * site's name and address. The inputs are written out as a list when the page is printed, whether through the
    * button or the browser's own print command.
    */
+  import { buildToolReport } from '@/lib/tools/tool-report';
+
   function initPrint() {
     const root = document.getElementById('tool');
     if (!root || root.dataset.printInit) return;
@@ -155,17 +167,103 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
     const lang = document.documentElement.lang || 'en';
     const url = `${location.host}${location.pathname}`;
 
+    const text = (el: Element | null | undefined) => (el?.textContent ?? '').replace(/\s+/g, ' ').trim();
+
+    /** Reads the page into the data of the report and writes the report. */
+    const buildReport = () => {
+      const target = document.getElementById('tool-report');
+      if (!target) return;
+      const copy = JSON.parse(target.dataset.copy ?? '{}') as Record<string, string>;
+      const visible = (el: Element) => !el.closest('[hidden]');
+
+      // Inputs: every group of the form with the values the visitor sees, in the unit on screen.
+      const inputs: { title: string; rows: { label: string; value: string }[] }[] = [];
+      root.querySelectorAll<HTMLElement>('form fieldset, form details').forEach((group) => {
+        if (!visible(group)) return;
+        const title = text(group.querySelector('legend, summary')).replace(/\s*[+−-]$/, '');
+        const rows: { label: string; value: string }[] = [];
+        group.querySelectorAll<HTMLInputElement | HTMLSelectElement>('input[name], select[name]').forEach((control) => {
+          if (!visible(control) || control.type === 'hidden') return;
+          const label = text(document.querySelector(`label[for="${control.id}"]`)) || control.getAttribute('aria-label') || control.name;
+          if (control instanceof HTMLSelectElement) {
+            rows.push({ label, value: text(control.selectedOptions[0]) });
+            return;
+          }
+          if (control.value.trim() === '') return;
+          const unit = text(control.closest('.tool-input')?.querySelector('span'));
+          rows.push({ label, value: `${control.value} ${unit}`.trim() });
+        });
+        if (rows.length > 0) inputs.push({ title, rows });
+      });
+
+      // Results: the headline figure, the rows of figures, tables and drawings.
+      const output = root.querySelector<HTMLElement>('[data-tool-output]');
+      const results = { headline: undefined as { label: string; value: string } | undefined, rows: [] as { label: string; value: string }[], tables: [] as { title?: string; head: string[]; rows: string[][] }[], figures: [] as { title: string; svg: string }[] };
+      if (output && !output.hidden) {
+        const live = Array.from(output.querySelectorAll<HTMLElement>('*')).filter(visible);
+        const big = live.find((el) => el.matches('p') && el.className.includes('font-display'));
+        if (big) results.headline = { label: text(big.previousElementSibling), value: text(big) };
+        output.querySelectorAll('dl > div').forEach((row) => {
+          if (!visible(row)) return;
+          const label = text(row.querySelector('dt'));
+          const value = text(row.querySelector('dd'));
+          if (label && value) results.rows.push({ label, value });
+        });
+        output.querySelectorAll('table').forEach((table) => {
+          if (!visible(table)) return;
+          const head = Array.from(table.querySelectorAll('thead th')).map((th) => text(th));
+          const rows = Array.from(table.querySelectorAll('tbody tr')).map((tr) => Array.from(tr.querySelectorAll('td')).map((td) => text(td)));
+          if (head.length > 0 && rows.length > 0) results.tables.push({ title: text(table.previousElementSibling?.matches('h3') ? table.previousElementSibling : null) || undefined, head, rows });
+        });
+        output.querySelectorAll<SVGElement>('svg').forEach((svg) => {
+          if (visible(svg) && svg.closest('.ct-chart')) results.figures.push({ title: text(svg.closest('div')?.previousElementSibling), svg: svg.outerHTML });
+        });
+      }
+
+      // Method: the section under the form.
+      const methodBox = document.querySelector<HTMLElement>('.no-print.mt-14');
+      let method;
+      if (methodBox) {
+        const lists = methodBox.querySelectorAll('ol, ul');
+        const ps = methodBox.querySelectorAll(':scope > p');
+        method = {
+          title: copy.method,
+          intro: text(methodBox.querySelector('h2 + p')),
+          steps: Array.from(methodBox.querySelectorAll('ol > li')).map((li) => text(li)),
+          assumptionsTitle: text(methodBox.querySelector('h3')),
+          assumptions: Array.from(methodBox.querySelectorAll('ul[role="list"] > li')).map((li) => text(li)),
+          reference: text(ps[ps.length - 2]),
+        };
+        void lists;
+      }
+
+      const system = text(root.querySelector('[data-system][aria-pressed="true"]'));
+      target.innerHTML = buildToolReport({
+        title: text(document.querySelector('.tool-print-title')),
+        date: new Intl.DateTimeFormat(lang, { dateStyle: 'long' }).format(new Date()),
+        system,
+        inputs,
+        results,
+        method,
+        note: copy.note,
+        labels: { created: copy.created, inputs: copy.inputs, results: copy.results, method: copy.method },
+      });
+    };
+
     const prepare = () => {
       document.querySelectorAll('[data-print-url]').forEach((el) => (el.textContent = url));
       const list = root.querySelector('[data-print-inputs]');
       if (list) {
         const rows: HTMLElement[] = [];
         root.querySelectorAll<HTMLFieldSetElement>('form fieldset').forEach((group) => {
+          if (group.closest('[hidden]')) return;
           const heading = document.createElement('dt');
           heading.className = 'group';
           heading.textContent = group.querySelector('legend')?.textContent?.trim() ?? '';
           rows.push(heading);
           group.querySelectorAll<HTMLInputElement>('input').forEach((input) => {
+            // Fields of a method the page is not using are hidden; leave them out of the report.
+            if (input.closest('[hidden]')) return;
             const term = document.createElement('dt');
             term.textContent = document.querySelector(`label[for="${input.id}"]`)?.textContent?.trim() ?? input.name;
             const value = document.createElement('dd');
@@ -176,6 +274,7 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
         });
         list.replaceChildren(...rows);
       }
+      buildReport();
       const foot = document.querySelector<HTMLElement>('[data-print-foot]');
       if (foot) {
         const date = new Intl.DateTimeFormat(lang, { dateStyle: 'long' }).format(new Date());
