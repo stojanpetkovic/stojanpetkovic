@@ -1,7 +1,7 @@
 ---
 title: "SF Tree Removal"
 locale: en
-description: "A fast, static website for a South Florida tree service: service and city pages built for local search, plain-language guides, and contact that runs entirely through forms, so every inquiry arrives complete and gets counted."
+description: "Static Astro site for a tree service: service and city pages for local search, form-only contact and lead counting."
 url: "https://sftreeremoval.com"
 tags: ["Astro", "SEO", "Client Work"]
 featured: true
@@ -37,23 +37,6 @@ export const lighthouseScores = [
 ## The brief
 
 **SF Tree Removal** offers tree removal, emergency storm response and certified arborist work across Miami-Dade, Broward and Palm Beach County. The domain had been running a heavy, app-like build that scored 69 for performance. The goal of the rebuild was simple: **a site that does one job well**. A homeowner searching for tree removal in their city should land on a page written for that city, understand what the company does, and send a request in under a minute.
-
-## Built for local search
-
-The site is **Astro with Tailwind CSS**, shipped as static HTML. There is no framework runtime in the browser and nothing to wait for. The structure follows how people actually search:
-
-- **Service pages** for tree removal, emergency removal, tree trimming and stump grinding, and certified arborist work.
-- **City and county pages** for Miami, Fort Lauderdale, Hollywood, Pembroke Pines, Boca Raton, Broward County and Palm Beach County. All of them sit under one `/areas/` hub, so they support each other instead of competing.
-- **Tree care guides** that answer the questions homeowners ask before they hire anyone: what removal costs in South Florida, when a permit is needed, how to prepare trees for hurricane season, and what an arborist actually does.
-- **A permits page and an FAQ** for the local rules and the questions that come up on every job.
-
-Under the hood, every page carries its own title, description and canonical address. Structured data describes the business, its service area and its services. The sitemap leaves out pages that shouldn't be indexed. City pages that used to sit at the site root now redirect permanently to their new addresses, so the search history they had built up carries over instead of being lost.
-
-## Contact runs through forms
-
-The site has **no phone number and no email address anywhere**. Contact runs entirely through forms: a full estimate form on the contact page, and a short callback form in the footer of every page. This was a deliberate choice. Every inquiry arrives as a complete request, with the visitor's name, number, the service they need, their city and a description of the job, instead of a missed call or a two-word email. A visitor with a fallen tree or storm damage picks *Emergency Tree Removal* in the form, and that request is handled first.
-
-Each submission goes straight into the same lead pipeline I run for my other client sites. The business gets an email the moment someone sends a request. Every inquiry is also counted in the **monthly report**, next to visits and where they came from, so the client can see what the website brings in rather than guess.
 
 ## Results
 

@@ -1,7 +1,7 @@
 ---
 title: "Valena Apartmani"
 locale: sr
-description: "Astro sajt od nule za apartmane na Divčibarama, napravljen oko konverzija sa Instagram i Facebook oglasa, sa sistemom za rezervacije po meri umesto generičkog plugina."
+description: "Astro sajt od nule za apartmane na planini, sa sistemom za rezervacije po meri i praćenjem oglasa."
 url: "https://valenaapartmani.com"
 tags: ["Astro", "Društvene mreže", "Klijentski projekti"]
 featured: true
@@ -38,26 +38,10 @@ export const lighthouseScores = [
 
 **Valena Apartmani** izdaje dva apartmana na **Divčibarama**, planinskom mestu u zapadnoj Srbiji, gostima koji dolaze na vikend ili nedelju dana blizu ski staza i planinarskih staza. Za razliku od projekata za firme sa drvećem u ovom portfoliju, ovde nije bilo nikakvog prepravljanja — nije postojao stari sajt koji treba zameniti ni SEO istorija koju treba sačuvati. Zadatak je bio da se od nule pusti brz i ozbiljan sajt za rezervacije i da se gosti dovode direktno preko plaćenih oglasa na mrežama, jer odatle ova publika u Srbiji zaista rezerviše smeštaj.
 
-## Napravljeno od nule u Astro-u
-
-Ceo sajt sam napravio u **Astro-u**: sajt za jedan objekat i jednu svrhu, bez CMS-a ili bloga koji treba održavati, pa je **Astro** imao smisla iz istog razloga kao i svuda drugde u ovom portfoliju — statičke stranice, bez tereta JavaScript framework-a, brzo na telefonu i na 4G vezi u planini gde signal zna da šteka. Sajt ima ukupno **10 stranica**: početnu, o nama, aktivnosti, dve stranice apartmana i uobičajene stranice za kontakt i pravne napomene — namerno malo, jer dva apartmana ne traže više od toga da bi posetilac postao gost.
-
-Test živog sajta:
+## Rezultati
 
 <div class="my-10">
   <LighthouseScoresGrid scores={lighthouseScores} />
 </div>
 
-**Tehnički SEO je kompletan.** Svaka stranica ima svoj naslov i opis, ispravnu canonical adresu, Open Graph tagove za deljenje i alt tekst na svakoj slici. Sajt ima **sitemap**, **robots.txt** i **schema.org strukturirane podatke** koji opisuju objekat i svaki apartman, pa ga Google prepoznaje kao smeštaj, a ne samo kao skup stranica. Pretraga ovde i dalje nije glavni kanal — to su **Instagram i Facebook oglasi** — ali svako ko Valenu potraži po imenu dolazi na sajt koji pretraživači razumeju.
-
-## Sistem za rezervacije umesto linka ka tabeli
-
-Jedini pravi „proizvodni“ deo ovog projekta je **proces rezervacije**. Umesto da svakog posetioca šaljem na spoljnu platformu za rezervacije ili na link „pišite nam na WhatsApp“, napravio sam prozor koji pita koji apartman gost želi — **Valena 1** ili **Valena 2** — i odmah ga vodi na formu za rezervaciju baš tog apartmana, sa već učitanim terminima i sadržajima. Mali deo interfejsa, ali to je razlika između posetioca koji odustane na generičkoj kontakt formi i onog koji završi rezervaciju u istoj poseti u kojoj je kliknuo na oglas.
-
-## Facebook i Instagram, sa praćenjem koje to dokazuje
-
-Kanal rasta ovde su **plaćene i organske društvene mreže**, a ne pretraga. Postavio sam **Meta Pixel** na ceo sajt i povezao **Lead event** sa samim procesom rezervacije, pa se svaka rezervacija započeta kroz prozor vraća u Meta Ads kao konverzija — kampanje se optimizuju ka ljudima koji stvarno otvore formu za rezervaciju, a ne ka svakome ko samo dođe na početnu. Upravo ta povratna informacija čini Instagram i Facebook isplativim glavnim kanalom za objekat ove veličine, umesto borbe za pozicije u pretrazi za koje dva apartmana nemaju budžet za sadržaj.
-
-## Rezultati
-
-Ovo je mali sajt za jedan objekat i rezultate predstavljam pošteno: ovde nema tabele sa budžetom za oglase i brojem upita kao kod naloga za firme sa drvećem, jer su potrošnja i broj rezervacija deo mnogo manje i novije kampanje. Ono što je stvarno i što svako može da proveri je sam sajt — uživo, brz i napravljen da klik sa oglasa na mrežama pretvori u završenu rezervaciju u jednom dahu.
+Jedan statičan sajt sa **sistemom za rezervacije po meri** i praćenjem konverzija sa Facebook-a i Instagram-a.
