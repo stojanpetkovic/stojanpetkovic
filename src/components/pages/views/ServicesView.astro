@@ -2,8 +2,9 @@
 /**
  * ServicesView — the Services page body.
  *
- * An overview of the three areas of work: engineering consulting and projects,
- * cloud-based software and tools, and web development (which has its own page).
+ * An overview of the two areas of work: cloud-based software and tools, and web
+ * development (which has its own page). The site's engineering content is
+ * informational and is not offered as a service (see the terms of use).
  * Shared by the default-locale route (`/services`) and the locale-prefixed route
  * (`/<locale>/services`). Copy is read from `pages.services.*`.
  */
@@ -55,7 +56,7 @@ const hero = tData<{ badge: string; titleLead: string; titleHighlight: string; d
   'pages.services.hero',
   locale
 )!;
-const areas = tData<{ consulting: Area; software: Area; web: Area }>('pages.services.areas', locale)!;
+const areas = tData<{ software: Area; web: Area }>('pages.services.areas', locale)!;
 const processSection = tData<{ badge: string; heading: string; lead: string; steps: ProcessStep[] }>(
   'pages.services.process',
   locale
@@ -72,9 +73,8 @@ const webUrl = localizedPath('/web', locale);
 
 // Each area: its anchor, where its button leads, and the background it sits on.
 const sections = [
-  { id: 'consulting', area: areas.consulting, href: contactUrl, bg: 'bg-background-secondary' },
-  { id: 'software', area: areas.software, href: contactUrl, bg: 'bg-background' },
-  { id: 'web', area: areas.web, href: webUrl, bg: 'bg-background-secondary' },
+  { id: 'software', area: areas.software, href: contactUrl, bg: 'bg-background-secondary' },
+  { id: 'web', area: areas.web, href: webUrl, bg: 'bg-background' },
 ];
 ---
 <PageLayout
@@ -128,12 +128,6 @@ const sections = [
                 {area.ctaLabel}
                 <Icon name="arrow-right" size="sm" />
               </Button>
-              {id === 'consulting' && (
-                <a href={localizedPath('/courses', locale)} class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 underline-offset-4 hover:underline">
-                  {t('nav.items.courses', locale)}
-                  <Icon name="arrow-right" size="sm" />
-                </a>
-              )}
             </div>
           </div>
           <!-- Card -->

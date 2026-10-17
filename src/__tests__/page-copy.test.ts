@@ -84,7 +84,6 @@ const BLOCKS = [
   'pages.about.faq.cards',
   'projects.emptyTitle',
   'projects.emptyText',
-  'pages.services.areas.consulting.included',
   'pages.services.areas.software.included',
   'pages.services.areas.web.included',
   'pages.services.overviewFaq.cards',

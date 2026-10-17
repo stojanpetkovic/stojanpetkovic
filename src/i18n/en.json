@@ -36,7 +36,7 @@
     "name": "Stojan Petkovic"
   },
   "llms": {
-    "summary": "Stojan Petkovic is an engineer (Ingenieur, title granted by the Bavarian Chamber of Engineers) and web developer based in Zrenjanin, Serbia, working with clients worldwide. He holds a degree in Mining Engineering from the University of Belgrade (2010) and has worked in coiled tubing and nitrogen operations since 2013. He builds fast, custom Astro websites, custom software and data-driven platforms for engineering and technical B2B companies, and also offers classic web design, SEO and generative engine optimisation (GEO). Every project has one fixed price agreed before work starts, and the client owns the code, the domain and the hosting from day one."
+    "summary": "Stojan Petkovic is an engineer (Ingenieur, title granted by the Bavarian Chamber of Engineers) and web developer based in Zrenjanin, Serbia, working with clients worldwide. He holds a degree in Mining Engineering from the University of Belgrade (2010) and has worked in coiled tubing and nitrogen operations since 2013. This is a personal, independent site that does not represent any employer or company. It publishes case studies and engineering tools for information, and he builds fast, custom Astro websites, custom software and data-driven platforms for technical companies, with classic web design, SEO and generative engine optimisation (GEO). Every project has one fixed price agreed before work starts, and the client owns the code, the domain and the hosting from day one."
   },
   "nav": {
     "skipToContent": "Skip to content",
@@ -72,13 +72,11 @@
         "web": "Software & web"
       },
       "links": {
-        "consulting": "Consulting & projects",
         "allTools": "All tools",
         "web": "Web development",
         "software": "Engineering software"
       },
       "descriptions": {
-        "consulting": "Job design, calculations, procedures and reviews.",
         "courses": "Practical coiled tubing training.",
         "projects": "Case studies from the field.",
         "software": "Cloud-based tools built to order.",
@@ -289,6 +287,7 @@
   },
   "footer": {
     "copyright": "© {year} {siteName}",
+    "credit": "Personal, independent site — not affiliated with any employer or company.",
     "groups": {
       "site": "Site",
       "topics": "Topics",
@@ -1127,7 +1126,7 @@
         "paragraphs": [
           "I hold a degree in Mining Engineering from the University of Belgrade (graduated 2010). In 2026 the Bavarian Chamber of Engineers (Bayerische Ingenieurekammer-Bau) found my education equivalent to German requirements and granted me the professional title Ingenieur.",
           "I started in 2011 as a mining engineer on mineral exploration projects, including underground work, then moved into drilling in 2012, planning and supervising exploration wells. Since 2013 I have worked in coiled tubing and nitrogen operations, from field engineer to operations manager, on more than 1,000 jobs. That work taught me how real operations behave: pressures, limits, and what breaks when a number is wrong. I bring that habit of checking the numbers into every website and tool I build.",
-          "For technical companies this means less explaining. You do not have to teach me what a job looks like on site before I can build the page for it."
+          "For technical companies this means less explaining. You do not have to teach me what a job looks like on site before I can build the page for it. This is a personal, independent site. It does not represent any employer or company; see the terms of use."
         ],
         "credential": "Title Ingenieur granted by the Bavarian Chamber of Engineers, 2026"
       },
@@ -1229,42 +1228,10 @@
     },
     "services": {
       "meta": {
-        "title": "Services — Engineering, Software and Web",
-        "description": "Engineering consulting and projects for oil and gas, cloud-based software and tools, and web development, by an engineer. Free first talk, one proposal, one fixed price."
+        "title": "Services — Software and Web",
+        "description": "Cloud-based software and tools and web development, by an engineer. Free first talk, one proposal, one fixed price."
       },
       "areas": {
-        "consulting": {
-          "icon": "award",
-          "badge": "Consulting & projects",
-          "heading": "Engineering consulting and projects",
-          "paragraphs": [
-            "I advise on and carry out engineering work for the oil and gas industry: job design, calculations, procedures and the review of what was planned against what happened.",
-            "My background is more than thirteen years of coiled tubing and nitrogen operations, from field engineer to operations manager. You get an engineer who has run the job, not one who only describes it."
-          ],
-          "included": [
-            {
-              "lead": "Job design and calculations",
-              "text": "planned step by step, with the assumptions written down."
-            },
-            {
-              "lead": "Procedures and reviews",
-              "text": "clear documents your crews can follow and your team can audit."
-            },
-            {
-              "lead": "A technical second opinion",
-              "text": "a fresh look at a plan, a calculation or a problem on site."
-            },
-            {
-              "lead": "Training material",
-              "text": "what crews and young engineers need to know, in plain language."
-            },
-            {
-              "lead": "Clear scope and price",
-              "text": "agreed before the work starts."
-            }
-          ],
-          "ctaLabel": "Discuss a project"
-        },
         "software": {
           "icon": "code",
           "badge": "Software & tools",
@@ -1357,7 +1324,7 @@
               },
               {
                 "question": "Can you take on a small piece of work?",
-                "answer": "Yes. A review, a calculation or a single tool is a perfectly good start. Tell me what you have in mind."
+                "answer": "Yes. A single tool or a small website is a perfectly good start. Tell me what you have in mind."
               }
             ]
           }
@@ -1366,10 +1333,10 @@
       "includedLabel": "What you get",
       "hero": {
         "badge": "Services",
-        "titleLead": "Consulting, software",
+        "titleLead": "Software",
         "titleHighlight": "and web development",
-        "description": "Three areas, one engineer: consulting and projects for oil and gas, cloud-based software for technical teams, and websites as a separate service.",
-        "jumpLabels": ["Consulting & projects", "Software & tools", "Web development"]
+        "description": "Two areas, one engineer: cloud-based software for technical teams, and websites as a separate service. The engineering content of this site is informational and is not offered as a service.",
+        "jumpLabels": ["Software & tools", "Web development"]
       },
       "process": {
         "badge": "How it works",
@@ -1393,21 +1360,16 @@
     "contact": {
       "meta": {
         "title": "Contact",
-        "description": "Engineering consulting, projects, cloud software or a website: tell me what you need. I reply within one business day."
+        "description": "Cloud software, engineering tools or a website: tell me what you need. I reply within one business day."
       },
       "hero": {
         "badge": "Contact",
         "titleLead": "Tell me what you're",
         "titleHighlight": "working on",
-        "description": "Engineering consulting and projects, cloud-based software and tools, or a website. A short message is enough; I reply within one business day."
+        "description": "Cloud-based software and tools, or a website. A short message is enough; I reply within one business day."
       },
       "helpTitle": "What I can help with",
       "help": [
-        {
-          "icon": "award",
-          "title": "Consulting and projects",
-          "text": "Engineering consulting and project work for the oil and gas industry."
-        },
         {
           "icon": "code",
           "title": "Software and tools",
@@ -1426,14 +1388,8 @@
         "You get one clear proposal with scope, timeline and a fixed price."
       ],
       "facts": [
-        {
-          "value": "13+",
-          "label": "Years in engineering"
-        },
-        {
-          "value": "1,000+",
-          "label": "Jobs in the field"
-        },
+        {"value": "3", "label": "Languages: Serbian, English, German"},
+        {"value": "CET", "label": "Time zone"},
         {
           "value": "< 1 day",
           "label": "To reply"
@@ -1457,16 +1413,6 @@
         "serviceLegend": "What do you need?",
         "services": [
           {
-            "value": "consulting",
-            "icon": "award",
-            "label": "Engineering consulting"
-          },
-          {
-            "value": "project",
-            "icon": "layers",
-            "label": "A project"
-          },
-          {
             "value": "software",
             "icon": "code",
             "label": "Software or engineering tools"
@@ -1485,7 +1431,7 @@
         "websiteLabel": "Company website (optional)",
         "websitePlaceholder": "yourcompany.com",
         "businessLabel": "Company and industry",
-        "businessPlaceholder": "e.g. oilfield services company, mining operator",
+        "businessPlaceholder": "e.g. engineering software company, manufacturer",
         "timelineLegend": "When would you like to start?",
         "timelines": [
           {
@@ -2766,7 +2712,7 @@
       "hero": {
         "badge": "Courses",
         "title": "Coiled tubing courses",
-        "description": "Practical training in coiled tubing, from the field fundamentals to job design. The courses are in preparation: tell me what you need and I will let you know when they open."
+        "description": "Practical training in coiled tubing, from the field fundamentals to job design. The courses are in preparation and are for information only."
       },
       "status": "In preparation",
       "audience": {
@@ -2889,15 +2835,15 @@
     "home": {
       "meta": {
         "title": "Engineer & Digital Architect",
-        "description": "Engineering consulting and projects for the oil and gas industry, plus cloud-based software and engineering tools for technical B2B companies, by a recognised Ingenieur."
+        "description": "Case studies and engineering tools, plus cloud-based software and websites for technical companies, by a recognised Ingenieur."
       },
       "hero": {
-        "badge": "Available for new projects",
+        "badge": "Websites and software",
         "titleLine1": "Stojan\u00a0Petkovic",
         "titleLine2": "Engineer\u00a0&",
         "titleLine3": "Digital\u00a0Architect",
-        "description": "Engineering consulting and project work for the oil and gas industry. For technical B2B companies, I build cloud-based software and engineering tools.",
-        "descriptionMobile": "Engineering consulting and projects for oil and gas, and cloud-based software for technical B2B companies.",
+        "description": "Case studies and engineering tools written for engineers. For technical companies, I build cloud-based software and websites.",
+        "descriptionMobile": "Case studies and engineering tools for engineers, and cloud-based software and websites.",
         "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Title granted by the Bavarian Chamber of Engineers (2026)", "docTitle": "Decision of the Bavarian Chamber of Engineers", "docAlt": "Scan of the decision granting the title Ingenieur, personal details covered in black", "docDescription": "The Bayerische Ingenieurekammer-Bau (Bavarian Chamber of Engineers) examined my degree in Mining Engineering from the University of Belgrade and found it equivalent to the German requirements for engineers (Art. 3 BayIngG). On that basis it granted me the right to use the protected professional title Ingenieur, alone or in a combination of words. The decision is dated 19 August 2026. It confirms the title; it is not a licence for a regulated activity."}, {"icon": "shield-check", "tag": "RS", "title": "Professional exam passed (2019)", "text": "Exploitation of mineral resources, Serbia", "docTitle": "Certificate of the professional exam passed", "docAlt": "Scan of the certificate of the professional exam passed in Serbia and its certified German translation, personal details covered in black", "docDescription": "In 2019 I passed the professional exam for performing professional work in the exploitation of mineral resources. It was taken under the Serbian Law on Mining and Geological Exploration and certified by the Provincial Secretariat for Energy, Construction and Transport of Vojvodina (certificate of 25 September 2019). The pages after the original are its certified German translation by a sworn court interpreter (6 March 2026), with the notary's certification of the copy (10 March 2026)."}],
         "credentialsDialog": {"close": "Close", "note": "Personal details have been covered in black.", "hint": "View the document", "zoom": "Tap the page to zoom in or out."},
         "qualifications": {"label": "Qualifications & training", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Mining Engineer (Dipl.)", "text": "University of Belgrade · liquid and gaseous mineral resources"}, {"icon": "shield-check", "year": "2020", "title": "EU Machinery Directive", "text": "Machine safety training · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Technology Management (STM)", "text": "System of Technology Management, corporate programme"}, {"icon": "users", "year": "2018", "title": "Leadership Academy", "text": "Managing people, lower management · Mokra Gora School of Management"}]},
@@ -2950,11 +2896,11 @@
         "openLabel": "Open"
       },
       "workWithMe": {
-        "badge": "Work with me",
-        "heading": "Why work with an engineer",
-        "lead": "What you get when the person building it has done the work in the field.",
+        "badge": "Background",
+        "heading": "Where the content comes from",
+        "lead": "The experience and habits behind the case studies, tools and websites.",
         "cards": [
-          { "icon": "award", "title": "Field experience", "description": "13+ years and more than 1,000 jobs in coiled tubing and nitrogen operations." },
+          { "icon": "award", "title": "Field experience", "description": "13+ years in coiled tubing and nitrogen operations." },
           { "icon": "shield-check", "title": "Numbers checked", "description": "Calculations are verified and assumptions written down." },
           { "icon": "book-open", "title": "Documented logic", "description": "Formulas and decisions explained, so results can be reviewed." },
           { "icon": "globe", "title": "Title Ingenieur", "description": "Granted by the Bavarian Chamber of Engineers, 2026." }

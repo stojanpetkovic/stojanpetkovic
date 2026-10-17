@@ -36,7 +36,7 @@
     "name": "Stojan Petkovic"
   },
   "llms": {
-    "summary": "Stojan Petkovic ist Ingenieur (Titel von der Bayerischen Ingenieurekammer-Bau genehmigt) und Webentwickler mit Sitz in Zrenjanin, Serbien, und arbeitet mit Kunden weltweit. Er hat Bergbau an der Universität Belgrad studiert (2010) und arbeitet seit 2013 mit Coiled Tubing und Stickstoff. Er baut schnelle, individuelle Astro-Websites, individuelle Software und datengestützte Plattformen für Ingenieur- und technische B2B-Unternehmen und bietet außerdem klassisches Webdesign, SEO und Generative Engine Optimization (GEO) an. Jedes Projekt hat einen Festpreis, der vor Arbeitsbeginn vereinbart wird, und der Kunde besitzt Code, Domain und Hosting vom ersten Tag an."
+    "summary": "Stojan Petkovic ist Ingenieur (Titel von der Bayerischen Ingenieurekammer-Bau genehmigt) und Webentwickler mit Sitz in Zrenjanin, Serbien, und arbeitet mit Kunden weltweit. Er hat Bergbau an der Universität Belgrad studiert (2010) und arbeitet seit 2013 mit Coiled Tubing und Stickstoff. Dies ist eine persönliche, unabhängige Seite, die für keinen Arbeitgeber und kein Unternehmen steht. Sie veröffentlicht Fallstudien und Engineering-Werkzeuge zur Information, und er baut schnelle, individuelle Astro-Websites, individuelle Software und datengestützte Plattformen für technische Unternehmen, dazu klassisches Webdesign, SEO und Generative Engine Optimization (GEO). Jedes Projekt hat einen Festpreis, der vor Arbeitsbeginn vereinbart wird, und der Kunde besitzt Code, Domain und Hosting vom ersten Tag an."
   },
   "nav": {
     "skipToContent": "Zum Inhalt springen",
@@ -72,13 +72,11 @@
         "web": "Software & Web"
       },
       "links": {
-        "consulting": "Beratung & Projekte",
         "allTools": "Alle Werkzeuge",
         "web": "Webentwicklung",
         "software": "Engineering-Software"
       },
       "descriptions": {
-        "consulting": "Einsatzplanung, Berechnungen, Verfahren und Prüfungen.",
         "courses": "Praxisnahe Coiled-Tubing-Schulung.",
         "projects": "Fallstudien aus dem Feld.",
         "software": "Cloud-Werkzeuge nach Maß.",
@@ -289,6 +287,7 @@
   },
   "footer": {
     "copyright": "© {year} {siteName}",
+    "credit": "Persönliche, unabhängige Seite — mit keinem Arbeitgeber und keinem Unternehmen verbunden.",
     "groups": {
       "site": "Website",
       "topics": "Themen",
@@ -1127,7 +1126,7 @@
         "paragraphs": [
           "Ich habe Bergbau an der Universität Belgrad studiert (Abschluss 2010). 2026 stellte die Bayerische Ingenieurekammer-Bau fest, dass meine Ausbildung den deutschen Anforderungen gleichwertig ist, und genehmigte mir die Berufsbezeichnung Ingenieur.",
           "Ich habe 2011 als Bergbauingenieur bei der Erkundung von Lagerstätten begonnen, auch unter Tage, und bin 2012 zum Bohren gewechselt, wo ich Erkundungsbohrungen geplant und überwacht habe. Seit 2013 arbeite ich mit Coiled Tubing und Stickstoff, vom Feldingenieur bis zum Operations Manager, bei mehr als 1.000 Einsätzen. Dabei habe ich gelernt, wie echte Operationen sich verhalten: Drücke, Grenzen und was kaputtgeht, wenn eine Zahl falsch ist. Diese Gewohnheit, Zahlen zu prüfen, bringe ich in jede Website und jedes Werkzeug ein, das ich baue.",
-          "Für technische Unternehmen heißt das: weniger erklären. Sie müssen mir nicht beibringen, wie ein Einsatz vor Ort aussieht, bevor ich die passende Seite dafür bauen kann."
+          "Für technische Unternehmen heißt das: weniger erklären. Sie müssen mir nicht beibringen, wie ein Einsatz vor Ort aussieht, bevor ich die passende Seite dafür bauen kann. Dies ist eine persönliche, unabhängige Seite. Sie steht für keinen Arbeitgeber und kein Unternehmen; siehe die Nutzungsbedingungen."
         ],
         "credential": "Titel Ingenieur, genehmigt von der Bayerischen Ingenieurekammer-Bau, 2026"
       },
@@ -1229,42 +1228,10 @@
     },
     "services": {
       "meta": {
-        "title": "Leistungen — Ingenieurwesen, Software und Web",
-        "description": "Ingenieurberatung und Projekte für Öl und Gas, Cloud-basierte Software und Werkzeuge sowie Webentwicklung, von einem Ingenieur. Kostenloses Erstgespräch, ein Angebot, ein Festpreis."
+        "title": "Leistungen — Software und Web",
+        "description": "Cloud-basierte Software und Werkzeuge sowie Webentwicklung, von einem Ingenieur. Kostenloses Erstgespräch, ein Angebot, ein Festpreis."
       },
       "areas": {
-        "consulting": {
-          "icon": "award",
-          "badge": "Beratung & Projekte",
-          "heading": "Ingenieurberatung und Projekte",
-          "paragraphs": [
-            "Ich berate und führe Ingenieurarbeiten für die Öl- und Gasindustrie aus: Einsatzplanung, Berechnungen, Verfahren und die Auswertung dessen, was geplant war, gegenüber dem, was passiert ist.",
-            "Mein Hintergrund sind mehr als dreizehn Jahre Coiled-Tubing- und Stickstoffoperationen, vom Feldingenieur bis zum Operations Manager. Sie bekommen einen Ingenieur, der den Einsatz selbst gefahren hat, keinen, der ihn nur beschreibt."
-          ],
-          "included": [
-            {
-              "lead": "Einsatzplanung und Berechnungen",
-              "text": "Schritt für Schritt geplant, mit festgehaltenen Annahmen."
-            },
-            {
-              "lead": "Verfahren und Auswertungen",
-              "text": "klare Dokumente, denen Ihre Crews folgen und die Ihr Team prüfen kann."
-            },
-            {
-              "lead": "Eine technische Zweitmeinung",
-              "text": "ein frischer Blick auf einen Plan, eine Berechnung oder ein Problem vor Ort."
-            },
-            {
-              "lead": "Schulungsmaterial",
-              "text": "was Crews und junge Ingenieure wissen müssen, in klarer Sprache."
-            },
-            {
-              "lead": "Klarer Umfang und Preis",
-              "text": "vor Beginn der Arbeit vereinbart."
-            }
-          ],
-          "ctaLabel": "Ein Projekt besprechen"
-        },
         "software": {
           "icon": "code",
           "badge": "Software & Werkzeuge",
@@ -1357,7 +1324,7 @@
               },
               {
                 "question": "Übernehmen Sie auch kleine Aufträge?",
-                "answer": "Ja. Eine Prüfung, eine Berechnung oder ein einzelnes Werkzeug sind ein guter Anfang. Sagen Sie mir, was Sie vorhaben."
+                "answer": "Ja. Ein einzelnes Werkzeug oder eine kleine Website sind ein guter Anfang. Sagen Sie mir, was Sie vorhaben."
               }
             ]
           }
@@ -1366,10 +1333,10 @@
       "includedLabel": "Was Sie bekommen",
       "hero": {
         "badge": "Leistungen",
-        "titleLead": "Beratung, Software",
+        "titleLead": "Software",
         "titleHighlight": "und Webentwicklung",
-        "description": "Drei Bereiche, ein Ingenieur: Beratung und Projekte für Öl und Gas, Cloud-basierte Software für technische Teams und Websites als eigene Leistung.",
-        "jumpLabels": ["Beratung & Projekte", "Software & Werkzeuge", "Webentwicklung"]
+        "description": "Zwei Bereiche, ein Ingenieur: Cloud-basierte Software für technische Teams und Websites als eigene Leistung. Der Ingenieurinhalt dieser Seite dient der Information und wird nicht als Leistung angeboten.",
+        "jumpLabels": ["Software & Werkzeuge", "Webentwicklung"]
       },
       "process": {
         "badge": "So funktioniert es",
@@ -1393,21 +1360,16 @@
     "contact": {
       "meta": {
         "title": "Kontakt",
-        "description": "Ingenieurberatung, Projekte, Cloud-Software oder eine Website: Sagen Sie mir, was Sie brauchen. Ich antworte innerhalb eines Werktags."
+        "description": "Cloud-Software, Engineering-Werkzeuge oder eine Website: Sagen Sie mir, was Sie brauchen. Ich antworte innerhalb eines Werktags."
       },
       "hero": {
         "badge": "Kontakt",
         "titleLead": "Erzählen Sie mir,",
         "titleHighlight": "woran Sie arbeiten",
-        "description": "Ingenieurberatung und Projekte, Cloud-basierte Software und Werkzeuge oder eine Website. Eine kurze Nachricht genügt; ich antworte innerhalb eines Werktags."
+        "description": "Cloud-basierte Software und Werkzeuge oder eine Website. Eine kurze Nachricht genügt; ich antworte innerhalb eines Werktags."
       },
       "helpTitle": "Wobei ich helfen kann",
       "help": [
-        {
-          "icon": "award",
-          "title": "Beratung und Projekte",
-          "text": "Ingenieurberatung und Projektarbeit für die Öl- und Gasindustrie."
-        },
         {
           "icon": "code",
           "title": "Software und Werkzeuge",
@@ -1426,14 +1388,8 @@
         "Sie erhalten ein klares Angebot mit Umfang, Zeitplan und Festpreis."
       ],
       "facts": [
-        {
-          "value": "13+",
-          "label": "Jahre im Ingenieurwesen"
-        },
-        {
-          "value": "1.000+",
-          "label": "Einsätze im Feld"
-        },
+        {"value": "3", "label": "Sprachen: Serbisch, Englisch, Deutsch"},
+        {"value": "CET", "label": "Zeitzone"},
         {
           "value": "< 1 Tag",
           "label": "bis zur Antwort"
@@ -1457,16 +1413,6 @@
         "serviceLegend": "Was brauchen Sie?",
         "services": [
           {
-            "value": "consulting",
-            "icon": "award",
-            "label": "Ingenieurberatung"
-          },
-          {
-            "value": "project",
-            "icon": "layers",
-            "label": "Ein Projekt"
-          },
-          {
             "value": "software",
             "icon": "code",
             "label": "Software oder Engineering-Werkzeuge"
@@ -1485,7 +1431,7 @@
         "websiteLabel": "Website des Unternehmens (optional)",
         "websitePlaceholder": "ihrunternehmen.de",
         "businessLabel": "Unternehmen und Branche",
-        "businessPlaceholder": "z. B. Öl- und Gasdienstleister, Bergbaubetreiber",
+        "businessPlaceholder": "z. B. Engineering-Softwarefirma, Hersteller",
         "timelineLegend": "Wann möchten Sie starten?",
         "timelines": [
           {
@@ -2766,7 +2712,7 @@
       "hero": {
         "badge": "Kurse",
         "title": "Coiled-Tubing-Kurse",
-        "description": "Praxisnahe Schulung zu Coiled Tubing, von den Grundlagen im Feld bis zur Einsatzplanung. Die Kurse sind in Vorbereitung: Sagen Sie mir, was Sie brauchen, und ich melde mich, sobald sie starten."
+        "description": "Praxisnahe Schulung zu Coiled Tubing, von den Grundlagen im Feld bis zur Einsatzplanung. Die Kurse sind in Vorbereitung und dienen nur der Information."
       },
       "status": "In Vorbereitung",
       "audience": {
@@ -2889,15 +2835,15 @@
     "home": {
       "meta": {
         "title": "Ingenieur & Digital Architect",
-        "description": "Ingenieurberatung und Projekte für die Öl- und Gasindustrie, dazu Cloud-basierte Software und Engineering-Werkzeuge für technische B2B-Unternehmen — von einem anerkannten Ingenieur."
+        "description": "Fallstudien und Engineering-Werkzeuge sowie Cloud-basierte Software und Websites für technische Unternehmen — von einem anerkannten Ingenieur."
       },
       "hero": {
-        "badge": "Verfügbar für neue Projekte",
+        "badge": "Websites und Software",
         "titleLine1": "Stojan\u00a0Petkovic",
         "titleLine2": "Ingenieur\u00a0&",
         "titleLine3": "Digital\u00a0Architect",
-        "description": "Ingenieurberatung und Projektarbeit für die Öl- und Gasindustrie. Für technische B2B-Unternehmen baue ich Cloud-basierte Software und Engineering-Werkzeuge.",
-        "descriptionMobile": "Ingenieurberatung und Projekte für Öl und Gas sowie Cloud-basierte Software für technische B2B-Unternehmen.",
+        "description": "Fallstudien und Engineering-Werkzeuge für Ingenieure. Für technische Unternehmen baue ich Cloud-basierte Software und Websites.",
+        "descriptionMobile": "Fallstudien und Engineering-Werkzeuge für Ingenieure sowie Cloud-basierte Software und Websites.",
         "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Titel von der Bayerischen Ingenieurekammer-Bau genehmigt (2026)", "docTitle": "Bescheid der Bayerischen Ingenieurekammer-Bau", "docAlt": "Scan des Bescheids über die Genehmigung der Berufsbezeichnung Ingenieur, persönliche Angaben geschwärzt", "docDescription": "Die Bayerische Ingenieurekammer-Bau hat mein Studium im Fach Bergbau an der Universität Belgrad geprüft und als gleichwertig mit den deutschen Anforderungen an Ingenieure anerkannt (Art. 3 BayIngG). Auf dieser Grundlage hat sie mir genehmigt, die geschützte Berufsbezeichnung Ingenieur allein oder in einer Wortverbindung zu führen. Der Bescheid ist vom 19. August 2026. Er bestätigt die Berufsbezeichnung; er ist keine Zulassung für eine reglementierte Tätigkeit."}, {"icon": "shield-check", "tag": "RS", "title": "Fachprüfung bestanden (2019)", "text": "Gewinnung mineralischer Rohstoffe, Serbien", "docTitle": "Bescheinigung über die bestandene Fachprüfung", "docAlt": "Scan der Bescheinigung über die in Serbien bestandene Fachprüfung und ihrer beglaubigten deutschen Übersetzung, persönliche Angaben geschwärzt", "docDescription": "2019 habe ich die Fachprüfung für die Ausübung fachlicher Tätigkeiten bei der Förderung mineralischer Rohstoffe bestanden. Sie wurde nach dem serbischen Gesetz über Bergbau und geologische Untersuchungen abgelegt und vom Provinzsekretariat für Energetik, Bauwesen und Verkehr der Vojvodina bescheinigt (Bescheinigung vom 25. September 2019). Die Seiten nach dem Original sind die beglaubigte deutsche Übersetzung einer vereidigten Gerichtsdolmetscherin (6. März 2026) mit der notariellen Beglaubigung der Kopie (10. März 2026)."}],
         "credentialsDialog": {"close": "Schließen", "note": "Persönliche Angaben wurden geschwärzt.", "hint": "Dokument ansehen", "zoom": "Seite antippen zum Vergrößern oder Verkleinern."},
         "qualifications": {"label": "Qualifikationen & Schulungen", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Dipl.-Ing. Bergbau", "text": "Universität Belgrad · flüssige und gasförmige mineralische Rohstoffe"}, {"icon": "shield-check", "year": "2020", "title": "EU-Maschinenrichtlinie", "text": "Schulung Maschinensicherheit · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Technologiemanagement (STM)", "text": "System of Technology Management, Unternehmensprogramm"}, {"icon": "users", "year": "2018", "title": "Führungsakademie", "text": "Personalführung, unteres Management · Mokra Gora School of Management"}]},
@@ -2950,11 +2896,11 @@
         "openLabel": "Öffnen"
       },
       "workWithMe": {
-        "badge": "Zusammenarbeit",
-        "heading": "Warum mit einem Ingenieur arbeiten",
-        "lead": "Was Sie bekommen, wenn die Person, die es baut, die Arbeit selbst im Feld gemacht hat.",
+        "badge": "Hintergrund",
+        "heading": "Woher der Inhalt kommt",
+        "lead": "Die Erfahrung und die Gewohnheiten hinter Fallstudien, Werkzeugen und Websites.",
         "cards": [
-          { "icon": "award", "title": "Felderfahrung", "description": "Über 13 Jahre und mehr als 1.000 Einsätze in Coiled-Tubing- und Stickstoffoperationen." },
+          { "icon": "award", "title": "Felderfahrung", "description": "Über 13 Jahre in Coiled-Tubing- und Stickstoffoperationen." },
           { "icon": "shield-check", "title": "Geprüfte Zahlen", "description": "Berechnungen werden geprüft, Annahmen festgehalten." },
           { "icon": "book-open", "title": "Dokumentierte Logik", "description": "Formeln und Entscheidungen erklärt, damit Ergebnisse nachvollziehbar sind." },
           { "icon": "globe", "title": "Titel Ingenieur", "description": "Von der Bayerischen Ingenieurekammer-Bau genehmigt, 2026." }

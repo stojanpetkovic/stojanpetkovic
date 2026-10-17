@@ -103,7 +103,7 @@ export function createProfessionalServiceSchema(locale: Locale = defaultLocale):
         }
       : {}),
     description: siteConfig.description,
-    makesOffer: ['Engineering consulting', 'Industrial software development', 'Web development'].map((name) => ({
+    makesOffer: ['Industrial software development', 'Web development'].map((name) => ({
       '@type': 'Offer' as const,
       itemOffered: { '@type': 'Service' as const, name },
     })),

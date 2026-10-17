@@ -36,7 +36,7 @@
     "name": "Stojan Petković"
   },
   "llms": {
-    "summary": "Stojan Petković je inženjer (zvanje Ingenieur odobrila je Bavarska inženjerska komora) i web developer iz Zrenjanina u Srbiji, koji radi sa klijentima širom sveta. Diplomirao je rudarstvo na Univerzitetu u Beogradu (2010), a od 2013. radi sa coiled tubing i azotnim operacijama. Pravi brze Astro sajtove po meri, softver po meri i platforme zasnovane na podacima za inženjerske i tehničke B2B firme, a nudi i klasičan web dizajn, SEO i optimizaciju za generativne pretraživače (GEO). Svaki projekat ima jednu fiksnu cenu dogovorenu pre početka rada, a klijent je vlasnik koda, domena i hostinga od prvog dana."
+    "summary": "Stojan Petković je inženjer (zvanje Ingenieur odobrila je Bavarska inženjerska komora) i web developer iz Zrenjanina u Srbiji, koji radi sa klijentima širom sveta. Diplomirao je rudarstvo na Univerzitetu u Beogradu (2010), a od 2013. radi sa coiled tubing i azotnim operacijama. Ovo je lični, nezavisni sajt koji ne predstavlja nijednog poslodavca ni kompaniju. Objavljuje studije slučaja i inženjerske alate radi informisanja, a pravi brze Astro sajtove po meri, softver po meri i platforme zasnovane na podacima za tehničke firme, uz klasičan web dizajn, SEO i optimizaciju za generativne pretraživače (GEO). Svaki projekat ima jednu fiksnu cenu dogovorenu pre početka rada, a klijent od prvog dana poseduje kod, domen i hosting."
   },
   "nav": {
     "skipToContent": "Preskoči na sadržaj",
@@ -72,13 +72,11 @@
         "web": "Softver i web"
       },
       "links": {
-        "consulting": "Konsalting i projekti",
         "allTools": "Svi alati",
         "web": "Web razvoj",
         "software": "Inženjerski softver"
       },
       "descriptions": {
-        "consulting": "Projektovanje poslova, proračuni, procedure i pregledi.",
         "courses": "Praktična obuka za coiled tubing.",
         "projects": "Studije slučaja sa terena.",
         "software": "Alati u oblaku rađeni po meri.",
@@ -289,6 +287,7 @@
   },
   "footer": {
     "copyright": "© {year} {siteName}",
+    "credit": "Lični, nezavisan sajt — nije povezan ni sa jednim poslodavcem ni kompanijom.",
     "groups": {
       "site": "Sajt",
       "topics": "Teme",
@@ -1127,7 +1126,7 @@
         "paragraphs": [
           "Završio sam rudarstvo na Univerzitetu u Beogradu (diplomirao 2010). Bavarska inženjerska komora (Bayerische Ingenieurekammer-Bau) je 2026. utvrdila da je moje obrazovanje ravnopravno nemačkim zahtevima i odobrila mi je zvanje Ingenieur.",
           "Počeo sam 2011. kao rudarski inženjer na projektima istraživanja mineralnih ležišta, uključujući rad pod zemljom, a 2012. prešao sam na bušenje, gde sam planirao i nadgledao istražne bušotine. Od 2013. radim sa coiled tubing-om i azotom, od terenskog inženjera do operations manager-a, na više od 1.000 poslova. Tako sam naučio kako se prave operacije ponašaju: pritisci, granice i šta pukne kada broj nije tačan. Tu naviku da proveravam brojeve unosim u svaki sajt i alat koji pravim.",
-          "Za tehničke firme to znači manje objašnjavanja. Ne moraš da me učiš kako izgleda posao na terenu pre nego što napravim stranicu za njega."
+          "Za tehničke firme to znači manje objašnjavanja. Ne moraš da me učiš kako izgleda posao na terenu pre nego što napravim stranicu za njega. Ovo je lični, nezavisan sajt. Ne predstavlja nijednog poslodavca ni kompaniju; pogledaj uslove korišćenja."
         ],
         "credential": "Zvanje Ingenieur odobreno od Bavarske inženjerske komore, 2026."
       },
@@ -1229,42 +1228,10 @@
     },
     "services": {
       "meta": {
-        "title": "Usluge — inženjering, softver i web",
-        "description": "Inženjerske konsultacije i projekti za naftu i gas, softver i alati u oblaku i web razvoj, od inženjera. Besplatan prvi razgovor, jedna ponuda, jedna fiksna cena."
+        "title": "Usluge — softver i web",
+        "description": "Softver i alati u oblaku i web razvoj, od inženjera. Besplatan prvi razgovor, jedna ponuda, jedna fiksna cena."
       },
       "areas": {
-        "consulting": {
-          "icon": "award",
-          "badge": "Konsultacije i projekti",
-          "heading": "Inženjerske konsultacije i projekti",
-          "paragraphs": [
-            "Savetujem i izvodim inženjerske radove za naftnu i gasnu industriju: projektovanje poslova, proračune, procedure i poređenje onoga što je planirano sa onim što se desilo.",
-            "Iza mene je više od trinaest godina coiled tubing i azotnih operacija, od terenskog inženjera do operations manager-a. Dobijaš inženjera koji je posao sam vodio, a ne nekoga ko ga samo opisuje."
-          ],
-          "included": [
-            {
-              "lead": "Projektovanje poslova i proračuni",
-              "text": "planirani korak po korak, sa zapisanim pretpostavkama."
-            },
-            {
-              "lead": "Procedure i analize",
-              "text": "jasni dokumenti koje tvoje ekipe mogu da prate, a tim da proveri."
-            },
-            {
-              "lead": "Tehničko drugo mišljenje",
-              "text": "svež pogled na plan, proračun ili problem na terenu."
-            },
-            {
-              "lead": "Materijal za obuku",
-              "text": "ono što ekipe i mladi inženjeri treba da znaju, jasnim jezikom."
-            },
-            {
-              "lead": "Jasan obim i cena",
-              "text": "dogovoreni pre početka posla."
-            }
-          ],
-          "ctaLabel": "Razgovaraj o projektu"
-        },
         "software": {
           "icon": "code",
           "badge": "Softver i alati",
@@ -1357,7 +1324,7 @@
               },
               {
                 "question": "Da li preuzimaš i manje poslove?",
-                "answer": "Da. Pregled, proračun ili jedan alat su sasvim dobar početak. Reci mi šta imaš na umu."
+                "answer": "Da. Jedan alat ili mali sajt su sasvim dobar početak. Reci mi šta imaš na umu."
               }
             ]
           }
@@ -1366,10 +1333,10 @@
       "includedLabel": "Šta dobijaš",
       "hero": {
         "badge": "Usluge",
-        "titleLead": "Konsultacije, softver",
+        "titleLead": "Softver",
         "titleHighlight": "i web razvoj",
-        "description": "Tri oblasti, jedan inženjer: konsultacije i projekti za naftu i gas, softver u oblaku za tehničke timove i sajtovi kao posebna usluga.",
-        "jumpLabels": ["Konsultacije i projekti", "Softver i alati", "Web razvoj"]
+        "description": "Dve oblasti, jedan inženjer: softver u oblaku za tehničke timove i sajtovi kao posebna usluga. Inženjerski sadržaj na ovom sajtu je informativan i ne nudi se kao usluga.",
+        "jumpLabels": ["Softver i alati", "Web razvoj"]
       },
       "process": {
         "badge": "Kako to ide",
@@ -1393,21 +1360,16 @@
     "contact": {
       "meta": {
         "title": "Kontakt",
-        "description": "Inženjerske konsultacije, projekti, softver u oblaku ili sajt: reci mi šta ti treba. Odgovaram u roku od jednog radnog dana."
+        "description": "Softver u oblaku, inženjerski alati ili sajt: reci mi šta ti treba. Odgovaram u roku od jednog radnog dana."
       },
       "hero": {
         "badge": "Kontakt",
         "titleLead": "Reci mi na čemu",
         "titleHighlight": "radiš",
-        "description": "Inženjerske konsultacije i projekti, softver i alati u oblaku ili sajt. Dovoljna je kratka poruka; odgovaram u roku od jednog radnog dana."
+        "description": "Softver i alati u oblaku ili sajt. Dovoljna je kratka poruka; odgovaram u roku od jednog radnog dana."
       },
       "helpTitle": "Čime mogu da pomognem",
       "help": [
-        {
-          "icon": "award",
-          "title": "Konsultacije i projekti",
-          "text": "Inženjerske konsultacije i projekti za naftnu i gasnu industriju."
-        },
         {
           "icon": "code",
           "title": "Softver i alati",
@@ -1426,14 +1388,8 @@
         "Dobijaš jednu jasnu ponudu sa obimom posla, rokom i fiksnom cenom."
       ],
       "facts": [
-        {
-          "value": "13+",
-          "label": "godina u inženjerstvu"
-        },
-        {
-          "value": "1.000+",
-          "label": "poslova na terenu"
-        },
+        {"value": "3", "label": "jezika: srpski, engleski, nemački"},
+        {"value": "CET", "label": "vremenska zona"},
         {
           "value": "< 1 dan",
           "label": "do odgovora"
@@ -1457,16 +1413,6 @@
         "serviceLegend": "Šta ti treba?",
         "services": [
           {
-            "value": "consulting",
-            "icon": "award",
-            "label": "Inženjerske konsultacije"
-          },
-          {
-            "value": "project",
-            "icon": "layers",
-            "label": "Projekat"
-          },
-          {
             "value": "software",
             "icon": "code",
             "label": "Softver ili inženjerski alati"
@@ -1485,7 +1431,7 @@
         "websiteLabel": "Sajt firme (opciono)",
         "websitePlaceholder": "tvojafirma.rs",
         "businessLabel": "Firma i delatnost",
-        "businessPlaceholder": "npr. naftni servisi, rudarska kompanija",
+        "businessPlaceholder": "npr. firma za inženjerski softver, proizvodna firma",
         "timelineLegend": "Kada želiš da počnemo?",
         "timelines": [
           {
@@ -2766,7 +2712,7 @@
       "hero": {
         "badge": "Kursevi",
         "title": "Kursevi za coiled tubing",
-        "description": "Praktična obuka za coiled tubing, od osnova na terenu do projektovanja posla. Kursevi su u pripremi: recite mi šta vam treba i javiću vam kad se otvore."
+        "description": "Praktična obuka za coiled tubing, od osnova na terenu do projektovanja posla. Kursevi su u pripremi i služe samo za informisanje."
       },
       "status": "U pripremi",
       "audience": {
@@ -2889,15 +2835,15 @@
     "home": {
       "meta": {
         "title": "Inženjer i Digital Architect",
-        "description": "Inženjerske konsultacije i projekti za naftnu i gasnu industriju, uz softver u oblaku i inženjerske alate za tehničke B2B firme — gradi ih priznati inženjer."
+        "description": "Studije slučaja i inženjerski alati, uz softver u oblaku i sajtove za tehničke firme — gradi ih priznati inženjer."
       },
       "hero": {
-        "badge": "Dostupan za nove projekte",
+        "badge": "Sajtovi i softver",
         "titleLine1": "Stojan\u00a0Petković",
         "titleLine2": "Inženjer\u00a0i",
         "titleLine3": "Digital\u00a0Architect",
-        "description": "Inženjerske konsultacije i projekti za naftnu i gasnu industriju. Za tehničke B2B firme pravim softver u oblaku i inženjerske alate.",
-        "descriptionMobile": "Inženjerske konsultacije i projekti za naftu i gas, i softver u oblaku za tehničke B2B firme.",
+        "description": "Studije slučaja i inženjerski alati napisani za inženjere. Za tehničke firme pravim softver u oblaku i sajtove.",
+        "descriptionMobile": "Studije slučaja i inženjerski alati za inženjere, i softver u oblaku i sajtovi za tehničke firme.",
         "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Zvanje odobrila Bavarska inženjerska komora (2026)", "docTitle": "Rešenje Bavarske inženjerske komore", "docAlt": "Sken rešenja o odobravanju zvanja Ingenieur, lični podaci su precrtani", "docDescription": "Bavarska inženjerska komora (Bayerische Ingenieurekammer-Bau) ispitala je moje studije rudarstva na Univerzitetu u Beogradu i utvrdila da su ravnopravne nemačkim zahtevima za inženjere (čl. 3 BayIngG). Na toj osnovi mi je odobrila da koristim zaštićeno zvanje Ingenieur, samostalno ili u sastavu reči. Rešenje je od 19. avgusta 2026. Ono potvrđuje zvanje; nije licenca za regulisanu delatnost."}, {"icon": "shield-check", "tag": "RS", "title": "Položen stručni ispit (2019)", "text": "Eksploatacija mineralnih sirovina, Srbija", "docTitle": "Uverenje o položenom stručnom ispitu", "docAlt": "Sken uverenja o stručnom ispitu položenom u Srbiji i njegovog overenog prevoda na nemački, lični podaci su precrtani", "docDescription": "Godine 2019. položio sam stručni ispit za obavljanje stručnih poslova pri eksploataciji mineralnih sirovina. Polagan je prema srpskom Zakonu o rudarstvu i geološkim istraživanjima, a uverenje je izdao Pokrajinski sekretarijat za energetiku, građevinarstvo i saobraćaj AP Vojvodine (uverenje od 25. septembra 2019). Stranice posle originala su overeni prevod na nemački koji je izradio sudski tumač (6. mart 2026), sa overom kopije kod javnog beležnika (10. mart 2026)."}],
         "credentialsDialog": {"close": "Zatvori", "note": "Lični podaci su precrtani.", "hint": "Pogledaj dokument", "zoom": "Dodirni stranicu za uvećanje ili umanjenje."},
         "qualifications": {"label": "Kvalifikacije i obuke", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Diplomirani inženjer rudarstva", "text": "Univerzitet u Beogradu · tečne i gasovite mineralne sirovine"}, {"icon": "shield-check", "year": "2020", "title": "Evropska direktiva o mašinama", "text": "Obuka o bezbednosti mašina · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Upravljanje tehnologijom (STM)", "text": "System of Technology Management, korporativni program"}, {"icon": "users", "year": "2018", "title": "Akademija liderstva", "text": "Upravljanje ljudima, niži menadžment · Mokra Gora School of Management"}]},
@@ -2950,11 +2896,11 @@
         "openLabel": "Otvori"
       },
       "workWithMe": {
-        "badge": "Zašto ja",
-        "heading": "Zašto raditi sa inženjerom",
-        "lead": "Šta dobijaš kada onaj ko pravi rešenje taj posao zaista radio na terenu.",
+        "badge": "Pozadina",
+        "heading": "Odakle sadržaj potiče",
+        "lead": "Iskustvo i navike iza studija slučaja, alata i sajtova.",
         "cards": [
-          { "icon": "award", "title": "Iskustvo sa terena", "description": "Više od 13 godina i više od 1.000 poslova u coiled tubing i azotnim operacijama." },
+          { "icon": "award", "title": "Iskustvo sa terena", "description": "Više od 13 godina u coiled tubing i azotnim operacijama." },
           { "icon": "shield-check", "title": "Proverene brojke", "description": "Proračuni se proveravaju, a pretpostavke zapisuju." },
           { "icon": "book-open", "title": "Dokumentovana logika", "description": "Formule i odluke su objašnjene, da se rezultati mogu proveriti." },
           { "icon": "globe", "title": "Zvanje Ingenieur", "description": "Odobrila Bavarska inženjerska komora, 2026." }

@@ -143,7 +143,6 @@ const servicesMega: MegaMenuConfig = {
       title: 'Engineering',
       titleKey: 'nav.mega.groups.engineering',
       links: [
-        { label: 'Consulting & projects', labelKey: 'nav.mega.links.consulting', descriptionKey: 'nav.mega.descriptions.consulting', href: '/services#consulting', icon: 'award' },
         { label: 'Courses', labelKey: 'nav.items.courses', descriptionKey: 'nav.mega.descriptions.courses', href: '/courses', icon: 'book-open' },
         { label: 'Projects', labelKey: 'nav.items.projects', descriptionKey: 'nav.mega.descriptions.projects', href: '/projects', icon: 'layers' },
       ],

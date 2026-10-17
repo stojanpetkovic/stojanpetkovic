@@ -275,7 +275,7 @@ const siteConfig: SiteConfig = {
   // import this file, uses the same values. Change them there.
   name: SITE_NAME,
   description:
-    'Engineering consulting and projects for the oil and gas industry, plus cloud-based software and engineering tools for technical B2B companies, by an engineer.',
+    'Case studies and engineering tools, plus cloud-based software and websites for technical companies, by an engineer.',
   tagline: 'Engineer building software and web systems for technical businesses',
   url: SITE_URL || SITE_URL_FALLBACK,
   // Generated at build time from `name`, `tagline` and the brand colour below.
