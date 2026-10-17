@@ -1563,6 +1563,34 @@ html.dark .media-shadow {
     0 20px 40px -12px rgb(0 0 0 / 0.6);
 }
 
+/* The band that holds the project cards: the secondary tint with a wash of the brand
+   colour from the top and a quiet grid that fades out towards the edges, so the band
+   has a surface of its own rather than reading as a flat block. */
+.projects-section {
+  position: relative;
+  background:
+    radial-gradient(
+      56rem 22rem at 50% 0%,
+      color-mix(in oklab, var(--color-brand-500) 10%, transparent),
+      transparent 70%
+    ),
+    var(--color-background-secondary);
+}
+.projects-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-brand-500) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-brand-500) 7%, transparent) 1px, transparent 1px);
+  background-size: 3.5rem 3.5rem;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 40%, #000 20%, transparent 75%);
+  pointer-events: none;
+}
+.projects-section > * {
+  position: relative;
+}
+
 /* Clickable affordance (#551): every enabled control gets the hand cursor,
    including buttons that browsers default to an arrow cursor. */
 button:not(:disabled),

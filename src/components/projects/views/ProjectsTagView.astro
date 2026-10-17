@@ -78,7 +78,7 @@ const languageAlternates = Object.fromEntries(
     </p>
   </Hero>
 
-  <section class="bg-background-secondary py-[var(--space-section-md)] border-t border-border">
+  <section class="projects-section py-[var(--space-section-md)] border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
       <div class="flex flex-col items-center gap-4" data-reveal>
         <a
@@ -95,7 +95,7 @@ const languageAlternates = Object.fromEntries(
       </div>
 
       {projects.length > 0 ? (
-        <div class="grid gap-6 md:grid-cols-2">
+        <div class="grid justify-center gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),36rem))]">
           {projects.map((project, i) => (
             <ProjectCard project={project} index={i} locale={locale} />
           ))}

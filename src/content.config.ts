@@ -119,6 +119,14 @@ const projects = defineCollection({
       image: image().optional(),
       imageAlt: z.string().optional(),
       /**
+       * How the hero shows `image`. `frame` (default) is a screenshot in a rounded,
+       * shadowed frame. `blend` is for a render on a transparent background: no
+       * frame or shadow, a soft blur, so the picture sits in the page colour.
+       */
+      imageStyle: z.enum(['frame', 'blend']).default('frame'),
+      /** Credit line shown under the hero image, for pictures that carry third-party data such as a map. */
+      imageCredit: z.string().optional(),
+      /**
        * Optional gallery — when provided, renders a swipeable carousel in the
        * hero in place of the single `image`. A slide is either an image
        * (`src` + `alt`) or a self-hosted video (`video` + `poster` + `alt`).

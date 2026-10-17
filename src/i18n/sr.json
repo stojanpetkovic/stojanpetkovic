@@ -299,6 +299,103 @@
     "followOn": "Prati me na {platform}"
   },
   "pages": {
+    "geothermalModel": {
+      "canvasLabel": "Interaktivni 3D model bušotina Vojvodine sa temperaturnim profilima. Prevucite da zarotirate, kliknite na model i skrolujte da zumirate.",
+      "loading": "Učitavam 3D model…",
+      "noWebgl": "Ovaj pregledač nije mogao da pokrene 3D grafiku, pa se model ne može prikazati.",
+      "hint": "Prevlačenje rotira · desni taster ili dva prsta pomeraju · kliknite na model pa skrolujte za zum · klik na bušotinu prikazuje podatke",
+      "zoomIn": "Uvećaj",
+      "zoomOut": "Umanji",
+      "views": {
+        "title": "Pogled",
+        "perspective": "Perspektiva",
+        "top": "Odozgo",
+        "south": "Sa juga",
+        "west": "Sa zapada"
+      },
+      "scale": {
+        "title": "Razmera",
+        "vertical": "Vertikalno preuveličanje",
+        "relief": "Preuveličanje reljefa",
+        "ground": "Providnost zemljišta"
+      },
+      "layers": {
+        "title": "Slojevi",
+        "show": "Horizontalni slojevi",
+        "spacing": "Razmak slojeva",
+        "opacity": "Providnost slojeva",
+        "walls": "Bočni zidovi"
+      },
+      "wells": {
+        "title": "Bušotine",
+        "labels": "Nazivi naselja",
+        "producing": "U proizvodnji (2005)",
+        "idle": "Van proizvodnje",
+        "untapped": "Nikad u proizvodnji"
+      },
+      "contours": {
+        "title": "Konture na terenu",
+        "show": "Dubina do izabrane temperature",
+        "temp": "Dostignuta temperatura"
+      },
+      "map": {
+        "title": "Mapa terena",
+        "show": "Prikaži mapu na terenu (učitava slike sa servera mape)",
+        "loading": "Učitavam mapu…",
+        "error": "Mapa nije mogla da se učita.",
+        "credit": "Podaci mape © <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener noreferrer\">saradnici OpenStreetMap-a</a>, SRTM · stil © <a href=\"https://opentopomap.org\" target=\"_blank\" rel=\"noopener noreferrer\">OpenTopoMap</a> (<a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noopener noreferrer\">CC-BY-SA</a>)"
+      },
+      "legend": {
+        "title": "Temperatura, °C",
+        "measured": "Obojena traka na bušotini: izmereno na ispitanom intervalu",
+        "hollow": "Šuplji marker: interval nije dat, prikazano na ukupnoj dubini",
+        "modelled": "Obojeni slojevi i zidovi: temperatura iz karata atlasa na 500, 1.000 i 2.000 m; na zidovima linija na svakih 10 °C",
+        "contours": "Linije na terenu: dubina u km na kojoj se dostiže izabrana temperatura; prstenovi se zatvaraju oko toplijih bušotina",
+        "head": "Ušće: puno u proizvodnji, sivo van proizvodnje, prsten nikad u proizvodnji"
+      },
+      "detail": {
+        "title": "Bušotina",
+        "empty": "Kliknite na bušotinu da ovde vidite njene podatke."
+      },
+      "tip": {
+        "well": "<strong>{id}</strong> · {place}<br>{status}<br>Dubina {depth} {unit}, {interval}<br>Voda {temp} {degC}",
+        "interval": "interval {top}–{bottom} {unit}",
+        "noInterval": "interval nije dat",
+        "section": "<strong>{temp} {degC}</strong> na {depth} {unit} (atlas)<br>{lat}°N, {lon}°E · gradijent {gradient} {gunit}"
+      },
+      "test": {
+        "interval": "Interval {top}–{bottom} {unit}",
+        "noInterval": "Interval nije dat",
+        "lowerBound": "donja granica"
+      },
+      "fields": {
+        "place": "Naselje",
+        "status": "Status",
+        "year": "Izbušena",
+        "depth": "Ukupna dubina"
+      },
+      "status": {
+        "producing": "U proizvodnji",
+        "idle": "Van proizvodnje",
+        "untapped": "Nikad u proizvodnji"
+      },
+      "units": {
+        "m": "m",
+        "km": "km",
+        "degC": "°C",
+        "gradient": "°C/km",
+        "flow": "l/s",
+        "minerals": "g/l"
+      },
+      "notesTitle": "Kako čitati prikaz",
+      "notes": [
+        "**Položaj.** Prilog daje naselja, a ne koordinate, pa svaka bušotina stoji u centru svog naselja. Bušotine istog naselja raspoređene su na prstenu širine oko 2 km da bi se razlikovale.",
+        "**Izmereno.** Svaka obojena traka je temperatura vode na ispitanom intervalu. Gde prilog ne daje interval marker je šupalj i stoji na ukupnoj dubini; tamo je temperatura vode koja je mogla doći i sa manje dubine, pa je gradijent na tim bušotinama donja granica.",
+        "**Atlas.** Slojevi, zidovi i konture nisu izmereni na bušotinama. Potiču iz karata temperature na 500, 1.000 i 2.000 m iz [Geotermalnog atlasa Vojvodine](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010), digitalizovanih iz boja klasa na kartama (koraci od 0,5, 1 i 2 °C). Između karata temperatura raste pravolinijski od 11 °C na površini, što je pretpostavka. Ispod 2 km, dublje od svake karte, nastavlja se nagibom između 1 i 2 km. Trake na bušotinama (Prilog) i boje (atlas) su različiti izvori i ne slažu se uvek: atlas je topliji od vode iz Priloga kod 44 od 53 ispitivanja, u proseku za 9 °C.",
+        "**Oblik i reljef.** Oblik je granica AP Vojvodine iz OpenStreetMap-a. Visine terena su iz Terrain Tiles na AWS-u (SRTM i drugi izvori), na mreži od 1 km, nacrtane iznad medijane pokrajine, 79 m, sa preuveličanjem iz panela Razmera. Slojevi temperature crtaju se kao dubina ispod tog nivoa i ne prate teren; razlika je bitna samo na Fruškoj gori i Vršačkim planinama. Prilog ne daje kote bušotina, pa ušća stoje na modelu terena.",
+        "**Izvor.** Bušotine i ispitivanja su iz [Priloga 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) studije *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), evidencija NIS Naftagasa koju je dostavio Pokrajinski sekretarijat za energetiku i mineralne sirovine, koji je studiju javno objavio: 51 bušotina u tri tabele, Kž-2/H računata jednom."
+      ]
+    },
     "landing": {
       "meta": {
         "title": "Sajt koji ti donosi klijente",

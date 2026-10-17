@@ -67,7 +67,7 @@ const aboutUrl = localizedPath('/about', locale);
 
   <!-- Nothing published yet -->
   {projects.length === 0 && (
-    <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+    <section class="projects-section py-[var(--space-section-md)] border-t border-border">
       <div class="mx-auto max-w-2xl px-6 text-center" data-reveal>
         <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-brand-700 text-white">
           <Icon name="layers" size="md" />
@@ -86,7 +86,7 @@ const aboutUrl = localizedPath('/about', locale);
 
   <!-- All projects -->
   {projects.length > 0 && (
-    <section class="py-[var(--space-section-md)] bg-background-secondary border-t border-border">
+    <section class="projects-section py-[var(--space-section-md)] border-t border-border">
       <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
 
         {topTags.length > 0 && (
@@ -95,7 +95,7 @@ const aboutUrl = localizedPath('/about', locale);
           </div>
         )}
 
-        <div class="grid gap-6 md:grid-cols-2">
+        <div class="grid justify-center gap-6 [grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),36rem))]">
           {pageProjects.map((project, i) => (
             <ProjectCard project={project} index={i} locale={locale} />
           ))}

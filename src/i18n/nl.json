@@ -299,6 +299,103 @@
     "followOn": "Volg ons op {platform}"
   },
   "pages": {
+    "geothermalModel": {
+      "canvasLabel": "Interactief 3D-model van de boringen in Vojvodina met temperatuurdoorsneden. Sleep om te draaien, klik op het model en scrol om te zoomen.",
+      "loading": "3D-model wordt geladen…",
+      "noWebgl": "Deze browser kon 3D-graphics niet starten, dus het model kan niet worden getoond.",
+      "hint": "Slepen draait · rechts slepen of twee vingers verschuift · klik op het model en scrol om te zoomen · klik op een boring voor details",
+      "zoomIn": "Inzoomen",
+      "zoomOut": "Uitzoomen",
+      "views": {
+        "title": "Weergave",
+        "perspective": "Perspectief",
+        "top": "Van boven",
+        "south": "Vanuit het zuiden",
+        "west": "Vanuit het westen"
+      },
+      "scale": {
+        "title": "Schaal",
+        "vertical": "Verticale overdrijving",
+        "relief": "Overdrijving van het reliëf",
+        "ground": "Doorzichtigheid van het maaiveld"
+      },
+      "layers": {
+        "title": "Lagen",
+        "show": "Horizontale lagen",
+        "spacing": "Laagafstand",
+        "opacity": "Doorzichtigheid van de lagen",
+        "walls": "Zijwanden"
+      },
+      "wells": {
+        "title": "Boringen",
+        "labels": "Plaatsnamen",
+        "producing": "In productie (2005)",
+        "idle": "Niet in productie",
+        "untapped": "Nooit in productie"
+      },
+      "contours": {
+        "title": "Hoogtelijnen op het maaiveld",
+        "show": "Diepte tot een gekozen temperatuur",
+        "temp": "Bereikte temperatuur"
+      },
+      "map": {
+        "title": "Terreinkaart",
+        "show": "Toon een kaart op het maaiveld (laadt afbeeldingen van de kaartserver)",
+        "loading": "Kaart wordt geladen…",
+        "error": "De kaart kon niet worden geladen.",
+        "credit": "Kaartgegevens © <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener noreferrer\">OpenStreetMap-bijdragers</a>, SRTM · stijl © <a href=\"https://opentopomap.org\" target=\"_blank\" rel=\"noopener noreferrer\">OpenTopoMap</a> (<a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noopener noreferrer\">CC-BY-SA</a>)"
+      },
+      "legend": {
+        "title": "Temperatuur, °C",
+        "measured": "Gekleurde balk op een boring: gemeten in het geteste interval",
+        "hollow": "Holle markering: geen interval opgegeven, getekend op de totale diepte",
+        "modelled": "Gekleurde lagen en wanden: temperatuur uit de atlaskaarten voor 500, 1.000 en 2.000 m; op de wanden een lijn per 10 °C",
+        "contours": "Lijnen op het maaiveld: diepte in km waarop de gekozen temperatuur wordt bereikt; ringen sluiten zich rond de warmere boringen",
+        "head": "Boorkop: gevuld in productie, grijs buiten productie, ring nooit in productie"
+      },
+      "detail": {
+        "title": "Boring",
+        "empty": "Klik op een boring om hier de gegevens te zien."
+      },
+      "tip": {
+        "well": "<strong>{id}</strong> · {place}<br>{status}<br>Diepte {depth} {unit}, {interval}<br>Water {temp} {degC}",
+        "interval": "interval {top}–{bottom} {unit}",
+        "noInterval": "interval niet opgegeven",
+        "section": "<strong>{temp} {degC}</strong> op {depth} {unit} (atlas)<br>{lat}°N, {lon}°E · gradiënt {gradient} {gunit}"
+      },
+      "test": {
+        "interval": "Interval {top}–{bottom} {unit}",
+        "noInterval": "Geen interval opgegeven",
+        "lowerBound": "ondergrens"
+      },
+      "fields": {
+        "place": "Plaats",
+        "status": "Status",
+        "year": "Geboord",
+        "depth": "Totale diepte"
+      },
+      "status": {
+        "producing": "In productie",
+        "idle": "Niet in productie",
+        "untapped": "Nooit in productie"
+      },
+      "units": {
+        "m": "m",
+        "km": "km",
+        "degC": "°C",
+        "gradient": "°C/km",
+        "flow": "l/s",
+        "minerals": "g/l"
+      },
+      "notesTitle": "Zo leest u de weergave",
+      "notes": [
+        "**Positie.** De bijlage noemt plaatsen, geen coördinaten, dus elke boring staat in het midden van haar plaats. Boringen in dezelfde plaats staan verspreid op een ring van ongeveer 2 km breed zodat ze te onderscheiden zijn.",
+        "**Gemeten.** Elke gekleurde balk is de watertemperatuur in het geteste interval. Waar de bijlage geen interval noemt, is de markering hol en staat ze op de totale diepte; de temperatuur daar is van water dat ook van hoger kan komen, dus de gradiënt bij die boringen is een ondergrens.",
+        "**Atlas.** De lagen, wanden en hoogtelijnen zijn niet bij de boringen gemeten. Ze komen uit de temperatuurkaarten voor 500, 1.000 en 2.000 m van de [Geothermische Atlas van Vojvodina](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010), gedigitaliseerd uit de kleurklassen van de kaarten (stappen van 0,5, 1 en 2 °C). Tussen de kaarten stijgt de temperatuur lineair vanaf 11 °C aan het oppervlak, wat is aangenomen. Onder 2 km, dieper dan elke kaart, gaat ze door met de helling tussen 1 en 2 km. De balken bij de boringen (bijlage) en de kleuren (atlas) zijn verschillende bronnen en komen niet altijd overeen: de atlas is bij 44 van de 53 tests warmer dan het water uit de bijlage, gemiddeld 9 °C.",
+        "**Vorm en reliëf.** De vorm is de grens van AP Vojvodina uit OpenStreetMap. De terreinhoogten komen uit Terrain Tiles op AWS (SRTM en andere bronnen), op een raster van 1 km, getekend boven de mediaan van de provincie, 79 m, met de overdrijving uit het paneel Schaal. De temperatuurlagen zijn getekend als diepte onder dat niveau en volgen het terrein niet; het verschil telt alleen op de Fruška Gora en het Vršac-gebergte. De bijlage geeft geen hoogtes van de boringen, dus de boorkoppen staan op het terreinmodel.",
+        "**Bron.** Boringen en tests komen uit [Bijlage 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) van *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), gegevens van NIS Naftagas verstrekt door het Provinciaal Secretariaat voor Energie en Mineraal Grondstoffen, dat de studie openbaar heeft gemaakt: 51 boringen in drie tabellen, Kž-2/H eenmaal geteld."
+      ]
+    },
     "landing": {
       "meta": {
         "title": "A website that brings you clients",

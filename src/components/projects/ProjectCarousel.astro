@@ -20,15 +20,24 @@ interface Props {
   slides: GallerySlide[];
   /** Optional aria-label for the carousel region. */
   label?: string;
+  /** Render on a transparent background: no frame, no shadow, a soft blur. */
+  blend?: boolean;
+  /** Credit line under the image. */
+  credit?: string;
 }
 
-const { slides, label = 'Project screenshots' } = Astro.props;
+const { slides, label = 'Project screenshots', blend = false, credit } = Astro.props;
 const carouselId = `carousel-${Math.random().toString(36).slice(2, 9)}`;
 const hasMultiple = slides.length > 1;
 // A single image slide is shown complete at its natural ratio (no crop), so
 // nothing important — like the browser header of a screenshot — gets sliced
 // off. Galleries and video slides keep the uniform 16:9 frame.
-const imageClass = hasMultiple ? 'aspect-video w-full object-cover' : 'w-full h-auto';
+const imageClass = [
+  hasMultiple ? 'aspect-video w-full object-cover' : 'w-full h-auto',
+  blend && 'project-blend',
+]
+  .filter(Boolean)
+  .join(' ');
 
 // Optimise video posters up front — the poster is the slide's visual (and the
 // LCP candidate when a video is the first slide), so it gets the same image
@@ -41,7 +50,7 @@ const posters = await Promise.all(
 ---
 
 <div
-  class="project-carousel relative"
+  class:list={['project-carousel relative', blend && 'blend-stage']}
   data-carousel
   id={carouselId}
   role="region"
@@ -55,7 +64,7 @@ const posters = await Promise.all(
     to suggesting depth. Dark screenshots are unaffected — they already read
     as a distinct shape — and dark mode keeps its own ring.
   -->
-  <div class="relative overflow-hidden rounded-xl media-shadow ring-1 ring-border dark:ring-white/10">
+  <div class:list={['relative', !blend && 'overflow-hidden rounded-xl media-shadow ring-1 ring-border dark:ring-white/10']}>
     <div
       class="carousel-track flex snap-x snap-mandatory overflow-x-auto scroll-smooth"
       data-carousel-track
@@ -95,6 +104,8 @@ const posters = await Promise.all(
       ))}
     </div>
   </div>
+
+  {credit && <p class="mt-1 text-right text-[11px] leading-snug text-foreground-subtle">{credit}</p>}
 
   {hasMultiple && (
     <div class="mt-4 flex items-center justify-between gap-3">
@@ -172,6 +183,26 @@ const posters = await Promise.all(
   }
   .carousel-track::-webkit-scrollbar {
     display: none;
+  }
+  /* A render on a transparent background sits in the page without a frame, on a soft
+     glow of the brand colour so it has a ground to stand on. The track clips whatever
+     leaves its box, so the render is sized inside it, never scaled past it. */
+  .blend-stage {
+    isolation: isolate;
+  }
+  .blend-stage::before {
+    content: '';
+    position: absolute;
+    inset: -4% -8%;
+    z-index: -1;
+    background:
+      radial-gradient(
+        closest-side,
+        color-mix(in oklab, var(--color-brand-500) 18%, transparent),
+        color-mix(in oklab, var(--color-brand-500) 7%, transparent) 55%,
+        transparent 100%
+      );
+    pointer-events: none;
   }
 </style>
 

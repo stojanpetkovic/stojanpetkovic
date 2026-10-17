@@ -25,6 +25,8 @@ interface Props {
   repo?: string;
   image?: ImageMetadata;
   imageAlt?: string;
+  imageStyle?: 'frame' | 'blend';
+  imageCredit?: string;
   gallery?: GallerySlide[];
   tags?: string[];
   breadcrumbs?: { label: string; href?: string }[];
@@ -41,6 +43,8 @@ const {
   repo,
   image,
   imageAlt,
+  imageStyle = 'frame',
+  imageCredit,
   gallery = [],
   breadcrumbs = [],
 } = Astro.props;
@@ -118,7 +122,7 @@ const primary = [
 
     {slides.length > 0 && (
       <div class="min-w-0">
-        <ProjectCarousel slides={slides} label={`${title} screenshots`} />
+        <ProjectCarousel slides={slides} label={`${title} screenshots`} blend={imageStyle === 'blend'} credit={imageCredit} />
       </div>
     )}
   </div>

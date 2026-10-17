@@ -27,6 +27,10 @@ interface Props {
   repo?: string;
   image?: ImageMetadata;
   imageAlt?: string;
+  imageStyle?: 'frame' | 'blend';
+  imageCredit?: string;
+  /** Engineering projects (`industry`) read as a plain article; web projects keep the label column. */
+  category?: 'industry' | 'web';
   gallery?: GallerySlide[];
   tags?: string[];
   /** Project slug, used to resolve the per-project dynamic OG image. */
@@ -45,6 +49,9 @@ const {
   repo,
   image,
   imageAlt,
+  imageStyle = 'frame',
+  imageCredit,
+  category = 'web',
   gallery = [],
   tags = [],
   slug = '',
@@ -118,6 +125,8 @@ const languageAlternates = Object.fromEntries(
       repo={repo}
       image={image}
       imageAlt={imageAlt}
+      imageStyle={imageStyle}
+      imageCredit={imageCredit}
       gallery={gallery}
       tags={tags}
       breadcrumbs={breadcrumbs}
@@ -125,7 +134,7 @@ const languageAlternates = Object.fromEntries(
 
     <article class="py-10">
       <div class="mx-auto max-w-6xl px-6">
-        <div class="project-body prose max-w-none" data-reveal-content>
+        <div class:list={['project-body prose max-w-none', category === 'industry' && 'project-body--classic']} data-reveal-content>
           <slot />
         </div>
 
@@ -192,6 +201,111 @@ const languageAlternates = Object.fromEntries(
   }
   .project-body > h2 + * {
     margin-top: 0;
+  }
+  /* Engineering projects read as an article: ordinary headings above the text,
+     and the text runs the full width of the box. */
+  .project-body.project-body--classic > h2 {
+    float: none;
+    clear: both;
+    width: auto;
+    margin: 2.5rem 0 0.75rem;
+    padding: 0;
+    border-top: 0;
+    font-family: var(--font-display, inherit);
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    text-transform: none;
+    color: var(--color-foreground);
+  }
+  .project-body.project-body--classic > h2:first-child {
+    margin-top: 0;
+  }
+  .project-body.project-body--classic > :not(h2) {
+    max-width: none;
+    margin-left: 0;
+  }
+  .project-body.project-body--classic > h2 + *,
+  .project-body.project-body--classic > h2:not(:first-child) + * {
+    margin-top: 0;
+  }
+  /* Data tables: a ruled grid with a heading row, for reading across. The
+     label column is set apart in mono so each row names its subject first. */
+  .project-body table {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 0.5rem;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  .project-body thead {
+    border-bottom: 0;
+  }
+  .project-body th {
+    padding: 0.625rem 0.875rem;
+    border-bottom: 2px solid var(--color-border-strong);
+    background: var(--color-background-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .project-body th + th,
+  .project-body td + td {
+    border-left: 1px solid var(--color-border);
+  }
+  .project-body td {
+    padding: 0.75rem 0.875rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .project-body tr:last-child td {
+    border-bottom: 0;
+  }
+  .project-body tbody tr:nth-child(even) td {
+    background: color-mix(in oklab, var(--color-background-secondary) 55%, transparent);
+  }
+  .project-body td:first-child {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-foreground);
+  }
+  @media (max-width: 767px) {
+    /* A table wider than the phone scrolls inside itself (see .prose table).
+       Give each column a readable width so it scrolls as a whole table rather
+       than squeezing the last column off the edge. */
+    .project-body th,
+    .project-body td {
+      min-width: 10rem;
+    }
+    .project-body td:first-child {
+      min-width: 7rem;
+    }
+  }
+  @media (min-width: 768px) {
+    /* Wide blocks use the full width of the page, not the reading column. */
+    .project-body.prose > .project-wide {
+      max-width: none;
+      margin-left: 0;
+      clear: both;
+    }
+    /* Tables: fixed column widths, the first two columns (theme, source) stay
+       narrow and the last two share the rest. */
+    .project-body.prose > table {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      max-width: none;
+      margin-left: 0;
+      clear: both;
+    }
+    .project-body th:nth-child(1) { width: 9rem; }
+    .project-body th:nth-child(2) { width: 22%; }
+    .project-body th:nth-child(3) { width: 30%; }
   }
   @media (min-width: 1024px) {
     /* Label in the left column, copy in the right; the label floats, so the

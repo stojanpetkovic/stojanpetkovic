@@ -1,0 +1,109 @@
+---
+title: "Geotermalni potencijal Vojvodine: 3D model"
+locale: sr
+description: "Interaktivni 3D model 51 geotermalne bušotine Vojvodine: temperatura po dubini, konture i mapa terena, izgrađen iz javnih podataka."
+tags: ["Geotermija", "Vojvodina", "3D model", "Energija"]
+featured: false
+category: industry
+order: 1
+year: 2026
+role: "Istraživanje, analiza i 3D vizuelizacija"
+services: ["Prikupljanje podataka", "Geološka analiza", "3D model"]
+meta: ["Vojvodina", "3D model", "51 bušotina", "Javni podaci", "U toku"]
+icon: "thermometer"
+image: "../../../assets/projects/geotermalni-potencijal-vojvodine-model-top.webp"
+imageStyle: blend
+imageCredit: "Mapa © saradnici OpenStreetMap-a, SRTM · stil © OpenTopoMap (CC-BY-SA)"
+imageAlt: "Pogled odozgo na 3D model Vojvodine: mapa terena sa reljefom, konturama dubine do izabrane temperature i bušotinama sa nazivima naselja."
+---
+
+import GeothermalModel from '@/components/projects/GeothermalModel.astro';
+import StatCard from '@/components/patterns/StatCard.astro';
+
+## Cilj
+
+Podaci o toploj podzemnoj vodi u Vojvodini postoje, ali su razbacani po studijama, atlasima i bazama, i niko ih nije sabrao u prikaz koji opština, investitor ili inženjer može da otvori i pročita. Ovaj projekat ih sabira i pretvara u **3D model Vojvodine** u kojem se vidi gde je i na kojoj dubini voda topla.
+
+Počinje u Vojvodini jer samo za nju postoje javni podaci o bušotinama dovoljni za model. Za ostale delove Srbije biće urađen poseban model za svaki region u kojem se nađu podaci.
+
+Vojvodina leži u Panonskom basenu, gde je Zemljina kora tanka, 25,5 do 29 km, a toplotni tok iznosi 83 do 111 mW/m² naspram oko 60 mW/m² u proseku za kontinent. Prosečan geotermalni gradijent je oko 53 °C po kilometru dubine, dok je za kontinentalnu koru uobičajeno oko 30 °C po kilometru. Resurs je istražen, a malo korišćen: do 2009. izgrađena su 24 sistema, te godine je radilo 12, a iskorišćeno je oko 8 % raspoložive toplotne snage istraženih bušotina, koja iznosi 72,6 MWt. Izvori brojki su u odeljku Izvori.
+
+## 3D model
+
+Prvi rezultat projekta je **urađen 3D model** Vojvodine sa svih 51 bušotinom iz Priloga 1. Blok ima oblik pokrajine. Na vrhu je teren sa reljefom i mapom, ispod njega su providni horizontalni slojevi obojeni po temperaturi: zeleno gde je hladnije, preko žutog do crvenog gde je toplije. Temperature u slojevima potiču iz karata Geotermalnog atlasa Vojvodine (2010) na 500, 1.000 i 2.000 m, koje su digitalizovane za ovaj model. Svaka bušotina prikazuje ispitani interval kao traku obojenu temperaturom vode iz Priloga 1. Na terenu su konture dubine na kojoj se dostiže izabrana temperatura; iz pogleda odozgo zatvaraju se u prstenove oko toplijih delova. Prevlačenjem okrećete model, klizačima birate razmak slojeva, providnost i temperaturu za konture, a klikom na bušotinu vidite njene podatke.
+
+<GeothermalModel locale="sr" />
+
+## Podaci
+
+Model koristi [Prilog 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) [studije](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_2005.pdf) *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), evidenciju NIS Naftagasa koju je dostavio Pokrajinski sekretarijat za energetiku i mineralne sirovine. Studija i oba priloga javno su objavljeni na [sajtu Pokrajinskog sekretarijata](https://www.psegs.vojvodina.gov.rs/rs/studije/studije-potencijala-geotermalne-energije-u-apv/), a svi podaci u modelu potiču iz javno objavljenih dokumenata navedenih u odeljku Izvori. U prilogu je 51 bušotina u 32 naselja, u tri tabele: 14 u proizvodnji, 12 van proizvodnje i 25 koje nikad nisu bile u proizvodnji, a smatraju se perspektivnim. Za svaku su dati naselje, godina, ukupna dubina, kaptirani interval, temperatura vode, izdašnost i mineralizacija.
+
+<div class="grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
+  <StatCard compact label="Bušotina" value="51" icon="map-pin" />
+  <StatCard compact label="Najtoplija" value="82 °C" icon="thermometer" />
+  <StatCard compact label="Najdublja" value="2.520 m" icon="layers" />
+  <StatCard compact label="Naselja" value="32" icon="search" />
+</div>
+
+- **Temperature vode** su od 23 do 82 °C, u proseku oko 47 °C. Najtoplije su Vbc-1/H kod Vrbice (82 °C, interval od 1.743 do 1.854 m), Cr-5 kod Srpske Crnje (75 °C), Kps-1/H kod Kupusine (72 °C) i Kž-3/H u Kanjiži (70 °C). Tri bušotine su ispod 30 °C, 25 su između 30 i 50 °C, 19 između 50 i 70 °C, a četiri na 70 °C ili više.
+- **Dubine** su od 300 do 2.520 m, u proseku oko 940 m.
+- **Gradijent** po bušotini, računat od 11 °C na površini, kreće se od 22 do 81 °C po kilometru, a medijana je 45 °C po kilometru. Za 26 bušotina koje imaju kaptirani interval medijana je 49 °C po kilometru.
+- **Interval:** 26 od 51 bušotine ima kaptirani interval. Kod ostalih 25 Prilog daje samo ukupnu dubinu, pa je temperatura u modelu stavljena na dno bušotine; takav gradijent je donja granica.
+
+Temperature u slojevima su iz [Geotermalnog atlasa Vojvodine](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geotermalni_atlas_AP_Vojvodine.pdf) (2010). Karte 5, 6 i 7 daju temperaturu na 500, 1.000 i 2.000 m u klasama od 0,5, 1 i 2 °C. One su digitalizovane: svaki piksel dobija temperaturu klase čija mu je boja najbliža u legendi, a rezultat je mreža od 2 km u Gauss–Krigerovim koordinatama, sa 6.421 ćelijom, od kojih model koristi one unutar granice pokrajine. Između karata temperatura raste pravolinijski od 11 °C na površini, a ispod 2.000 m se produžava nagibom između 1.000 i 2.000 m. Digitalizacija se slaže sa atlasom: srednja temperatura na 500 m je 38,3 °C prema 38,2 °C u tekstu atlasa, najviše temperature na 500 m su oko Subotice i Kupinova, a najniže u istočnom Banatu kod Uljme, i najniža temperatura na 2.000 m je oko Inđije, ispod 96 °C. Raspon na 1.000 m je 57,5 do 72,5 °C prema 57,5 do 73,5 °C u atlasu, jer filter uklanja pojedinačne ćelije.
+
+Oblik modela je granica AP Vojvodine iz OpenStreetMap-a ([© saradnici OpenStreetMap-a](https://www.openstreetmap.org/copyright), ODbL), pojednostavljena na 250 m. Reljef je iz [Terrain Tiles na AWS-u](https://registry.opendata.aws/terrain-tiles/) (visine iz SRTM-a i drugih izvora, [spisak](https://github.com/tilezen/joerd/blob/master/docs/attribution.md)), na mreži od 1 km, a nula je medijana visine pokrajine, 79 m. Najviša tačka na mreži je Fruška gora, 501 m; njen vrh Crveni Čot je 539 m.
+
+## Provera
+
+Atlas i bušotine su dva izvora i ne slažu se uvek. Za 53 ispitivanja iz Priloga 1 (51 bušotina, jedna ima tri intervala) poređena je temperatura vode iz Priloga sa temperaturom atlasa na istoj dubini ispod istog naselja.
+
+| Ispitivanja | Broj | Atlas toplji od vode | Prosečna razlika |
+|---|---|---|---|
+| Sva | 53 | 44 | +9,0 °C, medijana +6,4 °C |
+| Sa kaptiranim intervalom | 28 | 21 | +5,8 °C, medijana +3,4 °C |
+| Bez intervala, na ukupnoj dubini | 25 | 23 | +12,6 °C, medijana +8,2 °C |
+
+Atlas je gotovo uvek topliji, iz dva razloga. Prilog daje temperaturu vode na izlazu iz bušotine, koja je niža od temperature stene, a atlas temperature merene u bušotinama koriguje. Kod 25 ispitivanja bez intervala temperatura vode je stavljena na ukupnu dubinu, a voda je mogla doći sa manje dubine, pa je poređenje sa atlasom na toj dubini preoštro. Kod ispitivanja sa intervalom razlika je manja, a kod 14 od 28 u granicama je 5 °C.
+
+Zato trake na bušotinama i boje slojeva ne treba očekivati da se poklapaju: trake su temperatura vode iz Priloga, a boje su temperatura stene iz atlasa.
+
+## Izvori
+
+Šta je korišćeno i šta se još može iskoristiti.
+
+| Tema | Izvor | Šta sadrži | Pristup i stanje |
+|---|---|---|---|
+| Bušotine, korišćeno u modelu | [Prilog 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf), *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005) | 51 bušotina: dubina, interval, temperatura, izdašnost, mineralizacija | Javno dostupan PDF na sajtu Pokrajinskog sekretarijata, uneto u model. Nema koordinata |
+| Bušotine, temperature na 500, 1.000 i 2.000 m (u modelu), gradijent, toplotni tok | [Geotermalni atlas Vojvodine](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010) | 78 bušotina s dubinom, temperaturom, protokom i toplotnom snagom; deset karata 1:300.000; baza s više od 120 pokazatelja po bušotini | PDF sa skeniranim kartama. Karte 5, 6 i 7 digitalizovane su u model (mreža od 2 km). Baza je prema atlasu na sajtu Pokrajinskog sekretarijata; još nije dobijena |
+| Vojvodina ukratko | [GeoERA, T. Petrović Pantić](https://geoera.eu/blog/geomanifestations-in-north-serbia-vojvodina/) (2018) | Debljina kore, toplotni tok 83 do 111 mW/m², oko 80 bušotina, najviša temperatura 82 °C, prosečna 44 °C | Veb strana, korišćena za kontekst |
+| Toplotni tok | [Global Heat Flow Database, izdanje 2024](https://doi.org/10.5880/fidgeo.2024.014) (IHFC, GFZ Potsdam) | 91.182 vrednosti toplotnog toka iz 1.586 publikacija, sa ocenama kvaliteta | Otvoreno preuzimanje preko DOI. Tačke u Vojvodini i licencu treba proveriti |
+| Toplotni tok i temperatura na dubini, Evropa | Atlas of Geothermal Resources in Europe (Hurter i Haenel, EUR 17811, 2002) | Evropske karte toplotnog toka i temperature na dubini | Objavljen PDF. Nije potvrđeno da pokriva Srbiju |
+| Izvori i bušotine cele Srbije | [Baza geotermalnih resursa Srbije](https://link.springer.com/article/10.1007/s12665-021-09985-w), Environmental Earth Sciences, 2021 | 293 zapisa na 160 lokacija, podzemna voda 20 do 111 °C, tri potencijalna područja: Panonski basen (Vojvodina), Mačva–Srem, od Jošaničke Banje do Vranjske Banje | Rad. Prema radu, podaci su dostupni na zahtev autora |
+| Južna Srbija | [Hidrogeotermalni resursi srpskog kristalastog jezgra](https://nardus.mpn.gov.rs/handle/123456789/6243) | Termalne vode kristalastog jezgra: Prolom, Ribarska, Sijarinska, Vranjska i Bujanovačka Banja | Otvoreno u nacionalnom repozitorijumu |
+| Geologija | [EGDI](https://www.europe-geology.eu/), EuroGeoSurveys | Više od 800 slojeva karata i dokumenata evropskih geoloških službi | Otvoren portal. Srpski slojevi još nisu provereni |
+| Nacionalni atlas | Geotermalni atlas Republike Srbije, Ministarstvo rudarstva i energetike | Planirano: resursi po području i dubini, trenutno korišćenje, potencijal za toplotu i struju | [Tender raspisan u avgustu 2026](https://balkangreenenergynews.com/rs/srbija-priprema-geotermalni-atlas/), ponude do 11. septembra. Nije objavljen |
+| Oblik pokrajine | Granica AP Vojvodine, [OpenStreetMap](https://www.openstreetmap.org/copyright) | Granica, pojednostavljena na 250 m | Otvoreni podaci (ODbL), preuzeto jednom preko Nominatim API-ja i uneto u model |
+| Reljef | [Terrain Tiles na AWS-u](https://registry.opendata.aws/terrain-tiles/) | Visine terena (SRTM i drugi izvori, [spisak](https://github.com/tilezen/joerd/blob/master/docs/attribution.md)), zoom 8 | Otvoreni podaci, preuzeto jednom i uneto kao mreža od 1 km |
+
+Položaji naselja su iz Wikidata, a Bačko Karađorđevo iz Wikipedije (Karađorđevo, Bačka Palanka). Mapa terena je OpenTopoMap, sa podacima OpenStreetMap-a i SRTM-a, pod licencom CC-BY-SA.
+
+## Ograničenja
+
+- **Položaj:** Prilog daje naselja, a ne koordinate, pa svaka bušotina stoji u centru svog naselja.
+- **Rezolucija atlasa:** karte su u klasama od 0,5, 1 i 2 °C, pa su vrednosti sredine klasa. Između karata temperatura raste pravolinijski, a ispod 2.000 m, dublje od svake karte, ekstrapolira se.
+- **Reljef:** visine su na mreži od 1 km iz SRTM-a i drugih izvora, pa su vrhovi snižen (Fruška gora 501 m umesto 539 m). Slojevi temperature crtaju se kao dubina ispod medijane pokrajine i ne prate teren; razlika je bitna samo na planinama.
+- **Studija iz javnih podataka:** ne procenjuje resurs na nivou koji traže banke i ne zamenjuje bušenje, ispitivanje ni studiju izvodljivosti za konkretnu lokaciju. Pokazuje gde bi njih vredelo raditi prvo.
+
+## Sledeći koraci
+
+1. **Preostalih 27 bušotina.** Tabela 1 atlasa daje 78 bušotina, a model ima 51.
+2. **Pravi položaji.** Karta 1 atlasa daje položaj svake bušotine u Gauss–Krigerovim koordinatama, istim u kojima su digitalizovane karte temperature; zatražiti bazu od sekretarijata ili digitalizovati kartu.
+3. **Gradijent i toplotni tok.** Karte 8 i 9 atlasa dodati kao nove slojeve.
+4. **Toplotna snaga i potražnja.** Dodati toplotnu snagu bušotina i gradove sa daljinskim grejanjem.
+5. **Ostali regioni Srbije.** Poseban model za južnu Srbiju (Vranjska Banja–Jošanička Banja) i za Mačvu i Srem, kada se dobiju podaci od autora rada iz 2021. ili iz državnog atlasa.
+6. **Poređenje sa državnim atlasom** kada bude objavljen.
+
+## Stanje
+
+Oktobar 2026: 3D model Vojvodine je urađen u obliku pokrajine, sa reljefom na površini. Slojevi i konture koriste digitalizovane karte temperature iz atlasa iz 2010, a bušotine iz Priloga 1 prikazane su uz njih. U toku je dodavanje preostalih bušotina i pravih položaja.

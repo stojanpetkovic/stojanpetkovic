@@ -299,6 +299,103 @@
     "followOn": "Folgen Sie mir auf {platform}"
   },
   "pages": {
+    "geothermalModel": {
+      "canvasLabel": "Interaktives 3D-Modell der Bohrungen in der Vojvodina mit Temperaturschnitten. Ziehen zum Drehen, auf das Modell klicken und scrollen zum Zoomen.",
+      "loading": "3D-Modell wird geladen…",
+      "noWebgl": "Dieser Browser konnte 3D-Grafik nicht starten, das Modell kann daher nicht angezeigt werden.",
+      "hint": "Ziehen dreht · Rechtsklick-Ziehen oder zwei Finger verschieben · auf das Modell klicken, dann scrollen zum Zoomen · Klick auf eine Bohrung zeigt Daten",
+      "zoomIn": "Vergrößern",
+      "zoomOut": "Verkleinern",
+      "views": {
+        "title": "Ansicht",
+        "perspective": "Perspektive",
+        "top": "Von oben",
+        "south": "Von Süden",
+        "west": "Von Westen"
+      },
+      "scale": {
+        "title": "Maßstab",
+        "vertical": "Vertikale Überhöhung",
+        "relief": "Überhöhung des Reliefs",
+        "ground": "Durchsichtigkeit des Geländes"
+      },
+      "layers": {
+        "title": "Schichten",
+        "show": "Horizontale Schichten",
+        "spacing": "Schichtabstand",
+        "opacity": "Durchsichtigkeit der Schichten",
+        "walls": "Seitenwände"
+      },
+      "wells": {
+        "title": "Bohrungen",
+        "labels": "Ortsnamen",
+        "producing": "In Betrieb (2005)",
+        "idle": "Außer Betrieb",
+        "untapped": "Nie in Betrieb"
+      },
+      "contours": {
+        "title": "Höhenlinien am Gelände",
+        "show": "Tiefe bis zu einer gewählten Temperatur",
+        "temp": "Erreichte Temperatur"
+      },
+      "map": {
+        "title": "Geländekarte",
+        "show": "Karte auf dem Gelände anzeigen (lädt Bilder vom Kartenserver)",
+        "loading": "Karte wird geladen…",
+        "error": "Die Karte konnte nicht geladen werden.",
+        "credit": "Kartendaten © <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener noreferrer\">OpenStreetMap-Mitwirkende</a>, SRTM · Stil © <a href=\"https://opentopomap.org\" target=\"_blank\" rel=\"noopener noreferrer\">OpenTopoMap</a> (<a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noopener noreferrer\">CC-BY-SA</a>)"
+      },
+      "legend": {
+        "title": "Temperatur, °C",
+        "measured": "Farbiger Balken an der Bohrung: gemessen im getesteten Intervall",
+        "hollow": "Hohler Marker: kein Intervall angegeben, bei Gesamttiefe eingetragen",
+        "modelled": "Farbige Schichten und Wände: Temperatur aus den Atlaskarten für 500, 1.000 und 2.000 m; an den Wänden eine Linie alle 10 °C",
+        "contours": "Linien am Gelände: Tiefe in km, in der die gewählte Temperatur erreicht wird; Ringe schließen sich um die wärmeren Bohrungen",
+        "head": "Bohrlochkopf: gefüllt in Betrieb, grau außer Betrieb, Ring nie in Betrieb"
+      },
+      "detail": {
+        "title": "Bohrung",
+        "empty": "Klicken Sie auf eine Bohrung, um hier ihre Daten zu sehen."
+      },
+      "tip": {
+        "well": "<strong>{id}</strong> · {place}<br>{status}<br>Tiefe {depth} {unit}, {interval}<br>Wasser {temp} {degC}",
+        "interval": "Intervall {top}–{bottom} {unit}",
+        "noInterval": "Intervall nicht angegeben",
+        "section": "<strong>{temp} {degC}</strong> in {depth} {unit} (Atlas)<br>{lat}°N, {lon}°E · Gradient {gradient} {gunit}"
+      },
+      "test": {
+        "interval": "Intervall {top}–{bottom} {unit}",
+        "noInterval": "Kein Intervall angegeben",
+        "lowerBound": "Untergrenze"
+      },
+      "fields": {
+        "place": "Ort",
+        "status": "Status",
+        "year": "Gebohrt",
+        "depth": "Gesamttiefe"
+      },
+      "status": {
+        "producing": "In Betrieb",
+        "idle": "Außer Betrieb",
+        "untapped": "Nie in Betrieb"
+      },
+      "units": {
+        "m": "m",
+        "km": "km",
+        "degC": "°C",
+        "gradient": "°C/km",
+        "flow": "l/s",
+        "minerals": "g/l"
+      },
+      "notesTitle": "So ist die Darstellung zu lesen",
+      "notes": [
+        "**Lage.** Der Anhang nennt Orte, keine Koordinaten, daher steht jede Bohrung im Zentrum ihres Ortes. Bohrungen desselben Ortes sind auf einem Ring von etwa 2 km Breite verteilt, damit man sie unterscheiden kann.",
+        "**Gemessen.** Jeder farbige Balken ist die Wassertemperatur im getesteten Intervall. Wo der Anhang kein Intervall nennt, ist der Marker hohl und liegt bei der Gesamttiefe; die Temperatur dort stammt von Wasser, das auch von weiter oben gekommen sein kann, der Gradient dieser Bohrungen ist also eine Untergrenze.",
+        "**Atlas.** Die Schichten, Wände und Höhenlinien sind nicht an den Bohrungen gemessen. Sie stammen aus den Temperaturkarten für 500, 1.000 und 2.000 m des [Geothermischen Atlas der Vojvodina](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010), digitalisiert aus den Farbklassen der Karten (Schritte von 0,5, 1 und 2 °C). Zwischen den Karten steigt die Temperatur geradlinig von 11 °C an der Oberfläche, was angenommen ist. Unterhalb von 2 km, tiefer als jede Karte, setzt sie sich mit der Steigung zwischen 1 und 2 km fort. Die Balken an den Bohrungen (Anhang) und die Farben (Atlas) sind verschiedene Quellen und stimmen nicht immer überein: Der Atlas ist bei 44 von 53 Tests wärmer als das Wasser des Anhangs, im Mittel um 9 °C.",
+        "**Form und Relief.** Die Form ist die Grenze der AP Vojvodina aus OpenStreetMap. Die Geländehöhen stammen aus Terrain Tiles auf AWS (SRTM und andere Quellen), auf einem 1-km-Raster, gezeichnet über dem Median der Provinz, 79 m, mit der im Maßstab-Panel eingestellten Überhöhung. Die Temperaturschichten sind als Tiefe unter diesem Niveau gezeichnet und folgen dem Gelände nicht; der Unterschied zählt nur an der Fruška Gora und im Vršac-Gebirge. Der Anhang nennt keine Höhen der Bohrungen, daher sitzen die Bohrlochköpfe auf dem Geländemodell.",
+        "**Quelle.** Bohrungen und Tests stammen aus [Anhang 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) der Studie *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), Aufzeichnungen von NIS Naftagas, bereitgestellt vom Provinzsekretariat für Energie und mineralische Rohstoffe, das die Studie öffentlich zugänglich gemacht hat: 51 Bohrungen in drei Tabellen, Kž-2/H einmal gezählt."
+      ]
+    },
     "landing": {
       "meta": {
         "title": "Eine Website, die Ihnen Kunden bringt",

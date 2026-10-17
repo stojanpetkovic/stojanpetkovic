@@ -299,6 +299,103 @@
     "followOn": "Follow us on {platform}"
   },
   "pages": {
+    "geothermalModel": {
+      "canvasLabel": "Interactive 3D model of the wells of Vojvodina with temperature sections. Drag to rotate, click the model and scroll to zoom.",
+      "loading": "Loading the 3D model…",
+      "noWebgl": "This browser could not start 3D graphics, so the model cannot be shown.",
+      "hint": "Drag to rotate · right-drag or two fingers to pan · click the model, then scroll to zoom · click a well for details",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "views": {
+        "title": "View",
+        "perspective": "Perspective",
+        "top": "From above",
+        "south": "From the south",
+        "west": "From the west"
+      },
+      "scale": {
+        "title": "Scale",
+        "vertical": "Vertical exaggeration",
+        "relief": "Relief exaggeration",
+        "ground": "Ground opacity"
+      },
+      "layers": {
+        "title": "Layers",
+        "show": "Horizontal layers",
+        "spacing": "Layer spacing",
+        "opacity": "Layer opacity",
+        "walls": "Side walls"
+      },
+      "wells": {
+        "title": "Wells",
+        "labels": "Settlement names",
+        "producing": "In production (2005)",
+        "idle": "Not in production",
+        "untapped": "Never in production"
+      },
+      "contours": {
+        "title": "Contours on the ground",
+        "show": "Depth to a chosen temperature",
+        "temp": "Temperature reached"
+      },
+      "map": {
+        "title": "Terrain map",
+        "show": "Show a map on the ground (loads pictures from the map server)",
+        "loading": "Loading the map…",
+        "error": "The map could not be loaded.",
+        "credit": "Map data © <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener noreferrer\">OpenStreetMap contributors</a>, SRTM · style © <a href=\"https://opentopomap.org\" target=\"_blank\" rel=\"noopener noreferrer\">OpenTopoMap</a> (<a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noopener noreferrer\">CC-BY-SA</a>)"
+      },
+      "legend": {
+        "title": "Temperature, °C",
+        "measured": "Coloured bar on a well: measured at the tested interval",
+        "hollow": "Hollow marker: no interval given, plotted at total depth",
+        "modelled": "Coloured layers and walls: temperature from the atlas maps at 500, 1,000 and 2,000 m; a line every 10 °C on the walls",
+        "contours": "Lines on the ground: depth in km at which the chosen temperature is reached; rings close around the warmer wells",
+        "head": "Wellhead: filled in production, grey idle, ring never in production"
+      },
+      "detail": {
+        "title": "Well",
+        "empty": "Click a well to see its data here."
+      },
+      "tip": {
+        "well": "<strong>{id}</strong> · {place}<br>{status}<br>Depth {depth} {unit}, {interval}<br>Water {temp} {degC}",
+        "interval": "interval {top}–{bottom} {unit}",
+        "noInterval": "interval not given",
+        "section": "<strong>{temp} {degC}</strong> at {depth} {unit} (atlas)<br>{lat}°N, {lon}°E · gradient {gradient} {gunit}"
+      },
+      "test": {
+        "interval": "Interval {top}–{bottom} {unit}",
+        "noInterval": "No interval given",
+        "lowerBound": "lower bound"
+      },
+      "fields": {
+        "place": "Settlement",
+        "status": "Status",
+        "year": "Drilled",
+        "depth": "Total depth"
+      },
+      "status": {
+        "producing": "In production",
+        "idle": "Not in production",
+        "untapped": "Never in production"
+      },
+      "units": {
+        "m": "m",
+        "km": "km",
+        "degC": "°C",
+        "gradient": "°C/km",
+        "flow": "l/s",
+        "minerals": "g/l"
+      },
+      "notesTitle": "How to read it",
+      "notes": [
+        "**Position.** The annex lists settlements, not coordinates, so each well stands at the centre of its settlement. Wells of one settlement are spread on a ring about 2 km wide so that they can be told apart.",
+        "**Measured.** Each coloured bar is the temperature of the water at the tested interval. Where the annex gives no interval the marker is hollow and sits at the total depth; the temperature there is that of the water, which can have come from higher up, so the gradient at those wells is a lower bound.",
+        "**Atlas.** The layers, walls and contours are not measured at the wells. They come from the temperature maps at 500, 1,000 and 2,000 m of the [Geothermal Atlas of Vojvodina](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010), digitised from the colour classes of the maps (steps of 0.5, 1 and 2 °C). Between the maps temperature rises in straight lines from 11 °C at the surface, which is assumed. Below 2 km, deeper than any map, it continues at the slope between 1 and 2 km. The bars on the wells (annex) and the colours (atlas) are different sources and do not always agree: the atlas is warmer than the annex water at 44 of 53 tests, by 9 °C on average.",
+        "**Shape and relief.** The outline is the boundary of AP Vojvodina from OpenStreetMap. The height of the ground is from Terrain Tiles on AWS (SRTM and other sources), on a 1 km grid, drawn above the median level of the province, 79 m, with the exaggeration set in the scale panel. The temperature layers are drawn as depth below that level and do not follow the ground; the difference matters only on Fruška Gora and the Vršac Mountains. The annex gives no elevations of the wells, so the wellheads sit on the ground model.",
+        "**Source.** Wells and tests are from [Prilog 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) of *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), records of NIS Naftagas supplied by the Provincial Secretariat for Energy and Mineral Resources, which published the study openly: 51 wells in three tables, Kž-2/H counted once."
+      ]
+    },
     "landing": {
       "meta": {
         "title": "A website that brings you clients",

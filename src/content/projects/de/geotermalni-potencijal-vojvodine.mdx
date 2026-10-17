@@ -1,0 +1,109 @@
+---
+title: "Geothermisches Potenzial der Vojvodina: ein 3D-Modell"
+locale: de
+description: "Ein interaktives 3D-Modell von 51 Geothermiebohrungen der Vojvodina: Temperatur mit der Tiefe, Höhenlinien und Geländekarte, aus öffentlichen Daten gebaut."
+tags: ["Geothermie", "Vojvodina", "3D-Modell", "Energie"]
+featured: false
+category: industry
+order: 1
+year: 2026
+role: "Recherche, Analyse & 3D-Visualisierung"
+services: ["Datenerhebung", "Geologische Analyse", "3D-Modell"]
+meta: ["Vojvodina", "3D-Modell", "51 Bohrungen", "Öffentliche Daten", "In Arbeit"]
+icon: "thermometer"
+image: "../../../assets/projects/geotermalni-potencijal-vojvodine-model-top.webp"
+imageStyle: blend
+imageCredit: "Karte © OpenStreetMap-Mitwirkende, SRTM · Stil © OpenTopoMap (CC-BY-SA)"
+imageAlt: "Draufsicht auf das 3D-Modell der Vojvodina: Geländekarte mit Relief, Höhenlinien der Tiefe bis zu einer gewählten Temperatur und Bohrungen mit Ortsnamen."
+---
+
+import GeothermalModel from '@/components/projects/GeothermalModel.astro';
+import StatCard from '@/components/patterns/StatCard.astro';
+
+## Ziel
+
+Daten über warmes Grundwasser in der Vojvodina gibt es, doch sie liegen verstreut in Studien, Atlanten und Datenbanken, und niemand hat sie zu einem Bild zusammengeführt, das eine Gemeinde, ein Investor oder ein Ingenieur öffnen und lesen kann. Dieses Projekt sammelt sie und macht daraus ein **3D-Modell der Vojvodina**, das zeigt, wo und in welcher Tiefe das Wasser warm ist.
+
+Es beginnt in der Vojvodina, weil nur dort öffentliche Bohrungsdaten für ein Modell reichen. Für die übrigen Teile Serbiens entsteht je ein eigenes Modell für jede Region, in der sich Daten finden.
+
+Die Vojvodina liegt im Pannonischen Becken, wo die Kruste dünn ist, 25,5 bis 29 km, und der Wärmestrom 83 bis 111 mW/m² beträgt, gegenüber etwa 60 mW/m² im Durchschnitt des Kontinents. Der mittlere geothermische Gradient liegt bei etwa 53 °C je Kilometer Tiefe, während für kontinentale Kruste etwa 30 °C je Kilometer üblich sind. Die Ressource ist erkundet, aber wenig genutzt: bis 2009 wurden 24 Systeme gebaut, in jenem Jahr liefen 12, und etwa 8 % der verfügbaren Wärmeleistung der erkundeten Bohrungen, 72,6 MWt, wurden genutzt. Die Quellen dieser Zahlen stehen im Abschnitt Quellen.
+
+## 3D-Modell
+
+Das erste Ergebnis des Projekts ist das **fertige 3D-Modell** der Vojvodina mit allen 51 Bohrungen aus Anhang 1. Der Block hat die Form der Provinz. Oben liegt das Gelände mit Relief und Karte, darunter durchsichtige horizontale Schichten, nach Temperatur gefärbt: grün, wo es kühl ist, über gelb bis rot, wo es heiß ist. Die Temperaturen der Schichten stammen aus den Karten des Geothermischen Atlas der Vojvodina (2010) für 500, 1.000 und 2.000 m, die für dieses Modell digitalisiert wurden. Jede Bohrung zeigt ihr getestetes Intervall als Balken in der Farbe der Wassertemperatur aus Anhang 1. Auf dem Gelände zeigen Höhenlinien die Tiefe, in der eine gewählte Temperatur erreicht wird; von oben gesehen schließen sie sich zu Ringen um die wärmeren Teile. Ziehen dreht das Modell, mit den Reglern stellen Sie Schichtabstand, Durchsichtigkeit und die Temperatur der Höhenlinien ein, ein Klick auf eine Bohrung zeigt ihre Daten.
+
+<GeothermalModel locale="de" />
+
+## Daten
+
+Das Modell nutzt [Anhang 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) der [Studie](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_2005.pdf) *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), Aufzeichnungen von NIS Naftagas, bereitgestellt vom Provinzsekretariat für Energie und mineralische Rohstoffe. Die Studie und beide Anhänge sind auf der [Website des Provinzsekretariats](https://www.psegs.vojvodina.gov.rs/rs/studije/studije-potencijala-geotermalne-energije-u-apv/) öffentlich zugänglich, und alle Daten im Modell stammen aus den unter Quellen genannten öffentlich zugänglichen Dokumenten. Der Anhang führt 51 Bohrungen in 32 Orten in drei Tabellen: 14 in Betrieb, 12 außer Betrieb und 25, die nie in Betrieb waren und als aussichtsreich gelten. Für jede sind Ort, Jahr, Gesamttiefe, Ausbauintervall, Wassertemperatur, Schüttung und Mineralisation angegeben.
+
+<div class="grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
+  <StatCard compact label="Bohrungen" value="51" icon="map-pin" />
+  <StatCard compact label="Heißeste" value="82 °C" icon="thermometer" />
+  <StatCard compact label="Tiefste" value="2.520 m" icon="layers" />
+  <StatCard compact label="Orte" value="32" icon="search" />
+</div>
+
+- **Wassertemperaturen** liegen zwischen 23 und 82 °C, im Mittel bei etwa 47 °C. Am heißesten sind Vbc-1/H bei Vrbica (82 °C, Intervall 1.743 bis 1.854 m), Cr-5 bei Srpska Crnja (75 °C), Kps-1/H bei Kupusina (72 °C) und Kž-3/H in Kanjiža (70 °C). Drei Bohrungen liegen unter 30 °C, 25 zwischen 30 und 50 °C, 19 zwischen 50 und 70 °C und vier bei 70 °C oder mehr.
+- **Tiefen** reichen von 300 bis 2.520 m, im Mittel etwa 940 m.
+- **Gradient** je Bohrung, gerechnet von 11 °C an der Oberfläche, reicht von 22 bis 81 °C je Kilometer, der Median ist 45 °C je Kilometer. Für die 26 Bohrungen mit Ausbauintervall liegt der Median bei 49 °C je Kilometer.
+- **Intervall:** 26 der 51 Bohrungen haben ein Ausbauintervall. Bei den übrigen 25 nennt der Anhang nur die Gesamttiefe, daher steht die Temperatur im Modell am Bohrungsgrund; ein solcher Gradient ist eine Untergrenze.
+
+Die Temperaturen der Schichten stammen aus dem [Geothermischen Atlas der Vojvodina](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010). Die Karten 5, 6 und 7 geben die Temperatur bei 500, 1.000 und 2.000 m in Klassen von 0,5, 1 und 2 °C an. Sie wurden digitalisiert: Jeder Pixel erhält die Temperatur der Legendenklasse, die seiner Farbe am nächsten liegt, und das Ergebnis ist ein 2-km-Raster in Gauß-Krüger-Koordinaten mit 6.421 Zellen, von denen das Modell die innerhalb der Grenze der Provinz nutzt. Zwischen den Karten steigt die Temperatur geradlinig von 11 °C an der Oberfläche, und unterhalb von 2.000 m setzt sie sich mit der Steigung zwischen 1.000 und 2.000 m fort. Die Digitalisierung stimmt mit dem Atlas überein: Die mittlere Temperatur bei 500 m beträgt 38,3 °C gegenüber 38,2 °C im Atlastext, die höchsten Temperaturen bei 500 m liegen um Subotica und Kupinovo und die niedrigsten im östlichen Banat bei Uljma, und die niedrigste Temperatur bei 2.000 m liegt um Inđija, unter 96 °C. Der Bereich bei 1.000 m ist 57,5 bis 72,5 °C gegenüber 57,5 bis 73,5 °C im Atlas, weil ein Filter einzelne Zellen entfernt.
+
+Die Form des Modells ist die Grenze der AP Vojvodina aus OpenStreetMap ([© OpenStreetMap-Mitwirkende](https://www.openstreetmap.org/copyright), ODbL), auf 250 m vereinfacht. Das Relief stammt aus [Terrain Tiles auf AWS](https://registry.opendata.aws/terrain-tiles/) (Höhen aus SRTM und anderen Quellen, [Liste](https://github.com/tilezen/joerd/blob/master/docs/attribution.md)), auf einem 1-km-Raster, mit Null beim Median der Höhe der Provinz, 79 m. Der höchste Punkt im Raster ist die Fruška Gora, 501 m; ihr Gipfel Crveni Čot ist 539 m.
+
+## Prüfung
+
+Atlas und Bohrungen sind zwei Quellen und stimmen nicht immer überein. Für die 53 Tests aus Anhang 1 (51 Bohrungen, eine mit drei Intervallen) wurde die Wassertemperatur des Anhangs mit der Atlastemperatur in derselben Tiefe unter demselben Ort verglichen.
+
+| Tests | Anzahl | Atlas wärmer als das Wasser | Mittlere Differenz |
+|---|---|---|---|
+| Alle | 53 | 44 | +9,0 °C, Median +6,4 °C |
+| Mit Ausbauintervall | 28 | 21 | +5,8 °C, Median +3,4 °C |
+| Ohne Intervall, bei Gesamttiefe | 25 | 23 | +12,6 °C, Median +8,2 °C |
+
+Der Atlas ist fast immer wärmer, aus zwei Gründen. Der Anhang nennt die Temperatur des Wassers beim Austritt aus der Bohrung, die niedriger ist als die Gesteinstemperatur, während der Atlas die in den Bohrungen gemessenen Temperaturen korrigiert. Bei den 25 Tests ohne Intervall steht die Wassertemperatur bei der Gesamttiefe, das Wasser kann aber von weiter oben gekommen sein, der Vergleich mit dem Atlas in dieser Tiefe ist also zu streng. Bei Tests mit Intervall ist die Differenz kleiner, und bei 14 von 28 liegt sie innerhalb von 5 °C.
+
+Man sollte daher nicht erwarten, dass die Balken an den Bohrungen und die Farben der Schichten übereinstimmen: Die Balken sind die Wassertemperatur aus dem Anhang, die Farben die Gesteinstemperatur aus dem Atlas.
+
+## Quellen
+
+Was genutzt wurde und was noch genutzt werden kann.
+
+| Thema | Quelle | Inhalt | Zugang und Stand |
+|---|---|---|---|
+| Bohrungen, im Modell genutzt | [Anhang 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf), *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005) | 51 Bohrungen: Tiefe, Intervall, Temperatur, Schüttung, Mineralisation | Öffentlich zugängliches PDF auf der Website des Provinzsekretariats, in das Modell eingetragen. Keine Koordinaten |
+| Bohrungen, Temperatur bei 500, 1.000 und 2.000 m (im Modell), Gradient, Wärmestrom | [Geothermischer Atlas der Vojvodina](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010) | 78 Bohrungen mit Tiefe, Temperatur, Durchfluss und Wärmeleistung; zehn Karten 1:300.000; eine Datenbank mit über 120 Kennwerten je Bohrung | PDF mit gescannten Karten. Die Karten 5, 6 und 7 wurden in das Modell digitalisiert (2-km-Raster). Die Datenbank liegt laut Atlas auf der Seite des Provinzsekretariats; noch nicht erhalten |
+| Vojvodina in Kürze | [GeoERA, T. Petrović Pantić](https://geoera.eu/blog/geomanifestations-in-north-serbia-vojvodina/) (2018) | Krustendicke, Wärmestrom 83 bis 111 mW/m², etwa 80 Bohrungen, höchste Temperatur 82 °C, mittlere 44 °C | Webseite, für den Kontext genutzt |
+| Wärmestrom | [Global Heat Flow Database, Release 2024](https://doi.org/10.5880/fidgeo.2024.014) (IHFC, GFZ Potsdam) | 91.182 Wärmestromwerte aus 1.586 Publikationen, mit Qualitätsbewertung | Offener Download über die DOI. Punkte in der Vojvodina und Lizenz sind zu prüfen |
+| Wärmestrom, Temperatur in der Tiefe, Europa | Atlas of Geothermal Resources in Europe (Hurter & Haenel, EUR 17811, 2002) | Europäische Karten von Wärmestrom und Temperatur in der Tiefe | Veröffentlichtes PDF. Ob Serbien abgedeckt ist, ist nicht bestätigt |
+| Quellen und Bohrungen ganz Serbiens | [Datenbank serbischer Geothermieressourcen](https://link.springer.com/article/10.1007/s12665-021-09985-w), Environmental Earth Sciences, 2021 | 293 Einträge an 160 Orten, Grundwasser 20 bis 111 °C, drei Potenzialgebiete: Pannonisches Becken (Vojvodina), Mačva–Srem, Jošanička Banja bis Vranjska Banja | Fachartikel. Laut Artikel sind die Daten bei den Autoren auf Anfrage erhältlich |
+| Südserbien | [Hidrogeotermalni resursi srpskog kristalastog jezgra](https://nardus.mpn.gov.rs/handle/123456789/6243) | Thermalwässer des kristallinen Kerns: Prolom, Ribarska, Sijarinska, Vranjska und Bujanovačka Banja | Offen im nationalen Repositorium |
+| Geologie | [EGDI](https://www.europe-geology.eu/), EuroGeoSurveys | Über 800 Kartenebenen und Dokumente der europäischen geologischen Dienste | Offenes Portal. Serbische Ebenen noch nicht geprüft |
+| Nationaler Atlas | Geothermischer Atlas der Republik Serbien, Ministerium für Bergbau und Energie | Geplant: Ressourcen nach Gebiet und Tiefe, heutige Nutzung, Potenzial für Wärme und Strom | [Ausschreibung im August 2026](https://balkangreenenergynews.com/serbia-preparing-geothermal-atlas/), Gebote bis 11. September. Nicht veröffentlicht |
+| Form der Provinz | Grenze der AP Vojvodina, [OpenStreetMap](https://www.openstreetmap.org/copyright) | Die Grenze, auf 250 m vereinfacht | Offene Daten (ODbL), einmal über die Nominatim-API geladen und in das Modell eingetragen |
+| Relief | [Terrain Tiles auf AWS](https://registry.opendata.aws/terrain-tiles/) | Geländehöhen (SRTM und andere Quellen, [Liste](https://github.com/tilezen/joerd/blob/master/docs/attribution.md)), Zoom 8 | Offene Daten, einmal geladen und als 1-km-Raster eingetragen |
+
+Die Ortslagen stammen aus Wikidata, Bačko Karađorđevo aus Wikipedia (Karađorđevo, Bačka Palanka). Die Geländekarte ist OpenTopoMap, mit Daten von OpenStreetMap und SRTM, unter der Lizenz CC-BY-SA.
+
+## Grenzen
+
+- **Lage:** Der Anhang nennt Orte, keine Koordinaten, daher steht jede Bohrung im Zentrum ihres Ortes.
+- **Auflösung des Atlas:** Die Karten liegen in Klassen von 0,5, 1 und 2 °C vor, die Werte sind also Klassenmitten. Zwischen den Karten steigt die Temperatur geradlinig, und unterhalb von 2.000 m, tiefer als jede Karte, wird extrapoliert.
+- **Relief:** Die Höhen liegen auf einem 1-km-Raster aus SRTM und anderen Quellen, Gipfel sind daher abgesenkt (Fruška Gora 501 m statt 539 m). Die Temperaturschichten sind als Tiefe unter dem Median der Provinz gezeichnet und folgen dem Gelände nicht; der Unterschied zählt nur in den Bergen.
+- **Eine Studie aus öffentlichen Daten:** Sie schätzt keine bankfähige Ressource und ersetzt weder Bohrung, Test noch Machbarkeitsstudie für einen Standort. Sie zeigt, wo diese zuerst sinnvoll wären.
+
+## Nächste Schritte
+
+1. **Die übrigen 27 Bohrungen.** Tabelle 1 des Atlas führt 78 Bohrungen, das Modell hat 51.
+2. **Echte Lagen.** Karte 1 des Atlas gibt die Lage jeder Bohrung in Gauß-Krüger-Koordinaten an, denselben, in denen die Temperaturkarten digitalisiert wurden; die Datenbank beim Sekretariat anfragen oder die Karte digitalisieren.
+3. **Gradient und Wärmestrom.** Die Karten 8 und 9 des Atlas als weitere Schichten ergänzen.
+4. **Wärmeleistung und Bedarf.** Die Wärmeleistung der Bohrungen und die Städte mit Fernwärme ergänzen.
+5. **Andere Regionen Serbiens.** Ein eigenes Modell für Südserbien (Vranjska Banja bis Jošanička Banja) und für Mačva und Srem, sobald Daten von den Autoren der Arbeit von 2021 oder aus dem nationalen Atlas vorliegen.
+6. **Vergleich mit dem nationalen Atlas**, sobald er veröffentlicht ist.
+
+## Stand
+
+Oktober 2026: Das 3D-Modell der Vojvodina ist fertig, in der Form der Provinz und mit Relief auf dem Gelände. Schichten und Höhenlinien nutzen die digitalisierten Temperaturkarten des Atlas von 2010, die Bohrungen aus Anhang 1 sind daneben dargestellt. Das Ergänzen der übrigen Bohrungen und echter Lagen ist in Arbeit.
