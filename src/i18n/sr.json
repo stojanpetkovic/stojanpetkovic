@@ -387,6 +387,113 @@
         "flow": "l/s",
         "minerals": "g/l"
       },
+      "workspace": {
+        "brand": "Geotermalni model Vojvodine",
+        "open": "Otvori u prozoru preko celog ekrana",
+        "close": "Zatvori",
+        "fullscreen": "Ceo ekran",
+        "dockLeft": "Podešavanja",
+        "dockRight": "Podaci",
+        "fit": "Prilagodi prozoru",
+        "tool": {
+          "navigate": "Kretanje",
+          "measure": "Merenje",
+          "frame": "Okvir za štampu",
+          "print": "Štampaj",
+          "png": "Sačuvaj sliku"
+        },
+        "hint": {
+          "navigate": "Prevlačenje rotira · desni taster pomera · točkić zumira · klik na teren daje profil temperature · klik na bušotinu daje detalje",
+          "measureFirst": "Merenje: kliknite prvu tačku na terenu",
+          "measureSecond": "Merenje: kliknite drugu tačku",
+          "measureDone": "Rastojanje i azimut su prikazani na modelu · novi klik počinje novo merenje · Esc briše",
+          "frame": "Okvir za štampu: prevucite traku da ga pomerite, prevucite ugao da ga promenite, pa pritisnite Štampaj"
+        },
+        "status": {
+          "lat": "Šir.",
+          "lon": "Duž.",
+          "gk": "GK7 E/N, m",
+          "elevation": "Nadmorska visina",
+          "temps": "Temperatura iz atlasa na 500 · 1.000 · 2.000 m",
+          "none": "Pređite pokazivačem preko modela"
+        },
+        "find": {
+          "label": "Pronađi bušotinu ili naselje",
+          "placeholder": "Pronađi bušotinu ili naselje…",
+          "none": "Nema bušotine ni naselja s tim imenom"
+        },
+        "probe": {
+          "title": "Tačka na terenu",
+          "empty": "Kliknite teren na modelu da pročitate temperaturu ispod te tačke.",
+          "clear": "Ukloni tačku",
+          "rows": {
+            "position": "Položaj",
+            "gk": "Gaus–Kriger, zona 7, m",
+            "elevation": "Nadmorska visina",
+            "at": "Na {depth} m",
+            "depthTo": "Dubina do {temp} °C"
+          }
+        },
+        "chart": {
+          "temp": "Temperatura, °C",
+          "depth": "Dubina, km"
+        },
+        "print": {
+          "title": "Štampa okvira",
+          "paper": "Papir",
+          "a4": "A4",
+          "a3": "A3",
+          "orientation": "Orijentacija",
+          "landscape": "Položeno",
+          "portrait": "Uspravno",
+          "showFrame": "Prikaži okvir na modelu",
+          "print": "Štampaj",
+          "save": "Sačuvaj sliku",
+          "placeFirst": "Postavite okvir preko dela modela koji želite, pa ponovo pritisnite Štampaj.",
+          "busy": "Priprema se list…",
+          "summary": "{paper}, {orientation}, slika {w} × {h} mm"
+        },
+        "sheet": {
+          "subtitle": "Geotermalni potencijal Vojvodine: 3D model hidrotermalnih bušotina",
+          "date": "Odštampano {date}",
+          "facts": {
+            "frame": "Područje u okviru",
+            "settings": "Podešavanja modela"
+          },
+          "rows": {
+            "centre": "Centar",
+            "size": "Širina × visina na terenu",
+            "view": "Pogled",
+            "scale": "Razmera",
+            "exaggeration": "Vertikalno preuveličanje",
+            "relief": "Preuveličanje reljefa",
+            "layers": "Temperaturni slojevi",
+            "contours": "Izolinije",
+            "map": "Karta",
+            "wells": "Bušotine",
+            "off": "Isključeno"
+          },
+          "viewTop": "Odozgo",
+          "viewOblique": "Koso, pravac {azimuth}°, nagib {tilt}°",
+          "scaleValue": "1 : {n}",
+          "layersValue": "na svakih {step} km, providnost {opacity} %",
+          "contoursValue": "dubina do {temp} °C",
+          "mapValue": "OpenTopoMap",
+          "wells": "Bušotine u okviru",
+          "wellsEmpty": "Nema bušotina u okviru.",
+          "wellsHead": [
+            "Bušotina",
+            "Naselje",
+            "Status",
+            "Dubina, m",
+            "Maks. temp., °C",
+            "Interval, m",
+            "Izbušena"
+          ],
+          "selected": "Izabrana bušotina",
+          "point": "Tačka na terenu"
+        }
+      },
       "notesTitle": "Kako čitati prikaz",
       "notes": [
         "**Položaj.** Prilog daje naselja, a ne koordinate, pa svaka bušotina stoji u centru svog naselja. Bušotine istog naselja raspoređene su na prstenu širine oko 2 km da bi se razlikovale.",

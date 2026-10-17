@@ -24,12 +24,14 @@ import {
   Float32BufferAttribute,
   LineLoop,
   Group,
+  Line,
   LineBasicMaterial,
   LineSegments,
   Mesh,
   MeshBasicMaterial,
   Object3D,
   PerspectiveCamera,
+  Plane,
   PlaneGeometry,
   Raycaster,
   RingGeometry,
@@ -41,13 +43,15 @@ import {
   WebGLRenderer,
 } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { OUTLINE, insideOutline, outlineBounds, reliefAt } from './terrain';
+import { OUTLINE, elevationAt, insideOutline, outlineBounds, reliefAt } from './terrain';
+import { bearingDeg, distanceKm, type Rect } from './print';
 import {
   COLOR_MAX,
   ORIGIN,
   buildField,
   columnAt,
   depthFromColumn,
+  gaussKruger,
   gradientFromColumn,
   tempColor,
   tempFromColumn,
@@ -82,6 +86,114 @@ export interface GeoStrings {
   fields: Record<'place' | 'status' | 'year' | 'depth', string>;
   units: Record<'m' | 'km' | 'degC' | 'gradient' | 'flow' | 'minerals', string>;
 }
+
+/** A point on the ground under the pointer, with what the atlas and the terrain say about it. */
+export interface GroundHit {
+  /** Local kilometres east and north of the model origin. */
+  x: number;
+  y: number;
+  lat: number;
+  lon: number;
+  /** Gauss–Krüger zone 7, km. */
+  e: number;
+  n: number;
+  /** Ground elevation above sea level, m. */
+  elevation: number;
+  /** Atlas temperatures at 500, 1,000 and 2,000 m below the point. */
+  column: Column;
+}
+
+/** Callbacks the workspace sets to follow the pointer and the clicks. */
+export interface GeoHooks {
+  hover?: (hit: GroundHit | null) => void;
+  ground?: (hit: GroundHit) => void;
+  well?: (id: string) => void;
+}
+
+/** The settings a printed sheet reports. */
+export interface GeoState {
+  ve: number;
+  relief: number;
+  groundOpacity: number;
+  layers: { on: boolean; step: number; opacity: number };
+  contours: { on: boolean; temp: number };
+  basemap: boolean;
+  walls: boolean;
+  labels: boolean;
+  wells: boolean;
+  statuses: Record<WellStatus, boolean>;
+  selected: string | null;
+}
+
+/** What the workspace around the model can ask of it. */
+export interface GeoController {
+  hooks: GeoHooks;
+  stageSize(): { w: number; h: number };
+  setView(name: string): void;
+  requestRender(): void;
+  /** Wheel and pinch zoom always on, as in a full-screen window where the page does not scroll. */
+  setZoomAlways(on: boolean): void;
+  /** Whether a click on a well selects it; off, every click lands on the ground. */
+  setWellsClickable(on: boolean): void;
+  groundAt(clientX: number, clientY: number): GroundHit | null;
+  setMeasure(points: [GroundHit, GroundHit] | null): void;
+  setProbe(hit: GroundHit | null): void;
+  selectWell(id: string): void;
+  focusWell(id: string): void;
+  state(): GeoState;
+  /** Direction the camera looks: degrees clockwise from north, and below the horizon. */
+  cameraInfo(): { azimuth: number; tilt: number };
+  /** Where a rectangle of the stage lies on the ground. */
+  frameInfo(region: Rect): {
+    center: { lat: number; lon: number } | null;
+    widthKm: number | null;
+    heightKm: number | null;
+  };
+  wellsInRegion(region: Rect): Well[];
+  /** The model as it is now, over a rectangle of the stage, drawn at a size, with settlement names. */
+  snapshot(region: Rect, outW: number, outH: number): HTMLCanvasElement;
+}
+
+export interface GeoHandle {
+  dispose(): void;
+  controller: GeoController;
+}
+
+/** Settlements whose names are kept first when names would overlap on a sheet. */
+const LABEL_PRIORITY = [
+  'Novi Sad',
+  'Subotica',
+  'Zrenjanin',
+  'Kikinda',
+  'Bečej',
+  'Vrbas',
+  'Kula',
+  'Srbobran',
+  'Kanjiža',
+  'Inđija',
+  'Temerin',
+  'Bačka Topola',
+  'Sonta',
+  'Kupinovo',
+  'Alibunar',
+  'Melenci',
+  'Šajkaš',
+  'Bački Petrovac',
+  'Banatski Karlovac',
+  'Janošik',
+  'Žitište',
+  'Mokrin',
+  'Srpska Crnja',
+  'Prigrevica',
+  'Kupusina',
+  'Čelarevo',
+  'Zobnatica',
+  'Vrbica',
+  'Palić',
+  'Bačko Dobro Polje',
+  'Bačko Karađorđevo',
+  'Banatsko Veliko Selo',
+];
 
 const fmt = (template: string, vars: Record<string, string | number>) =>
   template.replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? ''));
@@ -143,7 +255,7 @@ const dataColor = (temp: number) => {
   return new Color().setRGB(r / 255, g / 255, b / 255, SRGBColorSpace);
 };
 
-export function mountGeoModel(root: HTMLElement, s: GeoStrings): () => void {
+export function mountGeoModel(root: HTMLElement, s: GeoStrings): GeoHandle {
   const q = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel);
   const stage = q<HTMLElement>('[data-geo-stage]')!;
   const labelLayer = q<HTMLElement>('[data-geo-labels]')!;
@@ -250,7 +362,8 @@ export function mountGeoModel(root: HTMLElement, s: GeoStrings): () => void {
   const sectionGroup = new Group();
   const highlightGroup = new Group();
   const contourGroup = new Group();
-  world.add(groundGroup, sectionGroup, wellGroup, highlightGroup, contourGroup);
+  const toolGroup = new Group();
+  world.add(groundGroup, sectionGroup, wellGroup, highlightGroup, contourGroup, toolGroup);
 
   const disposeGroup = (g: Group) => {
     for (const child of [...g.children]) {
@@ -846,7 +959,7 @@ export function mountGeoModel(root: HTMLElement, s: GeoStrings): () => void {
   }
 
   // ── HTML labels ───────────────────────────────────────────────────────────
-  type Label = { el: HTMLElement; pos: Vector3; kind: 'place' | 'depth'; at?: Pos };
+  type Label = { el: HTMLElement; pos: Vector3; kind: 'place' | 'depth' | 'tool'; at?: Pos };
   const labels: Label[] = [];
   function buildLabels() {
     labelLayer.replaceChildren();
@@ -880,7 +993,7 @@ export function mountGeoModel(root: HTMLElement, s: GeoStrings): () => void {
       Math.abs(camera.position.y - controls.target.y) >
       0.96 * camera.position.distanceTo(controls.target);
     for (const l of labels) {
-      const visible = l.kind === 'place' ? shown.labels : !lookingDown;
+      const visible = l.kind === 'place' ? shown.labels : l.kind === 'tool' ? true : !lookingDown;
       v.copy(l.pos).project(camera);
       const onScreen = visible && v.z < 1 && Math.abs(v.x) < 1.05 && Math.abs(v.y) < 1.05;
       l.el.style.display = onScreen ? '' : 'none';
@@ -1020,7 +1133,15 @@ export function mountGeoModel(root: HTMLElement, s: GeoStrings): () => void {
     return null;
   }
 
+  let lastHover = 0;
   function onMove(e: PointerEvent) {
+    if (hooks.hover && !e.buttons) {
+      const now = performance.now();
+      if (now - lastHover > 40) {
+        lastHover = now;
+        hooks.hover(groundAt(e.clientX, e.clientY));
+      }
+    }
     if (e.buttons) return hideTip();
     const hit = pick(e);
     if (!hit) return hideTip();
@@ -1049,13 +1170,20 @@ export function mountGeoModel(root: HTMLElement, s: GeoStrings): () => void {
     }
   }
 
+  /** Off while measuring, so a click near a well measures from the ground instead of selecting it. */
+  let wellsClickable = true;
+
   function onClick(e: PointerEvent) {
-    const hit = pick(e);
+    const hit = wellsClickable ? pick(e) : null;
     selected = hit?.kind === 'well' ? hit.well.id : selected;
     if (hit?.kind === 'well') {
       renderDetail(hit.well);
       buildHighlight();
       requestRender();
+      hooks.well?.(hit.well.id);
+    } else {
+      const ground = groundAt(e.clientX, e.clientY);
+      if (ground) hooks.ground?.(ground);
     }
   }
 
@@ -1172,6 +1300,7 @@ export function mountGeoModel(root: HTMLElement, s: GeoStrings): () => void {
   // Labels follow the exaggerations: depth labels sit at the depth times `ve`, settlement
   // labels on the ground.
   function labelsDepthRefresh() {
+    rebuildTools();
     let d = 0.5;
     for (const l of labels) {
       if (l.kind === 'place' && l.at) {
@@ -1189,7 +1318,8 @@ export function mountGeoModel(root: HTMLElement, s: GeoStrings): () => void {
     controls.enableZoom = true;
   });
   on(stage, 'pointerleave', () => {
-    controls.enableZoom = false;
+    controls.enableZoom = zoomAlways;
+    hooks.hover?.(null);
     hideTip();
   });
   on(renderer.domElement, 'pointermove', onMove);
@@ -1221,6 +1351,271 @@ export function mountGeoModel(root: HTMLElement, s: GeoStrings): () => void {
     attributeFilter: ['class', 'data-theme'],
   });
 
+  // ── What the workspace can ask of the model ───────────────────────────────
+  const hooks: GeoHooks = {};
+  let zoomAlways = false;
+  const groundPlane = new Plane(new Vector3(0, 1, 0), 0);
+  const toolState: { measure: [GroundHit, GroundHit] | null; probe: GroundHit | null } = {
+    measure: null,
+    probe: null,
+  };
+  const toolLabels = new Map<string, Label>();
+
+  function toolLabel(id: string, text: string | null, pos?: Vector3) {
+    let label = toolLabels.get(id);
+    if (text === null) {
+      if (label) {
+        label.el.remove();
+        labels.splice(labels.indexOf(label), 1);
+        toolLabels.delete(id);
+      }
+      return;
+    }
+    if (!label) {
+      const el = document.createElement('span');
+      el.className = 'geo-label geo-label-tool';
+      labelLayer.appendChild(el);
+      label = { el, pos: new Vector3(), kind: 'tool' };
+      labels.push(label);
+      toolLabels.set(id, label);
+    }
+    label.el.textContent = text;
+    if (pos) label.pos.copy(pos);
+  }
+
+  function groundHit(x: number, y: number): GroundHit {
+    const { lat, lon } = unproject(x, y, ORIGIN.lat, ORIGIN.lon);
+    const { e, n } = gaussKruger(lat, lon);
+    return { x, y, lat, lon, e, n, elevation: elevationAt(x, y), column: columnAt(field, x, y) };
+  }
+
+  function groundAt(clientX: number, clientY: number): GroundHit | null {
+    const rect = renderer.domElement.getBoundingClientRect();
+    pointer.set(
+      ((clientX - rect.left) / rect.width) * 2 - 1,
+      -((clientY - rect.top) / rect.height) * 2 + 1,
+    );
+    raycaster.setFromCamera(pointer, camera);
+    const mesh = groundGroup.children[0] as Mesh | undefined;
+    const hit = mesh ? raycaster.intersectObject(mesh, false)[0] : undefined;
+    if (!hit) return null;
+    const x = hit.point.x;
+    const y = -hit.point.z;
+    return insideOutline(x, y) ? groundHit(x, y) : null;
+  }
+
+  /** The measuring line and the probe, drawn over everything else; rebuilt when the exaggerations change. */
+  function rebuildTools() {
+    disposeGroup(toolGroup);
+    const line = new LineBasicMaterial({ color: ink, depthTest: false });
+    const mark = (p: Vector3, color: Color, radius = 1.3) => {
+      const m = new Mesh(
+        new SphereGeometry(radius, 12, 8),
+        new MeshBasicMaterial({ color, depthTest: false }),
+      );
+      m.position.copy(p);
+      m.renderOrder = 9;
+      toolGroup.add(m);
+    };
+    if (toolState.measure) {
+      const [a, b] = toolState.measure;
+      const pa = new Vector3(a.x, height(a.x, a.y) + 0.2, -a.y);
+      const pb = new Vector3(b.x, height(b.x, b.y) + 0.2, -b.y);
+      const l = new Line(new BufferGeometry().setFromPoints([pa, pb]), line);
+      l.renderOrder = 9;
+      toolGroup.add(l);
+      mark(pa, ink);
+      mark(pb, ink);
+      toolLabel(
+        'measure',
+        `${num.format(distanceKm(a, b))} ${s.units.km} · ${int.format(bearingDeg(a, b))}°`,
+        pa.clone().lerp(pb, 0.5),
+      );
+    } else {
+      toolLabel('measure', null);
+    }
+    if (toolState.probe) {
+      const p = toolState.probe;
+      const top = height(p.x, p.y);
+      const l = new Line(
+        new BufferGeometry().setFromPoints([
+          new Vector3(p.x, top, -p.y),
+          new Vector3(p.x, -BLOCK_DEPTH_KM * ve, -p.y),
+        ]),
+        line,
+      );
+      l.renderOrder = 9;
+      toolGroup.add(l);
+      mark(new Vector3(p.x, top + 0.2, -p.y), ink, 1.6);
+      [0.5, 1, 2].forEach((d, i) =>
+        mark(new Vector3(p.x, -d * ve, -p.y), dataColor(p.column[i]), 1.5),
+      );
+    }
+    requestRender();
+  }
+
+  /** Draw the settlement names, and the measurement, over a snapshot. */
+  function drawLabels(ctx: CanvasRenderingContext2D, W: number, H: number, k: number) {
+    const size = Math.max(11, 9.5 * k);
+    ctx.font = `600 ${size}px ui-monospace, "JetBrains Mono", monospace`;
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'alphabetic';
+    ctx.lineJoin = 'round';
+    const v = new Vector3();
+    const order = [...labels]
+      .filter((l) => l.kind === 'tool' || (l.kind === 'place' && shown.labels))
+      .sort((a, b) => {
+        if (a.kind !== b.kind) return a.kind === 'tool' ? -1 : 1;
+        const pa = LABEL_PRIORITY.indexOf(a.el.textContent ?? '');
+        const pb = LABEL_PRIORITY.indexOf(b.el.textContent ?? '');
+        return (pa < 0 ? 99 : pa) - (pb < 0 ? 99 : pb);
+      });
+    const taken: number[][] = [];
+    for (const l of order) {
+      v.copy(l.pos).project(camera);
+      if (v.z >= 1 || Math.abs(v.x) > 1.02 || Math.abs(v.y) > 1.02) continue;
+      const text = l.el.textContent ?? '';
+      const x = ((v.x + 1) / 2) * W;
+      const y = ((1 - v.y) / 2) * H - 6 * k;
+      const half = ctx.measureText(text).width / 2 + 3 * k;
+      const box = [x - half, y - size, x + half, y + 4 * k];
+      if (taken.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]))
+        continue;
+      taken.push(box);
+      ctx.lineWidth = Math.max(3, 3.2 * k);
+      ctx.strokeStyle = 'rgba(255,255,255,0.92)';
+      ctx.strokeText(text, x, y);
+      ctx.fillStyle = '#111';
+      ctx.fillText(text, x, y);
+    }
+  }
+
+  const stageRay = (px: number, py: number): Vector3 | null => {
+    pointer.set((px / stage.clientWidth) * 2 - 1, -(py / stage.clientHeight) * 2 + 1);
+    raycaster.setFromCamera(pointer, camera);
+    return raycaster.ray.intersectPlane(groundPlane, new Vector3());
+  };
+
+  const controller: GeoController = {
+    hooks,
+    stageSize: () => ({ w: stage.clientWidth, h: stage.clientHeight }),
+    setView,
+    requestRender,
+    setWellsClickable(on) {
+      wellsClickable = on;
+    },
+    setZoomAlways(on) {
+      zoomAlways = on;
+      controls.enableZoom = on;
+    },
+    groundAt,
+    setMeasure(points) {
+      toolState.measure = points;
+      rebuildTools();
+    },
+    setProbe(hit) {
+      toolState.probe = hit;
+      rebuildTools();
+    },
+    selectWell(id) {
+      const w = WELLS.find((x) => x.id === id);
+      if (!w) return;
+      selected = id;
+      renderDetail(w);
+      buildHighlight();
+      requestRender();
+    },
+    focusWell(id) {
+      const w = WELLS.find((x) => x.id === id);
+      const p = positions.get(id);
+      if (!w || !p) return;
+      controller.selectWell(id);
+      const target = new Vector3(p.x, (-(w.depth / 1000) * ve) / 2, -p.y);
+      const away = camera.position.clone().sub(controls.target).normalize();
+      controls.target.copy(target);
+      camera.position.copy(target).addScaledVector(away, 85);
+      controls.update();
+      requestRender();
+    },
+    state: () => ({
+      ve,
+      relief,
+      groundOpacity,
+      layers: { ...layers },
+      contours: { ...contours },
+      basemap: basemap.on,
+      walls: shown.walls,
+      labels: shown.labels,
+      wells: shown.wells,
+      statuses: { ...statusShown },
+      selected,
+    }),
+    cameraInfo() {
+      const d = controls.target.clone().sub(camera.position);
+      return {
+        azimuth: ((Math.atan2(d.x, -d.z) * 180) / Math.PI + 360) % 360,
+        tilt: (Math.atan2(-d.y, Math.hypot(d.x, d.z)) * 180) / Math.PI,
+      };
+    },
+    frameInfo(region) {
+      const mx = region.x + region.w / 2;
+      const my = region.y + region.h / 2;
+      const c = stageRay(mx, my);
+      const l = stageRay(region.x, my);
+      const r = stageRay(region.x + region.w, my);
+      const t = stageRay(mx, region.y);
+      const b = stageRay(mx, region.y + region.h);
+      return {
+        center: c ? unproject(c.x, -c.z, ORIGIN.lat, ORIGIN.lon) : null,
+        widthKm: l && r ? l.distanceTo(r) : null,
+        heightKm: t && b ? t.distanceTo(b) : null,
+      };
+    },
+    wellsInRegion(region) {
+      if (!shown.wells) return [];
+      const w = stage.clientWidth;
+      const h = stage.clientHeight;
+      const v = new Vector3();
+      return WELLS.filter((well) => {
+        if (!statusShown[well.status]) return false;
+        const p = positions.get(well.id)!;
+        v.set(p.x, height(p.x, p.y), -p.y).project(camera);
+        const sx = ((v.x + 1) / 2) * w;
+        const sy = ((1 - v.y) / 2) * h;
+        return (
+          v.z < 1 &&
+          sx >= region.x &&
+          sx <= region.x + region.w &&
+          sy >= region.y &&
+          sy <= region.y + region.h
+        );
+      });
+    },
+    snapshot(region, outW, outH) {
+      const w = stage.clientWidth;
+      const h = stage.clientHeight;
+      const ratio = renderer.getPixelRatio();
+      renderer.setPixelRatio(1);
+      renderer.setSize(outW, outH, false);
+      camera.setViewOffset(w, h, region.x, region.y, region.w, region.h);
+      renderer.render(scene, camera);
+      const out = document.createElement('canvas');
+      out.width = outW;
+      out.height = outH;
+      const ctx = out.getContext('2d')!;
+      ctx.fillStyle = '#fff';
+      ctx.fillRect(0, 0, outW, outH);
+      ctx.drawImage(renderer.domElement, 0, 0);
+      drawLabels(ctx, outW, outH, outW / region.w);
+      camera.clearViewOffset();
+      renderer.setPixelRatio(ratio);
+      renderer.setSize(w, h, false);
+      camera.updateProjectionMatrix();
+      requestRender();
+      return out;
+    },
+  };
+
   // ── First build ───────────────────────────────────────────────────────────
   detail.textContent = s.detailEmpty;
   buildGround();
@@ -1234,14 +1629,16 @@ export function mountGeoModel(root: HTMLElement, s: GeoStrings): () => void {
   void applyMap();
   root.dataset.ready = 'true';
 
-  return () => {
+  const dispose = () => {
     resizeObserver.disconnect();
     themeObserver.disconnect();
     controls.dispose();
-    for (const g of [groundGroup, wellGroup, sectionGroup, highlightGroup, contourGroup])
+    for (const g of [groundGroup, wellGroup, sectionGroup, highlightGroup, contourGroup, toolGroup])
       disposeGroup(g);
     for (const m of masks) m?.dispose();
     renderer.dispose();
     renderer.domElement.remove();
   };
+
+  return { dispose, controller };
 }

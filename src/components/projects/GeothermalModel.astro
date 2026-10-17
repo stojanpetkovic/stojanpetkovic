@@ -7,7 +7,8 @@
  * Copy comes from `pages.geothermalModel.*`.
  */
 import { defaultLocale, tData } from '@/i18n';
-import { COLOR_MAX, COLOR_MIN, tempColor } from '@/lib/geothermal/field';
+import { LEGEND_TICKS, legendStops } from '@/lib/geothermal/print';
+import type { WorkspaceStrings } from '@/lib/geothermal/workspace';
 
 interface Copy {
   canvasLabel: string;
@@ -31,6 +32,11 @@ interface Copy {
   units: Record<'m' | 'km' | 'degC' | 'gradient' | 'flow' | 'minerals', string>;
   notesTitle: string;
   notes: string[];
+  workspace: Omit<WorkspaceStrings, 'sheet'> & {
+    sheet: Omit<WorkspaceStrings['sheet'], 'notesTitle' | 'notes' | 'keys' | 'credit' | 'legendTitle'>;
+    brand: string;
+    open: string;
+  };
 }
 
 interface Props {
@@ -60,12 +66,7 @@ const strings = {
 };
 
 // The legend is the same scale the model paints with.
-const ticks = [10, 40, 70, 100, 125];
-const stops = Array.from({ length: 16 }, (_, i) => {
-  const temp = COLOR_MIN + ((COLOR_MAX - COLOR_MIN) * i) / 15;
-  const [r, g, b] = tempColor(temp);
-  return `rgb(${r} ${g} ${b}) ${Math.round((i / 15) * 100)}%`;
-}).join(', ');
+const stops = legendStops();
 
 // Inline markup in the notes: **bold**, *italic* and [text](https://link).
 const inline = (text: string) =>
@@ -77,9 +78,60 @@ const inline = (text: string) =>
     .replace(/\*(.+?)\*/g, '<em>$1</em>');
 
 const views = ['perspective', 'top', 'south', 'west'] as const;
+
+// The sheet repeats the legend and the notes of the page, as plain text.
+const plain = (text: string) =>
+  text
+    .replace(/\[(.+?)\]\(https:\/\/[^)\s]+\)/g, '$1')
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*(.+?)\*/g, '$1');
+const w = c.workspace;
+const workspaceStrings: WorkspaceStrings = {
+  ...w,
+  sheet: {
+    ...w.sheet,
+    legendTitle: c.legend.title,
+    keys: [c.legend.measured, c.legend.hollow, c.legend.modelled, c.legend.contours, c.legend.head],
+    notesTitle: c.notesTitle,
+    notes: c.notes.map(plain),
+    credit: c.map.credit.replace(/<[^>]+>/g, ''),
+  },
+};
+const tip = (label: string, key: string) => `${label} (${key})`;
 ---
 
-<div class="geo3d project-wide" data-geo3d data-strings={JSON.stringify(strings)}>
+<div
+  class="geo3d project-wide"
+  data-geo3d
+  data-strings={JSON.stringify(strings)}
+  data-ws-strings={JSON.stringify(workspaceStrings)}
+>
+  <div class="geo3d-toolbar geo3d-ws-only" role="toolbar" aria-label={w.brand}>
+    <span class="geo3d-brand">{w.brand}</span>
+    <div class="geo3d-tools">
+      <button type="button" data-ws-tool="navigate" aria-pressed="true" title={tip(w.tool.navigate, 'Esc')}>{w.tool.navigate}</button>
+      <button type="button" data-ws-tool="measure" aria-pressed="false" title={tip(w.tool.measure, 'M')}>{w.tool.measure}</button>
+      <button type="button" data-ws-tool="frame" aria-pressed="false" title={tip(w.tool.frame, 'P')}>{w.tool.frame}</button>
+    </div>
+    <div class="geo3d-tools geo3d-tools-views">
+      {views.map((v, i) => <button type="button" data-geo-view={v} title={tip(c.views[v], String(i + 1))}>{c.views[v]}</button>)}
+    </div>
+    <label class="geo3d-find">
+      <span class="geo3d-sr">{w.find.label}</span>
+      <input type="search" data-ws-find list="geo3d-wells" placeholder={w.find.placeholder} autocomplete="off" />
+      <datalist id="geo3d-wells" data-ws-find-list></datalist>
+      <span class="geo3d-find-msg" data-ws-find-msg aria-live="polite"></span>
+    </label>
+    <div class="geo3d-tools geo3d-tools-end">
+      <button type="button" data-ws-action="print" title={tip(w.tool.print, 'P')}>{w.tool.print}</button>
+      <button type="button" data-ws-action="png">{w.tool.png}</button>
+      <button type="button" data-ws-dock="left" aria-pressed="true">{w.dockLeft}</button>
+      <button type="button" data-ws-dock="right" aria-pressed="true">{w.dockRight}</button>
+      <button type="button" data-ws-action="fullscreen">{w.fullscreen}</button>
+      <button type="button" data-ws-action="close" title={tip(w.close, 'Esc')}>{w.close}</button>
+    </div>
+  </div>
+
   <div class="geo3d-main">
     <div class="geo3d-stage-col">
     <div class="geo3d-stage" data-geo-stage role="img" aria-label={c.canvasLabel}>
@@ -90,13 +142,29 @@ const views = ['perspective', 'top', 'south', 'west'] as const;
         <button type="button" data-geo-zoom="in" aria-label={c.zoomIn}>+</button>
         <button type="button" data-geo-zoom="out" aria-label={c.zoomOut}>−</button>
       </div>
+      <button type="button" class="geo3d-open" data-ws-open disabled>{w.open}</button>
+      <div class="geo3d-minilegend geo3d-ws-only" aria-hidden="true">
+        <div class="geo3d-bar" style={`background: linear-gradient(to right, ${stops})`}></div>
+        <div class="geo3d-ticks">
+          {LEGEND_TICKS.map((tk) => <span style={`left: ${tk.left}%`}>{tk.value}</span>)}
+        </div>
+        <span class="geo3d-minilegend-unit">{c.units.degC}</span>
+      </div>
+      <div class="geo3d-frame" data-ws-frame hidden>
+        <div class="geo3d-frame-bar" data-ws-frame-move><span data-ws-frame-label></span></div>
+        <span class="geo3d-handle" data-handle="nw"></span>
+        <span class="geo3d-handle" data-handle="ne"></span>
+        <span class="geo3d-handle" data-handle="sw"></span>
+        <span class="geo3d-handle" data-handle="se"></span>
+      </div>
       <p class="geo3d-hint">{c.hint}</p>
       <p class="geo3d-attribution" data-geo-attribution hidden set:html={c.map.credit} />
     </div>
     </div>
 
+    <div class="geo3d-side">
     <div class="geo3d-controls">
-    <fieldset>
+    <fieldset class="geo3d-views-set">
       <legend>{c.views.title}</legend>
       <div class="geo3d-views">
         {views.map((v) => <button type="button" data-geo-view={v}>{c.views[v]}</button>)}
@@ -163,8 +231,50 @@ const views = ['perspective', 'top', 'south', 'west'] as const;
       <label class="geo3d-check"><input type="checkbox" checked data-geo-ctl="show-labels" /> {c.wells.labels}</label>
     </fieldset>
 
-    <div class="geo3d-detail" data-geo-detail aria-live="polite">{c.detail.empty}</div>
     </div>
+
+    <div class="geo3d-inspector">
+      <div class="geo3d-detail" data-geo-detail aria-live="polite">{c.detail.empty}</div>
+
+      <section class="geo3d-card geo3d-ws-only">
+        <h3>{w.probe.title}</h3>
+        <div data-ws-probe-body></div>
+      </section>
+
+      <section class="geo3d-card geo3d-ws-only">
+        <h3>{w.print.title}</h3>
+        <label class="geo3d-check"><input type="checkbox" data-ws-frame-on /> {w.print.showFrame}</label>
+        <label class="geo3d-field">
+          <span>{w.print.paper}</span>
+          <select data-ws-paper>
+            <option value="a4">{w.print.a4}</option>
+            <option value="a3">{w.print.a3}</option>
+          </select>
+        </label>
+        <label class="geo3d-field">
+          <span>{w.print.orientation}</span>
+          <select data-ws-orient>
+            <option value="landscape">{w.print.landscape}</option>
+            <option value="portrait">{w.print.portrait}</option>
+          </select>
+        </label>
+        <p class="geo3d-muted" data-ws-summary></p>
+        <div class="geo3d-actions">
+          <button type="button" class="geo3d-primary" data-ws-action="print">{w.print.print}</button>
+          <button type="button" data-ws-action="png">{w.print.save}</button>
+        </div>
+        <p class="geo3d-muted" data-ws-msg aria-live="polite"></p>
+      </section>
+    </div>
+    </div>
+  </div>
+
+  <div class="geo3d-statusbar geo3d-ws-only">
+    <span class="geo3d-statusbar-hint" data-ws-hint></span>
+    <span data-ws-status-coord></span>
+    <span data-ws-status-gk></span>
+    <span data-ws-status-elev></span>
+    <span data-ws-status-temps></span>
   </div>
 
   <div class="geo3d-legend">
@@ -172,7 +282,7 @@ const views = ['perspective', 'top', 'south', 'west'] as const;
       <p class="geo3d-legend-title">{c.legend.title}</p>
       <div class="geo3d-bar" style={`background: linear-gradient(to right, ${stops})`}></div>
       <div class="geo3d-ticks">
-        {ticks.map((tk) => <span style={`left: ${((tk - COLOR_MIN) / (COLOR_MAX - COLOR_MIN)) * 100}%`}>{tk}</span>)}
+        {LEGEND_TICKS.map((tk) => <span style={`left: ${tk.left}%`}>{tk.value}</span>)}
       </div>
     </div>
     <ul class="geo3d-keys">
@@ -201,8 +311,14 @@ const views = ['perspective', 'top', 'south', 'west'] as const;
       try {
         const probe = document.createElement('canvas');
         if (!probe.getContext('webgl2') && !probe.getContext('webgl')) throw new Error('no webgl');
-        const { mountGeoModel } = await import('@/lib/geothermal/scene');
-        mountGeoModel(root, JSON.parse(root.dataset.strings ?? '{}'));
+        const [{ mountGeoModel }, { mountWorkspace }] = await Promise.all([
+          import('@/lib/geothermal/scene'),
+          import('@/lib/geothermal/workspace'),
+        ]);
+        const strings = JSON.parse(root.dataset.strings ?? '{}');
+        const handle = mountGeoModel(root, strings);
+        mountWorkspace(root, handle.controller, strings, JSON.parse(root.dataset.wsStrings ?? '{}'));
+        root.querySelector<HTMLButtonElement>('[data-ws-open]')?.removeAttribute('disabled');
         text?.remove();
       } catch {
         if (text) text.textContent = root.dataset.noWebgl ?? '';
@@ -568,5 +684,569 @@ const views = ['perspective', 'top', 'south', 'west'] as const;
     padding-left: 1.125rem;
     display: grid;
     gap: 0.375rem;
+  }
+
+  /* ── Workspace: the model over the whole screen ─────────────────────────── */
+  .geo3d:not(.is-workspace) .geo3d-ws-only {
+    display: none;
+  }
+  .geo3d-side {
+    display: grid;
+    gap: 0.75rem;
+    align-content: start;
+  }
+  .geo3d-inspector {
+    display: grid;
+    gap: 0.75rem;
+    align-content: start;
+  }
+  .geo3d-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .geo3d-muted {
+    margin: 0.375rem 0 0;
+    color: var(--color-foreground-muted);
+    font-size: 0.75rem;
+  }
+  .geo3d-open {
+    position: absolute;
+    left: 0.5rem;
+    top: 0.5rem;
+    z-index: 3;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 0.375rem;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font: inherit;
+    cursor: pointer;
+  }
+  .geo3d-open:hover:not(:disabled) {
+    border-color: var(--color-brand-700);
+  }
+  .geo3d-open:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+  /* Phones keep the stacked page: the window needs room for its tools. */
+  @media (max-width: 767px) {
+    .geo3d-open {
+      display: none;
+    }
+  }
+
+  html.geo-ws-open {
+    overflow: hidden;
+  }
+  .geo3d.is-workspace {
+    position: fixed;
+    inset: 0;
+    z-index: 9000;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    background: var(--color-background);
+  }
+  .geo3d.is-workspace .geo3d-legend,
+  .geo3d.is-workspace .geo3d-notes,
+  .geo3d.is-workspace .geo3d-open,
+  .geo3d.is-workspace .geo3d-views-set,
+  .geo3d.is-workspace .geo3d-hint {
+    display: none;
+  }
+  .geo3d.is-workspace .geo3d-main {
+    flex: 1;
+    min-height: 0;
+    gap: 0;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: stretch;
+  }
+  .geo3d.is-workspace .geo3d-side {
+    display: contents;
+  }
+  .geo3d.is-workspace .geo3d-stage-col {
+    position: static;
+    grid-column: 2;
+    grid-row: 1;
+    min-height: 0;
+  }
+  .geo3d.is-workspace .geo3d-stage {
+    height: 100%;
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+  }
+  .geo3d.is-workspace .geo3d-stage.is-measuring {
+    cursor: crosshair;
+  }
+  .geo3d.is-workspace .geo3d-controls,
+  .geo3d.is-workspace .geo3d-inspector {
+    display: block;
+    width: 18.5rem;
+    min-height: 0;
+    padding: 0.75rem;
+    overflow-y: auto;
+    background: var(--color-background-secondary);
+  }
+  .geo3d.is-workspace .geo3d-controls {
+    grid-column: 1;
+    grid-row: 1;
+    border-right: 1px solid var(--color-border-strong);
+  }
+  .geo3d.is-workspace .geo3d-inspector {
+    grid-column: 3;
+    grid-row: 1;
+    border-left: 1px solid var(--color-border-strong);
+  }
+  .geo3d.is-workspace .geo3d-controls > *,
+  .geo3d.is-workspace .geo3d-inspector > * {
+    margin-bottom: 0.75rem;
+  }
+  .geo3d.is-workspace.ws-hide-left .geo3d-controls,
+  .geo3d.is-workspace.ws-hide-right .geo3d-inspector {
+    display: none;
+  }
+  .geo3d.is-workspace .geo3d-zoom {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+  .geo3d.is-workspace .geo3d-attribution {
+    bottom: 0.5rem;
+  }
+
+  .geo3d-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid var(--color-border-strong);
+    background: var(--color-background-secondary);
+  }
+  .geo3d-brand {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brand-700);
+  }
+  .geo3d-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  .geo3d-tools-end {
+    margin-left: auto;
+  }
+  .geo3d-toolbar button,
+  .geo3d-card button,
+  .geo3d-card select,
+  .geo3d-find input {
+    min-height: 2.25rem;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 0.375rem;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font: inherit;
+    cursor: pointer;
+  }
+  .geo3d-toolbar button:hover,
+  .geo3d-card button:hover {
+    border-color: var(--color-brand-700);
+  }
+  .geo3d-toolbar button[aria-pressed='true'],
+  .geo3d-card .geo3d-primary {
+    border-color: var(--color-brand-700);
+    background: var(--color-brand-700);
+    color: var(--color-background);
+  }
+  .geo3d-toolbar button:focus-visible,
+  .geo3d-card button:focus-visible,
+  .geo3d-find input:focus-visible,
+  .geo3d-open:focus-visible {
+    outline: 2px solid var(--color-brand-700);
+    outline-offset: 2px;
+  }
+  .geo3d-find {
+    position: relative;
+    display: block;
+  }
+  .geo3d-find input {
+    width: 15rem;
+    cursor: text;
+  }
+  .geo3d-find-msg {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    font-size: 0.6875rem;
+    color: var(--color-foreground-muted);
+    white-space: nowrap;
+  }
+  /* Docks are shown pressed while open. */
+  .geo3d-toolbar [data-ws-dock][aria-pressed='false'] {
+    background: var(--color-background);
+    color: var(--color-foreground-muted);
+  }
+
+  .geo3d-card {
+    padding: 0.5rem 0.75rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--color-background);
+  }
+  .geo3d-card h3 {
+    margin: 0 0 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-brand-700);
+  }
+  .geo3d-card .geo3d-facts {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.125rem 0.75rem;
+    margin: 0.375rem 0;
+  }
+  .geo3d-card .geo3d-facts dt {
+    color: var(--color-foreground-muted);
+  }
+  .geo3d-card .geo3d-facts dd {
+    margin: 0;
+    color: var(--color-foreground);
+    text-align: right;
+  }
+  .geo3d-link {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-brand-700);
+    text-decoration: underline;
+    cursor: pointer;
+    font: inherit;
+  }
+  .geo3d-field {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  .geo3d-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.375rem;
+    margin-top: 0.625rem;
+  }
+
+  .geo3d-statusbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    padding: 0.375rem 0.75rem;
+    border-top: 1px solid var(--color-border-strong);
+    background: var(--color-background-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-foreground);
+  }
+  .geo3d-statusbar-hint {
+    flex: 1 1 24rem;
+    font-family: inherit;
+    color: var(--color-foreground-muted);
+  }
+
+  .geo3d-minilegend {
+    position: absolute;
+    left: 0.75rem;
+    bottom: 0.75rem;
+    z-index: 1;
+    width: 13rem;
+    padding: 0.375rem 0.5rem 0;
+    border-radius: 0.375rem;
+    background: color-mix(in oklab, var(--color-background) 85%, transparent);
+    pointer-events: none;
+  }
+  .geo3d-minilegend-unit {
+    position: absolute;
+    right: 0.5rem;
+    top: -0.125rem;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    color: var(--color-foreground-muted);
+  }
+
+  /* Labels of the measuring tool and the probe, set by the model. */
+  .geo-label-tool {
+    padding: 0.125rem 0.375rem;
+    border: 1px solid var(--color-brand-700);
+    border-radius: 0.25rem;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-weight: 600;
+  }
+
+  /* The print frame: a window onto the model, the rest dimmed. */
+  .geo3d-frame {
+    position: absolute;
+    z-index: 2;
+    box-sizing: border-box;
+    border: 2px solid var(--color-brand-700);
+    box-shadow: 0 0 0 100vmax color-mix(in oklab, var(--color-foreground) 38%, transparent);
+    pointer-events: none;
+  }
+  .geo3d-frame[hidden] {
+    display: none;
+  }
+  .geo3d-frame-bar {
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    top: -1.75rem;
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    background: var(--color-brand-700);
+    color: var(--color-background);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    cursor: move;
+    pointer-events: auto;
+    touch-action: none;
+  }
+  .geo3d-handle {
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--color-brand-700);
+    background: var(--color-background);
+    pointer-events: auto;
+    touch-action: none;
+  }
+  .geo3d-handle[data-handle='nw'] {
+    left: -0.75rem;
+    top: -0.75rem;
+    cursor: nwse-resize;
+  }
+  .geo3d-handle[data-handle='ne'] {
+    right: -0.75rem;
+    top: -0.75rem;
+    cursor: nesw-resize;
+  }
+  .geo3d-handle[data-handle='sw'] {
+    left: -0.75rem;
+    bottom: -0.75rem;
+    cursor: nesw-resize;
+  }
+  .geo3d-handle[data-handle='se'] {
+    right: -0.75rem;
+    bottom: -0.75rem;
+    cursor: nwse-resize;
+  }
+
+  /* Temperature profile under a point. */
+  .pf {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0.25rem 0 0.5rem;
+  }
+  .pf-grid {
+    stroke: var(--color-border);
+    stroke-width: 1;
+  }
+  .pf-axis {
+    stroke: var(--color-foreground-muted);
+    stroke-width: 1;
+  }
+  .pf-line {
+    stroke: var(--color-foreground);
+    stroke-width: 1.5;
+  }
+  .pf-contour {
+    stroke: var(--color-brand-700);
+    stroke-width: 1;
+    stroke-dasharray: 3 3;
+  }
+  .pf-dot {
+    stroke: var(--color-foreground);
+    stroke-width: 1;
+  }
+  .pf-text {
+    fill: var(--color-foreground-muted);
+    font-family: var(--font-mono);
+    font-size: 9px;
+  }
+
+  /* ── The printed sheet ───────────────────────────────────────────────────── */
+  .geo-sheet-root {
+    display: none;
+  }
+  @media print {
+    html.geo-printing,
+    html.geo-printing body {
+      background: white;
+      overflow: visible;
+    }
+    html.geo-printing body > *:not(.geo-sheet-root) {
+      display: none !important;
+    }
+    html.geo-printing .geo-sheet-root {
+      display: block;
+    }
+    .geo-sheet {
+      color: black;
+      background: white;
+      font-family: var(--font-body, sans-serif);
+      font-size: 8.5pt;
+      line-height: 1.35;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .geo-sheet h1 {
+      margin: 0;
+      font-size: 15pt;
+    }
+    .geo-sheet h2 {
+      margin: 0 0 1.5mm;
+      font-family: var(--font-mono, monospace);
+      font-size: 7pt;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .geo-sheet p {
+      margin: 0;
+    }
+    .gs-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 6mm;
+      padding-bottom: 2mm;
+      margin-bottom: 3mm;
+      border-bottom: 0.4mm solid black;
+    }
+    .gs-date {
+      font-size: 7.5pt;
+      white-space: nowrap;
+    }
+    .gs-body {
+      display: grid;
+      gap: 4mm;
+      align-items: start;
+    }
+    .geo-sheet--landscape .gs-body {
+      grid-template-columns: var(--gs-picture) 1fr;
+    }
+    .geo-sheet--portrait .gs-side {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm 5mm;
+    }
+    .gs-picture {
+      margin: 0;
+    }
+    .gs-picture img {
+      display: block;
+      width: var(--gs-picture);
+      max-width: 100%;
+      height: auto;
+      border: 0.3mm solid black;
+    }
+    .gs-picture figcaption {
+      margin-top: 1mm;
+      font-size: 6.5pt;
+    }
+    .gs-block {
+      margin-bottom: 3mm;
+      break-inside: avoid;
+    }
+    .gs-wells {
+      margin-top: 4mm;
+      break-inside: auto;
+    }
+    .gs-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .gs-table th,
+    .gs-table td {
+      padding: 0.6mm 1.5mm;
+      border-bottom: 0.2mm solid black;
+      text-align: left;
+      vertical-align: top;
+    }
+    .gs-facts th {
+      width: 40%;
+      font-weight: 400;
+    }
+    .gs-grid thead th {
+      border-bottom-width: 0.4mm;
+      font-size: 7pt;
+    }
+    .gs-grid tr {
+      break-inside: avoid;
+    }
+    .gs-bar {
+      height: 3.5mm;
+      border: 0.2mm solid black;
+    }
+    .gs-ticks {
+      position: relative;
+      height: 4mm;
+      font-family: var(--font-mono, monospace);
+      font-size: 6.5pt;
+    }
+    .gs-ticks span {
+      position: absolute;
+      transform: translateX(-50%);
+    }
+    .gs-keys,
+    .gs-notes {
+      margin: 1mm 0 0;
+      padding-left: 4mm;
+      font-size: 7pt;
+    }
+    .gs-chart svg {
+      width: 100%;
+      max-width: 55mm;
+      height: auto;
+    }
+    .gs-chart .pf-grid {
+      stroke: black;
+      stroke-opacity: 0.2;
+    }
+    .gs-chart .pf-axis,
+    .gs-chart .pf-line,
+    .gs-chart .pf-dot {
+      stroke: black;
+    }
+    .gs-chart .pf-contour {
+      stroke: black;
+    }
+    .gs-chart .pf-text {
+      fill: black;
+    }
+    .gs-foot {
+      margin-top: 4mm;
+      padding-top: 2mm;
+      border-top: 0.3mm solid black;
+      break-inside: avoid;
+    }
+    .gs-foot p {
+      margin-top: 1.5mm;
+      font-size: 6.5pt;
+    }
   }
 </style>

@@ -387,6 +387,113 @@
         "flow": "l/s",
         "minerals": "g/l"
       },
+      "workspace": {
+        "brand": "Geothermisch model van Vojvodina",
+        "open": "Openen in een venster over het hele scherm",
+        "close": "Sluiten",
+        "fullscreen": "Volledig scherm",
+        "dockLeft": "Instellingen",
+        "dockRight": "Gegevens",
+        "fit": "Aanpassen aan venster",
+        "tool": {
+          "navigate": "Navigeren",
+          "measure": "Meten",
+          "frame": "Afdrukkader",
+          "print": "Afdrukken",
+          "png": "Afbeelding opslaan"
+        },
+        "hint": {
+          "navigate": "Slepen draait · rechts slepen verschuift · scrollen zoomt · klik op de grond voor het temperatuurprofiel · klik op een boring voor details",
+          "measureFirst": "Meten: klik het eerste punt op de grond aan",
+          "measureSecond": "Meten: klik het tweede punt aan",
+          "measureDone": "Afstand en richting staan in het model · opnieuw klikken begint een nieuwe meting · Esc wist",
+          "frame": "Afdrukkader: sleep de balk om te verplaatsen, sleep een hoek om het formaat te wijzigen en druk dan op Afdrukken"
+        },
+        "status": {
+          "lat": "Br.",
+          "lon": "L.",
+          "gk": "GK7 E/N, m",
+          "elevation": "Hoogte",
+          "temps": "Atlastemperatuur op 500 · 1.000 · 2.000 m",
+          "none": "Beweeg de aanwijzer over het model"
+        },
+        "find": {
+          "label": "Zoek een boring of plaats",
+          "placeholder": "Zoek een boring of plaats…",
+          "none": "Geen boring of plaats met die naam"
+        },
+        "probe": {
+          "title": "Punt op de grond",
+          "empty": "Klik in het model op de grond om de temperatuur onder dat punt af te lezen.",
+          "clear": "Punt wissen",
+          "rows": {
+            "position": "Positie",
+            "gk": "Gauss-Krüger, zone 7, m",
+            "elevation": "Hoogte",
+            "at": "Op {depth} m",
+            "depthTo": "Diepte tot {temp} °C"
+          }
+        },
+        "chart": {
+          "temp": "Temperatuur, °C",
+          "depth": "Diepte, km"
+        },
+        "print": {
+          "title": "Kader afdrukken",
+          "paper": "Papier",
+          "a4": "A4",
+          "a3": "A3",
+          "orientation": "Afdrukstand",
+          "landscape": "Liggend",
+          "portrait": "Staand",
+          "showFrame": "Kader op het model tonen",
+          "print": "Afdrukken",
+          "save": "Afbeelding opslaan",
+          "placeFirst": "Plaats het kader over het gewenste deel van het model en druk nogmaals op Afdrukken.",
+          "busy": "Blad wordt voorbereid…",
+          "summary": "{paper}, {orientation}, afbeelding {w} × {h} mm"
+        },
+        "sheet": {
+          "subtitle": "Geothermisch potentieel van Vojvodina: 3D-model van hydrothermale boringen",
+          "date": "Afgedrukt op {date}",
+          "facts": {
+            "frame": "Gebied in het kader",
+            "settings": "Instellingen van het model"
+          },
+          "rows": {
+            "centre": "Middelpunt",
+            "size": "Breedte × hoogte op de grond",
+            "view": "Weergave",
+            "scale": "Schaal",
+            "exaggeration": "Verticale overdrijving",
+            "relief": "Reliëfoverdrijving",
+            "layers": "Temperatuurlagen",
+            "contours": "Isolijnen",
+            "map": "Kaart",
+            "wells": "Boringen",
+            "off": "Uit"
+          },
+          "viewTop": "Van boven",
+          "viewOblique": "Schuin, richting {azimuth}°, helling {tilt}°",
+          "scaleValue": "1 : {n}",
+          "layersValue": "elke {step} km, dekking {opacity} %",
+          "contoursValue": "diepte tot {temp} °C",
+          "mapValue": "OpenTopoMap",
+          "wells": "Boringen in het kader",
+          "wellsEmpty": "Geen boringen in het kader.",
+          "wellsHead": [
+            "Boring",
+            "Plaats",
+            "Status",
+            "Diepte, m",
+            "Max. temp., °C",
+            "Interval, m",
+            "Geboord"
+          ],
+          "selected": "Gekozen boring",
+          "point": "Punt op de grond"
+        }
+      },
       "notesTitle": "Zo leest u de weergave",
       "notes": [
         "**Positie.** De bijlage noemt plaatsen, geen coördinaten, dus elke boring staat in het midden van haar plaats. Boringen in dezelfde plaats staan verspreid op een ring van ongeveer 2 km breed zodat ze te onderscheiden zijn.",

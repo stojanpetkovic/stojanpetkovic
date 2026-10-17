@@ -387,6 +387,113 @@
         "flow": "l/s",
         "minerals": "g/l"
       },
+      "workspace": {
+        "brand": "Geothermal model of Vojvodina",
+        "open": "Open in a full-screen window",
+        "close": "Close",
+        "fullscreen": "Full screen",
+        "dockLeft": "Settings",
+        "dockRight": "Data",
+        "fit": "Fit to window",
+        "tool": {
+          "navigate": "Navigate",
+          "measure": "Measure",
+          "frame": "Print frame",
+          "print": "Print",
+          "png": "Save image"
+        },
+        "hint": {
+          "navigate": "Drag to rotate · right-drag to pan · scroll to zoom · click the ground for a temperature profile · click a well for details",
+          "measureFirst": "Measure: click the first point on the ground",
+          "measureSecond": "Measure: click the second point",
+          "measureDone": "Distance and bearing are shown on the model · click again to start a new measurement · Esc to clear",
+          "frame": "Print frame: drag the bar to move it, drag a corner to resize it, then press Print"
+        },
+        "status": {
+          "lat": "Lat",
+          "lon": "Lon",
+          "gk": "GK7 E/N, m",
+          "elevation": "Elevation",
+          "temps": "Atlas temperature at 500 · 1,000 · 2,000 m",
+          "none": "Move the pointer over the model"
+        },
+        "find": {
+          "label": "Find a well or settlement",
+          "placeholder": "Find a well or settlement…",
+          "none": "No well or settlement with that name"
+        },
+        "probe": {
+          "title": "Point on the ground",
+          "empty": "Click the ground in the model to read the temperature below that point.",
+          "clear": "Clear the point",
+          "rows": {
+            "position": "Position",
+            "gk": "Gauss–Krüger zone 7, m",
+            "elevation": "Elevation",
+            "at": "At {depth} m",
+            "depthTo": "Depth to {temp} °C"
+          }
+        },
+        "chart": {
+          "temp": "Temperature, °C",
+          "depth": "Depth, km"
+        },
+        "print": {
+          "title": "Print the frame",
+          "paper": "Paper",
+          "a4": "A4",
+          "a3": "A3",
+          "orientation": "Orientation",
+          "landscape": "Landscape",
+          "portrait": "Portrait",
+          "showFrame": "Show the frame on the model",
+          "print": "Print",
+          "save": "Save image",
+          "placeFirst": "Place the frame over the part of the model you want, then press Print again.",
+          "busy": "Preparing the sheet…",
+          "summary": "{paper}, {orientation}, picture {w} × {h} mm"
+        },
+        "sheet": {
+          "subtitle": "Geothermal potential of Vojvodina: 3D model of hydrothermal wells",
+          "date": "Printed {date}",
+          "facts": {
+            "frame": "Area in the frame",
+            "settings": "Settings of the model"
+          },
+          "rows": {
+            "centre": "Centre",
+            "size": "Width × height on the ground",
+            "view": "View",
+            "scale": "Scale",
+            "exaggeration": "Vertical exaggeration",
+            "relief": "Relief exaggeration",
+            "layers": "Temperature layers",
+            "contours": "Contours",
+            "map": "Map",
+            "wells": "Wells",
+            "off": "Off"
+          },
+          "viewTop": "From above",
+          "viewOblique": "Oblique, direction {azimuth}°, tilt {tilt}°",
+          "scaleValue": "1 : {n}",
+          "layersValue": "every {step} km, opacity {opacity} %",
+          "contoursValue": "depth to {temp} °C",
+          "mapValue": "OpenTopoMap",
+          "wells": "Wells in the frame",
+          "wellsEmpty": "No wells in the frame.",
+          "wellsHead": [
+            "Well",
+            "Settlement",
+            "Status",
+            "Depth, m",
+            "Max. temp., °C",
+            "Interval, m",
+            "Drilled"
+          ],
+          "selected": "Selected well",
+          "point": "Point on the ground"
+        }
+      },
       "notesTitle": "How to read it",
       "notes": [
         "**Position.** The annex lists settlements, not coordinates, so each well stands at the centre of its settlement. Wells of one settlement are spread on a ring about 2 km wide so that they can be told apart.",

@@ -387,6 +387,113 @@
         "flow": "l/s",
         "minerals": "g/l"
       },
+      "workspace": {
+        "brand": "Geothermisches Modell der Vojvodina",
+        "open": "Im Vollbildfenster öffnen",
+        "close": "Schließen",
+        "fullscreen": "Vollbild",
+        "dockLeft": "Einstellungen",
+        "dockRight": "Daten",
+        "fit": "An Fenster anpassen",
+        "tool": {
+          "navigate": "Navigieren",
+          "measure": "Messen",
+          "frame": "Druckrahmen",
+          "print": "Drucken",
+          "png": "Bild speichern"
+        },
+        "hint": {
+          "navigate": "Ziehen dreht · Rechtsklick-Ziehen verschiebt · Scrollen zoomt · Klick auf den Boden zeigt das Temperaturprofil · Klick auf eine Bohrung zeigt Details",
+          "measureFirst": "Messen: ersten Punkt auf dem Boden anklicken",
+          "measureSecond": "Messen: zweiten Punkt anklicken",
+          "measureDone": "Entfernung und Richtung stehen im Modell · erneuter Klick beginnt eine neue Messung · Esc löscht",
+          "frame": "Druckrahmen: Leiste ziehen zum Verschieben, Ecke ziehen zum Ändern der Größe, dann Drucken drücken"
+        },
+        "status": {
+          "lat": "Br.",
+          "lon": "L.",
+          "gk": "GK7 E/N, m",
+          "elevation": "Höhe",
+          "temps": "Atlas-Temperatur in 500 · 1.000 · 2.000 m",
+          "none": "Zeiger über das Modell bewegen"
+        },
+        "find": {
+          "label": "Bohrung oder Ort suchen",
+          "placeholder": "Bohrung oder Ort suchen…",
+          "none": "Keine Bohrung und kein Ort mit diesem Namen"
+        },
+        "probe": {
+          "title": "Punkt auf dem Boden",
+          "empty": "Klicken Sie im Modell auf den Boden, um die Temperatur unter diesem Punkt abzulesen.",
+          "clear": "Punkt entfernen",
+          "rows": {
+            "position": "Lage",
+            "gk": "Gauß-Krüger, Zone 7, m",
+            "elevation": "Höhe",
+            "at": "In {depth} m",
+            "depthTo": "Tiefe bis {temp} °C"
+          }
+        },
+        "chart": {
+          "temp": "Temperatur, °C",
+          "depth": "Tiefe, km"
+        },
+        "print": {
+          "title": "Rahmen drucken",
+          "paper": "Papier",
+          "a4": "A4",
+          "a3": "A3",
+          "orientation": "Ausrichtung",
+          "landscape": "Querformat",
+          "portrait": "Hochformat",
+          "showFrame": "Rahmen im Modell zeigen",
+          "print": "Drucken",
+          "save": "Bild speichern",
+          "placeFirst": "Platzieren Sie den Rahmen über dem gewünschten Teil des Modells und drücken Sie erneut Drucken.",
+          "busy": "Blatt wird vorbereitet…",
+          "summary": "{paper}, {orientation}, Bild {w} × {h} mm"
+        },
+        "sheet": {
+          "subtitle": "Geothermisches Potenzial der Vojvodina: 3D-Modell hydrothermaler Bohrungen",
+          "date": "Gedruckt am {date}",
+          "facts": {
+            "frame": "Gebiet im Rahmen",
+            "settings": "Einstellungen des Modells"
+          },
+          "rows": {
+            "centre": "Mittelpunkt",
+            "size": "Breite × Höhe im Gelände",
+            "view": "Ansicht",
+            "scale": "Maßstab",
+            "exaggeration": "Vertikale Überhöhung",
+            "relief": "Reliefüberhöhung",
+            "layers": "Temperaturschichten",
+            "contours": "Isolinien",
+            "map": "Karte",
+            "wells": "Bohrungen",
+            "off": "Aus"
+          },
+          "viewTop": "Von oben",
+          "viewOblique": "Schräg, Richtung {azimuth}°, Neigung {tilt}°",
+          "scaleValue": "1 : {n}",
+          "layersValue": "alle {step} km, Deckkraft {opacity} %",
+          "contoursValue": "Tiefe bis {temp} °C",
+          "mapValue": "OpenTopoMap",
+          "wells": "Bohrungen im Rahmen",
+          "wellsEmpty": "Keine Bohrungen im Rahmen.",
+          "wellsHead": [
+            "Bohrung",
+            "Ort",
+            "Status",
+            "Tiefe, m",
+            "Max. Temp., °C",
+            "Intervall, m",
+            "Gebohrt"
+          ],
+          "selected": "Gewählte Bohrung",
+          "point": "Punkt auf dem Boden"
+        }
+      },
       "notesTitle": "So ist die Darstellung zu lesen",
       "notes": [
         "**Lage.** Der Anhang nennt Orte, keine Koordinaten, daher steht jede Bohrung im Zentrum ihres Ortes. Bohrungen desselben Ortes sind auf einem Ring von etwa 2 km Breite verteilt, damit man sie unterscheiden kann.",
