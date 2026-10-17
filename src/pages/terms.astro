@@ -1,0 +1,9 @@
+---
+import TermsView from '@/components/pages/views/TermsView.astro';
+import { defaultLocale } from '@/i18n';
+
+// The Terms of use page for the default locale. Additional locales are served by
+// `src/pages/[locale]/terms.astro`, which renders the same view.
+---
+
+<TermsView locale={defaultLocale} />

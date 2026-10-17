@@ -1,0 +1,182 @@
+---
+/**
+ * ToolNotice — what a visitor is told before using an engineering tool, and what
+ * the first visit asks of them.
+ *
+ * A short notice sits above the tool (results are approximate, not a design or a
+ * procedure; a link to the terms of use). The first time a visitor opens any tool,
+ * a dialog asks them to confirm they understand that, since the tools touch work
+ * on wells, pressure and nitrogen. The confirmation is remembered in the browser
+ * and is asked once. Copy comes from `pages.tools.notice.*`.
+ */
+import { tData, defaultLocale, localizedPath } from '@/i18n';
+
+interface Props {
+  /** Locale whose copy the notice shows. Defaults to the site default. */
+  locale?: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const n = tData<{
+  text: string;
+  link: string;
+  ackTitle: string;
+  ackIntro: string;
+  ackItems: string[];
+  ackCheck: string;
+  ackButton: string;
+  ackBack: string;
+}>('pages.tools.notice', locale)!;
+const termsUrl = localizedPath('/terms', locale);
+const toolsUrl = localizedPath('/tools', locale);
+const [checkBefore, checkAfter = ''] = n.ackCheck.split('{terms}');
+---
+
+<aside class="tool-notice no-print" role="note">
+  <div class="mx-auto max-w-5xl px-6 pt-6">
+    <p class="rounded-xl border border-border bg-background-secondary px-4 py-3 text-sm leading-relaxed text-foreground-muted">
+      {n.text}
+      <a class="font-medium text-brand-700 underline underline-offset-2" href={termsUrl}>{n.link}</a>
+    </p>
+  </div>
+</aside>
+
+<dialog class="tool-ack no-print" data-tool-ack aria-labelledby="tool-ack-title">
+  <h2 id="tool-ack-title">{n.ackTitle}</h2>
+  <p>{n.ackIntro}</p>
+  <ul>
+    {n.ackItems.map((item) => <li>{item}</li>)}
+  </ul>
+  <label class="tool-ack-check">
+    <input type="checkbox" data-ack-check />
+    <span>
+      {checkBefore}<a href={termsUrl} target="_blank" rel="noopener">{n.link}</a>{checkAfter}
+    </span>
+  </label>
+  <div class="tool-ack-actions">
+    <a href={toolsUrl}>{n.ackBack}</a>
+    <button type="button" data-ack-continue disabled>{n.ackButton}</button>
+  </div>
+</dialog>
+
+<script>
+  // Asked once: the confirmation is kept in the browser, and where storage is
+  // blocked the dialog simply shows again on the next visit.
+  const KEY = 'tools-ack-v1';
+
+  for (const dialog of document.querySelectorAll<HTMLDialogElement>('[data-tool-ack]')) {
+    let done = false;
+    try {
+      done = localStorage.getItem(KEY) === '1';
+    } catch {
+      done = false;
+    }
+    if (done || typeof dialog.showModal !== 'function') continue;
+
+    const check = dialog.querySelector<HTMLInputElement>('[data-ack-check]')!;
+    const button = dialog.querySelector<HTMLButtonElement>('[data-ack-continue]')!;
+    check.addEventListener('change', () => {
+      button.disabled = !check.checked;
+    });
+    button.addEventListener('click', () => {
+      try {
+        localStorage.setItem(KEY, '1');
+      } catch {
+        // Storage blocked: the dialog will show again next time.
+      }
+      dialog.close();
+    });
+    // Escape must not skip the question; the way out is the link back to the tools.
+    dialog.addEventListener('cancel', (event) => event.preventDefault());
+    dialog.showModal();
+  }
+</script>
+
+<style is:global>
+  .tool-ack {
+    inset: 0;
+    margin: auto;
+    width: min(34rem, calc(100vw - 2rem));
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 0.75rem;
+    background: var(--color-background);
+    color: var(--color-foreground-secondary);
+  }
+  .tool-ack::backdrop {
+    background: color-mix(in oklab, var(--color-foreground) 55%, transparent);
+  }
+  .tool-ack h2 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-foreground);
+  }
+  .tool-ack p {
+    margin: 0 0 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+  .tool-ack ul {
+    margin: 0 0 1rem;
+    padding-left: 1.125rem;
+    list-style: disc;
+    display: grid;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+  .tool-ack-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.875rem;
+    color: var(--color-foreground);
+  }
+  .tool-ack-check input {
+    margin-top: 0.2rem;
+    accent-color: var(--color-brand-700);
+  }
+  .tool-ack-check a,
+  .tool-ack-actions a {
+    color: var(--color-brand-700);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .tool-ack-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+  }
+  .tool-ack-actions button {
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--color-brand-700);
+    border-radius: 0.375rem;
+    background: var(--color-brand-700);
+    color: var(--color-background);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .tool-ack-actions button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  .tool-ack-actions button:focus-visible,
+  .tool-ack-check input:focus-visible {
+    outline: 2px solid var(--color-brand-700);
+    outline-offset: 2px;
+  }
+  @media print {
+    .tool-ack {
+      display: none;
+    }
+  }
+</style>

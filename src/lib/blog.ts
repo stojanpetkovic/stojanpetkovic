@@ -70,7 +70,7 @@ export function getTagUrl(tag: string, locale: string = defaultLocale): string {
  *
  * There used to be one feed. It carried the default locale's posts and
  * declared `<language>` to match, but every page in every locale linked to it,
- * so a Dutch reader was offered a feed of English posts.
+ * so a German reader was offered a feed of English posts.
  */
 export function getRssUrl(locale: string = defaultLocale): string {
   return localizedPath('/rss.xml', locale);

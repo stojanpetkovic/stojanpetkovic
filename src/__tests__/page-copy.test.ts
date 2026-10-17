@@ -8,10 +8,9 @@
 import { describe, expect, it } from 'vitest';
 import en from '../i18n/en.json';
 import de from '../i18n/de.json';
-import nl from '../i18n/nl.json';
 import sr from '../i18n/sr.json';
 
-const locales = { en, de, nl, sr } as Record<string, unknown>;
+const locales = { en, de, sr } as Record<string, unknown>;
 
 const BLOCKS = [
   'pages.home.hero.badges',

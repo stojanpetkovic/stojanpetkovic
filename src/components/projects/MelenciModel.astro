@@ -1,0 +1,837 @@
+---
+/**
+ * MelenciModel — the tables, the temperature profile and the calculator of the Melenci
+ * utilisation model. All figures come from `src/lib/geothermal/utilization.ts` and the
+ * atlas field, so the page, the calculator and the tests share one set of formulas.
+ * `part` picks what to draw, so a project page can place each in its own chapter.
+ * Copy comes from `pages.melenciModel.*`.
+ */
+import { defaultLocale, localizedPath, t as tr, tData } from '@/i18n';
+import { buildField, columnAt, ORIGIN } from '@/lib/geothermal/field';
+import { profileSvg } from '@/lib/geothermal/print';
+import { SETTLEMENTS, project } from '@/lib/geothermal/wells';
+import {
+  dissolvedGas,
+  heatChain,
+  investmentEstimate,
+  simplePayback,
+  yearBalance,
+} from '@/lib/geothermal/utilization';
+
+type CostKey = 'drilling' | 'equipment' | 'heatPump' | 'pipeline' | 'workover' | 'gas';
+type FieldKey =
+  | 'temp'
+  | 'flow'
+  | 'hours'
+  | 'heatValue'
+  | 'electricPrice'
+  | 'upkeep'
+  | 'newWells'
+  | 'depth'
+  | 'drillingPerM'
+  | 'workover'
+  | 'heatPumpPerKw'
+  | 'pipelineM'
+  | 'pipelinePerM'
+  | 'equipment'
+  | 'otherOpex'
+  | 'gasRatio'
+  | 'gasPrice'
+  | 'gasEquipment';
+
+interface Copy {
+  profile: Record<'caption' | 'temp' | 'depth' | 'aria', string>;
+  scenarios: {
+    caption: string;
+    cols: string[];
+    rows: Record<'a1' | 'a2' | 'b' | 'c', string>;
+    note: string;
+  };
+  economics: Record<'caption' | 'range' | 'price' | 'net' | 'never' | 'note', string> & {
+    cols: string[];
+  };
+  opex: { caption: string; cols: string[]; note: string };
+  matrix: Record<'caption' | 'tempCol' | 'flowHead' | 'clear' | 'limit' | 'no' | 'note', string>;
+  methane: {
+    caption: string;
+    cols: string[];
+    rows: Record<'low' | 'high', string>;
+    note: string;
+  };
+  costs: {
+    caption: string;
+    cols: string[];
+    rows: Record<CostKey, { name: string; basis: string }>;
+    units: Record<'perM' | 'perKw' | 'eur' | 'route', string>;
+  };
+  calc: {
+    title: string;
+    intro: string;
+    fields: Record<FieldKey, string>;
+    results: Record<
+      | 'atlas'
+      | 'heating'
+      | 'pools'
+      | 'pump'
+      | 'electric'
+      | 'cop'
+      | 'total'
+      | 'energy'
+      | 'net'
+      | 'gasRevenue'
+      | 'opex'
+      | 'investment'
+      | 'payback',
+      string
+    >;
+    note: string;
+  };
+  pdf: Record<'button' | 'hint', string>;
+}
+
+interface Props {
+  part: 'profile' | 'scenarios' | 'costs' | 'economics' | 'opex' | 'methane' | 'matrix' | 'calculator' | 'pdf';
+  locale?: string;
+}
+
+const { part, locale = defaultLocale } = Astro.props;
+const c = tData<Copy>('pages.melenciModel', locale)!;
+
+// The assumptions the tables and the calculator start from.
+const HOURS = 4000;
+const PRICES = [40, 85, 130];
+const ELECTRIC = 130;
+const UPKEEP = 0.03;
+const OTHER_OPEX = 10000;
+const GAS_PRICE = 35;
+const GAS_RATIOS = { low: 0.04, high: 2.2 };
+const COST = {
+  drillingPerM: 400,
+  heatPumpPerKw: 500,
+  pipelineM: 500,
+  pipelinePerM: 400,
+  equipment: 200000,
+  workover: 0,
+};
+
+const int = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
+const one = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
+const two = new Intl.NumberFormat(locale, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fill = (s: string, v: Record<string, string | number>) =>
+  s.replace(/\{(\w+)\}/g, (_, k) => String(v[k] ?? ''));
+
+const cases = [
+  { key: 'a1', flow: 6.9, temp: 33, newWells: 0, depthM: 0 },
+  { key: 'a2', flow: 10.3, temp: 33, newWells: 0, depthM: 0 },
+  { key: 'b', flow: 5, temp: 55, newWells: 1, depthM: 1000 },
+  { key: 'c', flow: 8, temp: 75, newWells: 1, depthM: 1300 },
+] as const;
+const rows = cases.map((k) => {
+  const chain = heatChain(k.flow, k.temp);
+  const investment = investmentEstimate({
+    newWells: k.newWells,
+    depthM: k.depthM,
+    pumpKw: chain.pumpKw,
+    ...COST,
+  });
+  return { ...k, chain, investment };
+});
+const econ = (k: (typeof rows)[number], heatValue: number) =>
+  yearBalance(k.chain, {
+    hours: HOURS,
+    heatValue,
+    electricPrice: ELECTRIC,
+    investment: k.investment.total,
+    upkeepShare: UPKEEP,
+    otherFixed: OTHER_OPEX,
+    gasMWh: 0,
+    gasValue: GAS_PRICE,
+  });
+const kEur = (v: number) => int.format(v / 1000);
+
+// Payback of a generic new well: temperature against flow, for three values of the heat.
+const CLEAR_YEARS = 5;
+const LIMIT_YEARS = 10;
+const MATRIX_TEMPS = [35, 50, 65, 80];
+const MATRIX_FLOWS = [3, 5, 10, 20];
+// Depth at which the rock is 4 °C warmer than the water, at the gradient of Melenci.
+const wellDepth = (temp: number) => Math.round((temp + 4 - 11) / 0.0525 / 50) * 50;
+const matrix = (heatValue: number) =>
+  MATRIX_TEMPS.map((temp) => {
+    const depthM = wellDepth(temp);
+    return {
+      temp,
+      depthM,
+      cells: MATRIX_FLOWS.map((flow) => {
+        const chain = heatChain(flow, temp);
+        const investment = investmentEstimate({
+          newWells: 1,
+          depthM,
+          pumpKw: chain.pumpKw,
+          ...COST,
+        });
+        const b = yearBalance(chain, {
+          hours: HOURS,
+          heatValue,
+          electricPrice: ELECTRIC,
+          investment: investment.total,
+          upkeepShare: UPKEEP,
+          otherFixed: OTHER_OPEX,
+          gasMWh: 0,
+          gasValue: GAS_PRICE,
+        });
+        const years = simplePayback(investment.total, b.netPerYear);
+        const level =
+          years === null || years > LIMIT_YEARS ? 'no' : years > CLEAR_YEARS ? 'limit' : 'clear';
+        return { flow, years, level } as const;
+      }),
+    };
+  });
+// The gas of Me-1/H at the two ends of the range the atlas gives, at the flow of Annex 1.
+const gasRows = (['low', 'high'] as const).map((k) => {
+  const gas = dissolvedGas(rows[0].flow, HOURS, GAS_RATIOS[k]);
+  return {
+    key: k,
+    ratio: GAS_RATIOS[k],
+    gas,
+    value: gas.energyMWh * GAS_PRICE,
+    share: gas.energyMWh / ((rows[0].chain.totalKw * HOURS) / 1000),
+  };
+});
+
+let profile = '';
+if (part === 'profile') {
+  const s = SETTLEMENTS.melenci;
+  const { x, y } = project(s.lat, s.lon, ORIGIN.lat, ORIGIN.lon);
+  profile = profileSvg(columnAt(buildField(), x, y), {
+    contourTemp: 60,
+    maxDepthKm: 2,
+    tempLabel: c.profile.temp,
+    depthLabel: c.profile.depth,
+  });
+}
+
+const strings = { locale };
+const costValue: Record<CostKey, string> = {
+  drilling: `${int.format(COST.drillingPerM)} ${c.costs.units.perM}`,
+  equipment: `${int.format(COST.equipment)} ${c.costs.units.eur}`,
+  heatPump: `${int.format(COST.heatPumpPerKw)} ${c.costs.units.perKw}`,
+  pipeline: fill(c.costs.units.route, { m: COST.pipelineM, p: COST.pipelinePerM }),
+  workover: `0 ${c.costs.units.eur}`,
+  gas: `0 ${c.costs.units.eur}`,
+};
+const costKeys = ['drilling', 'equipment', 'heatPump', 'pipeline', 'workover', 'gas'] as const;
+
+// A slider of the calculator: [name, min, max, step, start].
+const sliders: [FieldKey, number, number, number, number][] = [
+  ['temp', 25, 95, 1, 55],
+  ['flow', 1, 25, 0.1, 8],
+  ['hours', 1000, 8000, 250, HOURS],
+  ['heatValue', 20, 150, 1, PRICES[1]],
+  ['electricPrice', 40, 250, 5, ELECTRIC],
+  ['upkeep', 0, 10, 0.5, UPKEEP * 100],
+  ['otherOpex', 0, 100000, 1000, OTHER_OPEX],
+  ['gasRatio', 0, 2.2, 0.01, 0],
+  ['gasPrice', 10, 100, 1, GAS_PRICE],
+  ['newWells', 0, 3, 1, 1],
+  ['depth', 300, 2500, 50, 1300],
+  ['drillingPerM', 100, 2000, 25, COST.drillingPerM],
+  ['workover', 0, 1000000, 10000, COST.workover],
+  ['heatPumpPerKw', 100, 1500, 25, COST.heatPumpPerKw],
+  ['pipelineM', 0, 3000, 50, COST.pipelineM],
+  ['pipelinePerM', 100, 1500, 25, COST.pipelinePerM],
+  ['equipment', 0, 1000000, 10000, COST.equipment],
+  ['gasEquipment', 0, 500000, 5000, 0],
+];
+---
+
+{
+  part === 'pdf' && (
+    <p class="melenci-pdf no-print">
+      <button type="button" data-melenci-print>{c.pdf.button}</button>
+      <span>{c.pdf.hint}</span>
+    </p>
+  )
+}
+
+{
+  part === 'profile' && (
+    <figure class="melenci-figure">
+      <div class="melenci-chart" set:html={profile} />
+      <figcaption>{c.profile.caption}</figcaption>
+    </figure>
+  )
+}
+
+{
+  part === 'scenarios' && (
+    <div class="project-wide melenci-block">
+      <div class="melenci-scroll">
+        <table>
+          <caption>{c.scenarios.caption}</caption>
+          <thead>
+            <tr>{c.scenarios.cols.map((h) => <th>{h}</th>)}</tr>
+          </thead>
+          <tbody>
+            {rows.map((k) => (
+              <tr>
+                <td>{c.scenarios.rows[k.key]}</td>
+                <td>{int.format(k.temp)}</td>
+                <td>{one.format(k.flow)}</td>
+                <td>{int.format(k.chain.atlasKw)}</td>
+                <td>{int.format(k.chain.heatingKw)}</td>
+                <td>{int.format(k.chain.poolKw)}</td>
+                <td>{int.format(k.chain.pumpKw)}</td>
+                <td>{int.format(k.chain.electricKw)}</td>
+                <td>{int.format(k.chain.totalKw)}</td>
+                <td>{int.format((k.chain.totalKw * HOURS) / 1000)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="melenci-note">{fill(c.scenarios.note, { hours: int.format(HOURS) })}</p>
+    </div>
+  )
+}
+
+{
+  part === 'costs' && (
+    <div class="project-wide melenci-block">
+      <div class="melenci-scroll melenci-scroll--text">
+        <table>
+          <caption>{c.costs.caption}</caption>
+          <thead>
+            <tr>{c.costs.cols.map((h) => <th>{h}</th>)}</tr>
+          </thead>
+          <tbody>
+            {costKeys.map((k) => (
+              <tr>
+                <td>{c.costs.rows[k].name}</td>
+                <td>{costValue[k]}</td>
+                <td>{c.costs.rows[k].basis}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )
+}
+
+{
+  part === 'economics' && (
+    <div class="project-wide melenci-block">
+      <div class="melenci-scroll">
+        <table>
+          <caption>{c.economics.caption}</caption>
+          <thead>
+            <tr>
+              <th>{c.economics.cols[0]}</th>
+              <th>{c.economics.cols[1]}</th>
+              {PRICES.map((p) => <th>{fill(c.economics.price, { price: p })}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((k) => (
+              <tr>
+                <td>{c.scenarios.rows[k.key]}</td>
+                <td>
+                  {two.format(k.investment.total / 1e6)}
+                  <span class="melenci-sub">
+                    {fill(c.economics.range, {
+                      low: two.format(k.investment.low / 1e6),
+                      high: two.format(k.investment.high / 1e6),
+                    })}
+                  </span>
+                </td>
+                {PRICES.map((p) => {
+                  const e = econ(k, p);
+                  const years = simplePayback(k.investment.total, e.netPerYear);
+                  return (
+                    <td>
+                      {years === null ? c.economics.never : one.format(years)}
+                      <span class="melenci-sub">
+                        {fill(c.economics.net, { net: int.format(e.netPerYear / 1000) })}
+                      </span>
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="melenci-note">
+        {fill(c.economics.note, { electric: ELECTRIC, upkeep: UPKEEP * 100 })}
+      </p>
+    </div>
+  )
+}
+
+{
+  part === 'opex' && (
+    <div class="project-wide melenci-block">
+      <div class="melenci-scroll">
+        <table>
+          <caption>{c.opex.caption}</caption>
+          <thead>
+            <tr>{c.opex.cols.map((h) => <th>{h}</th>)}</tr>
+          </thead>
+          <tbody>
+            {rows.map((k) => {
+              const b = econ(k, PRICES[1]);
+              return (
+                <tr>
+                  <td>{c.scenarios.rows[k.key]}</td>
+                  <td>{kEur(b.opexElectric)}</td>
+                  <td>{kEur(b.opexUpkeep)}</td>
+                  <td>{kEur(b.opexOther)}</td>
+                  <td>{kEur(b.opex)}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      <p class="melenci-note">
+        {fill(c.opex.note, {
+          electric: ELECTRIC,
+          upkeep: UPKEEP * 100,
+          other: int.format(OTHER_OPEX),
+        })}
+      </p>
+    </div>
+  )
+}
+
+{
+  part === 'methane' && (
+    <div class="project-wide melenci-block">
+      <div class="melenci-scroll">
+        <table>
+          <caption>{c.methane.caption}</caption>
+          <thead>
+            <tr>{c.methane.cols.map((h) => <th>{h}</th>)}</tr>
+          </thead>
+          <tbody>
+            {gasRows.map((g) => (
+              <tr>
+                <td>{two.format(g.ratio)} ({c.methane.rows[g.key]})</td>
+                <td>{int.format(g.gas.gasM3)}</td>
+                <td>{int.format(g.gas.energyMWh)}</td>
+                <td>{one.format(g.value / 1000)}</td>
+                <td>{one.format(g.share * 100)} %</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="melenci-note">
+        {fill(c.methane.note, { hours: int.format(HOURS), price: GAS_PRICE })}
+      </p>
+    </div>
+  )
+}
+
+{
+  part === 'matrix' && (
+    <div class="project-wide melenci-block">
+      {PRICES.map((price) => (
+        <div class="melenci-scroll melenci-matrix">
+          <table>
+            <caption>{fill(c.matrix.caption, { price })}</caption>
+            <thead>
+              <tr>
+                <th>{c.matrix.tempCol}</th>
+                {MATRIX_FLOWS.map((f) => <th>{fill(c.matrix.flowHead, { flow: f })}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {matrix(price).map((r) => (
+                <tr>
+                  <td>{r.temp} ({int.format(r.depthM)})</td>
+                  {r.cells.map((cell) => (
+                    <td class={`is-${cell.level}`}>
+                      {cell.years === null ? '–' : one.format(cell.years)}
+                      <span class="melenci-sub">{c.matrix[cell.level]}</span>
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+      <p class="melenci-note">
+        {fill(c.matrix.note, { hours: int.format(HOURS), clear: CLEAR_YEARS, limit: LIMIT_YEARS })}
+      </p>
+    </div>
+  )
+}
+
+{
+  part === 'calculator' && (
+    <form class="project-wide melenci-calc" data-melenci-calc data-strings={JSON.stringify(strings)} novalidate>
+      <h3>{c.calc.title}</h3>
+      <p>{c.calc.intro}</p>
+      <div class="melenci-calc-grid">
+        <div class="melenci-calc-inputs">
+          {sliders.map(([name, min, max, step, start]) => (
+            <label>
+              <span>{c.calc.fields[name]}</span>
+              <output data-out={name}></output>
+              <input type="range" name={name} min={min} max={max} step={step} value={start} />
+            </label>
+          ))}
+        </div>
+        <dl class="melenci-calc-results" aria-live="polite">
+          {(Object.keys(c.calc.results) as (keyof typeof c.calc.results)[]).map((k) => (
+            <div class={k === 'investment' || k === 'payback' || k === 'total' || k === 'net' ? 'is-key' : ''}>
+              <dt>{c.calc.results[k]}</dt>
+              <dd data-result={k}></dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+      <p class="melenci-note">
+        {c.calc.note}
+        <a href={localizedPath('/terms', locale)}>{tr('pages.tools.notice.link', locale)}</a>
+      </p>
+    </form>
+  )
+}
+
+<script>
+  import {
+    dissolvedGas,
+    heatChain,
+    investmentEstimate,
+      simplePayback,
+    yearBalance,
+  } from '@/lib/geothermal/utilization';
+
+  document.querySelector('[data-melenci-print]')?.addEventListener('click', () => window.print());
+
+  // Unit shown beside each slider.
+  const UNITS: Record<string, string> = {
+    temp: ' °C',
+    flow: ' l/s',
+    hours: ' h',
+    heatValue: ' €/MWh',
+    electricPrice: ' €/MWh',
+    upkeep: ' %',
+    otherOpex: ' €',
+    gasRatio: ' m³/m³',
+    gasPrice: ' €/MWh',
+    gasEquipment: ' €',
+    newWells: '',
+    depth: ' m',
+    drillingPerM: ' €/m',
+    workover: ' €',
+    heatPumpPerKw: ' €/kW',
+    pipelineM: ' m',
+    pipelinePerM: ' €/m',
+    equipment: ' €',
+  };
+
+  for (const form of document.querySelectorAll<HTMLFormElement>('[data-melenci-calc]')) {
+    const s = JSON.parse(form.dataset.strings ?? '{}') as { locale: string };
+    const fmt = (digits: number, min = 0) =>
+      new Intl.NumberFormat(s.locale, { minimumFractionDigits: min, maximumFractionDigits: digits });
+    const int = fmt(0);
+    const one = fmt(1);
+    const two = fmt(2, 2);
+    const get = (name: string) => Number(form.querySelector<HTMLInputElement>(`[name="${name}"]`)!.value);
+    const put = (sel: string, text: string) => {
+      const el = form.querySelector(sel);
+      if (el) el.textContent = text;
+    };
+
+    const update = () => {
+      for (const input of form.querySelectorAll<HTMLInputElement>('input[type="range"]')) {
+        const digits = ['flow', 'upkeep'].includes(input.name)
+          ? one
+          : input.name === 'gasRatio'
+            ? two
+            : int;
+        put(`[data-out="${input.name}"]`, `${digits.format(Number(input.value))}${UNITS[input.name] ?? ''}`);
+      }
+
+      const chain = heatChain(get('flow'), get('temp'));
+      const inv = investmentEstimate({
+        newWells: get('newWells'),
+        depthM: get('depth'),
+        drillingPerM: get('drillingPerM'),
+        workover: get('workover'),
+        heatPumpPerKw: get('heatPumpPerKw'),
+        pumpKw: chain.pumpKw,
+        pipelineM: get('pipelineM'),
+        pipelinePerM: get('pipelinePerM'),
+        equipment: get('equipment') + get('gasEquipment'),
+      });
+      const gas = dissolvedGas(get('flow'), get('hours'), get('gasRatio'));
+      const e = yearBalance(chain, {
+        hours: get('hours'),
+        heatValue: get('heatValue'),
+        electricPrice: get('electricPrice'),
+        investment: inv.total,
+        upkeepShare: get('upkeep') / 100,
+        otherFixed: get('otherOpex'),
+        gasMWh: gas.energyMWh,
+        gasValue: get('gasPrice'),
+      });
+      const years = simplePayback(inv.total, e.netPerYear);
+      const result: Record<string, string> = {
+        atlas: `${int.format(chain.atlasKw)} kW`,
+        heating: `${int.format(chain.heatingKw)} kW`,
+        pools: `${int.format(chain.poolKw)} kW`,
+        pump: `${int.format(chain.pumpKw)} kW`,
+        electric: `${int.format(chain.electricKw)} kW`,
+        cop: one.format(chain.cop),
+        total: `${int.format(chain.totalKw)} kW`,
+        energy: `${int.format(e.heatMWh)} MWh`,
+        gasRevenue: `${int.format(e.revenueGas / 1000)} k€`,
+        opex: `${int.format(e.opex / 1000)} k€`,
+        net: `${int.format(e.netPerYear / 1000)} k€`,
+        investment: `${two.format(inv.total / 1e6)} M€ (${two.format(inv.low / 1e6)}–${two.format(inv.high / 1e6)})`,
+        payback: years === null ? '–' : `${one.format(years)}`,
+      };
+      for (const [k, v] of Object.entries(result)) put(`[data-result="${k}"]`, v);
+    };
+    form.addEventListener('input', update);
+    form.addEventListener('submit', (ev) => ev.preventDefault());
+    update();
+  }
+</script>
+
+<style is:global>
+  .melenci-pdf {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1rem;
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--color-foreground-muted);
+  }
+  .melenci-pdf button {
+    padding: 0.375rem 0.875rem;
+    border: 1px solid var(--color-brand-700);
+    border-radius: 0.375rem;
+    background: var(--color-brand-700);
+    color: var(--color-background);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .melenci-pdf button:focus-visible {
+    outline: 2px solid var(--color-brand-700);
+    outline-offset: 2px;
+  }
+  .melenci-block,
+  .melenci-figure,
+  .melenci-calc {
+    margin-top: 1rem;
+  }
+  .melenci-scroll {
+    overflow-x: auto;
+  }
+  /* The same table as the page's text tables: full width, fixed columns, left-aligned. The page
+     sizes the first three columns for a text table, so the figure tables set their own. */
+  .project-body .melenci-scroll table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    min-width: 52rem;
+  }
+  .project-body .melenci-scroll th:nth-child(n) {
+    width: auto;
+    white-space: normal;
+  }
+  .project-body .melenci-scroll th:first-child {
+    width: 15rem;
+  }
+  .project-body .melenci-scroll td {
+    font-variant-numeric: tabular-nums;
+  }
+  .project-body .melenci-scroll--text th:nth-child(2) {
+    width: 12rem;
+  }
+  .project-body .melenci-scroll--text td {
+    font-variant-numeric: normal;
+  }
+  .melenci-scroll caption {
+    padding: 0 0 0.5rem;
+    text-align: left;
+    font-size: 0.8125rem;
+    color: var(--color-foreground-muted);
+  }
+  .project-body .melenci-matrix td.is-clear {
+    background: color-mix(in oklab, var(--color-brand-700) 14%, transparent);
+  }
+  .project-body .melenci-matrix td.is-limit {
+    background: color-mix(in oklab, var(--color-foreground) 8%, transparent);
+  }
+  .project-body .melenci-matrix td.is-no {
+    color: var(--color-foreground-muted);
+  }
+  .melenci-matrix {
+    margin-bottom: 1rem;
+  }
+  .project-body .melenci-matrix table {
+    min-width: 36rem;
+  }
+  .melenci-sub {
+    display: block;
+    margin-top: 0.125rem;
+    font-size: 0.6875rem;
+    color: var(--color-foreground-muted);
+  }
+  .melenci-note {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--color-foreground-muted);
+  }
+  .project-body .melenci-figure.melenci-figure,
+  .project-body.project-body--classic > .melenci-figure {
+    max-width: 30rem;
+    margin-left: 0;
+  }
+  .melenci-chart svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .melenci-figure figcaption {
+    margin-top: 0.25rem;
+    font-size: 0.8125rem;
+    color: var(--color-foreground-muted);
+  }
+  .melenci-chart .pf-grid {
+    stroke: var(--color-border);
+  }
+  .melenci-chart .pf-axis {
+    stroke: var(--color-foreground-muted);
+  }
+  .melenci-chart .pf-line {
+    stroke: var(--color-foreground);
+    stroke-width: 1.5;
+  }
+  .melenci-chart .pf-contour {
+    stroke: var(--color-brand-700);
+    stroke-dasharray: 3 3;
+  }
+  .melenci-chart .pf-dot {
+    stroke: var(--color-foreground);
+  }
+  .melenci-chart .pf-text {
+    fill: var(--color-foreground-muted);
+    font-family: var(--font-mono);
+    font-size: 9px;
+  }
+  .melenci-calc {
+    padding: 1.25rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 0.5rem;
+    background: var(--color-background-secondary);
+  }
+  .melenci-calc h3 {
+    margin: 0;
+  }
+  .melenci-calc-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  @media (min-width: 768px) {
+    .melenci-calc-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .melenci-calc-inputs {
+    display: grid;
+    gap: 0.75rem;
+    align-content: start;
+  }
+  .melenci-calc-inputs label {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 0.75rem;
+    font-size: 0.8125rem;
+  }
+  .melenci-calc-inputs output {
+    font-family: var(--font-mono);
+    color: var(--color-foreground);
+  }
+  .melenci-calc-inputs input {
+    grid-column: 1 / -1;
+    width: 100%;
+    accent-color: var(--color-brand-700);
+  }
+  .melenci-calc-results {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    align-content: start;
+  }
+  .melenci-calc-results > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.8125rem;
+  }
+  .melenci-calc-results dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--color-foreground);
+  }
+  .melenci-calc-results .is-key {
+    font-weight: 600;
+    color: var(--color-foreground);
+  }
+
+  /* Saved as PDF: the article alone, as a report. */
+  @media print {
+    body:has(.melenci-pdf) header,
+    body:has(.melenci-pdf) footer,
+    body:has(.melenci-pdf) nav,
+    body:has(.melenci-pdf) .no-print,
+    body:has(.melenci-pdf) [data-melenci-calc] {
+      display: none !important;
+    }
+    body:has(.melenci-pdf) {
+      background: white;
+      color: black;
+      font-size: 10pt;
+    }
+    body:has(.melenci-pdf) .project-body > h2 {
+      float: none;
+      width: auto;
+      margin: 1.2em 0 0.4em;
+      break-after: avoid;
+    }
+    body:has(.melenci-pdf) .project-body > :not(h2) {
+      margin-left: 0;
+      max-width: none;
+    }
+    body:has(.melenci-pdf) .melenci-scroll {
+      overflow: visible;
+    }
+    body:has(.melenci-pdf) .melenci-scroll table {
+      min-width: 0;
+      font-size: 8pt;
+    }
+    body:has(.melenci-pdf) table,
+    body:has(.melenci-pdf) figure {
+      break-inside: avoid;
+    }
+    body:has(.melenci-pdf) a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+</style>

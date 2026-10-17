@@ -2,7 +2,7 @@ import { defaultLocale } from '@/i18n';
 
 /**
  * Format a date for display. Defaults to the site's default locale so dates
- * read correctly per language (e.g. "24 juni 2026" on a Dutch page, "2026年6月24日"
+ * read correctly per language (e.g. "24. Juni 2026" on a German page, "2026年6月24日"
  * on a Chinese one); callers that know the active locale should pass it.
  */
 export function formatDate(date: Date, locale: string = defaultLocale): string {

@@ -8,7 +8,7 @@
  *
  * Turn on by setting `enabled: true` and listing at least two `locales`.
  * The default locale stays at the site root (`/about`); additional
- * locales live under a prefix (`/nl/about`).
+ * locales live under a prefix (`/de/about`).
  *
  * Lives in its own file (not `site.config.ts`) so the i18n module can
  * be imported by unit tests without pulling in `astro:env/server`.
@@ -19,7 +19,7 @@ export interface I18nConfig {
   enabled: boolean;
   /** BCP 47 code for the default locale, served at the site root */
   defaultLocale: string;
-  /** All locales the site ships, including the default. Use BCP 47 codes (e.g. 'en', 'nl', 'de', 'fr-BE') */
+  /** All locales the site ships, including the default. Use BCP 47 codes (e.g. 'en', 'sr', 'de', 'fr-BE') */
   locales: string[];
   /** Display names for the LanguageSwitcher, keyed by locale code */
   localeNames?: Record<string, string>;
@@ -38,7 +38,6 @@ const i18nConfig: I18nConfig = {
   localeNames: {
     en: 'English',
     sr: 'Srpski',
-    nl: 'Nederlands',
     de: 'Deutsch',
     fr: 'Français',
     es: 'Español',

@@ -342,10 +342,10 @@ Open `src/config/i18n.config.ts` and flip the flag:
 const i18nConfig: I18nConfig = {
   enabled: true,                     // master switch
   defaultLocale: 'en',               // stays at the site root (/about)
-  locales: ['en', 'nl'],             // additional locales live at /nl/about
+  locales: ['en', 'de'],             // additional locales live at /de/about
   localeNames: {
     en: 'English',
-    nl: 'Nederlands',
+    de: 'Deutsch',
     // …add more as needed; any BCP 47 code works
   },
   detectBrowserLocale: false,
@@ -358,7 +358,7 @@ Astro's native i18n is wired up automatically when `enabled: true` AND `locales.
 
 The bundled pages — the **home page, About, Services and Contact** — are already locale-aware, exactly like the blog and projects. Enable a second locale and `/<locale>`, `/<locale>/about`, `/<locale>/services` and `/<locale>/contact` are generated automatically, so the `LanguageSwitcher` never lands on a 404. You do **not** create `src/pages/<locale>/about.astro` files for these — remove any you added previously, as they would collide with the generated routes.
 
-Their text lives in the locale dictionaries under the `pages.*` keys (`pages.home`, `pages.about`, `pages.services`, `pages.contact`). **To translate a page, copy those keys from `src/i18n/en.json` into your locale file (e.g. `src/i18n/nl.json`) and translate the values — there is no markup to touch.** Anything you haven't translated yet falls back to the default locale, so a localized page is never blank. The design lives in one shared view per page under `src/components/pages/views/`, rendered by both the default route and the `/<locale>/…` route.
+Their text lives in the locale dictionaries under the `pages.*` keys (`pages.home`, `pages.about`, `pages.services`, `pages.contact`). **To translate a page, copy those keys from `src/i18n/en.json` into your locale file (e.g. `src/i18n/de.json`) and translate the values — there is no markup to touch.** Anything you haven't translated yet falls back to the default locale, so a localized page is never blank. The design lives in one shared view per page under `src/components/pages/views/`, rendered by both the default route and the `/<locale>/…` route.
 
 Adding your **own** new page follows the same three-file pattern — a view holding the design, a default-locale route, and a locale-prefixed route:
 
@@ -394,11 +394,11 @@ const { locale } = Astro.params;
 <PricingView locale={locale} />
 ```
 
-For lists and structured sections (an array of FAQ items, feature cards, …) use `tData('pages.pricing.faqs', locale)`, which returns arrays/objects from the dictionary with the same default-locale fallback as `t()`. Or, for a quick one-off, just write a standalone `src/pages/nl/pricing.astro` directly. Either way, the `LanguageSwitcher` automatically builds links to `/<locale>/<current-path>` for every configured locale.
+For lists and structured sections (an array of FAQ items, feature cards, …) use `tData('pages.pricing.faqs', locale)`, which returns arrays/objects from the dictionary with the same default-locale fallback as `t()`. Or, for a quick one-off, just write a standalone `src/pages/de/pricing.astro` directly. Either way, the `LanguageSwitcher` automatically builds links to `/<locale>/<current-path>` for every configured locale.
 
 ### Translating UI strings
 
-UI strings (button labels, "Read more", "Published on", etc.) live in `src/i18n/<locale>.json`. Astro Rocket ships English (`en.json`) and Dutch (`nl.json`) out of the box. Use the `t()` helper in any `.astro` file:
+UI strings (button labels, "Read more", "Published on", etc.) live in `src/i18n/<locale>.json`. This site ships English (`en.json`), Serbian (`sr.json`) and German (`de.json`). Use the `t()` helper in any `.astro` file:
 
 ```astro
 ---
@@ -418,11 +418,11 @@ You write each navigation entry once in `nav.config.ts` (`navItems`, `footerNavI
 - **Paths** are locale-prefixed via `localizedPath` — `/blog` stays `/blog` on the default locale and becomes `/<locale>/blog` elsewhere. External, `mailto:`/`tel:`, and `#anchor` hrefs are left untouched, and the logo points at the locale's home (`/` or `/<locale>`).
 - **Labels** are translated when an item carries a `labelKey` pointing at a string in `src/i18n/<locale>.json` (the bundled items use `nav.items.*`). Without a `labelKey`, the literal `label` is used as-is.
 
-For the rare case where a locale needs a structurally different label or path (e.g. a localized slug like `/over-ons`), add a per-locale `locales` override to the item:
+For the rare case where a locale needs a structurally different label or path (e.g. a localized slug like `/ueber-mich`), add a per-locale `locales` override to the item:
 
 ```ts
 { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about',
-  locales: { nl: { href: '/over-ons' } } },
+  locales: { de: { href: '/ueber-mich' } } },
 ```
 
 With i18n off, none of this runs and the nav renders exactly as written.
@@ -433,18 +433,18 @@ Blog posts, projects, and pages already carry a `locale` field on their schema (
 
 ```
 src/content/blog/en/hello-world.mdx
-src/content/blog/nl/hallo-wereld.mdx
+src/content/blog/de/hallo-welt.mdx
 src/content/projects/en/studio-portfolio.mdx
-src/content/projects/nl/studio-portfolio.mdx
+src/content/projects/de/studio-portfolio.mdx
 ```
 
 > **Switching the default locale.** Changing `defaultLocale` in `i18n.config.ts` is a routing label — it controls which locale serves at the site root, not which content folder gets read. To make a different language the default, also rename the matching content folder (e.g. `src/content/blog/en/` → `src/content/blog/zh-CN/`) so the root URL resolves to the right posts. The locale code in `i18n.config.ts` and the folder name under `src/content/blog/` must match.
 
-> **Localized blog routing is automatic.** Enable a locale in `i18n.config.ts`, drop posts under its folder (e.g. `src/content/blog/nl/`), and the whole blog is served at that locale's prefix with no extra wiring: the index (`/nl/blog`), individual posts (`/nl/blog/<slug>`), pagination (`/nl/blog/page/N`) and tag archives (`/nl/blog/tag/<tag>`) are all generated, and every in-locale link — cards, tag chips, pagination, breadcrumbs, related posts — stays inside that locale. The `defaultLocale` keeps its prefix-free URLs (`/blog`). A locale with no posts yet still gets a `/<locale>/blog` index that shows the empty state, so the `LanguageSwitcher` never lands on a 404. You do **not** create `src/pages/<locale>/blog*` files yourself — remove any you added previously, as they would collide with the generated routes. (The bundled static pages — home, About, Services and Contact — are generated for every locale the same way; you translate their text in `src/i18n/<locale>.json`, as shown in *Pages in another language* above.)
+> **Localized blog routing is automatic.** Enable a locale in `i18n.config.ts`, drop posts under its folder (e.g. `src/content/blog/de/`), and the whole blog is served at that locale's prefix with no extra wiring: the index (`/de/blog`), individual posts (`/de/blog/<slug>`), pagination (`/de/blog/page/N`) and tag archives (`/de/blog/tag/<tag>`) are all generated, and every in-locale link — cards, tag chips, pagination, breadcrumbs, related posts — stays inside that locale. The `defaultLocale` keeps its prefix-free URLs (`/blog`). A locale with no posts yet still gets a `/<locale>/blog` index that shows the empty state, so the `LanguageSwitcher` never lands on a 404. You do **not** create `src/pages/<locale>/blog*` files yourself — remove any you added previously, as they would collide with the generated routes. (The bundled static pages — home, About, Services and Contact — are generated for every locale the same way; you translate their text in `src/i18n/<locale>.json`, as shown in *Pages in another language* above.)
 >
-> On blog posts, the `LanguageSwitcher` and the `hreflang` tags link to each translation's **real** URL — paired by canonical `uid` when the posts declare one (so a translation can live at a different slug, `/blog/hello` ↔ `/nl/blog/hallo`), otherwise by an identical slug. A locale with no translation of the current post is dropped from `hreflang`, and the switcher falls back to that locale's blog index instead of a dead URL. (Other page types resolve alternates by swapping the locale segment, which is correct when slugs match across locales.)
+> On blog posts, the `LanguageSwitcher` and the `hreflang` tags link to each translation's **real** URL — paired by canonical `uid` when the posts declare one (so a translation can live at a different slug, `/blog/hello` ↔ `/de/blog/hallo`), otherwise by an identical slug. A locale with no translation of the current post is dropped from `hreflang`, and the switcher falls back to that locale's blog index instead of a dead URL. (Other page types resolve alternates by swapping the locale segment, which is correct when slugs match across locales.)
 >
-> **Projects are localized the same way.** Drop translations under `src/content/projects/<locale>/` and the whole projects section is served at that locale's prefix — index (`/nl/projects`), each project (`/nl/projects/<slug>`), pagination (`/nl/projects/page/N`), and tag archives (`/nl/projects/tag/<tag>`), with every in-locale link, `hreflang`, and the `LanguageSwitcher` resolving inside that locale. Projects share one slug across locales: keep the same filename in each locale folder (e.g. `en/studio-portfolio.mdx` ↔ `nl/studio-portfolio.mdx`) and the theme pairs them automatically. As with the blog, you do **not** create `src/pages/<locale>/projects*` files yourself.
+> **Projects are localized the same way.** Drop translations under `src/content/projects/<locale>/` and the whole projects section is served at that locale's prefix — index (`/de/projects`), each project (`/de/projects/<slug>`), pagination (`/de/projects/page/N`), and tag archives (`/de/projects/tag/<tag>`), with every in-locale link, `hreflang`, and the `LanguageSwitcher` resolving inside that locale. Projects share one slug across locales: keep the same filename in each locale folder (e.g. `en/studio-portfolio.mdx` ↔ `de/studio-portfolio.mdx`) and the theme pairs them automatically. As with the blog, you do **not** create `src/pages/<locale>/projects*` files yourself.
 
 ### Performance
 

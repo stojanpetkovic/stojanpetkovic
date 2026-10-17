@@ -13,7 +13,7 @@ export type Dictionary = typeof en;
 // Auto-load every locale dictionary in this folder. Adding a new language is
 // just dropping a `src/i18n/<code>.json` file — no import or registration
 // needed here. (The locale must still be listed in `i18n.config.ts` to be
-// served.) The key is derived from the filename: `./nl.json` → `nl`.
+// served.) The key is derived from the filename: `./de.json` → `de`.
 const modules = import.meta.glob<{ default: Dictionary }>('./*.json', { eager: true });
 
 const dictionaries: Record<string, Dictionary> = Object.fromEntries(
@@ -129,7 +129,7 @@ export function localizedPath(path: string, locale: Locale = defaultLocale): str
  * the path unchanged when the first segment is not a configured
  * locale. Always returns a path starting with `/`.
  *
- * `/nl/about` → `/about`, `/en` → `/`, `/about` → `/about`.
+ * `/de/about` → `/about`, `/en` → `/`, `/about` → `/about`.
  */
 export function stripLocaleFromPath(path: string): string {
   const normalized = path.startsWith('/') ? path : `/${path}`;

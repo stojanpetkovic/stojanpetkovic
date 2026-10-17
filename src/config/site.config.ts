@@ -122,7 +122,7 @@ export interface SiteConfig {
         theme?: string;
         /**
          * Giscus language. Leave empty (the default) to follow the site's
-         * current locale. Set a specific Giscus lang code (e.g. 'en', 'nl')
+         * current locale. Set a specific Giscus lang code (e.g. 'en', 'de')
          * to override.
          */
         lang?: string;

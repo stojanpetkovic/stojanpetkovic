@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import en from '@/i18n/en.json';
 import sr from '@/i18n/sr.json';
 import de from '@/i18n/de.json';
-import nl from '@/i18n/nl.json';
 import { makeFormat, probeRows, selectedWell, wellRow } from '@/lib/geothermal/workspace';
 import type { WorkspaceStrings } from '@/lib/geothermal/workspace';
 import type { GroundHit } from '@/lib/geothermal/scene';
@@ -84,7 +83,6 @@ describe('workspace copy', () => {
   it.each([
     ['sr', sr],
     ['de', de],
-    ['nl', nl],
   ])('%s has every key of English', (_, locale) => {
     expect(keys((locale.pages as any).geothermalModel.workspace)).toEqual(base);
   });
@@ -92,7 +90,6 @@ describe('workspace copy', () => {
   it.each([
     ['sr', sr],
     ['de', de],
-    ['nl', nl],
   ])('%s keeps the placeholders of English', (_, locale) => {
     const cells = (o: any): string[] =>
       typeof o === 'string' ? [o] : Object.values(o).flatMap(cells);

@@ -1,0 +1,318 @@
+---
+title: "Geothermisches Modell Melenci: Wärmeförderung und -nutzung"
+locale: de
+description: "Ein Modell der geothermischen Wärmeförderung und -nutzung für das Heilbad in Melenci: was die bestehende Bohrung liefert, was tiefere Horizonte liefern könnten, wie die Wärme in einer Kette von Nutzern verwendet wird und wie viel Investition sie zurückzahlen kann. Alles aus öffentlichen Daten, mit Rechner."
+tags: ["Geothermie", "Melenci", "Banat", "Direkte Nutzung", "Wärmepumpe"]
+featured: false
+category: industry
+order: 2
+year: 2026
+role: "Ressourcenanalyse, Modellierung und Berechnung"
+services: ["Ressourcenbewertung", "Wärmenutzungsmodell", "Wirtschaftlicher Rahmen"]
+meta: ["Melenci", "Banat", "1 Bohrung", "Öffentliche Daten", "In Arbeit"]
+icon: "droplets"
+image: "../../../assets/projects/geotermalni-model-melenci-rusanda.webp"
+imageStyle: frame
+imageCredit: "Foto: Zokaf95, Wikimedia Commons, CC BY-SA 4.0"
+imageAlt: "Der Rusanda-See beim Heilbad Rusanda in Melenci in der Dämmerung, mit Schilf im Vordergrund."
+---
+
+import MelenciModel from '@/components/projects/MelenciModel.astro';
+import StatCard from '@/components/patterns/StatCard.astro';
+
+<MelenciModel part="pdf" locale="de" />
+
+## Ziel
+
+Dieses Projekt beantwortet am Beispiel eines Ortes drei Fragen zur Geothermie in der Vojvodina: **wie viel Wärme** dort zu gewinnen ist, **wie die Förderung** aus einer Bohrung aussähe und **wie die Wärme genutzt würde**, beginnend mit dem Heilbad.
+
+Als Beispiel dient Melenci im Banat bei Zrenjanin. Es gibt ein Heilbad, es gibt eine Bohrung in Förderung (Me-1/H), und öffentliche Daten dazu liegen in zwei Dokumenten vor, sodass die Rechnung nachprüfbar ist. Die übrigen Bohrungen der Vojvodina zeigt das [3D-Modell](/de/projects/geotermalni-potencijal-vojvodine); hier wird dieselbe Methode für einen Ort zu Ende geführt, damit sie auf jeden anderen übertragen werden kann.
+
+Das ist weder ein Bohrprojekt noch eine Machbarkeitsstudie. Es zeigt die **Größenordnung** von Wärmeleistung, Jahresenergie und der Investition, die diese Energie tragen kann, aus öffentlichen Daten und genannten Annahmen. Jede Annahme ist gekennzeichnet und lässt sich im Rechner am Ende der Seite ändern.
+
+<div class="grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
+  <StatCard compact label="Wasser" value="33 °C" icon="thermometer" />
+  <StatCard compact label="Förderrate (Anhang 1)" value="6,9 l/s" icon="droplets" />
+  <StatCard compact label="Wärmeleistung" value="0,38 MWt" icon="flame" />
+  <StatCard compact label="Intervall" value="445–560 m" icon="layers" />
+</div>
+
+## Ausgangslage
+
+Melenci ist ein Dorf in der Gemeinde Zrenjanin, bei etwa 45,51° Nord und 20,32° Ost, auf rund 78 m Höhe. Es ist als Kurort bekannt. Wie das heutige System des Bades aussieht, wie viele Bohrungen laufen und wofür die Wärme genutzt wird, steht nicht in den öffentlichen Dokumenten, die wir verwenden; das Modell geht deshalb nur von Veröffentlichtem aus.
+
+Veröffentlichte Daten zur Bohrung **Me-1/H**, aus [Anhang 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) und aus dem [Geothermischen Atlas der Vojvodina](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geotermalni_atlas_AP_Vojvodine.pdf) (2010):
+
+| Angabe | Wert | Quelle |
+|---|---|---|
+| Bohrjahr | 1978 | Anhang 1 (2005) |
+| Zustand | in Förderung | Anhang 1 (2005) |
+| Gesamttiefe | 1.300 m | Anhang 1 (2005) |
+| Verfiltertes Intervall | 445,2 bis 560 m | Anhang 1 (2005) |
+| Wassertemperatur | 33 °C | Anhang 1 (2005); Atlas, Tabelle 1 (2010) |
+| Ergiebigkeit | 6,9 l/s | Anhang 1 (2005); wird in der Rechnung verwendet |
+| Ergiebigkeit im Atlas | 10,3 l/s | Atlas, Tabelle 1 (2010); als Alternative gezeigt |
+| Mineralisierung | 2,5 g/l | Anhang 1 (2005) |
+| Wärmeleistung | 0,375 MWt | Berechnet aus 6,9 l/s und 33 °C |
+| Wärmeleistung im Atlas | 0,560 MWt | Atlas, Tabelle 1 (2010) |
+
+Für die Ergiebigkeit verwenden wir die Angabe aus **[Anhang 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf)** zur Studie *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005): **6,9 l/s**. Der Atlas (*Geotermalni atlas Vojvodine*, Provinzsekretariat für Energie und mineralische Rohstoffe, 2010) nennt für dieselbe Temperatur 10,3 l/s, und seine Zeile für Melenci hat weder eine Bohrungsbezeichnung noch eine Tiefe. Der Unterschied wird in den öffentlichen Dokumenten nicht erklärt. Wir nehmen an, dass einer dieser Gründe vorliegt, oder mehrere zusammen:
+
+1. **Zeitpunkt der Messung.** Die Ergiebigkeit selbstfließender Bohrungen nimmt mit der Zeit ab, und die beiden Dokumente müssen nicht aus demselben Jahr oder demselben Test stammen.
+2. **Art der Angabe.** Die eine Zahl kann die optimale Ergiebigkeit für den Betrieb sein, die andere die höchste im Test gemessene, oder freier Auslauf gegenüber Pumpen.
+3. **Ein anderes Objekt.** Die Atlaszeile hat keine Bohrungsbezeichnung, kann sich also auf eine andere Bohrung in Melenci oder auf mehrere zusammen beziehen, während Anhang 1 eine Bohrung nennt, Me-1/H.
+4. **Übertragung und Umrechnung.** Der Atlas wurde aus einer Datenbank mit über 120 Parametern je Bohrung erstellt, der Unterschied kann also bei der Übernahme oder der Umrechnung von Einheiten entstehen.
+
+Nichts davon können wir aus den öffentlichen Dokumenten bestätigen. Die Rechnung läuft daher mit der Förderrate aus Anhang 1, und die Förderrate des Atlas wird als zweiter Fall zum Vergleich gezeigt.
+
+Der Atlas berechnet die Wärmeleistung als Q = m · (T − 20) · 0,004184, mit dem Durchfluss in kg je 1.000 s und einer Bezugstemperatur von 20 °C. Mit der Förderrate aus Anhang 1 sind das 6,9 · 4,184 · (33 − 20) = **375 kW**. Mit der Förderrate des Atlas von 10,3 l/s ergeben sich 560 kW, genau wie in seiner Tabelle; der Atlas rechnet seine Leistung also aus seiner eigenen Förderrate.
+
+## Geologischer Rahmen
+
+Melenci liegt im Pannonischen Becken, das in der Vojvodina aus drei großen Komplexen besteht: dem Grundgebirge, neogenen Bildungen, stellenweise über 3.000 m mächtig, und quartären Sedimenten. Die Kruste ist dünn, 25,5 bis 29 km, und der Wärmestrom beträgt 83 bis 111 mW/m², über dem kontinentalen Mittel von etwa 65 mW/m². Nach dem Atlas ist der Wärmestrom im südlichen Banat bei Uljma am niedrigsten und um Subotica am höchsten.
+
+Der Atlas unterscheidet vier hydrogeothermale Systeme nach der Tiefe. Die Bohrung in Melenci mit ihrem Intervall von 445 bis 560 m gehört zum **ersten System**: Sedimente von der Oberfläche bis zur Basis des Oberpont, die überall außer an der Fruška Gora und den Vršac-Bergen entwickelt sind.
+
+| System | Gesteine | Ergiebigkeit der Bohrungen | Temperatur am Bohrlochkopf | Mineralisierung | Bedeutung |
+|---|---|---|---|---|---|
+| Erstes | Sande und Kiese, bis zur Basis des Oberpont | meist 6,7 bis 13,3 l/s, höchstens 28,3 l/s | im Mittel etwa 60 °C | 1 bis 9 g/l, meist 3 bis 5 | Größte wirtschaftliche Bedeutung |
+| Zweites | Sandsteine des Unterpont und Pannon | 2,5 bis 5 l/s, höchstens 7,3 l/s | meist 50 bis 65 °C | 5 bis 12 g/l, bis 20 | Gering |
+| Drittes | Miozän, Paläogen, Jura, Kreide | meist 5 bis 10 l/s, höchstens 25 l/s | bis 54 °C, meist 40 bis 50 | bis 50 g/l, aggressive Wässer | Gering |
+| Viertes | Triaskalke und -dolomite, Paläozoikum | meist 8 bis 17 l/s, höchstens 47 l/s | bis 82 °C, meist 40 bis 60 | 0,5 bis 50 g/l | Unzureichend erkundet |
+
+Ergiebigkeit und Mineralisierung von Me-1/H (6,9 l/s, 2,5 g/l) liegen im üblichen Bereich des ersten Systems. Die Temperatur von 33 °C liegt unter dem Mittel dieses Systems von etwa 60 °C, was für ein flaches Intervall von 445 bis 560 m natürlich ist. Nach dem Atlas fließen fast alle Bohrungen der Vojvodina von selbst, wegen des Drucks und des im Wasser gelösten Gases, das überwiegend Methan ist.
+
+## Ressource
+
+### Temperatur des Untergrunds unter Melenci
+
+Der Atlas gibt die Temperatur in 500, 1.000 und 2.000 m an. Die für das [3D-Modell](/de/projects/geotermalni-potencijal-vojvodine) digitalisierten Atlaskarten ergeben für Melenci:
+
+| Tiefe | Gesteinstemperatur | Was dort liegt |
+|---|---|---|
+| 500 m | 37,3 °C | Verfiltertes Intervall von Me-1/H (445 bis 560 m) |
+| 1.000 m | 63,5 °C | Unterhalb des Intervalls; unter dem Bohrlochtiefsten nicht getestet |
+| 1.300 m | etwa 80 °C | Tiefstes von Me-1/H |
+| 2.000 m | 116,9 °C | Tiefste Atlaskarte |
+
+Die Temperatur steigt im ersten Kilometer um etwa **52,5 °C je Kilometer**, und 63,5 °C werden bei etwa 930 m erreicht. Die Tiefe, in der eine gewählte Temperatur erreicht wird:
+
+| Temperatur | Tiefe |
+|---|---|
+| 50 °C | etwa 740 m |
+| 60 °C | etwa 930 m |
+| 80 °C | etwa 1.310 m |
+
+<MelenciModel part="profile" locale="de" />
+
+Die Wassertemperatur am Bohrlochkopf (33 °C) liegt unter der Gesteinstemperatur in gleicher Tiefe (37,3 °C in 500 m), weil das Wasser beim Aufsteigen abkühlt. Derselbe Unterschied gilt in der ganzen Vojvodina: Bei den 28 Tests mit bekanntem Intervall ist der Atlas im Mittel um 5,8 °C wärmer als das Wasser (Median 3,4 °C).
+
+### Benachbarte Bohrungen
+
+Zum Vergleich die nächsten Bohrungen im Atlas:
+
+| Bohrung | Tiefe, m | Temperatur, °C | Ergiebigkeit, l/s | Wärmeleistung, MWt |
+|---|---|---|---|---|
+| Melenci, Me-1/H | 1.300 | 33,0 | 10,3 (Anhang 1: 6,9) | 0,560 (Anhang 1: 0,375) |
+| Zrenjanin, Zr-1/H | 870 | 48,0 | 3,96 | 0,464 |
+| Zrenjanin, Zr-2/H | 503 | 24,0 | 3,67 | 0,061 |
+| Žitište, Ži-1/H | 1.002 | 44,0 | 3,70 | 0,372 |
+| Banatski Karlovac, BK-1/H | 510 | 26,0 | 15,9 | 0,399 |
+| Kikinda, Ki-4/H | 1.203 | 57,0 | 4,80 | 0,743 |
+| Bad Prigrevica, Pb-1/H | 702 | 53,0 | 20,5 | 2,830 |
+
+Die letzte Bohrung ist ein Beispiel für ein Bad mit wärmerem Wasser und höherer Ergiebigkeit in ähnlicher Tiefe. Sie zeigt, dass Melenci das kühlere Ende der Spanne in der Vojvodina ist, nicht die Obergrenze dessen, was die Provinz aus dem ersten System gewinnt.
+
+### Die Ressource der ganzen Vojvodina
+
+Zur Einordnung: Der Atlas gibt die gesamte Wärmeleistung der erkundeten hydrogeothermalen Ressourcen in 78 Bohrungen mit **72.606 MWt** an. Potenzielle Ressourcen bis 1.200 m Tiefe werden auf 13,6 EJ geschätzt, davon hydrogeothermal 3,95 EJ, und etwa 25 % sind praktisch nutzbar, also rund 1 EJ. Serbien verbraucht etwa 0,63 EJ Energie im Jahr. Bis 2009 wurden 24 Systeme gebaut; in diesem Jahr liefen 12, und etwa 23 % ihrer verfügbaren Leistung wurden genutzt, das sind etwa 8 % der erkundeten Ressourcen.
+
+## Fördermodell
+
+Die Förderung ist das, was die Bohrung liefert: ein Wasserstrom bestimmter Temperatur. Die Wärmeleistung ist
+
+**Q = Durchfluss × 4,184 × (Wassertemperatur − Austrittstemperatur)**
+
+in kW, mit dem Durchfluss in l/s. Die Jahresenergie ist die Leistung mal die Vollbenutzungsstunden.
+
+Das Modell betrachtet vier Fälle:
+
+1. **Me-1/H, Förderrate aus Anhang 1:** die bestehende Bohrung, 33 °C, 6,9 l/s (Anhang 1). Das ist der Basisfall.
+2. **Me-1/H, Förderrate des Atlas:** dieselbe Bohrung, 33 °C, 10,3 l/s (Atlas). Zum Vergleich gezeigt, falls die Atlasangabe stimmt.
+3. **Tieferer Horizont bei etwa 1.000 m:** Der Atlas gibt 63,5 °C im Gestein an, daher wird Wasser von **55 °C** am Bohrlochkopf angenommen. Eine Förderrate von **5 l/s** ist eine Annahme aus der Spanne des zweiten Systems (2,5 bis 7,3 l/s). Es ist keine Messung.
+4. **Neue Bohrung bei etwa 1.300 m:** Der Atlas gibt etwa 80 °C im Gestein an, daher werden **75 °C** am Bohrlochkopf und **8 l/s** angenommen, eine Annahme aus der Spanne des vierten Systems (meist 8 bis 17 l/s). Es ist keine Messung.
+
+Die Fälle 3 und 4 zeigen, **was sich ergäbe, wenn** ein tieferer Horizont Wasser und eine Förderrate liefern würde, wie der Atlas sie zulässt. Ob das in Melenci zuträfe, wissen wir nicht: Die Bohrung wurde bis 1.300 m abgeteuft, getestet wurde aber nur das Intervall von 445 bis 560 m.
+
+## Nutzungsmodell
+
+Das Wasser wird nicht an einer Stelle verbraucht. Das Modell führt es durch eine **Kette von Nutzern**, geordnet nach der Temperatur, die sie verlangen:
+
+1. **Gebäudeheizung** bis 35 °C, Niedertemperatur-(Fußboden-)Heizung;
+2. **Becken** bis 28 °C;
+3. **Wärmepumpe**, die das Wasser auf 15 °C abkühlt und Wärme mit 45 °C liefert, für Warmwasser und Heizkörperheizung.
+
+Eine Stufe entfällt, wenn das Wasser dafür zu kühl ist. Eine Bohrung mit 33 °C heizt deshalb keine Gebäude, erwärmt die Becken nur wenig (33 → 28 °C), und den größeren Teil der Energie liefert die Wärmepumpe.
+
+**Die Wärmepumpe.** Die Leistungszahl wird als 0,4 des Carnot-Wertes berechnet: COP = 0,4 · (T_aus + 273,15) / (T_aus − T_Quelle). Für eine Quelle von etwa 22 °C und eine Abgabe von 45 °C sind das etwa 5,4. Der reale Bereich liegt bei 40 bis 55 % des Carnot-Wertes; hier wird der untere Teil verwendet. Die Jahresarbeitszahl im Betrieb ist niedriger.
+
+<MelenciModel part="scenarios" locale="de" />
+
+So wird die Tabelle gelesen. Die erste Zahlenspalte (**Über 20 °C**) ist die Leistung, wie der Atlas sie berechnet, zum Vergleich. Die gelieferte Wärme ist größer, weil die Wärmepumpe das Wasser unter 20 °C auf 15 °C abkühlt und weil der Strom der Pumpe zu Wärme wird. Ein Teil der gelieferten Wärme (der Pumpenstrom) ist nicht geothermisch.
+
+Das Wichtigste aus der Tabelle:
+
+- Nach den Angaben aus Anhang 1 liefert die bestehende Bohrung **375 kW** über 20 °C und mit der Pumpe etwa **600 kW** gelieferte Wärme bei etwa 85 kW Strom. Mit der Förderrate des Atlas sind es 560 kW, bzw. etwa 900 kW.
+- Wasser von 33 °C taugt ohne Wärmepumpe nicht zum Heizen. Sein Wert liegt im Baden und in der Pumpe.
+- Die tieferen Fälle liefern je Durchflusseinheit viel mehr: Der 55-°C-Fall mit nur 5 l/s liefert etwa 900 kW gelieferte Wärme, etwa das 1,5-Fache der bestehenden Bohrung mit der Förderrate aus Anhang 1 (und so viel wie mit der des Atlas), der 75-°C-Fall **über 2 MW**. Der Grund ist die Temperatur, nicht die Förderrate.
+
+## Stufenweise Entwicklung
+
+Wir gliedern die Entwicklung eines geothermischen Projekts in zehn Phasen, von der Voruntersuchung bis zur Stilllegung, wobei nach der Voruntersuchung die Aufwältigung der bestehenden Bohrung folgt. Am riskantesten sind die Phasen vor dem Bau, denn erst Aufwältigung, Test und Bohrung bestätigen die Ressource. Angepasst an ein kleines Wärmesystem in Melenci:
+
+| Phase | Was in Melenci geschieht | Entscheidung am Ende |
+|---|---|---|
+| 1. Voruntersuchung | Veröffentlichte Daten sammeln (dieses Projekt); Zustand der bestehenden Bohrung und Wärmebedarf feststellen | Ob es sinnvoll ist weiterzugehen |
+| 2. Aufwältigung der bestehenden Bohrung | Aufwältigung von Me-1/H: Prüfung von Verrohrung und Zementation, Reinigung von Bohrung und Filtern, Austausch der Ausrüstung am Bohrlochkopf; bei Bedarf Öffnung eines weiteren Intervalls | Ob die Aufwältigung die Förderrate wiederherstellt oder erhöht und ob sie weitere Investitionen rechtfertigt |
+| 3. Erkundung | Me-1/H nach der Aufwältigung testen: Förderrate, Temperatur, Druck, Wasserchemie; Test nach Intervallen | Wie viel die bereits vorhandene Bohrung liefert |
+| 4. Testbohrung | Falls ein tieferer Horizont verfolgt wird: neue Bohrung oder Vertiefung | Ob der tiefere Horizont Wasser und Förderrate liefert |
+| 5. Planung | Entwurf von Verteilung, Wärmepumpe und Reinjektion; Genehmigungen | Die finanzielle Entscheidung |
+| 6. Feldentwicklung | Eine Reinjektionsbohrung, falls nötig | |
+| 7. Bau | Leitung, Wärmetauscher, Wärmepumpe | |
+| 8. Inbetriebnahme | Einstellung, Schulung des Personals | |
+| 9. Betrieb | Überwachung von Temperatur und Druck | |
+| 10. Stilllegung | Verschluss der Bohrungen | |
+
+Die Entwicklung eines geothermischen Projekts dauert meist 5 bis 10 Jahre. Für ein kleines Wärmesystem erwarten wir weniger, aber für diese Schätzung haben wir keine Quelle.
+
+Drei Arbeitsregeln, die wir anwenden:
+
+- **Stufenweise Entwicklung.** Zuerst eine kleine Einheit, die sofort Wärme liefert, dann Ausbau, wenn die Ressource bestätigt ist. So verteilt sich die Investition und das Risiko sinkt.
+- **Bohrerfolg.** Wir rechnen damit, dass etwa 70 % der Bohrungen erfolgreich sind, daher ist für jede benötigte Bohrung mehr als eine zu planen. Für sechs erfolgreiche braucht man neun.
+- **Lernen.** Wir rechnen damit, dass die fünfte Bohrung im selben Feld höchstens 80 % der ersten kostet.
+
+## Wirtschaftlichkeit
+
+Die Rechnung vergleicht die **Baukosten** mit dem Wert der Wärme, die das System liefert. Die Kosten sind die Summe von sechs Posten. Für zwei davon (Bohren und Ausrüstung) gibt es eine öffentliche Schätzung von 2012; für vier gibt es keine öffentliche Zahl für Serbien, daher sind zwei Annahmen (Wärmepumpe und Verteilung) und zwei nicht bewertet (Aufwältigung und Gasausrüstung). Die Tabelle nennt die Grundlage jeder Zahl.
+
+<MelenciModel part="costs" locale="de" />
+
+Öffentliche Daten sind selten und alt: Die Bohrkosten von 350 bis 400 € je Meter stammen aus einem Blogbeitrag von 2012 ohne genannte Quelle, und Preise für Wärmepumpen in Serbien sind nur für Haushaltsgeräte veröffentlicht. **Die Aufwältigung der bestehenden Bohrung ist nicht enthalten**, weil es dafür keinen öffentlichen Preis gibt und zuerst der Zustand der Bohrung bewertet werden muss. Die Investitionen für die bestehende Bohrung in der Tabelle sind daher niedriger, als sie sein werden.
+
+Der Wert der Wärme hängt vom ersetzten Brennstoff ab. Das Bad nutzt Strom und hat möglicherweise eine eigene Zentralheizung mit Strom oder Gas, daher rechnen wir mit beiden Fällen:
+
+- **Gasheizung.** Die öffentliche Angabe ist der Gaspreis für Haushalte, 4,08 din/kWh ohne Steuern und Abgaben, vom Regulator ab 1. Januar 2023 festgesetzt ([N1, 28. November 2022](https://n1info.rs/biznis/kilovat-cas-struje-po-novom-cenovniku-124-dinara-a-gasa-45-dinara/)); für Gewerbekunden haben wir keinen öffentlichen Preis gefunden. Bei einem Kesselwirkungsgrad von etwa 0,9 und etwa 117 Dinar je Euro sind das etwa **40 €/MWh** Wärme.
+- **Stromheizung.** Die öffentliche Angabe sind die Angebote von EPS an Gewerbekunden: 105,77 bis 109,17 €/MWh für Energie, dazu Verbrauchsteuern und Entgelte von etwa 25 €/MWh ([021.rs, 20. April 2025](https://www.021.rs/info/biznis-i-ekonomija/407505/vise-cene-struje-za-privrednike-u-srbiji-manje-sanse-na-trzistu)), also etwa **130 €/MWh**. Stromheizung liefert Wärme mit einem Wirkungsgrad nahe 1, die Wärme ist also gleich viel wert.
+
+Daher werden drei Wärmewerte gezeigt: 40 (ersetzt Gas), 85 (mittlerer) und 130 €/MWh (ersetzt Strom); die Preise verstehen sich ohne MwSt., und das Bad zahlt nach seinem eigenen Vertrag. Derselbe Strompreis, **130 €/MWh**, wird als Strompreis für die Wärmepumpe verwendet. Die echten Werte sollten im Rechner eingegeben werden.
+
+### Betriebskosten
+
+Die jährlichen Betriebskosten (OPEX) sind der Strom der Wärmepumpe, die Instandhaltung und sonstige Fixkosten.
+
+<MelenciModel part="opex" locale="de" />
+
+Der größte Posten für die bestehende Bohrung ist der Strom der Wärmepumpe (44 Tsd. € im Jahr bei 130 €/MWh), daher entscheidet der Strompreis. Ersetzt die Wärmepumpe billiges Gas (40 €/MWh), verzehren Betriebskosten von 73 Tsd. € im Jahr den größten Teil der Erlöse aus der Wärme (97 Tsd. €), und die Amortisation ist lang.
+
+### Amortisation
+
+<MelenciModel part="economics" locale="de" />
+
+Aus der Tabelle (die Betriebskosten sind eingerechnet, die Aufwältigung und das Gas des Wassers nicht):
+
+- **Bestehende Bohrung, Förderrate aus Anhang 1:** eine Investition von etwa 0,63 Mio. € (Spanne 0,44 bis 0,95), Amortisation in 26,7 Jahren, wenn die Wärme Gas ersetzt (40 €/MWh), 4,8 bei 85 und 2,6, wenn sie Strom ersetzt (130). Mit der Förderrate des Atlas beträgt die Investition 0,74 Mio. € und die Amortisation 16,1, 3,6 und 2,0 Jahre.
+- **Tieferer Horizont (55 °C, 5 l/s, eine neue Bohrung bis 1.000 m):** etwa 0,97 Mio. €, Amortisation in 13,3, 4,1 und 2,4 Jahren. Erst die Bohrung zeigt, ob das Wasser da ist.
+- **Neue Bohrung bis 1.300 m (75 °C, 8 l/s):** etwa 1,19 Mio. € (Spanne 0,83 bis 1,78), Amortisation in 4,9, 1,9 und 1,2 Jahren.
+- **Was das heißt:** Ersetzt die Wärme Gas, ist die Amortisation in allen Fällen lang (5 bis 27 Jahre); ersetzt sie Strom, kurz (1 bis 3 Jahre). Die Aufwältigung kommt zur Investition hinzu: Bei 85 €/MWh verlängert je 100.000 € Aufwältigung die Amortisation der bestehenden Bohrung um etwa 0,8 Jahre.
+
+### Methan
+
+Das Wasser enthält gelöstes Gas, überwiegend Methan, daher kann es Erlöse geben: aus dem Wasser abgeschiedenes und im Kessel verbranntes Gas ersetzt Brennstoff, der sonst gekauft würde. Der Atlas nennt für das erste System 0,04 bis 2,2 m³ Gas je m³ Wasser, und für Me-1/H selbst ist der Gehalt nicht veröffentlicht, daher wird die ganze Spanne gezeigt.
+
+<MelenciModel part="methane" locale="de" />
+
+Am unteren Ende der Spanne ist das Gas etwa 1 Tausend € im Jahr wert (1,5 % der Wärme), was nicht einmal die Abscheideausrüstung deckt. Am oberen Ende ist es etwa 68 Tausend € im Jahr wert, also 81 % des Wärmewerts der bestehenden Bohrung. Das Gas ist daher in der Amortisationstabelle nicht eingerechnet: Die Messung des Gasgehalts von Me-1/H entscheidet. Ist der Gehalt hoch, ändert das die Rechnung: Für die bestehende Bohrung bei 40 €/MWh sinkt die Amortisation von 27 auf etwa 7 Jahre, aber ohne die Abscheide- und Sicherheitsausrüstung, die nicht bewertet wurde. Das Gas kann zusammen mit der Ausrüstung im Rechner eingegeben werden.
+
+Eine Kostenschätzung in diesem Stadium gehört nach AACE in Klasse 4: eine Genauigkeit von −15 bis −30 % nach unten und +20 bis +50 % nach oben. Die Spanne in der Tabelle ist diese Spanne, und diese Rechnung mit noch mehr Unbekannten kann keine bessere Genauigkeit erreichen.
+
+## Risiken und Nachhaltigkeit
+
+**Ressource.** Das größte Risiko ist, dass ein tieferer Horizont kein oder weniger Wasser als angenommen liefert. Das zweite System ergibt nur 2,5 bis 5 l/s (höchstens 7,3).
+
+**Abkühlung und Druckabfall.** Bei langer Nutzung sinkt der Lagerstättendruck; als Arbeitsannahme setzen wir die Lebensdauer einer Lagerstätte mit 30 bis 50 Jahren an. In der Vojvodina ist die Förderung der bestehenden Systeme seit 1990 gesunken, von fast 1,6 Millionen m³ im Jahr auf 739 Tausend m³ im Jahr 2009. Der Atlas trennt die Ursachen nicht in technische und marktbedingte.
+
+**Reinjektion.** Die Reinjektion ist weder in der Investition noch in den Betriebskosten eingerechnet, weil dafür eine weitere neue Bohrung nötig wäre; das abgekühlte Wasser wird vorerst abgeleitet. Zum Erhalt der Ressource würde eine Reinjektionsbohrung auf zwei Förderbohrungen gerechnet. In den sandigen Schichten des ersten Systems ist die Reinjektion technisch anspruchsvoll (Verstopfung); das ist vor einer Entscheidung zu prüfen. Ohne Reinjektion muss das abgekühlte Wasser vorschriftsgemäß entsorgt werden.
+
+**Chemie und Gas.** Eine Mineralisierung von etwa 2,5 g/l ist mäßig. Das Wasser enthält gelöstes Gas, überwiegend Methan (80 bis 95 %), mit 0,04 bis 2,2 m³ je m³ Wasser, daher braucht eine Anlage Gasabscheidung und Explosionsschutz. Der Atlas warnt vor Aggressivität und Kesselsteinbildung in den Wässern des dritten Systems.
+
+**Rechtlicher Rahmen.** Die Nutzung von Thermalwasser erfordert Genehmigungen und für die Bohrung Zulassungen der zuständigen Stellen. Dieses Projekt arbeitet sie nicht aus; sie gehören zu Phase 5.
+
+## Berechnen Sie Ihren Fall
+
+Der Rechner verwendet dieselbe Nutzerkette und dieselben Formeln wie die Tabellen. Ändern Sie Temperatur, Förderrate und Annahmen; die Tabellen auf dieser Seite bleiben unverändert.
+
+<MelenciModel part="calculator" locale="de" />
+
+## Fazit: wann sich eine geothermische Bohrung lohnt
+
+Die Rechnung zeigt, dass die Wirtschaftlichkeit nicht an einer Zahl hängt, sondern an vier: der Temperatur des Wassers, der tatsächlich genutzten Förderrate, dem Brennstoff, den die Wärme ersetzt, und ob eine bestehende Bohrung genutzt oder eine neue gebohrt wird. Die Tabellen unten gelten für eine neue Bohrung mit allen Annahmen dieser Seite; die Tiefe der Bohrung folgt der Temperatur des Wassers.
+
+<MelenciModel part="matrix" locale="de" />
+
+**Vernünftige Amortisationszeiten.** Unsere Einschätzung, ohne öffentliche Quelle: Eine Amortisation bis 5 Jahre ist klar wirtschaftlich, 5 bis 10 Jahre liegen nahe der Grenze, und über 10 Jahre lohnt es sich nicht ohne Förderung oder bessere Bedingungen. Eine Bohrung und ihre Verteilung halten Jahrzehnte, aber ein Investor verlangt die Rückzahlung viel früher, und die Kostenschätzung hat eine Genauigkeit von −30 % bis +50 %. Eine Amortisation von 5 bis 10 Jahren liegt daher innerhalb des Schätzfehlers und lässt sich ohne Studie nicht beurteilen.
+
+**Annahme.** Eine geothermische Bohrung in der Vojvodina lohnt sich klar, wenn die Wärme teure Energie ersetzt oder wenn das Wasser heiß und die Förderrate groß ist. Im Einzelnen:
+
+- **Die Wärme ersetzt Strom (etwa 130 €/MWh):** klar wirtschaftlich fast überall, mit einer Amortisation bis 5 Jahre für jede Kombination außer der kühlsten und schwächsten (35 °C, 3 l/s: 7,3 Jahre, nahe der Grenze).
+- **Die Wärme ersetzt Gas (etwa 40 €/MWh):** klar nur bei heißem Wasser und großer Förderrate: 65 °C oder mehr mit 10 l/s oder mehr (2,3 bis 4,8 Jahre) und 50 °C mit 20 l/s (4,2). Nahe der Grenze liegen 50 °C mit 10 l/s (7,1), 65 °C mit 5 l/s (9,6) und 80 °C mit 5 l/s (7,4). Eine kühlere oder schwächere Bohrung lohnt sich nicht (zum Beispiel 35 °C mit weniger als 20 l/s oder 65 °C mit 3 l/s: 19 Jahre).
+- **Ein mittlerer Wärmewert (85 €/MWh):** klar wirtschaftlich für die meisten Kombinationen; nahe der Grenze bei kleinen Förderraten (3 l/s bei 50 und 65 °C, 5 l/s bei 35 °C), und nur 35 °C mit 3 l/s lohnt sich nicht.
+- **Eine durchschnittliche Bohrung des ersten Systems** (etwa 60 °C, 7 bis 13 l/s nach dem Atlas) liegt bei 40 €/MWh zwischen nahe der Grenze und klar wirtschaftlich (65 °C: 9,6 Jahre bei 5 l/s, 4,8 bei 10 l/s), und bei höherem Wärmewert klar wirtschaftlich.
+- **Melenci (33 °C, 7 l/s aus Anhang 1)**, die bestehende Bohrung ohne Bohren: wirtschaftlich, wenn die Wärme Strom ersetzt (2,6 Jahre), nahe der Grenze bei 85 €/MWh (4,8), und es lohnt sich nicht, wenn sie Gas ersetzt (27 Jahre).
+
+Das Fazit ist, dass die Vojvodina keine einheitliche Antwort hat: Ein Ort mit heißem Wasser und starker Quelle, dessen Wärme Strom oder einen teuren Brennstoff ersetzt, lohnt sich klar; eine kühle, schwache Quelle, die billiges Gas ersetzt, lohnt sich nicht; dazwischen liegt ein weites Feld, in dem alles von den Kosten abhängt, und das lässt sich aus öffentlichen Daten nicht beurteilen.
+
+**Was nicht eingerechnet ist und das Fazit ändert:** die Aufwältigung der bestehenden Bohrung, die Reinjektion, das Gas des Wassers, der tatsächliche Wärmebedarf (angenommen wird, dass die gesamte Wärme 4.000 Stunden im Jahr genutzt wird), Förderungen und Finanzierung, Genehmigungen, die Chemie des Wassers (Kesselstein, Aggressivität) und das Risiko, dass eine neue Bohrung nicht das erwartete Wasser liefert. Jeder dieser Punkte kann die Amortisation von einer Klasse in eine andere verschieben.
+
+Detaillierte Studien lassen sich mit einem guten Team von Fachleuten durchführen (Geologen, Bohrfachleute, Wärmetechniker, Ökonomen), und erst sie liefern die Grundlage für eine Investitionsentscheidung. Diese Seite zeigt, ob eine solche Studie für einen bestimmten Ort sinnvoll ist.
+
+## Methode und Grenzen
+
+- **Daten:** eine Bohrung; für die Ergiebigkeit verwenden wir die Angabe aus Anhang 1 (6,9 l/s), der Atlas nennt eine andere (10,3 l/s). Alles andere ist Annahme und als Annahme gekennzeichnet.
+- **Temperaturen tieferer Schichten** stammen aus den Atlaskarten in Klassen; in 2.000 m ist der Wert die Klassenmitte. Sie sind keine Messung in Melenci.
+- **Wärmepumpe:** eine Leistungszahl von 0,4 des Carnot-Wertes, bei einer Quelle von etwa 22 °C und einer Abgabe von 45 °C. Die reale Jahresarbeitszahl hängt vom Hersteller und der Betriebsweise ab.
+- **Last:** Das Modell arbeitet mit konstanter Leistung und Vollbenutzungsstunden. Den Bedarf des Bades nach Stunde und Jahreszeit kennen wir nicht.
+- **Preise:** Wärmewert (Gas- und Strompreis) und Strompreis gelten für andere Kunden als das Bad in Melenci; Instandhaltung und sonstige Fixkosten sind Annahmen ohne öffentliche Quelle. Es werden Spannen gezeigt.
+- **Keine Planung:** Die Rechnung ersetzt weder den Test der Bohrung, eine chemische Analyse des Wassers, den Entwurf des Systems noch eine Machbarkeitsstudie.
+
+## Quellen
+
+| Thema | Quelle | Inhalt |
+|---|---|---|
+| Bohrung Me-1/H | [Anhang 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) zur Studie *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005) | Tiefe, Intervall, Temperatur, Ergiebigkeit, Mineralisierung |
+| Ergiebigkeit, Leistung, hydrogeologische Systeme, Ressourcen, Nutzung | [*Geotermalni atlas Vojvodine*](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geotermalni_atlas_AP_Vojvodine.pdf) (Geothermischer Atlas der Vojvodina), erstellt im Rahmen der *Studija stanja i ocena resursa geotermalne energije AP Vojvodine* (Studie zum Stand und zur Bewertung der geothermischen Energieressourcen der AP Vojvodina), Provinzsekretariat für Energie und mineralische Rohstoffe (2010) | Tabelle 1 mit 78 Bohrungen, vier Systeme, Ressourcen, Nutzung bis 2009 |
+| Untergrundtemperatur in 500, 1.000 und 2.000 m | Derselbe Atlas, Karten 5, 6 und 7, digitalisiert im [3D-Modell](/de/projects/geotermalni-potencijal-vojvodine) | Temperatur in Klassen von 0,5, 1 und 2 °C |
+| Strompreis | [021.rs, 20.4.2025](https://www.021.rs/info/biznis-i-ekonomija/407505/vise-cene-struje-za-privrednike-u-srbiji-manje-sanse-na-trzistu): Angebote von EPS an Gewerbekunden, 105,77 bis 109,17 €/MWh, dazu Verbrauchsteuern und Entgelte von etwa 25 €/MWh | Strompreis für die Wärmepumpe und für die Stromheizung |
+| Gaspreis | [N1, 28.11.2022](https://n1info.rs/biznis/kilovat-cas-struje-po-novom-cenovniku-124-dinara-a-gasa-45-dinara/): Gaspreis für Haushalte, 4,08 din/kWh ohne Steuern und Abgaben | Preis der Wärme aus einem Gaskessel; für Gewerbekunden wurde kein öffentlicher Preis gefunden |
+| Kosten für Bohren und Ausrüstung | [Energetska efikasnost i obnovljivi izvori energije, „Geotermalna energija Srbije“, 1.9.2012](https://milosgradakovic.blogspot.com/2012/09/geotermalna-energija-srbije.html) | Bohren 350 bis 400 € je Meter, Ausrüstung zur Nutzung etwa 200.000 €; Autor und Quelle nicht genannt |
+| Kosten für Wärmepumpen | [Vreme, 20.7.2026](https://vreme.com/ekonomija/toplotna-pumpa-cena-ugradnja-subvencije/); [Kurir, 23.7.2026](https://biznis.kurir.rs/novcanik/10056651/koliko-kosta-toplotna-pumpa-sa-ugradnjom-troskovi) | Eingebaute Haushalts-Wärmepumpe 3.000 bis 15.000 €, ohne Leistungsangabe; ein Preis je kW für größere Geräte wurde nicht gefunden |
+| Klasse der Kostenschätzung | AACE International, Recommended Practice 18R-97, *Cost Estimate Classification System* | Einteilung von Kostenschätzungen nach Projektreife |
+
+Die Wärmeleistung wird nach der Formel des Atlas berechnet (Bezugstemperatur 20 °C). Alles Übrige sind Methode und Annahmen dieser Seite.
+
+## Was für ein klareres Bild nötig ist
+
+Für ein klareres Bild ist es nötig,
+
+1. **den Unterschied der Ergiebigkeit zu klären**: 6,9 l/s (Anhang 1) gegen 10,3 l/s (Atlas), in den Originalunterlagen: wer gemessen hat, wann und was gemessen wurde;
+2. **die Aufwältigung der Bohrung Me-1/H zu bewerten**: Zustand von Verrohrung, Zementation und Filtern, Umfang der Arbeiten und ihre Kosten. Die Bewertung entscheidet, ob aufgewältigt wird und wie weit die Förderrate steigen kann; ihre Kosten kommen dann zur Investition hinzu;
+3. **den Zustand des Bades zu erfassen**: wie viele Bohrungen laufen, wofür das Wasser dient, der Wärmebedarf nach Monaten;
+4. **Annahmen durch Messungen zu ersetzen** (Temperatur und Förderrate eines tieferen Horizonts, falls er getestet wird) und **den Gasgehalt des Wassers von Me-1/H zu messen**, weil er entscheidet, ob das Gas ein Erlös ist;
+5. **angenommene Preise durch Angebote zu ersetzen**: Wärmepumpe, Verteilung und Ausrüstung sowie Bohrkosten, von Auftragnehmern, weil öffentliche Daten für Serbien nicht ausreichen.
+
+## Stand
+
+Oktober 2026: Das Förder- und Nutzungsmodell für Melenci ist mit Rechner fertig; die Daten sind öffentlich, die Annahmen gekennzeichnet.
+
+## Über diese Seite
+
+Diese Seite ist eine persönliche, informative Arbeit, die ausschließlich aus den in den Quellen genannten öffentlich zugänglichen Daten erstellt wurde. Sie verwendet keine Daten, Unterlagen oder Schätzungen eines Arbeitgebers oder Unternehmens, gibt nicht deren Ansichten wieder und ist kein Leistungsangebot. Die Rechnung liefert eine Größenordnung, keine Planung: Eine Entscheidung über eine Bohrung braucht einen Test der Bohrung, die Bewertung der Aufwältigung, eine Messung des Gases, den tatsächlichen Wärmebedarf, Angebote von Auftragnehmern und eine detaillierte Studie durch ein Team von Fachleuten. Siehe auch die [Nutzungsbedingungen](/de/terms).

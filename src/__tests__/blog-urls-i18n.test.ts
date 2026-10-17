@@ -11,8 +11,8 @@ vi.mock('@/config/i18n.config', () => ({
   default: {
     enabled: true,
     defaultLocale: 'en',
-    locales: ['en', 'nl'],
-    localeNames: { en: 'English', nl: 'Nederlands' },
+    locales: ['en', 'de'],
+    localeNames: { en: 'English', de: 'Deutsch' },
     detectBrowserLocale: false,
   },
 }));
@@ -25,34 +25,34 @@ import {
   getSecondaryLocales,
 } from '@/lib/blog';
 
-describe('blog URL helpers (i18n enabled — en default, nl secondary)', () => {
+describe('blog URL helpers (i18n enabled — en default, de secondary)', () => {
   it('keeps default-locale post URLs at the site root', () => {
     expect(getPostUrl('en/hello-world')).toBe('/blog/hello-world');
     expect(getPostUrl('en/hello-world', 'en')).toBe('/blog/hello-world');
   });
 
   it('prefixes secondary-locale post URLs with the locale', () => {
-    expect(getPostUrl('nl/hallo-wereld', 'nl')).toBe('/nl/blog/hallo-wereld');
+    expect(getPostUrl('de/hallo-welt', 'de')).toBe('/de/blog/hallo-welt');
   });
 
   it('prefixes the blog index base URL for the secondary locale only', () => {
     expect(getBlogBaseUrl()).toBe('/blog');
     expect(getBlogBaseUrl('en')).toBe('/blog');
-    expect(getBlogBaseUrl('nl')).toBe('/nl/blog');
+    expect(getBlogBaseUrl('de')).toBe('/de/blog');
   });
 
   it('prefixes paginated URLs for the secondary locale', () => {
-    expect(getBlogPageUrl(1, 'nl')).toBe('/nl/blog');
-    expect(getBlogPageUrl(2, 'nl')).toBe('/nl/blog/page/2');
+    expect(getBlogPageUrl(1, 'de')).toBe('/de/blog');
+    expect(getBlogPageUrl(2, 'de')).toBe('/de/blog/page/2');
     expect(getBlogPageUrl(2)).toBe('/blog/page/2');
   });
 
   it('prefixes tag URLs for the secondary locale', () => {
-    expect(getTagUrl('Astro Rocket', 'nl')).toBe('/nl/blog/tag/astro-rocket');
+    expect(getTagUrl('Astro Rocket', 'de')).toBe('/de/blog/tag/astro-rocket');
     expect(getTagUrl('Astro Rocket')).toBe('/blog/tag/astro-rocket');
   });
 
   it('lists the non-default locales as needing prefixed routes', () => {
-    expect(getSecondaryLocales()).toEqual(['nl']);
+    expect(getSecondaryLocales()).toEqual(['de']);
   });
 });

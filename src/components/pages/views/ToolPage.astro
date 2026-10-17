@@ -9,6 +9,7 @@
  * `initToolForm`. Shared labels come from `pages.tools.form`.
  */
 import PageLayout from '@/layouts/PageLayout.astro';
+import ToolNotice from '@/components/patterns/ToolNotice.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import { t, tData, localizedPath } from '@/i18n';
 import siteConfig from '@/config/site.config';
@@ -71,6 +72,8 @@ const dataAttrs = Object.fromEntries(Object.entries(data).map(([k, v]) => [`data
       <p class="mt-4 max-w-2xl text-base leading-relaxed text-foreground-muted">{hero.description}</p>
     </div>
   </section>
+
+  <ToolNotice locale={locale} />
 
   <section class="bg-background py-10 sm:py-12">
     <div class="mx-auto max-w-5xl px-6">

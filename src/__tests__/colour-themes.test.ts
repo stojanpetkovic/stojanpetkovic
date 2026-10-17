@@ -120,7 +120,6 @@ describe('colour themes', () => {
       'AGENTS.md',
       'src/config/site.config.ts',
       'src/i18n/en.json',
-      'src/i18n/nl.json',
       'src/i18n/sr.json',
       'src/i18n/de.json',
     ]) {

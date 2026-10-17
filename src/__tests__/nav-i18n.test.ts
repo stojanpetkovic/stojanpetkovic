@@ -8,8 +8,8 @@ vi.mock('@/config/i18n.config', () => ({
   default: {
     enabled: true,
     defaultLocale: 'en',
-    locales: ['en', 'nl'],
-    localeNames: { en: 'English', nl: 'Nederlands' },
+    locales: ['en', 'de'],
+    localeNames: { en: 'English', de: 'Deutsch' },
     detectBrowserLocale: false,
   },
 }));
@@ -18,7 +18,7 @@ import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { getNavItems, getLogoHref, resolveNavItem, type NavItem } from '@/config/nav.config';
 
-describe('nav config — locale resolution (en default, nl secondary)', () => {
+describe('nav config — locale resolution (en default, de secondary)', () => {
   it('keeps default-locale hrefs at the site root', () => {
     const items = getNavItems('en');
     expect(items.find((i) => i.label === 'Blog')?.href).toBe('/blog');
@@ -26,38 +26,38 @@ describe('nav config — locale resolution (en default, nl secondary)', () => {
   });
 
   it('prefixes secondary-locale hrefs with the locale', () => {
-    const items = getNavItems('nl');
+    const items = getNavItems('de');
     expect(items.map((i) => i.href)).toEqual([
-      '/nl',
-      '/nl/services',
-      '/nl/projects',
-      '/nl/blog',
-      '/nl/about',
-      '/nl/contact',
+      '/de',
+      '/de/services',
+      '/de/projects',
+      '/de/blog',
+      '/de/about',
+      '/de/contact',
     ]);
   });
 
   it('translates labels via the dictionary (labelKey)', () => {
-    const nl = getNavItems('nl');
-    // nl.json: nav.items.about = "Over", nav.items.services = "Diensten"
-    expect(nl.find((i) => i.href === '/nl/about')?.label).toBe('Over');
-    expect(nl.find((i) => i.href === '/nl/services')?.label).toBe('Diensten');
+    const de = getNavItems('de');
+    // de.json: nav.items.about = "Über mich", nav.items.services = "Leistungen"
+    expect(de.find((i) => i.href === '/de/about')?.label).toBe('Über mich');
+    expect(de.find((i) => i.href === '/de/services')?.label).toBe('Leistungen');
   });
 
   it('points the logo at the locale home', () => {
     expect(getLogoHref('en')).toBe('/');
-    expect(getLogoHref('nl')).toBe('/nl');
+    expect(getLogoHref('de')).toBe('/de');
   });
 
   it('never locale-prefixes external, mailto/tel, or anchor hrefs', () => {
     expect(
       resolveNavItem(
         { label: 'GitHub', href: 'https://github.com/x', order: 1, external: true },
-        'nl'
+        'de'
       ).href
     ).toBe('https://github.com/x');
-    expect(resolveNavItem({ label: 'Top', href: '#top', order: 1 }, 'nl').href).toBe('#top');
-    expect(resolveNavItem({ label: 'Mail', href: 'mailto:a@b.com', order: 1 }, 'nl').href).toBe(
+    expect(resolveNavItem({ label: 'Top', href: '#top', order: 1 }, 'de').href).toBe('#top');
+    expect(resolveNavItem({ label: 'Mail', href: 'mailto:a@b.com', order: 1 }, 'de').href).toBe(
       'mailto:a@b.com'
     );
   });
@@ -67,14 +67,14 @@ describe('nav config — locale resolution (en default, nl secondary)', () => {
       label: 'Contact',
       href: '/contact',
       order: 1,
-      locales: { nl: { label: 'Neem contact op', href: '/contacteer' } },
+      locales: { de: { label: 'Kontakt aufnehmen', href: '/kontakt' } },
     };
-    expect(resolveNavItem(item, 'nl')).toEqual({
-      label: 'Neem contact op',
-      href: '/nl/contacteer',
+    expect(resolveNavItem(item, 'de')).toEqual({
+      label: 'Kontakt aufnehmen',
+      href: '/de/kontakt',
       external: undefined,
     });
-    // The default locale is unaffected by an nl-only override.
+    // The default locale is unaffected by a de-only override.
     expect(resolveNavItem(item, 'en')).toEqual({
       label: 'Contact',
       href: '/contact',
@@ -83,12 +83,12 @@ describe('nav config — locale resolution (en default, nl secondary)', () => {
   });
 
   it('falls back to the literal label when no labelKey is set', () => {
-    expect(resolveNavItem({ label: 'Docs', href: '/docs', order: 1 }, 'nl').label).toBe('Docs');
+    expect(resolveNavItem({ label: 'Docs', href: '/docs', order: 1 }, 'de').label).toBe('Docs');
   });
 });
 
 describe('Services mega menu', () => {
-  const services = (locale: 'en' | 'nl') => getNavItems(locale).find((i) => i.mega)!;
+  const services = (locale: 'en' | 'de') => getNavItems(locale).find((i) => i.mega)!;
 
   it('groups the service pages under Services and keeps the top bar short', () => {
     const items = getNavItems('en');
@@ -101,11 +101,11 @@ describe('Services mega menu', () => {
   });
 
   it('prefixes every link and the covered sections with the locale', () => {
-    const mega = services('nl').mega!;
+    const mega = services('de').mega!;
     for (const link of [...mega.groups.flatMap((g) => g.links), mega.overview]) {
-      expect(link.href.startsWith('/nl/'), link.href).toBe(true);
+      expect(link.href.startsWith('/de/'), link.href).toBe(true);
     }
-    expect(mega.activePrefixes).toContain('/nl/courses');
+    expect(mega.activePrefixes).toContain('/de/courses');
   });
 
   it('every link has a label and goes to a page that exists', () => {

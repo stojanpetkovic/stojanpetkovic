@@ -10,6 +10,7 @@
  * the field and result labels shared with the CT Forces page.
  */
 import PageLayout from '@/layouts/PageLayout.astro';
+import ToolNotice from '@/components/patterns/ToolNotice.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import WellBuilderPanel from './WellBuilderPanel.astro';
 import BhaBuilderPanel from './BhaBuilderPanel.astro';
@@ -130,6 +131,8 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
       <p class="mt-4 max-w-2xl text-base leading-relaxed text-foreground-muted">{hero.description}</p>
     </div>
   </section>
+
+  <ToolNotice locale={locale} />
 
   <section class="bg-background pb-12">
     <div

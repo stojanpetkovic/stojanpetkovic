@@ -61,6 +61,7 @@
       "blog": "Blog",
       "about": "O meni",
       "contact": "Kontakt",
+      "terms": "Uslovi korišćenja",
       "courses": "Kursevi"
     },
     "mega": {
@@ -299,6 +300,259 @@
     "followOn": "Prati me na {platform}"
   },
   "pages": {
+    "terms": {
+      "meta": {
+        "title": "Uslovi korišćenja",
+        "description": "Uslovi korišćenja sajta: lični i nezavisni sajt, samo informativna namena, bez stručnog saveta, bez poslovne ponude, ograničenje odgovornosti i izjava o nezavisnosti i sukobu interesa."
+      },
+      "hero": {
+        "badge": "Pravila sajta",
+        "title": "Uslovi korišćenja",
+        "description": "Šta je ovaj sajt, šta nije, i pod kojim uslovima se koristi."
+      },
+      "updated": "Poslednja izmena: 17. oktobar 2026.",
+      "intro": "Ovi uslovi uređuju korišćenje sajta stojanpetkovic.com (u daljem tekstu: sajt). Korišćenjem sajta prihvatate ih. Ako se ne slažete sa njima, ne koristite sajt.",
+      "sections": [
+        {
+          "title": "1. Ko vodi sajt",
+          "paragraphs": [
+            "Sajt vodi Stojan Petković, fizičko lice (u daljem tekstu: autor), kao lični projekat. Sajt nije sajt kompanije, ne predstavlja pravno lice i ne vodi se u ime nijednog poslodavca, klijenta ni drugog pravnog lica."
+          ]
+        },
+        {
+          "title": "2. Nezavisnost i sukob interesa",
+          "paragraphs": [
+            "Sajt i sav sadržaj na njemu (projekti, blog, alati, kalkulatori, modeli, kursevi i tekstovi) autor izrađuje u svoje lično ime i na svoj račun. Zbog toga važi sledeće:"
+          ],
+          "items": [
+            "Ne koristi se nijedan podatak, dokument, procedura, softver, procena, poslovna ni tehnička informacija ili drugi materijal koji pripada poslodavcu, klijentu ili trećoj strani, a nije javno objavljen. Podaci u projektima potiču iz javno objavljenih izvora koji su navedeni uz svaki projekat.",
+            "Ništa na sajtu ne predstavlja stav, politiku, podatak, procenu, preporuku ni izjavu bilo kog poslodavca, kompanije ili institucije. Autor ne govori u njihovo ime i nema ovlašćenje da to čini. Poslodavac autora nije ni na koji način povezan sa sajtom i ne odgovara za njegov sadržaj.",
+            "Pominjanje kompanija, institucija, proizvoda i izvora služi isključivo za označavanje javnih izvora i činjenica. Ne znači podršku, preporuku, saradnju ni kritiku.",
+            "Sadržaj nije ponuda, reklama ni poziv na poslovni odnos u delatnosti poslodavca autora, niti ima nameru da se konkuriše poslodavcu ili njegovim klijentima.",
+            "Rad na sajtu ne sme da utiče na izvršavanje obaveza autora prema poslodavcu, i ne utiče na njega.",
+            "Svaki dodatni angažman autora mora da bude u skladu sa njegovim obavezama prema poslodavcu, propisima i poslovnoj tajni, uz sve potrebne saglasnosti, i ugovara se posebno, izvan ovog sajta i njegovog sadržaja.",
+            "Ako smatrate da neki sadržaj nepropisno koristi poverljivu informaciju, ili da stvara utisak da govori u ime neke kompanije, javite se preko stranice Kontakt. Sadržaj će biti hitno proveren i, po potrebi, ispravljen ili uklonjen."
+          ]
+        },
+        {
+          "title": "3. Samo informativna namena",
+          "paragraphs": [
+            "Sadržaj sajta je opšteg i informativnog karaktera. Nije inženjerski, tehnički, pravni, finansijski, investicioni ni drugi stručni savet. Nije projekat, studija izvodljivosti, procena resursa ni stručno mišljenje. Ne stvara odnos klijent–savetnik ni bilo kakvu obavezu autora. Pre svake odluke obratite se kvalifikovanim stručnjacima i nadležnim organima."
+          ]
+        },
+        {
+          "title": "4. Alati, kalkulatori i modeli",
+          "paragraphs": [
+            "Alati, kalkulatori i modeli na sajtu daju približne rezultate iz navedenih formula i pretpostavki. Oni nisu zamena za projektne proračune, procedure kompanije, uputstva proizvođača opreme, propise ni nalog odgovornog lica. Ne koristite ih kao jedinu osnovu za radove na bušotinama, rad pod pritiskom, rad sa azotom, niti za druge bezbednosno značajne radnje.",
+            "Greške, nepotpunost i zastarelost podataka su mogući. Ulazne podatke i rezultate proverava korisnik. Modeli geotermalnog potencijala pokazuju red veličine iz javnih podataka; ne zamenjuju ispitivanje bušotine, procenu remonta, studiju izvodljivosti ni ponude izvođača."
+          ]
+        },
+        {
+          "title": "5. Javni podaci i izvori trećih strana",
+          "paragraphs": [
+            "Podaci potiču iz javno objavljenih izvora i navedeni su uz sadržaj. Autor ne garantuje njihovu tačnost, potpunost ni aktuelnost, nije autor tih izvora i ne odgovara za njih. Autorska prava na izvore, slike i mape pripadaju njihovim vlasnicima; autori i licence su navedeni uz sadržaj (na primer OpenStreetMap, OpenTopoMap i Wikimedia Commons). Linkovi vode na sajtove trećih strana, nad kojima autor nema kontrolu."
+          ]
+        },
+        {
+          "title": "6. Usluge i komercijalna komunikacija",
+          "paragraphs": [
+            "Sajt je pre svega informativan. Sadržaj projekata, bloga, alata i kurseva nije ponuda usluga. Eventualne usluge koje su navedene na stranici Usluge ugovaraju se posebno, u pisanoj formi, i samo ako nisu u sukobu sa obavezama autora prema poslodavcu, propisima i poslovnoj tajni. Autor zadržava pravo da odbije svaki upit zbog sukoba interesa ili bilo kog drugog razloga. Slanje upita preko kontakt forme ne stvara obavezu autora ni ugovorni odnos."
+          ]
+        },
+        {
+          "title": "7. Autorska prava",
+          "paragraphs": [
+            "Osim ako je drugačije navedeno, tekstovi, grafike, modeli i kod ovog sajta zaštićeni su autorskim pravom autora. Dozvoljeno je citiranje uz navođenje izvora i link. Svako drugo preuzimanje, kopiranje ili komercijalno korišćenje traži prethodnu pisanu saglasnost autora. Podaci trećih strana ostaju pod licencama svojih vlasnika."
+          ]
+        },
+        {
+          "title": "8. Poruke, komentari i ponašanje korisnika",
+          "paragraphs": [
+            "Ako sajt omogućava komentare ili slanje poruka, zabranjeno je objavljivanje nezakonitog, uvredljivog ili obmanjujućeg sadržaja, kao i poverljivih podataka trećih strana ili poslodavaca, i sadržaja koji se predstavlja kao stav neke kompanije. Autor može da ukloni takav sadržaj bez prethodne najave. Obrada ličnih podataka (kontakt forma, kolačići) uređena je obaveštenjem o privatnosti uz formu i podešavanjima kolačića."
+          ]
+        },
+        {
+          "title": "9. Ograničenje odgovornosti",
+          "paragraphs": [
+            "Sajt i sadržaj se pružaju „takvi kakvi jesu“, bez ikakve garancije, izričite ili podrazumevane. U najvećoj meri dozvoljenoj zakonom, autor ne odgovara za bilo kakvu štetu (neposrednu ili posrednu, izgubljenu dobit, štetu na bušotini, opremi ili imovini, povredu, gubitak podataka, odluke o ulaganju) nastalu korišćenjem sajta ili oslanjanjem na njegov sadržaj, niti za nedostupnost sajta. Ovo ne isključuje odgovornost koja se po zakonu ne može isključiti ili ograničiti. Sajt koristite na sopstvenu odgovornost."
+          ]
+        },
+        {
+          "title": "10. Izmene i merodavno pravo",
+          "paragraphs": [
+            "Autor može da izmeni ove uslove. Izmene važe od objavljivanja; datum poslednje izmene naveden je na vrhu. Primenjuje se pravo Republike Srbije, a za sporove je nadležan sud u Republici Srbiji, osim ako obavezni propisi o zaštiti potrošača određuju drugačije."
+          ]
+        },
+        {
+          "title": "11. Kontakt",
+          "paragraphs": [
+            "Pitanja, prijave i zahteve u vezi sa sadržajem, uključujući primedbe o sukobu interesa ili poverljivim informacijama, šaljite preko stranice Kontakt."
+          ]
+        }
+      ],
+      "contactLink": "Stranica Kontakt"
+    },
+    "melenciModel": {
+      "profile": {
+        "caption": "Temperatura tla ispod Melenaca prema kartama atlasa, sa dubinom na kojoj se dostiže 60 °C.",
+        "temp": "Temperatura, °C",
+        "depth": "Dubina, km",
+        "aria": "Temperatura po dubini ispod Melenaca"
+      },
+      "scenarios": {
+        "caption": "Toplota iz jedne bušotine u Melencima u četiri slučaja: postojeća bušotina sa dva navedena protoka i dva pretpostavljena dublja slučaja",
+        "cols": [
+          "Slučaj",
+          "Voda, °C",
+          "Protok, l/s",
+          "Iznad 20 °C (atlas), kW",
+          "Grejanje objekata, kW",
+          "Bazeni, kW",
+          "Toplotna pumpa, kW",
+          "Struja pumpe, kW",
+          "Isporučena toplota, kW",
+          "Toplota godišnje, MWh"
+        ],
+        "rows": {
+          "a1": "Me-1/H, protok iz Priloga 1 (2005)",
+          "a2": "Me-1/H, protok iz atlasa (2010)",
+          "b": "Dublji horizont oko 1.000 m (pretpostavka)",
+          "c": "Nova bušotina oko 1.300 m (pretpostavka)"
+        },
+        "note": "Lanac je isti u svakom slučaju: grejanje objekata do 35 °C, bazeni do 28 °C, zatim toplotna pumpa spušta vodu do 15 °C i isporučuje toplotu na 45 °C sa koeficijentom 0,4 Karnoove vrednosti. Toplota godišnje važi za {hours} ekvivalentnih sati punog opterećenja. Slučajevi od 55 °C i 75 °C i njihovi protoci su pretpostavke, a ne merenja."
+      },
+      "economics": {
+        "caption": "Šta košta izgradnja i za koliko se godina toplota isplati, prema vrednosti toplote koju zamenjuje",
+        "cols": [
+          "Slučaj",
+          "Procena investicije, mil. €"
+        ],
+        "range": "opseg {low}–{high}",
+        "price": "Povrat pri {price} €/MWh, godina",
+        "net": "neto {net} hilj. € godišnje",
+        "never": "ne vraća se",
+        "note": "Investicija je zbir stavki iz tabele troškova, bez remonta i opreme za gas, koji nisu procenjeni; opseg je opseg procene klase 4 (−30 % do +50 %). Neto dobit je vrednost toplote umanjena za godišnje pogonske troškove iz tabele ispod. Povrat je investicija podeljena godišnjom neto dobiti, bez diskontovanja. Gas iz vode ovde nije uračunat."
+      },
+      "opex": {
+        "caption": "Pogonski troškovi godišnje (OPEX) po slučajevima",
+        "cols": [
+          "Slučaj",
+          "Struja toplotne pumpe, hilj. €",
+            "Održavanje, hilj. €",
+          "Ostali stalni troškovi, hilj. €",
+          "Pogonski troškovi, hilj. € godišnje"
+        ],
+        "note": "Struja se naplaćuje po {electric} €/MWh. Održavanje je {upkeep} % investicije godišnje, a ostali stalni troškovi {other} € godišnje (praćenje, analize vode, posluga): oba su pretpostavke bez javnog izvora. Reinjekcija nije uračunata, jer bi za nju trebala još jedna nova bušotina; ohlađena voda se ispušta. Atlas navodi da skoro sve bušotine u Vojvodini rade samoizlivno, pa pumpa za proizvodnju nije uračunata."
+      },
+      "methane": {
+        "caption": "Gas rastvoren u vodi bušotine Me-1/H i koliko bi mogao da vredi",
+        "cols": [
+          "Gas u vodi, m³ po m³",
+          "Gas godišnje, m³",
+          "Energija metana, MWh godišnje",
+          "Vrednost, hilj. € godišnje",
+          "U odnosu na toplotu postojeće bušotine"
+        ],
+        "rows": {
+          "low": "najmanje u Vojvodini",
+          "high": "najviše u Vojvodini"
+        },
+        "note": "Prema atlasu voda prvog sistema sadrži 0,04 do 2,2 m³ gasa po m³, pretežno metana (80 do 95 %); uzima se 90 %. Protok je 6,9 l/s (Prilog 1) tokom {hours} sati godišnje; energija se vrednuje po {price} €/MWh, ceni gasa koji bi zamenila. Sadržaj gasa same Me-1/H nije objavljen: treba ga izmeriti, i on odlučuje da li se gas isplati odvajati i koristiti. Gas iz vode je eksplozivan, pa korišćenje traži odvajanje, mere zaštite i opremu koja ovde nije uračunata u trošak."
+      },
+      "costs": {
+        "caption": "Stavke investicije i odakle je koja brojka",
+        "cols": [
+          "Stavka",
+          "Korišćena vrednost",
+          "Osnova"
+        ],
+        "rows": {
+          "drilling": {
+            "name": "Bušenje nove bušotine",
+            "basis": "Javna procena od 350 do 400 € po metru (blog iz 2012. bez navedenog izvora); uzima se gornja vrednost. Za Vojvodinu nismo našli noviji javni podatak."
+          },
+          "equipment": {
+            "name": "Oprema za korišćenje toplote (izmenjivači, pumpe)",
+            "basis": "Javna procena od oko 200.000 € (isti blog iz 2012). Pretpostavljamo da obuhvata sve na površini osim toplotne pumpe i cevi."
+          },
+          "heatPump": {
+            "name": "Toplotna pumpa",
+            "basis": "Pretpostavka. Javne cene za Srbiju postoje samo za kućne jedinice (3.000 do 15.000 € ugrađene, bez navedene snage); jedinica od više stotina kW košta manje po kW, pa uzimamo 500 € po kW."
+          },
+          "pipeline": {
+            "name": "Razvod (cevovod)",
+            "basis": "Pretpostavka: trasa od 500 m po 400 € po metru. Javnu cenu po metru za Srbiju nismo našli."
+          },
+          "workover": {
+            "name": "Remont postojeće bušotine",
+            "basis": "Nije procenjen, pa nije uključen. Javni podatak o ceni nismo našli; procena remonta je poseban korak."
+          },
+          "gas": {
+            "name": "Oprema za korišćenje gasa",
+            "basis": "Nije procenjena, pa nije uključena. Bila bi potrebna samo ako voda sadrži dovoljno gasa da se isplati koristiti ga; sadržaj gasa u Me-1/H treba prvo izmeriti."
+          }
+        },
+        "units": {
+          "perM": "€/m",
+          "perKw": "€/kW",
+          "eur": "€",
+          "route": "{m} m × {p} €/m"
+        }
+      },
+      "calc": {
+        "title": "Izračunajte svoj slučaj",
+        "intro": "Promenite vodu, upotrebu i troškove; rezultat prati isti lanac i iste formule kao tabele iznad.",
+        "fields": {
+          "temp": "Temperatura vode na ušću",
+          "flow": "Protok",
+          "hours": "Ekvivalentni sati punog opterećenja godišnje",
+          "heatValue": "Vrednost zamenjene toplote",
+          "electricPrice": "Cena struje",
+          "upkeep": "Održavanje, udeo investicije godišnje",
+          "newWells": "Nove bušotine",
+          "depth": "Dubina nove bušotine",
+          "drillingPerM": "Cena bušenja",
+          "workover": "Remont postojeće bušotine",
+          "heatPumpPerKw": "Toplotna pumpa",
+          "pipelineM": "Dužina cevi",
+          "pipelinePerM": "Cena cevi položene",
+          "equipment": "Oprema za korišćenje toplote",
+            "otherOpex": "Ostali stalni troškovi godišnje",
+          "gasRatio": "Gas u vodi",
+          "gasPrice": "Vrednost gasa",
+          "gasEquipment": "Oprema za korišćenje gasa"
+        },
+        "results": {
+          "atlas": "Iznad 20 °C (vrednost iz atlasa)",
+          "heating": "Grejanje objekata",
+          "pools": "Bazeni",
+          "pump": "Toplota toplotne pumpe",
+          "electric": "Struja toplotne pumpe",
+          "cop": "Koeficijent toplotne pumpe",
+          "total": "Isporučena toplota",
+          "energy": "Toplota godišnje",
+          "gasRevenue": "Zamenjeni gas, vrednost godišnje",
+          "opex": "Pogonski troškovi godišnje",
+          "net": "Neto dobit godišnje",
+          "investment": "Procena investicije",
+          "payback": "Povrat"
+        },
+        "note": "Račun iz navedenih pretpostavki, a ne projekat. Ne zamenjuje ispitivanje bušotine, procenu njenog remonta ni studiju izvodljivosti."
+      },
+      "matrix": {
+        "caption": "Povrat nove bušotine u godinama, ako toplota zamenjuje gorivo vredno {price} €/MWh",
+        "tempCol": "Voda, °C (dubina bušotine, m)",
+        "flowHead": "{flow} l/s",
+        "clear": "jasno",
+        "limit": "blizu granice",
+        "no": "ne isplati se",
+        "note": "Svaka bušotina ovde je jedna nova bušotina do dubine na kojoj je stena 4 °C toplija od vode (gradijent Melenaca, 52,5 °C po km), sa istim cenama i pretpostavkama kao gore, toplotnom pumpom, 500 m cevi i opremom na površini, uz korišćenje sve toplote {hours} sati godišnje. Remont, reinjekcija, gas i subvencije nisu uračunati. Jasno: povrat do {clear} godina; blizu granice: {clear} do {limit} godina; ne isplati se: preko {limit} godina. Ove granice su naša procena."
+      },
+      "pdf": {
+        "button": "Sačuvaj kao PDF",
+        "hint": "Otvara dijalog za štampu: izaberite „Sačuvaj kao PDF“. Stranica se štampa kao izveštaj sa tabelama i grafikonom temperature."
+      }
+    },
     "geothermalModel": {
       "canvasLabel": "Interaktivni 3D model bušotina Vojvodine sa temperaturnim profilima. Prevucite da zarotirate, kliknite na model i skrolujte da zumirate.",
       "loading": "Učitavam 3D model…",
@@ -500,7 +754,7 @@
         "**Izmereno.** Svaka obojena traka je temperatura vode na ispitanom intervalu. Gde prilog ne daje interval marker je šupalj i stoji na ukupnoj dubini; tamo je temperatura vode koja je mogla doći i sa manje dubine, pa je gradijent na tim bušotinama donja granica.",
         "**Atlas.** Slojevi, zidovi i konture nisu izmereni na bušotinama. Potiču iz karata temperature na 500, 1.000 i 2.000 m iz [Geotermalnog atlasa Vojvodine](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010), digitalizovanih iz boja klasa na kartama (koraci od 0,5, 1 i 2 °C). Između karata temperatura raste pravolinijski od 11 °C na površini, što je pretpostavka. Ispod 2 km, dublje od svake karte, nastavlja se nagibom između 1 i 2 km. Trake na bušotinama (Prilog) i boje (atlas) su različiti izvori i ne slažu se uvek: atlas je topliji od vode iz Priloga kod 44 od 53 ispitivanja, u proseku za 9 °C.",
         "**Oblik i reljef.** Oblik je granica AP Vojvodine iz OpenStreetMap-a. Visine terena su iz Terrain Tiles na AWS-u (SRTM i drugi izvori), na mreži od 1 km, nacrtane iznad medijane pokrajine, 79 m, sa preuveličanjem iz panela Razmera. Slojevi temperature crtaju se kao dubina ispod tog nivoa i ne prate teren; razlika je bitna samo na Fruškoj gori i Vršačkim planinama. Prilog ne daje kote bušotina, pa ušća stoje na modelu terena.",
-        "**Izvor.** Bušotine i ispitivanja su iz [Priloga 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) studije *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), evidencija NIS Naftagasa koju je dostavio Pokrajinski sekretarijat za energetiku i mineralne sirovine, koji je studiju javno objavio: 51 bušotina u tri tabele, Kž-2/H računata jednom."
+        "**Izvor.** Bušotine i ispitivanja su iz [Priloga 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) studije *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), koju je javno objavio Pokrajinski sekretarijat za energetiku i mineralne sirovine: 51 bušotina u tri tabele, Kž-2/H računata jednom."
       ]
     },
     "landing": {
@@ -759,6 +1013,9 @@
       },
       "form": {
         "badge": "Besplatna provera sajta",
+          "termsLabel": "Pročitao/la sam {terms} i razumem da ovaj upit nije ponuda ni ugovor.",
+          "termsLink": "Uslove korišćenja",
+          "termsRequired": "Potvrdite da ste pročitali uslove korišćenja.",
         "heading": "Ispričaj mi nešto o svom biznisu",
         "lead": "Tri kratka koraka, manje od minut. Javljam se u roku od jednog radnog dana.",
         "stepLabels": [
@@ -1186,6 +1443,9 @@
       "preferEmail": "Više voliš email? Piši na",
       "form": {
         "badge": "Upit za projekat",
+          "termsLabel": "Pročitao/la sam {terms} i razumem da ovaj upit nije ponuda ni ugovor.",
+          "termsLink": "Uslove korišćenja",
+          "termsRequired": "Potvrdite da ste pročitali uslove korišćenja.",
         "heading": "Reci mi o svom projektu",
         "lead": "Tri kratka koraka, manje od minuta. Odgovaram u roku od jednog radnog dana.",
         "stepLabels": [
@@ -1293,6 +1553,20 @@
         "back": "Svi alati"
       },
       "cta": "Reci mi šta ti treba",
+      "notice": {
+        "text": "Rezultati su orijentacioni i samo informativni. Nisu projekat, procedura ni stručni savet. Proverite ulazne podatke i rezultate i pridržavajte se procedura svoje kompanije i podataka proizvođača.",
+        "link": "Uslovi korišćenja",
+        "ackTitle": "Pre nego što koristite alate",
+        "ackIntro": "Alati i kalkulatori na ovom sajtu su lična, informativna pomagala napravljena iz javnih formula i navedenih pretpostavki.",
+        "ackItems": [
+          "Rezultati su orijentacioni. Nisu projekat, procedura ni stručni savet.",
+          "Ne koristite ih kao jedinu osnovu za radove na bušotinama, rad pod pritiskom, rad sa azotom ni bilo koju drugu bezbednosno značajnu radnju. Pridržavajte se procedura svoje kompanije, podataka proizvođača i naloga odgovornog lica.",
+          "Ovo je lični, nezavisni sajt. Ne predstavlja nijednog poslodavca ni kompaniju i ne koristi njihove podatke. Za unete podatke i svoje odluke odgovarate sami."
+        ],
+        "ackCheck": "Razumem i prihvatam {terms}.",
+        "ackButton": "Nastavi",
+        "ackBack": "Nazad na alate"
+      },
       "note": "Alati su pomoć za inženjere. Proveri ulazne podatke i rezultate: odgovornost za svaku odluku ostaje na korisniku.",
       "suggest": {
         "title": "Fali ti neki proračun?",

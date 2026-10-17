@@ -1,0 +1,79 @@
+---
+/**
+ * TermsView — the Terms of use page body.
+ *
+ * Shared by the default-locale route (`/terms`) and the locale-prefixed route
+ * (`/<locale>/terms`). All copy is read from `pages.terms.*` in the locale
+ * dictionaries. The page says what the site is and is not: a personal,
+ * independent site for information only, with no professional advice, no
+ * business offer, no use of any employer's data, and a limit on liability.
+ */
+import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Badge from '@/components/ui/data-display/Badge/Badge.astro';
+import { Hero } from '@/components/hero';
+import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+
+interface Props {
+  /** Locale whose copy this page renders. Defaults to the site default. */
+  locale?: string;
+}
+
+interface Section {
+  title: string;
+  paragraphs: string[];
+  items?: string[];
+}
+
+const { locale = defaultLocale } = Astro.props;
+
+const hero = tData<{ badge: string; title: string; description: string }>('pages.terms.hero', locale)!;
+const sections = tData<Section[]>('pages.terms.sections', locale)!;
+const contactUrl = localizedPath('/contact', locale);
+---
+
+<PageLayout
+  title={t('pages.terms.meta.title', locale)}
+  description={t('pages.terms.meta.description', locale)}
+  eagerReveal
+>
+  <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
+    <Badge slot="badge" variant="brand" pill>
+      <Icon name="shield-check" size="sm" />
+      {hero.badge}
+    </Badge>
+
+    <h1 slot="title">{hero.title}</h1>
+
+    <p slot="description" class="!text-balance">
+      {hero.description}
+    </p>
+  </Hero>
+
+  <section class="py-[var(--space-section-md)] border-t border-border">
+    <article class="terms mx-auto max-w-3xl px-6" data-reveal>
+      <p class="text-sm text-foreground-muted">{t('pages.terms.updated', locale)}</p>
+      <p class="mt-4 text-foreground-secondary leading-relaxed">{t('pages.terms.intro', locale)}</p>
+
+      {sections.map((section) => (
+        <section class="mt-10">
+          <h2 class="font-display text-xl font-bold text-foreground">{section.title}</h2>
+          {section.paragraphs.map((p) => (
+            <p class="mt-3 text-foreground-secondary leading-relaxed">{p}</p>
+          ))}
+          {section.items && (
+            <ul class="mt-3 list-disc space-y-2 pl-5 text-foreground-secondary leading-relaxed">
+              {section.items.map((item) => <li>{item}</li>)}
+            </ul>
+          )}
+        </section>
+      ))}
+
+      <p class="mt-10">
+        <a class="font-medium text-brand-700 underline underline-offset-2" href={contactUrl}>
+          {t('pages.terms.contactLink', locale)}
+        </a>
+      </p>
+    </article>
+  </section>
+</PageLayout>

@@ -61,6 +61,7 @@
       "blog": "Blog",
       "about": "Über mich",
       "contact": "Kontakt",
+      "terms": "Nutzungsbedingungen",
       "courses": "Kurse"
     },
     "mega": {
@@ -299,6 +300,259 @@
     "followOn": "Folgen Sie mir auf {platform}"
   },
   "pages": {
+    "terms": {
+      "meta": {
+        "title": "Nutzungsbedingungen",
+        "description": "Nutzungsbedingungen der Seite: eine persönliche, unabhängige Seite, nur zur Information, ohne Fachberatung und ohne Geschäftsangebot, Haftungsbeschränkung und Erklärung zu Unabhängigkeit und Interessenkonflikten."
+      },
+      "hero": {
+        "badge": "Regeln der Seite",
+        "title": "Nutzungsbedingungen",
+        "description": "Was diese Seite ist, was sie nicht ist, und unter welchen Bedingungen sie genutzt wird."
+      },
+      "updated": "Zuletzt geändert: 17. Oktober 2026.",
+      "intro": "Diese Bedingungen regeln die Nutzung der Seite stojanpetkovic.com (die Seite). Mit der Nutzung der Seite akzeptieren Sie sie. Wenn Sie nicht einverstanden sind, nutzen Sie die Seite nicht.",
+      "sections": [
+        {
+          "title": "1. Wer die Seite betreibt",
+          "paragraphs": [
+            "Die Seite wird von Stojan Petković, einer Privatperson (der Autor), als persönliches Projekt betrieben. Sie ist keine Unternehmensseite, steht für keine juristische Person und wird nicht im Namen eines Arbeitgebers, Kunden oder einer anderen juristischen Person betrieben."
+          ]
+        },
+        {
+          "title": "2. Unabhängigkeit und Interessenkonflikte",
+          "paragraphs": [
+            "Die Seite und alle Inhalte darauf (Projekte, Blog, Werkzeuge, Rechner, Modelle, Kurse und Texte) erstellt der Autor in eigenem Namen und auf eigene Rechnung. Daher gilt:"
+          ],
+          "items": [
+            "Es werden keine Daten, Dokumente, Verfahren, Software, Schätzungen, geschäftlichen oder technischen Informationen oder sonstigen Unterlagen verwendet, die einem Arbeitgeber, Kunden oder Dritten gehören und nicht veröffentlicht sind. Die Daten in den Projekten stammen aus öffentlich zugänglichen Quellen, die bei jedem Projekt genannt sind.",
+            "Nichts auf der Seite gibt die Ansicht, Politik, Daten, Schätzung, Empfehlung oder Erklärung eines Arbeitgebers, Unternehmens oder einer Institution wieder. Der Autor spricht nicht in deren Namen und hat dazu keine Befugnis. Der Arbeitgeber des Autors hat in keiner Weise mit der Seite zu tun und haftet nicht für ihren Inhalt.",
+            "Unternehmen, Institutionen, Produkte und Quellen werden nur genannt, um öffentliche Quellen und Tatsachen zu bezeichnen. Das ist weder Empfehlung noch Zusammenarbeit noch Kritik.",
+            "Der Inhalt ist kein Angebot, keine Werbung und keine Einladung zu einer Geschäftsbeziehung im Tätigkeitsfeld des Arbeitgebers des Autors und soll auch nicht dem Arbeitgeber oder seinen Kunden Konkurrenz machen.",
+            "Die Arbeit an der Seite darf die Erfüllung der Pflichten des Autors gegenüber seinem Arbeitgeber nicht beeinträchtigen und tut es nicht.",
+            "Jede zusätzliche Tätigkeit des Autors muss mit seinen Pflichten gegenüber dem Arbeitgeber, dem Gesetz und dem Geschäftsgeheimnis vereinbar sein, mit allen nötigen Zustimmungen, und wird gesondert vereinbart, außerhalb dieser Seite und ihres Inhalts.",
+            "Wenn Sie glauben, dass ein Inhalt vertrauliche Informationen unzulässig nutzt oder den Eindruck erweckt, im Namen eines Unternehmens zu sprechen, melden Sie sich über die Kontaktseite. Der Inhalt wird umgehend geprüft und bei Bedarf berichtigt oder entfernt."
+          ]
+        },
+        {
+          "title": "3. Nur zur Information",
+          "paragraphs": [
+            "Der Inhalt der Seite ist allgemein und informativ. Er ist keine ingenieurtechnische, technische, rechtliche, finanzielle, Anlage- oder sonstige Fachberatung. Er ist keine Planung, Machbarkeitsstudie, Ressourcenbewertung oder Expertenmeinung. Er begründet kein Mandats- oder Beratungsverhältnis und keine Verpflichtung des Autors. Vor jeder Entscheidung wenden Sie sich an qualifizierte Fachleute und die zuständigen Behörden."
+          ]
+        },
+        {
+          "title": "4. Werkzeuge, Rechner und Modelle",
+          "paragraphs": [
+            "Die Werkzeuge, Rechner und Modelle auf der Seite liefern Näherungswerte aus den genannten Formeln und Annahmen. Sie ersetzen weder Planungsberechnungen noch Unternehmensverfahren, Herstelleranweisungen, Vorschriften oder die Anweisung der verantwortlichen Person. Verwenden Sie sie nicht als alleinige Grundlage für Arbeiten an Bohrungen, Arbeiten unter Druck, Arbeiten mit Stickstoff oder andere sicherheitsrelevante Handlungen.",
+            "Fehler, Unvollständigkeit und veraltete Daten sind möglich. Eingaben und Ergebnisse prüft der Nutzer. Die Modelle des geothermischen Potenzials zeigen eine Größenordnung aus öffentlichen Daten; sie ersetzen weder einen Test der Bohrung noch die Bewertung der Aufwältigung, eine Machbarkeitsstudie oder Angebote von Auftragnehmern."
+          ]
+        },
+        {
+          "title": "5. Öffentliche Daten und Quellen Dritter",
+          "paragraphs": [
+            "Die Daten stammen aus öffentlich zugänglichen Quellen und sind beim Inhalt genannt. Der Autor garantiert weder ihre Richtigkeit noch Vollständigkeit oder Aktualität, ist nicht der Autor dieser Quellen und haftet nicht für sie. Urheberrechte an Quellen, Bildern und Karten liegen bei ihren Inhabern; Urheber und Lizenzen sind beim Inhalt genannt (zum Beispiel OpenStreetMap, OpenTopoMap und Wikimedia Commons). Links führen zu Seiten Dritter, auf die der Autor keinen Einfluss hat."
+          ]
+        },
+        {
+          "title": "6. Leistungen und kommerzielle Kommunikation",
+          "paragraphs": [
+            "Die Seite ist vor allem informativ. Der Inhalt der Projekte, des Blogs, der Werkzeuge und der Kurse ist kein Leistungsangebot. Etwaige Leistungen, die auf der Seite Leistungen genannt sind, werden gesondert und schriftlich vereinbart, und nur wenn sie nicht im Widerspruch zu den Pflichten des Autors gegenüber seinem Arbeitgeber, dem Gesetz oder dem Geschäftsgeheimnis stehen. Der Autor behält sich vor, jede Anfrage wegen eines Interessenkonflikts oder aus jedem anderen Grund abzulehnen. Das Senden einer Anfrage über das Kontaktformular begründet weder eine Verpflichtung des Autors noch einen Vertrag."
+          ]
+        },
+        {
+          "title": "7. Urheberrecht",
+          "paragraphs": [
+            "Soweit nicht anders angegeben, sind die Texte, Grafiken, Modelle und der Code dieser Seite durch das Urheberrecht des Autors geschützt. Zitieren ist unter Nennung der Quelle und mit Link erlaubt. Jede andere Übernahme, Vervielfältigung oder kommerzielle Nutzung bedarf der vorherigen schriftlichen Zustimmung des Autors. Daten Dritter bleiben unter den Lizenzen ihrer Inhaber."
+          ]
+        },
+        {
+          "title": "8. Nachrichten, Kommentare und Verhalten",
+          "paragraphs": [
+            "Wenn die Seite Kommentare oder Nachrichten erlaubt, ist es verboten, rechtswidrige, beleidigende oder irreführende Inhalte zu veröffentlichen, ebenso vertrauliche Daten Dritter oder von Arbeitgebern und Inhalte, die als Ansicht eines Unternehmens ausgegeben werden. Der Autor kann solche Inhalte ohne Vorankündigung entfernen. Die Verarbeitung personenbezogener Daten (Kontaktformular, Cookies) regelt der Datenschutzhinweis beim Formular und die Cookie-Einstellungen."
+          ]
+        },
+        {
+          "title": "9. Haftungsbeschränkung",
+          "paragraphs": [
+            "Die Seite und ihr Inhalt werden „wie besehen“ bereitgestellt, ohne jede Gewährleistung, ausdrücklich oder stillschweigend. Soweit gesetzlich zulässig, haftet der Autor nicht für Schäden (unmittelbar oder mittelbar, entgangener Gewinn, Schäden an Bohrung, Ausrüstung oder Eigentum, Verletzungen, Datenverlust, Investitionsentscheidungen), die aus der Nutzung der Seite oder dem Vertrauen auf ihren Inhalt entstehen, und nicht für die Nichtverfügbarkeit der Seite. Das schließt keine Haftung aus, die gesetzlich nicht ausgeschlossen oder beschränkt werden kann. Sie nutzen die Seite auf eigene Gefahr."
+          ]
+        },
+        {
+          "title": "10. Änderungen und anwendbares Recht",
+          "paragraphs": [
+            "Der Autor kann diese Bedingungen ändern. Änderungen gelten ab Veröffentlichung; das Datum der letzten Änderung steht oben. Es gilt das Recht der Republik Serbien, und für Streitigkeiten ist ein Gericht in der Republik Serbien zuständig, soweit zwingende Verbraucherschutzvorschriften nichts anderes bestimmen."
+          ]
+        },
+        {
+          "title": "11. Kontakt",
+          "paragraphs": [
+            "Fragen, Meldungen und Anliegen zum Inhalt, einschließlich Einwänden zu einem Interessenkonflikt oder vertraulichen Informationen, senden Sie bitte über die Kontaktseite."
+          ]
+        }
+      ],
+      "contactLink": "Kontaktseite"
+    },
+    "melenciModel": {
+      "profile": {
+        "caption": "Temperatur des Untergrunds unter Melenci nach den Atlaskarten, mit der Tiefe, in der 60 °C erreicht werden.",
+        "temp": "Temperatur, °C",
+        "depth": "Tiefe, km",
+        "aria": "Temperatur über der Tiefe unter Melenci"
+      },
+      "scenarios": {
+        "caption": "Wärme aus einer Bohrung in Melenci in vier Fällen: die bestehende Bohrung mit ihren zwei angegebenen Förderraten und zwei angenommene tiefere Fälle",
+        "cols": [
+          "Fall",
+          "Wasser, °C",
+          "Förderrate, l/s",
+          "Über 20 °C (Atlas), kW",
+          "Gebäudeheizung, kW",
+          "Becken, kW",
+          "Wärmepumpe, kW",
+          "Pumpenstrom, kW",
+          "Gelieferte Wärme, kW",
+          "Wärme pro Jahr, MWh"
+        ],
+        "rows": {
+          "a1": "Me-1/H, Förderrate aus Anhang 1 (2005)",
+          "a2": "Me-1/H, Förderrate des Atlas (2010)",
+          "b": "Tieferer Horizont bei etwa 1.000 m (angenommen)",
+          "c": "Neue Bohrung bei etwa 1.300 m (angenommen)"
+        },
+        "note": "Die Kette ist in jedem Fall gleich: Gebäudeheizung bis 35 °C, Becken bis 28 °C, danach kühlt eine Wärmepumpe das Wasser auf 15 °C ab und liefert Wärme mit 45 °C bei einer Leistungszahl von 0,4 des Carnot-Wertes. Die Wärme pro Jahr gilt für {hours} Vollbenutzungsstunden. Die Fälle mit 55 °C und 75 °C und ihre Förderraten sind Annahmen, keine Messungen."
+      },
+      "economics": {
+        "caption": "Was der Bau kostet und wie schnell sich die Wärme bezahlt macht, nach dem Wert der ersetzten Wärme",
+        "cols": [
+          "Fall",
+          "Geschätzte Investition, Mio. €"
+        ],
+        "range": "Spanne {low}–{high}",
+        "price": "Amortisation bei {price} €/MWh, Jahre",
+        "net": "netto {net} Tsd. € im Jahr",
+        "never": "zahlt sich nicht zurück",
+        "note": "Die Investition ist die Summe der Posten der Kostentabelle, ohne die Aufwältigung und die Gasausrüstung, die nicht bewertet wurden; die Spanne ist die einer Schätzung der Klasse 4 (−30 % bis +50 %). Der Nettogewinn ist der Wert der Wärme abzüglich der jährlichen Betriebskosten aus der Tabelle unten. Die Amortisation ist die Investition geteilt durch den Nettogewinn je Jahr, ohne Abzinsung. Das Gas des Wassers ist hier nicht eingerechnet."
+      },
+      "opex": {
+        "caption": "Betriebskosten pro Jahr (OPEX) nach Fall",
+        "cols": [
+          "Fall",
+          "Strom der Wärmepumpe, Tsd. €",
+            "Instandhaltung, Tsd. €",
+          "Sonstige Fixkosten, Tsd. €",
+          "Betriebskosten, Tsd. € im Jahr"
+        ],
+        "note": "Strom wird mit {electric} €/MWh berechnet. Die Instandhaltung beträgt {upkeep} % der Investition im Jahr, die sonstigen Fixkosten {other} € im Jahr (Überwachung, Wasseranalysen, Betreuung): beides sind Annahmen ohne öffentliche Quelle. Die Reinjektion ist nicht eingerechnet, weil dafür eine weitere neue Bohrung nötig wäre; das abgekühlte Wasser wird abgeleitet. Der Atlas sagt, dass fast alle Bohrungen der Vojvodina von selbst fließen, daher ist keine Förderpumpe gerechnet."
+      },
+      "methane": {
+        "caption": "Im Wasser von Me-1/H gelöstes Gas und was es wert sein könnte",
+        "cols": [
+          "Gas im Wasser, m³ je m³",
+          "Gas im Jahr, m³",
+          "Methanenergie, MWh im Jahr",
+          "Wert, Tsd. € im Jahr",
+          "Gegenüber der Wärme der bestehenden Bohrung"
+        ],
+        "rows": {
+          "low": "niedrigster Wert in der Vojvodina",
+          "high": "höchster Wert in der Vojvodina"
+        },
+        "note": "Nach dem Atlas enthält das Wasser des ersten Systems 0,04 bis 2,2 m³ Gas je m³, überwiegend Methan (80 bis 95 %); angesetzt werden 90 %. Die Förderrate beträgt 6,9 l/s (Anhang 1) über {hours} Stunden im Jahr; die Energie wird mit {price} €/MWh bewertet, dem Preis des Gases, das sie ersetzen würde. Der Gasgehalt von Me-1/H selbst ist nicht veröffentlicht: Er muss gemessen werden und entscheidet, ob sich Abscheidung und Nutzung lohnen. Gas aus dem Wasser ist explosiv, die Nutzung braucht daher Abscheidung, Sicherheitsmaßnahmen und Ausrüstung, die hier nicht bepreist sind."
+      },
+      "costs": {
+        "caption": "Posten der Investition und woher jede Zahl stammt",
+        "cols": [
+          "Posten",
+          "Verwendeter Wert",
+          "Grundlage"
+        ],
+        "rows": {
+          "drilling": {
+            "name": "Bohren einer neuen Bohrung",
+            "basis": "Öffentliche Schätzung von 350 bis 400 € je Meter (Blogbeitrag von 2012 ohne genannte Quelle); der obere Wert wird verwendet. Für die Vojvodina wurde keine neuere öffentliche Zahl gefunden."
+          },
+          "equipment": {
+            "name": "Ausrüstung zur Wärmenutzung (Wärmetauscher, Pumpen)",
+            "basis": "Öffentliche Schätzung von etwa 200.000 € (derselbe Beitrag von 2012). Angenommen wird, dass sie alles über Tage außer Wärmepumpe und Leitung umfasst."
+          },
+          "heatPump": {
+            "name": "Wärmepumpe",
+            "basis": "Annahme. Öffentliche Preise für Serbien gibt es nur für Haushaltsgeräte (3.000 bis 15.000 € eingebaut, ohne Leistungsangabe); ein Gerät von mehreren hundert kW kostet je kW weniger, daher werden 500 € je kW angesetzt."
+          },
+          "pipeline": {
+            "name": "Verteilleitung",
+            "basis": "Annahme: eine Trasse von 500 m zu 400 € je Meter. Einen öffentlichen Preis je Meter für Serbien haben wir nicht gefunden."
+          },
+          "workover": {
+            "name": "Aufwältigung der bestehenden Bohrung",
+            "basis": "Nicht bewertet, daher nicht enthalten. Es wurde keine öffentliche Kostenangabe gefunden; die Bewertung der Aufwältigung ist ein eigener Schritt."
+          },
+          "gas": {
+            "name": "Ausrüstung zur Gasnutzung",
+            "basis": "Nicht bewertet, daher nicht enthalten. Sie wäre nur nötig, wenn das Wasser genug Gas enthält, um es zu nutzen; der Gasgehalt von Me-1/H muss zuerst gemessen werden."
+          }
+        },
+        "units": {
+          "perM": "€/m",
+          "perKw": "€/kW",
+          "eur": "€",
+          "route": "{m} m × {p} €/m"
+        }
+      },
+      "calc": {
+        "title": "Eigenen Fall berechnen",
+        "intro": "Ändern Sie Wasser, Nutzung und Kosten; das Ergebnis folgt derselben Kette und denselben Formeln wie die Tabellen oben.",
+        "fields": {
+          "temp": "Wassertemperatur am Bohrlochkopf",
+          "flow": "Förderrate",
+          "hours": "Vollbenutzungsstunden pro Jahr",
+          "heatValue": "Wert der ersetzten Wärme",
+          "electricPrice": "Strompreis",
+          "upkeep": "Instandhaltung, Anteil der Investition im Jahr",
+          "newWells": "Neue Bohrungen",
+          "depth": "Tiefe einer neuen Bohrung",
+          "drillingPerM": "Bohrkosten",
+          "workover": "Aufwältigung der bestehenden Bohrung",
+          "heatPumpPerKw": "Wärmepumpe",
+          "pipelineM": "Länge der Leitung",
+          "pipelinePerM": "Verlegte Leitung",
+          "equipment": "Ausrüstung zur Wärmenutzung",
+            "otherOpex": "Sonstige Fixkosten im Jahr",
+          "gasRatio": "Gas im Wasser",
+          "gasPrice": "Wert des Gases",
+          "gasEquipment": "Ausrüstung zur Gasnutzung"
+        },
+        "results": {
+          "atlas": "Über 20 °C (Atlaswert)",
+          "heating": "Gebäudeheizung",
+          "pools": "Becken",
+          "pump": "Wärme der Wärmepumpe",
+          "electric": "Strom der Wärmepumpe",
+          "cop": "Leistungszahl der Wärmepumpe",
+          "total": "Gelieferte Wärme",
+          "energy": "Wärme pro Jahr",
+          "gasRevenue": "Ersetztes Gas, Wert im Jahr",
+          "opex": "Betriebskosten im Jahr",
+          "net": "Nettogewinn pro Jahr",
+          "investment": "Geschätzte Investition",
+          "payback": "Amortisation"
+        },
+        "note": "Eine Rechnung aus genannten Annahmen, keine Planung. Sie ersetzt weder den Test der Bohrung, die Bewertung ihrer Aufwältigung noch eine Machbarkeitsstudie."
+      },
+      "matrix": {
+        "caption": "Amortisation einer neuen Bohrung in Jahren, wenn die Wärme Brennstoff im Wert von {price} €/MWh ersetzt",
+        "tempCol": "Wasser, °C (Bohrtiefe, m)",
+        "flowHead": "{flow} l/s",
+        "clear": "klar",
+        "limit": "nahe der Grenze",
+        "no": "lohnt sich nicht",
+        "note": "Jede Bohrung hier ist eine neue Bohrung bis zu der Tiefe, in der das Gestein 4 °C wärmer ist als das Wasser (der Gradient von Melenci, 52,5 °C je km), mit denselben Preisen und Annahmen wie oben, der Wärmepumpe, 500 m Leitung und der Ausrüstung über Tage, wobei die gesamte Wärme {hours} Stunden im Jahr genutzt wird. Aufwältigung, Reinjektion, Gas und Förderungen sind nicht eingerechnet. Klar: Amortisation bis {clear} Jahre; nahe der Grenze: {clear} bis {limit} Jahre; lohnt sich nicht: über {limit} Jahre. Diese Grenzen sind unsere Einschätzung."
+      },
+      "pdf": {
+        "button": "Als PDF speichern",
+        "hint": "Öffnet den Druckdialog: „Als PDF speichern“ wählen. Die Seite wird als Bericht mit den Tabellen und dem Temperaturdiagramm gedruckt."
+      }
+    },
     "geothermalModel": {
       "canvasLabel": "Interaktives 3D-Modell der Bohrungen in der Vojvodina mit Temperaturschnitten. Ziehen zum Drehen, auf das Modell klicken und scrollen zum Zoomen.",
       "loading": "3D-Modell wird geladen…",
@@ -500,7 +754,7 @@
         "**Gemessen.** Jeder farbige Balken ist die Wassertemperatur im getesteten Intervall. Wo der Anhang kein Intervall nennt, ist der Marker hohl und liegt bei der Gesamttiefe; die Temperatur dort stammt von Wasser, das auch von weiter oben gekommen sein kann, der Gradient dieser Bohrungen ist also eine Untergrenze.",
         "**Atlas.** Die Schichten, Wände und Höhenlinien sind nicht an den Bohrungen gemessen. Sie stammen aus den Temperaturkarten für 500, 1.000 und 2.000 m des [Geothermischen Atlas der Vojvodina](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010), digitalisiert aus den Farbklassen der Karten (Schritte von 0,5, 1 und 2 °C). Zwischen den Karten steigt die Temperatur geradlinig von 11 °C an der Oberfläche, was angenommen ist. Unterhalb von 2 km, tiefer als jede Karte, setzt sie sich mit der Steigung zwischen 1 und 2 km fort. Die Balken an den Bohrungen (Anhang) und die Farben (Atlas) sind verschiedene Quellen und stimmen nicht immer überein: Der Atlas ist bei 44 von 53 Tests wärmer als das Wasser des Anhangs, im Mittel um 9 °C.",
         "**Form und Relief.** Die Form ist die Grenze der AP Vojvodina aus OpenStreetMap. Die Geländehöhen stammen aus Terrain Tiles auf AWS (SRTM und andere Quellen), auf einem 1-km-Raster, gezeichnet über dem Median der Provinz, 79 m, mit der im Maßstab-Panel eingestellten Überhöhung. Die Temperaturschichten sind als Tiefe unter diesem Niveau gezeichnet und folgen dem Gelände nicht; der Unterschied zählt nur an der Fruška Gora und im Vršac-Gebirge. Der Anhang nennt keine Höhen der Bohrungen, daher sitzen die Bohrlochköpfe auf dem Geländemodell.",
-        "**Quelle.** Bohrungen und Tests stammen aus [Anhang 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) der Studie *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), Aufzeichnungen von NIS Naftagas, bereitgestellt vom Provinzsekretariat für Energie und mineralische Rohstoffe, das die Studie öffentlich zugänglich gemacht hat: 51 Bohrungen in drei Tabellen, Kž-2/H einmal gezählt."
+        "**Quelle.** Bohrungen und Tests stammen aus [Anhang 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) der Studie *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), vom Provinzsekretariat für Energie und mineralische Rohstoffe öffentlich zugänglich gemacht: 51 Bohrungen in drei Tabellen, Kž-2/H einmal gezählt."
       ]
     },
     "landing": {
@@ -759,6 +1013,9 @@
       },
       "form": {
         "badge": "Kostenloser Website-Check",
+          "termsLabel": "Ich habe die {terms} gelesen und verstehe, dass diese Anfrage weder ein Angebot noch ein Vertrag ist.",
+          "termsLink": "Nutzungsbedingungen",
+          "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
         "heading": "Erzählen Sie mir von Ihrem Unternehmen",
         "lead": "Drei kurze Schritte, unter einer Minute. Ich antworte innerhalb eines Werktags.",
         "stepLabels": [
@@ -1186,6 +1443,9 @@
       "preferEmail": "Lieber per E-Mail? Schreiben Sie an",
       "form": {
         "badge": "Projektanfrage",
+          "termsLabel": "Ich habe die {terms} gelesen und verstehe, dass diese Anfrage weder ein Angebot noch ein Vertrag ist.",
+          "termsLink": "Nutzungsbedingungen",
+          "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
         "heading": "Erzählen Sie mir von Ihrem Projekt",
         "lead": "Drei kurze Schritte, unter einer Minute. Ich antworte innerhalb eines Werktags.",
         "stepLabels": [
@@ -1293,6 +1553,20 @@
         "back": "Alle Werkzeuge"
       },
       "cta": "Sagen Sie mir, was Sie brauchen",
+      "notice": {
+        "text": "Die Ergebnisse sind Näherungswerte und nur zur Information. Sie sind keine Planung, kein Verfahren und keine Fachberatung. Prüfen Sie Eingaben und Ergebnisse und halten Sie sich an die Verfahren Ihres Unternehmens und die Herstellerangaben.",
+        "link": "Nutzungsbedingungen",
+        "ackTitle": "Bevor Sie die Werkzeuge nutzen",
+        "ackIntro": "Die Werkzeuge und Rechner auf dieser Seite sind persönliche, informative Hilfsmittel aus öffentlichen Formeln und genannten Annahmen.",
+        "ackItems": [
+          "Die Ergebnisse sind Näherungswerte. Sie sind keine Planung, kein Verfahren und keine Fachberatung.",
+          "Verwenden Sie sie nicht als alleinige Grundlage für Arbeiten an Bohrungen, Arbeiten unter Druck, Arbeiten mit Stickstoff oder andere sicherheitsrelevante Handlungen. Halten Sie sich an die Verfahren Ihres Unternehmens, die Herstellerangaben und die Anweisung der verantwortlichen Person.",
+          "Dies ist eine persönliche, unabhängige Seite. Sie steht für keinen Arbeitgeber und kein Unternehmen und verwendet keine deren Daten. Für die eingegebenen Daten und Ihre Entscheidungen sind Sie selbst verantwortlich."
+        ],
+        "ackCheck": "Ich habe das verstanden und akzeptiere die {terms}.",
+        "ackButton": "Weiter",
+        "ackBack": "Zurück zu den Werkzeugen"
+      },
       "note": "Die Werkzeuge sind Hilfsmittel für Ingenieure. Prüfen Sie Eingaben und Ergebnisse: die Verantwortung für jede Entscheidung bleibt beim Nutzer.",
       "suggest": {
         "title": "Fehlt eine Berechnung?",

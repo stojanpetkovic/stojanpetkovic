@@ -61,6 +61,7 @@
       "blog": "Blog",
       "about": "About",
       "contact": "Contact",
+      "terms": "Terms of use",
       "courses": "Courses"
     },
     "mega": {
@@ -299,6 +300,259 @@
     "followOn": "Follow us on {platform}"
   },
   "pages": {
+    "terms": {
+      "meta": {
+        "title": "Terms of use",
+        "description": "Terms of use of the site: a personal, independent site, for information only, with no professional advice and no business offer, a limitation of liability and a statement of independence and conflicts of interest."
+      },
+      "hero": {
+        "badge": "Site rules",
+        "title": "Terms of use",
+        "description": "What this site is, what it is not, and the terms on which it is used."
+      },
+      "updated": "Last changed: 17 October 2026.",
+      "intro": "These terms govern the use of the site stojanpetkovic.com (the site). By using the site you accept them. If you do not agree, do not use the site.",
+      "sections": [
+        {
+          "title": "1. Who runs the site",
+          "paragraphs": [
+            "The site is run by Stojan Petković, a private individual (the author), as a personal project. It is not a company site, does not represent a legal entity and is not run on behalf of any employer, client or other legal person."
+          ]
+        },
+        {
+          "title": "2. Independence and conflicts of interest",
+          "paragraphs": [
+            "The site and all content on it (projects, blog, tools, calculators, models, courses and texts) is made by the author in his own name and at his own expense. Therefore:"
+          ],
+          "items": [
+            "No data, document, procedure, software, estimate, business or technical information or other material that belongs to an employer, a client or a third party and has not been published is used. The data in the projects come from publicly released sources named with each project.",
+            "Nothing on the site represents the view, policy, data, estimate, recommendation or statement of any employer, company or institution. The author does not speak on their behalf and has no authority to do so. The author's employer has no connection with the site in any way and is not responsible for its content.",
+            "Companies, institutions, products and sources are mentioned only to identify public sources and facts. This is no endorsement, recommendation, cooperation or criticism.",
+            "The content is not an offer, an advertisement or an invitation to a business relationship in the field of the author's employer, nor is it meant to compete with the employer or its clients.",
+            "Work on the site must not affect, and does not affect, the author's performance of his duties to his employer.",
+            "Any additional engagement of the author must comply with his duties to his employer, with the law and with trade secrets, with all necessary consents, and is agreed separately, outside this site and its content.",
+            "If you believe any content improperly uses confidential information, or gives the impression of speaking on behalf of a company, get in touch through the Contact page. The content will be checked promptly and, if needed, corrected or removed."
+          ]
+        },
+        {
+          "title": "3. For information only",
+          "paragraphs": [
+            "The content of the site is general and informational. It is not engineering, technical, legal, financial, investment or other professional advice. It is not a design, a feasibility study, a resource assessment or an expert opinion. It creates no client–adviser relationship and no obligation on the author. Before any decision, consult qualified professionals and the competent authorities."
+          ]
+        },
+        {
+          "title": "4. Tools, calculators and models",
+          "paragraphs": [
+            "The tools, calculators and models on the site give approximate results from the stated formulas and assumptions. They are no substitute for design calculations, company procedures, manufacturers' instructions, regulations or the instruction of the responsible person. Do not use them as the only basis for work on wells, work under pressure, work with nitrogen or other safety-critical actions.",
+            "Errors, incompleteness and out-of-date data are possible. The user checks the inputs and the results. The geothermal potential models show an order of magnitude from public data; they do not replace a test of the well, an assessment of the workover, a feasibility study or contractors' quotations."
+          ]
+        },
+        {
+          "title": "5. Public data and third-party sources",
+          "paragraphs": [
+            "The data come from publicly released sources and are named with the content. The author does not guarantee their accuracy, completeness or currency, is not the author of those sources and is not responsible for them. Copyright in the sources, images and maps belongs to their owners; the authors and licences are named with the content (for example OpenStreetMap, OpenTopoMap and Wikimedia Commons). Links lead to third-party sites over which the author has no control."
+          ]
+        },
+        {
+          "title": "6. Services and commercial communication",
+          "paragraphs": [
+            "The site is above all informational. The content of the projects, the blog, the tools and the courses is not an offer of services. Any services named on the Services page are agreed separately, in writing, and only if they do not conflict with the author's duties to his employer, with the law or with trade secrets. The author reserves the right to turn down any enquiry because of a conflict of interest or for any other reason. Sending an enquiry through the contact form creates no obligation on the author and no contract."
+          ]
+        },
+        {
+          "title": "7. Copyright",
+          "paragraphs": [
+            "Unless stated otherwise, the texts, graphics, models and code of this site are protected by the author's copyright. Quoting is allowed with the source named and a link. Any other copying, reproduction or commercial use needs the author's prior written consent. Third-party data remain under their owners' licences."
+          ]
+        },
+        {
+          "title": "8. Messages, comments and conduct",
+          "paragraphs": [
+            "If the site allows comments or messages, it is forbidden to post unlawful, offensive or misleading content, confidential data of third parties or employers, or content presented as the view of a company. The author may remove such content without notice. The processing of personal data (the contact form, cookies) is covered by the privacy notice with the form and by the cookie settings."
+          ]
+        },
+        {
+          "title": "9. Limitation of liability",
+          "paragraphs": [
+            "The site and its content are provided “as is”, with no warranty of any kind, express or implied. To the fullest extent permitted by law, the author is not liable for any damage (direct or indirect, lost profit, damage to a well, equipment or property, injury, loss of data, investment decisions) arising from the use of the site or reliance on its content, nor for the site being unavailable. This does not exclude liability that cannot be excluded or limited by law. You use the site at your own risk."
+          ]
+        },
+        {
+          "title": "10. Changes and governing law",
+          "paragraphs": [
+            "The author may change these terms. Changes apply from publication; the date of the last change is given at the top. The law of the Republic of Serbia applies, and disputes fall to a court in the Republic of Serbia, unless mandatory consumer protection rules provide otherwise."
+          ]
+        },
+        {
+          "title": "11. Contact",
+          "paragraphs": [
+            "Send questions, reports and requests about the content, including objections about a conflict of interest or confidential information, through the Contact page."
+          ]
+        }
+      ],
+      "contactLink": "Contact page"
+    },
+    "melenciModel": {
+      "profile": {
+        "caption": "Temperature of the ground below Melenci from the atlas maps, with the depth at which 60 °C is reached.",
+        "temp": "Temperature, °C",
+        "depth": "Depth, km",
+        "aria": "Temperature against depth below Melenci"
+      },
+      "scenarios": {
+        "caption": "Heat from one well at Melenci in four cases: the existing well at its two reported flows, and two assumed deeper cases",
+        "cols": [
+          "Case",
+          "Water, °C",
+          "Flow, l/s",
+          "Above 20 °C (atlas), kW",
+          "Space heating, kW",
+          "Pools, kW",
+          "Heat pump, kW",
+          "Pump electricity, kW",
+          "Heat delivered, kW",
+          "Heat per year, MWh"
+        ],
+        "rows": {
+          "a1": "Me-1/H, Annex 1 flow (2005)",
+          "a2": "Me-1/H, atlas flow (2010)",
+          "b": "Deeper horizon near 1,000 m (assumed)",
+          "c": "New well near 1,300 m (assumed)"
+        },
+        "note": "The chain is the same in every case: space heating down to 35 °C, pools down to 28 °C, then a heat pump takes the water down to 15 °C and delivers heat at 45 °C with a coefficient of 0.4 of the Carnot value. Heat per year is for {hours} equivalent full-load hours. The 55 °C and 75 °C cases and their flows are assumptions, not measurements."
+      },
+      "economics": {
+        "caption": "What it costs to build, and how soon the heat pays it back, by the value of the heat it replaces",
+        "cols": [
+          "Case",
+          "Estimated investment, M€"
+        ],
+        "range": "range {low}–{high}",
+        "price": "Payback at {price} €/MWh, years",
+        "net": "net {net} k€ a year",
+        "never": "does not pay back",
+        "note": "Investment is the sum of the items in the cost table, without the workover and the gas equipment, which have not been assessed; the range is that of a class 4 estimate (−30 % to +50 %). Net gain is the value of the heat less the yearly operating costs in the table below. Payback is the investment divided by the net gain a year, without discounting. The gas of the water is not counted here."
+      },
+      "opex": {
+        "caption": "Operating costs a year (OPEX) by case",
+        "cols": [
+          "Case",
+          "Heat pump electricity, k€",
+            "Upkeep, k€",
+          "Other fixed costs, k€",
+          "Operating costs, k€ a year"
+        ],
+        "note": "Electricity is charged at {electric} €/MWh. Upkeep is {upkeep} % of the investment a year and other fixed costs are {other} € a year (monitoring, water analyses, attendance): both are assumptions with no public source. Reinjection is not counted, because it would need another new well; the cooled water is discharged. The atlas says almost all wells in Vojvodina flow by themselves, so no production pump is counted."
+      },
+      "methane": {
+        "caption": "Gas dissolved in the water of Me-1/H and what it could be worth",
+        "cols": [
+          "Gas in the water, m³ per m³",
+          "Gas a year, m³",
+          "Methane energy, MWh a year",
+          "Value, k€ a year",
+          "Against the heat of the existing well"
+        ],
+        "rows": {
+          "low": "lowest in Vojvodina",
+          "high": "highest in Vojvodina"
+        },
+        "note": "Per the atlas the water of the first system holds 0.04 to 2.2 m³ of gas per m³, mostly methane (80 to 95 %); 90 % is taken. The flow is 6.9 l/s (Annex 1) over {hours} hours a year; the energy is valued at {price} €/MWh, the price of the gas it would replace. The gas content of Me-1/H itself is not published: it has to be measured, and it decides whether the gas is worth separating and using. Gas from the water is explosive, so using it needs separation, safety measures and equipment that are not costed here."
+      },
+      "costs": {
+        "caption": "Items of the investment and where each figure comes from",
+        "cols": [
+          "Item",
+          "Value used",
+          "Basis"
+        ],
+        "rows": {
+          "drilling": {
+            "name": "Drilling a new well",
+            "basis": "Public estimate of 350 to 400 € per metre (blog post of 2012 without a cited source); the upper figure is used. For Vojvodina no newer public figure was found."
+          },
+          "equipment": {
+            "name": "Equipment for using the heat (exchangers, pumps)",
+            "basis": "Public estimate of about 200,000 € (the same 2012 post). Assumed to cover everything on the surface except the heat pump and the pipe."
+          },
+          "heatPump": {
+            "name": "Heat pump",
+            "basis": "Assumption. Public prices for Serbia exist only for household units (3,000 to 15,000 € installed, without the power); a unit of hundreds of kW costs less per kW, so 500 € per kW is taken."
+          },
+          "pipeline": {
+            "name": "Distribution pipe",
+            "basis": "Assumption: a route of 500 m at 400 € per metre. No public price per metre for Serbia was found."
+          },
+          "workover": {
+            "name": "Workover of the existing well",
+            "basis": "Not assessed, so not included. No public cost was found; an assessment of the workover is a step of its own."
+          },
+          "gas": {
+            "name": "Equipment for using the gas",
+            "basis": "Not assessed, so not included. It would be needed only if the water holds enough gas to be worth using; the gas content of Me-1/H has to be measured first."
+          }
+        },
+        "units": {
+          "perM": "€/m",
+          "perKw": "€/kW",
+          "eur": "€",
+          "route": "{m} m × {p} €/m"
+        }
+      },
+      "calc": {
+        "title": "Calculate your case",
+        "intro": "Change the water, the use and the costs; the result follows the same chain and formulas as the tables above.",
+        "fields": {
+          "temp": "Water temperature at the wellhead",
+          "flow": "Flow",
+          "hours": "Equivalent full-load hours per year",
+          "heatValue": "Value of the heat replaced",
+          "electricPrice": "Price of electricity",
+          "upkeep": "Upkeep, share of the investment a year",
+          "newWells": "New wells",
+          "depth": "Depth of a new well",
+          "drillingPerM": "Drilling cost",
+          "workover": "Workover of the existing well",
+          "heatPumpPerKw": "Heat pump",
+          "pipelineM": "Length of pipe",
+          "pipelinePerM": "Pipe laid",
+          "equipment": "Equipment for using the heat",
+            "otherOpex": "Other fixed costs a year",
+          "gasRatio": "Gas in the water",
+          "gasPrice": "Value of the gas",
+          "gasEquipment": "Equipment for using the gas"
+        },
+        "results": {
+          "atlas": "Above 20 °C (atlas figure)",
+          "heating": "Space heating",
+          "pools": "Pools",
+          "pump": "Heat pump heat",
+          "electric": "Heat pump electricity",
+          "cop": "Heat pump coefficient",
+          "total": "Heat delivered",
+          "energy": "Heat per year",
+          "gasRevenue": "Gas replaced, value a year",
+          "opex": "Operating costs a year",
+          "net": "Net gain per year",
+          "investment": "Estimated investment",
+          "payback": "Payback"
+        },
+        "note": "A calculation from stated assumptions, not a design. It does not replace testing the well, the assessment of its workover or a feasibility study."
+      },
+      "matrix": {
+        "caption": "Payback of a new well in years, if the heat replaces fuel worth {price} €/MWh",
+        "tempCol": "Water, °C (well depth, m)",
+        "flowHead": "{flow} l/s",
+        "clear": "clear",
+        "limit": "near the limit",
+        "no": "does not pay",
+        "note": "Every well here is one new well drilled to the depth at which the rock is 4 °C warmer than the water (the gradient of Melenci, 52.5 °C per km), with the same prices and assumptions as above, the heat pump, 500 m of pipe and the surface equipment, with all the heat used for {hours} hours a year. The workover, reinjection, gas and the subsidies are not counted. Clear: payback up to {clear} years; near the limit: {clear} to {limit} years; does not pay: over {limit} years. These limits are our judgement."
+      },
+      "pdf": {
+        "button": "Save as PDF",
+        "hint": "Opens the print dialog: choose “Save as PDF”. The page prints as a report with the tables and the temperature chart."
+      }
+    },
     "geothermalModel": {
       "canvasLabel": "Interactive 3D model of the wells of Vojvodina with temperature sections. Drag to rotate, click the model and scroll to zoom.",
       "loading": "Loading the 3D model…",
@@ -500,7 +754,7 @@
         "**Measured.** Each coloured bar is the temperature of the water at the tested interval. Where the annex gives no interval the marker is hollow and sits at the total depth; the temperature there is that of the water, which can have come from higher up, so the gradient at those wells is a lower bound.",
         "**Atlas.** The layers, walls and contours are not measured at the wells. They come from the temperature maps at 500, 1,000 and 2,000 m of the [Geothermal Atlas of Vojvodina](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010), digitised from the colour classes of the maps (steps of 0.5, 1 and 2 °C). Between the maps temperature rises in straight lines from 11 °C at the surface, which is assumed. Below 2 km, deeper than any map, it continues at the slope between 1 and 2 km. The bars on the wells (annex) and the colours (atlas) are different sources and do not always agree: the atlas is warmer than the annex water at 44 of 53 tests, by 9 °C on average.",
         "**Shape and relief.** The outline is the boundary of AP Vojvodina from OpenStreetMap. The height of the ground is from Terrain Tiles on AWS (SRTM and other sources), on a 1 km grid, drawn above the median level of the province, 79 m, with the exaggeration set in the scale panel. The temperature layers are drawn as depth below that level and do not follow the ground; the difference matters only on Fruška Gora and the Vršac Mountains. The annex gives no elevations of the wells, so the wellheads sit on the ground model.",
-        "**Source.** Wells and tests are from [Prilog 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) of *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), records of NIS Naftagas supplied by the Provincial Secretariat for Energy and Mineral Resources, which published the study openly: 51 wells in three tables, Kž-2/H counted once."
+        "**Source.** Wells and tests are from [Prilog 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) of *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), published openly by the Provincial Secretariat for Energy and Mineral Resources: 51 wells in three tables, Kž-2/H counted once."
       ]
     },
     "landing": {
@@ -759,6 +1013,9 @@
       },
       "form": {
         "badge": "Free website check",
+          "termsLabel": "I have read the {terms} and understand that this enquiry is not an offer or a contract.",
+          "termsLink": "Terms of use",
+          "termsRequired": "Please confirm that you have read the terms of use.",
         "heading": "Tell me about your business",
         "lead": "Three short steps, under a minute. I reply within one business day.",
         "stepLabels": [
@@ -1186,6 +1443,9 @@
       "preferEmail": "Prefer email? Write to",
       "form": {
         "badge": "Project enquiry",
+          "termsLabel": "I have read the {terms} and understand that this enquiry is not an offer or a contract.",
+          "termsLink": "Terms of use",
+          "termsRequired": "Please confirm that you have read the terms of use.",
         "heading": "Tell me about your project",
         "lead": "Three short steps, under a minute. I reply within one business day.",
         "stepLabels": [
@@ -1293,6 +1553,20 @@
         "back": "All tools"
       },
       "cta": "Tell me what you need",
+      "notice": {
+        "text": "Results are approximate and for information only. They are not a design, a procedure or professional advice. Check the inputs and the results, and follow your company's procedures and the manufacturer's data.",
+        "link": "Terms of use",
+        "ackTitle": "Before you use the tools",
+        "ackIntro": "The tools and calculators on this site are personal, informational aids made from public formulas and stated assumptions.",
+        "ackItems": [
+          "Results are approximate. They are not a design, a procedure or professional advice.",
+          "Do not use them as the only basis for work on wells, work under pressure, work with nitrogen or any other safety-critical action. Follow your company's procedures, the manufacturer's data and the instruction of the responsible person.",
+          "This is a personal, independent site. It does not represent any employer or company and uses none of their data. You are responsible for the data you enter and for your decisions."
+        ],
+        "ackCheck": "I understand this and accept the {terms}.",
+        "ackButton": "Continue",
+        "ackBack": "Back to the tools"
+      },
       "note": "The tools are aids for engineers. Check the inputs and the results: responsibility for any decision stays with the user.",
       "suggest": {
         "title": "Missing a calculation?",

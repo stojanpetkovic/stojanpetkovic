@@ -187,7 +187,7 @@ function isItemActive(item: NavItem): boolean {
 function isActive(href: string): boolean {
   if (!showActiveState) return false;
   if (href.startsWith('#')) return false;
-  // The home item — site root `/` or a locale root like `/nl` — must match
+  // The home item — site root `/` or a locale root like `/de` — must match
   // exactly: the startsWith check below would light it up on every page of
   // its locale.
   if (stripLocaleFromPath(href) === '/') {

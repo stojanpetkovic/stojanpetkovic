@@ -4,6 +4,7 @@
  * `BhaBuilderPanel`. Copy comes from `pages.bhaBuilder.*`.
  */
 import PageLayout from '@/layouts/PageLayout.astro';
+import ToolNotice from '@/components/patterns/ToolNotice.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import BhaBuilderPanel from './BhaBuilderPanel.astro';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
@@ -36,6 +37,8 @@ const toolsUrl = localizedPath('/tools', locale);
       <p class="mt-4 max-w-2xl text-base leading-relaxed text-foreground-muted">{hero.description}</p>
     </div>
   </section>
+
+  <ToolNotice locale={locale} />
 
   <section class="bg-background py-10 sm:py-12">
     <BhaBuilderPanel locale={locale} />

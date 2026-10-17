@@ -17,8 +17,8 @@ describe('i18n t() helper', () => {
     expect(t('common.readMore', 'en')).toBe('Read more');
   });
 
-  it('returns the Dutch translation when locale is nl', () => {
-    expect(t('common.readMore', 'nl')).toBe('Lees meer');
+  it('returns the German translation when locale is de', () => {
+    expect(t('common.readMore', 'de')).toBe('Weiterlesen');
   });
 
   it('falls back to the default-locale string when the locale has no entry', () => {
@@ -32,7 +32,7 @@ describe('i18n t() helper', () => {
 
   it('interpolates {placeholder} variables', () => {
     expect(t('blog.readingTime', 'en', { minutes: 5 })).toBe('5 min read');
-    expect(t('blog.readingTime', 'nl', { minutes: 5 })).toBe('5 min leestijd');
+    expect(t('blog.readingTime', 'de', { minutes: 5 })).toBe('5 Min. Lesezeit');
   });
 
   it('leaves unknown placeholders untouched', () => {
@@ -61,14 +61,14 @@ describe('i18n tData() helper', () => {
     );
   });
 
-  it('returns the Dutch structured value when locale is nl', () => {
-    const hero = tData<{ badge: string }>('pages.about.hero', 'nl');
-    expect(hero?.badge).toBe('Over');
+  it('returns the German structured value when locale is de', () => {
+    const hero = tData<{ badge: string }>('pages.about.hero', 'de');
+    expect(hero?.badge).toBe('Über mich');
   });
 
   it('falls back to the default-locale value when the locale has no entry', () => {
-    // 'de' has no dictionary loaded yet — should fall back to the English data
-    const cards = tData<unknown[]>('pages.about.faq.cards', 'de');
+    // 'fr' has no dictionary — should fall back to the English data
+    const cards = tData<unknown[]>('pages.about.faq.cards', 'fr');
     expect(Array.isArray(cards)).toBe(true);
     expect(cards?.length).toBe(2);
   });
@@ -108,8 +108,8 @@ describe('i18n locale helpers', () => {
 
   it('returns the display name when configured, otherwise the code', () => {
     expect(getLocaleName('en')).toBe('English');
-    // 'nl' is in localeNames even though it's not in the active locales list
-    expect(getLocaleName('nl')).toBe('Nederlands');
+    expect(getLocaleName('de')).toBe('Deutsch');
+    expect(getLocaleName('sr')).toBe('Srpski');
     expect(getLocaleName('xx')).toBe('xx');
   });
 });
@@ -125,8 +125,8 @@ describe('i18n getLocaleFromPath()', () => {
   });
 
   it('returns the default locale when the first segment is not a configured locale', () => {
-    // Default config only has 'en' active — 'nl' is not recognized
-    expect(getLocaleFromPath('/nl/about')).toBe('en');
+    // 'fr' is not a configured locale, so it is not recognized
+    expect(getLocaleFromPath('/fr/about')).toBe('en');
     expect(getLocaleFromPath('/zh-cn/blog')).toBe('en');
   });
 
@@ -138,7 +138,7 @@ describe('i18n getLocaleFromPath()', () => {
 describe('i18n stripLocaleFromPath()', () => {
   it('leaves a path unchanged when the first segment is not a configured locale', () => {
     expect(stripLocaleFromPath('/about')).toBe('/about');
-    expect(stripLocaleFromPath('/nl/about')).toBe('/nl/about');
+    expect(stripLocaleFromPath('/fr/about')).toBe('/fr/about');
   });
 
   it('returns "/" for the root path', () => {
@@ -180,7 +180,7 @@ describe('i18n meta titles never embed the site name', () => {
     'pages.contact.meta.title',
   ];
 
-  const cases = ['en', 'nl'].flatMap((locale) =>
+  const cases = ['en', 'sr', 'de'].flatMap((locale) =>
     METATITLE_KEYS.map((key) => [locale, key] as [string, string])
   );
 

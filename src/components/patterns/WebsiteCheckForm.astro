@@ -16,7 +16,7 @@ import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Input from '@/components/ui/form/Input/Input.astro';
 import Textarea from '@/components/ui/form/Textarea/Textarea.astro';
 import siteConfig from '@/config/site.config';
-import { t, tData, defaultLocale } from '@/i18n';
+import { t, tData, defaultLocale, localizedPath } from '@/i18n';
 import { contactConfigured } from '@/lib/email';
 
 interface Props {
@@ -37,6 +37,10 @@ const form = tData<{ stepLabels: string[]; services: Option[]; timelines: Option
 const privacy = tData<{ toggle: string; title: string; items: string[] }>('pages.landing.privacy', locale)!;
 
 const unconfigured = !contactConfigured && !import.meta.env.DEV;
+
+// The terms checkbox: its label holds a {terms} placeholder where the link goes.
+const [termsBefore, termsAfter = ''] = L('form.termsLabel').split('{terms}');
+const termsUrl = localizedPath('/terms', locale);
 ---
 
 <!-- The step form. Without JavaScript every step shows at once and the
@@ -66,6 +70,7 @@ const unconfigured = !contactConfigured && !import.meta.env.DEV;
     data-step-labels={JSON.stringify(form.stepLabels)}
     data-msg-choose={L('form.chooseService')}
     data-msg-required={L('form.required')}
+    data-msg-terms={L('form.termsRequired')}
     data-msg-error={L('form.error')}
     data-msg-sending={L('form.sending')}
     novalidate
@@ -113,6 +118,12 @@ const unconfigured = !contactConfigured && !import.meta.env.DEV;
       </div>
       <Input label={L('form.phoneLabel')} name="phone" type="tel" autocomplete="tel" />
       <Textarea label={L('form.messageLabel')} name="message" rows={3} />
+      <label class="flex items-start gap-2.5 text-sm text-foreground-muted">
+        <input type="checkbox" name="terms" value="on" required class="mt-1 accent-[var(--color-brand-700)]" />
+        <span>
+          {termsBefore}<a class="font-medium text-brand-700 underline underline-offset-2" href={termsUrl} target="_blank" rel="noopener">{L('form.termsLink')}</a>{termsAfter}
+        </span>
+      </label>
       <div class="hidden" aria-hidden="true">
         <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
       </div>
@@ -350,6 +361,10 @@ function initLandingForm(): void {
       const email = form!.elements.namedItem('email') as HTMLInputElement;
       if (name.length < 2 || !email.value.trim() || !email.checkValidity()) {
         showError(form!.dataset.msgRequired || '');
+        return false;
+      }
+      if (!(form!.elements.namedItem('terms') as HTMLInputElement).checked) {
+        showError(form!.dataset.msgTerms || '');
         return false;
       }
     }

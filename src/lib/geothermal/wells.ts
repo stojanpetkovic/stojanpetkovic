@@ -1,9 +1,8 @@
 /**
  * Hydrothermal wells of Vojvodina, transcribed from "Mogućnosti korišćenja
  * energetskog potencijala geotermalnih voda u AP Vojvodini", Prilog 1
- * (Institut za energetiku, procesnu tehniku i zaštitu okoline, 2005). The
- * annex gives NIS Naftagas records supplied by the Provincial Secretariat for
- * Energy and Mineral Resources.
+ * (Institut za energetiku, procesnu tehniku i zaštitu okoline, 2005), published
+ * by the Provincial Secretariat for Energy and Mineral Resources.
  *
  * What the annex gives per well: settlement, designation, year, total depth,
  * screened interval, water temperature, optimal yield and mineralisation. It

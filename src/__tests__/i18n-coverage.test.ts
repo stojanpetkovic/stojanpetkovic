@@ -15,7 +15,6 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 import en from '../i18n/en.json';
-import nl from '../i18n/nl.json';
 import de from '../i18n/de.json';
 import sr from '../i18n/sr.json';
 
@@ -102,7 +101,7 @@ describe('interface text lives in the locale files', () => {
 });
 
 describe('every locale carries every key', () => {
-  const locales = { nl, sr, de };
+  const locales = { sr, de };
 
   for (const [name, dictionary] of Object.entries(locales)) {
     it(`${name}.json has no key missing against en.json`, () => {
