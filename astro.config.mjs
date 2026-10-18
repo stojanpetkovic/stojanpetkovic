@@ -1,5 +1,6 @@
 import { join, dirname } from 'node:path';
 import { writeFile, mkdir, readdir, readFile } from 'node:fs/promises';
+import { readdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig, envField } from 'astro/config';
 import mdx from '@astrojs/mdx';
@@ -12,6 +13,8 @@ import netlify from '@astrojs/netlify';
 import cloudflare from '@astrojs/cloudflare';
 import node from '@astrojs/node';
 import i18nConfig from './src/config/i18n.config.ts';
+import { legacyRedirects, toCanonicalRoute, toLocalizedRoute } from './src/i18n/routes.ts';
+import { tagToSlug } from './src/lib/tags.ts';
 import { SITE_URL_FALLBACK } from './src/config/site-url.ts';
 import {
   canonicalOf,
@@ -362,6 +365,127 @@ function verifySiteUrl() {
  * before — no /en/ prefix, no extra pages.
  */
 const i18nEnabled = i18nConfig.enabled === true && i18nConfig.locales.length > 1;
+/**
+ * Old addresses → new ones, for the pages whose segments are named per locale
+ * in `src/config/routes.config.ts`. The tools and projects that exist are read
+ * from their folders, so a new one is covered without editing this file.
+ */
+const slugsIn = (dir, ext) => {
+  try {
+    return readdirSync(dir, { recursive: true })
+      .map(String)
+      .filter((f) => ext.test(f))
+      .map((f) => f.replace(/^.*[\\/]/, '').replace(ext, ''));
+  } catch {
+    return [];
+  }
+};
+// The tag slugs of a locale's published projects, from their frontmatter.
+const projectTagSlugs = (locale) => {
+  const dir = `./src/content/projects/${locale}`;
+  const slugs = new Set();
+  for (const file of slugsIn(dir, /\.mdx?$/)) {
+    const source = readFileSync(`${dir}/${file}.mdx`, 'utf8');
+    if (/^draft:\s*true/m.test(source)) continue;
+    const tags = source.match(/^tags:\s*(\[.*\])/m)?.[1];
+    for (const tag of tags ? JSON.parse(tags) : []) slugs.add(tagToSlug(tag));
+  }
+  return [...slugs];
+};
+const redirects = i18nEnabled
+  ? legacyRedirects(i18nConfig.locales, i18nConfig.defaultLocale, {
+      tools: slugsIn('./src/pages/tools', /\.astro$/),
+      projects: [...new Set(slugsIn('./src/content/projects', /\.mdx?$/))],
+      projectTags: Object.fromEntries(i18nConfig.locales.map((l) => [l, projectTagSlugs(l)])),
+    })
+  : {};
+
+/**
+ * The BHA Builder and the Well Builder are steps of the CT Simulator now. Each
+ * address either page ever had — the English one and the translated one, with
+ * and without a locale prefix — redirects to the simulator.
+ */
+const retiredTools = {
+  'bha-builder': {},
+  'well-builder': { sr: 'crtanje-busotine', de: 'bohrungs-builder' },
+};
+const retiredToolRedirects = i18nEnabled
+  ? Object.fromEntries(
+      i18nConfig.locales.flatMap((locale) => {
+        const prefix = locale === i18nConfig.defaultLocale ? '' : `/${locale}`;
+        const tools = toLocalizedRoute('/tools', locale);
+        const target = `${prefix}${toLocalizedRoute('/tools/ct-simulator', locale)}/`;
+        return Object.entries(retiredTools).flatMap(([tool, names]) =>
+          [...new Set([`/tools/${tool}`, `${tools}/${tool}`, `${tools}/${names[locale] ?? tool}`])].map((path) => [
+            `${prefix}${path}`,
+            target,
+          ])
+        );
+      })
+    )
+  : { '/tools/bha-builder': '/tools/ct-simulator/', '/tools/well-builder': '/tools/ct-simulator/' };
+
+/**
+ * hreflang alternates for the sitemap. A page's canonical path is the same in
+ * every locale, so its alternates are that path in each locale's words. Tag
+ * archives and blog posts have their own slugs per language and no
+ * counterpart to point at, so they get none.
+ */
+const localeOfPath = (pathname) => {
+  const first = pathname.split('/').filter(Boolean)[0];
+  return i18nConfig.locales.includes(first) ? first : i18nConfig.defaultLocale;
+};
+const withoutLocale = (pathname, locale) =>
+  locale === i18nConfig.defaultLocale ? pathname : pathname.slice(locale.length + 1) || '/';
+const withLocale = (pathname, locale) =>
+  locale === i18nConfig.defaultLocale ? pathname : `/${locale}${pathname === '/' ? '/' : pathname}`;
+function sitemapAlternates(item) {
+  const url = new URL(item.url);
+  const locale = localeOfPath(url.pathname);
+  const canonical = toCanonicalRoute(withoutLocale(url.pathname, locale), locale);
+  if (/^\/(projects\/tag|blog)\/./.test(canonical)) return item;
+  const href = (loc) => new URL(withLocale(toLocalizedRoute(canonical, loc), loc), url).toString();
+  return {
+    ...item,
+    links: [
+      ...i18nConfig.locales.map((loc) => ({ lang: loc, url: href(loc) })),
+      { lang: 'x-default', url: href(i18nConfig.defaultLocale) },
+    ],
+  };
+}
+
+/**
+ * Astro drops the trailing slash from a redirect's source, so on Vercel the
+ * old `/sr/about` redirected and `/sr/about/` — the form every page was
+ * indexed under — fell through to a 404. After the adapter has written its
+ * routes, each redirect is made to match both spellings.
+ */
+function redirectsWithTrailingSlash() {
+  return {
+    name: 'redirects-with-trailing-slash',
+    hooks: {
+      'astro:build:done': async ({ logger }) => {
+        const file = '.vercel/output/config.json';
+        let config;
+        try {
+          config = JSON.parse(await readFile(file, 'utf8'));
+        } catch {
+          return; // Not a Vercel build.
+        }
+        let count = 0;
+        for (const route of config.routes ?? []) {
+          if (route.status >= 301 && route.status <= 308 && route.headers?.Location && /[^/]\$$/.test(route.src)) {
+            route.src = route.src.replace(/\$$/, '(?:/)?$');
+            count++;
+          }
+        }
+        await writeFile(file, JSON.stringify(config, null, 2));
+        logger.info(`${count} redirects match with and without a trailing slash`);
+      },
+    },
+  };
+}
+
 const astroI18nOptions = i18nEnabled
   ? {
       defaultLocale: i18nConfig.defaultLocale,
@@ -379,18 +503,12 @@ export default defineConfig({
 
   site: process.env.SITE_URL || SITE_URL_FALLBACK,
   ...(astroI18nOptions ? { i18n: astroI18nOptions } : {}),
+  redirects: { ...redirects, ...retiredToolRedirects },
 
   // Astro 7 changed the default to 'jsx', which strips whitespace between
   // inline elements (React-style). Pin to `true` to keep this theme's v6
   // rendering — significant whitespace between inline tags is preserved.
   compressHTML: true,
-
-  // The BHA Builder and the Well Builder are steps of the CT Simulator now.
-  redirects: Object.fromEntries(
-    ['', '/sr', '/de'].flatMap((prefix) =>
-      ['bha-builder', 'well-builder'].map((tool) => [`${prefix}/tools/${tool}`, `${prefix}/tools/ct-simulator`])
-    )
-  ),
 
   build: {
     inlineStylesheets: 'auto',
@@ -454,15 +572,14 @@ export default defineConfig({
     sitemap({
       // The /start landing page is for ad traffic and is noindex; it stays out
       // of the sitemap so search engines are not pointed at it.
-      filter: (page) => !/\/start\/?$/.test(new URL(page).pathname),
-      ...(i18nConfig.enabled && i18nConfig.locales.length > 1
-        ? {
-            i18n: {
-              defaultLocale: i18nConfig.defaultLocale,
-              locales: Object.fromEntries(i18nConfig.locales.map((l) => [l, l])),
-            },
-          }
-        : {}),
+      filter: (page) => {
+        const { pathname } = new URL(page);
+        const locale = localeOfPath(pathname);
+        // The admin is private and noindex; it has no business in the sitemap either.
+        if (/^\/admin(\/|$)/.test(pathname)) return false;
+        return !/^\/start\/?$/.test(toCanonicalRoute(withoutLocale(pathname, locale), locale));
+      },
+      ...(i18nEnabled ? { serialize: sitemapAlternates } : {}),
     }),
     icon(),
     siteUrlCheck(),
@@ -470,6 +587,7 @@ export default defineConfig({
     faviconAssets(),
     ogCards(),
     verifySiteUrl(),
+    redirectsWithTrailingSlash(),
   ],
 
   vite: {

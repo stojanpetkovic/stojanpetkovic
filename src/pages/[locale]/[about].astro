@@ -1,14 +1,15 @@
 ---
 import AboutView from '@/components/pages/views/AboutView.astro';
 import { getSecondaryLocales } from '@/i18n';
+import { segment } from '@/i18n/routes';
 
-// Locale-prefixed About page (`/<locale>/about`). One page per non-default
+// Locale-prefixed About page (`/<locale>/about`, translated per locale). One page per non-default
 // locale. Emits nothing when i18n is off or only one locale is configured, so
 // single-locale builds are unchanged. Copy that a locale hasn't translated yet
 // falls back to the default locale, so the LanguageSwitcher never lands on a
 // 404 and the page is never blank.
 export function getStaticPaths() {
-  return getSecondaryLocales().map((locale) => ({ params: { locale } }));
+  return getSecondaryLocales().map((locale) => ({ params: { locale, about: segment('about', locale) } }));
 }
 
 const { locale } = Astro.params;

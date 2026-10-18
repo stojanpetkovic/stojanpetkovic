@@ -20,10 +20,10 @@ const recoveryLinks = [
     href: '/projects',
   },
   {
-    icon: 'book',
-    title: t('blog.title', locale),
-    description: t('errors.blogDesc', locale),
-    href: '/blog',
+    icon: 'wrench',
+    title: t('nav.items.tools', locale),
+    description: t('errors.toolsDesc', locale),
+    href: '/tools',
   },
   {
     icon: 'mail',
@@ -59,8 +59,8 @@ const recoveryLinks = [
         <Icon name="arrow-left" size="sm" />
         {t('errors.backHome', locale)}
       </Button>
-      <Button href="/blog" variant="brand-outline" size="lg">
-        {t('errors.browseBlog', locale)}
+      <Button href="/projects" variant="brand-outline" size="lg">
+        {t('errors.browseProjects', locale)}
         <Icon name="arrow-right" size="sm" />
       </Button>
     </div>

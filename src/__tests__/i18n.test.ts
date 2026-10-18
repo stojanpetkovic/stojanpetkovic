@@ -152,7 +152,7 @@ describe('i18n swapLocaleInPath()', () => {
   });
 
   it('prefixes the path when targeting the configured secondary locale', () => {
-    expect(swapLocaleInPath('/about', 'sr')).toBe('/sr/about');
+    expect(swapLocaleInPath('/about', 'sr')).toBe('/sr/o-meni');
   });
 });
 

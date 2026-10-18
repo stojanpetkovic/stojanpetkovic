@@ -183,7 +183,7 @@
     "galleryNextImage": "Next image",
     "galleryPreviousImage": "Previous image",
     "metaTitle": "Projects",
-    "metaDescription": "Selected engineering projects by Stojan Petkovic.",
+    "metaDescription": "Selected engineering projects by Stojan Petkovic: geothermal case studies of Vojvodina built from public data, with calculators, and websites built for clients.",
     "heroBadge": "Selected work",
     "heroDescription": "Engineering and industrial projects.",
     "emptyTitle": "Industrial projects are in preparation",
@@ -194,7 +194,7 @@
     "pageMetaDescription": "Page {page} of {total} — selected engineering projects by Stojan Petkovic.",
     "pageBadge": "Page {page} of {total}",
     "tagMetaTitle": "#{tag} — Projects",
-    "tagMetaDescription": "Projects tagged \"{tag}\".",
+    "tagMetaDescription": "Projects tagged \"{tag}\" by Stojan Petkovic: engineering case studies, geothermal models from public data and websites built for clients.",
     "tagBadge": "Tag",
     "tagCountOne": "{count} project tagged \"{tag}\".",
     "tagCountOther": "{count} projects tagged \"{tag}\".",
@@ -228,10 +228,10 @@
     "titleHighlight": "found.",
     "description": "This page has moved, been removed, or never existed in the first place. Let's get you back on track.",
     "backHome": "Back to home",
-    "browseBlog": "Browse the blog",
+    "browseProjects": "Browse the projects",
     "tryInstead": "Try one of these instead",
     "projectsDesc": "Selected work and case studies.",
-    "blogDesc": "Notes on engineering, software and the web.",
+    "toolsDesc": "Calculators and tools for wells and geothermal heat.",
     "contactTitle": "Contact",
     "contactDesc": "Start a conversation about your project."
   },
@@ -432,6 +432,19 @@
         "never": "does not pay back",
         "note": "Investment is the sum of the items in the cost table, without the workover and the gas equipment, which have not been assessed; the range is that of a class 4 estimate (−30 % to +50 %). Net gain is the value of the heat less the yearly operating costs in the table below. Payback is the investment divided by the net gain a year, without discounting. The gas of the water is not counted here."
       },
+      "omitted": {
+        "caption": "Payback at {price} €/MWh, years, with the items the payback table leaves out",
+        "cols": {
+          "base": "As in the payback table",
+          "reinjection": "With a reinjection well",
+          "risk": "With drilling risk",
+          "workover": "With a workover",
+          "all": "All together"
+        },
+        "invest": "investment {inv} M€",
+        "none": "does not apply",
+        "note": "The reinjection well goes to the depth of the producing interval ({depth} m for the existing well, the depth of the new well in the other cases) at {perM} €/m; the injection pump and its electricity are not counted. Drilling risk: {success} % of wells succeed, so one successful well costs as much as 1/0.7 wells; it applies to new wells only. The workover is a round figure of {workover} €, as there is no public price; it applies to the existing well only. Upkeep (3 % a year) is taken on the larger investment. Gas equipment is still not counted."
+      },
       "opex": {
         "caption": "Operating costs a year (OPEX) by case",
         "cols": [
@@ -482,6 +495,10 @@
             "name": "Distribution pipe",
             "basis": "Assumption: a route of 500 m at 400 € per metre. No public price per metre for Serbia was found."
           },
+          "reinjection": {
+            "name": "Reinjection well",
+            "basis": "Counted only in the table of omitted items: one well to the depth of the producing interval (560 m for Me-1/H), at the same drilling cost. The injection pump and its electricity are not assessed."
+          },
           "workover": {
             "name": "Workover of the existing well",
             "basis": "Not assessed, so not included. No public cost was found; an assessment of the workover is a step of its own."
@@ -510,7 +527,10 @@
           "upkeep": "Upkeep, share of the investment a year",
           "newWells": "New wells",
           "depth": "Depth of a new well",
+          "successRate": "Drilling success rate",
           "drillingPerM": "Drilling cost",
+          "reinjectionWells": "Reinjection wells",
+          "reinjectionDepth": "Depth of a reinjection well",
           "workover": "Workover of the existing well",
           "heatPumpPerKw": "Heat pump",
           "pipelineM": "Length of pipe",

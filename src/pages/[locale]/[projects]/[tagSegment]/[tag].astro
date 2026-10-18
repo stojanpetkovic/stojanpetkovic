@@ -1,5 +1,6 @@
 ---
 import ProjectsTagView from '@/components/projects/views/ProjectsTagView.astro';
+import { projectSubsegment, segment } from '@/i18n/routes';
 import {
   PROJECT_TAG_CLOUD_LIMIT,
   collectProjectTags,
@@ -9,12 +10,12 @@ import {
   tagToSlug,
 } from '@/lib/projects';
 
-// Locale-prefixed tag archives (`/<locale>/projects/tag/<tag>`). One page per
+// Locale-prefixed tag archives (`/<locale>/projects/tag/<tag>`, translated per locale). One page per
 // (non-default locale × tag that exists in that locale). Emits nothing when
 // i18n is off.
 export async function getStaticPaths() {
   const paths: {
-    params: { locale: string; tag: string };
+    params: { locale: string; projects: string; tagSegment: string; tag: string };
     props: {
       tag: string;
       projects: Awaited<ReturnType<typeof getVisibleProjects>>;
@@ -33,7 +34,12 @@ export async function getStaticPaths() {
         ? topTags
         : [tag, ...topTags.slice(0, PROJECT_TAG_CLOUD_LIMIT - 1)];
       paths.push({
-        params: { locale, tag: tagToSlug(tag) },
+        params: {
+          locale,
+          projects: segment('projects', locale),
+          tagSegment: projectSubsegment('tag', locale),
+          tag: tagToSlug(tag),
+        },
         props: { tag, projects: projectsForTag, visibleTags },
       });
     }

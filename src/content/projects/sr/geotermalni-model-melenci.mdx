@@ -1,5 +1,6 @@
 ---
 title: "Geotermalni model Melenaca: proizvodnja i iskorišćenje toplote"
+seoTitle: "Geotermalni model Melenaca: isplativost"
 locale: sr
 description: "Studija slučaja: model proizvodnje i iskorišćenja geotermalne toplote za banju u Melencima: šta daje postojeća bušotina, šta bi dali dublji horizonti, kako se toplota troši u lancu korisnika i koliko investicija može da se vrati. Sve iz javnih podataka, sa kalkulatorom."
 tags: ["Studija slučaja", "Geotermija", "Melenci", "Banat", "Direktno korišćenje", "Toplotna pumpa"]
@@ -26,7 +27,7 @@ import StatCard from '@/components/patterns/StatCard.astro';
 
 Ovaj projekat je studija slučaja. Na primeru jednog mesta odgovara na tri pitanja o geotermalnoj energiji u Vojvodini: **koliko toplote** tamo može da se dobije, **kako bi izgledala proizvodnja** iz bušotine i **kako bi se ta toplota iskoristila**, počevši od banje.
 
-Za primer su izabrani Melenci u Banatu, kod Zrenjanina. Postoji banja, postoji bušotina u proizvodnji (Me-1/H), a javni podaci o njoj postoje u dva dokumenta, pa se račun može proveriti. Ostale bušotine Vojvodine prikazane su u [3D modelu](/sr/projects/geotermalni-potencijal-vojvodine); ovde se ista metoda razrađuje do kraja za jedno mesto, pa se može preneti na bilo koje drugo.
+Za primer su izabrani Melenci u Banatu, kod Zrenjanina. Postoji banja, postoji bušotina u proizvodnji (Me-1/H), a javni podaci o njoj postoje u dva dokumenta, pa se račun može proveriti. Ostale bušotine Vojvodine prikazane su u [3D modelu](/sr/projekti/geotermalni-potencijal-vojvodine); ovde se ista metoda razrađuje do kraja za jedno mesto, pa se može preneti na bilo koje drugo.
 
 Projekat nije projekat bušenja ni studija izvodljivosti. Pokazuje **red veličine** toplotne snage, godišnje energije i investicije koju ta energija može da nosi, iz javnih podataka i navedenih pretpostavki. Svaka pretpostavka je označena i može se promeniti u kalkulatoru na kraju strane.
 
@@ -86,7 +87,7 @@ Izdašnost i mineralizacija bušotine Me-1/H (6,9 l/s, 2,5 g/l) leže unutar uob
 
 ### Temperatura tla ispod Melenaca
 
-Atlas daje temperaturu na 500, 1.000 i 2.000 m. Digitalizovane karte atlasa (za potrebe [3D modela](/sr/projects/geotermalni-potencijal-vojvodine)) daju za Melence:
+Atlas daje temperaturu na 500, 1.000 i 2.000 m. Digitalizovane karte atlasa (za potrebe [3D modela](/sr/projekti/geotermalni-potencijal-vojvodine)) daju za Melence:
 
 | Dubina | Temperatura stene | Šta se tu nalazi |
 |---|---|---|
@@ -193,7 +194,7 @@ Tri radna pravila koja primenjujemo:
 
 ## Ekonomija
 
-Račun poredi **trošak izgradnje** sa vrednošću toplote koju sistem daje. Trošak je zbir šest stavki. Za dve od njih (bušenje i oprema) postoji javna procena iz 2012; za četiri nema javnog podatka za Srbiju, pa su dve uzete kao pretpostavke (toplotna pumpa i razvod), a dve nisu procenjene (remont i oprema za gas). Tabela daje osnovu svake brojke.
+Račun poredi **trošak izgradnje** sa vrednošću toplote koju sistem daje. Trošak je zbir šest stavki. Za dve od njih (bušenje i oprema) postoji javna procena iz 2012; za četiri nema javnog podatka za Srbiju, pa su dve uzete kao pretpostavke (toplotna pumpa i razvod), a dve nisu procenjene (remont i oprema za gas). Tabela daje osnovu svake brojke. Sedma stavka, bušotina za reinjekciju, računa se posebno, u tabeli izostavljenih stavki ispod.
 
 <MelenciModel part="costs" locale="sr" />
 
@@ -225,6 +226,14 @@ Iz tabele (uračunati su pogonski troškovi, bez remonta i bez gasa iz vode):
 - **Nova bušotina do 1.300 m (75 °C, 8 l/s):** oko 1,19 mil. € (opseg 0,83 do 1,78), povrat 4,9, 1,9 i 1,2 godine.
 - **Šta to znači:** ako toplota zamenjuje gas, povrat je dug u svim slučajevima (5 do 27 godina); ako zamenjuje struju, kratak (1 do 3 godine). Remont se dodaje na investiciju: pri 85 €/MWh svakih 100.000 € remonta produžava povrat postojeće bušotine za oko 0,8 godina.
 
+### Šta tabela povrata izostavlja
+
+Tabela povrata ne sadrži bušotinu za reinjekciju, rizik da nova bušotina ne nađe vodu ni remont postojeće bušotine. Tabela ispod ih dodaje jednu po jednu i sve zajedno, pri srednjoj vrednosti toplote od 85 €/MWh.
+
+<MelenciModel part="omitted" locale="sr" />
+
+Bušotina za reinjekciju je najveća od tih stavki: postojećoj bušotini dodaje oko 0,22 mil. € i produžava povrat sa 4,8 na 6,8 godina, a novim bušotinama dodaje 0,4 do 0,5 mil. €. Sa svim stavkama zajedno povrat postojeće bušotine je 7,8 godina, blizu granice, dublji horizont od 55 °C prelazi sa 4,1 na 7,1 godinu, a nova bušotina od 75 °C ostaje jasno isplativa sa 3,2 godine. Pri 40 €/MWh postojeća bušotina sa svim stavkama ne vraća investiciju u razumnom roku; tu vrednost i sve ostale daje kalkulator, u kom se mogu podesiti uspešnost bušenja i bušotine za reinjekciju.
+
 ### Metan
 
 Voda sadrži rastvoren gas, pretežno metan, pa postoji mogući prihod: gas odvojen iz vode i spaljen u kotlu zamenjuje kupljeno gorivo. Atlas daje 0,04 do 2,2 m³ gasa po m³ vode za prvi sistem, a za samu Me-1/H sadržaj nije objavljen, pa se prikazuje ceo raspon.
@@ -241,7 +250,7 @@ Procena troškova u ovoj fazi pripada klasi 4 prema AACE: tačnost od −15 do �
 
 **Hlađenje i pad pritiska.** Uz dugo korišćenje pritisak u ležištu opada; kao radnu pretpostavku uzimamo vek ležišta od 30 do 50 godina. U Vojvodini je proizvodnja iz postojećih sistema pala od 1990. godine, od blizu 1,6 miliona m³ godišnje do 739 hiljada m³ u 2009. Uzroci nisu u atlasu razdvojeni na tehničke i tržišne.
 
-**Reinjekcija.** Reinjekcija nije uračunata ni u investiciju ni u pogonske troškove, jer bi za nju trebala još jedna nova bušotina; ohlađena voda se za sada ispušta. Za održavanje resursa računala bi se jedna bušotina za reinjekciju na dve proizvodne. U peskovitim slojevima prvog sistema reinjekcija je tehnički zahtevna (začepljenje), pa to treba proveriti pre odluke. Bez reinjekcije, ohlađenu vodu treba zbrinuti u skladu sa propisima.
+**Reinjekcija.** Reinjekcija nije uračunata u tabelu povrata ni u pogonske troškove, jer za nju treba još jedna nova bušotina; ohlađena voda se za sada ispušta. Koliko bi ta bušotina produžila povrat, pokazuje tabela izostavljenih stavki. Za održavanje resursa računala bi se jedna bušotina za reinjekciju na dve proizvodne. U peskovitim slojevima prvog sistema reinjekcija je tehnički zahtevna (začepljenje), pa to treba proveriti pre odluke. Bez reinjekcije, ohlađenu vodu treba zbrinuti u skladu sa propisima.
 
 **Hemija i gas.** Mineralizacija od oko 2,5 g/l je umerena. Voda sadrži rastvoren gas, pretežno metan (80 do 95 %), u količini od 0,04 do 2,2 m³ po m³ vode, pa postrojenje mora da ima odvajanje gasa i mere zaštite od eksplozije. Atlas upozorava na agresivnost i taloženje kamenca kod voda trećeg sistema.
 
@@ -267,11 +276,11 @@ Iz računa se vidi da isplativost ne zavisi od jedne brojke nego od četiri: tem
 - **Toplota zamenjuje gas (oko 40 €/MWh):** jasno samo za toplu vodu i veliki protok: 65 °C ili više uz 10 l/s ili više (2,3 do 4,8 godina) i 50 °C uz 20 l/s (4,2). Blizu granice je 50 °C uz 10 l/s (7,1), 65 °C uz 5 l/s (9,6) i 80 °C uz 5 l/s (7,4). Hladnija ili slabija bušotina se ne isplati (npr. 35 °C uz manje od 20 l/s, ili 65 °C uz 3 l/s: 19 godina).
 - **Srednja vrednost toplote (85 €/MWh):** jasno isplativo za većinu kombinacija; blizu granice za male protoke (3 l/s pri 50 i 65 °C, 5 l/s pri 35 °C), a ne isplati se samo 35 °C uz 3 l/s.
 - **Prosečna bušotina prvog sistema** (oko 60 °C, 7 do 13 l/s po atlasu) je pri 40 €/MWh od blizu granice do jasno isplative (65 °C: 9,6 godina uz 5 l/s, 4,8 uz 10 l/s), a pri višoj vrednosti toplote jasno isplativa.
-- **Melenci (33 °C, 7 l/s iz Priloga 1)**, postojeća bušotina bez bušenja: isplativo ako toplota zamenjuje struju (2,6 godina), blizu granice pri 85 €/MWh (4,8), a ne isplati se ako zamenjuje gas (27 godina).
+- **Melenci (33 °C, 7 l/s iz Priloga 1)**, postojeća bušotina bez bušenja: isplativo ako toplota zamenjuje struju (2,6 godina) i pri 85 €/MWh (4,8), a ne isplati se ako zamenjuje gas (27 godina). Uz bušotinu za reinjekciju i remont od 100.000 € povrat pri 85 €/MWh raste na 7,8 godina, blizu granice.
 
 Zaključak je da u Vojvodini nema jednog odgovora: mesto sa toplom vodom i jakim izvorom, čija toplota zamenjuje struju ili skupo gorivo, isplati se jasno; hladan i slab izvor koji zamenjuje jeftin gas ne isplati se; između je široko područje gde sve zavisi od troškova, a to se ne može oceniti iz javnih podataka.
 
-**Šta nije uračunato, a menja zaključak:** remont postojeće bušotine, reinjekcija, gas iz vode, stvarna potrošnja toplote (računa se da se sva toplota koristi 4.000 sati godišnje), subvencije i finansiranje, dozvole, hemija vode (kamenac, agresivnost) i rizik da nova bušotina ne da očekivanu vodu. Svaka od ovih stavki može da pomeri povrat iz jedne klase u drugu.
+**Šta nije uračunato, a menja zaključak:** remont postojeće bušotine, reinjekcija, gas iz vode, stvarna potrošnja toplote (računa se da se sva toplota koristi 4.000 sati godišnje), subvencije i finansiranje, dozvole, hemija vode (kamenac, agresivnost) i rizik da nova bušotina ne da očekivanu vodu. Svaka od ovih stavki može da pomeri povrat iz jedne klase u drugu; za remont, reinjekciju i rizik bušenja tabela izostavljenih stavki pokazuje koliko.
 
 Detaljne studije se mogu uraditi uz dobar tim stručnjaka (geolozi, bušači, termotehničari, ekonomisti), i tek one daju osnovu za odluku o ulaganju. Ova strana pokazuje da li takva studija za određeno mesto ima smisla.
 
@@ -290,7 +299,7 @@ Detaljne studije se mogu uraditi uz dobar tim stručnjaka (geolozi, bušači, te
 |---|---|---|
 | Bušotina Me-1/H | [Prilog 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) uz studiju *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005) | Dubina, interval, temperatura, izdašnost, mineralizacija |
 | Izdašnost, snaga, hidrogeološki sistemi, resursi, iskorišćenje | [*Geotermalni atlas Vojvodine*](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geotermalni_atlas_AP_Vojvodine.pdf), izrađen u okviru *Studije stanja i ocena resursa geotermalne energije AP Vojvodine*, Pokrajinski sekretarijat za energetiku i mineralne sirovine (2010) | Tabela 1 sa 78 bušotina, četiri sistema, resursi, iskorišćenost do 2009. |
-| Temperature tla na 500, 1.000 i 2.000 m | Isti atlas, karte 5, 6 i 7, digitalizovane u [3D modelu](/sr/projects/geotermalni-potencijal-vojvodine) | Temperatura u klasama od 0,5, 1 i 2 °C |
+| Temperature tla na 500, 1.000 i 2.000 m | Isti atlas, karte 5, 6 i 7, digitalizovane u [3D modelu](/sr/projekti/geotermalni-potencijal-vojvodine) | Temperatura u klasama od 0,5, 1 i 2 °C |
 | Cena struje | [021.rs, 20. 4. 2025](https://www.021.rs/info/biznis-i-ekonomija/407505/vise-cene-struje-za-privrednike-u-srbiji-manje-sanse-na-trzistu): ponude EPS-a privredi 105,77 do 109,17 €/MWh uz akcize i naknade od oko 25 €/MWh | Cena struje za toplotnu pumpu i za grejanje na struju |
 | Cena gasa | [N1, 28. 11. 2022](https://n1info.rs/biznis/kilovat-cas-struje-po-novom-cenovniku-124-dinara-a-gasa-45-dinara/): cena gasa za domaćinstva 4,08 din/kWh bez poreza i taksi | Cena toplote iz gasnog kotla; javna cena za privredu nije nađena |
 | Cena bušenja i opreme | [Energetska efikasnost i obnovljivi izvori energije, „Geotermalna energija Srbije“, 1. 9. 2012](https://milosgradakovic.blogspot.com/2012/09/geotermalna-energija-srbije.html) | Bušenje 350 do 400 € po metru, oprema za korišćenje oko 200.000 €; autor i izvor nisu navedeni |
@@ -315,4 +324,4 @@ Oktobar 2026: model proizvodnje i iskorišćenja za Melence je urađen sa kalkul
 
 ## O ovoj strani
 
-Ova strana je lični informativni rad, izrađen isključivo iz javno objavljenih podataka navedenih u izvorima. Studija slučaja ilustruje metod na primeru jednog mesta i ne opisuje stvarni sistem banje ni njene podatke. Ne koristi podatke, dokumentaciju ni procene bilo kog poslodavca ili kompanije, ne predstavlja njihov stav i nije ponuda usluga. Račun daje red veličine, a ne projekat: odluka o bušotini traži ispitivanje bušotine, procenu remonta, merenje gasa, stvarnu potrošnju toplote, ponude izvođača i detaljnu studiju koju radi stručni tim. Pogledajte i [Uslove korišćenja](/sr/terms).
+Ova strana je lični informativni rad, izrađen isključivo iz javno objavljenih podataka navedenih u izvorima. Studija slučaja ilustruje metod na primeru jednog mesta i ne opisuje stvarni sistem banje ni njene podatke. Ne koristi podatke, dokumentaciju ni procene bilo kog poslodavca ili kompanije, ne predstavlja njihov stav i nije ponuda usluga. Račun daje red veličine, a ne projekat: odluka o bušotini traži ispitivanje bušotine, procenu remonta, merenje gasa, stvarnu potrošnju toplote, ponude izvođača i detaljnu studiju koju radi stručni tim. Pogledajte i [Uslove korišćenja](/sr/uslovi-koriscenja).

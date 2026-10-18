@@ -21,7 +21,7 @@ import { getNavItems, getLogoHref, resolveNavItem, type NavItem } from '@/config
 describe('nav config — locale resolution (en default, de secondary)', () => {
   it('keeps default-locale hrefs at the site root', () => {
     const items = getNavItems('en');
-    expect(items.find((i) => i.label === 'Blog')?.href).toBe('/blog');
+    expect(items.find((i) => i.label === 'Projects')?.href).toBe('/projects');
     expect(items.find((i) => i.label === 'About')?.href).toBe('/about');
   });
 
@@ -29,19 +29,18 @@ describe('nav config — locale resolution (en default, de secondary)', () => {
     const items = getNavItems('de');
     expect(items.map((i) => i.href)).toEqual([
       '/de',
-      '/de/services',
-      '/de/projects',
-      '/de/blog',
-      '/de/about',
-      '/de/contact',
+      '/de/leistungen',
+      '/de/projekte',
+      '/de/ueber-mich',
+      '/de/kontakt',
     ]);
   });
 
   it('translates labels via the dictionary (labelKey)', () => {
     const de = getNavItems('de');
     // de.json: nav.items.about = "Über mich", nav.items.services = "Leistungen"
-    expect(de.find((i) => i.href === '/de/about')?.label).toBe('Über mich');
-    expect(de.find((i) => i.href === '/de/services')?.label).toBe('Leistungen');
+    expect(de.find((i) => i.href === '/de/ueber-mich')?.label).toBe('Über mich');
+    expect(de.find((i) => i.href === '/de/leistungen')?.label).toBe('Leistungen');
   });
 
   it('points the logo at the locale home', () => {
@@ -92,7 +91,7 @@ describe('Services mega menu', () => {
 
   it('groups the service pages under Services and keeps the top bar short', () => {
     const items = getNavItems('en');
-    expect(items.map((i) => i.label)).toEqual(['Home', 'Services', 'Projects', 'Blog', 'About', 'Contact']);
+    expect(items.map((i) => i.label)).toEqual(['Home', 'Services', 'Projects', 'About', 'Contact']);
     const hrefs = services('en').mega!.groups.flatMap((g) => g.links.map((l) => l.href));
     expect(hrefs).toContain('/courses');
     expect(hrefs).toContain('/tools');
@@ -105,7 +104,7 @@ describe('Services mega menu', () => {
     for (const link of [...mega.groups.flatMap((g) => g.links), mega.overview]) {
       expect(link.href.startsWith('/de/'), link.href).toBe(true);
     }
-    expect(mega.activePrefixes).toContain('/de/courses');
+    expect(mega.activePrefixes).toContain('/de/kurse');
   });
 
   it('every link has a label and goes to a page that exists', () => {

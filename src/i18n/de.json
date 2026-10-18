@@ -183,7 +183,7 @@
     "galleryNextImage": "Nächstes Bild",
     "galleryPreviousImage": "Vorheriges Bild",
     "metaTitle": "Projekte",
-    "metaDescription": "Ausgewählte Ingenieurprojekte von Stojan Petkovic.",
+    "metaDescription": "Ausgewählte Ingenieurprojekte von Stojan Petkovic: Fallstudien zur Geothermie der Vojvodina aus öffentlichen Daten, mit Rechnern, und Websites für Kunden.",
     "heroBadge": "Portfolio",
     "heroDescription": "Ingenieur- und Industrieprojekte.",
     "emptyTitle": "Industrieprojekte sind in Vorbereitung",
@@ -194,7 +194,7 @@
     "pageMetaDescription": "Seite {page} von {total} — ausgewählte Ingenieurprojekte von Stojan Petkovic.",
     "pageBadge": "Seite {page} von {total}",
     "tagMetaTitle": "#{tag} — Projekte",
-    "tagMetaDescription": "Projekte zum Thema „{tag}“.",
+    "tagMetaDescription": "Projekte zum Thema „{tag}“ von Stojan Petkovic: ingenieurtechnische Fallstudien, Geothermiemodelle aus öffentlichen Daten und Websites für Kunden.",
     "tagBadge": "Thema",
     "tagCountOne": "{count} Projekt zum Thema „{tag}“.",
     "tagCountOther": "{count} Projekte zum Thema „{tag}“.",
@@ -228,10 +228,10 @@
     "titleHighlight": "es nicht.",
     "description": "Sie wurde verschoben, gelöscht oder hat nie existiert. Wir bringen Sie zurück auf den richtigen Weg.",
     "backHome": "Zurück zur Startseite",
-    "browseBlog": "Zum Blog",
+    "browseProjects": "Zu den Projekten",
     "tryInstead": "Vielleicht suchen Sie eines davon",
     "projectsDesc": "Ausgewählte Arbeiten und die Geschichten dahinter.",
-    "blogDesc": "Notizen zu Ingenieurwesen, Software und dem Web.",
+    "toolsDesc": "Rechner und Werkzeuge für Bohrungen und Geothermie.",
     "contactTitle": "Kontakt",
     "contactDesc": "Schreiben Sie mir zu Ihrem Projekt."
   },
@@ -432,6 +432,19 @@
         "never": "zahlt sich nicht zurück",
         "note": "Die Investition ist die Summe der Posten der Kostentabelle, ohne die Aufwältigung und die Gasausrüstung, die nicht bewertet wurden; die Spanne ist die einer Schätzung der Klasse 4 (−30 % bis +50 %). Der Nettogewinn ist der Wert der Wärme abzüglich der jährlichen Betriebskosten aus der Tabelle unten. Die Amortisation ist die Investition geteilt durch den Nettogewinn je Jahr, ohne Abzinsung. Das Gas des Wassers ist hier nicht eingerechnet."
       },
+      "omitted": {
+        "caption": "Amortisation bei {price} €/MWh, Jahre, mit den Posten, die die Amortisationstabelle auslässt",
+        "cols": {
+          "base": "Wie in der Amortisationstabelle",
+          "reinjection": "Mit Reinjektionsbohrung",
+          "risk": "Mit Bohrrisiko",
+          "workover": "Mit Aufwältigung",
+          "all": "Alles zusammen"
+        },
+        "invest": "Investition {inv} Mio. €",
+        "none": "entfällt",
+        "note": "Die Reinjektionsbohrung reicht bis zur Tiefe des Förderhorizonts ({depth} m für die bestehende Bohrung, in den anderen Fällen bis zur Tiefe der neuen Bohrung), zu {perM} €/m; die Injektionspumpe und ihr Strom sind nicht eingerechnet. Bohrrisiko: {success} % der Bohrungen sind fündig, eine fündige Bohrung kostet also so viel wie 1/0,7 Bohrungen; es gilt nur für neue Bohrungen. Die Aufwältigung ist eine runde Zahl von {workover} €, da es keinen öffentlichen Preis gibt; sie gilt nur für die bestehende Bohrung. Die Instandhaltung (3 % im Jahr) wird auf die höhere Investition gerechnet. Die Gasausrüstung ist weiterhin nicht eingerechnet."
+      },
       "opex": {
         "caption": "Betriebskosten pro Jahr (OPEX) nach Fall",
         "cols": [
@@ -482,6 +495,10 @@
             "name": "Verteilleitung",
             "basis": "Annahme: eine Trasse von 500 m zu 400 € je Meter. Einen öffentlichen Preis je Meter für Serbien haben wir nicht gefunden."
           },
+          "reinjection": {
+            "name": "Reinjektionsbohrung",
+            "basis": "Nur in der Tabelle der ausgelassenen Posten gerechnet: eine Bohrung bis zur Tiefe des Förderhorizonts (560 m für Me-1/H), zu denselben Bohrkosten. Die Injektionspumpe und ihr Strom sind nicht bewertet."
+          },
           "workover": {
             "name": "Aufwältigung der bestehenden Bohrung",
             "basis": "Nicht bewertet, daher nicht enthalten. Es wurde keine öffentliche Kostenangabe gefunden; die Bewertung der Aufwältigung ist ein eigener Schritt."
@@ -510,7 +527,10 @@
           "upkeep": "Instandhaltung, Anteil der Investition im Jahr",
           "newWells": "Neue Bohrungen",
           "depth": "Tiefe einer neuen Bohrung",
+          "successRate": "Fündigkeitsrate",
           "drillingPerM": "Bohrkosten",
+          "reinjectionWells": "Reinjektionsbohrungen",
+          "reinjectionDepth": "Tiefe einer Reinjektionsbohrung",
           "workover": "Aufwältigung der bestehenden Bohrung",
           "heatPumpPerKw": "Wärmepumpe",
           "pipelineM": "Länge der Leitung",

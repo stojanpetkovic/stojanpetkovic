@@ -1,12 +1,13 @@
 ---
 import ProjectsPageView from '@/components/projects/views/ProjectsPageView.astro';
 import { getProjectPageCount, getSecondaryLocales } from '@/lib/projects';
+import { projectSubsegment, segment } from '@/i18n/routes';
 
-// Locale-prefixed paginated projects index (`/<locale>/projects/page/N`, N >= 2).
+// Locale-prefixed paginated projects index (`/<locale>/projects/page/N`, translated per locale, N >= 2).
 // Page 1 lives at `/<locale>/projects`. Emits nothing when i18n is off.
 export async function getStaticPaths() {
   const paths: {
-    params: { locale: string; page: string };
+    params: { locale: string; projects: string; pageSegment: string; page: string };
     props: { page: number; totalPages: number };
   }[] = [];
 
@@ -14,7 +15,12 @@ export async function getStaticPaths() {
     const totalPages = await getProjectPageCount(locale);
     for (let page = 2; page <= totalPages; page++) {
       paths.push({
-        params: { locale, page: String(page) },
+        params: {
+          locale,
+          projects: segment('projects', locale),
+          pageSegment: projectSubsegment('page', locale),
+          page: String(page),
+        },
         props: { page, totalPages },
       });
     }

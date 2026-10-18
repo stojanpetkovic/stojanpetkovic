@@ -114,8 +114,8 @@ const projects = defineCollection({
        * placeholders. Falls back to "layers" when unset.
        */
       icon: z.string().optional(),
-      url: z.string().url().optional(),
-      repo: z.string().url().optional(),
+      url: z.url().optional(),
+      repo: z.url().optional(),
       image: image().optional(),
       imageAlt: z.string().optional(),
       /**
@@ -161,6 +161,12 @@ const projects = defineCollection({
        * on the Projects page). Existing projects are websites.
        */
       category: z.enum(['industry', 'web']).default('web'),
+      /**
+       * Shorter title for the <title> tag and social cards, where search engines
+       * cut a title at about 60 characters including the ` — <site name>` suffix.
+       * The page heading keeps `title`.
+       */
+      seoTitle: z.string().optional(),
       order: z.number().default(99),
       year: z.number().optional(),
       client: z.string().optional(),
@@ -183,7 +189,7 @@ const stack = defineCollection({
     name: z.string(),
     description: z.string(),
     version: z.string(),
-    url: z.string().url(),
+    url: z.url(),
     icon: z.string(), // icon name, e.g. 'brand-astro'
     colorOklch: z.string(), // OKLCH params, e.g. '62.5% 0.22 38'
     order: z.number().default(0),
