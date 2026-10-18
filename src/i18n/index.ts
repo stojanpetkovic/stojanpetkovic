@@ -1,5 +1,6 @@
 import en from './en.json';
 import i18nConfig from '../config/i18n.config';
+import { toCanonicalRoute, toLocalizedRoute } from './routes';
 
 export { i18nConfig };
 export type { I18nConfig } from '../config/i18n.config';
@@ -113,15 +114,29 @@ export function tData<T = unknown>(key: string, locale: Locale = defaultLocale):
 }
 
 /**
- * Build a locale-prefixed URL. The default locale stays at the root
- * (no prefix) when `prefixDefaultLocale` is false, matching Astro's
- * native i18n routing behavior.
+ * Build a locale's URL from a canonical path: the path's segments take their
+ * names in that locale (`src/config/routes.config.ts`), and the locale prefix
+ * is added. The default locale stays at the root (no prefix), matching
+ * Astro's native i18n routing behavior.
+ *
+ * `/tools/well-kill` → `/sr/alati/gusenje-busotine` for `sr`.
  */
 export function localizedPath(path: string, locale: Locale = defaultLocale): string {
   const normalized = path.startsWith('/') ? path : `/${path}`;
-  if (!isEnabled()) return normalized;
-  if (locale === defaultLocale) return normalized;
-  return `/${locale}${normalized === '/' ? '' : normalized}`;
+  const translated = toLocalizedRoute(normalized, isEnabled() ? locale : defaultLocale);
+  if (!isEnabled()) return translated;
+  if (locale === defaultLocale) return translated;
+  return `/${locale}${translated === '/' ? '' : translated}`;
+}
+
+/**
+ * The canonical path of any address on the site: the locale prefix comes off
+ * and the segments take their canonical names again.
+ *
+ * `/sr/alati/gusenje-busotine` → `/tools/well-kill`.
+ */
+export function canonicalPath(path: string): string {
+  return toCanonicalRoute(stripLocaleFromPath(path), getLocaleFromPath(path));
 }
 
 /**
@@ -148,8 +163,7 @@ export function stripLocaleFromPath(path: string): string {
  * links. When the target is the default locale, no prefix is added.
  */
 export function swapLocaleInPath(path: string, targetLocale: Locale): string {
-  const base = stripLocaleFromPath(path);
-  return localizedPath(base, targetLocale);
+  return localizedPath(canonicalPath(path), targetLocale);
 }
 
 /**

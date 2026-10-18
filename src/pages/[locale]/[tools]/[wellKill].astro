@@ -1,0 +1,17 @@
+---
+import WellKillView from '@/components/pages/views/WellKillView.astro';
+import { getSecondaryLocales } from '@/i18n';
+import { segment, toolSlug } from '@/i18n/routes';
+
+// Locale-prefixed calculator page (`/<locale>/tools/well-kill`, translated per locale). One page
+// per non-default locale; emits nothing when i18n is off.
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({
+    params: { locale, tools: segment('tools', locale), wellKill: toolSlug('well-kill', locale) },
+  }));
+}
+
+const { locale } = Astro.params;
+---
+
+<WellKillView locale={locale} />

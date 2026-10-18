@@ -33,23 +33,23 @@ describe('project URL helpers (i18n enabled — en default, de secondary)', () =
   });
 
   it('prefixes secondary-locale project URLs with the locale', () => {
-    expect(getProjectUrl('de/astro-rocket', 'de')).toBe('/de/projects/astro-rocket');
+    expect(getProjectUrl('de/astro-rocket', 'de')).toBe('/de/projekte/astro-rocket');
   });
 
   it('prefixes the projects index base URL for the secondary locale only', () => {
     expect(getProjectsBaseUrl()).toBe('/projects');
     expect(getProjectsBaseUrl('en')).toBe('/projects');
-    expect(getProjectsBaseUrl('de')).toBe('/de/projects');
+    expect(getProjectsBaseUrl('de')).toBe('/de/projekte');
   });
 
   it('prefixes paginated URLs for the secondary locale', () => {
-    expect(getProjectsPageUrl(1, 'de')).toBe('/de/projects');
-    expect(getProjectsPageUrl(2, 'de')).toBe('/de/projects/page/2');
+    expect(getProjectsPageUrl(1, 'de')).toBe('/de/projekte');
+    expect(getProjectsPageUrl(2, 'de')).toBe('/de/projekte/seite/2');
     expect(getProjectsPageUrl(2)).toBe('/projects/page/2');
   });
 
   it('prefixes tag URLs for the secondary locale', () => {
-    expect(getProjectTagUrl('Client Work', 'de')).toBe('/de/projects/tag/client-work');
+    expect(getProjectTagUrl('Client Work', 'de')).toBe('/de/projekte/schlagwort/client-work');
     expect(getProjectTagUrl('Client Work')).toBe('/projects/tag/client-work');
   });
 

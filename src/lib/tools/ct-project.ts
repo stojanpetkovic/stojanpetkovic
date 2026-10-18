@@ -8,7 +8,7 @@
  * Units: the well keeps depths in feet or metres as the visitor chose; the
  * BHA is in inches and feet; the results are in oilfield units (ft, in, lb).
  */
-import { itemWeight, totals, type BhaItem } from './bha';
+import { totals, type BhaItem } from './bha';
 import { insideDiameter, toUnit, type WellItem, type WellState } from './well/model';
 import { parseSurvey, type Station } from './well/survey';
 

@@ -183,6 +183,19 @@ describe('investment', () => {
     expect(investmentEstimate({ ...base, newWells: 0 }).wells).toBe(0);
   });
 
+  it('drills a reinjection well at the same cost per metre', () => {
+    const inv = investmentEstimate({ ...base, reinjectionWells: 1, reinjectionDepthM: 560 });
+    expect(inv.reinjection).toBe(560 * 400);
+    expect(inv.total).toBe(investmentEstimate(base).total + 560 * 400);
+    expect(investmentEstimate(base).reinjection).toBe(0);
+  });
+
+  it('pays for the wells that fail at a success rate below one', () => {
+    const inv = investmentEstimate({ ...base, successRate: 0.7 });
+    expect(inv.wells).toBeCloseTo(1040000 / 0.7, 6);
+    expect(investmentEstimate({ ...base, newWells: 0, successRate: 0.7 }).wells).toBe(0);
+  });
+
   it('brackets the estimate with the class 4 range', () => {
     const inv = investmentEstimate(base);
     expect(inv.low).toBeCloseTo(inv.total * 0.7, 6);

@@ -37,6 +37,7 @@ Do not write a component count you have not counted from this file.
 | Site name, logo, social links, contact details | `src/config/site.config.ts` |
 | Navigation menus | `src/config/nav.config.ts` |
 | Languages | `src/config/i18n.config.ts` |
+| Page addresses (URL segments and slugs) in each language | `src/config/routes.config.ts` |
 | Cookie-consent behaviour | `src/config/consent.config.ts` |
 | Any interface text, including `aria-label`, `alt`, `placeholder` and `title` | `src/i18n/en.json` (and other locales) |
 | A blog post | a new `.mdx` file in `src/content/blog/<locale>/` |

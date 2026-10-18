@@ -1,5 +1,6 @@
 ---
 title: "Geothermal Model of Melenci: Heat Production and Use"
+seoTitle: "Melenci Geothermal Model: Heat and Payback"
 locale: en
 description: "Case study: a model of geothermal heat production and use for the spa at Melenci: what the existing well gives, what deeper horizons could give, how the heat is used by a chain of users and how much investment it can repay. All from public data, with a calculator."
 tags: ["Case study", "Geothermal", "Melenci", "Banat", "Direct use", "Heat pump"]
@@ -26,7 +27,7 @@ import StatCard from '@/components/patterns/StatCard.astro';
 
 This project is a case study. Using one place as the example, it answers three questions about geothermal energy in Vojvodina: **how much heat** can be had there, **what production** from a well would look like, and **how the heat would be used**, starting with the spa.
 
-The example is Melenci in the Banat, near Zrenjanin. There is a spa, there is a well in production (Me-1/H), and public data on it exist in two documents, so the calculation can be checked. The other wells of Vojvodina are shown in the [3D model](/projects/geotermalni-potencijal-vojvodine); here the same method is worked through for one place, so that it can be carried over to any other.
+The example is Melenci in the Banat, near Zrenjanin. There is a spa, there is a well in production (Me-1/H), and public data on it exist in two documents, so the calculation can be checked. The other wells of Vojvodina are shown in the [3D model](/projects/geothermal-potential-of-vojvodina); here the same method is worked through for one place, so that it can be carried over to any other.
 
 This is not a drilling project or a feasibility study. It shows the **order of magnitude** of thermal power, yearly energy and the investment that energy can carry, from public data and stated assumptions. Every assumption is marked and can be changed in the calculator at the end of the page.
 
@@ -86,7 +87,7 @@ The yield and mineralisation of Me-1/H (6.9 l/s, 2.5 g/l) lie within the usual v
 
 ### Ground temperature below Melenci
 
-The atlas gives temperature at 500, 1,000 and 2,000 m. The atlas maps, digitised for the [3D model](/projects/geotermalni-potencijal-vojvodine), give for Melenci:
+The atlas gives temperature at 500, 1,000 and 2,000 m. The atlas maps, digitised for the [3D model](/projects/geothermal-potential-of-vojvodina), give for Melenci:
 
 | Depth | Rock temperature | What is there |
 |---|---|---|
@@ -193,7 +194,7 @@ Three working rules we apply:
 
 ## Economics
 
-The calculation compares the **cost of building** with the value of the heat the system gives. The cost is the sum of six items. For two of them (drilling and equipment) there is a public estimate from 2012; for four there is no public figure for Serbia, so two are taken as assumptions (the heat pump and the distribution) and two have not been assessed (the workover and the gas equipment). The table gives the basis of each figure.
+The calculation compares the **cost of building** with the value of the heat the system gives. The cost is the sum of six items. For two of them (drilling and equipment) there is a public estimate from 2012; for four there is no public figure for Serbia, so two are taken as assumptions (the heat pump and the distribution) and two have not been assessed (the workover and the gas equipment). The table gives the basis of each figure. A seventh item, the reinjection well, is counted separately, in the table of omitted items below.
 
 <MelenciModel part="costs" locale="en" />
 
@@ -225,6 +226,14 @@ From the table (operating costs are counted, the workover and the gas of the wat
 - **New well to 1,300 m (75 °C, 8 l/s):** about 1.19 million € (range 0.83 to 1.78), payback 4.9, 1.9 and 1.2 years.
 - **What it means:** if the heat replaces gas, the payback is long in every case (5 to 27 years); if it replaces electricity, short (1 to 3 years). The workover is added to the investment: at 85 €/MWh every 100,000 € of workover lengthens the payback of the existing well by about 0.8 years.
 
+### What the payback table leaves out
+
+The payback table holds no reinjection well, no risk that a new well finds no water and no workover of the existing well. The table below adds them one at a time and all together, at the middle value of the heat of 85 €/MWh.
+
+<MelenciModel part="omitted" locale="en" />
+
+The reinjection well is the largest of these items: it adds about 0.22 M€ to the existing well and lengthens its payback from 4.8 to 6.8 years, and it adds 0.4 to 0.5 M€ to the new wells. With all the items together the existing well pays back in 7.8 years, near the limit, the deeper horizon of 55 °C goes from 4.1 to 7.1 years, and the new well of 75 °C stays clearly profitable at 3.2 years. At 40 €/MWh the existing well with all the items does not pay back in a reasonable time; that figure and all the others come from the calculator, in which the drilling success rate and the reinjection wells can be set.
+
 ### Methane
 
 The water holds dissolved gas, mostly methane, so there may be revenue: gas separated from the water and burned in a boiler replaces fuel that would be bought. The atlas gives 0.04 to 2.2 m³ of gas per m³ of water for the first system, and for Me-1/H itself the content is not published, so the whole range is shown.
@@ -241,7 +250,7 @@ A cost estimate at this stage belongs to class 4 under AACE: an accuracy of −1
 
 **Cooling and falling pressure.** With long use the reservoir pressure falls; as a working assumption we take the life of a reservoir as 30 to 50 years. In Vojvodina production from the existing systems has fallen since 1990, from nearly 1.6 million m³ a year to 739 thousand m³ in 2009. The atlas does not separate the causes into technical and market ones.
 
-**Reinjection.** Reinjection is counted neither in the investment nor in the operating costs, because it would need another new well; the cooled water is discharged for now. To sustain the resource one reinjection well to two production wells would be counted. In the sandy layers of the first system reinjection is technically demanding (clogging), so this should be checked before a decision. Without reinjection, the cooled water must be disposed of in line with regulations.
+**Reinjection.** Reinjection is counted neither in the payback table nor in the operating costs, because it needs another new well; the cooled water is discharged for now. The table of omitted items shows how much that well would lengthen the payback. To sustain the resource one reinjection well to two production wells would be counted. In the sandy layers of the first system reinjection is technically demanding (clogging), so this should be checked before a decision. Without reinjection, the cooled water must be disposed of in line with regulations.
 
 **Chemistry and gas.** A mineralisation of about 2.5 g/l is moderate. The water contains dissolved gas, mostly methane (80 to 95 %), at 0.04 to 2.2 m³ per m³ of water, so a plant needs gas separation and explosion protection. The atlas warns of aggressiveness and scaling in the waters of the third system.
 
@@ -267,11 +276,11 @@ The calculation shows that profitability does not hang on one figure but on four
 - **The heat replaces gas (about 40 €/MWh):** clear only for hot water and a large flow: 65 °C or more with 10 l/s or more (2.3 to 4.8 years) and 50 °C with 20 l/s (4.2). Near the limit are 50 °C with 10 l/s (7.1), 65 °C with 5 l/s (9.6) and 80 °C with 5 l/s (7.4). A cooler or weaker well does not pay (for example 35 °C with under 20 l/s, or 65 °C with 3 l/s: 19 years).
 - **A middle value of the heat (85 €/MWh):** clearly profitable for most combinations; near the limit for small flows (3 l/s at 50 and 65 °C, 5 l/s at 35 °C), and only 35 °C with 3 l/s does not pay.
 - **An average well of the first system** (about 60 °C, 7 to 13 l/s by the atlas) is, at 40 €/MWh, from near the limit to clearly profitable (65 °C: 9.6 years at 5 l/s, 4.8 at 10 l/s), and at a higher value of heat clearly profitable.
-- **Melenci (33 °C, 7 l/s from Annex 1)**, the existing well with no drilling: profitable if the heat replaces electricity (2.6 years), near the limit at 85 €/MWh (4.8), and it does not pay if it replaces gas (27 years).
+- **Melenci (33 °C, 7 l/s from Annex 1)**, the existing well with no drilling: profitable if the heat replaces electricity (2.6 years) and at 85 €/MWh (4.8), and it does not pay if it replaces gas (27 years). With a reinjection well and a workover of 100,000 € the payback at 85 €/MWh rises to 7.8 years, near the limit.
 
 The conclusion is that Vojvodina has no single answer: a place with hot water and a strong source, whose heat replaces electricity or an expensive fuel, pays clearly; a cool, weak source replacing cheap gas does not; between them is a wide area where everything depends on costs, and that cannot be judged from public data.
 
-**What is not counted and changes the conclusion:** the workover of the existing well, reinjection, the gas of the water, the real heat demand (all the heat is taken to be used for 4,000 hours a year), subsidies and financing, permits, the chemistry of the water (scaling, aggressiveness) and the risk that a new well does not give the expected water. Any of these can move the payback from one class to another.
+**What is not counted and changes the conclusion:** the workover of the existing well, reinjection, the gas of the water, the real heat demand (all the heat is taken to be used for 4,000 hours a year), subsidies and financing, permits, the chemistry of the water (scaling, aggressiveness) and the risk that a new well does not give the expected water. Any of these can move the payback from one class to another; for the workover, reinjection and drilling risk the table of omitted items shows by how much.
 
 Detailed studies can be done with a good team of specialists (geologists, drillers, thermal engineers, economists), and only they give a basis for a decision to invest. This page shows whether such a study makes sense for a given place.
 
@@ -290,7 +299,7 @@ Detailed studies can be done with a good team of specialists (geologists, drille
 |---|---|---|
 | Well Me-1/H | [Annex 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) to the study *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005) | Depth, interval, temperature, yield, mineralisation |
 | Yield, power, hydrogeological systems, resources, use | [*Geotermalni atlas Vojvodine*](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geotermalni_atlas_AP_Vojvodine.pdf) (Geothermal Atlas of Vojvodina), prepared within the *Studija stanja i ocena resursa geotermalne energije AP Vojvodine* (study of the state and assessment of geothermal energy resources of AP Vojvodina), Provincial Secretariat for Energy and Mineral Resources (2010) | Table 1 with 78 wells, four systems, resources, use to 2009 |
-| Ground temperature at 500, 1,000 and 2,000 m | The same atlas, maps 5, 6 and 7, digitised in the [3D model](/projects/geotermalni-potencijal-vojvodine) | Temperature in classes of 0.5, 1 and 2 °C |
+| Ground temperature at 500, 1,000 and 2,000 m | The same atlas, maps 5, 6 and 7, digitised in the [3D model](/projects/geothermal-potential-of-vojvodina) | Temperature in classes of 0.5, 1 and 2 °C |
 | Price of electricity | [021.rs, 20 Apr 2025](https://www.021.rs/info/biznis-i-ekonomija/407505/vise-cene-struje-za-privrednike-u-srbiji-manje-sanse-na-trzistu): EPS offers to business, 105.77 to 109.17 €/MWh, with excise and fees of about 25 €/MWh | The price of electricity for the heat pump and for electric heating |
 | Price of gas | [N1, 28 Nov 2022](https://n1info.rs/biznis/kilovat-cas-struje-po-novom-cenovniku-124-dinara-a-gasa-45-dinara/): the gas price for households, 4.08 din/kWh without taxes and levies | The price of heat from a gas boiler; no public price for business was found |
 | Cost of drilling and equipment | [Energetska efikasnost i obnovljivi izvori energije, "Geotermalna energija Srbije", 1 Sep 2012](https://milosgradakovic.blogspot.com/2012/09/geotermalna-energija-srbije.html) | Drilling 350 to 400 € per metre, equipment for using the heat about 200,000 €; author and source not given |

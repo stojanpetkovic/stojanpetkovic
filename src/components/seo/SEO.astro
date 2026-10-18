@@ -65,14 +65,16 @@ const robotsContent = [noindex ? 'noindex' : 'index', nofollow ? 'nofollow' : 'f
 
 // Normalize BCP-47 locale (e.g. "en") to OG language_TERRITORY format (e.g. "en_US")
 const localeMap: Record<string, string> = {
-  en: 'en_US', fr: 'fr_FR', de: 'de_DE', es: 'es_ES', it: 'it_IT',
+  en: 'en_US', sr: 'sr_RS', fr: 'fr_FR', de: 'de_DE', es: 'es_ES', it: 'it_IT',
   pt: 'pt_BR', nl: 'nl_NL', ja: 'ja_JP', ko: 'ko_KR', zh: 'zh_CN',
   ru: 'ru_RU', ar: 'ar_SA', hi: 'hi_IN', pl: 'pl_PL', sv: 'sv_SE',
 };
+const toOgLocale = (raw: string) =>
+  raw.includes('_') || raw.includes('-')
+    ? raw.replace('-', '_')
+    : (localeMap[raw] || `${raw}_${raw.toUpperCase()}`);
 const rawLocale = Astro.currentLocale || 'en_US';
-const locale = rawLocale.includes('_') || rawLocale.includes('-')
-  ? rawLocale.replace('-', '_')
-  : (localeMap[rawLocale] || `${rawLocale}_${rawLocale.toUpperCase()}`);
+const locale = toOgLocale(rawLocale);
 
 // Determine OG image MIME type from file extension
 const extToMime: Record<string, string> = {
@@ -95,17 +97,25 @@ const resolvedAlternates =
   localeAlternates && localeAlternates.length > 0
     ? localeAlternates
     : getLocales().map((loc) => ({ locale: loc, url: swapLocaleInPath(Astro.url.pathname, loc) }));
+// Alternates follow the canonical URL's trailing-slash style, so each one
+// names the exact URL that page declares as its own canonical.
+const slashed = canonicalURL.pathname.endsWith('/');
+const absolute = (url: string) => {
+  const u = new URL(url, Astro.site);
+  if (slashed && !u.pathname.endsWith('/') && !/\.[a-z0-9]+$/i.test(u.pathname)) u.pathname += '/';
+  return u.toString();
+};
 const hreflangAlternates = i18nOn
   ? resolvedAlternates.map((alt) => ({
       hreflang: alt.locale,
-      href: new URL(alt.url, Astro.site).toString(),
+      href: absolute(alt.url),
     }))
   : [];
 const xDefaultUrl =
   resolvedAlternates.find((alt) => alt.locale === defaultLocale)?.url ??
   resolvedAlternates[0]?.url ??
   swapLocaleInPath(Astro.url.pathname, defaultLocale);
-const xDefaultHref = i18nOn ? new URL(xDefaultUrl, Astro.site).toString() : null;
+const xDefaultHref = i18nOn ? absolute(xDefaultUrl) : null;
 ---
 
 <!-- Primary Meta Tags -->
@@ -126,6 +136,7 @@ const xDefaultHref = i18nOn ? new URL(xDefaultUrl, Astro.site).toString() : null
 <meta property="og:description" content={description} />
 <meta property="og:site_name" content={siteName} />
 <meta property="og:locale" content={locale} />
+{i18nOn && getLocales().filter((loc) => loc !== rawLocale).map((loc) => <meta property="og:locale:alternate" content={toOgLocale(loc)} />)}
 <meta property="og:image:alt" content={imageAlt || socialTitle} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />

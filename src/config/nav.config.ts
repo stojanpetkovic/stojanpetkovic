@@ -175,9 +175,8 @@ export const navItems: NavItem[] = [
   { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
   { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services', mega: servicesMega },
   { label: 'Projects', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
-  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
+  { label: 'About', href: '/about', order: 3, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 4, labelKey: 'nav.items.contact' },
 ];
 
 export const footerNavItems: NavItem[] = [
@@ -187,9 +186,8 @@ export const footerNavItems: NavItem[] = [
   { label: 'Tools', href: '/tools', order: 3, labelKey: 'nav.items.tools' },
   { label: 'Web', href: '/web', order: 4, labelKey: 'nav.items.web' },
   { label: 'Projects', href: '/projects', order: 5, labelKey: 'nav.items.projects' },
-  { label: 'Blog', href: '/blog', order: 6, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 7, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 8, labelKey: 'nav.items.contact' },
+  { label: 'About', href: '/about', order: 6, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 7, labelKey: 'nav.items.contact' },
 ];
 
 export const legalLinks: LegalLink[] = [

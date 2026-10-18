@@ -18,7 +18,8 @@ import {
   yearBalance,
 } from '@/lib/geothermal/utilization';
 
-type CostKey = 'drilling' | 'equipment' | 'heatPump' | 'pipeline' | 'workover' | 'gas';
+type CostKey = 'drilling' | 'equipment' | 'heatPump' | 'pipeline' | 'reinjection' | 'workover' | 'gas';
+type OmittedKey = 'base' | 'reinjection' | 'risk' | 'workover' | 'all';
 type FieldKey =
   | 'temp'
   | 'flow'
@@ -29,6 +30,9 @@ type FieldKey =
   | 'newWells'
   | 'depth'
   | 'drillingPerM'
+  | 'successRate'
+  | 'reinjectionWells'
+  | 'reinjectionDepth'
   | 'workover'
   | 'heatPumpPerKw'
   | 'pipelineM'
@@ -51,6 +55,7 @@ interface Copy {
     cols: string[];
   };
   opex: { caption: string; cols: string[]; note: string };
+  omitted: Record<'caption' | 'invest' | 'none' | 'note', string> & { cols: Record<OmittedKey, string> };
   matrix: Record<'caption' | 'tempCol' | 'flowHead' | 'clear' | 'limit' | 'no' | 'note', string>;
   methane: {
     caption: string;
@@ -90,7 +95,17 @@ interface Copy {
 }
 
 interface Props {
-  part: 'profile' | 'scenarios' | 'costs' | 'economics' | 'opex' | 'methane' | 'matrix' | 'calculator' | 'pdf';
+  part:
+    | 'profile'
+    | 'scenarios'
+    | 'costs'
+    | 'economics'
+    | 'opex'
+    | 'omitted'
+    | 'methane'
+    | 'matrix'
+    | 'calculator'
+    | 'pdf';
   locale?: string;
 }
 
@@ -113,6 +128,12 @@ const COST = {
   equipment: 200000,
   workover: 0,
 };
+// What the tables leave out, priced for the table of omitted items. The reinjection well goes
+// to the depth of the producing interval and is drilled at the same cost per metre; a new
+// production well finds water seven times in ten; the workover is a round figure to scale by.
+const SUCCESS_RATE = 0.7;
+const WORKOVER = 100000;
+const REINJECTION_DEPTH_EXISTING = 560;
 
 const int = new Intl.NumberFormat(locale, { maximumFractionDigits: 0 });
 const one = new Intl.NumberFormat(locale, { maximumFractionDigits: 1 });
@@ -121,10 +142,10 @@ const fill = (s: string, v: Record<string, string | number>) =>
   s.replace(/\{(\w+)\}/g, (_, k) => String(v[k] ?? ''));
 
 const cases = [
-  { key: 'a1', flow: 6.9, temp: 33, newWells: 0, depthM: 0 },
-  { key: 'a2', flow: 10.3, temp: 33, newWells: 0, depthM: 0 },
-  { key: 'b', flow: 5, temp: 55, newWells: 1, depthM: 1000 },
-  { key: 'c', flow: 8, temp: 75, newWells: 1, depthM: 1300 },
+  { key: 'a1', flow: 6.9, temp: 33, newWells: 0, depthM: 0, reinjectionDepthM: REINJECTION_DEPTH_EXISTING },
+  { key: 'a2', flow: 10.3, temp: 33, newWells: 0, depthM: 0, reinjectionDepthM: REINJECTION_DEPTH_EXISTING },
+  { key: 'b', flow: 5, temp: 55, newWells: 1, depthM: 1000, reinjectionDepthM: 1000 },
+  { key: 'c', flow: 8, temp: 75, newWells: 1, depthM: 1300, reinjectionDepthM: 1300 },
 ] as const;
 const rows = cases.map((k) => {
   const chain = heatChain(k.flow, k.temp);
@@ -136,18 +157,50 @@ const rows = cases.map((k) => {
   });
   return { ...k, chain, investment };
 });
-const econ = (k: (typeof rows)[number], heatValue: number) =>
+const econ = (k: (typeof rows)[number], heatValue: number, investment = k.investment.total) =>
   yearBalance(k.chain, {
     hours: HOURS,
     heatValue,
     electricPrice: ELECTRIC,
-    investment: k.investment.total,
+    investment,
     upkeepShare: UPKEEP,
     otherFixed: OTHER_OPEX,
     gasMWh: 0,
     gasValue: GAS_PRICE,
   });
 const kEur = (v: number) => int.format(v / 1000);
+
+// Each case again with the items the economics table leaves out, one at a time and together,
+// at the middle value of the heat. Risk and workover apply only where they can: a case with
+// no new well has no drilling risk, and a new well has no workover.
+const omittedKeys = ['base', 'reinjection', 'risk', 'workover', 'all'] as const;
+const omittedRows = rows.map((k) => {
+  const reinjection = { reinjectionWells: 1, reinjectionDepthM: k.reinjectionDepthM };
+  const risk = k.newWells > 0 ? { successRate: SUCCESS_RATE } : null;
+  const workover = k.newWells === 0 ? { workover: WORKOVER } : null;
+  const variants: Record<OmittedKey, object | null> = {
+    base: {},
+    reinjection,
+    risk,
+    workover,
+    all: { ...reinjection, ...risk, ...workover },
+  };
+  return {
+    key: k.key,
+    cells: omittedKeys.map((v) => {
+      const extra = variants[v];
+      if (!extra) return null;
+      const inv = investmentEstimate({
+        newWells: k.newWells,
+        depthM: k.depthM,
+        pumpKw: k.chain.pumpKw,
+        ...COST,
+        ...extra,
+      }).total;
+      return { inv, years: simplePayback(inv, econ(k, PRICES[1], inv).netPerYear) };
+    }),
+  };
+});
 
 // Payback of a generic new well: temperature against flow, for three values of the heat.
 const CLEAR_YEARS = 5;
@@ -217,10 +270,11 @@ const costValue: Record<CostKey, string> = {
   equipment: `${int.format(COST.equipment)} ${c.costs.units.eur}`,
   heatPump: `${int.format(COST.heatPumpPerKw)} ${c.costs.units.perKw}`,
   pipeline: fill(c.costs.units.route, { m: COST.pipelineM, p: COST.pipelinePerM }),
+  reinjection: `${int.format(COST.drillingPerM)} ${c.costs.units.perM}`,
   workover: `0 ${c.costs.units.eur}`,
   gas: `0 ${c.costs.units.eur}`,
 };
-const costKeys = ['drilling', 'equipment', 'heatPump', 'pipeline', 'workover', 'gas'] as const;
+const costKeys = ['drilling', 'equipment', 'heatPump', 'pipeline', 'reinjection', 'workover', 'gas'] as const;
 
 // A slider of the calculator: [name, min, max, step, start].
 const sliders: [FieldKey, number, number, number, number][] = [
@@ -235,7 +289,10 @@ const sliders: [FieldKey, number, number, number, number][] = [
   ['gasPrice', 10, 100, 1, GAS_PRICE],
   ['newWells', 0, 3, 1, 1],
   ['depth', 300, 2500, 50, 1300],
+  ['successRate', 30, 100, 5, 100],
   ['drillingPerM', 100, 2000, 25, COST.drillingPerM],
+  ['reinjectionWells', 0, 2, 1, 0],
+  ['reinjectionDepth', 300, 2500, 50, 1300],
   ['workover', 0, 1000000, 10000, COST.workover],
   ['heatPumpPerKw', 100, 1500, 25, COST.heatPumpPerKw],
   ['pipelineM', 0, 3000, 50, COST.pipelineM],
@@ -406,6 +463,53 @@ const sliders: [FieldKey, number, number, number, number][] = [
 }
 
 {
+  part === 'omitted' && (
+    <div class="project-wide melenci-block">
+      <div class="melenci-scroll">
+        <table>
+          <caption>{fill(c.omitted.caption, { price: PRICES[1] })}</caption>
+          <thead>
+            <tr>
+              <th>{c.economics.cols[0]}</th>
+              {omittedKeys.map((v) => <th>{c.omitted.cols[v]}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {omittedRows.map((r) => (
+              <tr>
+                <td>{c.scenarios.rows[r.key]}</td>
+                {r.cells.map((cell) =>
+                  cell === null ? (
+                    <td>
+                      –<span class="melenci-sub">{c.omitted.none}</span>
+                    </td>
+                  ) : (
+                    <td>
+                      {cell.years === null ? c.economics.never : one.format(cell.years)}
+                      <span class="melenci-sub">
+                        {fill(c.omitted.invest, { inv: two.format(cell.inv / 1e6) })}
+                      </span>
+                    </td>
+                  ),
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="melenci-note">
+        {fill(c.omitted.note, {
+          depth: int.format(REINJECTION_DEPTH_EXISTING),
+          perM: COST.drillingPerM,
+          success: SUCCESS_RATE * 100,
+          workover: int.format(WORKOVER),
+        })}
+      </p>
+    </div>
+  )
+}
+
+{
   part === 'methane' && (
     <div class="project-wide melenci-block">
       <div class="melenci-scroll">
@@ -507,7 +611,7 @@ const sliders: [FieldKey, number, number, number, number][] = [
     dissolvedGas,
     heatChain,
     investmentEstimate,
-      simplePayback,
+    simplePayback,
     yearBalance,
   } from '@/lib/geothermal/utilization';
 
@@ -528,6 +632,9 @@ const sliders: [FieldKey, number, number, number, number][] = [
     newWells: '',
     depth: ' m',
     drillingPerM: ' €/m',
+    successRate: ' %',
+    reinjectionWells: '',
+    reinjectionDepth: ' m',
     workover: ' €',
     heatPumpPerKw: ' €/kW',
     pipelineM: ' m',
@@ -562,6 +669,9 @@ const sliders: [FieldKey, number, number, number, number][] = [
       const inv = investmentEstimate({
         newWells: get('newWells'),
         depthM: get('depth'),
+        successRate: get('successRate') / 100,
+        reinjectionWells: get('reinjectionWells'),
+        reinjectionDepthM: get('reinjectionDepth'),
         drillingPerM: get('drillingPerM'),
         workover: get('workover'),
         heatPumpPerKw: get('heatPumpPerKw'),

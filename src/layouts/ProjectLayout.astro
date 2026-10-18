@@ -18,6 +18,8 @@ import {
 
 interface Props {
   title: string;
+  /** Shorter title for search results and social cards; the heading keeps `title`. */
+  seoTitle?: string;
   description: string;
   meta?: string[];
   client?: string;
@@ -40,6 +42,7 @@ interface Props {
 
 const {
   title,
+  seoTitle,
   description,
   meta = [],
   client,
@@ -95,7 +98,7 @@ const languageAlternates = Object.fromEntries(
 ---
 
 <BaseLayout
-  title={title}
+  title={seoTitle ?? title}
   description={description}
   image={ogImage}
   imageAlt={ogImageAlt}
