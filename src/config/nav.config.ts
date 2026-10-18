@@ -156,7 +156,6 @@ const servicesMega: MegaMenuConfig = {
         { label: 'CT Strength Limits', labelKey: 'pages.ctStrength.hero.title', href: '/tools/ct-strength-limits', icon: 'shield-check' },
         { label: 'Nitrogen Displacement', labelKey: 'pages.nitrogenDisplacement.hero.title', href: '/tools/nitrogen-displacement', icon: 'wind' },
         { label: 'Well Kill', labelKey: 'pages.wellKill.hero.title', href: '/tools/well-kill', icon: 'shield-check' },
-        { label: 'BHA Builder', labelKey: 'pages.bhaBuilder.hero.title', href: '/tools/bha-builder', icon: 'wrench' },
         { label: 'All tools', labelKey: 'nav.mega.links.allTools', href: '/tools', icon: 'arrow-right' },
       ],
     },

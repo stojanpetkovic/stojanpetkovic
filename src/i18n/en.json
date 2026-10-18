@@ -1465,6 +1465,14 @@
       }
     },
     "tools": {
+      "featured": {
+        "badge": "Software",
+        "title": "A full application, not a calculator",
+        "text": "The CT Simulator is a workspace laid out like a drawing program, with its own steps, palettes and command line. It runs in the browser and keeps your project on your computer.",
+        "hint": "Large screens and tablets only. There is no mobile version.",
+        "cta": "Open the CT Simulator",
+        "listTitle": "Calculators"
+      },
       "meta": {
         "title": "Tools",
         "description": "Small cloud-based engineering tools and calculators for coiled tubing and oilfield work, built by an engineer, with the method explained."
@@ -1539,8 +1547,8 @@
           "title": "CT Simulator",
           "description": "Draw the well, build the CT string and the BHA, set the job and read the weight indicator, lock-up depth, set-down weight and overpull.",
           "inputs": [
-            "Well, survey and tubulars from the Well Builder",
-            "CT string and BHA from the BHA Builder",
+            "Well, deviation survey and tubulars, drawn on a schematic",
+            "CT string and BHA, tool by tool",
             "Fluids, friction and surface equipment"
           ],
           "outputs": [
@@ -1633,40 +1641,6 @@
             "Kill fluid density",
             "Volumes, strokes and times",
             "Bullheading pressure, or ICP, FCP and the pressure schedule"
-          ]
-        },
-        {
-          "href": "/tools/bha-builder",
-          "tag": "Coiled tubing",
-          "icon": "wrench",
-          "title": "BHA Builder",
-          "description": "Draw a coiled tubing bottom hole assembly tool by tool, with sizes, connections and total length, and print it as a sheet.",
-          "inputs": [
-            "Tools from the top of the string to the bottom",
-            "Outside and inside diameters",
-            "Lengths and connections"
-          ],
-          "outputs": [
-            "Drawing of the assembly",
-            "Total length, largest OD and smallest bore",
-            "Sheet to save as PDF"
-          ]
-        },
-        {
-          "href": "/tools/well-builder",
-          "tag": "Wells",
-          "icon": "layers",
-          "title": "Well Builder",
-          "description": "Draw a well by dragging casing, tubing, coiled tubing and packers onto a schematic, with API sizes, and see it in 3D from a deviation survey.",
-          "inputs": [
-            "Components dragged onto the schematic",
-            "API casing and tubing sizes and weights",
-            "A deviation survey (MD, inclination, azimuth)"
-          ],
-          "outputs": [
-            "Well schematic by measured depth",
-            "Inside diameter, drift and capacity",
-            "3D well path and dogleg severity"
           ]
         }
       ]
@@ -1931,15 +1905,6 @@
       }
     },
     "wellBuilder": {
-      "meta": {
-        "title": "Well Builder",
-        "description": "Draw a well by dragging casing, tubing, coiled tubing and packers onto a schematic, with API sizes, and view the well in 3D from a deviation survey."
-      },
-      "hero": {
-        "badge": "Wells",
-        "title": "Well Builder",
-        "description": "Drag casing, liner, tubing, coiled tubing, packers and perforations onto the schematic, choose API sizes, paste a deviation survey and see the well in 3D."
-      },
       "units": {
         "label": "Depth unit"
       },
@@ -2363,15 +2328,6 @@
       }
     },
     "bhaBuilder": {
-      "meta": {
-        "title": "BHA Builder",
-        "description": "Draw a coiled tubing bottom hole assembly from its tools, with diameters, lengths and connections, a drawing of the string and the total length, in oilfield or metric units."
-      },
-      "hero": {
-        "badge": "Coiled tubing",
-        "title": "BHA Builder",
-        "description": "Add the tools of a coiled tubing bottom hole assembly from the top of the string to the bottom, enter their sizes, and get a drawing, the total length and a sheet to print."
-      },
       "palette": {
         "title": "Tools",
         "hint": "Select a tool to add it at the bottom of the assembly, then edit its sizes."
@@ -2564,6 +2520,69 @@
       }
     },
     "ctSimulator": {
+      "intro": {
+        "title": "Plan a coiled tubing job on a large screen",
+        "lead": "The CT Simulator takes a coiled tubing job from the well to the forces in one workspace. You draw the well, build the CT string and the bottom-hole assembly, set the job, and read the weight indicator, the depth reached before lock-up, the set-down weight, the overpull and where the string starts to buckle. It looks and works like a drawing program: a ribbon of steps, a project palette, a drawing area, a properties palette and a command line.",
+        "stepsTitle": "The five steps",
+        "steps": [
+          {
+            "title": "Well",
+            "text": "Draw casing, liner, tubing and completion tools on the schematic and add the deviation survey."
+          },
+          {
+            "title": "CT string",
+            "text": "Set the outside diameter, the wall sections and the reel, and see the string drawn."
+          },
+          {
+            "title": "BHA",
+            "text": "Build the bottom-hole assembly from tools, with their sizes and weights."
+          },
+          {
+            "title": "Job",
+            "text": "Set the depth, the fluids, the friction and the limits."
+          },
+          {
+            "title": "Results",
+            "text": "Read the forces and the weight indicator and force charts, and save the job as a PDF."
+          }
+        ],
+        "shotsTitle": "The workspace",
+        "shots": {
+          "well": "Well: the schematic with its components",
+          "ct": "CT string: the string and its sections",
+          "bha": "BHA: the tools and the assembly drawing",
+          "results": "Results: forces and charts"
+        },
+        "cta": "Open the workspace",
+        "ctaNote": "The workspace opens over the whole screen. Press Esc or Close to come back to this page.",
+        "noMobileTitle": "No mobile version.",
+        "noMobile": "The CT Simulator works only on large screens and tablets, from 768 pixels wide. Open this page on a computer or a tablet.",
+        "kept": "The well, the BHA and the job are kept in this browser and sent nowhere."
+      },
+      "workspace": {
+        "brand": "CT Simulator",
+        "close": "Close",
+        "fullscreen": "Full screen",
+        "project": "Project",
+        "properties": "Properties",
+        "left": "Project",
+        "right": "Properties",
+        "command": {
+          "label": "Command:",
+          "placeholder": "WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT, UNITS, HELP",
+          "ready": "Type a command and press Enter. Type HELP for the list.",
+          "help": "Commands: WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT [step|all], UNITS [US|METRIC], LEFT, RIGHT, FULLSCREEN, CLOSE. Esc closes the workspace.",
+          "unknown": "Unknown command: {cmd}. Type HELP for the list.",
+          "step": "Step",
+          "units": "Units",
+          "ok": "OK"
+        },
+        "status": {
+          "step": "Step",
+          "units": "Units",
+          "complete": "Complete"
+        }
+      },
       "meta": {
         "title": "CT Simulator",
         "description": "Plan a coiled tubing job in four steps: draw the well, build the CT string and the BHA, set the job, and read the weight indicator, lock-up depth, set-down weight and overpull."
@@ -2774,7 +2793,7 @@
             "icon": "wrench",
             "title": "Bottom hole assembly",
             "text": "Choosing and arranging the tools on the end of the string, and drawing the BHA.",
-            "href": "/tools/bha-builder"
+            "href": "/tools/ct-simulator"
           }
         ]
       },

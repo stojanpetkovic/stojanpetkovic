@@ -1465,6 +1465,14 @@
       }
     },
     "tools": {
+      "featured": {
+        "badge": "Software",
+        "title": "Eine vollständige Anwendung, kein Rechner",
+        "text": "Der CT Simulator ist ein Arbeitsbereich im Stil eines Zeichenprogramms, mit eigenen Schritten, Paletten und Befehlszeile. Er läuft im Browser und behält Ihr Projekt auf Ihrem Computer.",
+        "hint": "Nur für große Bildschirme und Tablets. Es gibt keine mobile Version.",
+        "cta": "CT Simulator öffnen",
+        "listTitle": "Rechner"
+      },
       "meta": {
         "title": "Werkzeuge",
         "description": "Kleine Cloud-Werkzeuge und Rechner für Coiled Tubing und Öl- und Gasfeldarbeit, von einem Ingenieur gebaut, mit erklärter Methode."
@@ -1539,8 +1547,8 @@
           "title": "CT-Simulator",
           "description": "Bohrung zeichnen, CT-Strang und BHA aufbauen, den Einsatz festlegen und Gewichtsanzeige, Lock-up-Tiefe, Aufsetzgewicht und Überzug ablesen.",
           "inputs": [
-            "Bohrung, Messung und Rohre aus dem Bohrungs-Builder",
-            "CT-Strang und BHA aus dem BHA Builder",
+            "Bohrung, Abweichungsmessung und Rohre, im Schema gezeichnet",
+            "CT-Strang und BHA, Werkzeug für Werkzeug",
             "Fluide, Reibung und Oberflächenausrüstung"
           ],
           "outputs": [
@@ -1633,40 +1641,6 @@
             "Dichte der Kill-Flüssigkeit",
             "Volumen, Hübe und Zeiten",
             "Bullheading-Druck oder ICP, FCP und Druckplan"
-          ]
-        },
-        {
-          "href": "/tools/bha-builder",
-          "tag": "Coiled Tubing",
-          "icon": "wrench",
-          "title": "BHA Builder",
-          "description": "Zeichnen Sie eine Coiled-Tubing-Bohrlochgarnitur Werkzeug für Werkzeug mit Maßen, Verbindungen und Gesamtlänge und drucken Sie sie als Blatt.",
-          "inputs": [
-            "Werkzeuge von oben nach unten",
-            "Außen- und Innendurchmesser",
-            "Längen und Verbindungen"
-          ],
-          "outputs": [
-            "Zeichnung der Garnitur",
-            "Gesamtlänge, größter AD und kleinste Bohrung",
-            "Blatt zum Speichern als PDF"
-          ]
-        },
-        {
-          "href": "/tools/well-builder",
-          "tag": "Bohrungen",
-          "icon": "layers",
-          "title": "Bohrungs-Builder",
-          "description": "Zeichnen Sie eine Bohrung, indem Sie Verrohrung, Tubing, Coiled Tubing und Packer mit API-Größen auf ein Schema ziehen, und sehen Sie sie aus einem Neigungsprofil in 3D.",
-          "inputs": [
-            "Auf das Schema gezogene Komponenten",
-            "API-Größen und -Gewichte von Verrohrung und Tubing",
-            "Ein Neigungsprofil (MD, Neigung, Azimut)"
-          ],
-          "outputs": [
-            "Bohrungsschema nach gemessener Tiefe",
-            "Innendurchmesser, Drift und Fassungsvermögen",
-            "3D-Bohrpfad und Dogleg-Stärke"
           ]
         }
       ]
@@ -1931,15 +1905,6 @@
       }
     },
     "wellBuilder": {
-      "meta": {
-        "title": "Bohrungs-Builder",
-        "description": "Zeichnen Sie eine Bohrung, indem Sie Verrohrung, Tubing, Coiled Tubing und Packer mit API-Größen auf ein Schema ziehen, und sehen Sie die Bohrung aus einem Neigungsprofil in 3D."
-      },
-      "hero": {
-        "badge": "Bohrungen",
-        "title": "Bohrungs-Builder",
-        "description": "Ziehen Sie Verrohrung, Liner, Tubing, Coiled Tubing, Packer und Perforationen auf das Schema, wählen Sie API-Größen, fügen Sie ein Neigungsprofil ein und sehen Sie die Bohrung in 3D."
-      },
       "units": {
         "label": "Tiefeneinheit"
       },
@@ -2363,15 +2328,6 @@
       }
     },
     "bhaBuilder": {
-      "meta": {
-        "title": "BHA Builder",
-        "description": "Zeichnen Sie eine Coiled-Tubing-Bohrlochgarnitur (BHA) aus ihren Werkzeugen mit Durchmessern, Längen und Verbindungen, einer Zeichnung des Strangs und der Gesamtlänge, in Oilfield- oder metrischen Einheiten."
-      },
-      "hero": {
-        "badge": "Coiled Tubing",
-        "title": "BHA Builder",
-        "description": "Fügen Sie die Werkzeuge einer Coiled-Tubing-Bohrlochgarnitur von oben nach unten hinzu, geben Sie ihre Maße ein und erhalten Sie eine Zeichnung, die Gesamtlänge und ein Blatt zum Drucken."
-      },
       "palette": {
         "title": "Werkzeuge",
         "hint": "Wählen Sie ein Werkzeug, um es unten an die Garnitur anzufügen, und bearbeiten Sie dann seine Maße."
@@ -2564,6 +2520,69 @@
       }
     },
     "ctSimulator": {
+      "intro": {
+        "title": "Einen Coiled-Tubing-Einsatz auf einem großen Bildschirm planen",
+        "lead": "Der CT Simulator führt einen Coiled-Tubing-Einsatz in einem Arbeitsbereich von der Bohrung bis zu den Kräften. Sie zeichnen die Bohrung, bauen den CT-String und die BHA auf, legen den Einsatz fest und lesen Gewichtsanzeige, Tiefe bis zum Lock-up, Absetzgewicht, Überzug und den Beginn des Ausknickens ab. Er sieht aus und arbeitet wie ein Zeichenprogramm: Multifunktionsleiste mit Schritten, Projektpalette, Zeichenfläche, Eigenschaftenpalette und Befehlszeile.",
+        "stepsTitle": "Die fünf Schritte",
+        "steps": [
+          {
+            "title": "Bohrung",
+            "text": "Zeichnen Sie Verrohrung, Liner, Tubing und Komplettierungswerkzeuge im Schema und fügen Sie die Abweichungsmessung hinzu."
+          },
+          {
+            "title": "CT-String",
+            "text": "Legen Sie Außendurchmesser, Wandabschnitte und Haspel fest und sehen Sie den gezeichneten String."
+          },
+          {
+            "title": "BHA",
+            "text": "Bauen Sie die BHA aus Werkzeugen mit ihren Abmessungen und Gewichten auf."
+          },
+          {
+            "title": "Einsatz",
+            "text": "Legen Sie Tiefe, Fluide, Reibung und Grenzwerte fest."
+          },
+          {
+            "title": "Ergebnisse",
+            "text": "Lesen Sie Kräfte sowie Diagramme zu Gewichtsanzeige und Kraft ab und speichern Sie den Einsatz als PDF."
+          }
+        ],
+        "shotsTitle": "Der Arbeitsbereich",
+        "shots": {
+          "well": "Bohrung: das Schema mit seinen Komponenten",
+          "ct": "CT-String: der String und seine Abschnitte",
+          "bha": "BHA: die Werkzeuge und die Zeichnung der Garnitur",
+          "results": "Ergebnisse: Kräfte und Diagramme"
+        },
+        "cta": "Arbeitsbereich öffnen",
+        "ctaNote": "Der Arbeitsbereich öffnet sich über den ganzen Bildschirm. Mit Esc oder Schließen kehren Sie zu dieser Seite zurück.",
+        "noMobileTitle": "Keine mobile Version.",
+        "noMobile": "Der CT Simulator funktioniert nur auf großen Bildschirmen und Tablets, ab 768 Pixeln Breite. Öffnen Sie diese Seite an einem Computer oder Tablet.",
+        "kept": "Bohrung, BHA und Einsatz bleiben in diesem Browser und werden nirgendwohin gesendet."
+      },
+      "workspace": {
+        "brand": "CT Simulator",
+        "close": "Schließen",
+        "fullscreen": "Vollbild",
+        "project": "Projekt",
+        "properties": "Eigenschaften",
+        "left": "Projekt",
+        "right": "Eigenschaften",
+        "command": {
+          "label": "Befehl:",
+          "placeholder": "WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT, UNITS, HELP",
+          "ready": "Befehl eingeben und Enter drücken. HELP zeigt die Liste.",
+          "help": "Befehle: WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT [Schritt|all], UNITS [US|METRIC], LEFT, RIGHT, FULLSCREEN, CLOSE. Esc schließt den Arbeitsbereich.",
+          "unknown": "Unbekannter Befehl: {cmd}. HELP zeigt die Liste.",
+          "step": "Schritt",
+          "units": "Einheiten",
+          "ok": "OK"
+        },
+        "status": {
+          "step": "Schritt",
+          "units": "Einheiten",
+          "complete": "Vollständig"
+        }
+      },
       "meta": {
         "title": "CT-Simulator",
         "description": "Planen Sie einen Coiled-Tubing-Einsatz in vier Schritten: Bohrung zeichnen, CT-Strang und BHA aufbauen, den Einsatz festlegen und Gewichtsanzeige, Lock-up-Tiefe, Aufsetzgewicht und Überzug ablesen."
@@ -2774,7 +2793,7 @@
             "icon": "wrench",
             "title": "Bohrlochgarnitur",
             "text": "Auswahl und Anordnung der Werkzeuge am Strangende und das Zeichnen der BHA.",
-            "href": "/tools/bha-builder"
+            "href": "/tools/ct-simulator"
           }
         ]
       },

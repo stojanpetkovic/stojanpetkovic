@@ -11,7 +11,12 @@
  */
 import PageLayout from '@/layouts/PageLayout.astro';
 import ToolNotice from '@/components/patterns/ToolNotice.astro';
+import { Image } from 'astro:assets';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import shotWell from '@/assets/tools/ct-simulator-well.webp';
+import shotCt from '@/assets/tools/ct-simulator-ct.webp';
+import shotBha from '@/assets/tools/ct-simulator-bha.webp';
+import shotResults from '@/assets/tools/ct-simulator-results.webp';
 import WellBuilderPanel from './WellBuilderPanel.astro';
 import BhaBuilderPanel from './BhaBuilderPanel.astro';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
@@ -34,6 +39,22 @@ const fields = { ...tData<Record<string, { label: string; hint?: string }>>(f('f
 const r = tData<Record<string, string>>(f('results'), locale)!;
 const charts = tData<Record<string, string>>(f('charts'), locale)!;
 const system = tData<{ label: string; us: string; metric: string }>('pages.tools.form.system', locale)!;
+const ws = tData<{
+  brand: string; close: string; fullscreen: string; project: string; properties: string; left: string; right: string;
+  command: { label: string; placeholder: string; ready: string; help: string; unknown: string; step: string; units: string; ok: string };
+  status: { step: string; units: string; complete: string };
+}>(p('workspace'), locale)!;
+const intro = tData<{
+  title: string; lead: string; stepsTitle: string; steps: { title: string; text: string }[];
+  shotsTitle: string; shots: Record<'well' | 'ct' | 'bha' | 'results', string>;
+  cta: string; ctaNote: string; noMobileTitle: string; noMobile: string; kept: string;
+}>(p('intro'), locale)!;
+const shots = [
+  { id: 'well', src: shotWell },
+  { id: 'ct', src: shotCt },
+  { id: 'bha', src: shotBha },
+  { id: 'results', src: shotResults },
+] as const;
 const toolsUrl = localizedPath('/tools', locale);
 
 /** Starting values in oilfield units for the CT string and the job. */
@@ -114,7 +135,7 @@ const steps = [
 
 const report = tData<Record<string, unknown>>(p('report'), locale)!;
 const wellTypes = tData<Record<string, string>>('pages.wellBuilder.types', locale)!;
-const copy = { missing: own.missing, charts, r, strip: own.strip, confirm: own.confirm, preview: own.preview, report: { ...report, types: wellTypes } };
+const copy = { workspace: ws, tabs, missing: own.missing, charts, r, strip: own.strip, confirm: own.confirm, preview: own.preview, report: { ...report, types: wellTypes } };
 
 const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key, hint: fields[row.key]?.hint });
 ---
@@ -135,6 +156,49 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
   <ToolNotice locale={locale} />
 
   <section class="bg-background pb-12">
+    <div class="sim-intro mx-auto max-w-6xl px-6 pt-10">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-start">
+        <div>
+          <h2 class="font-display text-2xl font-bold tracking-tight text-foreground">{intro.title}</h2>
+          <p class="mt-3 max-w-2xl text-base leading-relaxed text-foreground-muted">{intro.lead}</p>
+          <h3 class="mt-8 font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{intro.stepsTitle}</h3>
+          <ol class="mt-3 grid gap-3 sm:grid-cols-2" role="list">
+            {
+              intro.steps.map((step, i) => (
+                <li class="flex gap-3 rounded-xl border border-border bg-background-secondary p-4">
+                  <span class="sim-num shrink-0">{i + 1}</span>
+                  <span>
+                    <strong class="block text-sm font-semibold text-foreground">{step.title}</strong>
+                    <span class="mt-1 block text-sm leading-snug text-foreground-muted">{step.text}</span>
+                  </span>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+        <div class="sim-cta-card rounded-2xl border border-border bg-background-secondary p-6">
+          <button type="button" class="sim-cta" data-ws-open disabled>{intro.cta}</button>
+          <p class="mt-3 text-sm leading-relaxed text-foreground-muted">{intro.ctaNote}</p>
+          <p class="sim-no-mobile mt-4 rounded-lg border border-dashed border-border p-3 text-sm leading-relaxed text-foreground" role="note">
+            <strong>{intro.noMobileTitle}</strong> {intro.noMobile}
+          </p>
+          <p class="mt-4 text-xs leading-relaxed text-foreground-subtle">{intro.kept}</p>
+        </div>
+      </div>
+
+      <h3 class="mt-12 font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{intro.shotsTitle}</h3>
+      <div class="mt-4 grid gap-6 sm:grid-cols-2">
+        {
+          shots.map((shot) => (
+            <figure class="m-0">
+              <Image src={shot.src} alt={intro.shots[shot.id]} widths={[480, 800]} sizes="(min-width: 1152px) 560px, (min-width: 640px) 45vw, 100vw" class="w-full rounded-xl border border-border" loading="lazy" />
+              <figcaption class="mt-2 text-sm text-foreground-muted">{intro.shots[shot.id]}</figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+
     <div
       id="ct-sim"
       class="mx-auto max-w-6xl px-6"
@@ -144,6 +208,18 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
       data-base="us"
       data-copy={JSON.stringify(copy)}
     >
+      <!-- Workspace title bar: shown only in the full-screen workspace -->
+      <div class="sim-title sim-ws-only">
+        <span class="sim-brand">{ws.brand}</span>
+        <span class="sim-title-step" data-ws-title aria-live="polite"></span>
+        <div class="sim-title-end">
+          <button type="button" data-ws-dock="left" aria-pressed="true">{ws.left}</button>
+          <button type="button" data-ws-dock="right" aria-pressed="true">{ws.right}</button>
+          <button type="button" data-ws-fullscreen>{ws.fullscreen}</button>
+          <button type="button" data-ws-close>{ws.close}</button>
+        </div>
+      </div>
+
       <!-- Steps: one tab per part of the project, with a dot that says whether it is complete -->
       <div class="sim-bar sticky top-16 z-30 -mx-6 border-b border-border bg-background/95 px-6 backdrop-blur">
         <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 py-2">
@@ -172,6 +248,24 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
 
       <!-- The report: filled when Save as PDF is pressed, shown only in print -->
       <div class="sim-report" id="ct-report" aria-hidden="true"></div>
+
+      <!-- Workspace project palette -->
+      <nav class="sim-palette sim-palette-left sim-ws-only" aria-label={ws.project}>
+        <h2>{ws.project}</h2>
+        <ul role="list">
+          {
+            steps.map((s) => (
+              <li>
+                <button type="button" data-ws-go={s.id} aria-current={s.id === 'well' ? 'step' : undefined}>
+                  <span class="sim-num">{s.n}</span>
+                  <span>{tabs[s.id]}</span>
+                  <span class="sim-dot" data-status={s.id} aria-hidden="true"></span>
+                </button>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
 
       <!-- 1. Well -->
       <div role="tabpanel" id="panel-well" aria-labelledby="tab-well" data-panel="well" class="sim-panel">
@@ -301,6 +395,24 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
         </div>
         <div class="sim-nav"><button type="button" class="sim-next sim-back" data-go="job"><Icon name="arrow-left" size="sm" /> {tabs.back}</button><button type="button" class="sim-next sim-back" data-sim-print="results"><Icon name="download" size="sm" /> {own.printStep}</button></div>
       </div>
+
+      <!-- Workspace properties palette, command line and status bar -->
+      <aside class="sim-palette sim-palette-right sim-ws-only" aria-label={ws.properties}>
+        <h2>{ws.properties}</h2>
+        <dl class="sim-props" data-ws-props></dl>
+      </aside>
+      <form class="sim-cmd sim-ws-only" data-ws-cmd-form autocomplete="off">
+        <p class="sim-cmd-log" data-ws-log aria-live="polite">{ws.command.ready}</p>
+        <label class="sim-cmd-line">
+          <span>{ws.command.label}</span>
+          <input type="text" data-ws-cmd placeholder={ws.command.placeholder} spellcheck="false" autocapitalize="off" />
+        </label>
+      </form>
+      <div class="sim-status sim-ws-only">
+        <span>{ws.status.step}: <b data-ws-st-step></b></span>
+        <span>{ws.status.units}: <b data-ws-st-units></b></span>
+        <span>{ws.status.complete}: <b data-ws-st-done></b></span>
+      </div>
     </div>
   </section>
 </PageLayout>
@@ -338,6 +450,10 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
     const root = document.getElementById('ct-sim');
     if (!root || root.dataset.init) return;
     const copy = JSON.parse(root.dataset.copy ?? '{}') as {
+      tabs: Record<Tab, string>;
+      workspace: {
+        command: { help: string; unknown: string; step: string; units: string; ok: string; ready: string };
+      };
       missing: Record<string, string>;
       charts: ChartCopy & Record<string, string>;
       r: Record<string, string>;
@@ -402,11 +518,15 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
         button.setAttribute('aria-selected', String(id === tab));
         button.tabIndex = id === tab ? 0 : -1;
       }
+      root.querySelectorAll<HTMLElement>('[data-ws-go]').forEach((b) => (b.dataset.wsGo === tab ? b.setAttribute('aria-current', 'step') : b.removeAttribute('aria-current')));
+      const label = copy.tabs[tab];
+      root.querySelectorAll('[data-ws-title], [data-ws-st-step]').forEach((el) => (el.textContent = label));
       history.replaceState(null, '', `#${tab}`);
       // Editors drawn while hidden have no width; tell them they are visible now.
       window.dispatchEvent(new Event('resize'));
       if (tab === 'results') root.dispatchEvent(new Event('input', { bubbles: true }));
-      window.scrollTo({ top: root.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
+      if (root.classList.contains('sim-workspace')) root.querySelector<HTMLElement>(`[data-panel="${tab}"]`)!.scrollTop = 0;
+      else window.scrollTo({ top: root.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
     };
     root.querySelectorAll<HTMLElement>('[data-tab]').forEach((b) => b.addEventListener('click', () => show(b.dataset.tab as Tab)));
     root.querySelectorAll<HTMLElement>('[data-go]').forEach((b) => b.addEventListener('click', () => show(b.dataset.go as Tab)));
@@ -434,7 +554,7 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
       const sections = sectionsOf(input);
       const missing = missingParts(well, bha, sections.length, input.depth);
       const done = (ok: boolean) => (ok ? 'done' : 'todo');
-      const set = (id: string, state: string) => root.querySelector<HTMLElement>(`[data-status="${id}"]`)?.setAttribute('data-state', state);
+      const set = (id: string, state: string) => root.querySelectorAll<HTMLElement>(`[data-status="${id}"]`).forEach((d) => d.setAttribute('data-state', state));
       set('well', done(!missing.includes('holes') && !missing.includes('surveyError')));
       set('ct', done(!missing.includes('string')));
       set('bha', done(!missing.includes('bha')));
@@ -443,12 +563,27 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
       const sys = system();
       const ft = (v: number) => `${number(convert('length', 'us', sys, v), 0)} ${sys === 'us' ? 'ft' : 'm'}`;
       const s = copy.strip;
-      root.querySelector('[data-strip]')!.textContent = [
-        `${s.well}: ${well.holes.length > 0 ? `${well.holes.length} ${s.pipes}, ${s.td} ${ft(well.td)}` : '–'}`,
-        `${s.ct}: ${sections.length > 0 ? `${number(convert('diameter', 'us', sys, input.ctOd), sys === 'us' ? 3 : 1)} ${sys === 'us' ? 'in' : 'mm'}` : '–'}`,
-        `${s.bha}: ${bhaCount > 0 ? `${bhaCount} ${s.bhaTools}, ${ft(bha.length)}` : '–'}`,
-        `${s.job}: ${Number.isFinite(input.depth) ? ft(input.depth) : '–'}`,
-      ].join('  ·  ');
+      const rows: [string, string][] = [
+        [s.well, well.holes.length > 0 ? `${well.holes.length} ${s.pipes}, ${s.td} ${ft(well.td)}` : '–'],
+        [s.ct, sections.length > 0 ? `${number(convert('diameter', 'us', sys, input.ctOd), sys === 'us' ? 3 : 1)} ${sys === 'us' ? 'in' : 'mm'}` : '–'],
+        [s.bha, bhaCount > 0 ? `${bhaCount} ${s.bhaTools}, ${ft(bha.length)}` : '–'],
+        [s.job, Number.isFinite(input.depth) ? ft(input.depth) : '–'],
+      ];
+      root.querySelector('[data-strip]')!.textContent = rows.map(([k, v]) => `${k}: ${v}`).join('  ·  ');
+      root.querySelector('[data-ws-props]')?.replaceChildren(
+        ...rows.flatMap(([k, v]) => {
+          const dt = document.createElement('dt');
+          dt.textContent = k;
+          const dd = document.createElement('dd');
+          dd.textContent = v;
+          return [dt, dd];
+        })
+      );
+      const doneCount = ['well', 'ct', 'bha', 'job', 'results'].filter((id) => root.querySelector(`[data-status="${id}"]`)?.getAttribute('data-state') === 'done').length;
+      const stDone = root.querySelector('[data-ws-st-done]');
+      if (stDone) stDone.textContent = `${doneCount}/5`;
+      const stUnits = root.querySelector('[data-ws-st-units]');
+      if (stUnits) stUnits.textContent = sys === 'us' ? 'US' : 'SI';
       // The picture of the string in the Tools step.
       const d = (inches: number) => `${number(convert('diameter', 'us', sys, inches), sys === 'us' ? 3 : 1)} ${sys === 'us' ? 'in' : 'mm'}`;
       root.querySelector('#cs-svg')!.innerHTML = renderStringSvg({
@@ -652,6 +787,112 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
           buckledLength: result.rih.buckledLength,
         },
       };
+    });
+
+
+    // --- the workspace: the simulator over the whole screen, laid out like a CAD program ---
+    const wsOpenButtons = document.querySelectorAll<HTMLButtonElement>('[data-ws-open]');
+    const wide = window.matchMedia('(min-width: 768px)');
+    let wsOpen = false;
+    let wsScroll = 0;
+    const log = root.querySelector<HTMLElement>('[data-ws-log]')!;
+    const cmd = root.querySelector<HTMLInputElement>('[data-ws-cmd]')!;
+    const say = (text: string) => (log.textContent = text);
+    const click = (selector: string) => root.querySelector<HTMLElement>(selector)?.click();
+
+    const setWorkspace = (on: boolean) => {
+      if (on === wsOpen || (on && !wide.matches)) return;
+      wsOpen = on;
+      if (on) wsScroll = window.scrollY;
+      root.classList.toggle('sim-workspace', on);
+      document.documentElement.classList.toggle('sim-ws-open', on);
+      if (on) {
+        root.setAttribute('role', 'dialog');
+        root.setAttribute('aria-modal', 'true');
+        root.classList.toggle('ws-hide-right', window.innerWidth < 1100);
+        say(copy.workspace.command.ready);
+        cmd.focus({ preventScroll: true });
+      } else {
+        root.removeAttribute('role');
+        root.removeAttribute('aria-modal');
+        if (document.fullscreenElement) void document.exitFullscreen?.();
+        window.scrollTo(0, wsScroll);
+        wsOpenButtons[0]?.focus({ preventScroll: true });
+      }
+      // The editors measure themselves when visible.
+      window.dispatchEvent(new Event('resize'));
+    };
+    wsOpenButtons.forEach((b) => {
+      b.addEventListener('click', () => setWorkspace(true));
+      if (wide.matches) b.removeAttribute('disabled');
+    });
+    wide.addEventListener('change', () => wsOpenButtons.forEach((b) => (b.disabled = !wide.matches)));
+    wide.addEventListener('change', () => !wide.matches && setWorkspace(false));
+    root.querySelector('[data-ws-close]')?.addEventListener('click', () => setWorkspace(false));
+    root.querySelectorAll<HTMLElement>('[data-ws-go]').forEach((b) => b.addEventListener('click', () => show(b.dataset.wsGo as Tab)));
+    const fullscreenButton = root.querySelector<HTMLElement>('[data-ws-fullscreen]');
+    if (!document.fullscreenEnabled && fullscreenButton) fullscreenButton.hidden = true;
+    fullscreenButton?.addEventListener('click', () => (document.fullscreenElement ? void document.exitFullscreen() : void root.requestFullscreen?.().catch(() => undefined)));
+    root.querySelectorAll<HTMLElement>('[data-ws-dock]').forEach((b) =>
+      b.addEventListener('click', () => {
+        const hidden = root.classList.toggle(b.dataset.wsDock === 'left' ? 'ws-hide-left' : 'ws-hide-right');
+        b.setAttribute('aria-pressed', String(!hidden));
+        window.dispatchEvent(new Event('resize'));
+      })
+    );
+
+    // The command line: the step names, EXAMPLE, PRINT, UNITS and the window.
+    const aliases: Record<string, () => void> = {};
+    for (const id of TABS) {
+      aliases[id] = () => show(id);
+      aliases[copy.tabs[id].toLowerCase()] = () => show(id);
+    }
+    aliases.w = aliases.well;
+    aliases.c = aliases.ct;
+    aliases.b = aliases.bha;
+    aliases.j = aliases.job;
+    aliases.r = aliases.run = aliases.results;
+    const run = (line: string) => {
+      const [name, arg = ''] = line.trim().toLowerCase().split(/\s+/);
+      if (!name) return;
+      const c = copy.workspace.command;
+      if (name in aliases) {
+        aliases[name]();
+        say(`${c.step}: ${copy.tabs[active]}`);
+      } else if (name === 'example') click('[data-load-example]');
+      else if (name === 'print' || name === 'pdf') {
+        const step = (arg || (active === 'results' ? 'results' : active)) as ReportScope;
+        click(`[data-sim-print="${arg === 'all' ? 'all' : step}"]`);
+      } else if (name === 'units' || name === 'u') {
+        const next = arg === 'metric' || arg === 'si' ? 'metric' : arg === 'us' ? 'us' : system() === 'us' ? 'metric' : 'us';
+        click(`[data-system="${next}"]`);
+        say(`${c.units}: ${next === 'us' ? 'US' : 'SI'}`);
+      } else if (name === 'left' || name === 'right') click(`[data-ws-dock="${name}"]`);
+      else if (name === 'fullscreen' || name === 'f') fullscreenButton?.click();
+      else if (name === 'close' || name === 'exit' || name === 'quit') setWorkspace(false);
+      else if (name === 'help' || name === '?') say(c.help);
+      else say(c.unknown.replace('{cmd}', name));
+    };
+    root.querySelector('[data-ws-cmd-form]')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      run(cmd.value);
+      cmd.value = '';
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!wsOpen) return;
+      const t = e.target as HTMLElement;
+      const typing = /^(input|select|textarea)$/i.test(t.tagName) || t.isContentEditable;
+      if (e.key === 'Escape') {
+        if (typing && t === cmd && cmd.value) cmd.value = '';
+        else if (typing) t.blur();
+        else setWorkspace(false);
+      } else if (e.key === 'F1') {
+        e.preventDefault();
+        run('help');
+      } else if (!typing && e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey && t.tagName !== 'BUTTON') {
+        // Typing anywhere goes to the command line, as in a CAD program.
+        cmd.focus({ preventScroll: true });
+      }
     });
 
     // A link to another step of this page (#tools, #results) switches the step without a reload.

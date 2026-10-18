@@ -385,6 +385,13 @@ export default defineConfig({
   // rendering — significant whitespace between inline tags is preserved.
   compressHTML: true,
 
+  // The BHA Builder and the Well Builder are steps of the CT Simulator now.
+  redirects: Object.fromEntries(
+    ['', '/sr', '/de'].flatMap((prefix) =>
+      ['bha-builder', 'well-builder'].map((tool) => [`${prefix}/tools/${tool}`, `${prefix}/tools/ct-simulator`])
+    )
+  ),
+
   build: {
     inlineStylesheets: 'auto',
   },

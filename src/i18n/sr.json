@@ -1465,6 +1465,14 @@
       }
     },
     "tools": {
+      "featured": {
+        "badge": "Softver",
+        "title": "Kompletna aplikacija, ne kalkulator",
+        "text": "CT Simulator je radni prostor raspoređen kao program za crtanje, sa sopstvenim koracima, paletama i komandnom linijom. Radi u pregledaču i čuva vaš projekat na vašem računaru.",
+        "hint": "Samo za velike ekrane i tablete. Nema mobilne verzije.",
+        "cta": "Otvori CT Simulator",
+        "listTitle": "Kalkulatori"
+      },
       "meta": {
         "title": "Alati",
         "description": "Mali inženjerski alati i kalkulatori u oblaku za coiled tubing i rad na naftnim poljima, od inženjera, sa objašnjenom metodom."
@@ -1539,8 +1547,8 @@
           "title": "CT simulator",
           "description": "Nacrtajte bušotinu, sastavite CT niz i BHA, podesite posao i pročitajte indikator težine, dubinu lock-up-a, težinu oslanjanja i prekoračenje zatezanja.",
           "inputs": [
-            "Bušotina, survey i cevi iz Well Buildera",
-            "CT niz i BHA iz BHA Buildera",
+            "Bušotina, merenje devijacije i cevi, nacrtani na šemi",
+            "CT niz i BHA, alat po alat",
             "Fluidi, trenje i površinska oprema"
           ],
           "outputs": [
@@ -1633,40 +1641,6 @@
             "Gustina fluida za gušenje",
             "Zapremine, hodovi i vremena",
             "Pritisak utiskivanja, ili ICP, FCP i raspored pritiska"
-          ]
-        },
-        {
-          "href": "/tools/bha-builder",
-          "tag": "Coiled tubing",
-          "icon": "wrench",
-          "title": "BHA Builder",
-          "description": "Nacrtajte coiled tubing sklop na dnu bušotine alat po alat, sa dimenzijama, spojevima i ukupnom dužinom, i odštampajte ga kao list.",
-          "inputs": [
-            "Alati od vrha niza do dna",
-            "Spoljašnji i unutrašnji prečnici",
-            "Dužine i spojevi"
-          ],
-          "outputs": [
-            "Crtež sklopa",
-            "Ukupna dužina, najveći OD i najmanji otvor",
-            "List za čuvanje kao PDF"
-          ]
-        },
-        {
-          "href": "/tools/well-builder",
-          "tag": "Bušotine",
-          "icon": "layers",
-          "title": "Crtanje bušotine",
-          "description": "Nacrtaj bušotinu prevlačenjem kolone, tubinga, coiled tubing-a i pakera sa API dimenzijama na šemu, i vidi je u 3D iz deviation loga.",
-          "inputs": [
-            "Komponente prevučene na šemu",
-            "API dimenzije i težine kolone i tubinga",
-            "Deviation log (MD, inklinacija, azimut)"
-          ],
-          "outputs": [
-            "Šema bušotine po mernoj dubini",
-            "Unutrašnji prečnik, drift i kapacitet",
-            "3D putanja i jačina doglega"
           ]
         }
       ]
@@ -1931,15 +1905,6 @@
       }
     },
     "wellBuilder": {
-      "meta": {
-        "title": "Crtanje bušotine",
-        "description": "Nacrtaj bušotinu prevlačenjem kolone, tubinga, coiled tubing-a i pakera sa API dimenzijama na šemu, i pogledaj bušotinu u 3D iz merenja devijacije."
-      },
-      "hero": {
-        "badge": "Bušotine",
-        "title": "Crtanje bušotine",
-        "description": "Prevuci kolonu, liner, tubing, coiled tubing, pakere i perforacije na šemu, izaberi API dimenzije, nalepi deviation log i pogledaj bušotinu u 3D."
-      },
       "units": {
         "label": "Jedinica dubine"
       },
@@ -2363,15 +2328,6 @@
       }
     },
     "bhaBuilder": {
-      "meta": {
-        "title": "BHA Builder",
-        "description": "Nacrtajte coiled tubing sklop na dnu bušotine (BHA) od njegovih alata, sa prečnicima, dužinama i spojevima, crtežom niza i ukupnom dužinom, u oilfield ili metričkim jedinicama."
-      },
-      "hero": {
-        "badge": "Coiled tubing",
-        "title": "BHA Builder",
-        "description": "Dodajte alate coiled tubing sklopa na dnu bušotine od vrha niza do dna, unesite njihove dimenzije i dobijte crtež, ukupnu dužinu i list za štampu."
-      },
       "palette": {
         "title": "Alati",
         "hint": "Izaberite alat da ga dodate na dno sklopa, pa izmenite njegove dimenzije."
@@ -2564,6 +2520,69 @@
       }
     },
     "ctSimulator": {
+      "intro": {
+        "title": "Planirajte rad sa kontinualnim cevima na velikom ekranu",
+        "lead": "CT Simulator vodi posao sa kontinualnim cevima (coiled tubing) od bušotine do sila u jednom radnom prostoru. Nacrtate bušotinu, sastavite CT string i BHA, podesite posao i očitate težinu na indikatoru, dubinu do blokade (lock-up), težinu rasterećenja, prekoračenje zatezanja i dubinu na kojoj string počinje da se izvija. Izgleda i radi kao program za crtanje: traka sa koracima, paleta projekta, površina za crtanje, paleta svojstava i komandna linija.",
+        "stepsTitle": "Pet koraka",
+        "steps": [
+          {
+            "title": "Bušotina",
+            "text": "Nacrtajte kolone, liner, tubing i alate kompletiranja na šemi i dodajte merenje devijacije."
+          },
+          {
+            "title": "CT string",
+            "text": "Podesite spoljni prečnik, sekcije zida i kalem, i pogledajte nacrtan string."
+          },
+          {
+            "title": "BHA",
+            "text": "Sastavite BHA od alata, sa njihovim dimenzijama i težinama."
+          },
+          {
+            "title": "Posao",
+            "text": "Podesite dubinu, fluide, trenje i ograničenja."
+          },
+          {
+            "title": "Rezultati",
+            "text": "Očitajte sile i dijagrame težine i sile, i sačuvajte posao kao PDF."
+          }
+        ],
+        "shotsTitle": "Radni prostor",
+        "shots": {
+          "well": "Bušotina: šema sa komponentama",
+          "ct": "CT string: string i njegove sekcije",
+          "bha": "BHA: alati i crtež sklopa",
+          "results": "Rezultati: sile i dijagrami"
+        },
+        "cta": "Otvori radni prostor",
+        "ctaNote": "Radni prostor se otvara preko celog ekrana. Esc ili Zatvori vraća na ovu stranicu.",
+        "noMobileTitle": "Nema mobilne verzije.",
+        "noMobile": "CT Simulator radi samo na velikim ekranima i tabletima, od 768 piksela širine. Otvorite ovu stranicu na računaru ili tabletu.",
+        "kept": "Bušotina, BHA i posao se čuvaju u ovom pregledaču i nigde se ne šalju."
+      },
+      "workspace": {
+        "brand": "CT Simulator",
+        "close": "Zatvori",
+        "fullscreen": "Ceo ekran",
+        "project": "Projekat",
+        "properties": "Svojstva",
+        "left": "Projekat",
+        "right": "Svojstva",
+        "command": {
+          "label": "Komanda:",
+          "placeholder": "WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT, UNITS, HELP",
+          "ready": "Ukucajte komandu i pritisnite Enter. HELP prikazuje spisak.",
+          "help": "Komande: WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT [korak|all], UNITS [US|METRIC], LEFT, RIGHT, FULLSCREEN, CLOSE. Esc zatvara radni prostor.",
+          "unknown": "Nepoznata komanda: {cmd}. HELP prikazuje spisak.",
+          "step": "Korak",
+          "units": "Jedinice",
+          "ok": "U redu"
+        },
+        "status": {
+          "step": "Korak",
+          "units": "Jedinice",
+          "complete": "Završeno"
+        }
+      },
       "meta": {
         "title": "CT simulator",
         "description": "Isplanirajte coiled tubing posao u četiri koraka: nacrtajte bušotinu, sastavite CT niz i BHA, podesite posao i pročitajte indikator težine, dubinu lock-up-a, težinu oslanjanja i prekoračenje zatezanja."
@@ -2774,7 +2793,7 @@
             "icon": "wrench",
             "title": "Sklop na dnu bušotine",
             "text": "Izbor i raspored alata na kraju niza, i crtanje BHA.",
-            "href": "/tools/bha-builder"
+            "href": "/tools/ct-simulator"
           }
         ]
       },

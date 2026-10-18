@@ -11,6 +11,8 @@
  */
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import { Image } from 'astro:assets';
+import shot from '@/assets/tools/ct-simulator-well.webp';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
 
@@ -33,7 +35,11 @@ interface Tool {
 const { locale = defaultLocale } = Astro.props;
 
 const hero = tData<{ badge: string; titleLead: string; titleHighlight: string; description: string }>('pages.tools.hero', locale)!;
-const items = tData<Tool[]>('pages.tools.items', locale)!;
+const all = tData<Tool[]>('pages.tools.items', locale)!;
+// The CT Simulator is software, not a calculator: it is shown first and larger, apart from the list.
+const featured = all.find((tool) => tool.href === '/tools/ct-simulator')!;
+const items = all.filter((tool) => tool !== featured);
+const feat = tData<{ badge: string; title: string; text: string; hint: string; cta: string; listTitle: string }>('pages.tools.featured', locale)!;
 const suggest = tData<{ title: string; text: string; cta: string }>('pages.tools.suggest', locale)!;
 
 const contactUrl = localizedPath('/contact', locale);
@@ -58,6 +64,28 @@ const contactUrl = localizedPath('/contact', locale);
   <!-- Tool list: one ruled row per tool -->
   <section class="bg-background py-10 sm:py-12">
     <div class="mx-auto max-w-5xl px-6">
+      <!-- Featured: the CT Simulator, software -->
+      <a href={localizedPath(featured.href!, locale)} class="group grid overflow-hidden rounded-2xl bg-brand-700 text-white shadow-lg transition-shadow hover:shadow-xl lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+        <div class="flex flex-col justify-center gap-4 p-6 sm:p-8">
+          <span class="inline-flex w-fit items-center gap-2 rounded-full bg-white px-3 py-1 font-mono text-[11px] font-bold uppercase tracking-widest text-brand-700">
+            <Icon name={featured.icon} size="xs" />
+            {feat.badge}
+          </span>
+          <h2 class="font-display text-3xl font-bold leading-tight !text-white">{featured.title}</h2>
+          <p class="text-lg font-semibold leading-snug !text-white">{feat.title}</p>
+          <p class="text-sm leading-relaxed text-white/85">{feat.text} {featured.description}</p>
+          <span class="mt-2 inline-flex w-fit items-center gap-2 rounded-xl bg-white px-5 py-3 text-base font-bold text-brand-700 group-hover:bg-white/90">
+            {feat.cta}
+            <Icon name="arrow-right" size="sm" class="transition-transform group-hover:translate-x-0.5" />
+          </span>
+          <p class="text-xs text-white/75">{feat.hint}</p>
+        </div>
+        <div class="flex items-center bg-white/10 p-4 sm:p-5">
+          <Image src={shot} alt="" widths={[480, 800]} sizes="(min-width: 1024px) 480px, 100vw" class="w-full rounded-lg shadow-md" loading="lazy" />
+        </div>
+      </a>
+
+      <h2 class="mb-3 mt-10 font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{feat.listTitle}</h2>
       <ul class="divide-y divide-border overflow-hidden rounded-xl border border-border bg-card shadow-sm" role="list">
         {items.map((tool) => {
           const href = tool.href ? localizedPath(tool.href, locale) : contactUrl;

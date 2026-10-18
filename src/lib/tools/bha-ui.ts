@@ -1,7 +1,7 @@
 /**
- * Browser side of the BHA Builder page: the list of tools, the drawing, the
- * summary and the saved state. The page supplies the markup (see
- * `BhaBuilderView.astro`) and the copy; the BHA itself, its checks and the SVG
+ * Browser side of the BHA Builder step: the list of tools, the drawing, the
+ * summary and the saved state. The panel supplies the markup (see
+ * `BhaBuilderPanel.astro`) and the copy; the BHA itself, its checks and the SVG
  * come from `bha.ts`.
  *
  * Values are kept in inches and feet and shown in the unit system the visitor
