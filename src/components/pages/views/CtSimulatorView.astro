@@ -468,11 +468,15 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
       (root.querySelector('[data-system][aria-pressed="true"]') as HTMLElement | null)?.dataset.system === 'metric' ? 'metric' : 'us';
 
     // An example project: the example well, the workbook BHA and the starting job.
-    const loadExample = () => {
+    // The editors read their data once, so the page reloads; RESUME_KEY tells the
+    // reloaded page to reopen the workspace the example was loaded from.
+    const RESUME_KEY = 'ct-simulator:resume';
+    const loadExample = (resume = false) => {
       try {
         localStorage.setItem(WELL_KEY, JSON.stringify(exampleWell('ft')));
         localStorage.setItem(BHA_KEY, JSON.stringify({ file: toFile(exampleItems('sheet'), { bhaNo: '', runNo: '', preparedBy: '' }), system: 'us' }));
         localStorage.removeItem(SIM_KEY);
+        if (resume) sessionStorage.setItem(RESUME_KEY, '1');
       } catch {
         /* storage blocked */
       }
@@ -482,7 +486,7 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
     root.querySelectorAll('[data-load-example]').forEach((b) =>
       b.addEventListener('click', () => {
         if (readStorage(WELL_KEY, readWell)?.items.length && !confirm(copy.confirm)) return;
-        loadExample();
+        loadExample(root.classList.contains('sim-workspace'));
       })
     );
     // A first visit opens with the example, so there is something to look at.
@@ -910,6 +914,16 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
     };
     show(fromHash() ?? 'well');
     window.scrollTo(0, 0);
+
+    // Back in the workspace the example was loaded from.
+    let resume = false;
+    try {
+      resume = sessionStorage.getItem(RESUME_KEY) !== null;
+      sessionStorage.removeItem(RESUME_KEY);
+    } catch {
+      /* storage blocked */
+    }
+    if (resume) setWorkspace(true);
   }
 
   init();
