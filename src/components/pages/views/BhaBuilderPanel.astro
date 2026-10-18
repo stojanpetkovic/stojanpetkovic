@@ -42,7 +42,8 @@ const copy = {
 
       <!-- Toolbar -->
       <div class="bha-noprint flex flex-wrap items-center gap-x-4 gap-y-3">
-        <div role="group" aria-label={units.label} class="tool-segment">
+        <!-- Set by the CT Simulator's unit switch, which covers the whole project -->
+        <div role="group" aria-label={units.label} class="tool-segment" hidden>
           <button type="button" data-unit="us" aria-pressed="true">in · ft</button>
           <button type="button" data-unit="metric" aria-pressed="false">mm · m</button>
         </div>

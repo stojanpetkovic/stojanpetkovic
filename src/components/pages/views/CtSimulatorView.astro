@@ -234,14 +234,6 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
               ))
             }
           </div>
-          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 max-sm:w-full">
-            <button type="button" class="wb-link" data-load-example>{own.example}</button>
-            <button type="button" class="wb-link inline-flex items-center gap-1.5" data-sim-print="all"><Icon name="download" size="xs" />{own.printAll}</button>
-            <div role="group" aria-label={system.label} class="tool-segment max-sm:w-full">
-              <button type="button" data-system="us" aria-pressed="true">{system.us}</button>
-              <button type="button" data-system="metric" aria-pressed="false">{system.metric}</button>
-            </div>
-          </div>
         </div>
         <p class="sim-strip pb-2 text-xs text-foreground-muted" data-strip aria-live="polite"></p>
       </div>
@@ -398,6 +390,15 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
 
       <!-- Workspace properties palette, command line and status bar -->
       <aside class="sim-palette sim-palette-right sim-ws-only" aria-label={ws.properties}>
+        <!-- The project's actions and its one unit switch, which sets the units of every step -->
+        <div class="sim-actions">
+          <button type="button" class="wb-link" data-load-example>{own.example}</button>
+          <button type="button" class="wb-link inline-flex items-center gap-1.5" data-sim-print="all"><Icon name="download" size="xs" />{own.printAll}</button>
+          <div role="group" aria-label={system.label} class="tool-segment">
+            <button type="button" data-system="us" aria-pressed="true">{system.us}</button>
+            <button type="button" data-system="metric" aria-pressed="false">{system.metric}</button>
+          </div>
+        </div>
         <h2>{ws.properties}</h2>
         <dl class="sim-props" data-ws-props></dl>
       </aside>
@@ -509,6 +510,15 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
       for (const k of ['s2Len', 's2Wall', 's3Len', 's3Wall']) if (typeof saved[k] !== 'number') delete defaults[k];
       root.dataset.defaults = JSON.stringify(defaults);
     }
+
+    // One unit switch for the project: the Well and BHA steps follow it.
+    const wellRoot = document.getElementById('well-builder');
+    const bhaRoot = document.getElementById('bha-builder');
+    const syncSteps = (sys: UnitSystem) => {
+      wellRoot?.querySelector<HTMLElement>(`[data-unit="${sys === 'us' ? 'ft' : 'm'}"]`)?.click();
+      bhaRoot?.querySelector<HTMLElement>(`[data-unit="${sys}"]`)?.click();
+    };
+    root.querySelectorAll<HTMLElement>('[data-system]').forEach((b) => b.addEventListener('click', () => syncSteps(b.dataset.system as UnitSystem)));
 
     // --- tabs ---
     let active: Tab = 'well';
@@ -914,6 +924,14 @@ const field = (row: Row) => ({ ...row, label: fields[row.key]?.label ?? row.key,
     };
     show(fromHash() ?? 'well');
     window.scrollTo(0, 0);
+
+    // The project opens in the units its well was saved in, once the steps and the form are wired.
+    const startUnits = () => {
+      if (wellRoot?.querySelector('[data-unit="m"][aria-pressed="true"]')) root.querySelector<HTMLElement>('[data-system="metric"]')?.click();
+      else syncSteps('us');
+    };
+    if (wellRoot?.dataset.init && bhaRoot?.dataset.init) startUnits();
+    else window.addEventListener('load', startUnits, { once: true });
 
     // Back in the workspace the example was loaded from.
     let resume = false;
