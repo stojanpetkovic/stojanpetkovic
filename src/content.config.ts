@@ -161,6 +161,12 @@ const projects = defineCollection({
        * on the Projects page). Existing projects are websites.
        */
       category: z.enum(['industry', 'web']).default('web'),
+      /**
+       * Shorter title for the <title> tag and social cards, where search engines
+       * cut a title at about 60 characters including the ` — <site name>` suffix.
+       * The page heading keeps `title`.
+       */
+      seoTitle: z.string().optional(),
       order: z.number().default(99),
       year: z.number().optional(),
       client: z.string().optional(),
