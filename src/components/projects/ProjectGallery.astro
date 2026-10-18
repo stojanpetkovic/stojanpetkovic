@@ -169,7 +169,7 @@ const slideData = images.map((item, i) =>
   </button>
 </div>
 
-<script define:vars={{ id, imageData: slideData }}>
+<script is:inline define:vars={{ id, imageData: slideData }}>
 (function () {
   const galleryId = id;
   const track = document.getElementById('track-' + galleryId);

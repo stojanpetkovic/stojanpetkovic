@@ -10,7 +10,7 @@
  */
 import { pipeProperties, sizeLabel, type ApiPipe } from './api-pipe';
 import {
-  CT_WALLS, ITEM_TYPES, apiKind, createItem, emptyWell, exampleWell, isPipe, isTubingTool, itemErrors, itemSize, newId,
+  CT_WALLS, apiKind, createItem, emptyWell, exampleWell, isPipe, isTubingTool, itemErrors, itemSize, newId,
   readWell, sizeOptions, snapStep, toUnit, weightOptions, withSize, withWeight, type ItemType, type WellItem, type WellState,
 } from './model';
 import { minimumCurvature, parseSurvey, pointAt, summarise, type DepthUnit, type PathPoint, type SurveyError } from './survey';
@@ -688,7 +688,7 @@ export class WellBuilder {
       return;
     }
     const errors = itemErrors(item);
-    const field = (key: string, label: string, control: string, hint = '') =>
+    const field = (_key: string, label: string, control: string, hint = '') =>
       `<label class="wb-field"><span>${esc(label)}</span>${control}${hint ? `<small>${hint}</small>` : ''}</label>`;
     const select = (key: string, options: { value: string | number; label: string }[], value: string | number) =>
       `<select data-field="${key}">${options
