@@ -463,6 +463,7 @@ html:root[data-theme='blue'] .tool-segment {
   border-radius: 0.6rem;
   background: var(--color-background-secondary);
 }
+html:root[data-theme='blue'] .tool-segment[hidden] { display: none; }
 html:root[data-theme='blue'] .tool-segment button {
   padding: 0.4rem 0.9rem;
   border-radius: 0.45rem;
@@ -1055,8 +1056,6 @@ html:root[data-theme='blue'] .bha-fields .wb-field input[aria-invalid='true'] { 
   .sim-tabs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0.15rem; overflow: visible; width: 100%; }
   .sim-tab { flex-direction: column; gap: 0.2rem; padding: 0.4rem 0.1rem; font-size: 0.68rem; justify-content: center; position: relative; }
   .sim-dot { position: absolute; top: 0.35rem; right: 0.35rem; }
-  .sim-bar .tool-segment { width: 100%; }
-  .sim-bar .tool-segment button { flex: 1; }
 }
 
 /* CT Simulator: the picture of the string. */
@@ -1215,12 +1214,15 @@ html.sim-ws-open { overflow: hidden; }
 #ct-sim.sim-workspace .sim-bar .sim-strip { display: none; }
 #ct-sim.sim-workspace .sim-tab { border-radius: 0; padding: 0.5rem 0.9rem; }
 /* The left palette lists the steps; the ribbon shows them only while that palette is hidden. */
-#ct-sim.sim-workspace:not(.ws-hide-left) .sim-tabs { display: none; }
+#ct-sim.sim-workspace:not(.ws-hide-left) .sim-bar { display: none; }
 
 /* Palettes dock left and right of the drawing area. */
 .sim-palette { width: 15rem; min-height: 0; overflow-y: auto; padding: 0.75rem; background: var(--color-background-secondary); }
 .sim-palette-left { grid-area: left; border-right: 1px solid var(--color-border-strong, var(--color-border)); }
 .sim-palette-right { grid-area: right; border-left: 1px solid var(--color-border-strong, var(--color-border)); width: 17rem; }
+.sim-actions { display: grid; justify-items: start; gap: 0.6rem; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--color-border); }
+.sim-actions .tool-segment { width: 100%; }
+.sim-actions .tool-segment button { flex: 1; }
 .sim-palette h2 {
   margin: 0 0 0.5rem; font-family: var(--font-mono, monospace); font-size: 0.6875rem; letter-spacing: 0.12em;
   text-transform: uppercase; color: var(--color-brand-700);
