@@ -1,11 +1,12 @@
 ---
 import BhaBuilderView from '@/components/pages/views/BhaBuilderView.astro';
 import { getSecondaryLocales } from '@/i18n';
+import { segment } from '@/i18n/routes';
 
-// Locale-prefixed calculator page (`/<locale>/tools/bha-builder`). One page
+// Locale-prefixed calculator page (`/<locale>/tools/bha-builder`, translated per locale). One page
 // per non-default locale; emits nothing when i18n is off.
 export function getStaticPaths() {
-  return getSecondaryLocales().map((locale) => ({ params: { locale } }));
+  return getSecondaryLocales().map((locale) => ({ params: { locale, tools: segment('tools', locale) } }));
 }
 
 const { locale } = Astro.params;

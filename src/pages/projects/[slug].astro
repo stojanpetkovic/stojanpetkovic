@@ -2,8 +2,9 @@
 import ProjectLayout from '@/layouts/ProjectLayout.astro';
 import { render } from 'astro:content';
 import { assertNoSlugCollisions } from '@/lib/content-validation';
-import { getVisibleProjects, getRoutableProjects } from '@/lib/projects';
+import { getProjectSlug, getVisibleProjects, getRoutableProjects } from '@/lib/projects';
 import { defaultLocale } from '@/i18n';
+import { projectSlug } from '@/i18n/routes';
 
 export async function getStaticPaths() {
   // Fail the build early on content-integrity problems: two entries resolving
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
   const routableProjects = await getRoutableProjects(defaultLocale);
 
   return routableProjects.map((project) => ({
-    params: { slug: project.id.replace(new RegExp(`^${defaultLocale}/`), '') },
+    params: { slug: projectSlug(getProjectSlug(project.id, defaultLocale), defaultLocale) },
     props: {
       project,
       related: visibleProjects

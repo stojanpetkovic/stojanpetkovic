@@ -1,0 +1,17 @@
+---
+import N2DisplacementView from '@/components/pages/views/N2DisplacementView.astro';
+import { getSecondaryLocales } from '@/i18n';
+import { segment, toolSlug } from '@/i18n/routes';
+
+// Locale-prefixed calculator page (`/<locale>/tools/nitrogen-displacement`, translated per locale). One page
+// per non-default locale; emits nothing when i18n is off.
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({
+    params: { locale, tools: segment('tools', locale), nitrogenDisplacement: toolSlug('nitrogen-displacement', locale) },
+  }));
+}
+
+const { locale } = Astro.params;
+---
+
+<N2DisplacementView locale={locale} />
