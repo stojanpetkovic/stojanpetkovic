@@ -228,10 +228,10 @@
     "titleHighlight": "es nicht.",
     "description": "Sie wurde verschoben, gelöscht oder hat nie existiert. Wir bringen Sie zurück auf den richtigen Weg.",
     "backHome": "Zurück zur Startseite",
-    "browseBlog": "Zum Blog",
+    "browseProjects": "Zu den Projekten",
     "tryInstead": "Vielleicht suchen Sie eines davon",
     "projectsDesc": "Ausgewählte Arbeiten und die Geschichten dahinter.",
-    "blogDesc": "Notizen zu Ingenieurwesen, Software und dem Web.",
+    "toolsDesc": "Rechner und Werkzeuge für Bohrungen und Geothermie.",
     "contactTitle": "Kontakt",
     "contactDesc": "Schreiben Sie mir zu Ihrem Projekt."
   },

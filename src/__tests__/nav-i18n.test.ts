@@ -21,7 +21,7 @@ import { getNavItems, getLogoHref, resolveNavItem, type NavItem } from '@/config
 describe('nav config — locale resolution (en default, de secondary)', () => {
   it('keeps default-locale hrefs at the site root', () => {
     const items = getNavItems('en');
-    expect(items.find((i) => i.label === 'Blog')?.href).toBe('/blog');
+    expect(items.find((i) => i.label === 'Projects')?.href).toBe('/projects');
     expect(items.find((i) => i.label === 'About')?.href).toBe('/about');
   });
 
@@ -31,7 +31,6 @@ describe('nav config — locale resolution (en default, de secondary)', () => {
       '/de',
       '/de/services',
       '/de/projects',
-      '/de/blog',
       '/de/about',
       '/de/contact',
     ]);
@@ -92,7 +91,7 @@ describe('Services mega menu', () => {
 
   it('groups the service pages under Services and keeps the top bar short', () => {
     const items = getNavItems('en');
-    expect(items.map((i) => i.label)).toEqual(['Home', 'Services', 'Projects', 'Blog', 'About', 'Contact']);
+    expect(items.map((i) => i.label)).toEqual(['Home', 'Services', 'Projects', 'About', 'Contact']);
     const hrefs = services('en').mega!.groups.flatMap((g) => g.links.map((l) => l.href));
     expect(hrefs).toContain('/courses');
     expect(hrefs).toContain('/tools');

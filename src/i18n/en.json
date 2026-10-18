@@ -228,10 +228,10 @@
     "titleHighlight": "found.",
     "description": "This page has moved, been removed, or never existed in the first place. Let's get you back on track.",
     "backHome": "Back to home",
-    "browseBlog": "Browse the blog",
+    "browseProjects": "Browse the projects",
     "tryInstead": "Try one of these instead",
     "projectsDesc": "Selected work and case studies.",
-    "blogDesc": "Notes on engineering, software and the web.",
+    "toolsDesc": "Calculators and tools for wells and geothermal heat.",
     "contactTitle": "Contact",
     "contactDesc": "Start a conversation about your project."
   },

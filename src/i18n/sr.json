@@ -228,10 +228,10 @@
     "titleHighlight": "ne postoji.",
     "description": "Premeštena je, obrisana ili nikad nije ni postojala. Hajde da te vratimo na pravi put.",
     "backHome": "Nazad na početnu",
-    "browseBlog": "Pogledaj blog",
+    "browseProjects": "Pogledaj projekte",
     "tryInstead": "Možda tražiš nešto od ovoga",
     "projectsDesc": "Izdvojeni radovi i priče iza njih.",
-    "blogDesc": "Beleške o inženjerstvu, softveru i webu.",
+    "toolsDesc": "Kalkulatori i alati za bušotine i geotermiju.",
     "contactTitle": "Kontakt",
     "contactDesc": "Piši mi o svom projektu."
   },
