@@ -326,10 +326,20 @@ export interface CostInputs {
   pipelinePerM: number;
   /** Surface equipment for using the heat (exchangers, pumps), €. */
   equipment: number;
+  /** Wells that return the cooled water to the reservoir, drilled at the same cost per metre. */
+  reinjectionWells?: number;
+  /** Depth of each reinjection well, m. */
+  reinjectionDepthM?: number;
+  /**
+   * Share of new wells that find the water. Below 1 the drilling is the expected cost: the
+   * wells that fail are paid for too, so one successful well costs 1 / successRate wells.
+   */
+  successRate?: number;
 }
 
 export interface Investment {
   wells: number;
+  reinjection: number;
   workover: number;
   heatPump: number;
   pipeline: number;
@@ -343,12 +353,14 @@ export interface Investment {
 
 /** What the system costs to build: the items, their sum and the class 4 range around it. */
 export function investmentEstimate(c: CostInputs): Investment {
-  const wells = c.newWells * c.depthM * c.drillingPerM;
+  const wells = (c.newWells / (c.successRate ?? 1)) * c.depthM * c.drillingPerM;
+  const reinjection = (c.reinjectionWells ?? 0) * (c.reinjectionDepthM ?? 0) * c.drillingPerM;
   const heatPump = c.pumpKw * c.heatPumpPerKw;
   const pipeline = c.pipelineM * c.pipelinePerM;
-  const total = wells + c.workover + heatPump + pipeline + c.equipment;
+  const total = wells + reinjection + c.workover + heatPump + pipeline + c.equipment;
   return {
     wells,
+    reinjection,
     workover: c.workover,
     heatPump,
     pipeline,

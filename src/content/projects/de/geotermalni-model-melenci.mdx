@@ -193,7 +193,7 @@ Drei Arbeitsregeln, die wir anwenden:
 
 ## Wirtschaftlichkeit
 
-Die Rechnung vergleicht die **Baukosten** mit dem Wert der Wärme, die das System liefert. Die Kosten sind die Summe von sechs Posten. Für zwei davon (Bohren und Ausrüstung) gibt es eine öffentliche Schätzung von 2012; für vier gibt es keine öffentliche Zahl für Serbien, daher sind zwei Annahmen (Wärmepumpe und Verteilung) und zwei nicht bewertet (Aufwältigung und Gasausrüstung). Die Tabelle nennt die Grundlage jeder Zahl.
+Die Rechnung vergleicht die **Baukosten** mit dem Wert der Wärme, die das System liefert. Die Kosten sind die Summe von sechs Posten. Für zwei davon (Bohren und Ausrüstung) gibt es eine öffentliche Schätzung von 2012; für vier gibt es keine öffentliche Zahl für Serbien, daher sind zwei Annahmen (Wärmepumpe und Verteilung) und zwei nicht bewertet (Aufwältigung und Gasausrüstung). Die Tabelle nennt die Grundlage jeder Zahl. Ein siebter Posten, die Reinjektionsbohrung, wird gesondert gerechnet, in der Tabelle der ausgelassenen Posten unten.
 
 <MelenciModel part="costs" locale="de" />
 
@@ -225,6 +225,14 @@ Aus der Tabelle (die Betriebskosten sind eingerechnet, die Aufwältigung und das
 - **Neue Bohrung bis 1.300 m (75 °C, 8 l/s):** etwa 1,19 Mio. € (Spanne 0,83 bis 1,78), Amortisation in 4,9, 1,9 und 1,2 Jahren.
 - **Was das heißt:** Ersetzt die Wärme Gas, ist die Amortisation in allen Fällen lang (5 bis 27 Jahre); ersetzt sie Strom, kurz (1 bis 3 Jahre). Die Aufwältigung kommt zur Investition hinzu: Bei 85 €/MWh verlängert je 100.000 € Aufwältigung die Amortisation der bestehenden Bohrung um etwa 0,8 Jahre.
 
+### Was die Amortisationstabelle auslässt
+
+Die Amortisationstabelle enthält keine Reinjektionsbohrung, kein Risiko, dass eine neue Bohrung kein Wasser findet, und keine Aufwältigung der bestehenden Bohrung. Die Tabelle unten fügt sie einzeln und alle zusammen hinzu, beim mittleren Wärmewert von 85 €/MWh.
+
+<MelenciModel part="omitted" locale="de" />
+
+Die Reinjektionsbohrung ist der größte dieser Posten: Sie fügt der bestehenden Bohrung etwa 0,22 Mio. € hinzu und verlängert ihre Amortisation von 4,8 auf 6,8 Jahre, den neuen Bohrungen fügt sie 0,4 bis 0,5 Mio. € hinzu. Mit allen Posten zusammen amortisiert sich die bestehende Bohrung in 7,8 Jahren, nahe der Grenze, der tiefere Horizont mit 55 °C geht von 4,1 auf 7,1 Jahre, und die neue Bohrung mit 75 °C bleibt mit 3,2 Jahren klar wirtschaftlich. Bei 40 €/MWh zahlt sich die bestehende Bohrung mit allen Posten nicht in vertretbarer Zeit zurück; diesen Wert und alle anderen liefert der Rechner, in dem Fündigkeitsrate und Reinjektionsbohrungen eingestellt werden können.
+
 ### Methan
 
 Das Wasser enthält gelöstes Gas, überwiegend Methan, daher kann es Erlöse geben: aus dem Wasser abgeschiedenes und im Kessel verbranntes Gas ersetzt Brennstoff, der sonst gekauft würde. Der Atlas nennt für das erste System 0,04 bis 2,2 m³ Gas je m³ Wasser, und für Me-1/H selbst ist der Gehalt nicht veröffentlicht, daher wird die ganze Spanne gezeigt.
@@ -241,7 +249,7 @@ Eine Kostenschätzung in diesem Stadium gehört nach AACE in Klasse 4: eine Gena
 
 **Abkühlung und Druckabfall.** Bei langer Nutzung sinkt der Lagerstättendruck; als Arbeitsannahme setzen wir die Lebensdauer einer Lagerstätte mit 30 bis 50 Jahren an. In der Vojvodina ist die Förderung der bestehenden Systeme seit 1990 gesunken, von fast 1,6 Millionen m³ im Jahr auf 739 Tausend m³ im Jahr 2009. Der Atlas trennt die Ursachen nicht in technische und marktbedingte.
 
-**Reinjektion.** Die Reinjektion ist weder in der Investition noch in den Betriebskosten eingerechnet, weil dafür eine weitere neue Bohrung nötig wäre; das abgekühlte Wasser wird vorerst abgeleitet. Zum Erhalt der Ressource würde eine Reinjektionsbohrung auf zwei Förderbohrungen gerechnet. In den sandigen Schichten des ersten Systems ist die Reinjektion technisch anspruchsvoll (Verstopfung); das ist vor einer Entscheidung zu prüfen. Ohne Reinjektion muss das abgekühlte Wasser vorschriftsgemäß entsorgt werden.
+**Reinjektion.** Die Reinjektion ist weder in der Amortisationstabelle noch in den Betriebskosten eingerechnet, weil dafür eine weitere neue Bohrung nötig ist; das abgekühlte Wasser wird vorerst abgeleitet. Um wie viel diese Bohrung die Amortisation verlängern würde, zeigt die Tabelle der ausgelassenen Posten. Zum Erhalt der Ressource würde eine Reinjektionsbohrung auf zwei Förderbohrungen gerechnet. In den sandigen Schichten des ersten Systems ist die Reinjektion technisch anspruchsvoll (Verstopfung); das ist vor einer Entscheidung zu prüfen. Ohne Reinjektion muss das abgekühlte Wasser vorschriftsgemäß entsorgt werden.
 
 **Chemie und Gas.** Eine Mineralisierung von etwa 2,5 g/l ist mäßig. Das Wasser enthält gelöstes Gas, überwiegend Methan (80 bis 95 %), mit 0,04 bis 2,2 m³ je m³ Wasser, daher braucht eine Anlage Gasabscheidung und Explosionsschutz. Der Atlas warnt vor Aggressivität und Kesselsteinbildung in den Wässern des dritten Systems.
 
@@ -267,11 +275,11 @@ Die Rechnung zeigt, dass die Wirtschaftlichkeit nicht an einer Zahl hängt, sond
 - **Die Wärme ersetzt Gas (etwa 40 €/MWh):** klar nur bei heißem Wasser und großer Förderrate: 65 °C oder mehr mit 10 l/s oder mehr (2,3 bis 4,8 Jahre) und 50 °C mit 20 l/s (4,2). Nahe der Grenze liegen 50 °C mit 10 l/s (7,1), 65 °C mit 5 l/s (9,6) und 80 °C mit 5 l/s (7,4). Eine kühlere oder schwächere Bohrung lohnt sich nicht (zum Beispiel 35 °C mit weniger als 20 l/s oder 65 °C mit 3 l/s: 19 Jahre).
 - **Ein mittlerer Wärmewert (85 €/MWh):** klar wirtschaftlich für die meisten Kombinationen; nahe der Grenze bei kleinen Förderraten (3 l/s bei 50 und 65 °C, 5 l/s bei 35 °C), und nur 35 °C mit 3 l/s lohnt sich nicht.
 - **Eine durchschnittliche Bohrung des ersten Systems** (etwa 60 °C, 7 bis 13 l/s nach dem Atlas) liegt bei 40 €/MWh zwischen nahe der Grenze und klar wirtschaftlich (65 °C: 9,6 Jahre bei 5 l/s, 4,8 bei 10 l/s), und bei höherem Wärmewert klar wirtschaftlich.
-- **Melenci (33 °C, 7 l/s aus Anhang 1)**, die bestehende Bohrung ohne Bohren: wirtschaftlich, wenn die Wärme Strom ersetzt (2,6 Jahre), nahe der Grenze bei 85 €/MWh (4,8), und es lohnt sich nicht, wenn sie Gas ersetzt (27 Jahre).
+- **Melenci (33 °C, 7 l/s aus Anhang 1)**, die bestehende Bohrung ohne Bohren: wirtschaftlich, wenn die Wärme Strom ersetzt (2,6 Jahre) und bei 85 €/MWh (4,8), und es lohnt sich nicht, wenn sie Gas ersetzt (27 Jahre). Mit einer Reinjektionsbohrung und einer Aufwältigung von 100.000 € steigt die Amortisation bei 85 €/MWh auf 7,8 Jahre, nahe der Grenze.
 
 Das Fazit ist, dass die Vojvodina keine einheitliche Antwort hat: Ein Ort mit heißem Wasser und starker Quelle, dessen Wärme Strom oder einen teuren Brennstoff ersetzt, lohnt sich klar; eine kühle, schwache Quelle, die billiges Gas ersetzt, lohnt sich nicht; dazwischen liegt ein weites Feld, in dem alles von den Kosten abhängt, und das lässt sich aus öffentlichen Daten nicht beurteilen.
 
-**Was nicht eingerechnet ist und das Fazit ändert:** die Aufwältigung der bestehenden Bohrung, die Reinjektion, das Gas des Wassers, der tatsächliche Wärmebedarf (angenommen wird, dass die gesamte Wärme 4.000 Stunden im Jahr genutzt wird), Förderungen und Finanzierung, Genehmigungen, die Chemie des Wassers (Kesselstein, Aggressivität) und das Risiko, dass eine neue Bohrung nicht das erwartete Wasser liefert. Jeder dieser Punkte kann die Amortisation von einer Klasse in eine andere verschieben.
+**Was nicht eingerechnet ist und das Fazit ändert:** die Aufwältigung der bestehenden Bohrung, die Reinjektion, das Gas des Wassers, der tatsächliche Wärmebedarf (angenommen wird, dass die gesamte Wärme 4.000 Stunden im Jahr genutzt wird), Förderungen und Finanzierung, Genehmigungen, die Chemie des Wassers (Kesselstein, Aggressivität) und das Risiko, dass eine neue Bohrung nicht das erwartete Wasser liefert. Jeder dieser Punkte kann die Amortisation von einer Klasse in eine andere verschieben; für Aufwältigung, Reinjektion und Bohrrisiko zeigt die Tabelle der ausgelassenen Posten, um wie viel.
 
 Detaillierte Studien lassen sich mit einem guten Team von Fachleuten durchführen (Geologen, Bohrfachleute, Wärmetechniker, Ökonomen), und erst sie liefern die Grundlage für eine Investitionsentscheidung. Diese Seite zeigt, ob eine solche Studie für einen bestimmten Ort sinnvoll ist.
 

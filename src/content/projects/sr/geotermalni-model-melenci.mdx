@@ -193,7 +193,7 @@ Tri radna pravila koja primenjujemo:
 
 ## Ekonomija
 
-Račun poredi **trošak izgradnje** sa vrednošću toplote koju sistem daje. Trošak je zbir šest stavki. Za dve od njih (bušenje i oprema) postoji javna procena iz 2012; za četiri nema javnog podatka za Srbiju, pa su dve uzete kao pretpostavke (toplotna pumpa i razvod), a dve nisu procenjene (remont i oprema za gas). Tabela daje osnovu svake brojke.
+Račun poredi **trošak izgradnje** sa vrednošću toplote koju sistem daje. Trošak je zbir šest stavki. Za dve od njih (bušenje i oprema) postoji javna procena iz 2012; za četiri nema javnog podatka za Srbiju, pa su dve uzete kao pretpostavke (toplotna pumpa i razvod), a dve nisu procenjene (remont i oprema za gas). Tabela daje osnovu svake brojke. Sedma stavka, bušotina za reinjekciju, računa se posebno, u tabeli izostavljenih stavki ispod.
 
 <MelenciModel part="costs" locale="sr" />
 
@@ -225,6 +225,14 @@ Iz tabele (uračunati su pogonski troškovi, bez remonta i bez gasa iz vode):
 - **Nova bušotina do 1.300 m (75 °C, 8 l/s):** oko 1,19 mil. € (opseg 0,83 do 1,78), povrat 4,9, 1,9 i 1,2 godine.
 - **Šta to znači:** ako toplota zamenjuje gas, povrat je dug u svim slučajevima (5 do 27 godina); ako zamenjuje struju, kratak (1 do 3 godine). Remont se dodaje na investiciju: pri 85 €/MWh svakih 100.000 € remonta produžava povrat postojeće bušotine za oko 0,8 godina.
 
+### Šta tabela povrata izostavlja
+
+Tabela povrata ne sadrži bušotinu za reinjekciju, rizik da nova bušotina ne nađe vodu ni remont postojeće bušotine. Tabela ispod ih dodaje jednu po jednu i sve zajedno, pri srednjoj vrednosti toplote od 85 €/MWh.
+
+<MelenciModel part="omitted" locale="sr" />
+
+Bušotina za reinjekciju je najveća od tih stavki: postojećoj bušotini dodaje oko 0,22 mil. € i produžava povrat sa 4,8 na 6,8 godina, a novim bušotinama dodaje 0,4 do 0,5 mil. €. Sa svim stavkama zajedno povrat postojeće bušotine je 7,8 godina, blizu granice, dublji horizont od 55 °C prelazi sa 4,1 na 7,1 godinu, a nova bušotina od 75 °C ostaje jasno isplativa sa 3,2 godine. Pri 40 €/MWh postojeća bušotina sa svim stavkama ne vraća investiciju u razumnom roku; tu vrednost i sve ostale daje kalkulator, u kom se mogu podesiti uspešnost bušenja i bušotine za reinjekciju.
+
 ### Metan
 
 Voda sadrži rastvoren gas, pretežno metan, pa postoji mogući prihod: gas odvojen iz vode i spaljen u kotlu zamenjuje kupljeno gorivo. Atlas daje 0,04 do 2,2 m³ gasa po m³ vode za prvi sistem, a za samu Me-1/H sadržaj nije objavljen, pa se prikazuje ceo raspon.
@@ -241,7 +249,7 @@ Procena troškova u ovoj fazi pripada klasi 4 prema AACE: tačnost od −15 do �
 
 **Hlađenje i pad pritiska.** Uz dugo korišćenje pritisak u ležištu opada; kao radnu pretpostavku uzimamo vek ležišta od 30 do 50 godina. U Vojvodini je proizvodnja iz postojećih sistema pala od 1990. godine, od blizu 1,6 miliona m³ godišnje do 739 hiljada m³ u 2009. Uzroci nisu u atlasu razdvojeni na tehničke i tržišne.
 
-**Reinjekcija.** Reinjekcija nije uračunata ni u investiciju ni u pogonske troškove, jer bi za nju trebala još jedna nova bušotina; ohlađena voda se za sada ispušta. Za održavanje resursa računala bi se jedna bušotina za reinjekciju na dve proizvodne. U peskovitim slojevima prvog sistema reinjekcija je tehnički zahtevna (začepljenje), pa to treba proveriti pre odluke. Bez reinjekcije, ohlađenu vodu treba zbrinuti u skladu sa propisima.
+**Reinjekcija.** Reinjekcija nije uračunata u tabelu povrata ni u pogonske troškove, jer za nju treba još jedna nova bušotina; ohlađena voda se za sada ispušta. Koliko bi ta bušotina produžila povrat, pokazuje tabela izostavljenih stavki. Za održavanje resursa računala bi se jedna bušotina za reinjekciju na dve proizvodne. U peskovitim slojevima prvog sistema reinjekcija je tehnički zahtevna (začepljenje), pa to treba proveriti pre odluke. Bez reinjekcije, ohlađenu vodu treba zbrinuti u skladu sa propisima.
 
 **Hemija i gas.** Mineralizacija od oko 2,5 g/l je umerena. Voda sadrži rastvoren gas, pretežno metan (80 do 95 %), u količini od 0,04 do 2,2 m³ po m³ vode, pa postrojenje mora da ima odvajanje gasa i mere zaštite od eksplozije. Atlas upozorava na agresivnost i taloženje kamenca kod voda trećeg sistema.
 
@@ -267,11 +275,11 @@ Iz računa se vidi da isplativost ne zavisi od jedne brojke nego od četiri: tem
 - **Toplota zamenjuje gas (oko 40 €/MWh):** jasno samo za toplu vodu i veliki protok: 65 °C ili više uz 10 l/s ili više (2,3 do 4,8 godina) i 50 °C uz 20 l/s (4,2). Blizu granice je 50 °C uz 10 l/s (7,1), 65 °C uz 5 l/s (9,6) i 80 °C uz 5 l/s (7,4). Hladnija ili slabija bušotina se ne isplati (npr. 35 °C uz manje od 20 l/s, ili 65 °C uz 3 l/s: 19 godina).
 - **Srednja vrednost toplote (85 €/MWh):** jasno isplativo za većinu kombinacija; blizu granice za male protoke (3 l/s pri 50 i 65 °C, 5 l/s pri 35 °C), a ne isplati se samo 35 °C uz 3 l/s.
 - **Prosečna bušotina prvog sistema** (oko 60 °C, 7 do 13 l/s po atlasu) je pri 40 €/MWh od blizu granice do jasno isplative (65 °C: 9,6 godina uz 5 l/s, 4,8 uz 10 l/s), a pri višoj vrednosti toplote jasno isplativa.
-- **Melenci (33 °C, 7 l/s iz Priloga 1)**, postojeća bušotina bez bušenja: isplativo ako toplota zamenjuje struju (2,6 godina), blizu granice pri 85 €/MWh (4,8), a ne isplati se ako zamenjuje gas (27 godina).
+- **Melenci (33 °C, 7 l/s iz Priloga 1)**, postojeća bušotina bez bušenja: isplativo ako toplota zamenjuje struju (2,6 godina) i pri 85 €/MWh (4,8), a ne isplati se ako zamenjuje gas (27 godina). Uz bušotinu za reinjekciju i remont od 100.000 € povrat pri 85 €/MWh raste na 7,8 godina, blizu granice.
 
 Zaključak je da u Vojvodini nema jednog odgovora: mesto sa toplom vodom i jakim izvorom, čija toplota zamenjuje struju ili skupo gorivo, isplati se jasno; hladan i slab izvor koji zamenjuje jeftin gas ne isplati se; između je široko područje gde sve zavisi od troškova, a to se ne može oceniti iz javnih podataka.
 
-**Šta nije uračunato, a menja zaključak:** remont postojeće bušotine, reinjekcija, gas iz vode, stvarna potrošnja toplote (računa se da se sva toplota koristi 4.000 sati godišnje), subvencije i finansiranje, dozvole, hemija vode (kamenac, agresivnost) i rizik da nova bušotina ne da očekivanu vodu. Svaka od ovih stavki može da pomeri povrat iz jedne klase u drugu.
+**Šta nije uračunato, a menja zaključak:** remont postojeće bušotine, reinjekcija, gas iz vode, stvarna potrošnja toplote (računa se da se sva toplota koristi 4.000 sati godišnje), subvencije i finansiranje, dozvole, hemija vode (kamenac, agresivnost) i rizik da nova bušotina ne da očekivanu vodu. Svaka od ovih stavki može da pomeri povrat iz jedne klase u drugu; za remont, reinjekciju i rizik bušenja tabela izostavljenih stavki pokazuje koliko.
 
 Detaljne studije se mogu uraditi uz dobar tim stručnjaka (geolozi, bušači, termotehničari, ekonomisti), i tek one daju osnovu za odluku o ulaganju. Ova strana pokazuje da li takva studija za određeno mesto ima smisla.
 

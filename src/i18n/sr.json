@@ -432,6 +432,19 @@
         "never": "ne vraća se",
         "note": "Investicija je zbir stavki iz tabele troškova, bez remonta i opreme za gas, koji nisu procenjeni; opseg je opseg procene klase 4 (−30 % do +50 %). Neto dobit je vrednost toplote umanjena za godišnje pogonske troškove iz tabele ispod. Povrat je investicija podeljena godišnjom neto dobiti, bez diskontovanja. Gas iz vode ovde nije uračunat."
       },
+      "omitted": {
+        "caption": "Povrat pri {price} €/MWh, godina, kada se dodaju stavke koje tabela povrata izostavlja",
+        "cols": {
+          "base": "Kao u tabeli povrata",
+          "reinjection": "Uz bušotinu za reinjekciju",
+          "risk": "Uz rizik bušenja",
+          "workover": "Uz remont",
+          "all": "Sve zajedno"
+        },
+        "invest": "investicija {inv} mil. €",
+        "none": "ne odnosi se",
+        "note": "Bušotina za reinjekciju ide do dubine proizvodnog intervala ({depth} m za postojeću bušotinu, a do dubine nove bušotine za ostale slučajeve) po {perM} €/m; pumpa za utiskivanje i njena struja nisu uračunate. Rizik bušenja: uspešno je {success} % bušotina, pa jedna uspešna košta koliko 1/0,7 bušotina; odnosi se samo na nove bušotine. Remont je okrugla brojka od {workover} €, jer javne cene nema; odnosi se samo na postojeću bušotinu. Održavanje (3 % godišnje) računa se na veću investiciju. Oprema za gas i dalje nije uračunata."
+      },
       "opex": {
         "caption": "Pogonski troškovi godišnje (OPEX) po slučajevima",
         "cols": [
@@ -482,6 +495,10 @@
             "name": "Razvod (cevovod)",
             "basis": "Pretpostavka: trasa od 500 m po 400 € po metru. Javnu cenu po metru za Srbiju nismo našli."
           },
+          "reinjection": {
+            "name": "Bušotina za reinjekciju",
+            "basis": "Uračunata samo u tabeli izostavljenih stavki: jedna bušotina do dubine proizvodnog intervala (560 m za Me-1/H), po istoj ceni bušenja. Pumpa za utiskivanje i njena struja nisu procenjene."
+          },
           "workover": {
             "name": "Remont postojeće bušotine",
             "basis": "Nije procenjen, pa nije uključen. Javni podatak o ceni nismo našli; procena remonta je poseban korak."
@@ -510,7 +527,10 @@
           "upkeep": "Održavanje, udeo investicije godišnje",
           "newWells": "Nove bušotine",
           "depth": "Dubina nove bušotine",
+          "successRate": "Uspešnost bušenja",
           "drillingPerM": "Cena bušenja",
+          "reinjectionWells": "Bušotine za reinjekciju",
+          "reinjectionDepth": "Dubina bušotine za reinjekciju",
           "workover": "Remont postojeće bušotine",
           "heatPumpPerKw": "Toplotna pumpa",
           "pipelineM": "Dužina cevi",
