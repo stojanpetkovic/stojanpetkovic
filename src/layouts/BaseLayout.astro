@@ -605,11 +605,11 @@ if (commentsConfig?.enabled) {
       })();
     </script>
 
-    {/* Lead admin: counts page views (no cookies) and remembers which campaign
-        a visitor came from. The site key lives in site.config.ts. */}
+    {/* Lead admin, now on webtano.com: counts page views (no cookies) and remembers
+        which campaign a visitor came from. The site key lives in site.config.ts. */}
     {
       siteConfig.leads?.siteKey && (
-        <script is:inline src="/leads.js" data-site-key={siteConfig.leads.siteKey} defer />
+        <script is:inline src="https://webtano.com/leads.js" data-site-key={siteConfig.leads.siteKey} defer />
       )
     }
   </body>
