@@ -228,10 +228,10 @@ export interface SiteConfig {
    */
   i18n?: I18nConfig;
   /**
-   * This site's entry in the lead admin (see src/admin/README.md). With it
-   * set, every page loads leads.js to count page views, and the contact form
-   * delivers each message as a lead — stored in /admin and emailed from
-   * there — instead of sending its own notification. Leave unset for neither.
+   * This site's key in the WebTano lead system (webtano.com/admin). With it
+   * set, every page loads webtano.com/leads.js to count page views, and the
+   * contact form passes each message to webtano.com as a lead, which stores
+   * it and sends the notification. Leave unset for neither.
    */
   leads?: {
     siteKey: string;
