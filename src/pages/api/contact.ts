@@ -5,7 +5,7 @@ import { RESEND_API_KEY, RESEND_FROM_EMAIL } from 'astro:env/server';
 import { z } from 'astro/zod';
 import { Resend } from 'resend';
 import siteConfig from '@/config/site.config';
-import { findSite, recordLead, visitorHash } from '@/admin/lib/ingest';
+import { WEBTANO_URL } from '@/lib/webtano';
 
 // Escape user-supplied values before they are interpolated into the
 // notification email's HTML, so a message containing markup (links,
@@ -50,10 +50,10 @@ const contactSchema = z
 const EXTRA_FIELDS = ['service', 'website', 'business', 'timeline', 'budget', 'phone', 'source'] as const;
 
 /**
- * Hands the message to the lead admin as a lead from this site, so it arrives
- * as one record in /admin and one set of emails instead of a second, separate
- * notification. Returns false when the admin is not set up or the write fails,
- * and the caller falls back to sending the message directly.
+ * Hands the message to the WebTano lead system on webtano.com as a lead from
+ * this site, so it is stored in webtano.com/admin and the notification goes
+ * out from there. Returns false when no site key is set or webtano.com does
+ * not accept it, and the caller falls back to sending the message directly.
  */
 async function deliverAsLead(
   request: Request,
@@ -62,32 +62,45 @@ async function deliverAsLead(
 ): Promise<boolean> {
   const siteKey = siteConfig.leads?.siteKey;
   if (!siteKey) return false;
+
+  // The form posts from the contact page, so its address (and any campaign
+  // parameters the visitor arrived with) is in the Referer.
+  const pageUrl = request.headers.get('referer');
+  let utm: Record<string, string> = {};
   try {
-    const site = await findSite(siteKey);
-    if (!site) return false;
+    if (pageUrl) utm = Object.fromEntries(new URL(pageUrl).searchParams);
+  } catch {
+    // Not a URL: send the lead without campaign data.
+  }
 
-    // The form posts from the contact page, so its address (and any campaign
-    // parameters the visitor arrived with) is in the Referer.
-    const pageUrl = request.headers.get('referer');
-    let utm: Record<string, string> = {};
-    try {
-      if (pageUrl) utm = Object.fromEntries(new URL(pageUrl).searchParams);
-    } catch {
-      // Not a URL: store the lead without campaign data.
-    }
+  // The visitor's own address, so webtano.com's rate limit counts each
+  // visitor separately instead of everyone behind this server as one.
+  const visitorIp =
+    request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || clientAddress || '';
 
-    const lead = await recordLead({
-      site,
-      fields,
-      spam: false,
-      form: 'contact',
-      pageUrl,
-      referrer: null,
-      utm,
-      userAgent: request.headers.get('user-agent'),
-      ipHash: visitorHash(request, clientAddress, site),
+  try {
+    const response = await fetch(`${WEBTANO_URL}/api/leads`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'User-Agent': request.headers.get('user-agent') ?? 'stojanpetkovic.com contact form',
+        ...(visitorIp ? { 'X-Forwarded-For': visitorIp } : {}),
+      },
+      body: JSON.stringify({
+        site_key: siteKey,
+        form: 'contact',
+        page_url: pageUrl,
+        referrer: null,
+        utm,
+        data: fields,
+      }),
+      signal: AbortSignal.timeout(10_000),
     });
-    return lead !== null;
+    if (!response.ok) {
+      console.error('webtano.com refused the lead:', response.status, await response.text());
+      return false;
+    }
+    return true;
   } catch (error) {
     console.error('Contact form lead delivery failed:', error);
     return false;

@@ -61,8 +61,6 @@
     "@iconify-json/lucide": "^1.2.98",
     "@iconify-json/simple-icons": "^1.2.74",
     "@iconify/react": "^6.0.2",
-    "@supabase/ssr": "^0.12.7",
-    "@supabase/supabase-js": "^2.117.2",
     "astro": "7.3.1",
     "astro-icon": "^1.1.5",
     "chart.js": "^4.5.1",
