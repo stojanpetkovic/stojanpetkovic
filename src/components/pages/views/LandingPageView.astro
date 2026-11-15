@@ -41,6 +41,7 @@ import treeJawsImg from '@/assets/projects/tree-jaws-hero-dark.webp';
 import mahaloImg from '@/assets/projects/mahalo-hero.webp';
 import storyImg from '@/assets/projects/sf-tree-removal-home.webp';
 import portraitImg from '@/assets/profile/stojan-portrait-office.webp';
+import ClientLogos from '@/components/sections/ClientLogos.astro';
 import reportExampleEn from '@/assets/services/report-example-en.png';
 import reportExampleSr from '@/assets/services/report-example-sr.png';
 
@@ -206,6 +207,8 @@ const year = new Date().getFullYear();
       </dl>
     </Hero>
   )}
+
+  {isHome && <ClientLogos heading={t('pages.home.clients.heading', locale)} lead={t('pages.home.clients.lead', locale)} />}
 
   <!-- Hero (landing page) -->
   {!isHome && <section class="lp-hero relative overflow-hidden bg-background-secondary pb-16 pt-12 sm:pt-16 lg:pb-24 lg:pt-20">

@@ -1,0 +1,123 @@
+---
+/**
+ * Two rows of client logos drifting in opposite directions, greyscale until
+ * hovered. The rows are duplicated once so the loop is seamless; the copy is
+ * hidden from assistive tech, and with reduced motion the rows sit still and
+ * wrap instead.
+ */
+import { Image } from 'astro:assets';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import { clients, type Client } from '@/config/clients';
+
+interface Props {
+  heading: string;
+  lead?: string;
+}
+
+const { heading, lead } = Astro.props;
+
+// Both rows carry every client, the second starting halfway through the list,
+// so each row is wider than the screen and the loop never shows a gap.
+const half = Math.ceil(clients.length / 2);
+const rows: Client[][] = [clients, [...clients.slice(half), ...clients.slice(0, half)]];
+---
+
+<section class="client-logos relative z-10 overflow-hidden border-t border-border bg-background py-[var(--space-section-sm)]" aria-labelledby="client-logos-heading">
+  <div class="mx-auto max-w-6xl px-6 text-center">
+    <h2 id="client-logos-heading" class="font-display text-2xl font-bold tracking-tight text-foreground md:text-3xl">{heading}</h2>
+    {lead && <p class="mx-auto mt-3 max-w-2xl text-foreground-muted">{lead}</p>}
+  </div>
+
+  <div class="cl-viewport mt-10 space-y-6">
+    {rows.map((row, r) => (
+      <div class:list={['cl-track', r === 1 && 'cl-reverse']}>
+        {[0, 1].map((copy) => (
+          <ul class="cl-row" role="list" aria-hidden={copy === 1 ? 'true' : undefined}>
+            {row.map((c) => (
+              <li>
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener"
+                  tabindex={copy === 1 ? -1 : undefined}
+                  class="cl-item"
+                  title={c.name}
+                >
+                  {c.logo ? (
+                    <Image src={c.logo} alt={c.name} height={120} class="cl-img" loading="lazy" />
+                  ) : (
+                    <span class="cl-mark">
+                      <Icon name={c.icon} size="lg" class="cl-ico" />
+                      <span class="flex flex-col items-start leading-none">
+                        <span class="cl-name">{c.name}</span>
+                        {c.tagline && <span class="cl-tag">{c.tagline}</span>}
+                      </span>
+                    </span>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ))}
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .cl-viewport {
+    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+  }
+  .cl-track {
+    display: flex;
+    width: max-content;
+    animation: cl-scroll 40s linear infinite;
+  }
+  .cl-reverse { animation-direction: reverse; animation-duration: 46s; }
+  .cl-viewport:hover .cl-track { animation-play-state: paused; }
+  .cl-row {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding-right: 4rem;
+  }
+  @keyframes cl-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .cl-item {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    filter: grayscale(1);
+    opacity: 0.8;
+    transition: filter 200ms, opacity 200ms;
+  }
+  .cl-item:hover,
+  .cl-item:focus-visible { filter: none; opacity: 1; }
+  .cl-img { height: 3.75rem; width: auto; max-width: 12rem; object-fit: contain; }
+  .cl-mark { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--color-foreground); }
+  .cl-ico { color: var(--color-brand-600); }
+  .cl-name {
+    font-family: var(--font-display, inherit);
+    font-weight: 800;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  .cl-tag {
+    margin-top: 0.3rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-foreground-muted);
+    white-space: nowrap;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cl-track { animation: none; width: auto; justify-content: center; flex-wrap: wrap; }
+    .cl-track > .cl-row[aria-hidden] { display: none; }
+    .cl-row { flex-wrap: wrap; justify-content: center; padding-right: 0; gap: 2.5rem; }
+    .cl-viewport { mask-image: none; }
+  }
+</style>
