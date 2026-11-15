@@ -36,7 +36,7 @@
     "name": "Stojan Petković"
   },
   "llms": {
-    "summary": "Stojan Petković je inženjer (zvanje Ingenieur odobrila je Bavarska inženjerska komora) i web developer iz Zrenjanina u Srbiji, koji radi sa klijentima širom sveta. Diplomirao je rudarstvo na Univerzitetu u Beogradu (2010), a od 2013. radi sa coiled tubing i azotnim operacijama. Ovo je lični, nezavisni sajt koji ne predstavlja nijednog poslodavca ni kompaniju. Objavljuje studije slučaja i inženjerske alate radi informisanja, a pravi brze Astro sajtove po meri, softver po meri i platforme zasnovane na podacima za tehničke firme, uz klasičan web dizajn, SEO i optimizaciju za generativne pretraživače (GEO). Svaki projekat ima jednu fiksnu cenu dogovorenu pre početka rada, a klijent od prvog dana poseduje kod, domen i hosting."
+    "summary": "Stojan Petković iz Zrenjanina, Srbija, pomaže uslužnim firmama da dođu do klijenata preko interneta: Google i Meta oglasi, lokalni SEO, vidljivost u AI pretrazi (GEO), brzi sajtovi i landing strane, AI chat i praćenje svakog upita i poziva uz mesečni izveštaj. Radi sa klijentima u Srbiji, Evropi i SAD. Sajt ima jednu fiksnu cenu, oglasi i SEO idu iz meseca u mesec bez dugoročnog ugovora, a klijent od prvog dana poseduje kod, domen i hosting."
   },
   "nav": {
     "skipToContent": "Preskoči na sadržaj",
@@ -55,34 +55,15 @@
     "items": {
       "home": "Početna",
       "services": "Usluge",
-      "tools": "Alati",
-      "web": "Web",
+      "web": "Sajtovi",
       "projects": "Projekti",
       "blog": "Blog",
       "about": "O meni",
       "contact": "Kontakt",
       "terms": "Uslovi korišćenja",
-      "courses": "Kursevi"
+      "privacy": "Politika privatnosti"
     },
-    "mega": {
-      "overview": "Sve usluge",
-      "groups": {
-        "engineering": "Inženjering",
-        "tools": "Inženjerski alati",
-        "web": "Softver i web"
-      },
-      "links": {
-        "allTools": "Svi alati",
-        "web": "Web razvoj",
-        "software": "Inženjerski softver"
-      },
-      "descriptions": {
-        "courses": "Praktična obuka za coiled tubing.",
-        "projects": "Studije slučaja sa terena.",
-        "software": "Alati u oblaku rađeni po meri.",
-        "web": "Brzi sajtovi za tehničke firme."
-      }
-    }
+    "cta": "Besplatna provera"
   },
   "common": {
     "readMore": "Pročitaj više",
@@ -129,18 +110,18 @@
     "share": "Podeli:",
     "shareOn": "Podeli na {platform}",
     "copyLink": "Kopiraj link",
-    "metaTitle": "Blog",
-    "metaDescription": "Članci o inženjerstvu, softveru i web razvoju.",
+    "metaTitle": "Blog: oglasi, SEO i AI pretraga",
+    "metaDescription": "Saveti o oglasima, SEO-u, AI pretrazi i sajtovima koji donose klijente.",
     "heroBadge": "Svi tekstovi",
-    "heroDescription": "Članci o inženjerstvu, softveru i web razvoju.",
+    "heroDescription": "Saveti o oglasima, SEO-u, AI pretrazi i sajtovima koji donose klijente.",
     "allPosts": "Svi tekstovi",
     "noPosts": "Još nema tekstova",
     "pageMetaTitle": "Blog — strana {page}",
-    "pageMetaDescription": "Strana {page} od {total} — članci o inženjerstvu, softveru i web razvoju.",
+    "pageMetaDescription": "Strana {page} od {total} — saveti o oglasima, SEO-u, AI pretrazi i sajtovima koji donose klijente.",
     "pageBadge": "Strana {page} od {total}",
     "newestPosts": "Najnoviji tekstovi",
     "tagMetaTitle": "#{tag} — Blog",
-    "tagMetaDescription": "Tekstovi na temu \"{tag}\".",
+    "tagMetaDescription": "Tekstovi na temu „{tag}“: praktični saveti o oglasima, SEO-u i sajtovima za uslužne firme.",
     "tagBadge": "Tema",
     "tagCountOne": "{count} tekst na temu \"{tag}\".",
     "tagCountOther": "Tekstova na temu \"{tag}\": {count}.",
@@ -153,8 +134,8 @@
     "updated": "Ažurirano",
     "rssFeed": "RSS feed",
     "cta": {
-      "heading": "Treba ti novi sajt?",
-      "description": "Piši mi o svom projektu — javljam se u toku radnog dana.",
+      "heading": "Treba ti sajt koji donosi pozive?",
+      "description": "Napiši mi par reči o svojoj firmi. Javljam se u toku radnog dana.",
       "button": "Piši mi"
     }
   },
@@ -182,19 +163,19 @@
     "galleryClose": "Zatvori galeriju",
     "galleryNextImage": "Sledeća slika",
     "galleryPreviousImage": "Prethodna slika",
-    "metaTitle": "Projekti",
-    "metaDescription": "Izabrani inženjerski projekti Stojana Petkovića: studije slučaja o geotermiji Vojvodine iz javnih podataka, sa kalkulatorima, i sajtovi rađeni za klijente.",
+    "metaTitle": "Projekti: sajtovi i kampanje",
+    "metaDescription": "Sajtovi, SEO i oglasi koje sam radio za uslužne firme, sa brojkama: upiti, pozivi, pozicije na Google-u i Lighthouse ocene.",
     "heroBadge": "Portfolio",
-    "heroDescription": "Inženjerski i industrijski projekti.",
-    "emptyTitle": "Industrijski projekti su u pripremi",
-    "emptyText": "Studije slučaja iz coiled tubing i azotnih operacija biće objavljene ovde. Sajtovi koje sam napravio nalaze se na stranici Web.",
+    "heroDescription": "Firme kojima sam pomogao da dođu do više klijenata.",
+    "emptyTitle": "Projekti stižu uskoro",
+    "emptyText": "Uskoro ovde. Do tada pogledaj rezultate na početnoj strani.",
     "emptyWeb": "Pogledaj web projekte",
     "allProjects": "Svi projekti",
     "pageMetaTitle": "Projekti — strana {page}",
-    "pageMetaDescription": "Strana {page} od {total} — izabrani inženjerski projekti Stojana Petkovića.",
+    "pageMetaDescription": "Strana {page} od {total}: projekti za uslužne firme, sa brojkama.",
     "pageBadge": "Strana {page} od {total}",
     "tagMetaTitle": "#{tag} — Projekti",
-    "tagMetaDescription": "Projekti na temu \"{tag}\" Stojana Petkovića: inženjerske studije slučaja, geotermalni modeli iz javnih podataka i sajtovi rađeni za klijente.",
+    "tagMetaDescription": "Projekti na temu \"{tag}\": sajtovi, SEO i oglasi za uslužne firme, sa brojkama.",
     "tagBadge": "Tema",
     "tagCountOne": "{count} projekat na temu \"{tag}\".",
     "tagCountOther": "Projekata na temu \"{tag}\": {count}.",
@@ -204,11 +185,11 @@
     "moreProjects": "Još projekata",
     "ctaBadge": "Popričajmo",
     "ctaHeading": "Popričajmo o tvom projektu",
-    "ctaLead": "Svaki projekat koji preuzimam gradi se oko problema koji treba da reši. Reci mi šta imaš na umu.",
+    "ctaLead": "Svaki projekat krojim prema problemu koji treba da reši. Napiši mi šta imaš na umu.",
     "ctaPrimary": "Pošalji poruku",
     "ctaSecondary": "Više o meni",
     "closingHeading": "Imaš projekat na umu?",
-    "closingLead": "Bilo da ti treba potpuno nov sajt ili da postojeći dobije novi život — rado ću da čujem o čemu se radi."
+    "closingLead": "Treba ti nov sajt ili stari da proradi kako treba? Napiši mi o čemu se radi."
   },
   "pagination": {
     "page": "Strana {current} od {total}",
@@ -223,17 +204,17 @@
     "goHome": "Idi na početnu",
     "metaTitle": "Stranica nije pronađena",
     "metaDescription": "Ova stranica je premeštena, obrisana ili nikad nije ni postojala.",
-    "badge": "404 — nema je",
+    "badge": "404",
     "titleLead": "Ups, ova stranica",
     "titleHighlight": "ne postoji.",
-    "description": "Premeštena je, obrisana ili nikad nije ni postojala. Hajde da te vratimo na pravi put.",
+    "description": "Premeštena je, obrisana ili nikad nije postojala. Evo kako da se vratiš.",
     "backHome": "Nazad na početnu",
     "browseProjects": "Pogledaj projekte",
     "tryInstead": "Možda tražiš nešto od ovoga",
     "projectsDesc": "Izdvojeni radovi i priče iza njih.",
-    "toolsDesc": "Kalkulatori i alati za bušotine i geotermiju.",
     "contactTitle": "Kontakt",
-    "contactDesc": "Piši mi o svom projektu."
+    "contactDesc": "Piši mi o svom projektu.",
+    "servicesDesc": "Kako ti pomažem da te klijenti nađu na internetu."
   },
   "newsletter": {
     "heading": "Prijavi se na newsletter",
@@ -287,509 +268,131 @@
   },
   "footer": {
     "copyright": "© {year} {siteName}",
-    "credit": "Lični, nezavisan sajt — nije povezan ni sa jednim poslodavcem ni kompanijom.",
+    "credit": "Više poziva i upita sa interneta za uslužne firme.",
     "groups": {
       "site": "Sajt",
-      "topics": "Teme",
-      "projects": "Web projekti",
-      "engineering": "Inženjering",
-      "questions": "Imaš pitanje?"
+      "questions": "Imaš pitanje?",
+      "services": "Usluge"
     },
-    "links": { "focus": "Projekti, kursevi i softver" },
-    "followOn": "Prati me na {platform}"
+    "followOn": "Prati me na {platform}",
+    "tagline": "Pomažem uslužnim firmama da dobiju više poziva i upita sa interneta: Google i Meta oglasi, lokalni SEO, vidljivost u AI pretrazi i brzi sajtovi. Bez dugih ugovora, sa rezultatima koje vidiš u brojkama.",
+    "links": {
+      "ads": "Google i Meta oglasi",
+      "seo": "Lokalni SEO i AI pretraga",
+      "web": "Sajtovi koji donose upite",
+      "check": "Besplatna provera",
+      "faq": "Česta pitanja"
+    }
   },
   "pages": {
     "terms": {
       "meta": {
         "title": "Uslovi korišćenja",
-        "description": "Uslovi korišćenja sajta: lični i nezavisni sajt, samo informativna namena, bez stručnog saveta, bez poslovne ponude, ograničenje odgovornosti i izjava o nezavisnosti i sukobu interesa."
+        "description": "Uslovi korišćenja sajta stojanpetkovic.com: ko pruža usluge, kako se ugovaraju, šta se ne garantuje, vlasništvo i ograničenje odgovornosti."
       },
       "hero": {
         "badge": "Pravila sajta",
         "title": "Uslovi korišćenja",
-        "description": "Šta je ovaj sajt, šta nije, i pod kojim uslovima se koristi."
+        "description": "Ko stoji iza sajta, kako se ugovaraju usluge i pod kojim uslovima se sajt koristi."
       },
-      "updated": "Poslednja izmena: 17. oktobar 2026.",
+      "updated": "Poslednja izmena: 15. novembar 2026.",
       "intro": "Ovi uslovi uređuju korišćenje sajta stojanpetkovic.com (u daljem tekstu: sajt). Korišćenjem sajta prihvatate ih. Ako se ne slažete sa njima, ne koristite sajt.",
+      "contactLink": "Stranica Kontakt",
       "sections": [
         {
           "title": "1. Ko vodi sajt",
           "paragraphs": [
-            "Sajt vodi Stojan Petković, fizičko lice (u daljem tekstu: autor), kao lični projekat. Sajt nije sajt kompanije, ne predstavlja pravno lice i ne vodi se u ime nijednog poslodavca, klijenta ni drugog pravnog lica."
+            "Sajt vodi Stojan Petković iz Zrenjanina, Srbija (u daljem tekstu: autor). Kontakt: {email}."
           ]
         },
         {
-          "title": "2. Nezavisnost i sukob interesa",
+          "title": "2. Usluge",
           "paragraphs": [
-            "Sajt i sav sadržaj na njemu (projekti, blog, alati, kalkulatori, modeli, kursevi i tekstovi) autor izrađuje u svoje lično ime i na svoj račun. Zbog toga važi sledeće:"
+            "Na sajtu su opisane usluge digitalnog marketinga i izrade sajtova: oglašavanje na Google-u i društvenim mrežama, SEO, vidljivost u AI pretrazi, izrada sajtova i landing strana, AI chat i praćenje upita i poziva."
           ],
           "items": [
-            "Ne koristi se nijedan podatak, dokument, procedura, softver, procena, poslovna ni tehnička informacija ili drugi materijal koji pripada poslodavcu, klijentu ili trećoj strani, a nije javno objavljen. Podaci u projektima potiču iz javno objavljenih izvora koji su navedeni uz svaki projekat.",
-            "Ništa na sajtu ne predstavlja stav, politiku, podatak, procenu, preporuku ni izjavu bilo kog poslodavca, kompanije ili institucije. Autor ne govori u njihovo ime i nema ovlašćenje da to čini. Poslodavac autora nije ni na koji način povezan sa sajtom i ne odgovara za njegov sadržaj.",
-            "Pominjanje kompanija, institucija, proizvoda i izvora služi isključivo za označavanje javnih izvora i činjenica. Ne znači podršku, preporuku, saradnju ni kritiku.",
-            "Sadržaj nije ponuda, reklama ni poziv na poslovni odnos u delatnosti poslodavca autora, niti ima nameru da se konkuriše poslodavcu ili njegovim klijentima.",
-            "Rad na sajtu ne sme da utiče na izvršavanje obaveza autora prema poslodavcu, i ne utiče na njega.",
-            "Svaki dodatni angažman autora mora da bude u skladu sa njegovim obavezama prema poslodavcu, propisima i poslovnoj tajni, uz sve potrebne saglasnosti, i ugovara se posebno, izvan ovog sajta i njegovog sadržaja.",
-            "Ako smatrate da neki sadržaj nepropisno koristi poverljivu informaciju, ili da stvara utisak da govori u ime neke kompanije, javite se preko stranice Kontakt. Sadržaj će biti hitno proveren i, po potrebi, ispravljen ili uklonjen."
+            "Opis usluga, cena i primera na sajtu nije ponuda u pravnom smislu. Svaki posao se ugovara posebno, pisanom ponudom ili ugovorom koji određuje obim, rok, cenu i način plaćanja.",
+            "Slanje upita ili zahteva za besplatnu proveru ne stvara ugovorni odnos ni obavezu za bilo koju stranu.",
+            "Autor može da odbije upit bez navođenja razloga.",
+            "Ako je u ugovoru drugačije navedeno, važi ugovor."
           ]
         },
         {
-          "title": "3. Samo informativna namena",
+          "title": "3. Rezultati i garancije",
           "paragraphs": [
-            "Sadržaj sajta je opšteg i informativnog karaktera. Nije inženjerski, tehnički, pravni, finansijski, investicioni ni drugi stručni savet. Nije projekat, studija izvodljivosti, procena resursa ni stručno mišljenje. Ne stvara odnos klijent–savetnik ni bilo kakvu obavezu autora. Pre svake odluke obratite se kvalifikovanim stručnjacima i nadležnim organima."
+            "Rezultati prikazani na sajtu (broj upita, poziva, ocene i pozicije) stvarni su za navedene klijente i navedeni period, ali nisu obećanje istog rezultata za druge. Pozicije na Google-u, preporuke AI asistenata i učinak oglasa zavise od Google-a, Meta-e, drugih platformi, tržišta, konkurencije i budžeta, na koje autor ne može da utiče. Određen broj upita, poziva, prodaja ili pozicija se ne garantuje, osim ako je izričito ugovoreno u pisanoj formi."
           ]
         },
         {
-          "title": "4. Alati, kalkulatori i modeli",
+          "title": "4. Budžet za oglase i nalozi",
           "paragraphs": [
-            "Alati, kalkulatori i modeli na sajtu daju približne rezultate iz navedenih formula i pretpostavki. Oni nisu zamena za projektne proračune, procedure kompanije, uputstva proizvođača opreme, propise ni nalog odgovornog lica. Ne koristite ih kao jedinu osnovu za radove na bušotinama, rad pod pritiskom, rad sa azotom, niti za druge bezbednosno značajne radnje.",
-            "Greške, nepotpunost i zastarelost podataka su mogući. Ulazne podatke i rezultate proverava korisnik. Modeli geotermalnog potencijala pokazuju red veličine iz javnih podataka; ne zamenjuju ispitivanje bušotine, procenu remonta, studiju izvodljivosti ni ponude izvođača."
+            "Budžet za oglase klijent plaća direktno platformi (Google, Meta i druge), osim ako je drugačije ugovoreno. Nalozi za oglase, analitiku, domen i hosting otvaraju se na ime klijenta ili mu se predaju, kako je ugovoreno, tako da klijent zadržava pristup i podatke i kada saradnja prestane."
           ]
         },
         {
-          "title": "5. Javni podaci i izvori trećih strana",
+          "title": "5. Nezavisnost",
           "paragraphs": [
-            "Podaci potiču iz javno objavljenih izvora i navedeni su uz sadržaj. Autor ne garantuje njihovu tačnost, potpunost ni aktuelnost, nije autor tih izvora i ne odgovara za njih. Autorska prava na izvore, slike i mape pripadaju njihovim vlasnicima; autori i licence su navedeni uz sadržaj (na primer OpenStreetMap, OpenTopoMap i Wikimedia Commons). Linkovi vode na sajtove trećih strana, nad kojima autor nema kontrolu."
+            "Autor usluge pruža u svoje ime i za svoj račun. Sajt ne predstavlja nijednog poslodavca, kompaniju ni instituciju sa kojom je autor bio ili jeste povezan, ne govori u njihovo ime i ne koristi njihove poverljive podatke."
           ]
         },
         {
-          "title": "6. Usluge i komercijalna komunikacija",
+          "title": "6. Blog i informativni sadržaj",
           "paragraphs": [
-            "Sajt je pre svega informativan. Sadržaj projekata, bloga, alata i kurseva nije ponuda usluga. Eventualne usluge koje su navedene na stranici Usluge ugovaraju se posebno, u pisanoj formi, i samo ako nisu u sukobu sa obavezama autora prema poslodavcu, propisima i poslovnoj tajni. Autor zadržava pravo da odbije svaki upit zbog sukoba interesa ili bilo kog drugog razloga. Slanje upita preko kontakt forme ne stvara obavezu autora ni ugovorni odnos."
+            "Tekstovi na blogu i drugi informativni sadržaj su opšteg karaktera. Nisu pravni, poreski ni finansijski savet i ne zamenjuju savet za vaš konkretan slučaj. Podaci i alati trećih strana koji se pominju mogu da se promene."
           ]
         },
         {
           "title": "7. Autorska prava",
           "paragraphs": [
-            "Osim ako je drugačije navedeno, tekstovi, grafike, modeli i kod ovog sajta zaštićeni su autorskim pravom autora. Dozvoljeno je citiranje uz navođenje izvora i link. Svako drugo preuzimanje, kopiranje ili komercijalno korišćenje traži prethodnu pisanu saglasnost autora. Podaci trećih strana ostaju pod licencama svojih vlasnika."
+            "Osim ako je drugačije navedeno, tekstovi, grafike i kod ovog sajta zaštićeni su autorskim pravom autora. Dozvoljeno je citiranje uz navođenje izvora i link. Nazivi, logotipi i snimci ekrana sajtova klijenata pripadaju njihovim vlasnicima i prikazani su kao primeri rada."
           ]
         },
         {
-          "title": "8. Poruke, komentari i ponašanje korisnika",
+          "title": "8. Linkovi i usluge trećih strana",
           "paragraphs": [
-            "Ako sajt omogućava komentare ili slanje poruka, zabranjeno je objavljivanje nezakonitog, uvredljivog ili obmanjujućeg sadržaja, kao i poverljivih podataka trećih strana ili poslodavaca, i sadržaja koji se predstavlja kao stav neke kompanije. Autor može da ukloni takav sadržaj bez prethodne najave. Obrada ličnih podataka (kontakt forma, kolačići) uređena je obaveštenjem o privatnosti uz formu i podešavanjima kolačića."
+            "Sajt sadrži linkove na sajtove trećih strana i koristi njihove usluge (na primer hosting, email i video). Autor nema kontrolu nad njima i ne odgovara za njihov sadržaj ni rad."
           ]
         },
         {
-          "title": "9. Ograničenje odgovornosti",
+          "title": "9. Lični podaci i kolačići",
           "paragraphs": [
-            "Sajt i sadržaj se pružaju „takvi kakvi jesu“, bez ikakve garancije, izričite ili podrazumevane. U najvećoj meri dozvoljenoj zakonom, autor ne odgovara za bilo kakvu štetu (neposrednu ili posrednu, izgubljenu dobit, štetu na bušotini, opremi ili imovini, povredu, gubitak podataka, odluke o ulaganju) nastalu korišćenjem sajta ili oslanjanjem na njegov sadržaj, niti za nedostupnost sajta. Ovo ne isključuje odgovornost koja se po zakonu ne može isključiti ili ograničiti. Sajt koristite na sopstvenu odgovornost."
+            "Kako se obrađuju podaci iz kontakt formi i kolačići opisano je u Politici privatnosti. Kolačiće za analitiku i oglase možete da uključite ili isključite u podešavanjima kolačića."
           ]
         },
         {
-          "title": "10. Izmene i merodavno pravo",
+          "title": "10. Ograničenje odgovornosti",
+          "paragraphs": [
+            "Sajt i njegov sadržaj se pružaju „takvi kakvi jesu“. U najvećoj meri dozvoljenoj zakonom, autor ne odgovara za štetu nastalu korišćenjem sajta, oslanjanjem na njegov sadržaj ili njegovom nedostupnošću. Odgovornost za ugovorene usluge uređuje ugovor. Ovo ne isključuje odgovornost koja se po zakonu ne može isključiti ili ograničiti."
+          ]
+        },
+        {
+          "title": "11. Izmene i merodavno pravo",
           "paragraphs": [
             "Autor može da izmeni ove uslove. Izmene važe od objavljivanja; datum poslednje izmene naveden je na vrhu. Primenjuje se pravo Republike Srbije, a za sporove je nadležan sud u Republici Srbiji, osim ako obavezni propisi o zaštiti potrošača određuju drugačije."
           ]
         },
         {
-          "title": "11. Kontakt",
+          "title": "12. Kontakt",
           "paragraphs": [
-            "Pitanja, prijave i zahteve u vezi sa sadržajem, uključujući primedbe o sukobu interesa ili poverljivim informacijama, šaljite preko stranice Kontakt."
+            "Pitanja o ovim uslovima šaljite na {email} ili preko stranice Kontakt."
           ]
         }
-      ],
-      "contactLink": "Stranica Kontakt"
-    },
-    "melenciModel": {
-      "profile": {
-        "caption": "Temperatura tla ispod Melenaca prema kartama atlasa, sa dubinom na kojoj se dostiže 60 °C.",
-        "temp": "Temperatura, °C",
-        "depth": "Dubina, km",
-        "aria": "Temperatura po dubini ispod Melenaca"
-      },
-      "scenarios": {
-        "caption": "Toplota iz jedne bušotine u Melencima u četiri slučaja: postojeća bušotina sa dva navedena protoka i dva pretpostavljena dublja slučaja",
-        "cols": [
-          "Slučaj",
-          "Voda, °C",
-          "Protok, l/s",
-          "Iznad 20 °C (atlas), kW",
-          "Grejanje objekata, kW",
-          "Bazeni, kW",
-          "Toplotna pumpa, kW",
-          "Struja pumpe, kW",
-          "Isporučena toplota, kW",
-          "Toplota godišnje, MWh"
-        ],
-        "rows": {
-          "a1": "Me-1/H, protok iz Priloga 1 (2005)",
-          "a2": "Me-1/H, protok iz atlasa (2010)",
-          "b": "Dublji horizont oko 1.000 m (pretpostavka)",
-          "c": "Nova bušotina oko 1.300 m (pretpostavka)"
-        },
-        "note": "Lanac je isti u svakom slučaju: grejanje objekata do 35 °C, bazeni do 28 °C, zatim toplotna pumpa spušta vodu do 15 °C i isporučuje toplotu na 45 °C sa koeficijentom 0,4 Karnoove vrednosti. Toplota godišnje važi za {hours} ekvivalentnih sati punog opterećenja. Slučajevi od 55 °C i 75 °C i njihovi protoci su pretpostavke, a ne merenja."
-      },
-      "economics": {
-        "caption": "Šta košta izgradnja i za koliko se godina toplota isplati, prema vrednosti toplote koju zamenjuje",
-        "cols": [
-          "Slučaj",
-          "Procena investicije, mil. €"
-        ],
-        "range": "opseg {low}–{high}",
-        "price": "Povrat pri {price} €/MWh, godina",
-        "net": "neto {net} hilj. € godišnje",
-        "never": "ne vraća se",
-        "note": "Investicija je zbir stavki iz tabele troškova, bez remonta i opreme za gas, koji nisu procenjeni; opseg je opseg procene klase 4 (−30 % do +50 %). Neto dobit je vrednost toplote umanjena za godišnje pogonske troškove iz tabele ispod. Povrat je investicija podeljena godišnjom neto dobiti, bez diskontovanja. Gas iz vode ovde nije uračunat."
-      },
-      "omitted": {
-        "caption": "Povrat pri {price} €/MWh, godina, kada se dodaju stavke koje tabela povrata izostavlja",
-        "cols": {
-          "base": "Kao u tabeli povrata",
-          "reinjection": "Uz bušotinu za reinjekciju",
-          "risk": "Uz rizik bušenja",
-          "workover": "Uz remont",
-          "all": "Sve zajedno"
-        },
-        "invest": "investicija {inv} mil. €",
-        "none": "ne odnosi se",
-        "note": "Bušotina za reinjekciju ide do dubine proizvodnog intervala ({depth} m za postojeću bušotinu, a do dubine nove bušotine za ostale slučajeve) po {perM} €/m; pumpa za utiskivanje i njena struja nisu uračunate. Rizik bušenja: uspešno je {success} % bušotina, pa jedna uspešna košta koliko 1/0,7 bušotina; odnosi se samo na nove bušotine. Remont je okrugla brojka od {workover} €, jer javne cene nema; odnosi se samo na postojeću bušotinu. Održavanje (3 % godišnje) računa se na veću investiciju. Oprema za gas i dalje nije uračunata."
-      },
-      "opex": {
-        "caption": "Pogonski troškovi godišnje (OPEX) po slučajevima",
-        "cols": [
-          "Slučaj",
-          "Struja toplotne pumpe, hilj. €",
-            "Održavanje, hilj. €",
-          "Ostali stalni troškovi, hilj. €",
-          "Pogonski troškovi, hilj. € godišnje"
-        ],
-        "note": "Struja se naplaćuje po {electric} €/MWh. Održavanje je {upkeep} % investicije godišnje, a ostali stalni troškovi {other} € godišnje (praćenje, analize vode, posluga): oba su pretpostavke bez javnog izvora. Reinjekcija nije uračunata, jer bi za nju trebala još jedna nova bušotina; ohlađena voda se ispušta. Atlas navodi da skoro sve bušotine u Vojvodini rade samoizlivno, pa pumpa za proizvodnju nije uračunata."
-      },
-      "methane": {
-        "caption": "Gas rastvoren u vodi bušotine Me-1/H i koliko bi mogao da vredi",
-        "cols": [
-          "Gas u vodi, m³ po m³",
-          "Gas godišnje, m³",
-          "Energija metana, MWh godišnje",
-          "Vrednost, hilj. € godišnje",
-          "U odnosu na toplotu postojeće bušotine"
-        ],
-        "rows": {
-          "low": "najmanje u Vojvodini",
-          "high": "najviše u Vojvodini"
-        },
-        "note": "Prema atlasu voda prvog sistema sadrži 0,04 do 2,2 m³ gasa po m³, pretežno metana (80 do 95 %); uzima se 90 %. Protok je 6,9 l/s (Prilog 1) tokom {hours} sati godišnje; energija se vrednuje po {price} €/MWh, ceni gasa koji bi zamenila. Sadržaj gasa same Me-1/H nije objavljen: treba ga izmeriti, i on odlučuje da li se gas isplati odvajati i koristiti. Gas iz vode je eksplozivan, pa korišćenje traži odvajanje, mere zaštite i opremu koja ovde nije uračunata u trošak."
-      },
-      "costs": {
-        "caption": "Stavke investicije i odakle je koja brojka",
-        "cols": [
-          "Stavka",
-          "Korišćena vrednost",
-          "Osnova"
-        ],
-        "rows": {
-          "drilling": {
-            "name": "Bušenje nove bušotine",
-            "basis": "Javna procena od 350 do 400 € po metru (blog iz 2012. bez navedenog izvora); uzima se gornja vrednost. Za Vojvodinu nismo našli noviji javni podatak."
-          },
-          "equipment": {
-            "name": "Oprema za korišćenje toplote (izmenjivači, pumpe)",
-            "basis": "Javna procena od oko 200.000 € (isti blog iz 2012). Pretpostavljamo da obuhvata sve na površini osim toplotne pumpe i cevi."
-          },
-          "heatPump": {
-            "name": "Toplotna pumpa",
-            "basis": "Pretpostavka. Javne cene za Srbiju postoje samo za kućne jedinice (3.000 do 15.000 € ugrađene, bez navedene snage); jedinica od više stotina kW košta manje po kW, pa uzimamo 500 € po kW."
-          },
-          "pipeline": {
-            "name": "Razvod (cevovod)",
-            "basis": "Pretpostavka: trasa od 500 m po 400 € po metru. Javnu cenu po metru za Srbiju nismo našli."
-          },
-          "reinjection": {
-            "name": "Bušotina za reinjekciju",
-            "basis": "Uračunata samo u tabeli izostavljenih stavki: jedna bušotina do dubine proizvodnog intervala (560 m za Me-1/H), po istoj ceni bušenja. Pumpa za utiskivanje i njena struja nisu procenjene."
-          },
-          "workover": {
-            "name": "Remont postojeće bušotine",
-            "basis": "Nije procenjen, pa nije uključen. Javni podatak o ceni nismo našli; procena remonta je poseban korak."
-          },
-          "gas": {
-            "name": "Oprema za korišćenje gasa",
-            "basis": "Nije procenjena, pa nije uključena. Bila bi potrebna samo ako voda sadrži dovoljno gasa da se isplati koristiti ga; sadržaj gasa u Me-1/H treba prvo izmeriti."
-          }
-        },
-        "units": {
-          "perM": "€/m",
-          "perKw": "€/kW",
-          "eur": "€",
-          "route": "{m} m × {p} €/m"
-        }
-      },
-      "calc": {
-        "title": "Izračunajte svoj slučaj",
-        "intro": "Promenite vodu, upotrebu i troškove; rezultat prati isti lanac i iste formule kao tabele iznad.",
-        "fields": {
-          "temp": "Temperatura vode na ušću",
-          "flow": "Protok",
-          "hours": "Ekvivalentni sati punog opterećenja godišnje",
-          "heatValue": "Vrednost zamenjene toplote",
-          "electricPrice": "Cena struje",
-          "upkeep": "Održavanje, udeo investicije godišnje",
-          "newWells": "Nove bušotine",
-          "depth": "Dubina nove bušotine",
-          "successRate": "Uspešnost bušenja",
-          "drillingPerM": "Cena bušenja",
-          "reinjectionWells": "Bušotine za reinjekciju",
-          "reinjectionDepth": "Dubina bušotine za reinjekciju",
-          "workover": "Remont postojeće bušotine",
-          "heatPumpPerKw": "Toplotna pumpa",
-          "pipelineM": "Dužina cevi",
-          "pipelinePerM": "Cena cevi položene",
-          "equipment": "Oprema za korišćenje toplote",
-            "otherOpex": "Ostali stalni troškovi godišnje",
-          "gasRatio": "Gas u vodi",
-          "gasPrice": "Vrednost gasa",
-          "gasEquipment": "Oprema za korišćenje gasa"
-        },
-        "results": {
-          "atlas": "Iznad 20 °C (vrednost iz atlasa)",
-          "heating": "Grejanje objekata",
-          "pools": "Bazeni",
-          "pump": "Toplota toplotne pumpe",
-          "electric": "Struja toplotne pumpe",
-          "cop": "Koeficijent toplotne pumpe",
-          "total": "Isporučena toplota",
-          "energy": "Toplota godišnje",
-          "gasRevenue": "Zamenjeni gas, vrednost godišnje",
-          "opex": "Pogonski troškovi godišnje",
-          "net": "Neto dobit godišnje",
-          "investment": "Procena investicije",
-          "payback": "Povrat"
-        },
-        "note": "Račun iz navedenih pretpostavki, a ne projekat. Ne zamenjuje ispitivanje bušotine, procenu njenog remonta ni studiju izvodljivosti."
-      },
-      "matrix": {
-        "caption": "Povrat nove bušotine u godinama, ako toplota zamenjuje gorivo vredno {price} €/MWh",
-        "tempCol": "Voda, °C (dubina bušotine, m)",
-        "flowHead": "{flow} l/s",
-        "clear": "jasno",
-        "limit": "blizu granice",
-        "no": "ne isplati se",
-        "note": "Svaka bušotina ovde je jedna nova bušotina do dubine na kojoj je stena 4 °C toplija od vode (gradijent Melenaca, 52,5 °C po km), sa istim cenama i pretpostavkama kao gore, toplotnom pumpom, 500 m cevi i opremom na površini, uz korišćenje sve toplote {hours} sati godišnje. Remont, reinjekcija, gas i subvencije nisu uračunati. Jasno: povrat do {clear} godina; blizu granice: {clear} do {limit} godina; ne isplati se: preko {limit} godina. Ove granice su naša procena."
-      },
-      "pdf": {
-        "button": "Sačuvaj kao PDF",
-        "hint": "Otvara dijalog za štampu: izaberite „Sačuvaj kao PDF“. Stranica se štampa kao izveštaj sa tabelama i grafikonom temperature."
-      }
-    },
-    "geothermalModel": {
-      "canvasLabel": "Interaktivni 3D model bušotina Vojvodine sa temperaturnim profilima. Prevucite da zarotirate, kliknite na model i skrolujte da zumirate.",
-      "loading": "Učitavam 3D model…",
-      "noWebgl": "Ovaj pregledač nije mogao da pokrene 3D grafiku, pa se model ne može prikazati.",
-      "hint": "Prevlačenje rotira · desni taster ili dva prsta pomeraju · kliknite na model pa skrolujte za zum · klik na bušotinu prikazuje podatke",
-      "zoomIn": "Uvećaj",
-      "zoomOut": "Umanji",
-      "views": {
-        "title": "Pogled",
-        "perspective": "Perspektiva",
-        "top": "Odozgo",
-        "south": "Sa juga",
-        "west": "Sa zapada"
-      },
-      "scale": {
-        "title": "Razmera",
-        "vertical": "Vertikalno preuveličanje",
-        "relief": "Preuveličanje reljefa",
-        "ground": "Providnost zemljišta"
-      },
-      "layers": {
-        "title": "Slojevi",
-        "show": "Horizontalni slojevi",
-        "spacing": "Razmak slojeva",
-        "opacity": "Providnost slojeva",
-        "walls": "Bočni zidovi"
-      },
-      "wells": {
-        "title": "Bušotine",
-        "labels": "Nazivi naselja",
-        "producing": "U proizvodnji (2005)",
-        "idle": "Van proizvodnje",
-        "untapped": "Nikad u proizvodnji"
-      },
-      "contours": {
-        "title": "Konture na terenu",
-        "show": "Dubina do izabrane temperature",
-        "temp": "Dostignuta temperatura"
-      },
-      "map": {
-        "title": "Mapa terena",
-        "show": "Prikaži mapu na terenu (učitava slike sa servera mape)",
-        "loading": "Učitavam mapu…",
-        "error": "Mapa nije mogla da se učita.",
-        "credit": "Podaci mape © <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener noreferrer\">saradnici OpenStreetMap-a</a>, SRTM · stil © <a href=\"https://opentopomap.org\" target=\"_blank\" rel=\"noopener noreferrer\">OpenTopoMap</a> (<a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noopener noreferrer\">CC-BY-SA</a>)"
-      },
-      "legend": {
-        "title": "Temperatura, °C",
-        "measured": "Obojena traka na bušotini: izmereno na ispitanom intervalu",
-        "hollow": "Šuplji marker: interval nije dat, prikazano na ukupnoj dubini",
-        "modelled": "Obojeni slojevi i zidovi: temperatura iz karata atlasa na 500, 1.000 i 2.000 m; na zidovima linija na svakih 10 °C",
-        "contours": "Linije na terenu: dubina u km na kojoj se dostiže izabrana temperatura; prstenovi se zatvaraju oko toplijih bušotina",
-        "head": "Ušće: puno u proizvodnji, sivo van proizvodnje, prsten nikad u proizvodnji"
-      },
-      "detail": {
-        "title": "Bušotina",
-        "empty": "Kliknite na bušotinu da ovde vidite njene podatke."
-      },
-      "tip": {
-        "well": "<strong>{id}</strong> · {place}<br>{status}<br>Dubina {depth} {unit}, {interval}<br>Voda {temp} {degC}",
-        "interval": "interval {top}–{bottom} {unit}",
-        "noInterval": "interval nije dat",
-        "section": "<strong>{temp} {degC}</strong> na {depth} {unit} (atlas)<br>{lat}°N, {lon}°E · gradijent {gradient} {gunit}"
-      },
-      "test": {
-        "interval": "Interval {top}–{bottom} {unit}",
-        "noInterval": "Interval nije dat",
-        "lowerBound": "donja granica"
-      },
-      "fields": {
-        "place": "Naselje",
-        "status": "Status",
-        "year": "Izbušena",
-        "depth": "Ukupna dubina"
-      },
-      "status": {
-        "producing": "U proizvodnji",
-        "idle": "Van proizvodnje",
-        "untapped": "Nikad u proizvodnji"
-      },
-      "units": {
-        "m": "m",
-        "km": "km",
-        "degC": "°C",
-        "gradient": "°C/km",
-        "flow": "l/s",
-        "minerals": "g/l"
-      },
-      "workspace": {
-        "brand": "Geotermalni model Vojvodine",
-        "open": "Otvori u prozoru preko celog ekrana",
-        "close": "Zatvori",
-        "fullscreen": "Ceo ekran",
-        "dockLeft": "Podešavanja",
-        "dockRight": "Podaci",
-        "fit": "Prilagodi prozoru",
-        "tool": {
-          "navigate": "Kretanje",
-          "measure": "Merenje",
-          "frame": "Okvir za štampu",
-          "print": "Štampaj",
-          "png": "Sačuvaj sliku"
-        },
-        "hint": {
-          "navigate": "Prevlačenje rotira · desni taster pomera · točkić zumira · klik na teren daje profil temperature · klik na bušotinu daje detalje",
-          "measureFirst": "Merenje: kliknite prvu tačku na terenu",
-          "measureSecond": "Merenje: kliknite drugu tačku",
-          "measureDone": "Rastojanje i azimut su prikazani na modelu · novi klik počinje novo merenje · Esc briše",
-          "frame": "Okvir za štampu: prevucite traku da ga pomerite, prevucite ugao da ga promenite, pa pritisnite Štampaj"
-        },
-        "status": {
-          "lat": "Šir.",
-          "lon": "Duž.",
-          "gk": "GK7 E/N, m",
-          "elevation": "Nadmorska visina",
-          "temps": "Temperatura iz atlasa na 500 · 1.000 · 2.000 m",
-          "none": "Pređite pokazivačem preko modela"
-        },
-        "find": {
-          "label": "Pronađi bušotinu ili naselje",
-          "placeholder": "Pronađi bušotinu ili naselje…",
-          "none": "Nema bušotine ni naselja s tim imenom"
-        },
-        "probe": {
-          "title": "Tačka na terenu",
-          "empty": "Kliknite teren na modelu da pročitate temperaturu ispod te tačke.",
-          "clear": "Ukloni tačku",
-          "rows": {
-            "position": "Položaj",
-            "gk": "Gaus–Kriger, zona 7, m",
-            "elevation": "Nadmorska visina",
-            "at": "Na {depth} m",
-            "depthTo": "Dubina do {temp} °C"
-          }
-        },
-        "chart": {
-          "temp": "Temperatura, °C",
-          "depth": "Dubina, km"
-        },
-        "print": {
-          "title": "Štampa okvira",
-          "paper": "Papir",
-          "a4": "A4",
-          "a3": "A3",
-          "orientation": "Orijentacija",
-          "landscape": "Položeno",
-          "portrait": "Uspravno",
-          "showFrame": "Prikaži okvir na modelu",
-          "print": "Štampaj",
-          "save": "Sačuvaj sliku",
-          "placeFirst": "Postavite okvir preko dela modela koji želite, pa ponovo pritisnite Štampaj.",
-          "busy": "Priprema se list…",
-          "summary": "{paper}, {orientation}, slika {w} × {h} mm"
-        },
-        "sheet": {
-          "subtitle": "Geotermalni potencijal Vojvodine: 3D model hidrotermalnih bušotina",
-          "date": "Odštampano {date}",
-          "facts": {
-            "frame": "Područje u okviru",
-            "settings": "Podešavanja modela"
-          },
-          "rows": {
-            "centre": "Centar",
-            "size": "Širina × visina na terenu",
-            "view": "Pogled",
-            "scale": "Razmera",
-            "exaggeration": "Vertikalno preuveličanje",
-            "relief": "Preuveličanje reljefa",
-            "layers": "Temperaturni slojevi",
-            "contours": "Izolinije",
-            "map": "Karta",
-            "wells": "Bušotine",
-            "off": "Isključeno"
-          },
-          "viewTop": "Odozgo",
-          "viewOblique": "Koso, pravac {azimuth}°, nagib {tilt}°",
-          "scaleValue": "1 : {n}",
-          "layersValue": "na svakih {step} km, providnost {opacity} %",
-          "contoursValue": "dubina do {temp} °C",
-          "mapValue": "OpenTopoMap",
-          "wells": "Bušotine u okviru",
-          "wellsEmpty": "Nema bušotina u okviru.",
-          "wellsHead": [
-            "Bušotina",
-            "Naselje",
-            "Status",
-            "Dubina, m",
-            "Maks. temp., °C",
-            "Interval, m",
-            "Izbušena"
-          ],
-          "selected": "Izabrana bušotina",
-          "point": "Tačka na terenu"
-        }
-      },
-      "notesTitle": "Kako čitati prikaz",
-      "notes": [
-        "**Položaj.** Prilog daje naselja, a ne koordinate, pa svaka bušotina stoji u centru svog naselja. Bušotine istog naselja raspoređene su na prstenu širine oko 2 km da bi se razlikovale.",
-        "**Izmereno.** Svaka obojena traka je temperatura vode na ispitanom intervalu. Gde prilog ne daje interval marker je šupalj i stoji na ukupnoj dubini; tamo je temperatura vode koja je mogla doći i sa manje dubine, pa je gradijent na tim bušotinama donja granica.",
-        "**Atlas.** Slojevi, zidovi i konture nisu izmereni na bušotinama. Potiču iz karata temperature na 500, 1.000 i 2.000 m iz [Geotermalnog atlasa Vojvodine](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010), digitalizovanih iz boja klasa na kartama (koraci od 0,5, 1 i 2 °C). Između karata temperatura raste pravolinijski od 11 °C na površini, što je pretpostavka. Ispod 2 km, dublje od svake karte, nastavlja se nagibom između 1 i 2 km. Trake na bušotinama (Prilog) i boje (atlas) su različiti izvori i ne slažu se uvek: atlas je topliji od vode iz Priloga kod 44 od 53 ispitivanja, u proseku za 9 °C.",
-        "**Oblik i reljef.** Oblik je granica AP Vojvodine iz OpenStreetMap-a. Visine terena su iz Terrain Tiles na AWS-u (SRTM i drugi izvori), na mreži od 1 km, nacrtane iznad medijane pokrajine, 79 m, sa preuveličanjem iz panela Razmera. Slojevi temperature crtaju se kao dubina ispod tog nivoa i ne prate teren; razlika je bitna samo na Fruškoj gori i Vršačkim planinama. Prilog ne daje kote bušotina, pa ušća stoje na modelu terena.",
-        "**Izvor.** Bušotine i ispitivanja su iz [Priloga 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) studije *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), koju je javno objavio Pokrajinski sekretarijat za energetiku i mineralne sirovine: 51 bušotina u tri tabele, Kž-2/H računata jednom."
       ]
     },
     "landing": {
       "meta": {
         "title": "Sajt koji ti donosi klijente",
-        "description": "Brzi sajtovi po meri, SEO i vidljivost u AI pretrazi za lokalne uslužne firme. Jedna fiksna cena, sve na tvoje ime i besplatna provera tvog trenutnog sajta."
+        "description": "Brz sajt po meri, SEO i vidljivost u AI pretrazi za lokalne uslužne firme. Fiksna cena, sve na tvoje ime, a provera postojećeg sajta je besplatna."
       },
       "header": {
         "cta": "Besplatna provera sajta"
       },
       "hero": {
-        "badge": "Dostupan za nove projekte",
+        "badge": "Primam nove projekte",
         "titleLead": "Da li tvoj sajt šalje klijente",
         "titleHighlight": "tvojoj konkurenciji?",
-        "description": "Svaka spora stranica, neodgovoren upit i izostanak sa Google-a predaju klijenta nekom drugom — a ti to nikad ne vidiš. Pravim brze sajtove po meri, podešavam SEO i vidljivost u AI pretrazi i povezujem svaki upit direktno sa tvojim telefonom.",
-        "primary": "Saznaj šta tvoj sajt gubi",
+        "description": "Spor sajt, upit na koji niko nije odgovorio, firma koje nema na Google-u. Svaka od tih sitnica pošalje klijenta nekom drugom, a ti to ne vidiš. Pravim brze sajtove, sređujem SEO i AI pretragu i povezujem svaki upit direktno sa tvojim telefonom.",
+        "primary": "Vidi šta tvoj sajt propušta",
         "secondary": "Pogledaj rezultate",
         "trust": [
           {
@@ -802,7 +405,7 @@
           },
           {
             "value": "< 1 dan",
-            "label": "da odgovorim na svaki upit"
+            "label": "do mog odgovora na upit"
           }
         ],
         "imageAlt": "Stojan Petković, web developer sa kojim radiš direktno",
@@ -810,223 +413,227 @@
         "videoLabel": "Video predstavljanje"
       },
       "problem": {
-        "badge": "Šta te košta",
-        "heading": "Tvoj sajt upravo sada možda predaje klijente konkurenciji",
-        "lead": "Ništa te ne upozorava: nema greške ni obaveštenja, samo pozivi koji ne stižu. A što duže traje, to više košta.",
+        "badge": "Gde odlaze klijenti",
+        "heading": "Možda ti sajt baš sad šalje klijente konkurenciji",
+        "lead": "Ne stiže nikakvo upozorenje. Telefon prosto zvoni ređe nego što bi trebalo, i to tako traje mesecima.",
         "items": [
           {
             "icon": "hourglass",
-            "title": "Posetioci odlaze pre nego što te vide",
-            "text": "Svaka sekunda viška na telefonu otera posetioce pre nego što uopšte vide tvoj broj — a prvi odlaze oni koje si platio. Uzrok retko leži u tvom poslu: to je teška izrada od tema i plugina, izabrana za sajt kojem to nikad nije trebalo."
+            "title": "Ljudi odu pre nego što vide tvoj broj",
+            "text": "Na telefonu niko ne čeka. Ako se stranica učitava pet sekundi, čovek se vrati na Google i klikne na sledeću firmu. Najčešće je kriva teška WordPress tema sa gomilom dodataka koji ti nisu ni trebali."
           },
           {
             "icon": "search-x",
-            "title": "Klijenti te ne mogu da nađu",
-            "text": "Tanke stranice, bez lokalnog sadržaja i sa tehničkim greškama drže te daleko od prve strane, a AI asistenti kao ChatGPT te uopšte ne pominju. Poziv dobija onaj koga pomenu."
+            "title": "Na Google-u te nema",
+            "text": "Prazne stranice, bez pomena grada i sa tehničkim greškama, ne stižu do prve strane. ChatGPT te ne preporučuje, a posao dobija onaj koga pomene."
           },
           {
             "icon": "mail-x",
-            "title": "Upiti idu konkurenciji",
-            "text": "Forme stižu u inbox koji niko ne proverava, a klijent je već pozvao nekog drugog dok mu ti odgovoriš."
+            "title": "Upiti stoje u inboxu",
+            "text": "Forma ode na mejl koji niko ne gleda. Dok odgovoriš, čovek je već pozvao drugog."
           },
           {
             "icon": "lock",
-            "title": "Prepušten si tuđoj volji",
-            "text": "Domen, hosting ili kod su na tuđe ime, pa svaka sitna izmena znači čekanje i plaćanje — a ne možeš jednostavno da odeš."
+            "title": "Sajt zapravo nije tvoj",
+            "text": "Domen, hosting ili kod su na tuđe ime. Svaka sitna izmena znači čekanje i novi račun, a otići ne možeš tek tako."
           }
         ]
       },
       "solution": {
-        "badge": "Kako gubici prestaju",
-        "heading": "Jedan čovek, jedna cena i sajt koji prestaje da gubi klijente",
-        "lead": "Dizajn, izrada, SEO i praćenje upita u jednom projektu, napravljeni samo od alata koji tvojoj firmi trebaju — da se svaki posetilac koga dobiješ pretvori u upit, a ne u propušten poziv.",
+        "badge": "Kako se to rešava",
+        "heading": "Jedan čovek, jedna cena i sajt koji radi za tebe",
+        "lead": "Dizajn, izrada, SEO i praćenje upita u jednom projektu. Koristim samo ono što tvojoj firmi stvarno treba, da svaki posetilac ima razlog da pozove.",
         "items": [
           {
             "icon": "zap",
-            "title": "Munjevito brz sajt",
-            "text": "Napravljen u Astro-u: stranice se otvaraju odmah na svakom telefonu, uz vrhunske ocene na Google-ovim Lighthouse testovima."
+            "title": "Sajt koji se otvara odmah",
+            "text": "Pravim ga u Astro-u, pa se stranice otvaraju bez čekanja i na slabom signalu, uz najviše ocene na Google-ovim testovima brzine."
           },
           {
             "icon": "search",
-            "title": "Vidljiv na Google-u i u AI pretrazi",
-            "text": "Stranice usluga i oblasti, strukturirani podaci i sadržaj pisan onako kako tvoji klijenti stvarno traže — na Google-u i u ChatGPT-u."
+            "title": "Na Google-u i u AI pretrazi",
+            "text": "Posebna stranica za svaku uslugu i grad, sređeni podaci za Google i tekst pisan onako kako ljudi stvarno pretražuju."
           },
           {
             "icon": "bell-ring",
-            "title": "Svaki upit, odmah",
-            "text": "Svaka forma i poziv se prate i stižu ti istog trenutka, pa se javiš prvi i dobiješ posao."
+            "title": "Upit ti stiže odmah",
+            "text": "Svaka forma i svaki klik na broj se beleže i stižu ti istog trenutka. Javiš se prvi i dobiješ posao."
           },
           {
             "icon": "shield-check",
-            "title": "Tvoje od prvog dana",
-            "text": "Kod, domen i hosting na tvoje ime. Bez ugovora koji te vezuju, bez skrivenih troškova, bez plugina koji pucaju."
+            "title": "Sve je na tvoje ime",
+            "text": "Kod, domen i hosting su tvoji od prvog dana. Nema ugovora koji te drži, skrivenih troškova ni dodataka koji se kvare posle svakog ažuriranja."
           }
         ]
       },
       "results": {
-        "badge": "Dokaz da se može popraviti",
-        "heading": "Isti problem, rešen: prava izrada za pravi posao",
-        "lead": "Dve firme za usluge sa drvećem iz Južne Floride gubile su posetioce zbog teških sajtova sagrađenih od alata koji im nikad nisu trebali. Posle lake prerade stranice se otvaraju odmah i imaju savršenu SEO ocenu 100. Lokalnoj firmi trebaju brzina i upiti, a ne komplikovan sistem.",
-        "note": "Ovo su samo dva primera iz mog rada — svaki projekat pravim na isti način.",
+        "badge": "Rezultati",
+        "heading": "Dva sajta, isti problem, rešen",
+        "lead": "Dve firme za seču i održavanje drveća sa Floride imale su spore WordPress sajtove pune dodataka. Prebacio sam ih na lagan sajt: stranice se otvaraju odmah, a SEO ocena je 100. Lokalnoj firmi trebaju brzina i upiti, a ne komplikovan sistem.",
+        "note": "Ovo su dva primera. Svaki sajt radim na isti način.",
         "cases": [
           {
             "client": "Tree Jaws",
-            "sector": "Usluge sa drvećem · Južna Florida",
+            "sector": "Seča i održavanje drveća · Južna Florida",
             "metric": "SEO 100",
             "metricLabel": "Lighthouse ocena posle prelaska sa WordPress-a",
             "points": [
-              "Prebačen sa WordPress-a na Astro — stranice se otvaraju odmah, čak i na slaboj 4G vezi",
-              "176 stranica i 108 lokalnih vodiča, napravljenih da kotiraju u lokalnoj pretrazi",
+              "Prebačen sa WordPress-a na Astro, stranice se otvaraju odmah i na slabom 4G signalu",
+              "176 stranica, od toga 108 lokalnih vodiča za pretragu po gradovima",
               "1.010 praćenih upita, od toga 732 telefonska poziva",
-              "Ocena 4.9★ iz 427 Google recenzija"
+              "Ocena 4,9★ iz 427 Google recenzija"
             ]
           },
           {
             "client": "Mahalo Tree Service",
-            "sector": "Usluge sa drvećem · Južna Florida",
+            "sector": "Seča i održavanje drveća · Južna Florida",
             "metric": "SEO 100",
-            "metricLabel": "Lighthouse ocena — uz $0 potrošeno na oglase",
+            "metricLabel": "Lighthouse ocena, bez ijednog dolara za oglase",
             "points": [
-              "Prebačen sa WordPress-a na Astro — statičke stranice umesto gomile plugina",
-              "Svaki upit stiže vlasniku na email istog trenutka — bez portala koji treba proveravati",
-              "Rast samo iz pretrage, bez plaćenih oglasa",
-              "Google ocena 5.0, 18 stranica za oblasti i blog koji raste"
+              "Prebačen sa WordPress-a na Astro, obične brze stranice umesto gomile dodataka",
+              "Svaki upit stiže vlasniku na mejl odmah, bez portala koji mora da proverava",
+              "Raste samo iz pretrage, bez plaćenih oglasa",
+              "Google ocena 5,0, 18 stranica za gradove i blog koji raste"
             ]
           }
         ]
       },
       "story": {
-        "badge": "Ilustrativna priča",
+        "badge": "Priča iz prakse (izmišljena)",
         "heading": "Kad oglasi koštaju više nego što donesu",
         "paragraphs": [
-          "Upoznaj Dragana, izmišljenog vlasnika sastavljenog od situacija koje viđam iznova i iznova. Vodi firmu za uklanjanje drveća. Vlasnik kuće kome je oluja oštetila drvo zove prvu firmu koja deluje ozbiljno — i ne čeka.",
-          "Njegov sajt se sporo otvara, Google ga jedva prikazuje, a novac koji ulaže u oglase ne vraća se. Posetioci koje plaća odlaze pre nego što se stranica uopšte učita — a on to nikad ne sazna, jer ga ništa ne upozorava.",
-          "Zatim se sajt prepravlja: brze stranice, SEO od temelja, svaki upit stiže pravo na njegov telefon. Stranice se otvaraju odmah, a budžet za oglase se konačno pretvara u telefonske pozive. Da je čekao još jednu sezonu, oglasi bi nastavili da plaćaju posetioce koji nikad ne pozovu."
+          "Dragan je izmišljen, ali njegova situacija nije. Sklopio sam ga od priča koje stalno slušam. Ima firmu za seču drveća. Kad oluja obori granu na krov, vlasnik kuće zove prvu firmu koja deluje ozbiljno i ne čeka da mu se neko javi.",
+          "Draganov sajt se sporo otvara, na Google-u ga jedva ima, a novac za oglase se ne vraća. Ljudi koje je platio da dođu odu pre nego što se stranica učita. On to ne zna, jer mu to niko ne javlja.",
+          "Onda prepravimo sajt: brze stranice, SEO od temelja i svaki upit pravo na njegov telefon. Novac za oglase konačno postaje pozivi. Da je čekao još jednu sezonu, plaćao bi posete ljudi koji nikad ne zovu."
         ],
         "beforeTitle": "Pre",
         "before": [
-          "Težak sajt sagrađen od alata koji mu nikad nisu trebali",
-          "Slab SEO, teško ga je naći na Google-u",
-          "Novac za oglase koji se ne vraća"
+          "Težak sajt pun dodataka koji mu ne trebaju",
+          "Slab SEO, na Google-u ga je teško naći",
+          "Oglasi koji se ne isplate"
         ],
         "afterTitle": "Posle",
         "after": [
           "Stranice koje se otvaraju odmah",
-          "SEO postavljen od temelja",
-          "Svaki upit stiže do njega istog trenutka"
+          "SEO postavljen kako treba od početka",
+          "Svaki upit mu stiže istog trenutka"
         ],
-        "quote": "Svake nedelje koju sam čekao, te pozive je dobijao neko drugi.",
+        "quote": "Svake nedelje dok sam čekao, te pozive je dobijao neko drugi.",
         "author": "Dragan",
-        "role": "Izmišljeni vlasnik — ilustracija, a ne stvarni klijent",
-        "imageAlt": "Primer sajta firme za uklanjanje drveća koji je napravio Stojan Petković"
+        "role": "Izmišljen lik, ne stvaran klijent",
+        "imageAlt": "Primer sajta firme za seču drveća koji je napravio Stojan Petković"
       },
       "report": {
         "badge": "Praćenje i mesečni izveštaj",
-        "heading": "Bez brojki nagađaš — a tako nestaju budžeti",
-        "lead": "Većina sajtova te ostavlja da nagađaš koji klikovi, pozivi i evri rade, a koji se bacaju. Uz svaki sajt koji napravim možeš da dobiješ najjasniju sliku tvog marketinga koju ćeš ikad imati: svaki upit, svaki poziv i svaki uloženi evro, u jednom mesečnom izveštaju napisanom razumljivim jezikom.",
+        "heading": "Bez brojki samo nagađaš, a budžet ode",
+        "lead": "Većina vlasnika ne zna koji oglas, poziv i dinar zaista donose posao. Uz sajt koji napravim dobijaš jasnu sliku: svaki upit, svaki poziv i svaki uloženi dinar, u jednom mesečnom izveštaju koji se pročita za pet minuta.",
         "points": [
           {
             "icon": "inbox",
-            "title": "Svaki upit, odmah",
-            "text": "Cela forma, stranica sa koje je stigla i oglas ili pretraga koja je dovela posetioca — u tvom inboxu istog trenutka."
+            "title": "Upit ti stiže odmah",
+            "text": "Cela poruka, stranica sa koje je poslata i oglas ili pretraga preko koje je čovek došao. Sve u tvom inboxu istog trenutka."
           },
           {
             "icon": "phone",
             "title": "Svaki poziv se broji",
-            "text": "Klikovi na broj telefona, WhatsApp i SMS beleže se kao konverzije, umesto da se izgube."
+            "text": "Klik na broj telefona, WhatsApp ili SMS beleži se kao upit, umesto da se izgubi."
           },
           {
             "icon": "target",
-            "title": "Izvor koji se isplati",
-            "text": "Google, Facebook oglasi ili direktne posete: vidiš koji donosi posete, upite i pozive, i sa kojom stopom."
+            "title": "Vidiš šta se isplati",
+            "text": "Google, Facebook oglasi ili direktne posete: vidiš koji izvor donosi posete, upite i pozive."
           },
           {
             "icon": "wallet",
-            "title": "Cena po upitu i po pozivu",
-            "text": "Uneseš koliko je potrošeno na oglase, a izveštaj pokaže koliko te je stvarno koštao svaki upit, svaki poziv i svaki dobijeni klijent — i koliko ti se vratilo."
+            "title": "Koliko košta jedan upit",
+            "text": "Upišeš koliko si dao za oglase, a izveštaj pokaže koliko te je koštao svaki upit, svaki poziv i svaki novi klijent, i koliko ti se vratilo."
           },
           {
             "icon": "file-text",
-            "title": "Mesečni PDF koji svako razume",
-            "text": "Bez logovanja i dashboarda: jasne stranice na srpskom ili engleskom, spremne za partnere ili knjigovođu."
+            "title": "Mesečni PDF bez komplikacija",
+            "text": "Ne moraš nigde da se loguješ. Jasne stranice na srpskom ili engleskom, koje možeš da pokažeš ortaku ili knjigovođi."
           },
           {
             "icon": "shield-check",
-            "title": "Privatnost na prvom mestu",
-            "text": "Posetioci se broje anonimno, bez kolačića i bez praćenja po drugim sajtovima."
+            "title": "Bez praćenja posetilaca",
+            "text": "Posete se broje anonimno, bez kolačića i bez praćenja po drugim sajtovima."
           }
         ],
-        "outcomesHeading": "Šta to znači za tvoj biznis",
+        "outcomesHeading": "Šta ti to donosi",
         "outcomes": [
-          "Prestani da plaćaš kanale koji donose klikove, a ne klijente",
-          "Nijedan upit više ne propada — svaki stiže do tebe odmah",
-          "Dokaz u brojkama da se sajt isplaćuje"
+          "Prestaješ da plaćaš kanale koji donose klikove, a ne klijente",
+          "Nijedan upit se više ne zagubi",
+          "Crno na belo vidiš da se sajt isplaćuje"
         ],
         "imageAlt": "Primer mesečnog izveštaja o sajtu: posetioci, upiti, pozivi, stopa konverzije, dnevni grafikon i odakle dolaze posetioci.",
-        "imageCaption": "Primer mesečnog izveštaja (demo podaci).",
-        "imageBadge": "Dostupno uz svaki sajt"
+        "imageCaption": "Primer mesečnog izveštaja (izmišljeni podaci).",
+        "imageBadge": "Uz svaki sajt"
       },
       "process": {
-        "badge": "Kako to ide",
-        "heading": "Četiri koraka od sajta koji gubi klijente do sajta koji ih dobija",
-        "lead": "Svaka nedelja čekanja je nedelja propuštenih upita. Bez dugih sastanaka i bez iznenađenja — uvek znaš šta sledi.",
+        "badge": "Kako radimo",
+        "heading": "Četiri koraka do sajta koji donosi klijente",
+        "lead": "Bez dugih sastanaka i bez iznenađenja. U svakom trenutku znaš šta sledi.",
         "steps": [
           {
-            "title": "Besplatna provera sajta",
-            "text": "Pošalješ formu. U roku od jednog radnog dana pregledam tvoj sajt i konkurenciju i iskreno ti kažem šta te koči."
+            "title": "Besplatna provera",
+            "text": "Pošalješ formu. Za jedan radni dan pogledam tvoj sajt i konkurenciju i kažem ti iskreno šta te koči."
           },
           {
-            "title": "Jedna jasna ponuda",
-            "text": "Kratak razgovor, pa jedan dokument: šta pravim, kad je gotovo i jedna fiksna cena. Odlučuješ kad su ti sve karte na stolu."
+            "title": "Jasna ponuda",
+            "text": "Kratko se čujemo, pa dobiješ jedan dokument: šta radim, do kada i za koliko. Cena je fiksna, a odluka tvoja."
           },
           {
             "title": "Dizajn i izrada",
-            "text": "Radim u kratkim ciklusima, a napredak pratiš preko test linka. Tvoj trenutni sajt radi dok novi ne bude spreman."
+            "text": "Radim u kratkim krugovima i sve vidiš na probnom linku. Stari sajt radi dok novi ne bude spreman."
           },
           {
-            "title": "Lansiranje i rast",
-            "text": "Sajt ide uživo na tvoje ime, sa uključenim SEO-om i praćenjem upita. Tu sam i posle, uz mesečni paket održavanja ako želiš."
+            "title": "Puštanje i rast",
+            "text": "Sajt ide uživo na tvoje ime, sa sređenim SEO-om i praćenjem upita. I posle toga sam tu, a ako želiš, postoji mesečno održavanje."
           }
         ]
       },
       "offer": {
-        "badge": "Bez rizika na početku",
-        "heading": "Saznaj šta te sajt košta",
-        "lead": "Bez obaveza i bez prodajnog pritiska — samo iskren pogled na to gde ti danas izmiču posetioci i upiti.",
+        "badge": "Prvi korak je besplatan",
+        "heading": "Saznaj koliko te košta sajt kakav sad imaš",
+        "lead": "Nema obaveze ni nagovaranja. Dobiješ iskren pregled gde ti danas beže posetioci i upiti.",
         "items": [
-          "Pregled brzine, SEO-a i vidljivosti u AI pretrazi tvog sajta",
-          "Poređenje sa tvojom najjačom lokalnom konkurencijom",
-          "Konkretni sledeći koraci, radio sa mnom ili ne",
-          "Jedna fiksna cena ako odlučiš da krenemo"
+          "Pregled brzine, SEO-a i vidljivosti u AI pretrazi",
+          "Poređenje sa najjačom konkurencijom u tvom gradu",
+          "Konkretni sledeći koraci, radili mi zajedno ili ne",
+          "Fiksna cena, ako odlučiš da krenemo"
         ]
       },
       "faq": {
         "badge": "Pitanja",
-        "heading": "Pre nego što pitaš",
+        "heading": "Šta me najčešće pitaju",
         "items": [
           {
             "question": "Koliko košta sajt?",
-            "answer": "Svaki projekat ima jednu fiksnu cenu, dogovorenu pre početka rada — bez naplate po satu i bez iznenađenja. Posle besplatne provere dobijaš jasnu ponudu sa cenom i rokom."
+            "answer": "Svaki projekat ima fiksnu cenu koju dogovorimo pre početka. Ne naplaćujem po satu i nema naknadnih troškova. Posle besplatne provere dobiješ ponudu sa cenom i rokom."
           },
           {
             "question": "Koliko traje izrada?",
-            "answer": "Zavisi od veličine sajta i od toga koliko brzo je sadržaj spreman. U ponudi je rok zajedno sa cenom, pa oba znaš pre nego što počnemo."
+            "answer": "Zavisi od veličine sajta i od toga koliko brzo stignu tekstovi i slike. Rok piše u ponudi, pored cene, pa oba znaš pre nego što krenemo."
           },
           {
-            "question": "Šta biva sa mojim trenutnim sajtom i pozicijama na Google-u?",
-            "answer": "Trenutni sajt radi dok novi ne bude spreman. Adresa, sadržaj i pozicije prelaze sa tobom, a stare stranice se preusmeravaju da ništa što već kotira ne propadne."
+            "question": "Šta biva sa mojim sadašnjim sajtom i mestom na Google-u?",
+            "answer": "Stari sajt radi dok novi ne bude gotov. Adresa i sadržaj ostaju, a stare stranice preusmerim na nove, da ne izgubiš ništa što već dobro stoji na Google-u."
           },
           {
-            "question": "Da li je sajt stvarno moj?",
-            "answer": "Sto posto. Kod, domen i hosting su na tvoje ime od prvog dana. Ako ikad poželiš da odeš, sve nosiš sa sobom."
+            "question": "Da li je sajt zaista moj?",
+            "answer": "Jeste, ceo. Kod, domen i hosting su na tvoje ime od prvog dana. Ako jednog dana odeš, sve nosiš sa sobom."
           },
           {
-            "question": "Radiš li sa klijentima iz drugih zemalja?",
-            "answer": "Radim. Imam klijente u Americi i širom Evrope, a sve ide preko telefona, video poziva i email-a. Vremenske zone su retko problem."
+            "question": "Radiš li sa firmama iz inostranstva?",
+            "answer": "Radim. Imam klijente u Americi i po Evropi, a sve ide telefonom, video pozivom i mejlom. Vremenska razlika do sad nije bila problem."
           },
           {
             "question": "Možeš li da vodiš i Google ili Facebook oglase?",
-            "answer": "Mogu — Google Ads i Facebook i Instagram kampanje, uz praćenje konverzija koje pokazuje šta ti donosi svaki uloženi evro."
+            "answer": "Mogu. Vodim Google Ads i kampanje na Facebook-u i Instagramu i merim koliko ti vraća svaki uloženi dinar."
+          },
+          {
+            "question": "Da li potpisujem dugoročni ugovor?",
+            "answer": "Ne. Sajt plaćaš jednom, po fiksnoj ceni, a oglasi i SEO idu iz meseca u mesec. Ostaješ jer ti se isplati, a ne zato što moraš."
           }
         ]
       },
@@ -1035,8 +642,8 @@
           "termsLabel": "Pročitao/la sam {terms} i razumem da ovaj upit nije ponuda ni ugovor.",
           "termsLink": "Uslove korišćenja",
           "termsRequired": "Potvrdite da ste pročitali uslove korišćenja.",
-        "heading": "Ispričaj mi nešto o svom biznisu",
-        "lead": "Tri kratka koraka, manje od minut. Javljam se u roku od jednog radnog dana.",
+        "heading": "Reci mi nešto o svojoj firmi",
+        "lead": "Tri kratka koraka, za manje od minut. Javljam se u roku od jednog radnog dana.",
         "stepLabels": [
           "Šta ti treba",
           "Tvoj biznis",
@@ -1100,27 +707,27 @@
         "sending": "Šaljem…",
         "chooseService": "Izaberi šta ti treba da bi nastavio.",
         "required": "Upiši ime i ispravnu email adresu.",
-        "privacy": "Tvoje podatke koristim samo da ti odgovorim. Bez newslettera i bez deljenja.",
+        "privacy": "Tvoje podatke koristim samo da ti odgovorim. Ne šaljem newsletter i ne delim ih ni sa kim.",
         "promise": "Odgovor u roku od jednog radnog dana",
-        "successTitle": "Hvala — zahtev je stigao!",
-        "successText": "Pregledaću tvoj sajt i javiti se u roku od jednog radnog dana sa iskrenim, konkretnim sledećim koracima. Prati svoj inbox.",
-        "error": "Nešto je pošlo naopako. Probaj ponovo ili mi piši direktno na email."
+        "successTitle": "Hvala, zahtev je stigao!",
+        "successText": "Pogledaću tvoj sajt i javiti se u roku od jednog radnog dana sa konkretnim predlozima. Baci pogled na inbox.",
+        "error": "Nešto nije u redu. Pokušaj ponovo ili mi piši direktno na mejl."
       },
       "final": {
-        "heading": "Svake nedelje čekanja pozive dobija konkurencija",
-        "text": "Provera je besplatna i bez obaveza. U najgorem slučaju saznaš tačno šta ti gubi klijente i šta prvo treba popraviti.",
+        "heading": "Dok čekaš, pozive dobija konkurencija",
+        "text": "Provera je besplatna i ne obavezuje te ni na šta. U najgorem slučaju saznaš šta ti odbija klijente i šta prvo treba popraviti.",
         "cta": "Zatraži besplatnu proveru"
       },
-      "footer": "Brzi sajtovi, SEO i privlačenje klijenata za lokalne firme.",
+      "footer": "Brzi sajtovi, SEO i oglasi za lokalne firme.",
       "mobileCta": "Besplatna provera sajta",
       "privacy": {
         "toggle": "Kako postupam sa tvojim podacima",
         "title": "Izjava o privatnosti",
         "items": [
-          "Ko: Stojan Petković, freelance web developer. Kontakt: {email}.",
-          "Šta: podaci koje upišeš u ovu formu — ime, email, telefon, sajt, delatnost, tvoji odgovori i poruka.",
-          "Zašto: samo da odgovorim na tvoj zahtev i pripremim ponudu. Bez newslettera, a podaci se nikad ne prodaju i ne dele za marketing.",
-          "Gde: čuvaju se kod hosting, email i database servisa preko kojih radi ovaj sajt, uz ugovore o obradi podataka.",
+          "Ko: Stojan Petković, frilenser. Kontakt: {email}.",
+          "Šta: podaci koje upišeš u ovu formu, odnosno ime, mejl, telefon, sajt, delatnost, odgovori i poruka.",
+          "Zašto: samo da odgovorim na tvoj zahtev i pripremim ponudu. Ne šaljem newsletter, a podatke nikad ne prodajem niti delim za marketing.",
+          "Gde: kod hosting, mejl i database servisa preko kojih radi ovaj sajt, uz ugovore o obradi podataka.",
           "Koliko dugo: dok je potrebno za tvoj zahtev, a najduže dve godine bez daljeg kontakta.",
           "Tvoja prava: u svakom trenutku možeš email-om da tražiš uvid, ispravku ili brisanje podataka, ili da povučeš saglasnost. Možeš i da podneseš pritužbu nadležnom organu za zaštitu podataka.",
           "Kolačići: analitički i kolačići za merenje oglasa postavljaju se samo ako ih dozvoliš u baneru za kolačiće."
@@ -1129,101 +736,110 @@
     },
     "about": {
       "meta": {
-        "title": "O meni — inženjer i web developer",
-        "description": "Stojan Petković: Ingenieur (titulu je odobrila Bavarska inženjerska komora) i web developer. Brzi sajtovi za tehničke firme, uz više od 13 godina iskustva u naftnim operacijama."
+        "title": "O meni: oglasi, SEO i sajtovi",
+        "description": "Stojan Petković: oglasi, SEO, AI vidljivost i brzi sajtovi za uslužne firme. Radiš direktno sa mnom, a svaki rezultat vidiš u brojkama."
       },
       "hero": {
         "badge": "O meni",
         "titleLead": "Stojan\u00a0Petković",
-        "typingWords": ["Inženjer", "Digital Architect", "Web developer", "Rešavam probleme"],
-        "typingWordsMobile": ["Inženjer", "Digital Architect", "Web developer"],
-        "description": "Inženjer i web\u00a0developer. Pravim brze, praktične sajtove i u svaki projekat unosim disciplinu inženjera.",
+        "typingWords": [
+          "Više poziva",
+          "Više upita",
+          "Više klijenata",
+          "Izmereno"
+        ],
+        "typingWordsMobile": [
+          "Više poziva",
+          "Više upita",
+          "Više klijenata"
+        ],
+        "description": "Pomažem uslužnim firmama da ih klijenti nađu na internetu: oglasi, SEO, AI pretraga i brzi sajtovi. Radiš direktno sa mnom, bez posrednika.",
         "imageAlt": "Raketa koja leti pored osvetljene ivice planete, na pozadini zvezdanog neba."
       },
       "background": {
         "badge": "Pozadina",
-        "heading": "Prvo inženjerstvo, zatim kod",
+        "heading": "Zašto sve merim",
         "paragraphs": [
-          "Završio sam rudarstvo na Univerzitetu u Beogradu (diplomirao 2010). Bavarska inženjerska komora (Bayerische Ingenieurekammer-Bau) je 2026. utvrdila da je moje obrazovanje ravnopravno nemačkim zahtevima i odobrila mi je zvanje Ingenieur.",
-          "Počeo sam 2011. kao rudarski inženjer na projektima istraživanja mineralnih ležišta, uključujući rad pod zemljom, a 2012. prešao sam na bušenje, gde sam planirao i nadgledao istražne bušotine. Od 2013. radim sa coiled tubing-om i azotom, od terenskog inženjera do operations manager-a, na više od 1.000 poslova. Tako sam naučio kako se prave operacije ponašaju: pritisci, granice i šta pukne kada broj nije tačan. Tu naviku da proveravam brojeve unosim u svaki sajt i alat koji pravim.",
-          "Za tehničke firme to znači manje objašnjavanja. Ne moraš da me učiš kako izgleda posao na terenu pre nego što napravim stranicu za njega. Ovo je lični, nezavisan sajt. Ne predstavlja nijednog poslodavca ni kompaniju; pogledaj uslove korišćenja."
+          "Po struci sam inženjer. Više od deset godina radio sam na terenu, gde pogrešan broj skupo košta. Tamo sam naučio da ništa ne uzimam zdravo za gotovo: prvo izmerim, pa onda odlučim.",
+          "Isto radim i u marketingu. Beležim svaki poziv, upit i uloženi dinar, pa posle par nedelja znamo šta donosi klijente, a šta samo troši pare.",
+          "Radim sa firmama iz Srbije, Evrope i Amerike: majstorima, ordinacijama, smeštajem i lokalnim firmama. Sve dogovaraš sa mnom, nema agencije između nas."
         ],
-        "credential": "Zvanje Ingenieur odobreno od Bavarske inženjerske komore, 2026."
+        "credential": "Inženjer po struci, sa zvanjem Ingenieur koje je priznala Bavarska inženjerska komora."
       },
       "whatYouGet": {
         "badge": "Šta dobijaš",
-        "heading": "Sve što tvom projektu treba",
-        "lead": "Ista pažnja na svakom projektu, od prve linije koda do puštanja sajta uživo.",
+        "heading": "Šta sve dobijaš",
+        "lead": "Svaki projekat radim sa istom pažnjom, od prve kampanje do poslednjeg detalja na sajtu.",
         "items": [
           {
-            "icon": "award",
-            "title": "Iskustvo sa terena",
-            "description": "Više od 13 godina i više od 1.000 poslova u coiled tubing i azotnim operacijama."
+            "icon": "search",
+            "title": "Vidljivost",
+            "description": "Google, mapa, ChatGPT i mreže, svuda gde te klijenti traže."
           },
           {
-            "icon": "book-open",
-            "title": "Dokumentovana logika",
-            "description": "Formule, pretpostavke i odluke su zapisane, da se rezultati mogu proveriti."
-          },
-          {
-            "icon": "component",
-            "title": "Čist kod koji se može ponovo koristiti",
-            "description": "Dobro strukturiran, tipiziran i dokumentovan, da ostane lak za održavanje i proširenje."
-          },
-          {
-            "icon": "server",
-            "title": "Podrazumevano u oblaku",
-            "description": "Softver koji radi na serveru i otvara se u pregledaču, bez instalacije."
-          },
-          {
-            "icon": "layout",
-            "title": "Jasan tehnički sadržaj",
-            "description": "Stranice, dokumentacija i studije slučaja raspoređeni tako da tehnički čitaoci brzo nađu ono što traže."
+            "icon": "target",
+            "title": "Oglasi koji se vraćaju",
+            "description": "Google i Meta kampanje koje merim po pozivima, a ne po klikovima."
           },
           {
             "icon": "zap",
-            "title": "Brzi sajtovi kada ti trebaju",
-            "description": "Astro sajtovi po meri, napravljeni da se brzo učitavaju i dobro rangiraju, kao posebna usluga."
+            "title": "Brz sajt",
+            "description": "Stranice koje se otvaraju odmah i vode ka pozivu."
+          },
+          {
+            "icon": "message-circle",
+            "title": "Nijedan upit se ne gubi",
+            "description": "Upit ti stiže odmah, a AI chat odgovara i posle radnog vremena."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Brojke svakog meseca",
+            "description": "Koliko košta svaki upit, poziv i novi klijent."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Sve je tvoje",
+            "description": "Kod, domen, hosting i nalozi za oglase su na tvoje ime."
           }
         ]
       },
       "principles": {
         "badge": "Kako radim",
-        "heading": "Principi u radu",
-        "lead": "Svaki projekat radim po ista tri principa.",
+        "heading": "Tri pravila kojih se držim",
+        "lead": "Važe za svaki projekat, mali ili veliki.",
         "items": [
-          { "icon": "zap", "title": "Brzina na prvom mestu", "description": "Svaki sajt optimizujem za brzinu i Core Web Vitals od prve linije koda." },
-          { "icon": "award", "title": "Pravljeno da traje", "description": "Čist, tipiziran kod i pametna podešavanja koja se lako održavaju i posle lansiranja." },
-          { "icon": "award", "title": "Inženjerska disciplina", "description": "Prvo zahtevi, pa dizajn, pa kod. Svaki broj i svaka tvrdnja proverava se pre objave." }
+          { "icon": "zap", "title": "Brzina pre svega", "description": "Svaki sajt pravim da bude brz od prvog dana, jer spora stranica odbija i ljude i Google." },
+          { "icon": "award", "title": "Da traje", "description": "Čist kod i jednostavna podešavanja, da se sajt bez muke održava i godinama posle." },
+          { "icon": "award", "title": "Inženjerska disciplina", "description": "Prvo šta ti treba, pa dizajn, pa kod. Svaku brojku i svaku tvrdnju proverim pre nego što ode uživo." }
         ]
       },
       "stack": {
         "badge": "Alati i tehnologije",
         "title": "Tehnologije",
-        "description": "Alati sa kojima radim, izabrani zbog brzine, pouzdanosti i toga što traju."
+        "description": "Alati sa kojima radim. Biram ih jer su brzi, pouzdani i ne zastarevaju za godinu dana."
       },
       "faq": {
         "badge": "Dobro je da znaš",
         "heading": "Česta pitanja",
-        "lead": "Par stvari koje me ljudi obično pitaju pre nego što krenemo.",
+        "lead": "Par stvari koje ljudi obično pitaju pre nego što krenemo.",
         "cards": [
           {
             "icon": "user",
             "title": "O meni",
             "items": [
-              { "question": "Kakve projekte radiš?", "answer": "Sajtovi, softver po meri i platforme zasnovane na podacima za tehničke i inženjerske firme, plus klasičan web dizajn za firme svake veličine." },
-              { "question": "Sa kojim tehnologijama radiš?", "answer": "Sa modernim, brzim alatima: Astro, TypeScript i Tailwind CSS za frontend, plus cloud i automatizacija kad projekat to traži." },
-              { "question": "Radiš li sa klijentima iz drugih gradova i zemalja?", "answer": "Naravno. Većina projekata ide preko telefona, video poziva i email-a, a vremenske zone su retko problem." },
-              { "question": "Imaš li trenutno vremena za nove projekte?", "answer": "Uglavnom imam — pogledaj oznaku na početnoj ili mi samo pošalji poruku, pa ću ti iskreno reći." }
+              { "question": "Čime se tačno baviš?", "answer": "Pomažem uslužnim firmama da preko interneta dođu do klijenata: oglasi, SEO, vidljivost u AI pretrazi, brzi sajtovi i praćenje svakog upita." },
+              { "question": "Sa kojim tehnologijama radiš?", "answer": "Astro, TypeScript i Tailwind CSS za sajtove, a po potrebi i cloud servisi i automatizacija." },
+              { "question": "Radiš li sa klijentima iz drugih gradova i zemalja?", "answer": "Naravno. Većina posla ide telefonom, video pozivom i mejlom, a vremenska razlika retko smeta." },
+              { "question": "Imaš li sad vremena za nove projekte?", "answer": "Uglavnom imam. Pogledaj oznaku na početnoj strani ili mi samo piši, pa ću ti reći iskreno." }
             ]
           },
           {
             "icon": "briefcase",
             "title": "Saradnja",
             "items": [
-              { "question": "Kako počinje saradnja?", "answer": "Besplatnim razgovorom bez ikakvih obaveza o tome šta ti treba. Posle toga dobijaš jednu jasnu ponudu sa rokom i cenom." },
-              { "question": "Da li si tu i posle lansiranja?", "answer": "Jesam. Postoji mesečni paket održavanja za ažuriranja, praćenje sajta i sitne izmene kad sajt krene da radi." },
-              { "question": "Da li je sajt stvarno moj?", "answer": "Sto posto. Domen, hosting i kod su na tvoje ime od prvog dana." }
+              { "question": "Kako počinje saradnja?", "answer": "Besplatnim razgovorom o tome šta ti treba, bez ikakve obaveze. Posle toga dobiješ ponudu sa rokom i cenom." },
+              { "question": "Da li si tu i posle lansiranja?", "answer": "Jesam. Postoji mesečno održavanje: ažuriranja, nadzor sajta i sitne izmene." },
+              { "question": "Da li je sajt zaista moj?", "answer": "Jeste, ceo. Domen, hosting i kod su na tvoje ime od prvog dana." }
             ]
           }
         ]
@@ -1231,96 +847,100 @@
       "openSource": {
         "badge": "Zašto ja",
         "heading": "Partner, a ne samo izvođač",
-        "description": "Radiš direktno sa čovekom koji pravi tvoj sajt — bez menadžera, bez prosleđivanja posla drugima, i uz fiksnu cenu dogovorenu unapred.",
+        "description": "Radiš direktno sa čovekom koji pravi tvoj sajt i vodi tvoje oglase. Nema menadžera, posao ne prosleđujem drugima, a cena je dogovorena unapred.",
         "button": "Javi se",
         "cards": [
-          { "title": "Jedan čovek za sve", "text": "Pričaš direktno sa mnom od prve poruke do lansiranja — bez prodavaca između nas." },
-          { "title": "Fiksna cena, bez iznenađenja", "text": "Svaki projekat ima jednu jasnu cenu dogovorenu pre početka. Nema naplate po satu." },
-          { "title": "Tu sam i posle", "text": "Dostupan sam i kad sajt krene da radi, a za redovna ažuriranja postoji mesečni paket održavanja." }
+          { "title": "Jedan čovek za sve", "text": "Pričaš sa mnom od prve poruke do puštanja sajta. Nema prodavca između nas." },
+          { "title": "Fiksna cena, bez iznenađenja", "text": "Cenu dogovorimo pre početka. Ne naplaćujem po satu." },
+          { "title": "Tu sam i posle", "text": "Možeš da mi se javiš i kad sajt proradi, a za redovna ažuriranja postoji mesečni paket." }
         ]
       },
       "cta": {
         "badge": "Krenimo",
         "heading": "Hoćeš da radimo zajedno?",
-        "description": "Piši mi o svom projektu — javljam se u toku radnog dana sa iskrenim odgovorom i konkretnim sledećim koracima.",
+        "description": "Napiši mi par reči o svojoj firmi. Javljam se istog ili sledećeg radnog dana, sa iskrenim odgovorom i konkretnim predlogom.",
         "button": "Javi se"
       }
     },
     "services": {
       "meta": {
-        "title": "Usluge — softver i web",
-        "description": "Softver i alati u oblaku i web razvoj, od inženjera. Besplatan prvi razgovor, jedna ponuda, jedna fiksna cena."
+        "title": "Usluge: oglasi, SEO, AI pretraga i sajtovi",
+        "description": "Google i Meta oglasi, lokalni SEO, vidljivost u AI pretrazi i brzi sajtovi za uslužne firme. Besplatna provera, fiksna cena za sajt."
       },
       "areas": {
-        "software": {
-          "icon": "code",
-          "badge": "Softver i alati",
-          "heading": "Softver i alati u oblaku",
+        "marketing": {
+          "icon": "target",
+          "badge": "Oglasi, SEO i AI",
+          "heading": "Da te nađu ljudi koji već traže tvoju uslugu",
           "paragraphs": [
-            "Softver za tehničke timove koji radi na serveru i otvara se u pregledaču: ništa se ne instalira, jedna verzija za sve.",
-            "Pravim ga onako kako vodim posao: prvo zahtevi, brojke provereno, a logika dokumentovana da se rezultati mogu proveriti."
+            "Kad nekom zatreba majstor, zubar ili smeštaj, pita Google, otvori mapu ili pita ChatGPT. Moj posao je da tamo nađe tebe, a ne konkurenciju.",
+            "Oglasi donose pozive od prvog dana. SEO i AI pretraga grade stalan priliv za koji ne plaćaš svaki klik. Sve se meri, pa znaš šta se isplati."
           ],
           "included": [
             {
-              "lead": "Interni alati i dashboard-i",
-              "text": "tvoji podaci i tokovi rada na jednom mestu."
+              "lead": "Google Ads",
+              "text": "pretraga i mapa, podešeni na upite od kojih ima posla."
             },
             {
-              "lead": "Kalkulatori i inženjerski alati",
-              "text": "objašnjene formule, rezultati koje možeš da ponoviš."
+              "lead": "Facebook i Instagram oglasi",
+              "text": "kampanje za tvoj kraj i ponovno prikazivanje ljudima koji su već bili na sajtu."
             },
             {
-              "lead": "Industrijski softver po meri",
-              "text": "izrađen po narudžbini, prema tome kako radi tvoja operacija."
+              "lead": "Lokalni SEO",
+              "text": "Google Business profil, recenzije i stranica za svaku uslugu i grad."
             },
             {
-              "lead": "Hosting na tvoje ime",
-              "text": "postavljen, obezbeđen i održavan, kod i domen su tvoji."
+              "lead": "Vidljivost u AI pretrazi",
+              "text": "da te ChatGPT i Google-ov AI preporuče kad neko pita za tvoju uslugu."
             },
             {
-              "lead": "Dokumentacija",
-              "text": "da tvoj tim može da ga koristi, a revizori da ga provere."
+              "lead": "AI chat i automatski odgovori",
+              "text": "upit dobije odgovor i kad ti ne stigneš da se javiš."
+            },
+            {
+              "lead": "Mesečni izveštaj",
+              "text": "pozivi, upiti i koliko je koštao svaki, bez stručnih izraza."
             }
           ],
-          "ctaLabel": "Razgovaraj o alatu"
+          "ctaLabel": "Zatraži besplatnu proveru"
         },
         "web": {
           "icon": "layout",
-          "badge": "Web razvoj",
-          "heading": "Sajtovi za tehničke firme",
+          "badge": "Sajtovi",
+          "heading": "Sajt sa kog ljudi zovu",
           "paragraphs": [
-            "Brzi sajtovi i veb sistemi za inženjerske i tehničke firme, kao posebna usluga sa sopstvenom stranicom.",
-            "Dizajn, razvoj i optimizacija od istog inženjera, sa jednom fiksnom cenom i svime na tvoje ime."
+            "Brzi sajtovi i landing strane po meri. Posetilac za par sekundi vidi čime se baviš i gde da klikne da te pozove.",
+            "Cena je fiksna, a kod, domen i hosting su na tvoje ime od prvog dana."
           ],
           "included": [
             {
               "lead": "Dizajn po meri",
-              "text": "prilagođen tvojoj firmi i tvojim klijentima."
+              "text": "prilagođen tvojoj firmi i ljudima koji kod tebe dolaze."
             },
             {
               "lead": "Napravljeno za brzinu",
-              "text": "Astro sajtovi koji se otvaraju odmah na svakom uređaju."
+              "text": "stranice se otvaraju odmah, na svakom telefonu."
             },
             {
-              "lead": "Pronađen na Google-u i u AI pretrazi",
-              "text": "SEO i strukturirani podaci od prve linije."
+              "lead": "SEO od početka",
+              "text": "sređeni podaci za Google i stranica za svaku uslugu."
             },
             {
-              "lead": "Mesečni izveštaj",
-              "text": "posetioci, upiti i izvori, jasnim jezikom."
+              "lead": "Praćenje upita i poziva",
+              "text": "svaka poslata forma i svaki klik na broj se beleže."
             },
             {
               "lead": "Briga posle lansiranja",
-              "text": "ažuriranje i nadzor, uz opcioni plan održavanja."
+              "text": "ažuriranja i nadzor, uz mesečno održavanje ako ti treba."
             }
           ],
-          "ctaLabel": "Idi na web razvoj"
+          "ctaLabel": "Pogledaj sajtove"
         }
       },
       "overviewFaq": {
         "badge": "Pitanja",
         "heading": "Pitanja i odgovori",
-        "lead": "Ono što klijenti pitaju pre nego što počnemo.",
+        "lead": "Ono što me ljudi pitaju pre nego što krenemo.",
         "cards": [
           {
             "icon": "tag",
@@ -1328,23 +948,23 @@
             "items": [
               {
                 "question": "Koliko košta?",
-                "answer": "Svaki projekat ima jednu fiksnu cenu, dogovorenu pre početka rada. Bez plaćanja po satu i bez iznenađenja. Besplatan prvi razgovor mi pokazuje šta ti treba, a cenu dobijaš u jednoj jasnoj ponudi."
+                "answer": "Svaki projekat ima fiksnu cenu, dogovorenu pre početka. Nema naplate po satu ni iznenađenja. Iz prvog, besplatnog razgovora vidim šta ti treba, a cenu dobiješ u ponudi."
               },
               {
                 "question": "Koliko traje?",
-                "answer": "To zavisi od obima. Ponuda navodi rok zajedno sa cenom, pa oba znaš pre početka."
+                "answer": "Zavisi od obima. Rok piše u ponudi, odmah pored cene."
               },
               {
-                "question": "Da li radiš sa klijentima iz inostranstva?",
-                "answer": "Da. Radim sa klijentima širom sveta, telefonom, video pozivom i emailom, u vremenskoj zoni CET."
+                "question": "Radiš li sa firmama iz inostranstva?",
+                "answer": "Radim. Klijenti su mi u Srbiji, Evropi i Americi, a čujemo se telefonom, video pozivom ili mejlom."
               },
               {
                 "question": "Čije je ono što napraviš?",
-                "answer": "Tvoje. Kod, dokumentacija, domen i hosting su na tvoje ime od prvog dana."
+                "answer": "Tvoje. Kod, domen, hosting i nalozi za oglase su na tvoje ime od prvog dana."
               },
               {
-                "question": "Da li preuzimaš i manje poslove?",
-                "answer": "Da. Jedan alat ili mali sajt su sasvim dobar početak. Reci mi šta imaš na umu."
+                "question": "Uzimaš li i manje poslove?",
+                "answer": "Uzimam. Jedna landing strana ili jedna kampanja sasvim je dobar početak. Napiši mi šta imaš na umu."
               }
             ]
           }
@@ -1353,59 +973,62 @@
       "includedLabel": "Šta dobijaš",
       "hero": {
         "badge": "Usluge",
-        "titleLead": "Softver",
-        "titleHighlight": "i web razvoj",
-        "description": "Dve oblasti, jedan inženjer: softver u oblaku za tehničke timove i sajtovi kao posebna usluga. Inženjerski sadržaj na ovom sajtu je informativan i ne nudi se kao usluga.",
-        "jumpLabels": ["Softver i alati", "Web razvoj"]
+        "titleLead": "Sve što ti treba",
+        "titleHighlight": "da te klijenti nađu",
+        "description": "Oglasi, SEO i AI pretraga dovode ljude na sajt, a brz sajt ih pretvara u pozive. Sve radi jedan čovek, a brojke dobijaš svakog meseca.",
+        "jumpLabels": [
+          "Oglasi, SEO i AI",
+          "Sajtovi"
+        ]
       },
       "process": {
         "badge": "Kako to ide",
         "heading": "Kako izgleda saradnja",
-        "lead": "Od tvoje prve poruke do isporučenog rezultata.",
+        "lead": "Od prve poruke do prvih poziva.",
         "steps": [
-          { "title": "Prvi kontakt", "description": "Pošalješ poruku preko kontakt forme. Javljam se u roku od jednog radnog dana i dogovaramo besplatan razgovor o tome šta ti treba. Bez ikakvih obaveza." },
-          { "title": "Ponuda", "description": "Posle razgovora dobijaš jedan jasan dokument: šta pravim, kad će biti gotovo i koliko košta — fiksno. Odlučuješ kad su ti sve karte na stolu." },
-          { "title": "Rad u kratkim ciklusima", "description": "Pratiš napredak i vidiš kako rezultat dobija oblik, bilo da je dokument, alat ili sajt." },
-          { "title": "Isporuka i podrška", "description": "Rad se predaje na tvoje ime i dokumentovan. Posle toga ostajem dostupan, a postoji i mesečni plan održavanja ako želiš redovna ažuriranja." }
+          { "title": "Prvi kontakt", "description": "Pošalješ poruku preko kontakt strane. Javim se u roku od jednog radnog dana i dogovorimo kratak razgovor. Besplatno je i ne obavezuje te." },
+          { "title": "Ponuda", "description": "Posle razgovora dobiješ jedan dokument: šta radim, do kada i koliko košta. Cena je fiksna, a odluku donosiš kad sve znaš." },
+          { "title": "Rad u kratkim krugovima", "description": "Sve vreme vidiš dokle se stiglo, bilo da su u pitanju oglasi, SEO ili novi sajt." },
+          { "title": "Puštanje i podrška", "description": "Sve je na tvoje ime i lepo opisano. I posle sam tu, a ako želiš redovna ažuriranja, postoji mesečni paket." }
         ]
       },
       "cta": {
-        "badge": "Popričajmo",
-        "heading": "Popričajmo o tvom projektu",
-        "description": "Prvi razgovor je besplatan i bez obaveza: telefonom, video pozivom ili email-om. Dobijaš iskrene odgovore, a posle razgovora jasnu ponudu sa rokom i fiksnom cenom.",
+        "badge": "Javi se",
+        "heading": "Hajde da popričamo o tvojoj firmi",
+        "description": "Prvi razgovor je besplatan, telefonom, video pozivom ili mejlom. Dobiješ iskrene odgovore, a posle toga jasnu ponudu sa rokom i fiksnom cenom.",
         "primary": "Pošalji poruku",
         "secondary": "Više o meni"
       }
     },
     "contact": {
       "meta": {
-        "title": "Kontakt",
-        "description": "Softver u oblaku, inženjerski alati ili sajt: reci mi šta ti treba. Odgovaram u roku od jednog radnog dana."
+        "title": "Kontakt i besplatna provera sajta",
+        "description": "Oglasi, SEO, AI pretraga ili nov sajt: napiši mi šta ti treba. Odgovaram u roku od jednog radnog dana."
       },
       "hero": {
         "badge": "Kontakt",
-        "titleLead": "Reci mi na čemu",
-        "titleHighlight": "radiš",
-        "description": "Softver i alati u oblaku ili sajt. Dovoljna je kratka poruka; odgovaram u roku od jednog radnog dana."
+        "titleLead": "Hajde da ti dovedemo",
+        "titleHighlight": "više klijenata",
+        "description": "Oglasi, SEO, AI pretraga ili nov sajt. Dovoljno je par rečenica, a odgovor stiže u roku od jednog radnog dana."
       },
       "helpTitle": "Čime mogu da pomognem",
       "help": [
         {
-          "icon": "code",
-          "title": "Softver i alati",
-          "text": "Softver u oblaku i inženjerski alati za tehničke B2B firme."
+          "icon": "target",
+          "title": "Oglasi, SEO i AI vidljivost",
+          "text": "Da te nađu na Google-u, na mapi, u ChatGPT-u i na mrežama."
         },
         {
           "icon": "layout",
-          "title": "Web razvoj",
-          "text": "Brzi sajtovi i veb sistemi, kao posebna usluga."
+          "title": "Sajt koji pretvara posete u pozive",
+          "text": "Brz sajt ili landing strana, uz praćenje svakog upita."
         }
       ],
       "nextTitle": "Šta sledi",
       "next": [
-        "Odgovaram u roku od jednog radnog dana.",
-        "Kratko razgovaramo da definišemo šta ti treba. Besplatno je i bez obaveza.",
-        "Dobijaš jednu jasnu ponudu sa obimom posla, rokom i fiksnom cenom."
+        "Javim se u roku od jednog radnog dana.",
+        "Kratko se čujemo da vidimo šta ti treba. Besplatno je i ne obavezuje te.",
+        "Dobiješ ponudu sa obimom posla, rokom i fiksnom cenom."
       ],
       "facts": [
         {"value": "3", "label": "jezika: srpski, engleski, nemački"},
@@ -1416,14 +1039,14 @@
         }
       ],
       "emailLabel": "Email",
-      "preferEmail": "Više voliš email? Piši na",
+      "preferEmail": "Lakše ti je mejlom? Piši na",
       "form": {
-        "badge": "Upit za projekat",
+        "badge": "Upit",
           "termsLabel": "Pročitao/la sam {terms} i razumem da ovaj upit nije ponuda ni ugovor.",
           "termsLink": "Uslove korišćenja",
           "termsRequired": "Potvrdite da ste pročitali uslove korišćenja.",
-        "heading": "Reci mi o svom projektu",
-        "lead": "Tri kratka koraka, manje od minuta. Odgovaram u roku od jednog radnog dana.",
+        "heading": "Reci mi šta ti treba",
+        "lead": "Tri kratka koraka, za manje od minut. Odgovaram u roku od jednog radnog dana.",
         "stepLabels": [
           "Šta ti treba",
           "Tvoja firma",
@@ -1433,14 +1056,19 @@
         "serviceLegend": "Šta ti treba?",
         "services": [
           {
-            "value": "software",
-            "icon": "code",
-            "label": "Softver ili inženjerski alati"
+            "value": "new-website",
+            "icon": "sparkles",
+            "label": "Nov sajt"
           },
           {
-            "value": "web",
-            "icon": "layout",
-            "label": "Sajt ili veb sistem"
+            "value": "seo",
+            "icon": "search",
+            "label": "SEO i vidljivost u AI pretrazi"
+          },
+          {
+            "value": "ads",
+            "icon": "target",
+            "label": "Google ili oglasi na mrežama"
           },
           {
             "value": "other",
@@ -1451,7 +1079,7 @@
         "websiteLabel": "Sajt firme (opciono)",
         "websitePlaceholder": "tvojafirma.rs",
         "businessLabel": "Firma i delatnost",
-        "businessPlaceholder": "npr. firma za inženjerski softver, proizvodna firma",
+        "businessPlaceholder": "npr. stomatolog u Novom Sadu, apartmani na Zlatiboru",
         "timelineLegend": "Kada želiš da počnemo?",
         "timelines": [
           {
@@ -1477,1529 +1105,277 @@
         "sending": "Šaljem…",
         "chooseService": "Izaberi šta ti treba da nastaviš.",
         "required": "Unesi ime i ispravnu email adresu.",
-        "privacy": "Podaci se koriste samo da ti odgovorim. Bez newslettera i bez deljenja.",
+        "privacy": "Podatke koristim samo da ti odgovorim. Ne šaljem newsletter i ne delim ih ni sa kim.",
         "promise": "Odgovor u roku od jednog radnog dana",
-        "successTitle": "Hvala — upit je stigao!",
-        "successText": "Pročitaću ga i odgovoriti u roku od jednog radnog dana sa konkretnim sledećim koracima. Proveri inbox.",
-        "error": "Nešto je pošlo naopako. Pokušaj ponovo ili mi piši direktno."
-      }
-    },
-    "tools": {
-      "featured": {
-        "badge": "Softver",
-        "title": "Kompletna aplikacija, ne kalkulator",
-        "text": "CT Simulator je radni prostor raspoređen kao program za crtanje, sa sopstvenim koracima, paletama i komandnom linijom. Radi u pregledaču i čuva vaš projekat na vašem računaru.",
-        "hint": "Samo za velike ekrane i tablete. Nema mobilne verzije.",
-        "cta": "Otvori CT Simulator",
-        "listTitle": "Kalkulatori"
-      },
-      "meta": {
-        "title": "Alati",
-        "description": "Mali inženjerski alati i kalkulatori u oblaku za coiled tubing i rad na naftnim poljima, od inženjera, sa objašnjenom metodom."
-      },
-      "hero": {
-        "badge": "Alati",
-        "titleLead": "Inženjerski alati",
-        "titleHighlight": "koji se otvaraju u pregledaču",
-        "description": "Mali alati i kalkulatori u oblaku za coiled tubing i rad na naftnim poljima. Svaki objašnjava svoju metodu, da možeš da proveriš rezultat."
-      },
-      "status": "U pripremi",
-      "statusAvailable": "Dostupno",
-      "open": "Otvori alat",
-      "inputsLabel": "Ulazni podaci",
-      "outputsLabel": "Rezultati",
-      "form": {
-        "reportCreated": "Napravljeno {date}",
-        "reportInputs": "Ulazni podaci",
-        "reportResults": "Rezultati",
-        "reportMethod": "Metod i pretpostavke",
-        "system": {
-          "label": "Jedinice",
-          "us": "Oilfield (US)",
-          "metric": "Metričke"
-        },
-        "example": "Učitaj primer",
-        "invalidTitle": "Proveri unos",
-        "invalidText": "Neke vrednosti nedostaju ili su van opsega. Ispravi označena polja da vidiš rezultat.",
-        "print": "Sačuvaj kao PDF",
-        "printInputs": "Unos",
-        "printFoot": "Izračunato na {url}, {date}.",
-        "back": "Svi alati"
-      },
-      "cta": "Reci mi šta ti treba",
-      "notice": {
-        "text": "Rezultati su orijentacioni i samo informativni. Nisu projekat, procedura ni stručni savet. Proverite ulazne podatke i rezultate i pridržavajte se procedura svoje kompanije i podataka proizvođača.",
-        "link": "Uslovi korišćenja",
-        "ackTitle": "Pre nego što koristite alate",
-        "ackIntro": "Alati i kalkulatori na ovom sajtu su lična, informativna pomagala napravljena iz javnih formula i navedenih pretpostavki.",
-        "ackItems": [
-          "Rezultati su orijentacioni. Nisu projekat, procedura ni stručni savet.",
-          "Ne koristite ih kao jedinu osnovu za radove na bušotinama, rad pod pritiskom, rad sa azotom ni bilo koju drugu bezbednosno značajnu radnju. Pridržavajte se procedura svoje kompanije, podataka proizvođača i naloga odgovornog lica.",
-          "Ovo je lični, nezavisni sajt. Ne predstavlja nijednog poslodavca ni kompaniju i ne koristi njihove podatke. Za unete podatke i svoje odluke odgovarate sami."
-        ],
-        "ackCheck": "Razumem i prihvatam {terms}.",
-        "ackButton": "Nastavi",
-        "ackBack": "Nazad na alate"
-      },
-      "note": "Alati su pomoć za inženjere. Proveri ulazne podatke i rezultate: odgovornost za svaku odluku ostaje na korisniku.",
-      "suggest": {
-        "title": "Fali ti neki proračun?",
-        "text": "Reci mi koji proračun ili mali alat koristiš svaki dan. Ako pomaže i drugima, možda postane sledeći.",
-        "cta": "Predloži alat"
-      },
-      "nitrogenZ": {
-        "title": "Faktor kompresibilnosti azota",
-        "intro": "Z koriguje zakon idealnog gasa za azot pri visokom pritisku: iznad 1 gas zauzima više prostora od idealnog, pa sud ili bušotina u standardnim zapreminama sadrže manje azota nego sa Z = 1. Dijagram i tablica daju Z za azot po apsolutnom pritisku i temperaturi; alati za azot interpoliraju u tablici.",
-        "chartLabel": "Faktor kompresibilnosti Z azota u zavisnosti od apsolutnog pritiska, za pet temperatura od −20 do 160 °C",
-        "pressureAxis": "Apsolutni pritisak, bar",
-        "marker": "Narandžasta tačka: uslovi tvog proračuna.",
-        "pressureHeader": "Apsolutni pritisak",
-        "source": "Izračunato iz gustine azota u NIST Chemistry WebBook (jednačina stanja Span i saradnika, 2000) kao Z = P·M/(ρ·R·T). Pritisci su apsolutni, manometarski plus 1,013 bar. Između tačaka alati interpoliraju linearno; van opsega 1–500 bar i −20 do 160 °C koriste vrednost na ivici.",
-        "hint": "Z iz tablice pri ovim uslovima",
-        "use": "Koristi ovu vrednost",
-        "outside": "Van tablice: prikazana je vrednost na ivici."
-      },
-      "items": [
-        {
-          "href": "/tools/ct-simulator",
-          "tag": "Mehanika",
-          "icon": "layout-dashboard",
-          "title": "CT simulator",
-          "description": "Nacrtajte bušotinu, sastavite CT niz i BHA, podesite posao i pročitajte indikator težine, dubinu lock-up-a, težinu oslanjanja i prekoračenje zatezanja.",
-          "inputs": [
-            "Bušotina, merenje devijacije i cevi, nacrtani na šemi",
-            "CT niz i BHA, alat po alat",
-            "Fluidi, trenje i površinska oprema"
-          ],
-          "outputs": [
-            "Indikator težine po dubini",
-            "Dubina lock-up-a, težina oslanjanja i prekoračenje zatezanja",
-            "Aksijalna sila i izvijanje duž niza"
-          ]
-        },
-        {
-          "href": "/tools/ct-pressure-loss",
-          "tag": "Hidraulika",
-          "icon": "activity",
-          "title": "CT pad pritiska",
-          "description": "Pad pritiska usled trenja za power-law fluide u coiled tubing-u, sa nizom podeljenim na ravne delove i delove namotane na bubanj.",
-          "inputs": [
-            "Gustina fluida, power-law n i K",
-            "Dimenzije bubnja i cevi, debljina zida",
-            "Dužina niza i dužina na bubnju",
-            "Protok"
-          ],
-          "outputs": [
-            "Brzina i Rejnoldsov broj",
-            "Režim toka, ravno i savijeno",
-            "Pad pritiska po delu i ukupno"
-          ]
-        },
-        {
-          "href": "/tools/ct-strength-limits",
-          "tag": "Mehanika",
-          "icon": "shield-check",
-          "title": "CT granice čvrstoće",
-          "description": "Naponi, granice pucanja, kolapsa i zatezanja coiled tubing-a za zadato opterećenje, sa Von Mises proverom prema faktoru tečenja.",
-          "inputs": [
-            "Veličina cevi, zid i ovalnost",
-            "Granica tečenja, faktor tečenja i modul",
-            "Pritisci, aksijalna sila i radijus savijanja"
-          ],
-          "outputs": [
-            "Aksijalni, obimni i Von Mises napon",
-            "Pucanje i kolaps (API 5C3, 5C7)",
-            "Granice zatezanja i provera faktora tečenja"
-          ]
-        },
-        {
-          "href": "/tools/nitrogen-displacement",
-          "tag": "Azot",
-          "icon": "wind",
-          "title": "Zamena fluida azotom",
-          "description": "Azot potreban da se fluid u bušotini zameni kroz coiled tubing, uključujući cev koja je ostala na bubnju.",
-          "inputs": [
-            "Dužina, veličina i dubina pumpanja coiled tubing-a",
-            "Proizvodni tubing i gustina fluida u bušotini",
-            "Temperature, kompresibilnost i gustina azota"
-          ],
-          "outputs": [
-            "Pritisak na dubini i na ušću",
-            "Zapremina gasa pri standardnim uslovima",
-            "Zapremina i masa tečnog azota"
-          ]
-        },
-        {
-          "href": "/tools/nitrogen-vessel",
-          "tag": "Azot",
-          "icon": "wind",
-          "title": "Azot za sud",
-          "description": "Azot potreban da se sud na zadatoj temperaturi podigne na pritisak.",
-          "inputs": [
-            "Zapremina suda",
-            "Pritisak na koji se diže i početni pritisak",
-            "Temperatura i kompresibilnost"
-          ],
-          "outputs": [
-            "Zapremina gasa pri standardnim uslovima",
-            "Zapremina tečnog azota",
-            "Masa azota"
-          ]
-        },
-        {
-          "href": "/tools/well-kill",
-          "tag": "Kontrola bušotine",
-          "icon": "shield-check",
-          "title": "Gušenje bušotine",
-          "description": "Gustina fluida za gušenje, zapremine i pritisak utiskivanja za proizvodnu bušotinu, i kill sheet bušotine u bušenju.",
-          "inputs": [
-            "Dubina, pritisci i gustina fluida",
-            "Prečnici tubinga i zaštitnih cevi, ili zapremine šipki i prstenastog prostora",
-            "Protok pumpe ili pritisak pri brzini gušenja"
-          ],
-          "outputs": [
-            "Gustina fluida za gušenje",
-            "Zapremine, hodovi i vremena",
-            "Pritisak utiskivanja, ili ICP, FCP i raspored pritiska"
-          ]
-        }
-      ]
-    },
-    "ctStrength": {
-      "meta": {
-        "title": "CT granice čvrstoće",
-        "description": "Proveri coiled tubing na pucanje, kolaps i zatezanje: naponi, Von Mises ekvivalentni napon i API granice kolapsa i pucanja, u oilfield ili metričkim jedinicama."
-      },
-      "hero": {
-        "badge": "Mehanika",
-        "title": "CT granice čvrstoće",
-        "description": "Naponi, granice pucanja, kolapsa i zatezanja coiled tubing-a za opterećenje koje uneseš, sa Von Mises proverom prema faktoru granice tečenja. Oilfield ili metričke jedinice."
-      },
-      "groups": {
-        "tubing": "Cev",
-        "material": "Materijal",
-        "loads": "Opterećenja"
-      },
-      "fields": {
-        "od": {
-          "label": "Spoljašnji prečnik cevi"
-        },
-        "wall": {
-          "label": "Debljina zida"
-        },
-        "ovality": {
-          "label": "Ovalnost",
-          "hint": "(ODmax − ODmin) / OD; oko 0,005 za novu cev"
-        },
-        "yieldStress": {
-          "label": "Granica tečenja",
-          "hint": "Minimalna granica tečenja čelika"
-        },
-        "yieldFactor": {
-          "label": "Faktor granice tečenja",
-          "hint": "Projektni faktor na granicu tečenja"
-        },
-        "modulus": {
-          "label": "Jungov modul",
-          "hint": "Čelik: oko 30 miliona psi"
-        },
-        "poisson": {
-          "label": "Poasonov koeficijent",
-          "hint": "Čelik: 0,33"
-        },
-        "pressureIn": {
-          "label": "Unutrašnji pritisak"
-        },
-        "pressureOut": {
-          "label": "Spoljašnji pritisak"
-        },
-        "axialForce": {
-          "label": "Aksijalna sila",
-          "hint": "Pozitivna pri zatezanju, negativna pri pritisku"
-        },
-        "bendingRadius": {
-          "label": "Radijus savijanja",
-          "hint": "Radijus preko kojeg se cev savija; 0 za ravnu cev"
-        },
-        "safetyFactor": {
-          "label": "Faktor sigurnosti kolapsa",
-          "hint": "Faktor sigurnosti API 5C7 korekcije kolapsa za zatezanje, najmanje 1"
-        }
-      },
-      "results": {
-        "title": "Rezultat",
-        "stresses": "Naponi na unutrašnjem zidu",
-        "axial": "Aksijalni napon (nepovoljnija strana)",
-        "hoop": "Obimni napon",
-        "radial": "Radijalni napon",
-        "vonMises": "Von Mises napon",
-        "vonMisesPercent": "Udeo granice tečenja",
-        "withinYieldFactor": "U granicama faktora tečenja",
-        "exceedsYieldFactor": "Prelazi faktor tečenja",
-        "burst": "Pucanje",
-        "burstApi": "API 5C3 unutrašnja granica tečenja",
-        "burstCapped": "Granica tečenja sa zatvorenim krajem",
-        "burstTrue": "Stvarni pritisak pucanja",
-        "collapse": "Kolaps",
-        "timoshenkoRound": "Timošenko, okrugla",
-        "api5c3": "API 5C3, okrugla",
-        "api5c7Oval": "API 5C7, ovalna",
-        "timoshenkoOval": "Timošenko, ovalna",
-        "api5c7Tension": "API 5C7, ovalna, sa zatezanjem",
-        "noTension": "Potrebno zatezanje",
-        "tension": "Granice zatezanja",
-        "tensionMax": "Maksimalno zatezanje",
-        "tensionAtPressure": "Maksimalno zatezanje pri ovom pritisku",
-        "differential": "Diferencijalni pritisak (spoljašnji − unutrašnji)"
-      },
-      "method": {
-        "title": "Metoda",
-        "intro": "Cev se proverava kao debelozidna čelična cev pod unutrašnjim i spoljašnjim pritiskom, aksijalnom silom i opcionim savijanjem.",
-        "steps": [
-          "Aksijalni napon je aksijalna sila podeljena površinom čelika. Savijanje radijusa R dodaje napon savijanja E·OD/(2R) na konveksnoj strani i oduzima ga na konkavnoj; uzima se veća apsolutna vrednost.",
-          "Obimni i radijalni napon na unutrašnjem zidu dobijaju se iz Lamé jednačina za debelozidni cilindar; radijalni napon tu je jednak negativnom unutrašnjem pritisku. Von Mises napon spaja sva tri: √(σa² + σh² + σr² − σa·σh − σa·σr − σh·σr). Torzija nije uključena.",
-          "Pucanje: API 5C3 unutrašnja granica tečenja 0,875 · 2Y·t/D; granica tečenja sa zatvorenim krajem (4Y/√3)·(t/D)·(1 − t/D), gde Von Mises napon na unutrašnjem zidu dostiže Y; stvarni pritisak pucanja (2Y/√3)·ln(OD/ID), gde teče ceo zid.",
-          "Kolaps: Timošenko, Pc = [Py·R + Pe·(1 + 3·ov·D/2t) − √((Py·R + Pe·(1 + 3·ov·D/2t))² − 4·Py·Pe·R)] / 2, sa Py = 2Y·t/D, Pe = 2E/(1 − ν²)·(t/D)³ i R kao umanjenjem za aksijalni napon; okrugla cev ima ov = 0. API 5C3 koristi oblast tečenja, plastičnu, prelaznu ili elastičnu po D/t, sa granicom tečenja umanjenom za aksijalni napon. API RP 5C7 daje kolaps ovalne cevi iz kolapsa okrugle cevi i ovalnosti, a pri zatezanju ga umanjuje za Kcf = ((1/SF)^(4/3) − (L/Ly)^(4/3))^0,75.",
-          "Granice zatezanja: Ly = faktor tečenja · Y · površina čelika, i najveća aksijalna sila pri kojoj Von Mises napon sa obimnim i radijalnim naponom unetih pritisaka dostiže faktor tečenja."
-        ],
-        "assumptionsTitle": "Pretpostavke",
-        "assumptions": [
-          "Bešavna čelična cev ravnomernog zida i unetih nominalnih mera, bez korozije, habanja i zamora.",
-          "Pritisci su ravnomerni duž cevi; naponi su oni na unutrašnjem zidu, najnepovoljniji slučaj.",
-          "Torzija i smicajni naponi nisu uključeni.",
-          "API jednačine kolapsa važe za opseg D/t iz standarda; proveri rezultate van njega."
-        ],
-        "reference": "Zasnovano na jednačinama API 5C3 i API RP 5C7, Timošenkovom kolapsu, Lamé jednačinama i Von Mises kriterijumu. Proračun reprodukuje referentnu tabelu za njen primer. Proveri standarde pre nego što se osloniš na rezultat; vek trajanja pod zamorom nije pokriven."
-      }
-    },
-    "nitrogenDisplacement": {
-      "meta": {
-        "title": "Zamena fluida azotom",
-        "description": "Izračunaj koliko je azota potrebno da se fluid u bušotini zameni kroz coiled tubing: gas pri standardnim uslovima, kao tečni azot i po masi, u metričkim ili oilfield jedinicama."
-      },
-      "hero": {
-        "badge": "Azot",
-        "title": "Zamena fluida azotom",
-        "description": "Koliko je azota potrebno da se fluid u bušotini zameni kroz coiled tubing, uključujući cev koja je ostala na bubnju. Metričke ili oilfield jedinice."
-      },
-      "groups": {
-        "coil": "Coiled tubing",
-        "well": "Bušotina",
-        "gas": "Azot"
-      },
-      "fields": {
-        "ctLength": {
-          "label": "Coiled tubing na bubnju",
-          "hint": "Ukupna dužina, uključujući deo koji ulazi u bušotinu"
-        },
-        "depth": {
-          "label": "Dubina pumpanja",
-          "hint": "Dubina sa koje se pumpa azot"
-        },
-        "ctOd": {
-          "label": "Spoljašnji prečnik coiled tubing-a"
-        },
-        "ctWall": {
-          "label": "Debljina zida coiled tubing-a"
-        },
-        "tubingOd": {
-          "label": "Spoljašnji prečnik proizvodnog tubinga"
-        },
-        "tubingWall": {
-          "label": "Debljina zida proizvodnog tubinga"
-        },
-        "fluidDensity": {
-          "label": "Fluid u bušotini",
-          "hint": "Gustina fluida koji se zamenjuje"
-        },
-        "tempDepth": {
-          "label": "Temperatura na dubini"
-        },
-        "tempSurface": {
-          "label": "Temperatura na ušću bušotine"
-        },
-        "compressibility": {
-          "label": "Faktor kompresibilnosti, Z",
-          "hint": "1 za idealan gas. Koristi vrednost iz tablice ispod."
-        },
-        "nitrogenDensity": {
-          "label": "Srednja gustina azota u bušotini",
-          "hint": "Prosečna gustina gasnog stuba; određuje pritisak na ušću"
-        }
-      },
-      "results": {
-        "title": "Rezultat",
-        "totalMass": "Ukupno potrebno azota",
-        "conditions": "Uslovi gasa",
-        "pressureDepth": "Pritisak na dubini",
-        "pressureSurface": "Pritisak na ušću bušotine",
-        "pressureMean": "Srednji pritisak",
-        "factorMean": "Zapreminski faktor, srednji",
-        "factorSurface": "Zapreminski faktor, ušće",
-        "well": "Ispunjavanje bušotine",
-        "fillVolume": "Zapremina ispunjena gasom",
-        "reel": "Ispunjavanje cevi na bubnju",
-        "total": "Ukupno",
-        "gas": "Gas pri standardnim uslovima",
-        "liquid": "Kao tečni azot",
-        "mass": "Masa"
-      },
-      "method": {
-        "title": "Metoda",
-        "intro": "Fluid u bušotini se zamenjuje do dubine pumpanja; azot koji ispunjava stub i cev na bubnju sabira se kao gas, tečnost i masa.",
-        "steps": [
-          "Pritisak na dubini drži ravnotežu hidrostatičkom stubu fluida u bušotini: P = ρ·g·h. Pritisak na ušću je ta vrednost minus težina stuba azota, iz srednje gustine azota. Stub se uzima pri srednjoj vrednosti oba pritiska i obe temperature.",
-          "Zapreminski faktor azota: B = 2,8416·P / (Z·(273 + T)) u sm³/m³, sa P u kPa i T u °C. Konstanta odgovara standardnim uslovima od oko 15 °C i 101,3 kPa.",
-          "Zapremina ispunjena gasom: zapremina kanala proizvodnog tubinga minus čelik coiled tubing-a, puta dubina. To su prstenasti prostor i kanal coiled tubing-a, svaki brojan jednom.",
-          "Azot za bušotinu je ta zapremina puta faktor pri srednjim uslovima. Azot za cev na bubnju je zapremina njenog kanala puta faktor pri uslovima na ušću.",
-          "Tečni azot: 1 m³ tečnosti daje 696,5 sm³ gasa i teži 808 kg."
-        ],
-        "assumptionsTitle": "Pretpostavke",
-        "assumptions": [
-          "Fluid se u vertikalnoj bušotini potpuno zamenjuje do dubine pumpanja.",
-          "Faktor kompresibilnosti je konstantan duž stuba; temperatura je srednja vrednost oba kraja.",
-          "Srednja gustina azota je ulaz, ne izvodi se iz pritiska; pritisak na ušću iz nje sledi.",
-          "Nema dotoka fluida u bušotinu ni gubitka azota; gubici pri pumpanju i rezerva nisu uračunati."
-        ],
-        "reference": "Reprodukuje referentnu tabelu, uz jednu razliku: tabela kanal coiled tubing-a računa dvaput u zapremini ispunjenoj gasom, ovde se računa jednom, pa je azot za bušotinu manji nego u tabeli. Proveri osobine gasa prema tablici azota pre nego što se osloniš na rezultat."
-      }
-    },
-    "nitrogenVessel": {
-      "meta": {
-        "title": "Azot za sud",
-        "description": "Izračunaj azot potreban da se sud na zadatoj temperaturi podigne na pritisak: gas pri standardnim uslovima, kao tečni azot i po masi, u metričkim ili oilfield jedinicama."
-      },
-      "hero": {
-        "badge": "Azot",
-        "title": "Azot za sud",
-        "description": "Unesi zapreminu suda, pritisak na koji se diže i temperaturu da dobiješ potrebnu količinu azota. Metričke ili oilfield jedinice."
-      },
-      "groups": {
-        "vessel": "Sud",
-        "gas": "Azot"
-      },
-      "fields": {
-        "volume": {
-          "label": "Zapremina suda"
-        },
-        "pressure": {
-          "label": "Pritisak na koji se diže",
-          "hint": "Manometarski pritisak"
-        },
-        "initialPressure": {
-          "label": "Početni pritisak",
-          "hint": "Manometarski pritisak; 0 za prazan sud pri atmosferskom pritisku"
-        },
-        "temperature": {
-          "label": "Temperatura u sudu"
-        },
-        "compressibility": {
-          "label": "Faktor kompresibilnosti, Z",
-          "hint": "1 za idealan gas. Koristi vrednost iz tablice ispod."
-        }
-      },
-      "results": {
-        "title": "Rezultat",
-        "mass": "Potrebno azota",
-        "factor": "Zapreminski faktor pri krajnjem pritisku",
-        "gasInVessel": "Gas u sudu pri krajnjem pritisku",
-        "gas": "Gas koji se dodaje, pri standardnim uslovima",
-        "liquid": "Kao tečni azot"
-      },
-      "method": {
-        "title": "Metoda",
-        "intro": "Azot je gas koji treba dodati da se sud pri stalnoj temperaturi podigne sa početnog na krajnji pritisak.",
-        "steps": [
-          "Zapreminski faktor azota: B = 2,8416·P / (Z·(273 + T)) u sm³/m³, sa P u kPa (manometarski) i T u °C. Konstanta odgovara standardnim uslovima od oko 15 °C i 101,3 kPa.",
-          "Gas koji se dodaje: zapremina suda puta razlika faktora pri krajnjem i početnom pritisku.",
-          "Tečni azot: 1 m³ tečnosti daje 696,5 sm³ gasa i teži 808 kg."
-        ],
-        "assumptionsTitle": "Pretpostavke",
-        "assumptions": [
-          "Pritisci su manometarski, a sud na početku sadrži samo vazduh pri atmosferskom pritisku, koji se ne računa.",
-          "Temperatura je stalna dok se sud puni; zagrevanje usled kompresije nije uračunato.",
-          "Faktor kompresibilnosti je jedna vrednost za ceo opseg pritiska.",
-          "Azot se ne gubi pri produvavanju ni curenjem."
-        ],
-        "reference": "Koristi isti zapreminski faktor i osobine azota kao alat Zamena fluida azotom, koji reprodukuje referentnu tabelu. Proveri osobine gasa prema tablici azota pre nego što se osloniš na rezultat."
-      }
-    },
-    "wellBuilder": {
-      "units": {
-        "label": "Jedinica dubine"
-      },
-      "palette": {
-        "title": "Komponente",
-        "hint": "Prevuci komponentu na šemu ili pritisni Enter da je dodaš. Na šemi je pomeraš prevlačenjem; okrugle ručke menjaju njene dubine."
-      },
-      "types": {
-        "casing": "Kolona",
-        "liner": "Liner",
-        "tubing": "Tubing",
-        "ct": "Coiled tubing",
-        "packer": "Paker",
-        "nipple": "Sedište (landing nipple)",
-        "sleeve": "Cirkulaciona spojnica (sliding sleeve)",
-        "perforation": "Perforacije"
-      },
-      "canvas": {
-        "title": "Šema bušotine (merena dubina)",
-        "empty": "Prevuci komponentu ovde da započneš bušotinu.",
-        "notToScale": "Dubina u razmeri; širine nisu u razmeri.",
-        "surface": "Površina (surface)"
-      },
-      "editor": {
-        "size": "Dimenzija",
-        "weight": "Težina",
-        "wall": "Zid",
-        "packerOd": "Spoljašnji prečnik pakera, in",
-        "depth": "Dubina",
-        "top": "Vrh",
-        "bottom": "Dno",
-        "delete": "Obriši",
-        "duplicate": "Dupliraj",
-        "none": "Izaberi komponentu da je urediš.",
-        "note": "Napomena",
-        "notePlaceholder": "npr. profil XN, ID 2,205\"",
-        "id": "Unutrašnji prečnik",
-        "drift": "Drift prečnik",
-        "capacity": "Kapacitet",
-        "displacement": "Istisnuće čelika"
-      },
-      "survey": {
-        "title": "Deviation log",
-        "intro": "Nalepi mernu dubinu, inklinaciju i azimut, jednu stanicu po redu, ili uvezi CSV ili tekstualni fajl. Putanja se računa metodom minimalne krivine.",
-        "placeholder": "MD, Inc, Azi\n0, 0, 0\n1500, 0, 0\n3000, 28, 50",
-        "import": "Uvezi fajl",
-        "clear": "Obriši",
-        "errors": {
-          "empty": "Log je prazan.",
-          "columns": "Red {line}: potrebne su tri kolone (MD, inklinacija, azimut).",
-          "number": "Red {line}: jedna vrednost nije broj.",
-          "range": "Red {line}: inklinacija mora biti 0–180°, azimut 0–360°, a MD nenegativan.",
-          "order": "Red {line}: merena dubina mora da raste."
-        },
-        "table": {
-          "md": "MD",
-          "inc": "Inc °",
-          "azi": "Azi °",
-          "tvd": "TVD",
-          "north": "Sever",
-          "east": "Istok",
-          "dls": "DLS"
-        },
-        "summary": {
-          "md": "Merena dubina",
-          "tvd": "Prava vertikalna dubina",
-          "departure": "Odstupanje",
-          "closure": "Pravac",
-          "maxInc": "Maks. inklinacija",
-          "maxDls": "Maks. dogleg"
-        }
-      },
-      "view": {
-        "title": "3D putanja bušotine",
-        "hint": "Prevuci da okreneš bušotinu, drži Shift i prevuci da je pomeriš, točkić ili + i − za zumiranje. Isprekidana linija je putanja projektovana na tlo.",
-        "top": "Pogled odozgo",
-        "side": "Pogled sa strane",
-        "reset": "Poništi",
-        "zoomIn": "Uvećaj",
-        "zoomOut": "Umanji",
-        "north": "S",
-        "east": "I",
-        "depth": "TVD",
-        "low": "Nisko",
-        "high": "Visoko",
-        "noSurvey": "Još nema loga: bušotina se crta ravno naniže do najdublje komponente.",
-        "legend": "Boja: jačina doglega, od niske do visoke."
-      },
-      "marker": {
-        "shoe": "sabot",
-        "tubing": "Kraj tubinga",
-        "ct": "Kraj CT-a",
-        "packer": "Paker",
-        "perforations": "Perforacije",
-        "nipple": "Sedište",
-        "sleeve": "Cirkulaciona spojnica"
-      },
-      "print": {
-        "button": "Sačuvaj kao PDF",
-        "title": "Šema bušotine",
-        "components": "Komponente",
-        "type": "Tip",
-        "size": "Dimenzija",
-        "weight": "Težina",
-        "length": "Dužina",
-        "generated": "Napravljeno na {url}, {date}.",
-        "include": "U PDF-u:",
-        "optionData": "Podaci o bušotini",
-        "option3d": "3D prikaz"
-      },
-      "data": {
-        "example": "Učitaj primer bušotine",
-        "import": "Uvezi bušotinu",
-        "export": "Izvezi bušotinu",
-        "reset": "Obriši bušotinu",
-        "note": "Sačuvano samo u ovom pregledaču.",
-        "confirmExample": "Zameniti trenutnu bušotinu primerom?",
-        "confirmReset": "Obrisati bušotinu i njen log?",
-        "importError": "Taj fajl nije bušotina izvezena sa ove stranice.",
-        "sizes": "Dimenzije i težine cevi su nominalne vrednosti prema API 5CT; proveri ih prema standardu ili podacima proizvođača pre projektovanja."
-      }
-    },
-    "ctPressureLoss": {
-      "meta": {
-        "title": "CT pad pritiska",
-        "description": "Izračunajte pad pritiska usled trenja za njutnovski, Bingamov plastični, stepeni, Herschel–Bulkley ili empirijski izmeren fluid koji se pumpa kroz koiled tubing, podeljen na ravni deo i deo na bubnju, u oilfield ili metričkim jedinicama."
-      },
-      "hero": {
-        "badge": "Hidraulika",
-        "title": "CT pad pritiska",
-        "description": "Pad pritiska usled trenja za fluide koji se pumpaju kroz koiled tubing. Izaberite reološki model, unesite fluid, cev i protok, u oilfield ili metričkim jedinicama."
-      },
-      "groups": {
-        "fluid": "Fluid",
-        "geometry": "Cev i bubanj",
-        "flow": "Protok",
-        "fann": "Fann očitavanja",
-        "temperature": "Uticaj temperature"
-      },
-      "fields": {
-        "density": {
-          "label": "Gustina"
-        },
-        "n": {
-          "label": "Indeks ponašanja toka, n",
-          "hint": "Power-law eksponent; 1 za njutnovski fluid"
-        },
-        "k": {
-          "label": "Indeks konzistencije, K",
-          "hint": "Power-law konzistencija, iz reologije fluida"
-        },
-        "reelDiameter": {
-          "label": "Prečnik bubnja",
-          "hint": "Prečnik namotaja na koji je cev namotana"
-        },
-        "od": {
-          "label": "Spoljašnji prečnik cevi"
-        },
-        "wall": {
-          "label": "Debljina zida"
-        },
-        "roughness": {
-          "label": "Hrapavost zida",
-          "hint": "Apsolutna hrapavost unutrašnjeg zida; 0 za glatku cev. Utiče samo na turbulentni tok"
-        },
-        "totalLength": {
-          "label": "Dužina niza"
-        },
-        "lengthOffReel": {
-          "label": "Cev van bubnja",
-          "hint": "Ravna dužina, nije namotana na bubanj"
-        },
-        "flowRate": {
-          "label": "Protok"
-        },
-        "fluidType": {
-          "label": "Tip fluida"
-        },
-        "model": {
-          "label": "Reološki model",
-          "hint": "Kako se opisuje kriva tečenja fluida"
-        },
-        "pv": {
-          "label": "Plastična viskoznost (PV)",
-          "hint": "Za njutnovski fluid, njegova viskoznost"
-        },
-        "yp": {
-          "label": "Granica tečenja (YP)",
-          "hint": "Napon tečenja fluida"
-        },
-        "fluidTemperature": {
-          "label": "Temperatura fluida",
-          "hint": "Temperatura za koju se PV i YP uzimaju iz tabele; prazno koristi vrednosti iznad"
-        }
-      },
-      "results": {
-        "title": "Rezultat",
-        "total": "Ukupan pad pritiska usled trenja",
-        "straight": "Van bubnja (ravno)",
-        "curved": "Na bubnju (savijeno)",
-        "velocity": "Brzina",
-        "reynolds": "Rejnoldsov broj",
-        "dean": "Dinov broj",
-        "regime": "Režim toka",
-        "effN": "Ekvivalentni indeks tečenja n′",
-        "effK": "Ekvivalentni indeks konzistencije K",
-        "pvUsed": "PV na temperaturi fluida",
-        "ypUsed": "YP na temperaturi fluida"
-      },
-      "regimes": {
-        "laminar": "Laminaran",
-        "transitional": "Prelazni",
-        "turbulent": "Turbulentan"
-      },
-      "method": {
-        "title": "Metoda",
-        "intro": "Pad se računa odvojeno za deo niza van bubnja (ravno) i deo na bubnju (savijeno), a zatim se sabiraju.",
-        "steps": [
-          "Reologija: model daje napon smicanja na zidu τ pri brzini smicanja γ. Njutnovski: τ = μγ. Bingamov plastični: τ = YP + PV·γ. Stepeni zakon: τ = Kγⁿ. Herschel–Bulkley: τ = τ₀ + Kγⁿ. Empirijski: izmerene Fann tačke spojene pravim linijama na log–log osama. Fann brzina N rpm daje γ = 1,7023 N 1/s i τ = 1,0678 θ lbf/100 ft².",
-          "Ekvivalentni stepeni zakon: za dati protok pseudo brzina smicanja je Γ = 8V/D. Brzina smicanja na zidu γw = Γ(3n′+1)/(4n′) određuje se iteracijom sa n′, lokalnim nagibom krive tečenja, a K i n′ modela su oni koji daju isti napon na zidu i isti nagib. Fluid sa stepenim zakonom vraća sopstvene n i K.",
-          "Fann prilagođavanje: Bingamov plastični PV = θ600 − θ300 i YP = θ300 − PV; Herschel–Bulkley τ₀ = 2τ3 − τ6 i log–log prilagođavanje za n i K; stepeni zakon log–log prilagođavanje; njutnovski prilagođavanje kroz koordinatni početak. Odstupanje je srednje kvadratno relativno odstupanje modela od očitavanja.",
-          "Rejnoldsov broj (Metzner–Reed): Re = 31,042 ρ Q^(2−n) / (9,804^n K ID^(4−3n)) · (n/(1+3n))^n, sa ρ u lb/gal, Q u gal/min, ID u inčima i K u lbf·sⁿ/100 ft².",
-          "Ravna cev: laminarno ispod Re = 3470 − 1370n, turbulentno iznad 4270 − 1370n. Laminarno f = 16/Re. Turbulentno f = a/Re^b, gde je a = (log n + 3,93)/50 i b = (1,75 − log n)/7.",
-          "Coiled tubing: laminarni faktor se množi sa ψ·De^φ, gde je De = Re_g·(ID/D)^0,5 Dinov broj, ψ = 47,969 − 153,8n + 166,22n² − 60,132n³ i φ = 0,875n − 0,515. Turbulentno: f = 1,069·a/Re^(0,8b)·(ID/D)^0,1. Laminarna granica je (4n/(3n+1))^n · [2100 ψ (ID/D)^(0,5φ)]^(1/(1−φ)), a turbulentna je 800 iznad nje.",
-          "Pad pritiska: ΔP = f ρ Q² L / (154,63 ID⁵) u oilfield jedinicama. Između dve granice pad se linearno interpolira po Re, od laminarnog pada na donjoj granici do turbulentnog pada na gornjoj granici."
-        ],
-        "assumptionsTitle": "Pretpostavke",
-        "assumptions": [
-          "Hrapavost zida ulazi samo u turbulentni faktor trenja, kao odnos Haaland faktora sa hrapavošću i bez nje, pa hrapavost 0 daje rezultat za glatku cev. Za n različito od 1 ovo je procena.",
-          "Za modele sa naponom tečenja ekvivalentni stepeni zakon računa se za unetu vrednost protoka. To je pouzdano za laminarno strujanje; turbulentne i prelazne vrednosti za takve fluide su procena, a kritični Rejnoldsovi brojevi su oni za fluid sa stepenim zakonom.",
-          "Jednofazni power-law fluid bez čvrstih čestica.",
-          "Glatka cev i potpuno razvijen tok, sa osobinama fluida koje su konstantne duž niza.",
-          "Zakrivljenost je ona koju daje uneti prečnik bubnja; cev van bubnja je ravna.",
-          "Korelacije važe za ograničen opseg n i ID/D. Proveri rezultate van njega."
-        ],
-        "reference": "Zasnovano na objavljenim korelacijama za power-law fluide u coiled tubing-u (Zhou i Shah), sa Rejnoldsovim brojem po Metzner–Reed-u i turbulentnim faktorima po Dodge–Metzner-u. Proračun reprodukuje referentnu tabelu za njen primer. Proveri originalne radove pre nego što se osloniš na rezultat."
-      },
-      "models": {
-        "newtonian": "Njutnovski",
-        "bingham": "Bingamov plastični",
-        "powerLaw": "Stepeni zakon",
-        "herschelBulkley": "Herschel–Bulkley",
-        "empirical": "Empirijski model"
-      },
-      "fluidTypes": {
-        "liquid": "Tečnost",
-        "gas": "Gas",
-        "foam": "Pena",
-        "multiphase": "Višefazni"
-      },
-      "soon": "još nije dostupno",
-      "fann": {
-        "note": "Očitavanja θ Fann 35 viskozimetra pri svakoj brzini. Pretpostavlja se standardna kombinacija rotor-bob R1-B1 i torziona opruga F1.",
-        "fit": "Prilagodi model očitavanjima",
-        "fitted": "Prilagođeno. Odstupanje od očitavanja: {dev} %",
-        "direct": "Empirijski model koristi očitavanja direktno.",
-        "failed": "Očitavanja ne podržavaju ovaj model. Unesite svih 12 očitavanja, ili bar 600 i 300 rpm za Bingamov plastični model."
-      },
-      "temp": {
-        "note": "Za njutnovske i Bingamove fluide PV i YP se interpoliraju između redova na temperaturi fluida. Ostavite tabelu praznom da se koriste površinske vrednosti.",
-        "title": "Reologija na različitim temperaturama",
-        "temperature": "Temp.",
-        "pv": "PV",
-        "yp": "YP"
-      }
-    },
-    "wellKill": {
-      "meta": {
-        "title": "Gušenje bušotine",
-        "description": "Izračunajte gustinu fluida za gušenje, zapremine i pritiske za gušenje proizvodne bušotine utiskivanjem (bullheading) ili cirkulacijom, kao i kill sheet bušotine u bušenju za metod bušača i metod čekaj i otežaj, u metričkim ili oilfield jedinicama."
-      },
-      "hero": {
-        "badge": "Kontrola bušotine",
-        "title": "Gušenje bušotine",
-        "description": "Fluid za gušenje, zapremine i pritisci za proizvodnu bušotinu, ili kill sheet bušotine u bušenju. Izaberite metod i unesite bušotinu, u metričkim ili oilfield jedinicama."
-      },
-      "groups": {
-        "wellFluid": "Bušotina i fluid",
-        "kill": "Gušenje i utiskivanje",
-        "tubing": "Cevi i zaštitne cevi",
-        "pumping": "Pumpanje",
-        "drillWell": "Bušotina i isplaka",
-        "drillPump": "Pumpa i cirkulacija",
-        "drillVolumes": "Zapremine"
-      },
-      "fields": {
-        "wTvd": {
-          "label": "Prava vertikalna dubina",
-          "hint": "Dubina formacije"
-        },
-        "wMd": {
-          "label": "Dužina tubinga",
-          "hint": "Merena dubina cipele tubinga"
-        },
-        "wDensity": {
-          "label": "Gustina fluida u bušotini"
-        },
-        "wSitp": {
-          "label": "Pritisak u tubingu pri zatvorenoj bušotini"
-        },
-        "wMargin": {
-          "label": "Nadpritisak",
-          "hint": "Pritisak koji fluid za gušenje dodaje iznad pritiska formacije"
-        },
-        "wInject": {
-          "label": "Pritisak utiskivanja iznad formacije",
-          "hint": "Pritisak iznad pritiska formacije potreban da se fluid utisne u nju pri utiskivanju"
-        },
-        "wFracture": {
-          "label": "Pritisak frakturiranja",
-          "hint": "Na dubini formacije; 0 izostavlja proveru"
-        },
-        "wTubingId": {
-          "label": "Unutrašnji prečnik tubinga"
-        },
-        "wTubingOd": {
-          "label": "Spoljašnji prečnik tubinga"
-        },
-        "wCasingId": {
-          "label": "Unutrašnji prečnik zaštitnih cevi"
-        },
-        "wRate": {
-          "label": "Protok pumpe"
-        },
-        "dTvd": {
-          "label": "Prava vertikalna dubina"
-        },
-        "dMud": {
-          "label": "Gustina isplake"
-        },
-        "dSidpp": {
-          "label": "Pritisak u bušaćim šipkama pri zatvaranju (SIDPP)"
-        },
-        "dShoeTvd": {
-          "label": "Dubina cipele zaštitnih cevi (TVD)"
-        },
-        "dLeakoff": {
-          "label": "Leak-off, kao gustina isplake",
-          "hint": "Gustina isplake ekvivalentna pritisku leak-off na cipeli"
-        },
-        "dScr": {
-          "label": "Cirkulacioni pritisak pri brzini gušenja"
-        },
-        "dSpm": {
-          "label": "Brzina pumpe",
-          "hint": "Hodova u minuti pri brzini gušenja"
-        },
-        "dPump": {
-          "label": "Izlaz pumpe",
-          "hint": "Zapremina po hodu"
-        },
-        "dStringVolume": {
-          "label": "Zapremina bušaćih šipki",
-          "hint": "Unutar bušaćih šipki"
-        },
-        "dAnnulusVolume": {
-          "label": "Zapremina prstenastog prostora",
-          "hint": "Od dleta do površine"
-        }
-      },
-      "results": {
-        "title": "Rezultat",
-        "killFluid": "Gustina fluida za gušenje",
-        "killMud": "Gustina isplake za gušenje",
-        "formationPressure": "Pritisak formacije",
-        "densityIncrease": "Povećanje gustine",
-        "hydrostatic": "Hidrostatički pritisak fluida za gušenje",
-        "tubingVolume": "Zapremina tubinga (utiskivanje)",
-        "annulusVolume": "Zapremina prstenastog prostora",
-        "tubingTime": "Vreme pumpanja tubinga",
-        "circulationTime": "Vreme pumpanja tubinga i prstenastog prostora",
-        "startPressure": "Površinski pritisak na početku utiskivanja",
-        "endPressure": "Površinski pritisak na kraju utiskivanja",
-        "injectionPressure": "Pritisak na dnu pri utiskivanju",
-        "fractureMargin": "Rezerva do pritiska frakturiranja",
-        "icp": "Početni cirkulacioni pritisak (ICP)",
-        "fcp": "Završni cirkulacioni pritisak (FCP)",
-        "strokesToBit": "Hodova do dleta",
-        "strokesToSurface": "Hodova, dleto do površine",
-        "timeToBit": "Vreme do dleta",
-        "timeToSurface": "Vreme, dleto do površine",
-        "totalStrokes": "Hodova celog gušenja",
-        "totalTime": "Vreme celog gušenja",
-        "maasp": "Najveći dozvoljeni pritisak u prstenastom prostoru (MAASP)",
-        "min": "min",
-        "strokes": "hodova"
-      },
-      "schedule": {
-        "title": "Raspored pritiska u bušaćim šipkama",
-        "strokes": "Hodova",
-        "time": "Vreme",
-        "pressure": "Pritisak",
-        "note": "Dok isplaka za gušenje ide niz šipke, držite pritisak u šipkama po ovom rasporedu, a zatim držite završni cirkulacioni pritisak dok isplaka za gušenje ne stigne na površinu."
-      },
-      "methods": {
-        "label": "Metod",
-        "hint": "Gušenje proizvodne bušotine, ili bušotina u bušenju koja se guši jednim od dva cirkulacijska metoda",
-        "options": {
-          "workover": "Proizvodna bušotina: utiskivanje i cirkulacija",
-          "drillers": "Bušotina u bušenju: metod bušača",
-          "waitWeight": "Bušotina u bušenju: čekaj i otežaj"
-        }
-      },
-      "method": {
-        "title": "Metod",
-        "intro": "Alat računa gušenje iz ravnoteže hidrostatičkih pritisaka.",
-        "steps": [
-          "Hidrostatički pritisak: P = ρ·g·TVD, sa g = 9,80665 m/s². Pritisak formacije je pritisak pri zatvorenoj bušotini plus hidrostatički pritisak fluida u bušotini.",
-          "Proizvodna bušotina: gustina fluida za gušenje uravnotežuje pritisak formacije plus nadpritisak, ρ = (P + nadpritisak) / (g·TVD). Zapremine su π/4·ID²·L za tubing i π/4·(ID zaštitnih cevi² − OD tubinga²)·L za prstenasti prostor.",
-          "Utiskivanje: površinski pritisak je pritisak utiskivanja (pritisak formacije plus pritisak potreban za utiskivanje) minus hidrostatički pritisak fluida u tubingu. Počinje na pritisku zatvaranja plus rezerva utiskivanja i opada kako fluid za gušenje ulazi. Pritisak na dnu proverava se prema pritisku frakturiranja.",
-          "Bušotina u bušenju: gustina isplake za gušenje = gustina isplake + SIDPP / (g·TVD). ICP = SIDPP + cirkulacioni pritisak pri brzini gušenja; FCP = cirkulacioni pritisak × isplaka za gušenje / gustina isplake. Pritisak u šipkama linearno opada od ICP do FCP tokom hodova do dleta.",
-          "Čekaj i otežaj cirkuliše jednom sa isplakom za gušenje. Metod bušača prvo izbacuje prilivak originalnom isplakom držeći ICP, a zatim cirkuliše isplaku za gušenje. MAASP = (gustina leak-off − gustina isplake)·g·TVD cipele."
-        ],
-        "assumptionsTitle": "Pretpostavke",
-        "assumptions": [
-          "Vertikalni stub jednog fluida: bez gasa u fluidu, bez trenja pri utiskivanju i bez uticaja temperature i stišljivosti na gustinu.",
-          "Pritisci su manometarski. Gušenje proverite prema nazivnim pritiscima zaštitnih cevi, tubinga i glave bušotine.",
-          "Kill sheet važi za metod koji strana navodi; rad na čoku i reakcija na prilivak gasa traže procenu na lokaciji."
-        ],
-        "reference": "Alat je pomoć u planiranju, a ne zamena za procedure kontrole bušotine operatora i sertifikate posade. Rezultat proverite prema kill sheet-u kompanije."
-      }
-    },
-    "bhaBuilder": {
-      "palette": {
-        "title": "Alati",
-        "hint": "Izaberite alat da ga dodate na dno sklopa, pa izmenite njegove dimenzije."
-      },
-      "types": {
-        "connector": "Coil connector",
-        "crossover": "Prelazni nastavak",
-        "swivel": "Swivel",
-        "checkValve": "Nepovratni ventil",
-        "disconnect": "Disconnect",
-        "circSub": "Cirkulacioni nastavak",
-        "motorhead": "Motorhead",
-        "jar": "Jar",
-        "accelerator": "Akcelerator",
-        "centralizer": "Centralizer",
-        "nozzle": "Mlaznica za ispiranje",
-        "mill": "Glodalo",
-        "motor": "Motor isplake",
-        "packer": "Paker",
-        "overshot": "Overshot",
-        "generic": "Drugi alat"
-      },
-      "examples": {
-        "sheet": "Primer sa lista: coil 1-1/2\", 10 alata",
-        "motorhead1_11_16": "Motorhead 1-11/16\"",
-        "motorhead2_1_8": "Motorhead 2-1/8\"",
-        "motorhead2_3_8": "Motorhead 2-3/8\"",
-        "motorhead2_7_8": "Motorhead 2-7/8\"",
-        "motorhead3_1_8": "Motorhead 3-1/8\""
-      },
-      "fields": {
-        "bhaNo": "BHA br.",
-        "runNo": "Spuštanje br.",
-        "preparedBy": "Pripremio"
-      },
-      "drawing": {
-        "title": "Sklop, odozgo nadole"
-      },
-      "units": {
-        "label": "Jedinice"
-      },
-      "editor": {
-        "description": "Opis",
-        "od": "Spoljašnji prečnik",
-        "bore": "Unutrašnji prečnik",
-        "length": "Dužina",
-        "connection": "Spoj",
-        "weight": "Težina u vazduhu",
-        "up": "Pomeri gore",
-        "down": "Pomeri dole",
-        "copy": "Dupliraj",
-        "remove": "Ukloni",
-        "empty": "Još nema alata. Izaberite alat sa liste iznad ili učitajte primer."
-      },
-      "summary": {
-        "length": "Ukupna dužina",
-        "maxOd": "Najveći OD",
-        "minBore": "Najmanji otvor",
-        "count": "Alata",
-        "weight": "Težina"
-      },
-      "data": {
-        "example": "Učitaj primer",
-        "export": "Izvezi BHA",
-        "reset": "Obriši BHA",
-        "note": "Sačuvano samo u ovom pregledaču.",
-        "confirmExample": "Zameniti trenutni BHA primerom?",
-        "confirmReset": "Obrisati BHA?",
-        "importError": "Ta datoteka nije BHA izvezen sa ove strane.",
-        "disclaimer": "Dimenzije i dužine su one koje unesete; primeri su tipične vrednosti sa BHA lista. Proverite ih prema podacima proizvođača pre rada.",
-        "import": "Uvezi BHA"
-      },
-      "print": {
-        "button": "Sačuvaj kao PDF",
-        "title": "Sklop na dnu bušotine",
-        "bhaNo": "BHA br.",
-        "runNo": "Spuštanje br.",
-        "preparedBy": "Pripremio",
-        "total": "Ukupna dužina"
-      }
-    },
-    "ctForces": {
-      "groups": {
-        "well": "Bušotina",
-        "string": "CT niz",
-        "bha": "BHA",
-        "fluids": "Fluidi, trenje i površina",
-        "limits": "Materijal i granice"
-      },
-      "fields": {
-        "depth": {
-          "label": "Dubina BHA (MD)",
-          "hint": "Merena dubina dna BHA koja se analizira"
-        },
-        "holeId": {
-          "label": "Unutrašnji prečnik kanala",
-          "hint": "Zaštitne cevi ili tubing kroz koje CT ide"
-        },
-        "ctOd": {
-          "label": "Spoljašnji prečnik CT"
-        },
-        "s1Len": {
-          "label": "Dužina sekcije 1",
-          "hint": "Sekcije idu od kraja sa BHA ka bubnju; sekcije 2 i 3 ostavite prazne za jednu debljinu zida"
-        },
-        "s1Wall": {
-          "label": "Zid sekcije 1"
-        },
-        "s2Len": {
-          "label": "Dužina sekcije 2"
-        },
-        "s2Wall": {
-          "label": "Zid sekcije 2"
-        },
-        "s3Len": {
-          "label": "Dužina sekcije 3"
-        },
-        "s3Wall": {
-          "label": "Zid sekcije 3"
-        },
-        "bhaLength": {
-          "label": "Dužina BHA"
-        },
-        "bhaWeight": {
-          "label": "Težina BHA u vazduhu"
-        },
-        "bhaOd": {
-          "label": "Spoljašnji prečnik BHA",
-          "hint": "Koristi se za uzgon; BHA se smatra krutim"
-        },
-        "rhoIn": {
-          "label": "Gustina fluida u CT"
-        },
-        "rhoOut": {
-          "label": "Gustina fluida izvan CT"
-        },
-        "whp": {
-          "label": "Pritisak na glavi bušotine"
-        },
-        "cf": {
-          "label": "Koeficijent trenja",
-          "hint": "Oko 0,30–0,35 čelik u vodi, 0,20–0,25 sa lubrikantom, 0,15–0,20 u nafti"
-        },
-        "stripperFriction": {
-          "label": "Trenje strippera"
-        },
-        "reelTension": {
-          "label": "Zatezanje bubnja"
-        },
-        "modulus": {
-          "label": "Jangov modul"
-        },
-        "yieldStrength": {
-          "label": "Granica tečenja"
-        },
-        "designFactor": {
-          "label": "Faktor projekta u zatezanju",
-          "hint": "Deo sile tečenja dozvoljen na površini"
-        },
-        "snubLimit": {
-          "label": "Granica potiskivanja injektora",
-          "hint": "Najviše čime injektor može da gura CT; iznad toga se proglašava lock-up"
-        }
-      },
-      "results": {
-        "title": "Rezultat",
-        "reach": "Dubina do lock-up-a",
-        "reachTd": "TD, bez lock-up-a",
-        "slackoff": "Indikator težine, RIH",
-        "pickup": "Indikator težine, POOH",
-        "injectorPush": "Potiskivanje injektora na ovoj dubini",
-        "maxSetdown": "Najveća težina oslanjanja",
-        "maxOverpull": "Najveće prekoračenje zatezanja",
-        "tensionLimit": "Granica zatezanja na površini",
-        "buckleOnset": "Heliksno izvijanje počinje na",
-        "buckledLength": "Izvijena dužina na ovoj dubini",
-        "lockup": "Lock-up"
-      },
-      "charts": {
-        "ctwiTitle": "Indikator težine po dubini",
-        "forceTitle": "Aksijalna sila duž niza",
-        "rih": "RIH",
-        "pooh": "POOH",
-        "limit": "Granica lock-up-a",
-        "critical": "Kritična sila izvijanja",
-        "ctwiAxis": "Indikator težine",
-        "forceAxis": "Aksijalna sila",
-        "depthAxis": "Dubina",
-        "bha": "BHA"
-      }
-    },
-    "ctSimulator": {
-      "intro": {
-        "title": "Planirajte rad sa kontinualnim cevima na velikom ekranu",
-        "lead": "CT Simulator vodi posao sa kontinualnim cevima (coiled tubing) od bušotine do sila u jednom radnom prostoru. Nacrtate bušotinu, sastavite CT string i BHA, podesite posao i očitate težinu na indikatoru, dubinu do blokade (lock-up), težinu rasterećenja, prekoračenje zatezanja i dubinu na kojoj string počinje da se izvija. Izgleda i radi kao program za crtanje: traka sa koracima, paleta projekta, površina za crtanje, paleta svojstava i komandna linija.",
-        "stepsTitle": "Pet koraka",
-        "steps": [
-          {
-            "title": "Bušotina",
-            "text": "Nacrtajte kolone, liner, tubing i alate kompletiranja na šemi i dodajte merenje devijacije."
-          },
-          {
-            "title": "CT string",
-            "text": "Podesite spoljni prečnik, sekcije zida i kalem, i pogledajte nacrtan string."
-          },
-          {
-            "title": "BHA",
-            "text": "Sastavite BHA od alata, sa njihovim dimenzijama i težinama."
-          },
-          {
-            "title": "Posao",
-            "text": "Podesite dubinu, fluide, trenje i ograničenja."
-          },
-          {
-            "title": "Rezultati",
-            "text": "Očitajte sile i dijagrame težine i sile, i sačuvajte posao kao PDF."
-          }
-        ],
-        "shotsTitle": "Radni prostor",
-        "shots": {
-          "well": "Bušotina: šema sa komponentama",
-          "ct": "CT string: string i njegove sekcije",
-          "bha": "BHA: alati i crtež sklopa",
-          "results": "Rezultati: sile i dijagrami"
-        },
-        "cta": "Otvori radni prostor",
-        "ctaNote": "Radni prostor se otvara preko celog ekrana. Esc ili Zatvori vraća na ovu stranicu.",
-        "noMobileTitle": "Nema mobilne verzije.",
-        "noMobile": "CT Simulator radi samo na velikim ekranima i tabletima, od 768 piksela širine. Otvorite ovu stranicu na računaru ili tabletu.",
-        "kept": "Bušotina, BHA i posao se čuvaju u ovom pregledaču i nigde se ne šalju."
-      },
-      "workspace": {
-        "brand": "CT Simulator",
-        "close": "Zatvori",
-        "fullscreen": "Ceo ekran",
-        "project": "Projekat",
-        "properties": "Svojstva",
-        "left": "Projekat",
-        "right": "Svojstva",
-        "command": {
-          "label": "Komanda:",
-          "placeholder": "WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT, UNITS, HELP",
-          "ready": "Ukucajte komandu i pritisnite Enter. HELP prikazuje spisak.",
-          "help": "Komande: WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT [korak|all], UNITS [US|METRIC], LEFT, RIGHT, FULLSCREEN, CLOSE. Esc zatvara radni prostor.",
-          "unknown": "Nepoznata komanda: {cmd}. HELP prikazuje spisak.",
-          "step": "Korak",
-          "units": "Jedinice",
-          "ok": "U redu"
-        },
-        "status": {
-          "step": "Korak",
-          "units": "Jedinice",
-          "complete": "Završeno"
-        }
-      },
-      "meta": {
-        "title": "CT simulator",
-        "description": "Isplanirajte coiled tubing posao u četiri koraka: nacrtajte bušotinu, sastavite CT niz i BHA, podesite posao i pročitajte indikator težine, dubinu lock-up-a, težinu oslanjanja i prekoračenje zatezanja."
-      },
-      "hero": {
-        "badge": "Coiled tubing",
-        "title": "CT simulator",
-        "description": "Nacrtajte bušotinu, sastavite niz i BHA, podesite posao i pročitajte rezultate. Bušotina i BHA se čuvaju u ovom pregledaču, pa se editori koje ste koristili drugde na sajtu ovde otvaraju kako ste ih ostavili."
-      },
-      "tabs": {
-        "well": "Bušotina",
-        "ct": "CT niz",
-        "bha": "BHA",
-        "job": "Posao",
-        "results": "Rezultati",
-        "label": "Koraci",
-        "next": "Dalje",
-        "back": "Nazad"
-      },
-      "ui": {
-        "printAll": "Sačuvaj ceo posao kao PDF",
-        "printStep": "Sačuvaj ovaj korak kao PDF",
-        "preview": {
-          "title": "Pregled niza",
-          "reel": "Bubanj",
-          "string": "CT niz",
-          "bha": "BHA",
-          "empty": "Unesite spoljašnji prečnik CT i sekciju zida",
-          "wall": "zid"
-        },
-        "example": "Učitaj primer projekta",
-        "confirm": "Zameniti bušotinu i BHA primerom projekta?",
-        "groups": {
-          "job": "Posao"
-        },
-        "fields": {
-          "reelDiameter": {
-            "label": "Prečnik jezgra bubnja",
-            "hint": "Čuva se za provere savijanja i zamora koje slede; sile ga za sada ne koriste"
-          }
-        },
-        "strip": {
-          "well": "Bušotina",
-          "pipes": "cevi",
-          "td": "TD",
-          "bhaTools": "alata BHA",
-          "job": "Dubina",
-          "ct": "CT",
-          "bha": "BHA"
-        },
-        "missing": {
-          "title": "Popunite ovo da bi rezultati imali smisla",
-          "holes": "Bušotina: dodajte zaštitne cevi, liner ili tubing u koraku Bušotina, da CT ima kanal u koji ide.",
-          "surveyError": "Bušotina: survey otklona se ne može pročitati; ispravite ga u koraku Bušotina.",
-          "bha": "BHA: dodajte alate BHA u koraku BHA.",
-          "string": "CT niz: unesite spoljašnji prečnik CT i bar jednu sekciju zida u koraku CT niz.",
-          "depth": "Posao: dubina BHA mora biti veća od dužine BHA i ne veća od bušotine.",
-          "survey": "Nema survey-a otklona u koraku Bušotina: bušotina se uzima kao vertikalna."
-        }
-      },
-      "report": {
-        "title": "Izveštaj o CT poslu",
-        "created": "Napravljeno {date}",
-        "bhaNo": "BHA br.",
-        "runNo": "Spuštanje br.",
-        "preparedBy": "Pripremio",
-        "summary": "Rezime posla",
-        "incomplete": "Projekat nije kompletan, pa nema rezultata. Popunite:",
-        "depth": "Dubina BHA (MD)",
-        "reach": "Dubina do lock-up-a",
-        "reachTd": "TD, bez lock-up-a",
-        "slackoff": "Indikator težine, RIH",
-        "pickup": "Indikator težine, POOH",
-        "maxSetdown": "Najveća težina oslanjanja",
-        "maxOverpull": "Najveće prekoračenje zatezanja",
-        "lockup": "Lock-up",
-        "well": "Bušotina",
-        "tubulars": "Cevi",
-        "type": "Tip",
-        "size": "Veličina",
-        "id": "ID",
-        "top": "Vrh MD",
-        "bottom": "Dno MD",
-        "wellTools": "Alati u bušotini",
-        "survey": "Survey otklona",
-        "vertical": "Survey otklona nije unet; bušotina se uzima kao vertikalna.",
-        "stations": "Stanice",
-        "tdMd": "Dubina, MD",
-        "tdTvd": "Dubina, TVD",
-        "maxInc": "Najveći nagib",
-        "maxDls": "Najveći dogleg",
-        "dlsBase": "100 ft",
-        "inc": "Nagib",
-        "azi": "Azimut",
-        "dls": "Dogleg",
-        "ct": "CT niz",
-        "ctOd": "Spoljašnji prečnik",
-        "reel": "Prečnik jezgra bubnja",
-        "stringLength": "Dužina niza",
-        "length": "Dužina",
-        "wall": "Zid",
-        "weightAir": "Težina u vazduhu",
-        "weightBuoyed": "Težina sa uzgonom",
-        "bha": "Sklop na dnu bušotine",
-        "description": "Opis",
-        "weight": "Težina u vazduhu",
-        "connection": "Spoj",
-        "total": "Ukupno",
-        "job": "Posao",
-        "rhoIn": "Gustina fluida u CT",
-        "rhoOut": "Gustina fluida izvan CT",
-        "whp": "Pritisak na glavi bušotine",
-        "cf": "Koeficijent trenja",
-        "stripper": "Trenje strippera",
-        "reelTension": "Zatezanje bubnja",
-        "modulus": "Jangov modul",
-        "yieldStrength": "Granica tečenja",
-        "designFactor": "Faktor projekta u zatezanju",
-        "snubLimit": "Granica potiskivanja injektora",
-        "results": "Rezultati",
-        "injectorPush": "Potiskivanje injektora na ovoj dubini",
-        "tensionLimit": "Granica zatezanja na površini",
-        "buckleOnset": "Heliksno izvijanje počinje na",
-        "buckledLength": "Izvijena dužina na ovoj dubini",
-        "ctwiTitle": "Indikator težine po dubini",
-        "forceTitle": "Aksijalna sila duž niza",
-        "rih": "RIH",
-        "pooh": "POOH",
-        "limit": "Granica lock-up-a",
-        "critical": "Kritična sila izvijanja",
-        "notesTitle": "Metod i pretpostavke",
-        "disclaimer": "Pomoć u planiranju, ne zamena za procedure operatera ili terenski simulator. Rezultat proverite prema svojim podacima pre posla.",
-        "notes": [
-          "Model mekog niza (CTES priručnik za coiled tubing, poglavlja 6 i 7): bez momenata savijanja, sa stalnim koeficijentom trenja.",
-          "BHA se uzima kao jedno kruto telo; bez torzije, hidrauličkog otpora i zamora.",
-          "Prag izvijanja je onaj bez trenja, što je konzervativno.",
-          "Granica prekoračenja je jednostavna granica zatezanja gornje sekcije, ne von Mises provera sa pritiskom."
-        ]
-      }
-    },
-    "courses": {
-      "meta": {
-        "title": "Kursevi — obuka za coiled tubing",
-        "description": "Praktična obuka za coiled tubing, od osnova na terenu do projektovanja posla, sa proračunima korak po korak i materijalom koji ostaje vama. U pripremi."
-      },
-      "hero": {
-        "badge": "Kursevi",
-        "title": "Kursevi za coiled tubing",
-        "description": "Praktična obuka za coiled tubing, od osnova na terenu do projektovanja posla. Kursevi su u pripremi i služe samo za informisanje."
-      },
-      "status": "U pripremi",
-      "audience": {
-        "heading": "Za koga je",
-        "items": [
-          {
-            "icon": "hard-hat",
-            "title": "Posade i tehničari na terenu",
-            "text": "Šta je oprema, čemu služi svaki korak posla i zašto se radi tim redom."
-          },
-          {
-            "icon": "graduation-cap",
-            "title": "Mladi inženjeri",
-            "text": "Proračuni iza posla, korak po korak, sa primerima koje možete da ponovite."
-          },
-          {
-            "icon": "clipboard-check",
-            "title": "Inženjeri i nadzornici",
-            "text": "Projektovanje posla i provera plana prema onome što brojevi kažu."
-          }
-        ]
-      },
-      "modules": {
-        "heading": "Planirani moduli",
-        "lead": "Uz svaki modul sa proračunom ide odgovarajući alat na ovom sajtu, pa brojeve možete da isprobate dok čitate.",
-        "tool": "Otvori alat",
-        "items": [
-          {
-            "icon": "layers",
-            "title": "Osnove coiled tubinga",
-            "text": "Niz, bubanj, injektor i površinska oprema, i čemu služi svaki deo.",
-            "href": null
-          },
-          {
-            "icon": "activity",
-            "title": "Hidraulika i pad pritiska",
-            "text": "Pad pritiska usled trenja u pravoj cevi i cevi na bubnju, i kako model fluida menja rezultat.",
-            "href": "/tools/ct-pressure-loss"
-          },
-          {
-            "icon": "shield-check",
-            "title": "Granice cevi",
-            "text": "Granice pucanja, kolapsa i zatezanja, i von Mises provera prema granici tečenja.",
-            "href": "/tools/ct-strength-limits"
-          },
-          {
-            "icon": "wind",
-            "title": "Rad sa azotom",
-            "text": "Zapremine azota i zamena fluida, i kako se gas ponaša sa pritiskom i temperaturom.",
-            "href": "/tools/nitrogen-displacement"
-          },
-          {
-            "icon": "shield-alert",
-            "title": "Kontrola bušotine",
-            "text": "Gušenje bušotine utiskivanjem ili cirkulacijom, i kill sheet bušotine u bušenju.",
-            "href": "/tools/well-kill"
-          },
-          {
-            "icon": "wrench",
-            "title": "Sklop na dnu bušotine",
-            "text": "Izbor i raspored alata na kraju niza, i crtanje BHA.",
-            "href": "/tools/ct-simulator"
-          }
-        ]
-      },
-      "how": {
-        "heading": "Kako će raditi",
-        "points": [
-          "Sopstvenim tempom, sa materijalom koji ostaje vama.",
-          "Proračuni korak po korak, sa rešenim primerima.",
-          "Jednostavnim jezikom, sa prikazanim brojevima."
-        ],
-        "note": "Termini, formati i cene još nisu određeni."
-      },
-      "cta": {
-        "heading": "Recite mi šta vam treba",
-        "lead": "Navedite koji modul ili koja posada treba obuku, a ja ću se javiti sa onim što je planirano.",
-        "primary": "Kontaktirajte me",
-        "secondary": "Otvori alate"
+        "successTitle": "Hvala, poruka je stigla!",
+        "successText": "Pročitaću je i javiti se u roku od jednog radnog dana sa konkretnim sledećim koracima. Baci pogled na inbox.",
+        "error": "Nešto nije u redu. Pokušaj ponovo ili mi piši direktno."
       }
     },
     "web": {
       "glance": {"label": "Ukratko", "items": [{"label": "Tehnologije", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Cena", "value": "Jedna fiksna cena, dogovorena pre početka"}, {"label": "Vlasništvo", "value": "Kod, domen i hosting na tvoje ime"}, {"label": "Odgovor", "value": "U roku od jednog radnog dana"}]},
-      "closing": "Imaš sajt na umu? Dovoljna je kratka poruka.",
+      "closing": "Imaš sajt na umu? Dovoljno je par rečenica.",
       "meta": {
-        "title": "Web razvoj",
-        "description": "Brzi Astro sajtovi po meri i veb sistemi za inženjerske i tehničke B2B firme, od inženjera. Dizajn, razvoj, optimizacija i praćenje."
+        "title": "Izrada sajtova za uslužne firme",
+        "description": "Brzi sajtovi i landing strane po meri za uslužne firme, sa SEO-om i praćenjem svakog upita. Fiksna cena, sve na tvoje ime."
       },
       "hero": {
-        "badge": "Web razvoj",
-        "titleLead": "Sajtovi i veb sistemi",
-        "titleHighlight": "za tehničke firme",
-        "description": "Dizajn, razvoj i optimizacija od inženjera koji poznaje industriju. Jedna fiksna cena, a sve na tvoje ime.",
+        "badge": "Izrada sajtova",
+        "titleLead": "Sajtovi sa kojih",
+        "titleHighlight": "ljudi zovu",
+        "description": "Dizajn, izrada i SEO za firme kojima posao počinje pozivom ili upitom. Cena je fiksna, a sve je na tvoje ime.",
         "primaryCta": "Javi se",
         "secondaryCta": "Sve usluge"
       },
       "services": {
         "badge": "Čime se bavim",
-        "heading": "Web dizajn, izrada sajtova i SEO",
-        "lead": "Sve tri usluge u svakom projektu.",
+        "heading": "Dizajn, izrada i SEO u istom paketu",
+        "lead": "Svaki sajt dobija sve troje.",
         "cards": [
           {
             "icon": "layout",
-            "title": "Web dizajn",
-            "description": "Pregledan i moderan dizajn, prilagođen tvom brendu, sadržaju i načinu na koji ljudi stvarno koriste sajt."
+            "title": "Dizajn",
+            "description": "Pregledan dizajn po meri tvoje firme, za to kako ljudi zaista koriste sajt: brzo, sa telefona i sa jednim ciljem."
           },
           {
             "icon": "code",
-            "title": "Izrada sajtova",
-            "description": "Sajtovi koji traju. Astro, Tailwind i čist kod: brzi od prvog dana i laki za održavanje i godinama kasnije."
+            "title": "Izrada",
+            "description": "Astro, Tailwind i čist kod. Sajt je brz od prvog dana i lako se održava godinama."
           },
           {
             "icon": "trending-up",
-            "title": "SEO optimizacija",
-            "description": "SEO, brzina učitavanja i pristupačnost ugrađeni od starta, da sajt bude dobro pozicioniran na Google-u i radi za svakog posetioca."
+            "title": "SEO",
+            "description": "Brzina, SEO i pristupačnost su deo izrade od početka, da te Google dobro rangira, a posetioci ne čekaju."
           }
         ]
       }
     },
     "home": {
       "meta": {
-        "title": "Inženjer i Digital Architect",
-        "description": "Studije slučaja i inženjerski alati, uz softver u oblaku i sajtove za tehničke firme — gradi ih priznati inženjer."
+        "title": "Više poziva i upita sa interneta",
+        "description": "Google i Facebook oglasi, lokalni SEO, AI pretraga i brz sajt za uslužne firme. Svaki poziv i upit se meri. Prva provera je besplatna."
       },
       "hero": {
-        "badge": "Sajtovi i softver",
-        "titleLine1": "Stojan\u00a0Petković",
-        "titleLine2": "Inženjer\u00a0i",
-        "titleLine3": "Digital\u00a0Architect",
-        "description": "Studije slučaja i inženjerski alati napisani za inženjere. Za tehničke firme pravim softver u oblaku i sajtove.",
-        "descriptionMobile": "Studije slučaja i inženjerski alati za inženjere, i softver u oblaku i sajtovi za tehničke firme.",
-        "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Zvanje odobrila Bavarska inženjerska komora (2026)", "docTitle": "Rešenje Bavarske inženjerske komore", "docAlt": "Sken rešenja o odobravanju zvanja Ingenieur, lični podaci su precrtani", "docDescription": "Bavarska inženjerska komora (Bayerische Ingenieurekammer-Bau) ispitala je moje studije rudarstva na Univerzitetu u Beogradu i utvrdila da su ravnopravne nemačkim zahtevima za inženjere (čl. 3 BayIngG). Na toj osnovi mi je odobrila da koristim zaštićeno zvanje Ingenieur, samostalno ili u sastavu reči. Rešenje je od 19. avgusta 2026. Ono potvrđuje zvanje; nije licenca za regulisanu delatnost."}, {"icon": "shield-check", "tag": "RS", "title": "Položen stručni ispit (2019)", "text": "Eksploatacija mineralnih sirovina, Srbija", "docTitle": "Uverenje o položenom stručnom ispitu", "docAlt": "Sken uverenja o stručnom ispitu položenom u Srbiji i njegovog overenog prevoda na nemački, lični podaci su precrtani", "docDescription": "Godine 2019. položio sam stručni ispit za obavljanje stručnih poslova pri eksploataciji mineralnih sirovina. Polagan je prema srpskom Zakonu o rudarstvu i geološkim istraživanjima, a uverenje je izdao Pokrajinski sekretarijat za energetiku, građevinarstvo i saobraćaj AP Vojvodine (uverenje od 25. septembra 2019). Stranice posle originala su overeni prevod na nemački koji je izradio sudski tumač (6. mart 2026), sa overom kopije kod javnog beležnika (10. mart 2026)."}],
-        "credentialsDialog": {"close": "Zatvori", "note": "Lični podaci su precrtani.", "hint": "Pogledaj dokument", "zoom": "Dodirni stranicu za uvećanje ili umanjenje."},
-        "qualifications": {"label": "Kvalifikacije i obuke", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Diplomirani inženjer rudarstva", "text": "Univerzitet u Beogradu · tečne i gasovite mineralne sirovine"}, {"icon": "shield-check", "year": "2020", "title": "Evropska direktiva o mašinama", "text": "Obuka o bezbednosti mašina · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Upravljanje tehnologijom (STM)", "text": "System of Technology Management, korporativni program"}, {"icon": "users", "year": "2018", "title": "Akademija liderstva", "text": "Upravljanje ljudima, niži menadžment · Mokra Gora School of Management"}]},
-        "primaryCta": "Javi se",
-        "secondaryCta": "Pogledaj na čemu radim",
-        "videoPlay": "Pusti sa zvukom",
-        "videoLabel": "Video predstavljanje"
+        "badge": "Primam nove klijente",
+        "titleLead": "Više poziva i upita",
+        "titleHighlight": "sa interneta za tvoju firmu",
+        "description": "Postavim oglase na Google-u i mrežama, sredim da te nađu na mapi i u ChatGPT-u i napravim sajt sa kog ljudi zovu. Svaki poziv se broji, pa tačno znaš šta ti donosi posao.",
+        "primary": "Besplatna provera",
+        "secondary": "Pogledaj rezultate",
+        "imageAlt": "Stojan Petković u tamnoplavom odelu u svetloj kancelariji, iza njega ekrani sa kodom"
       },
-      "services": {
-        "badge": "Fokus",
-        "heading": "Industrijski projekti, kursevi i softver",
-        "lead": "Tri oblasti, jedan inženjer. Sadržaj se priprema i biće objavljen ovde.",
-        "learnMore": "Reci mi šta ti treba",
-        "status": "U pripremi",
-        "cards": [
+      "pillars": {
+        "badge": "Kako dolaze klijenti",
+        "heading": "Od pretrage do poziva u četiri koraka",
+        "lead": "Ne prodajem oglase posebno, SEO posebno i sajt posebno. Sve to zajedno ima jedan zadatak: da ti zazvoni telefon.",
+        "items": [
           {
-            "icon": "layers",
-            "title": "Industrijski projekti",
-            "description": "Studije slučaja iz coiled tubing i azotnih operacija, pisane za inženjere.",
-            "points": [
-              "Projektovanje posla i razlozi iza njega",
-              "Šta je planirano, šta se desilo, šta se promenilo",
-              "Jasan jezik, sa prikazanim brojevima"
-            ],
-            "href": "/projects"
+            "icon": "search",
+            "title": "Da te nađu",
+            "text": "Google mapa i Google Business profil, stranica za svaku uslugu i grad u kom radiš, i da te ChatGPT pomene kad ga neko pita za preporuku."
           },
           {
-            "icon": "book-open",
-            "title": "Kursevi",
-            "description": "Praktična obuka iz coiled tubing-a, od osnova na terenu do projektovanja poslova.",
-            "points": [
-              "Osnove za ekipe i mlade inženjere",
-              "Proračuni korak po korak, sa urađenim primerima",
-              "Svojim tempom, sa materijalom koji ostaje"
-            ],
-            "href": "/courses"
+            "icon": "target",
+            "title": "Pozivi odmah, preko oglasa",
+            "text": "Google Ads i oglasi na Facebook-u i Instagramu za ljude koji baš sad traže tvoju uslugu. Od prvog dana znaš koliko je poziva došlo sa oglasa."
           },
           {
-            "icon": "code",
-            "title": "Inženjerski softver",
-            "description": "Alati i softver po meri u oblaku za tehničke timove. Sve radi na serveru i otvara se u pregledaču, bez instalacije.",
-            "points": [
-              "Kalkulatori i alati za svakodnevni rad na terenu i u kancelariji",
-              "Interni dashboard-i i obrada podataka",
-              "Industrijski softver po meri, izrađen po narudžbini"
-            ],
-            "href": "/tools"
+            "icon": "phone-call",
+            "title": "Da posetilac pozove",
+            "text": "Sajt koji se otvara odmah, broj telefona i WhatsApp na jedan dodir i AI chat koji odgovara i dok si ti na terenu."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Da znaš šta se isplati",
+            "text": "Jednom mesečno dobiješ izveštaj: odakle su došli pozivi, koliko te je koštao svaki i gde vredi uložiti sledeći dinar."
           }
-        ],
-        "openLabel": "Otvori"
-      },
-      "workWithMe": {
-        "badge": "Pozadina",
-        "heading": "Odakle sadržaj potiče",
-        "lead": "Iskustvo i navike iza studija slučaja, alata i sajtova.",
-        "cards": [
-          { "icon": "award", "title": "Iskustvo sa terena", "description": "Više od 13 godina u coiled tubing i azotnim operacijama." },
-          { "icon": "shield-check", "title": "Proverene brojke", "description": "Proračuni se proveravaju, a pretpostavke zapisuju." },
-          { "icon": "book-open", "title": "Dokumentovana logika", "description": "Formule i odluke su objašnjene, da se rezultati mogu proveriti." },
-          { "icon": "globe", "title": "Zvanje Ingenieur", "description": "Odobrila Bavarska inženjerska komora, 2026." }
-        ],
-        "cta": "Pogledaj sve usluge"
-      },
-      "webGateway": {
-        "badge": "Web razvoj",
-        "heading": "Sajtovi za tehničke firme",
-        "lead": "Poseban servis uz inženjerski rad: brzi Astro sajtovi i veb sistemi za inženjerske i tehničke B2B firme.",
-        "items": [
-          "Web dizajn",
-          "Web razvoj",
-          "Optimizacija i praćenje"
-        ],
-        "cta": "Idi na web razvoj"
-      },
-      "portfolio": {
-        "badge": "Portfolio",
-        "heading": "Moji projekti",
-        "lead": "Izdvojeni radovi za klijente iz Srbije i inostranstva.",
-        "viewAll": "Pogledaj sve projekte"
-      },
-      "testimonials": {
-        "badge": "Utisci klijenata",
-        "heading": "Šta kažu klijenti",
-        "lead": "Utisci klijenata posle završenih projekata.",
-        "items": [
-          { "quote": "Stojan je oba moja sajta prebacio sa WordPress-a na Astro i razlika u brzini se osetila odmah. Svaki upit mi sad stigne na email istog trenutka kad neko pošalje formu — ne moram više da proveravam dashboard i propuštam pozive.", "name": "Mirko Calić", "role": "Vlasnik, Tree Jaws i Mahalo Tree Service" },
-          { "quote": "Stojan nam je napravio sajt za rezervacije od nule i uz njega podesio Instagram i Facebook oglase. Gosti idu pravo sa oglasa do gotove rezervacije, a to je baš ono što nam je trebalo za smeštaj naše veličine.", "name": "Valentina Jovanović", "role": "Vlasnica, Valena Apartmani" }
         ]
       },
-      "aboutTeaser": {
-        "badge": "O meni",
-        "headingLine1": "Prvo inženjer,",
-        "headingLine2": "zatim developer.",
-        "para1WithLocation": "Rudarski inženjer sa više od 13 godina iskustva u radu na naftnim bušotinama i titulom Ingenieur koju je odobrila Bavarska inženjerska komora. Sa sedištem u {location}, dostupan za klijente širom sveta. Softver i veb sisteme pravim onako kako vodim posao na terenu: prvo zahtevi, brojke provereno, ništa nedokumentovano.",
-        "para1NoLocation": "Rudarski inženjer sa više od 13 godina iskustva u radu na naftnim bušotinama i titulom Ingenieur koju je odobrila Bavarska inženjerska komora. Dostupan za klijente širom sveta. Softver i veb sisteme pravim onako kako vodim posao na terenu: prvo zahtevi, brojke provereno, ništa nedokumentovano.",
-        "para2": "Na blogu delim ideje i odluke iza mog inženjerskog i softverskog rada.",
-        "moreAboutMe": "Više o meni",
-        "statsIntro": "Par stvari o meni.",
-        "stat1": "13+ godina u inženjerstvu",
-        "stat2": "1.000+ poslova na terenu",
-        "stat3": "Klijenti iz celog sveta",
-        "stat4": "2 države kvalifikacija",
-        "facts": [{"icon": "wrench", "label": "Specijalnost", "value": "Coiled tubing i azotne operacije"}, {"icon": "graduation-cap", "label": "Obrazovanje", "value": "Dipl. inženjer rudarstva, Univerzitet u Beogradu (2010)"}, {"icon": "globe", "label": "Dostupnost", "value": "Širom sveta, vremenska zona CET"}, {"icon": "clock", "label": "Odgovor", "value": "U roku od jednog radnog dana"}],
-        "basedIn": "Baza:"
+      "industries": {
+        "badge": "Za koga radim",
+        "heading": "Za firme kojima posao počinje pozivom",
+        "lead": "Ako tvoji klijenti uslugu traže na Google-u ili pitaju ChatGPT, tu mogu da pomognem.",
+        "items": [
+          {
+            "icon": "wrench",
+            "title": "Majstori i servisi",
+            "text": "Vodoinstalateri, električari, klima servisi, čišćenje, selidbe i održavanje dvorišta."
+          },
+          {
+            "icon": "bed-double",
+            "title": "Smeštaj i turizam",
+            "text": "Apartmani, sobe i vikendice koje hoće više direktnih rezervacija i manje provizije za Booking."
+          },
+          {
+            "icon": "stethoscope",
+            "title": "Ordinacije i saloni",
+            "text": "Stomatološke ordinacije, privatne klinike, saloni lepote i frizeri."
+          },
+          {
+            "icon": "briefcase",
+            "title": "Lokalne i B2B firme",
+            "text": "Prevoz, proizvodnja, knjigovođe i druge firme kojima treba stalan priliv upita."
+          }
+        ]
       },
-      "blog": {
-        "badge": "Blog",
-        "heading": "Izdvojeni tekstovi",
-        "viewAll": "Pogledaj sve tekstove"
+      "final": {
+        "heading": "Klijent zove prvog koga nađe.",
+        "text": "Neka to budeš ti. Pogledam tvoj sajt i konkurenciju i kažem ti šta bih prvo promenio. Besplatno i bez obaveze.",
+        "cta": "Zatraži besplatnu proveru"
       },
-      "cta": {
-        "badge": "Kontakt",
-        "heading": "Popričajmo o tvom projektu",
-        "description": "Prvi razgovor je besplatan i bez obaveza. Od prvog razgovora do gotovog sajta radiš direktno sa mnom.",
-        "primary": "Pošalji poruku",
-        "secondary": "Više o meni"
+      "testimonials": {
+        "badge": "Iskustva klijenata",
+        "heading": "Šta kažu oni sa kojima radim",
+        "lead": "Dvoje vlasnika firmi, svojim rečima.",
+        "items": [
+          {
+            "quote": "Stojan je oba moja sajta prebacio sa WordPress-a na Astro i razlika u brzini se osetila odmah. Svaki upit mi sad stigne na mejl čim neko pošalje formu, pa više ne moram da proveravam dashboard i ne propuštam pozive.",
+            "name": "Mirko Calić",
+            "role": "Vlasnik, Tree Jaws i Mahalo Tree Service"
+          },
+          {
+            "quote": "Stojan nam je napravio sajt za rezervacije od nule i uz njega podesio Instagram i Facebook oglase. Gosti idu pravo sa oglasa do gotove rezervacije, a to je baš ono što nam je trebalo za smeštaj naše veličine.",
+            "name": "Valentina Jovanović",
+            "role": "Vlasnica, Valena Apartmani"
+          }
+        ]
+      },
+      "portfolio": {
+        "badge": "Radovi",
+        "heading": "Neki od mojih projekata",
+        "lead": "Sajtovi koje sam radio za firme u Srbiji i inostranstvu.",
+        "viewAll": "Svi projekti"
+      },
+      "clients": {
+        "badge": "Klijenti",
+        "heading": "Firme koje su mi poverile svoj sajt",
+        "lead": "Od firmi za seču drveća na Floridi do stomatološke ordinacije u Pančevu. Klikni na karticu i pogledaj sajt uživo.",
+        "brands": "brendova",
+        "countries": "zemlje: Srbija i Amerika",
+        "visit": "Pogledaj sajt",
+        "sectors": {
+          "tree": "Seča i održavanje drveća",
+          "rental": "Apartmani za odmor",
+          "dental": "Stomatološka ordinacija",
+          "transport": "Sanitetski prevoz",
+          "recipes": "Portal sa receptima",
+          "footwear": "Blog o obući"
+        },
+        "country": {
+          "us": "SAD",
+          "rs": "Srbija"
+        },
+        "highlights": {
+          "treejaws": "1.010 upita · 4,9★",
+          "mahalo": "Google ocena 5,0"
+        },
+        "next": {
+          "title": "Tvoja firma?",
+          "text": "Ovo mesto čeka sledećeg klijenta. Besplatno pogledam tvoj sajt i kažem šta bih prvo popravio.",
+          "cta": "Zakaži proveru"
+        }
       }
+    },
+    "privacy": {
+      "meta": {
+        "title": "Politika privatnosti",
+        "description": "Koje podatke prikuplja stojanpetkovic.com, zašto, koliko dugo ih čuva, kome ih dostavlja i kako da ostvariš svoja prava."
+      },
+      "hero": {
+        "badge": "Privatnost",
+        "title": "Politika privatnosti",
+        "description": "Koje podatke prikupljam, zašto, koliko dugo i koja su tvoja prava."
+      },
+      "updated": "Poslednja izmena: 15. novembar 2026.",
+      "intro": "Ova politika objašnjava kako sajt stojanpetkovic.com obrađuje lične podatke, u skladu sa Zakonom o zaštiti podataka o ličnosti Republike Srbije i, kada se primenjuje, Opštom uredbom o zaštiti podataka EU (GDPR).",
+      "contactLink": "Stranica Kontakt",
+      "sections": [
+        {
+          "title": "1. Rukovalac",
+          "paragraphs": [
+            "Rukovalac podacima je Stojan Petković, Zrenjanin, Srbija. Kontakt za sva pitanja o podacima: {email}."
+          ]
+        },
+        {
+          "title": "2. Koje podatke prikupljam",
+          "paragraphs": [],
+          "items": [
+            "Podatke iz formi (kontakt i besplatna provera): ime, email, telefon, adresu sajta, delatnost i mesto, tvoje odgovore i poruku.",
+            "Podatke o poseti, bez kolačića: koje stranice su otvorene, odakle je posetilac došao (pretraga, oglas ili link) i da li je kliknuo na telefon, WhatsApp ili poslao formu. Ovi podaci se ne povezuju sa tvojim imenom osim kada pošalješ formu.",
+            "Tehničke podatke koje beleži server: IP adresu, vrstu pregledača i vreme pristupa, radi bezbednosti i rada sajta.",
+            "Kolačiće za analitiku i oglase (Google, Meta), samo ako ih dozvoliš u baneru za kolačiće."
+          ]
+        },
+        {
+          "title": "3. Zašto i na kom osnovu",
+          "paragraphs": [],
+          "items": [
+            "Da odgovorim na upit i pripremim ponudu: radnje pre zaključenja ugovora, na tvoj zahtev.",
+            "Da izvršim ugovorenu uslugu i vodim propisanu dokumentaciju: ugovor i zakonska obaveza.",
+            "Da merim koje stranice i izvori donose upite i da čuvam sajt bezbednim: legitimni interes.",
+            "Analitika i merenje oglasa preko kolačića: tvoj pristanak, koji možeš da povučeš u svakom trenutku.",
+            "Podatke ne prodajem, ne šaljem newsletter i ne koristim ih za automatsko odlučivanje."
+          ]
+        },
+        {
+          "title": "4. Kome se podaci dostavljaju",
+          "paragraphs": [
+            "Podaci se obrađuju preko servisa koji za mene rade kao obrađivači, samo za svrhe iz ove politike:"
+          ],
+          "items": [
+            "Vercel: hosting sajta.",
+            "webtano.com: sistem u kome stižu i čuvaju se upiti sa formi.",
+            "Resend: slanje email obaveštenja o upitima.",
+            "Google (Analytics, Ads) i Meta (Facebook, Instagram): samo ako dozvoliš te kolačiće.",
+            "Državnim organima, samo kada to zakon nalaže."
+          ]
+        },
+        {
+          "title": "5. Prenos van Srbije",
+          "paragraphs": [
+            "Neki od navedenih servisa čuvaju podatke u Evropskoj uniji ili u SAD. Prenos se vrši uz mere koje zakon predviđa, kao što su standardne ugovorne klauzule ili odluke o adekvatnom nivou zaštite."
+          ]
+        },
+        {
+          "title": "6. Koliko dugo",
+          "paragraphs": [],
+          "items": [
+            "Upiti: dok je potrebno za odgovor i ponudu, a najduže dve godine od poslednjeg kontakta.",
+            "Podaci klijenata i računi: koliko propisi zahtevaju.",
+            "Podaci o poseti bez kolačića: u zbirnom obliku, bez roka, jer se ne odnose na osobu koja se može identifikovati.",
+            "Kolačići: prema roku navedenom u podešavanjima kolačića."
+          ]
+        },
+        {
+          "title": "7. Kolačići",
+          "paragraphs": [
+            "Neophodni kolačići su potrebni da bi sajt radio i pamtio tvoj izbor u baneru. Kolačići za analitiku i oglase postavljaju se samo uz tvoj pristanak. Izbor možeš da promeniš u svakom trenutku preko podešavanja kolačića u dnu strane."
+          ]
+        },
+        {
+          "title": "8. Tvoja prava",
+          "paragraphs": [
+            "Imaš pravo da tražiš uvid u svoje podatke, ispravku, brisanje, ograničenje obrade i prenos podataka, da uložiš prigovor na obradu zasnovanu na legitimnom interesu i da povučeš pristanak, bez uticaja na raniju obradu. Zahtev pošalji na {email}; odgovaram najkasnije u roku od 30 dana.",
+            "Možeš da podneseš pritužbu Povereniku za informacije od javnog značaja i zaštitu podataka o ličnosti (www.poverenik.rs) ili nadzornom organu u zemlji EU u kojoj živiš."
+          ]
+        },
+        {
+          "title": "9. Bezbednost",
+          "paragraphs": [
+            "Sajt radi preko HTTPS-a, pristup upitima je zaštićen lozinkom i ograničen na mene, a servisi koje koristim primenjuju tehničke i organizacione mere zaštite."
+          ]
+        },
+        {
+          "title": "10. Izmene",
+          "paragraphs": [
+            "Ovu politiku mogu da izmenim kada se promeni način obrade. Datum poslednje izmene naveden je na vrhu."
+          ]
+        }
+      ]
     }
+  },
+  "contactBar": {
+    "reply": "Odgovor u roku od jednog radnog dana",
+    "whatsapp": "Piši mi na WhatsApp"
   }
 }

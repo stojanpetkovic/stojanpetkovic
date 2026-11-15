@@ -1,0 +1,14 @@
+---
+import TermsView from '@/components/pages/views/TermsView.astro';
+import { getSecondaryLocales } from '@/i18n';
+import { segment } from '@/i18n/routes';
+
+// Locale-prefixed Privacy Policy (`/<locale>/privacy`, translated per locale).
+export function getStaticPaths() {
+  return getSecondaryLocales().map((locale) => ({ params: { locale, privacy: segment('privacy', locale) } }));
+}
+
+const { locale } = Astro.params;
+---
+
+<TermsView locale={locale} page="privacy" />

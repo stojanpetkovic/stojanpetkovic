@@ -5,6 +5,7 @@
  * Uses Header + Footer with content page configuration
  */
 import BaseLayout from './BaseLayout.astro';
+import type { Thing, WithContext } from 'schema-dts';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
 
@@ -28,9 +29,12 @@ interface Props {
   languageAlternates?: Record<string, string>;
   /** Verified locale alternates for this page, forwarded to SEO for hreflang. */
   localeAlternates?: { locale: string; url: string }[];
+  /** schema.org type of the page and extra JSON-LD, forwarded to BaseLayout. */
+  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'ProfilePage';
+  extraSchemas?: WithContext<Thing>[];
 }
 
-const { title, description, image, imageAlt, noindex, nofollow, showScrollProgress = false, eagerReveal = false, footerBackground = 'default', languageAlternates, localeAlternates } = Astro.props;
+const { title, description, image, imageAlt, noindex, nofollow, showScrollProgress = false, eagerReveal = false, footerBackground = 'default', languageAlternates, localeAlternates, pageType, extraSchemas } = Astro.props;
 
 ---
 
@@ -43,6 +47,8 @@ const { title, description, image, imageAlt, noindex, nofollow, showScrollProgre
   nofollow={nofollow}
   eagerReveal={eagerReveal}
   localeAlternates={localeAlternates}
+  pageType={pageType}
+  extraSchemas={extraSchemas}
 >
   <Header
     slot="header"
@@ -51,12 +57,11 @@ const { title, description, image, imageAlt, noindex, nofollow, showScrollProgre
     variant="solid"
     size="lg"
     showActiveState
-    showCta={false}
     showScrollProgress={showScrollProgress}
     languageAlternates={languageAlternates}
   />
 
-  <main class="min-h-screen pt-16">
+  <main class="min-h-screen pt-[calc(4rem+var(--topbar-h))]">
     <slot />
   </main>
 

@@ -182,7 +182,7 @@
        references, `#id` links) so the target lands *below* the fixed header
        instead of behind it. The bar header is 4rem tall (h-16); ~1rem extra
        gives it breathing room. */
-    scroll-padding-top: 5rem;
+    scroll-padding-top: calc(5rem + var(--topbar-h, 0px));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: clip;
@@ -353,7 +353,7 @@
   /* The end stop is named because it is also the colour Safari needs under the
      toolbar it floats over the foot of the screen. One source of truth: change
      it here and the browser chrome follows. See `paintBody` in BaseLayout, and
-     `data-bar-color` on the hero in HomeView. */
+     `data-bar-color` on a hero that carries this gradient. */
   .hero-dark-gradient {
     position: relative;
     isolation: isolate;

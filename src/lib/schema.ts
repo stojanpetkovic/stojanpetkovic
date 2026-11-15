@@ -1,4 +1,6 @@
 import type {
+  WebPage,
+  Service,
   WebSite,
   Organization,
   Person,
@@ -11,6 +13,29 @@ import type {
 import siteConfig from '@/config/site.config';
 import { defaultLocale, type Locale } from '@/i18n';
 import { getSiteName, getSiteNameAlternates } from '@/lib/site-name';
+
+/** Stable `@id`s so every page's JSON-LD points at the same entities. */
+const ID = {
+  website: () => `${siteConfig.url}/#website`,
+  person: () => `${siteConfig.url}/#person`,
+  business: () => `${siteConfig.url}/#business`,
+};
+
+/** BCP 47 content language for schema.org `inLanguage`. */
+const LANG: Record<string, string> = { sr: 'sr-Latn-RS', en: 'en', de: 'de' };
+const inLanguage = (locale: Locale) => LANG[locale] ?? locale;
+
+/** Where the work is offered: Serbia, the German-speaking countries and the US. */
+const AREA_SERVED = ['Serbia', 'Germany', 'Austria', 'Switzerland', 'United States'].map((name) => ({
+  '@type': 'Country' as const,
+  name,
+}));
+
+const SERVICES: Record<string, string[]> = {
+  en: ['Google Ads management', 'Facebook and Instagram advertising', 'Local SEO', 'AI search visibility (GEO)', 'Website design and development', 'Call and lead tracking'],
+  sr: ['Vođenje Google oglasa', 'Oglasi na Facebook-u i Instagramu', 'Lokalni SEO', 'Vidljivost u AI pretrazi (GEO)', 'Izrada sajtova', 'Praćenje poziva i upita'],
+  de: ['Google-Ads-Betreuung', 'Facebook- und Instagram-Werbung', 'Lokales SEO', 'Sichtbarkeit in der KI-Suche (GEO)', 'Webdesign und Website-Erstellung', 'Anruf- und Anfragen-Tracking'],
+};
 
 /**
  * The brand as `name`, in the page's language, with the other locales'
@@ -31,9 +56,12 @@ export function createWebsiteSchema(locale: Locale = defaultLocale): WithContext
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': ID.website(),
     ...brandName(locale),
     url: siteConfig.url,
     description: siteConfig.description,
+    inLanguage: ['en', 'sr-Latn-RS', 'de'],
+    publisher: { '@id': ID.business() },
   };
 }
 
@@ -44,8 +72,14 @@ export function createPersonSchema(locale: Locale = defaultLocale): WithContext<
   return {
     '@context': 'https://schema.org',
     '@type': 'Person',
+    '@id': ID.person(),
     ...brandName(locale),
-    jobTitle: 'Engineer',
+    givenName: 'Stojan',
+    familyName: 'Petković',
+    jobTitle: 'Digital marketing and web developer',
+    worksFor: { '@id': ID.business() },
+    knowsLanguage: ['sr', 'en', 'de'],
+    ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
     description: siteConfig.description,
     alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Belgrade' },
     hasCredential: [
@@ -57,11 +91,12 @@ export function createPersonSchema(locale: Locale = defaultLocale): WithContext<
       },
     ],
     knowsAbout: [
-      'Coiled tubing',
-      'Nitrogen operations',
-      'Oil and gas engineering',
-      'Cloud-based industrial software',
+      'Google Ads',
+      'Meta advertising',
+      'Local SEO',
+      'Generative engine optimization',
       'Web development',
+      'Conversion tracking',
     ],
     url: siteConfig.url,
     email: siteConfig.email,
@@ -87,8 +122,22 @@ export function createProfessionalServiceSchema(locale: Locale = defaultLocale):
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService' as 'LocalBusiness',
+    '@id': ID.business(),
     ...brandName(locale),
     url: siteConfig.url,
+    founder: { '@id': ID.person() },
+    ...(siteConfig.branding.logo.imageUrl ? { logo: `${siteConfig.url}${siteConfig.branding.logo.imageUrl}` } : {}),
+    priceRange: '€€',
+    knowsLanguage: ['sr', 'en', 'de'],
+    geo: { '@type': 'GeoCoordinates', latitude: 45.3816, longitude: 20.3686 },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      email: siteConfig.email,
+      ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
+      availableLanguage: ['Serbian', 'English', 'German'],
+      areaServed: ['RS', 'DE', 'AT', 'CH', 'US'],
+    },
     email: siteConfig.email,
     ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
     ...(siteConfig.authorImage ? { image: `${siteConfig.url}${siteConfig.authorImage}` } : {}),
@@ -103,11 +152,15 @@ export function createProfessionalServiceSchema(locale: Locale = defaultLocale):
         }
       : {}),
     description: siteConfig.description,
-    makesOffer: ['Industrial software development', 'Web development'].map((name) => ({
-      '@type': 'Offer' as const,
-      itemOffered: { '@type': 'Service' as const, name },
-    })),
-    areaServed: [{ '@type': 'Country', name: 'Worldwide' }],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: locale === 'sr' ? 'Usluge' : locale === 'de' ? 'Leistungen' : 'Services',
+      itemListElement: (SERVICES[locale] ?? SERVICES.en).map((name) => ({
+        '@type': 'Offer' as const,
+        itemOffered: { '@type': 'Service' as const, name },
+      })),
+    },
+    areaServed: AREA_SERVED,
     sameAs: siteConfig.socialLinks,
   };
 }
@@ -122,6 +175,7 @@ export function createOrganizationSchema(locale: Locale = defaultLocale): WithCo
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': ID.business(),
     ...brandName(locale),
     url: siteConfig.url,
     ...(logoUrl ? { logo: logoUrl } : {}),
@@ -219,4 +273,67 @@ export function createFAQSchema(
       },
     })),
   };
+}
+
+/**
+ * The page itself: its type (AboutPage, ContactPage, CollectionPage…), its
+ * language, the site it belongs to and, for pages one level deep, the
+ * breadcrumb back to the home page.
+ */
+export function createWebPageSchema(page: {
+  type?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'ProfilePage' | 'FAQPage';
+  name: string;
+  description?: string;
+  url: string;
+  locale: Locale;
+  image?: string;
+  breadcrumb?: Array<{ name: string; url: string }>;
+}): WithContext<WebPage> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': (page.type ?? 'WebPage') as 'WebPage',
+    '@id': `${page.url}#webpage`,
+    url: page.url,
+    name: page.name,
+    ...(page.description ? { description: page.description } : {}),
+    inLanguage: inLanguage(page.locale),
+    isPartOf: { '@id': ID.website() },
+    about: { '@id': ID.business() },
+    ...(page.type === 'AboutPage' || page.type === 'ProfilePage' ? { mainEntity: { '@id': ID.person() } } : {}),
+    ...(page.image ? { primaryImageOfPage: { '@type': 'ImageObject', url: page.image } } : {}),
+    ...(page.breadcrumb && page.breadcrumb.length > 1
+      ? {
+          breadcrumb: {
+            '@type': 'BreadcrumbList',
+            itemListElement: page.breadcrumb.map((item, index) => ({
+              '@type': 'ListItem' as const,
+              position: index + 1,
+              name: item.name,
+              item: item.url,
+            })),
+          },
+        }
+      : {}),
+  } as WithContext<WebPage>;
+}
+
+/** One service the business offers, linked to it as provider. */
+export function createServiceSchema(service: {
+  name: string;
+  description: string;
+  url: string;
+  locale: Locale;
+  serviceType?: string;
+}): WithContext<Service> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: service.name,
+    description: service.description,
+    url: service.url,
+    ...(service.serviceType ? { serviceType: service.serviceType } : {}),
+    inLanguage: inLanguage(service.locale),
+    provider: { '@id': ID.business() },
+    areaServed: AREA_SERVED,
+  } as WithContext<Service>;
 }

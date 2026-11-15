@@ -48,7 +48,14 @@ const {
 // own line above the title, so repeating it in `og:title` shows the name twice
 // and spends ~16 characters of a box that truncates around 60-70.
 const siteName = getSiteName(getLocaleFromPath(Astro.url.pathname));
-const pageTitle = title ? `${title} — ${siteName}` : siteName;
+// A title that already names the brand is not given it twice.
+// Long article headlines go out alone: with the brand appended they would be
+// cut off in search results, and og:site_name already carries the brand.
+const pageTitle = !title
+  ? siteName
+  : title.includes(siteName) || (article && title.length > 45)
+    ? title
+    : `${title} — ${siteName}`;
 const socialTitle = title || siteName;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -61,7 +68,13 @@ if (image) {
   ogImage = new URL(siteConfig.ogImage, Astro.site).toString();
 }
 
-const robotsContent = [noindex ? 'noindex' : 'index', nofollow ? 'nofollow' : 'follow'].join(', ');
+// Indexable pages also allow large image previews and full snippets, which
+// Google otherwise caps (Discover in particular needs max-image-preview:large).
+const robotsContent = [
+  noindex ? 'noindex' : 'index',
+  nofollow ? 'nofollow' : 'follow',
+  ...(noindex ? [] : ['max-image-preview:large', 'max-snippet:-1', 'max-video-preview:-1']),
+].join(', ');
 
 // Normalize BCP-47 locale (e.g. "en") to OG language_TERRITORY format (e.g. "en_US")
 const localeMap: Record<string, string> = {
@@ -123,6 +136,21 @@ const xDefaultHref = i18nOn ? absolute(xDefaultUrl) : null;
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL.toString()} />
 <meta name="robots" content={robotsContent} />
+<meta name="googlebot" content={robotsContent} />
+<meta name="bingbot" content={robotsContent} />
+<meta name="author" content={siteName} />
+<meta name="publisher" content={siteName} />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+<meta name="format-detection" content="telephone=yes" />
+
+<!-- Location: the business is in Zrenjanin, Serbia -->
+<meta name="geo.region" content="RS-VO" />
+<meta name="geo.placename" content={siteConfig.address?.city ?? 'Zrenjanin'} />
+<meta name="geo.position" content="45.3816;20.3686" />
+<meta name="ICBM" content="45.3816, 20.3686" />
+
+<!-- Profiles that belong to the same person -->
+{siteConfig.socialLinks.map((href) => <link rel="me" href={href} />)}
 
 <!-- hreflang alternates (only when i18n is enabled with multiple locales) -->
 {hreflangAlternates.map((alt) => <link rel="alternate" hreflang={alt.hreflang} href={alt.href} />)}
@@ -132,6 +160,7 @@ const xDefaultHref = i18nOn ? absolute(xDefaultUrl) : null;
 <meta property="og:title" content={socialTitle} />
 <meta property="og:type" content={article ? 'article' : 'website'} />
 <meta property="og:image" content={ogImage} />
+<meta property="og:image:secure_url" content={ogImage} />
 <meta property="og:url" content={canonicalURL.toString()} />
 <meta property="og:description" content={description} />
 <meta property="og:site_name" content={siteName} />
@@ -153,6 +182,8 @@ const xDefaultHref = i18nOn ? absolute(xDefaultUrl) : null;
 <meta name="twitter:title" content={socialTitle} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={imageAlt || socialTitle} />
+<meta name="twitter:url" content={canonicalURL.toString()} />
 {siteConfig.twitter?.site && <meta name="twitter:site" content={siteConfig.twitter.site} />}
 {siteConfig.twitter?.creator && <meta name="twitter:creator" content={siteConfig.twitter.creator} />}
 

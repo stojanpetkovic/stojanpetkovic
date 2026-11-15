@@ -1,6 +1,13 @@
 ---
 /**
- * LandingPageView — the conversion landing page (`/start`, `/<locale>/start`).
+ * LandingPageView — the conversion landing page (`/start`, `/<locale>/start`)
+ * and, with `variant="home"`, the home page (`/`, `/<locale>`).
+ *
+ * The home variant keeps the same argument but sits inside the site's header
+ * and footer, is indexed, and takes its hero, meta and closing copy from
+ * `pages.home.*`. It replaces the solution and the illustrative story with
+ * the four steps from a search to a call, client testimonials and the kinds
+ * of business served.
  *
  * Built for paid traffic and direct links: one goal, the free website check.
  * So it carries no navigation, no language switcher and no link that leaves
@@ -17,33 +24,44 @@
  * It is noindex and kept out of the sitemap: it repeats the services page for
  * ad traffic and should not compete with it in search.
  */
+import { createFAQSchema } from '@/lib/schema';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import LandingLayout from '@/layouts/LandingLayout.astro';
+import { Hero } from '@/components/hero';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import WebsiteCheckForm from '@/components/patterns/WebsiteCheckForm.astro';
 import Accordion from '@/components/ui/overlay/Accordion/Accordion.astro';
 import siteConfig from '@/config/site.config';
-import { t, tData, defaultLocale } from '@/i18n';
+import { t, tData, defaultLocale, localizedPath } from '@/i18n';
 import { getSiteName } from '@/lib/site-name';
 import treeJawsImg from '@/assets/projects/tree-jaws-hero-dark.webp';
 import mahaloImg from '@/assets/projects/mahalo-hero.webp';
 import storyImg from '@/assets/projects/sf-tree-removal-home.webp';
+import portraitImg from '@/assets/profile/stojan-portrait-office.webp';
+import ClientLogos from '@/components/sections/ClientLogos.astro';
 import reportExampleEn from '@/assets/services/report-example-en.png';
 import reportExampleSr from '@/assets/services/report-example-sr.png';
 
 interface Props {
   locale?: string;
+  /** `start` is the ad landing page; `home` is the same pitch as the home page. */
+  variant?: 'start' | 'home';
 }
 
-const { locale = defaultLocale } = Astro.props;
+const { locale = defaultLocale, variant = 'start' } = Astro.props;
+const isHome = variant === 'home';
 
 interface IconItem { icon: string; title: string; text: string }
 interface Case { client: string; sector: string; metric: string; metricLabel: string; points: string[] }
 
-const L = (key: string) => t(`pages.landing.${key}`, locale);
+// The home page has its own hero, meta and closing copy; the rest is shared.
+const HOME_KEYS = /^(meta\.|final\.|hero\.(badge|titleLead|titleHighlight|description|primary|secondary)$)/;
+const L = (key: string) => t(`pages.${isHome && HOME_KEYS.test(key) ? 'home' : 'landing'}.${key}`, locale);
 const D = <T,>(key: string) => tData<T>(`pages.landing.${key}`, locale)!;
+const H = <T,>(key: string) => tData<T>(`pages.home.${key}`, locale)!;
 
 const siteName = getSiteName(locale);
 const trust = D<{ value: string; label: string }[]>('hero.trust');
@@ -79,6 +97,38 @@ const story = D<{
   imageAlt: string;
 }>('story');
 const faqItems = D<{ question: string; answer: string }[]>('faq.items');
+const pillars = isHome ? H<{ badge: string; heading: string; lead: string; items: IconItem[] }>('pillars') : undefined;
+const industries = isHome ? H<{ badge: string; heading: string; lead: string; items: IconItem[] }>('industries') : undefined;
+const testimonials = isHome
+  ? H<{ badge: string; heading: string; lead: string; items: { quote: string; name: string; role: string }[] }>('testimonials')
+  : undefined;
+
+// The answer band: the four steps on the home page, what is different on the landing page.
+const answer = pillars ?? {
+  badge: L('solution.badge'),
+  heading: L('solution.heading'),
+  lead: L('solution.lead'),
+  items: solutions,
+};
+
+// Section numbers for the eyebrows, in page order.
+const sectionOrder = isHome
+  ? ['clients', 'problem', 'answer', 'results', 'testimonials', 'industries', 'report', 'process', 'form']
+  : ['problem', 'answer', 'results', 'report', 'process', 'form'];
+const num = (id: string) => String(sectionOrder.indexOf(id) + 1).padStart(2, '0');
+
+// The landing page keeps its own form; on the home page every call to action
+// goes to the contact page, so all enquiries arrive through one form.
+const formHref = isHome ? localizedPath('/contact', locale) : '#form';
+
+const Layout = isHome ? LandingLayout : BaseLayout;
+const layoutProps = isHome
+  ? {
+      includePersonSchema: true,
+      includeProfessionalServiceSchema: true,
+      extraSchemas: [createFAQSchema(faqItems)],
+    }
+  : { noindex: true, nofollow: true };
 
 // One image per case, in the order the copy lists them.
 const caseImages = [treeJawsImg, mahaloImg];
@@ -86,10 +136,11 @@ const caseImages = [treeJawsImg, mahaloImg];
 const year = new Date().getFullYear();
 ---
 
-<BaseLayout title={L('meta.title')} description={L('meta.description')} noindex nofollow>
-  <!-- Header: the brand and one action. No navigation, no language switch,
-       and the logo is deliberately not a link. -->
-  <header slot="header" class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
+<Layout title={L('meta.title')} description={L('meta.description')} {...layoutProps}>
+  <!-- Header (landing page only): the brand and one action. No navigation, no
+       language switch, and the logo is deliberately not a link. The home page
+       uses the site header. -->
+  {!isHome && <header slot="header" class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-md">
     <div class="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
       <span class="flex items-center gap-2">
         <img src={siteConfig.branding.logo.image} alt="" width="32" height="32" class="h-8 w-8 rounded-[6px]" />
@@ -97,15 +148,71 @@ const year = new Date().getFullYear();
             logo alone carries the brand there. */}
         <span class="font-display text-lg font-bold tracking-tight text-brand-700 dark:text-foreground whitespace-nowrap max-[359px]:sr-only">{siteName}</span>
       </span>
-      <Button href="#form" size="sm" class="lp-glow cta-btn-brand gap-1.5 whitespace-nowrap">
+      <Button href={formHref} size="sm" class="lp-glow cta-btn-brand gap-1.5 whitespace-nowrap">
         {L('header.cta')}
         <Icon name="arrow-down" size="sm" />
       </Button>
     </div>
-  </header>
+  </header>}
 
-  <!-- Hero -->
-  <section class="lp-hero relative overflow-hidden bg-background-secondary pt-12 pb-16 sm:pt-16 lg:pt-20 lg:pb-24">
+  <!-- Hero (home): the split hero with the portrait on the left, on the dark
+       gradient. data-header-flip-anchor keeps the header in its over-the-hero
+       look until this section is nearly out from under it (Header.astro). -->
+  {isHome && (
+    <Hero layout="split" imagePosition="left" size="xl" class="hero-dark-gradient pb-12 lg:pb-16 max-lg:pt-[calc(5rem+var(--topbar-h)+var(--space-section-gap))]" fullHeight data-header-flip-anchor>
+      {/* Framed like the header's glass pill, with a brand glow behind it so
+          the photo reads as lit by the hero rather than pasted onto it. */}
+      <div slot="aside" class="relative w-full rounded-3xl border border-brand-400/30 bg-white/[0.08] p-2 shadow-2xl shadow-brand-500/30 backdrop-blur-md">
+        <div class="pointer-events-none absolute -inset-12 -z-10 rounded-full bg-brand-500/35 blur-3xl" aria-hidden="true"></div>
+        <Image
+          src={portraitImg}
+          alt={t('pages.home.hero.imageAlt', locale)}
+          widths={[480, 720, 960, 1254]}
+          sizes="(min-width: 1024px) 40vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="aspect-square w-full rounded-2xl object-cover"
+        />
+      </div>
+
+      <Badge slot="badge" variant="brand" pill pulse class="dark:text-brand-200">{L('hero.badge')}</Badge>
+
+      <h1 slot="title" class="!text-[clamp(1.75rem,9vw,3rem)] sm:!text-5xl lg:!text-6xl !text-balance">
+        <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor]">{L('hero.titleLead')}</span>{' '}
+        <span class="text-brand-500 dark:text-brand-300 [-webkit-text-fill-color:currentColor]">{L('hero.titleHighlight')}</span>
+      </h1>
+
+      <p slot="description" class="!text-balance">{L('hero.description')}</p>
+
+      <Fragment slot="actions">
+        <Button size="lg" href={formHref} class="lp-glow cta-btn-brand gap-2">
+          {L('hero.primary')}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+        <Button size="lg" variant="outline" href="#results">
+          {L('hero.secondary')}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </Fragment>
+
+      {/* Trust figures, in the card style the hero's credential cards used. */}
+      <dl class="mt-8 grid w-full grid-cols-3 gap-3">
+        {trust.map((item) => (
+          <div class="flex flex-col rounded-xl border border-l-4 border-border border-l-brand-600 bg-card px-3 py-3 text-left shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md sm:px-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+            <dt class="sr-only">{item.label}</dt>
+            <dd class="font-display text-2xl font-bold text-brand-600 dark:text-brand-400 sm:text-3xl">{item.value}</dd>
+            <dd class="mt-1 text-xs leading-snug text-foreground-muted sm:text-sm">{item.label}</dd>
+          </div>
+        ))}
+      </dl>
+    </Hero>
+  )}
+
+  <!-- Home: the client wall, one card per brand, right under the hero. -->
+  {isHome && <ClientLogos locale={locale} num={num('clients')} />}
+
+  <!-- Hero (landing page) -->
+  {!isHome && <section class="lp-hero relative overflow-hidden bg-background-secondary pb-16 pt-12 sm:pt-16 lg:pb-24 lg:pt-20">
     <div class="lp-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
     <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch lg:gap-14">
       <div class="text-center lg:text-left">
@@ -115,7 +222,7 @@ const year = new Date().getFullYear();
         </h1>
         <p class="mx-auto mt-5 max-w-xl text-lg text-foreground-muted lg:mx-0 text-pretty">{L('hero.description')}</p>
         <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-          <Button href="#form" size="lg" class="lp-glow cta-btn-brand w-full gap-2 sm:w-auto">
+          <Button href={formHref} size="lg" class="lp-glow cta-btn-brand w-full gap-2 sm:w-auto">
             {L('hero.primary')}
             <Icon name="arrow-right" size="sm" />
           </Button>
@@ -164,25 +271,27 @@ const year = new Date().getFullYear();
         </div>
       </div>
     </div>
-  </section>
+  </section>}
 
-  <!-- Problem -->
-  <section class="bg-background py-[var(--space-section-md)]">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="mx-auto max-w-2xl text-center">
-        <Badge variant="default" pill>{L('problem.badge')}</Badge>
-        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{L('problem.heading')}</h2>
-        <p class="mt-4 text-lg text-foreground-muted text-pretty">{L('problem.lead')}</p>
+  <!-- Problem: what a weak site costs. Warning-red accents, on the plain background. -->
+  <section class="relative z-10 py-[var(--space-section-lg)] border-t border-border bg-background">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 flex flex-col gap-12">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">{num('problem')}</span><span>{L('problem.badge')}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground text-balance">{L('problem.heading')}</h2>
+        </div>
+        <p class="section-lead">{L('problem.lead')}</p>
       </div>
-      <div class="mt-12 grid gap-5 sm:grid-cols-2">
-        {problems.map((item) => (
-          <div class="flex gap-4 rounded-2xl border border-border bg-background-secondary p-6">
-            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
+      <div class="grid gap-5 sm:grid-cols-2">
+        {problems.map((item, i) => (
+          <div class="focus-card focus-card-alert flex gap-4" data-reveal data-reveal-delay={i || undefined}>
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-destructive/10 text-destructive ring-1 ring-destructive/20">
               <Icon name={item.icon} size="md" />
             </span>
             <div>
               <h3 class="font-display text-lg font-bold text-foreground">{item.title}</h3>
-              <p class="mt-1.5 text-foreground-muted">{item.text}</p>
+              <p class="mt-1.5 text-foreground-muted leading-relaxed">{item.text}</p>
             </div>
           </div>
         ))}
@@ -190,54 +299,71 @@ const year = new Date().getFullYear();
     </div>
   </section>
 
-  <!-- Solution -->
-  <section class="bg-background-secondary py-[var(--space-section-md)]">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="mx-auto max-w-2xl text-center">
-        <Badge variant="brand" pill>{L('solution.badge')}</Badge>
-        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{L('solution.heading')}</h2>
-        <p class="mt-4 text-lg text-foreground-muted text-pretty">{L('solution.lead')}</p>
+  <!-- The answer, on a dark brand band to break the rhythm of the page: the
+       four steps from a search to a call (home) or what is different here
+       (landing page). -->
+  <section id="services" class="why-band invert-section scroll-mt-20 relative z-10 overflow-hidden py-[var(--space-section-lg)] border-t border-border">
+    <div class="relative mx-auto max-w-6xl px-4 sm:px-6 flex flex-col gap-12">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">{num('answer')}</span><span>{answer.badge}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground text-balance">{answer.heading}</h2>
+        </div>
+        <p class="section-lead">{answer.lead}</p>
       </div>
-      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {solutions.map((item) => (
-          <div class="rounded-2xl border border-border bg-background p-6 shadow-sm">
-            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400">
-              <Icon name={item.icon} size="md" />
-            </span>
-            <h3 class="mt-4 font-display text-lg font-bold text-foreground">{item.title}</h3>
-            <p class="mt-1.5 text-foreground-muted">{item.text}</p>
-          </div>
+      <ol class="why-grid grid sm:grid-cols-2 lg:grid-cols-4" role="list">
+        {answer.items.map((item, i) => (
+          <li class="why-cell flex flex-col gap-4 p-7" data-reveal data-reveal-delay={i || undefined}>
+            <div class="flex items-center justify-between">
+              <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-white/10 text-white ring-1 ring-white/15">
+                <Icon name={item.icon} size="md" />
+              </span>
+              <span class="font-mono text-xs font-semibold tracking-[0.2em] text-white/45">{`0${i + 1}`}</span>
+            </div>
+            <h3 class="font-display text-lg font-bold text-foreground">{item.title}</h3>
+            <p class="text-sm leading-relaxed text-foreground-muted">{item.text}</p>
+          </li>
         ))}
+      </ol>
+      <div class="flex justify-center" data-reveal>
+        <Button href={formHref} size="lg" class="lp-glow cta-btn-brand gap-2">
+          {L('hero.primary')}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
       </div>
     </div>
   </section>
 
-  <!-- Results from client projects -->
-  <section id="results" class="scroll-mt-20 bg-background py-[var(--space-section-md)]">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="mx-auto max-w-2xl text-center">
-        <Badge variant="brand" pill>{L('results.badge')}</Badge>
-        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{L('results.heading')}</h2>
-        <p class="mt-4 text-lg text-foreground-muted text-pretty">{L('results.lead')}</p>
+  <!-- Results from client projects: the proof, on the soft background. -->
+  <section id="results" class="relative z-10 py-[var(--space-section-lg)] border-t border-border scroll-mt-20 bg-background-secondary">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 flex flex-col gap-12">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">{num('results')}</span><span>{L('results.badge')}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground text-balance">{L('results.heading')}</h2>
+        </div>
+        <p class="section-lead">{L('results.lead')}</p>
       </div>
-      <div class="mt-12 grid gap-6 md:grid-cols-2">
+      <div class="grid gap-6 md:grid-cols-2">
         {cases.map((item, i) => (
-          <article class="overflow-hidden rounded-2xl border border-border bg-background shadow-md">
+          <article class="focus-card !p-0 flex flex-col" data-reveal data-reveal-delay={i || undefined}>
             <Image
               src={caseImages[i]}
               alt={`${item.client} — ${item.sector}`}
-              class="aspect-[16/9] w-full object-cover object-top"
+              class="aspect-[16/9] w-full object-cover object-top border-b border-border"
               widths={[400, 640, 900]}
               sizes="(min-width: 768px) 34rem, 100vw"
             />
-            <div class="p-6">
-              <p class="text-sm font-medium text-foreground-subtle">{item.sector}</p>
-              <h3 class="font-display text-xl font-bold text-foreground">{item.client}</h3>
-              <p class="mt-4 font-display text-4xl font-bold text-brand-600 dark:text-brand-400">{item.metric}</p>
-              <p class="text-sm text-foreground-muted">{item.metricLabel}</p>
-              <ul class="mt-4 space-y-2">
+            <div class="flex flex-1 flex-col p-6 sm:p-7">
+              <p class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{item.sector}</p>
+              <h3 class="mt-1 font-display text-xl font-bold text-foreground">{item.client}</h3>
+              <div class="mt-5 flex items-end gap-3 rounded-xl border border-border bg-background-secondary px-4 py-3">
+                <p class="whitespace-nowrap font-display text-4xl font-extrabold leading-none text-brand-700 dark:text-brand-400">{item.metric}</p>
+                <p class="text-sm leading-snug text-foreground-muted">{item.metricLabel}</p>
+              </div>
+              <ul class="mt-5 space-y-2.5">
                 {item.points.map((point) => (
-                  <li class="flex gap-2 text-foreground-muted">
+                  <li class="flex gap-2.5 text-foreground-muted">
                     <Icon name="check" size="sm" class="mt-1 shrink-0 text-success" />
                     <span>{point}</span>
                   </li>
@@ -247,15 +373,81 @@ const year = new Date().getFullYear();
           </article>
         ))}
       </div>
-      <p class="mt-8 text-center text-sm italic text-foreground-muted">{L('results.note')}</p>
+      <p class="text-center text-sm italic text-foreground-muted">{L('results.note')}</p>
     </div>
   </section>
+
+  <!-- Home: what clients say, on the plain background. -->
+  {testimonials && (
+    <section class="relative z-10 py-[var(--space-section-lg)] border-t border-border bg-background">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6 flex flex-col gap-12">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">{num('testimonials')}</span><span>{testimonials.badge}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground text-balance">{testimonials.heading}</h2>
+        </div>
+        <p class="section-lead">{testimonials.lead}</p>
+      </div>
+        <div class="grid gap-6 md:grid-cols-2">
+          {testimonials.items.map((item, i) => (
+            <figure class="focus-card flex flex-col" data-reveal data-reveal-delay={i || undefined}>
+              <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-700 text-white shadow-sm">
+                <Icon name="quote" size="md" />
+              </span>
+              <blockquote class="mt-5 flex-1 text-lg leading-relaxed text-foreground">{item.quote}</blockquote>
+              <figcaption class="mt-6 flex items-center gap-3 border-t border-border pt-5">
+                <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-100 font-display font-bold text-brand-700">{item.name.charAt(0)}</span>
+                <span class="flex flex-col">
+                  <span class="font-display font-bold text-foreground">{item.name}</span>
+                  <span class="text-sm text-foreground-muted">{item.role}</span>
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Home: the kinds of business served, as a panel like the old gateway card. -->
+  {industries && (
+    <section class="relative z-10 py-[var(--space-section-lg)] border-t border-border bg-background-secondary">
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="gateway overflow-hidden rounded-3xl border border-border bg-card shadow-lg md:grid md:grid-cols-[1fr_1.15fr]" data-reveal>
+          <div class="flex flex-col justify-center gap-5 p-8 sm:p-12">
+            <p class="section-eyebrow !mb-0"><span class="section-eyebrow-num">{num('industries')}</span><span>{industries.badge}</span></p>
+            <h2 class="font-display text-3xl font-bold tracking-tight text-foreground text-balance">{industries.heading}</h2>
+            <p class="text-lg text-foreground-muted leading-relaxed">{industries.lead}</p>
+            <Button href={formHref} class="lp-glow cta-btn-brand mt-2 gap-2 self-start">
+              {L('hero.primary')}
+              <Icon name="arrow-right" size="sm" />
+            </Button>
+          </div>
+          <ul class="gateway-panel flex flex-col justify-center gap-3 border-t border-border p-6 sm:p-10 md:border-l md:border-t-0" role="list">
+            {industries.items.map((item, i) => (
+              <li class="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-4 shadow-sm">
+                <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-100 text-brand-700">
+                  <Icon name={item.icon} size="md" />
+                </span>
+                <span class="flex min-w-0 flex-1 flex-col">
+                  <span class="font-display text-base font-bold text-foreground">{item.title}</span>
+                  <span class="text-sm leading-snug text-foreground-muted">{item.text}</span>
+                </span>
+                <span class="font-mono text-xs font-semibold tracking-[0.2em] text-brand-600">{`0${i + 1}`}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Illustrative story: the one section built to be felt rather than
        scanned. A dark brand band, an example site beside the story, before
        and after. The owner is invented, a composite of situations that recur,
        and the copy says so on the page; no figure or quote here is presented
        as a real client's. The real results are in the section above. -->
+  {!isHome && (
   <section class="bg-background-secondary py-[var(--space-section-md)]">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
       <div class="lp-story relative overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-14">
@@ -320,22 +512,25 @@ const year = new Date().getFullYear();
       </div>
     </div>
   </section>
+  )}
 
   <!-- Tracking & monthly report: what the client sees every month. The
        picture is a real report page with demo data, captioned as such. -->
-  <section id="report" class="scroll-mt-20 overflow-hidden bg-background py-[var(--space-section-md)]">
+  <section id="report" class="relative z-10 py-[var(--space-section-lg)] border-t border-border scroll-mt-20 overflow-hidden bg-background">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="mx-auto max-w-3xl text-center">
-        <Badge variant="brand" pill>{report.badge}</Badge>
-        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{report.heading}</h2>
-        <p class="mt-4 text-lg text-foreground-muted text-pretty">{report.lead}</p>
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">{num('report')}</span><span>{report.badge}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground text-balance">{report.heading}</h2>
+        </div>
+        <p class="section-lead">{report.lead}</p>
       </div>
 
       <div class="mt-12 grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
         <ul class="grid gap-4 sm:grid-cols-2">
           {report.points.map((item) => (
-            <li class="rounded-2xl border border-border bg-background p-5 shadow-sm">
-              <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400">
+            <li class="focus-card !p-5">
+              <span class="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-100 text-brand-700">
                 <Icon name={item.icon} size="md" />
               </span>
               <h3 class="mt-3 font-display text-base font-bold text-foreground">{item.title}</h3>
@@ -376,7 +571,7 @@ const year = new Date().getFullYear();
           ))}
         </ul>
         <div class="mt-6 text-center">
-          <Button href="#form" size="lg" class="lp-glow cta-btn-brand gap-2">
+          <Button href={formHref} size="lg" class="lp-glow cta-btn-brand gap-2">
             {L('hero.primary')}
             <Icon name="arrow-right" size="sm" />
           </Button>
@@ -386,24 +581,29 @@ const year = new Date().getFullYear();
   </section>
 
   <!-- Process -->
-  <section class="bg-background-secondary py-[var(--space-section-md)]">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="mx-auto max-w-2xl text-center">
-        <Badge variant="brand" pill>{L('process.badge')}</Badge>
-        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{L('process.heading')}</h2>
-        <p class="mt-4 text-lg text-foreground-muted text-pretty">{L('process.lead')}</p>
+  <section class="relative z-10 py-[var(--space-section-lg)] border-t border-border bg-background-secondary">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 flex flex-col gap-12">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">{num('process')}</span><span>{L('process.badge')}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground text-balance">{L('process.heading')}</h2>
+        </div>
+        <p class="section-lead">{L('process.lead')}</p>
       </div>
-      <ol class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <ol class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
         {steps.map((step, i) => (
-          <li class="relative rounded-2xl border border-border bg-background p-6 shadow-sm">
-            <span class="flex h-10 w-10 items-center justify-center rounded-full bg-brand-600 font-display text-lg font-bold text-white">{i + 1}</span>
-            <h3 class="mt-4 font-display text-lg font-bold text-foreground">{step.title}</h3>
-            <p class="mt-1.5 text-foreground-muted">{step.text}</p>
+          <li class="focus-card" data-reveal data-reveal-delay={i || undefined}>
+            <div class="flex items-center justify-between">
+              <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-700 font-display text-lg font-bold text-white shadow-sm">{i + 1}</span>
+              <span class="font-mono text-xs font-semibold tracking-[0.2em] text-brand-600">{`0${i + 1}`}</span>
+            </div>
+            <h3 class="mt-5 font-display text-lg font-bold text-foreground">{step.title}</h3>
+            <p class="mt-1.5 text-foreground-muted leading-relaxed">{step.text}</p>
           </li>
         ))}
       </ol>
-      <div class="mt-10 text-center">
-        <Button href="#form" size="lg" class="lp-glow cta-btn-brand gap-2">
+      <div class="text-center" data-reveal>
+        <Button href={formHref} size="lg" class="lp-glow cta-btn-brand gap-2">
           {L('hero.primary')}
           <Icon name="arrow-right" size="sm" />
         </Button>
@@ -411,12 +611,12 @@ const year = new Date().getFullYear();
     </div>
   </section>
 
-  <!-- Offer + form -->
-  <section id="form" class="scroll-mt-16 bg-background-tertiary py-[var(--space-section-md)] border-y border-border">
+  <!-- Offer + form (the home page shows the offer and links to the contact page) -->
+  <section id={isHome ? 'offer' : 'form'} class="scroll-mt-16 bg-background-tertiary py-[var(--space-section-md)] border-y border-border">
     <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
       <div>
-        <Badge variant="brand" pill>{L('offer.badge')}</Badge>
-        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{L('offer.heading')}</h2>
+        <p class="section-eyebrow"><span class="section-eyebrow-num">{num('form')}</span><span>{L('offer.badge')}</span></p>
+        <h2 class="font-display text-3xl font-bold text-foreground md:text-4xl text-balance">{L('offer.heading')}</h2>
         <p class="mt-4 text-lg text-foreground-muted text-pretty">{L('offer.lead')}</p>
         <ul class="mt-6 space-y-3">
           {offerItems.map((item) => (
@@ -442,16 +642,30 @@ const year = new Date().getFullYear();
         </div>
       </div>
 
-      <WebsiteCheckForm {locale} source="landing" />
+      {isHome ? (
+        <div class="focus-card flex flex-col justify-center gap-6 !p-8 sm:!p-10 self-center" data-reveal>
+          <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-700 text-white shadow-sm">
+            <Icon name="search-check" size="md" />
+          </span>
+          <h3 class="font-display text-2xl font-bold text-foreground text-balance">{L('form.heading')}</h3>
+          <p class="text-foreground-muted leading-relaxed">{L('form.lead')}</p>
+          <Button href={formHref} size="lg" class="lp-glow cta-btn-brand gap-2 self-start">
+            {L('hero.primary')}
+            <Icon name="arrow-right" size="sm" />
+          </Button>
+        </div>
+      ) : (
+        <WebsiteCheckForm {locale} source="landing" />
+      )}
     </div>
   </section>
 
   <!-- FAQ -->
-  <section class="bg-background py-[var(--space-section-md)]">
+  <section class="relative z-10 py-[var(--space-section-md)] border-t border-border bg-background">
     <div class="mx-auto max-w-3xl px-4 sm:px-6">
-      <div class="text-center">
-        <Badge variant="default" pill>{L('faq.badge')}</Badge>
-        <h2 class="mt-4 font-display text-3xl font-bold text-foreground md:text-4xl">{L('faq.heading')}</h2>
+      <div class="flex flex-col items-center text-center" data-reveal>
+        <p class="section-eyebrow"><span class="section-eyebrow-num">?</span><span>{L('faq.badge')}</span></p>
+        <h2 class="font-display text-3xl font-bold tracking-tight text-foreground md:text-4xl">{L('faq.heading')}</h2>
       </div>
       <Accordion
         class="mt-10"
@@ -463,12 +677,13 @@ const year = new Date().getFullYear();
   </section>
 
   <!-- Final call to action -->
-  <section class="bg-background-secondary py-[var(--space-section-md)]">
+  <section class="relative z-10 py-[var(--space-section-md)] border-t border-border bg-background-secondary">
     <div class="mx-auto max-w-6xl px-4 sm:px-6">
-      <div class="lp-final relative overflow-hidden rounded-3xl px-6 py-14 text-center sm:py-20">
-        <h2 class="mx-auto max-w-2xl font-display text-3xl font-bold text-white md:text-4xl text-balance">{L('final.heading')}</h2>
-        <p class="mx-auto mt-4 max-w-xl text-lg text-white/85">{L('final.text')}</p>
-        <Button href="#form" size="lg" variant="secondary" class="lp-glow lp-glow-light mt-8 gap-2">
+      <div class="lp-final relative overflow-hidden rounded-3xl px-6 py-14 text-center shadow-2xl shadow-brand-900/30 sm:py-20" data-reveal>
+        <div class="lp-story-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+        <h2 class="relative mx-auto max-w-2xl font-display text-3xl font-bold text-white md:text-5xl text-balance">{L('final.heading')}</h2>
+        <p class="relative mx-auto mt-4 max-w-xl text-lg text-white/85">{L('final.text')}</p>
+        <Button href={formHref} size="lg" variant="secondary" class="lp-glow lp-glow-light relative mt-8 gap-2">
           {L('final.cta')}
           <Icon name="arrow-up" size="sm" />
         </Button>
@@ -476,21 +691,23 @@ const year = new Date().getFullYear();
     </div>
   </section>
 
-  <footer slot="footer" class="border-t border-border bg-background py-8 pb-24 md:pb-8">
-    <p class="mx-auto max-w-6xl px-4 text-center text-sm text-foreground-muted sm:px-6">
-      © {year} {siteName} · {L('footer')}
-    </p>
-  </footer>
+  {!isHome && (
+    <footer slot="footer" class="border-t border-border bg-background py-8 pb-24 md:pb-8">
+      <p class="mx-auto max-w-6xl px-4 text-center text-sm text-foreground-muted sm:px-6">
+        © {year} {siteName} · {L('footer')}
+      </p>
+    </footer>
+  )}
 
   <!-- Phones: the action stays in reach while reading. Hidden once the form
        itself is on screen. -->
   <div class="lp-sticky fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur-md md:hidden" data-sticky-cta>
-    <Button href="#form" fullWidth class="lp-glow cta-btn-brand gap-2">
+    <Button href={formHref} fullWidth class="lp-glow cta-btn-brand gap-2">
       {L('mobileCta')}
       <Icon name="arrow-down" size="sm" />
     </Button>
   </div>
-</BaseLayout>
+</Layout>
 
 <style>
   .lp-grid {

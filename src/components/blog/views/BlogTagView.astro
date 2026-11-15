@@ -54,6 +54,7 @@ const languageAlternates = Object.fromEntries(
 <PageLayout
   title={t('blog.tagMetaTitle', locale, { tag })}
   description={t('blog.tagMetaDescription', locale, { tag })}
+  noindex
   image={getBlogTagOgPath(tagToSlug(tag))}
   eagerReveal
   languageAlternates={languageAlternates}

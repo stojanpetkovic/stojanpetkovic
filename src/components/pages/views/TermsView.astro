@@ -1,22 +1,24 @@
 ---
 /**
- * TermsView — the Terms of use page body.
+ * TermsView — the body of the legal pages: Terms of use (`page="terms"`) and
+ * the Privacy Policy (`page="privacy"`).
  *
- * Shared by the default-locale route (`/terms`) and the locale-prefixed route
- * (`/<locale>/terms`). All copy is read from `pages.terms.*` in the locale
- * dictionaries. The page says what the site is and is not: a personal,
- * independent site for information only, with no professional advice, no
- * business offer, no use of any employer's data, and a limit on liability.
+ * Shared by the default-locale routes (`/terms`, `/privacy`) and the
+ * locale-prefixed ones. All copy is read from `pages.<page>.*` in the locale
+ * dictionaries; `{email}` in the copy becomes the site's contact address.
  */
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import { Hero } from '@/components/hero';
+import siteConfig from '@/config/site.config';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
 
 interface Props {
   /** Locale whose copy this page renders. Defaults to the site default. */
   locale?: string;
+  /** Which legal page to render. */
+  page?: 'terms' | 'privacy';
 }
 
 interface Section {
@@ -25,21 +27,27 @@ interface Section {
   items?: string[];
 }
 
-const { locale = defaultLocale } = Astro.props;
+const { locale = defaultLocale, page = 'terms' } = Astro.props;
 
-const hero = tData<{ badge: string; title: string; description: string }>('pages.terms.hero', locale)!;
-const sections = tData<Section[]>('pages.terms.sections', locale)!;
+const withEmail = (text: string) => text.replaceAll('{email}', siteConfig.email);
+const k = (key: string) => withEmail(t(`pages.${page}.${key}`, locale));
+const hero = tData<{ badge: string; title: string; description: string }>(`pages.${page}.hero`, locale)!;
+const sections = tData<Section[]>(`pages.${page}.sections`, locale)!.map((section) => ({
+  title: section.title,
+  paragraphs: section.paragraphs.map(withEmail),
+  items: section.items?.map(withEmail),
+}));
 const contactUrl = localizedPath('/contact', locale);
 ---
 
 <PageLayout
-  title={t('pages.terms.meta.title', locale)}
-  description={t('pages.terms.meta.description', locale)}
+  title={k('meta.title')}
+  description={k('meta.description')}
   eagerReveal
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
     <Badge slot="badge" variant="brand" pill>
-      <Icon name="shield-check" size="sm" />
+      <Icon name={page === 'privacy' ? 'lock' : 'shield-check'} size="sm" />
       {hero.badge}
     </Badge>
 
@@ -52,8 +60,8 @@ const contactUrl = localizedPath('/contact', locale);
 
   <section class="py-[var(--space-section-md)] border-t border-border">
     <article class="terms mx-auto max-w-3xl px-6" data-reveal>
-      <p class="text-sm text-foreground-muted">{t('pages.terms.updated', locale)}</p>
-      <p class="mt-4 text-foreground-secondary leading-relaxed">{t('pages.terms.intro', locale)}</p>
+      <p class="text-sm text-foreground-muted">{k('updated')}</p>
+      <p class="mt-4 text-foreground-secondary leading-relaxed">{k('intro')}</p>
 
       {sections.map((section) => (
         <section class="mt-10">
@@ -71,7 +79,7 @@ const contactUrl = localizedPath('/contact', locale);
 
       <p class="mt-10">
         <a class="font-medium text-brand-700 underline underline-offset-2" href={contactUrl}>
-          {t('pages.terms.contactLink', locale)}
+          {k('contactLink')}
         </a>
       </p>
     </article>

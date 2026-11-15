@@ -36,7 +36,7 @@
     "name": "Stojan Petkovic"
   },
   "llms": {
-    "summary": "Stojan Petkovic is an engineer (Ingenieur, title granted by the Bavarian Chamber of Engineers) and web developer based in Zrenjanin, Serbia, working with clients worldwide. He holds a degree in Mining Engineering from the University of Belgrade (2010) and has worked in coiled tubing and nitrogen operations since 2013. This is a personal, independent site that does not represent any employer or company. It publishes case studies and engineering tools for information, and he builds fast, custom Astro websites, custom software and data-driven platforms for technical companies, with classic web design, SEO and generative engine optimisation (GEO). Every project has one fixed price agreed before work starts, and the client owns the code, the domain and the hosting from day one."
+    "summary": "Stojan Petkovic, based in Zrenjanin, Serbia, helps service businesses win customers online: Google and Meta ads, local SEO, AI search visibility (GEO), fast websites and landing pages, AI chat, and tracking of every enquiry and call with a monthly report. He works with clients in Serbia, Europe and the US. A website has one fixed price, ads and SEO run month to month with no long contract, and the client owns the code, the domain and the hosting from day one."
   },
   "nav": {
     "skipToContent": "Skip to content",
@@ -55,34 +55,15 @@
     "items": {
       "home": "Home",
       "services": "Services",
-      "tools": "Tools",
-      "web": "Web",
+      "web": "Websites",
       "projects": "Projects",
       "blog": "Blog",
       "about": "About",
       "contact": "Contact",
       "terms": "Terms of use",
-      "courses": "Courses"
+      "privacy": "Privacy Policy"
     },
-    "mega": {
-      "overview": "All services",
-      "groups": {
-        "engineering": "Engineering",
-        "tools": "Engineering tools",
-        "web": "Software & web"
-      },
-      "links": {
-        "allTools": "All tools",
-        "web": "Web development",
-        "software": "Engineering software"
-      },
-      "descriptions": {
-        "courses": "Practical coiled tubing training.",
-        "projects": "Case studies from the field.",
-        "software": "Cloud-based tools built to order.",
-        "web": "Fast websites for technical companies."
-      }
-    }
+    "cta": "Free audit"
   },
   "common": {
     "readMore": "Read more",
@@ -129,18 +110,18 @@
     "share": "Share:",
     "shareOn": "Share on {platform}",
     "copyLink": "Copy link",
-    "metaTitle": "Blog",
-    "metaDescription": "Articles on engineering, software and web development.",
+    "metaTitle": "Blog: ads, SEO and AI search tips",
+    "metaDescription": "Practical advice on ads, SEO, AI search and websites that bring in customers.",
     "heroBadge": "All posts",
-    "heroDescription": "Articles on engineering, software and web development.",
+    "heroDescription": "Practical advice on ads, SEO, AI search and websites that bring in customers.",
     "allPosts": "All posts",
     "noPosts": "No posts found",
     "pageMetaTitle": "Blog — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — articles on engineering, software and web development.",
+    "pageMetaDescription": "Page {page} of {total} — practical advice on ads, SEO, AI search and websites that bring in customers.",
     "pageBadge": "Page {page} of {total}",
     "newestPosts": "Newest posts",
     "tagMetaTitle": "#{tag} — Blog",
-    "tagMetaDescription": "Posts tagged \"{tag}\".",
+    "tagMetaDescription": "Posts about \"{tag}\": practical advice on ads, SEO and websites for service businesses.",
     "tagBadge": "Tag",
     "tagCountOne": "{count} post tagged \"{tag}\".",
     "tagCountOther": "{count} posts tagged \"{tag}\".",
@@ -153,8 +134,8 @@
     "updated": "Updated",
     "rssFeed": "RSS Feed",
     "cta": {
-      "heading": "Ready to build?",
-      "description": "Tell me about your project — I'll get back to you within a business day.",
+      "heading": "Want more calls from your website?",
+      "description": "Send me a few lines about your business. I'll get back to you within one business day.",
       "button": "Get in touch"
     }
   },
@@ -182,19 +163,19 @@
     "galleryClose": "Close lightbox",
     "galleryNextImage": "Next image",
     "galleryPreviousImage": "Previous image",
-    "metaTitle": "Projects",
-    "metaDescription": "Selected engineering projects by Stojan Petkovic: geothermal case studies of Vojvodina built from public data, with calculators, and websites built for clients.",
+    "metaTitle": "Projects: websites and campaigns",
+    "metaDescription": "Websites, SEO and ads I have built for service businesses, with the numbers: enquiries, calls, Google rankings and Lighthouse scores.",
     "heroBadge": "Selected work",
-    "heroDescription": "Engineering and industrial projects.",
-    "emptyTitle": "Industrial projects are in preparation",
-    "emptyText": "Case studies from coiled tubing and nitrogen operations will be published here. The websites I have built are on the Web page.",
+    "heroDescription": "Businesses I have helped win more customers.",
+    "emptyTitle": "Projects coming soon",
+    "emptyText": "Coming soon. Meanwhile, see the results on the home page.",
     "emptyWeb": "See web projects",
     "allProjects": "All projects",
     "pageMetaTitle": "Projects — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — selected engineering projects by Stojan Petkovic.",
+    "pageMetaDescription": "Page {page} of {total}: projects for service businesses, with the numbers.",
     "pageBadge": "Page {page} of {total}",
     "tagMetaTitle": "#{tag} — Projects",
-    "tagMetaDescription": "Projects tagged \"{tag}\" by Stojan Petkovic: engineering case studies, geothermal models from public data and websites built for clients.",
+    "tagMetaDescription": "Projects tagged \"{tag}\": websites, SEO and ads for service businesses, with the numbers.",
     "tagBadge": "Tag",
     "tagCountOne": "{count} project tagged \"{tag}\".",
     "tagCountOther": "{count} projects tagged \"{tag}\".",
@@ -208,7 +189,7 @@
     "ctaPrimary": "Send a message",
     "ctaSecondary": "More about me",
     "closingHeading": "Have a project in mind?",
-    "closingLead": "Whether it's a new build or something that needs a fresh perspective — I'd love to hear about it."
+    "closingLead": "Need a new site, or one that finally works the way it should? Tell me what's going on."
   },
   "pagination": {
     "page": "Page {current} of {total}",
@@ -223,17 +204,17 @@
     "goHome": "Go to homepage",
     "metaTitle": "Page not found",
     "metaDescription": "This page has moved, been removed, or never existed in the first place.",
-    "badge": "404 — page not found",
+    "badge": "404",
     "titleLead": "Page not",
     "titleHighlight": "found.",
-    "description": "This page has moved, been removed, or never existed in the first place. Let's get you back on track.",
+    "description": "It has moved, been removed or never existed. Here's how to get back.",
     "backHome": "Back to home",
     "browseProjects": "Browse the projects",
     "tryInstead": "Try one of these instead",
     "projectsDesc": "Selected work and case studies.",
-    "toolsDesc": "Calculators and tools for wells and geothermal heat.",
     "contactTitle": "Contact",
-    "contactDesc": "Start a conversation about your project."
+    "contactDesc": "Start a conversation about your project.",
+    "servicesDesc": "How I help customers find you online."
   },
   "newsletter": {
     "heading": "Subscribe to the newsletter",
@@ -287,509 +268,131 @@
   },
   "footer": {
     "copyright": "© {year} {siteName}",
-    "credit": "Personal, independent site — not affiliated with any employer or company.",
+    "credit": "More calls and enquiries from the internet for service businesses.",
     "groups": {
       "site": "Site",
-      "topics": "Topics",
-      "projects": "Web projects",
-      "engineering": "Engineering",
-      "questions": "Got questions?"
+      "questions": "Got questions?",
+      "services": "Services"
     },
-    "links": { "focus": "Projects, courses and software" },
-    "followOn": "Follow us on {platform}"
+    "followOn": "Follow us on {platform}",
+    "tagline": "I help service businesses get more calls and enquiries from the internet: Google and Meta ads, local SEO, AI search visibility and fast websites. No long contracts, and results you can see in numbers.",
+    "links": {
+      "ads": "Google and Meta ads",
+      "seo": "Local SEO and AI search",
+      "web": "Websites that bring enquiries",
+      "check": "Free audit",
+      "faq": "FAQ"
+    }
   },
   "pages": {
     "terms": {
       "meta": {
         "title": "Terms of use",
-        "description": "Terms of use of the site: a personal, independent site, for information only, with no professional advice and no business offer, a limitation of liability and a statement of independence and conflicts of interest."
+        "description": "Terms of use for stojanpetkovic.com: who provides the services, how they are agreed, what is not guaranteed, ownership and limitation of liability."
       },
       "hero": {
         "badge": "Site rules",
         "title": "Terms of use",
-        "description": "What this site is, what it is not, and the terms on which it is used."
+        "description": "Who is behind the site, how services are agreed, and the terms on which the site is used."
       },
-      "updated": "Last changed: 17 October 2026.",
-      "intro": "These terms govern the use of the site stojanpetkovic.com (the site). By using the site you accept them. If you do not agree, do not use the site.",
+      "updated": "Last updated: 15 November 2026.",
+      "intro": "These terms govern the use of stojanpetkovic.com (the site). By using the site you accept them. If you do not agree with them, do not use the site.",
+      "contactLink": "Contact page",
       "sections": [
         {
           "title": "1. Who runs the site",
           "paragraphs": [
-            "The site is run by Stojan Petković, a private individual (the author), as a personal project. It is not a company site, does not represent a legal entity and is not run on behalf of any employer, client or other legal person."
+            "The site is run by Stojan Petkovic of Zrenjanin, Serbia (the author). Contact: {email}."
           ]
         },
         {
-          "title": "2. Independence and conflicts of interest",
+          "title": "2. Services",
           "paragraphs": [
-            "The site and all content on it (projects, blog, tools, calculators, models, courses and texts) is made by the author in his own name and at his own expense. Therefore:"
+            "The site describes digital marketing and website services: Google and social media advertising, SEO, AI search visibility, websites and landing pages, AI chat, and tracking of enquiries and calls."
           ],
           "items": [
-            "No data, document, procedure, software, estimate, business or technical information or other material that belongs to an employer, a client or a third party and has not been published is used. The data in the projects come from publicly released sources named with each project.",
-            "Nothing on the site represents the view, policy, data, estimate, recommendation or statement of any employer, company or institution. The author does not speak on their behalf and has no authority to do so. The author's employer has no connection with the site in any way and is not responsible for its content.",
-            "Companies, institutions, products and sources are mentioned only to identify public sources and facts. This is no endorsement, recommendation, cooperation or criticism.",
-            "The content is not an offer, an advertisement or an invitation to a business relationship in the field of the author's employer, nor is it meant to compete with the employer or its clients.",
-            "Work on the site must not affect, and does not affect, the author's performance of his duties to his employer.",
-            "Any additional engagement of the author must comply with his duties to his employer, with the law and with trade secrets, with all necessary consents, and is agreed separately, outside this site and its content.",
-            "If you believe any content improperly uses confidential information, or gives the impression of speaking on behalf of a company, get in touch through the Contact page. The content will be checked promptly and, if needed, corrected or removed."
+            "Descriptions of services, prices and examples on the site are not an offer in the legal sense. Each engagement is agreed separately, in a written proposal or contract that sets the scope, timing, price and payment.",
+            "Sending an enquiry or asking for a free check creates no contract and no obligation for either side.",
+            "The author may decline any enquiry without giving a reason.",
+            "Where a contract says otherwise, the contract applies."
           ]
         },
         {
-          "title": "3. For information only",
+          "title": "3. Results and guarantees",
           "paragraphs": [
-            "The content of the site is general and informational. It is not engineering, technical, legal, financial, investment or other professional advice. It is not a design, a feasibility study, a resource assessment or an expert opinion. It creates no client–adviser relationship and no obligation on the author. Before any decision, consult qualified professionals and the competent authorities."
+            "Results shown on the site (enquiries, calls, scores and rankings) are real for the clients and periods named, but they are not a promise of the same result for others. Google rankings, AI assistant recommendations and ad performance depend on Google, Meta and other platforms, the market, competitors and budget, which the author does not control. No number of enquiries, calls, sales or rankings is guaranteed unless expressly agreed in writing."
           ]
         },
         {
-          "title": "4. Tools, calculators and models",
+          "title": "4. Ad budget and accounts",
           "paragraphs": [
-            "The tools, calculators and models on the site give approximate results from the stated formulas and assumptions. They are no substitute for design calculations, company procedures, manufacturers' instructions, regulations or the instruction of the responsible person. Do not use them as the only basis for work on wells, work under pressure, work with nitrogen or other safety-critical actions.",
-            "Errors, incompleteness and out-of-date data are possible. The user checks the inputs and the results. The geothermal potential models show an order of magnitude from public data; they do not replace a test of the well, an assessment of the workover, a feasibility study or contractors' quotations."
+            "The client pays the ad budget directly to the platform (Google, Meta and others) unless agreed otherwise. Accounts for ads, analytics, the domain and hosting are opened in the client's name or handed over to the client, as agreed, so the client keeps access and data when the work ends."
           ]
         },
         {
-          "title": "5. Public data and third-party sources",
+          "title": "5. Independence",
           "paragraphs": [
-            "The data come from publicly released sources and are named with the content. The author does not guarantee their accuracy, completeness or currency, is not the author of those sources and is not responsible for them. Copyright in the sources, images and maps belongs to their owners; the authors and licences are named with the content (for example OpenStreetMap, OpenTopoMap and Wikimedia Commons). Links lead to third-party sites over which the author has no control."
+            "The author provides the services in his own name and on his own account. The site does not represent any employer, company or institution the author has been or is connected with, does not speak for them, and uses none of their confidential information."
           ]
         },
         {
-          "title": "6. Services and commercial communication",
+          "title": "6. Blog and general information",
           "paragraphs": [
-            "The site is above all informational. The content of the projects, the blog, the tools and the courses is not an offer of services. Any services named on the Services page are agreed separately, in writing, and only if they do not conflict with the author's duties to his employer, with the law or with trade secrets. The author reserves the right to turn down any enquiry because of a conflict of interest or for any other reason. Sending an enquiry through the contact form creates no obligation on the author and no contract."
+            "Blog posts and other informational content are general in nature. They are not legal, tax or financial advice and do not replace advice on your specific case. Third-party data and tools mentioned may change."
           ]
         },
         {
           "title": "7. Copyright",
           "paragraphs": [
-            "Unless stated otherwise, the texts, graphics, models and code of this site are protected by the author's copyright. Quoting is allowed with the source named and a link. Any other copying, reproduction or commercial use needs the author's prior written consent. Third-party data remain under their owners' licences."
+            "Unless stated otherwise, the text, graphics and code of this site are protected by the author's copyright. Quoting with attribution and a link is allowed. Names, logos and screenshots of client websites belong to their owners and are shown as examples of work."
           ]
         },
         {
-          "title": "8. Messages, comments and conduct",
+          "title": "8. Links and third-party services",
           "paragraphs": [
-            "If the site allows comments or messages, it is forbidden to post unlawful, offensive or misleading content, confidential data of third parties or employers, or content presented as the view of a company. The author may remove such content without notice. The processing of personal data (the contact form, cookies) is covered by the privacy notice with the form and by the cookie settings."
+            "The site links to third-party websites and uses third-party services (for example hosting, email and video). The author has no control over them and is not responsible for their content or operation."
           ]
         },
         {
-          "title": "9. Limitation of liability",
+          "title": "9. Personal data and cookies",
           "paragraphs": [
-            "The site and its content are provided “as is”, with no warranty of any kind, express or implied. To the fullest extent permitted by law, the author is not liable for any damage (direct or indirect, lost profit, damage to a well, equipment or property, injury, loss of data, investment decisions) arising from the use of the site or reliance on its content, nor for the site being unavailable. This does not exclude liability that cannot be excluded or limited by law. You use the site at your own risk."
+            "How data from the contact forms and cookies are handled is described in the Privacy Policy. You can turn analytics and advertising cookies on or off in the cookie settings."
           ]
         },
         {
-          "title": "10. Changes and governing law",
+          "title": "10. Limitation of liability",
           "paragraphs": [
-            "The author may change these terms. Changes apply from publication; the date of the last change is given at the top. The law of the Republic of Serbia applies, and disputes fall to a court in the Republic of Serbia, unless mandatory consumer protection rules provide otherwise."
+            "The site and its content are provided as is. To the fullest extent permitted by law, the author is not liable for loss arising from use of the site, reliance on its content or its unavailability. Liability for contracted services is governed by the contract. This does not exclude liability that cannot be excluded or limited by law."
           ]
         },
         {
-          "title": "11. Contact",
+          "title": "11. Changes and governing law",
           "paragraphs": [
-            "Send questions, reports and requests about the content, including objections about a conflict of interest or confidential information, through the Contact page."
+            "The author may change these terms. Changes apply from publication; the date of the last change is shown at the top. The law of the Republic of Serbia applies and the courts of the Republic of Serbia have jurisdiction, unless mandatory consumer protection rules provide otherwise."
+          ]
+        },
+        {
+          "title": "12. Contact",
+          "paragraphs": [
+            "Send questions about these terms to {email} or through the Contact page."
           ]
         }
-      ],
-      "contactLink": "Contact page"
-    },
-    "melenciModel": {
-      "profile": {
-        "caption": "Temperature of the ground below Melenci from the atlas maps, with the depth at which 60 °C is reached.",
-        "temp": "Temperature, °C",
-        "depth": "Depth, km",
-        "aria": "Temperature against depth below Melenci"
-      },
-      "scenarios": {
-        "caption": "Heat from one well at Melenci in four cases: the existing well at its two reported flows, and two assumed deeper cases",
-        "cols": [
-          "Case",
-          "Water, °C",
-          "Flow, l/s",
-          "Above 20 °C (atlas), kW",
-          "Space heating, kW",
-          "Pools, kW",
-          "Heat pump, kW",
-          "Pump electricity, kW",
-          "Heat delivered, kW",
-          "Heat per year, MWh"
-        ],
-        "rows": {
-          "a1": "Me-1/H, Annex 1 flow (2005)",
-          "a2": "Me-1/H, atlas flow (2010)",
-          "b": "Deeper horizon near 1,000 m (assumed)",
-          "c": "New well near 1,300 m (assumed)"
-        },
-        "note": "The chain is the same in every case: space heating down to 35 °C, pools down to 28 °C, then a heat pump takes the water down to 15 °C and delivers heat at 45 °C with a coefficient of 0.4 of the Carnot value. Heat per year is for {hours} equivalent full-load hours. The 55 °C and 75 °C cases and their flows are assumptions, not measurements."
-      },
-      "economics": {
-        "caption": "What it costs to build, and how soon the heat pays it back, by the value of the heat it replaces",
-        "cols": [
-          "Case",
-          "Estimated investment, M€"
-        ],
-        "range": "range {low}–{high}",
-        "price": "Payback at {price} €/MWh, years",
-        "net": "net {net} k€ a year",
-        "never": "does not pay back",
-        "note": "Investment is the sum of the items in the cost table, without the workover and the gas equipment, which have not been assessed; the range is that of a class 4 estimate (−30 % to +50 %). Net gain is the value of the heat less the yearly operating costs in the table below. Payback is the investment divided by the net gain a year, without discounting. The gas of the water is not counted here."
-      },
-      "omitted": {
-        "caption": "Payback at {price} €/MWh, years, with the items the payback table leaves out",
-        "cols": {
-          "base": "As in the payback table",
-          "reinjection": "With a reinjection well",
-          "risk": "With drilling risk",
-          "workover": "With a workover",
-          "all": "All together"
-        },
-        "invest": "investment {inv} M€",
-        "none": "does not apply",
-        "note": "The reinjection well goes to the depth of the producing interval ({depth} m for the existing well, the depth of the new well in the other cases) at {perM} €/m; the injection pump and its electricity are not counted. Drilling risk: {success} % of wells succeed, so one successful well costs as much as 1/0.7 wells; it applies to new wells only. The workover is a round figure of {workover} €, as there is no public price; it applies to the existing well only. Upkeep (3 % a year) is taken on the larger investment. Gas equipment is still not counted."
-      },
-      "opex": {
-        "caption": "Operating costs a year (OPEX) by case",
-        "cols": [
-          "Case",
-          "Heat pump electricity, k€",
-            "Upkeep, k€",
-          "Other fixed costs, k€",
-          "Operating costs, k€ a year"
-        ],
-        "note": "Electricity is charged at {electric} €/MWh. Upkeep is {upkeep} % of the investment a year and other fixed costs are {other} € a year (monitoring, water analyses, attendance): both are assumptions with no public source. Reinjection is not counted, because it would need another new well; the cooled water is discharged. The atlas says almost all wells in Vojvodina flow by themselves, so no production pump is counted."
-      },
-      "methane": {
-        "caption": "Gas dissolved in the water of Me-1/H and what it could be worth",
-        "cols": [
-          "Gas in the water, m³ per m³",
-          "Gas a year, m³",
-          "Methane energy, MWh a year",
-          "Value, k€ a year",
-          "Against the heat of the existing well"
-        ],
-        "rows": {
-          "low": "lowest in Vojvodina",
-          "high": "highest in Vojvodina"
-        },
-        "note": "Per the atlas the water of the first system holds 0.04 to 2.2 m³ of gas per m³, mostly methane (80 to 95 %); 90 % is taken. The flow is 6.9 l/s (Annex 1) over {hours} hours a year; the energy is valued at {price} €/MWh, the price of the gas it would replace. The gas content of Me-1/H itself is not published: it has to be measured, and it decides whether the gas is worth separating and using. Gas from the water is explosive, so using it needs separation, safety measures and equipment that are not costed here."
-      },
-      "costs": {
-        "caption": "Items of the investment and where each figure comes from",
-        "cols": [
-          "Item",
-          "Value used",
-          "Basis"
-        ],
-        "rows": {
-          "drilling": {
-            "name": "Drilling a new well",
-            "basis": "Public estimate of 350 to 400 € per metre (blog post of 2012 without a cited source); the upper figure is used. For Vojvodina no newer public figure was found."
-          },
-          "equipment": {
-            "name": "Equipment for using the heat (exchangers, pumps)",
-            "basis": "Public estimate of about 200,000 € (the same 2012 post). Assumed to cover everything on the surface except the heat pump and the pipe."
-          },
-          "heatPump": {
-            "name": "Heat pump",
-            "basis": "Assumption. Public prices for Serbia exist only for household units (3,000 to 15,000 € installed, without the power); a unit of hundreds of kW costs less per kW, so 500 € per kW is taken."
-          },
-          "pipeline": {
-            "name": "Distribution pipe",
-            "basis": "Assumption: a route of 500 m at 400 € per metre. No public price per metre for Serbia was found."
-          },
-          "reinjection": {
-            "name": "Reinjection well",
-            "basis": "Counted only in the table of omitted items: one well to the depth of the producing interval (560 m for Me-1/H), at the same drilling cost. The injection pump and its electricity are not assessed."
-          },
-          "workover": {
-            "name": "Workover of the existing well",
-            "basis": "Not assessed, so not included. No public cost was found; an assessment of the workover is a step of its own."
-          },
-          "gas": {
-            "name": "Equipment for using the gas",
-            "basis": "Not assessed, so not included. It would be needed only if the water holds enough gas to be worth using; the gas content of Me-1/H has to be measured first."
-          }
-        },
-        "units": {
-          "perM": "€/m",
-          "perKw": "€/kW",
-          "eur": "€",
-          "route": "{m} m × {p} €/m"
-        }
-      },
-      "calc": {
-        "title": "Calculate your case",
-        "intro": "Change the water, the use and the costs; the result follows the same chain and formulas as the tables above.",
-        "fields": {
-          "temp": "Water temperature at the wellhead",
-          "flow": "Flow",
-          "hours": "Equivalent full-load hours per year",
-          "heatValue": "Value of the heat replaced",
-          "electricPrice": "Price of electricity",
-          "upkeep": "Upkeep, share of the investment a year",
-          "newWells": "New wells",
-          "depth": "Depth of a new well",
-          "successRate": "Drilling success rate",
-          "drillingPerM": "Drilling cost",
-          "reinjectionWells": "Reinjection wells",
-          "reinjectionDepth": "Depth of a reinjection well",
-          "workover": "Workover of the existing well",
-          "heatPumpPerKw": "Heat pump",
-          "pipelineM": "Length of pipe",
-          "pipelinePerM": "Pipe laid",
-          "equipment": "Equipment for using the heat",
-            "otherOpex": "Other fixed costs a year",
-          "gasRatio": "Gas in the water",
-          "gasPrice": "Value of the gas",
-          "gasEquipment": "Equipment for using the gas"
-        },
-        "results": {
-          "atlas": "Above 20 °C (atlas figure)",
-          "heating": "Space heating",
-          "pools": "Pools",
-          "pump": "Heat pump heat",
-          "electric": "Heat pump electricity",
-          "cop": "Heat pump coefficient",
-          "total": "Heat delivered",
-          "energy": "Heat per year",
-          "gasRevenue": "Gas replaced, value a year",
-          "opex": "Operating costs a year",
-          "net": "Net gain per year",
-          "investment": "Estimated investment",
-          "payback": "Payback"
-        },
-        "note": "A calculation from stated assumptions, not a design. It does not replace testing the well, the assessment of its workover or a feasibility study."
-      },
-      "matrix": {
-        "caption": "Payback of a new well in years, if the heat replaces fuel worth {price} €/MWh",
-        "tempCol": "Water, °C (well depth, m)",
-        "flowHead": "{flow} l/s",
-        "clear": "clear",
-        "limit": "near the limit",
-        "no": "does not pay",
-        "note": "Every well here is one new well drilled to the depth at which the rock is 4 °C warmer than the water (the gradient of Melenci, 52.5 °C per km), with the same prices and assumptions as above, the heat pump, 500 m of pipe and the surface equipment, with all the heat used for {hours} hours a year. The workover, reinjection, gas and the subsidies are not counted. Clear: payback up to {clear} years; near the limit: {clear} to {limit} years; does not pay: over {limit} years. These limits are our judgement."
-      },
-      "pdf": {
-        "button": "Save as PDF",
-        "hint": "Opens the print dialog: choose “Save as PDF”. The page prints as a report with the tables and the temperature chart."
-      }
-    },
-    "geothermalModel": {
-      "canvasLabel": "Interactive 3D model of the wells of Vojvodina with temperature sections. Drag to rotate, click the model and scroll to zoom.",
-      "loading": "Loading the 3D model…",
-      "noWebgl": "This browser could not start 3D graphics, so the model cannot be shown.",
-      "hint": "Drag to rotate · right-drag or two fingers to pan · click the model, then scroll to zoom · click a well for details",
-      "zoomIn": "Zoom in",
-      "zoomOut": "Zoom out",
-      "views": {
-        "title": "View",
-        "perspective": "Perspective",
-        "top": "From above",
-        "south": "From the south",
-        "west": "From the west"
-      },
-      "scale": {
-        "title": "Scale",
-        "vertical": "Vertical exaggeration",
-        "relief": "Relief exaggeration",
-        "ground": "Ground opacity"
-      },
-      "layers": {
-        "title": "Layers",
-        "show": "Horizontal layers",
-        "spacing": "Layer spacing",
-        "opacity": "Layer opacity",
-        "walls": "Side walls"
-      },
-      "wells": {
-        "title": "Wells",
-        "labels": "Settlement names",
-        "producing": "In production (2005)",
-        "idle": "Not in production",
-        "untapped": "Never in production"
-      },
-      "contours": {
-        "title": "Contours on the ground",
-        "show": "Depth to a chosen temperature",
-        "temp": "Temperature reached"
-      },
-      "map": {
-        "title": "Terrain map",
-        "show": "Show a map on the ground (loads pictures from the map server)",
-        "loading": "Loading the map…",
-        "error": "The map could not be loaded.",
-        "credit": "Map data © <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener noreferrer\">OpenStreetMap contributors</a>, SRTM · style © <a href=\"https://opentopomap.org\" target=\"_blank\" rel=\"noopener noreferrer\">OpenTopoMap</a> (<a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noopener noreferrer\">CC-BY-SA</a>)"
-      },
-      "legend": {
-        "title": "Temperature, °C",
-        "measured": "Coloured bar on a well: measured at the tested interval",
-        "hollow": "Hollow marker: no interval given, plotted at total depth",
-        "modelled": "Coloured layers and walls: temperature from the atlas maps at 500, 1,000 and 2,000 m; a line every 10 °C on the walls",
-        "contours": "Lines on the ground: depth in km at which the chosen temperature is reached; rings close around the warmer wells",
-        "head": "Wellhead: filled in production, grey idle, ring never in production"
-      },
-      "detail": {
-        "title": "Well",
-        "empty": "Click a well to see its data here."
-      },
-      "tip": {
-        "well": "<strong>{id}</strong> · {place}<br>{status}<br>Depth {depth} {unit}, {interval}<br>Water {temp} {degC}",
-        "interval": "interval {top}–{bottom} {unit}",
-        "noInterval": "interval not given",
-        "section": "<strong>{temp} {degC}</strong> at {depth} {unit} (atlas)<br>{lat}°N, {lon}°E · gradient {gradient} {gunit}"
-      },
-      "test": {
-        "interval": "Interval {top}–{bottom} {unit}",
-        "noInterval": "No interval given",
-        "lowerBound": "lower bound"
-      },
-      "fields": {
-        "place": "Settlement",
-        "status": "Status",
-        "year": "Drilled",
-        "depth": "Total depth"
-      },
-      "status": {
-        "producing": "In production",
-        "idle": "Not in production",
-        "untapped": "Never in production"
-      },
-      "units": {
-        "m": "m",
-        "km": "km",
-        "degC": "°C",
-        "gradient": "°C/km",
-        "flow": "l/s",
-        "minerals": "g/l"
-      },
-      "workspace": {
-        "brand": "Geothermal model of Vojvodina",
-        "open": "Open in a full-screen window",
-        "close": "Close",
-        "fullscreen": "Full screen",
-        "dockLeft": "Settings",
-        "dockRight": "Data",
-        "fit": "Fit to window",
-        "tool": {
-          "navigate": "Navigate",
-          "measure": "Measure",
-          "frame": "Print frame",
-          "print": "Print",
-          "png": "Save image"
-        },
-        "hint": {
-          "navigate": "Drag to rotate · right-drag to pan · scroll to zoom · click the ground for a temperature profile · click a well for details",
-          "measureFirst": "Measure: click the first point on the ground",
-          "measureSecond": "Measure: click the second point",
-          "measureDone": "Distance and bearing are shown on the model · click again to start a new measurement · Esc to clear",
-          "frame": "Print frame: drag the bar to move it, drag a corner to resize it, then press Print"
-        },
-        "status": {
-          "lat": "Lat",
-          "lon": "Lon",
-          "gk": "GK7 E/N, m",
-          "elevation": "Elevation",
-          "temps": "Atlas temperature at 500 · 1,000 · 2,000 m",
-          "none": "Move the pointer over the model"
-        },
-        "find": {
-          "label": "Find a well or settlement",
-          "placeholder": "Find a well or settlement…",
-          "none": "No well or settlement with that name"
-        },
-        "probe": {
-          "title": "Point on the ground",
-          "empty": "Click the ground in the model to read the temperature below that point.",
-          "clear": "Clear the point",
-          "rows": {
-            "position": "Position",
-            "gk": "Gauss–Krüger zone 7, m",
-            "elevation": "Elevation",
-            "at": "At {depth} m",
-            "depthTo": "Depth to {temp} °C"
-          }
-        },
-        "chart": {
-          "temp": "Temperature, °C",
-          "depth": "Depth, km"
-        },
-        "print": {
-          "title": "Print the frame",
-          "paper": "Paper",
-          "a4": "A4",
-          "a3": "A3",
-          "orientation": "Orientation",
-          "landscape": "Landscape",
-          "portrait": "Portrait",
-          "showFrame": "Show the frame on the model",
-          "print": "Print",
-          "save": "Save image",
-          "placeFirst": "Place the frame over the part of the model you want, then press Print again.",
-          "busy": "Preparing the sheet…",
-          "summary": "{paper}, {orientation}, picture {w} × {h} mm"
-        },
-        "sheet": {
-          "subtitle": "Geothermal potential of Vojvodina: 3D model of hydrothermal wells",
-          "date": "Printed {date}",
-          "facts": {
-            "frame": "Area in the frame",
-            "settings": "Settings of the model"
-          },
-          "rows": {
-            "centre": "Centre",
-            "size": "Width × height on the ground",
-            "view": "View",
-            "scale": "Scale",
-            "exaggeration": "Vertical exaggeration",
-            "relief": "Relief exaggeration",
-            "layers": "Temperature layers",
-            "contours": "Contours",
-            "map": "Map",
-            "wells": "Wells",
-            "off": "Off"
-          },
-          "viewTop": "From above",
-          "viewOblique": "Oblique, direction {azimuth}°, tilt {tilt}°",
-          "scaleValue": "1 : {n}",
-          "layersValue": "every {step} km, opacity {opacity} %",
-          "contoursValue": "depth to {temp} °C",
-          "mapValue": "OpenTopoMap",
-          "wells": "Wells in the frame",
-          "wellsEmpty": "No wells in the frame.",
-          "wellsHead": [
-            "Well",
-            "Settlement",
-            "Status",
-            "Depth, m",
-            "Max. temp., °C",
-            "Interval, m",
-            "Drilled"
-          ],
-          "selected": "Selected well",
-          "point": "Point on the ground"
-        }
-      },
-      "notesTitle": "How to read it",
-      "notes": [
-        "**Position.** The annex lists settlements, not coordinates, so each well stands at the centre of its settlement. Wells of one settlement are spread on a ring about 2 km wide so that they can be told apart.",
-        "**Measured.** Each coloured bar is the temperature of the water at the tested interval. Where the annex gives no interval the marker is hollow and sits at the total depth; the temperature there is that of the water, which can have come from higher up, so the gradient at those wells is a lower bound.",
-        "**Atlas.** The layers, walls and contours are not measured at the wells. They come from the temperature maps at 500, 1,000 and 2,000 m of the [Geothermal Atlas of Vojvodina](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010), digitised from the colour classes of the maps (steps of 0.5, 1 and 2 °C). Between the maps temperature rises in straight lines from 11 °C at the surface, which is assumed. Below 2 km, deeper than any map, it continues at the slope between 1 and 2 km. The bars on the wells (annex) and the colours (atlas) are different sources and do not always agree: the atlas is warmer than the annex water at 44 of 53 tests, by 9 °C on average.",
-        "**Shape and relief.** The outline is the boundary of AP Vojvodina from OpenStreetMap. The height of the ground is from Terrain Tiles on AWS (SRTM and other sources), on a 1 km grid, drawn above the median level of the province, 79 m, with the exaggeration set in the scale panel. The temperature layers are drawn as depth below that level and do not follow the ground; the difference matters only on Fruška Gora and the Vršac Mountains. The annex gives no elevations of the wells, so the wellheads sit on the ground model.",
-        "**Source.** Wells and tests are from [Prilog 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) of *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), published openly by the Provincial Secretariat for Energy and Mineral Resources: 51 wells in three tables, Kž-2/H counted once."
       ]
     },
     "landing": {
       "meta": {
-        "title": "A website that brings you clients",
-        "description": "Fast custom websites, SEO and AI-search visibility for local service businesses. One fixed price, everything in your name, and a free check of your current site."
+        "title": "A website that brings in customers",
+        "description": "Fast custom websites, SEO and AI search visibility for local service businesses. One flat price, everything in your name, and a free audit of your current site."
       },
       "header": {
-        "cta": "Free website check"
+        "cta": "Free website audit"
       },
       "hero": {
-        "badge": "Available for new projects",
-        "titleLead": "Is your website sending clients to",
-        "titleHighlight": "your competitors?",
-        "description": "Every slow page, unanswered enquiry and missing Google ranking hands a customer to someone else — and you never see it happen. I build fast custom websites, set up SEO and AI-search visibility, and wire every enquiry straight to your phone.",
-        "primary": "See what my website is losing",
+        "badge": "Taking on new projects",
+        "titleLead": "Is your website sending customers",
+        "titleHighlight": "to your competitors?",
+        "description": "A slow page, a form nobody answered, a business that doesn't show up on Google. Each of these sends a customer to someone else, and you never see it happen. I build fast websites, fix your SEO and AI search presence, and send every lead straight to your phone.",
+        "primary": "See what your site is missing",
         "secondary": "See the results",
         "trust": [
           {
@@ -798,11 +401,11 @@
           },
           {
             "value": "100",
-            "label": "Google Lighthouse SEO score"
+            "label": "SEO score in Google Lighthouse"
           },
           {
             "value": "< 1 day",
-            "label": "to reply to every enquiry"
+            "label": "until I reply to your message"
           }
         ],
         "imageAlt": "Stojan Petkovic, the web developer you work with directly",
@@ -810,64 +413,64 @@
         "videoLabel": "Video introduction"
       },
       "problem": {
-        "badge": "What it's costing you",
-        "heading": "Right now, your website may be handing clients to your competitors",
-        "lead": "Nothing warns you: no error, no alert, just calls that never come. And the longer it goes on, the more it costs.",
+        "badge": "Where the customers go",
+        "heading": "Your website might be sending customers to the competition right now",
+        "lead": "There's no error message and no warning. The phone just rings less than it should, month after month.",
         "items": [
           {
             "icon": "hourglass",
-            "title": "Visitors leave before they see you",
-            "text": "Every extra second on a phone loses visitors before they even see your number — and the ones you paid for are the first to go. The cause is rarely your business: it's a heavy build of themes and plugins, chosen for a site that never needed any of it."
+            "title": "People leave before they see your number",
+            "text": "Nobody waits on a phone. If a page takes five seconds, they hit back and call the next company. The usual culprit is a heavy WordPress theme stuffed with plugins you never needed."
           },
           {
             "icon": "search-x",
-            "title": "Customers can't find you",
-            "text": "Thin pages, no local content and technical errors keep you off page one, and AI assistants like ChatGPT don't mention you at all. Whoever they do name gets the call."
+            "title": "You're invisible on Google",
+            "text": "Thin pages with no local content and technical errors never make page one. ChatGPT doesn't mention you, and the job goes to whoever it does mention. Page two doesn't pay the bills."
           },
           {
             "icon": "mail-x",
-            "title": "Enquiries go to your competitor",
-            "text": "Forms land in an inbox nobody checks, and the customer has already called someone else by the time you reply."
+            "title": "Leads sit in an inbox",
+            "text": "The form goes to an email nobody checks. By the time you reply, they have already hired someone else."
           },
           {
             "icon": "lock",
-            "title": "You're at someone else's mercy",
-            "text": "The domain, hosting or code sits in someone else's name, so every small change means waiting and paying — and you can't simply leave."
+            "title": "Your site isn't really yours",
+            "text": "The domain, hosting or code is in someone else's name. Every small change means waiting and another invoice, and leaving isn't easy."
           }
         ]
       },
       "solution": {
-        "badge": "How the losses stop",
-        "heading": "One person, one price, and a website that stops losing clients",
-        "lead": "Design, development, SEO and lead tracking in one project, built with only the tools your business needs — so every visitor you earn turns into an enquiry instead of a missed call.",
+        "badge": "How it gets fixed",
+        "heading": "One person, one price, and a website that works for you",
+        "lead": "Design, build, SEO and lead tracking in a single project. I only use what your business actually needs, so every visitor has a reason to pick up the phone.",
         "items": [
           {
             "icon": "zap",
-            "title": "A lightning-fast website",
-            "text": "Built with Astro: pages open instantly on any phone, with top marks in Google's own Lighthouse tests."
+            "title": "A site that loads instantly",
+            "text": "Built with Astro, so pages open right away even on a weak signal, with top scores on Google's speed tests."
           },
           {
             "icon": "search",
             "title": "Found on Google and in AI search",
-            "text": "Service and area pages, structured data and content written for how your customers actually search — in Google and in ChatGPT."
+            "text": "A page for every service and area, structured data for Google, and copy written the way people really search."
           },
           {
             "icon": "bell-ring",
-            "title": "Every enquiry, instantly",
-            "text": "Each form and call is tracked and sent to you the moment it happens, so you reply first and win the job."
+            "title": "Every lead, instantly",
+            "text": "Every form and every tap on your number is tracked and reaches you right away. You call back first and win the job."
           },
           {
             "icon": "shield-check",
             "title": "Yours from day one",
-            "text": "Code, domain and hosting in your name. No lock-in contracts, no hidden fees, no plugins to break."
+            "text": "Code, domain and hosting in your name. No contract holding you in, no hidden fees, no plugins that break with every update."
           }
         ]
       },
       "results": {
-        "badge": "Proof it can be fixed",
-        "heading": "The same problem, fixed: the right build for the job",
-        "lead": "Two tree service companies in South Florida were losing visitors to heavy sites built on tools they never needed. Rebuilt lean, their pages open instantly and score a perfect 100 for SEO. A local business needs speed and enquiries, not a complicated stack.",
-        "note": "These are just two examples from my work — every project is built the same way.",
+        "badge": "Results",
+        "heading": "Two sites, same problem, fixed",
+        "lead": "Two tree service companies in South Florida had slow WordPress sites loaded with plugins. I rebuilt both as lean sites: pages open instantly and score a perfect 100 for SEO. A local business needs speed and leads, not a complicated system.",
+        "note": "These are two examples. I build every site the same way.",
         "cases": [
           {
             "client": "Tree Jaws",
@@ -875,168 +478,172 @@
             "metric": "SEO 100",
             "metricLabel": "Lighthouse score after leaving WordPress",
             "points": [
-              "Rebuilt from WordPress in Astro — pages open instantly, even on a weak 4G connection",
-              "176 pages and 108 local guides, built to rank in local search",
+              "Moved from WordPress to Astro, pages open instantly even on a weak 4G signal",
+              "176 pages, including 108 local guides built to rank in each town",
               "1,010 tracked leads, 732 of them phone calls",
-              "4.9★ across 427 Google reviews"
+              "4.9★ rating from 427 Google reviews"
             ]
           },
           {
             "client": "Mahalo Tree Service",
             "sector": "Tree service · South Florida",
             "metric": "SEO 100",
-            "metricLabel": "Lighthouse score — and $0 spent on ads",
+            "metricLabel": "Lighthouse score, with $0 spent on ads",
             "points": [
-              "Rebuilt from WordPress in Astro — static pages instead of a stack of plugins",
-              "Every enquiry reaches the owner's inbox the second it's sent — no portal to check",
-              "Growth from search alone, with no paid ads",
+              "Moved from WordPress to Astro, plain fast pages instead of a pile of plugins",
+              "Every lead lands in the owner's inbox instantly, no portal to check",
+              "Growth from search alone, no paid ads",
               "5.0 Google rating, 18 service-area pages and a growing blog"
             ]
           }
         ]
       },
       "story": {
-        "badge": "An illustrative story",
+        "badge": "A typical story (made up)",
         "heading": "When the ads cost more than they brought in",
         "paragraphs": [
-          "Meet Daniel, a made-up owner built from situations I see again and again. He runs a tree service company. A homeowner with a storm-damaged tree calls the first company that looks trustworthy — and doesn't wait.",
-          "His website opens slowly, Google barely shows it, and the money he puts into ads isn't coming back. Visitors he pays for leave before the page has even loaded — and he never finds out, because nothing tells him.",
-          "Then the site is rebuilt: fast pages, SEO from the ground up, every enquiry sent straight to his phone. The pages open instantly and the ad budget finally turns into phone calls. Had he waited another season, the ads would have kept paying for visitors who never called."
+          "Dan isn't real, but his situation is. I pieced him together from stories I hear all the time. He runs a tree removal company. When a storm drops a limb on someone's roof, the homeowner calls the first company that looks legit and doesn't wait around.",
+          "Dan's site loads slowly, he barely shows up on Google, and his ad spend never comes back. The people he paid to visit leave before the page even loads. He has no idea, because nothing tells him.",
+          "Then the site gets rebuilt: fast pages, SEO done right, and every lead straight to his phone. The ad budget finally turns into calls. One more season of waiting would have meant paying for clicks from people who never call."
         ],
         "beforeTitle": "Before",
         "before": [
-          "A heavy site built on tools he never needed",
+          "A heavy site full of plugins he didn't need",
           "Weak SEO, hard to find on Google",
-          "Ad spend that didn't pay back"
+          "Ads that didn't pay for themselves"
         ],
         "afterTitle": "After",
         "after": [
           "Pages that open instantly",
-          "SEO set up from the ground up",
-          "Every enquiry reaches him the moment it's sent"
+          "SEO set up properly from the start",
+          "Every lead reaches him instantly"
         ],
         "quote": "Every week I waited, someone else got those calls.",
-        "author": "Daniel",
-        "role": "A fictional owner — an illustration, not a real client",
+        "author": "Dan",
+        "role": "Made-up owner, not a real client",
         "imageAlt": "An example tree service website built by Stojan Petkovic"
       },
       "report": {
-        "badge": "Tracking & monthly report",
-        "heading": "Without numbers, you're guessing — and that's how budgets disappear",
-        "lead": "Most websites leave you guessing which clicks, calls and euros are working and which are wasted. Every site I build can give you the clearest picture you'll ever have of your marketing: every inquiry, every call and every euro, in one monthly report written in plain language.",
+        "badge": "Tracking and monthly report",
+        "heading": "Without numbers you're guessing, and that's where budgets disappear",
+        "lead": "Most owners have no idea which clicks, calls and dollars actually bring in work. With every site I build you get a clear picture: every lead, every call and every dollar spent, in one monthly report you can read in five minutes.",
         "points": [
           {
             "icon": "inbox",
-            "title": "Every inquiry, instantly",
-            "text": "The full form, the page it came from and the ad or search that brought the visitor — in your inbox the second it's sent."
+            "title": "Every lead, instantly",
+            "text": "The full message, the page it came from and the ad or search that brought the visitor, in your inbox the moment it arrives."
           },
           {
             "icon": "phone",
-            "title": "Every call counted",
-            "text": "Taps on your phone number, WhatsApp and text links are recorded as conversions, not lost in the noise."
+            "title": "Every call counts",
+            "text": "Taps on your phone number, WhatsApp and text links are logged as leads instead of getting lost."
           },
           {
             "icon": "target",
-            "title": "The source that pays",
-            "text": "Google, Facebook ads or direct visits: see which one brings visits, inquiries and calls, and at what rate."
+            "title": "See which source pays",
+            "text": "Google, Facebook ads or direct visits: see which one brings visits, leads and calls, and at what rate."
           },
           {
             "icon": "wallet",
-            "title": "Cost per inquiry and per call",
-            "text": "Add your ad spend and the report shows what each inquiry, each call and each won client really cost you — and your return on ad spend."
+            "title": "Cost per lead and per call",
+            "text": "Enter what you spent on ads and the report shows what each lead, call and new customer really cost you, and what came back."
           },
           {
             "icon": "file-text",
             "title": "A monthly PDF anyone can read",
-            "text": "No logins, no dashboards to learn: clear pages in English or Serbian, ready for your partners or your accountant."
+            "text": "No logins, no dashboards. Plain pages you can hand to your partner or your accountant."
           },
           {
             "icon": "shield-check",
-            "title": "Private by design",
-            "text": "Visitors are counted anonymously, without cookies and without following them across other websites."
+            "title": "Privacy first",
+            "text": "Visitors are counted anonymously, with no cookies and no tracking across other sites."
           }
         ],
-        "outcomesHeading": "What it means for your business",
+        "outcomesHeading": "What that means for your business",
         "outcomes": [
-          "Stop paying for channels that bring clicks but no customers",
-          "Never lose an inquiry again — every one reaches you instantly",
-          "Proof in numbers that your website pays for itself"
+          "Stop paying for channels that bring clicks instead of customers",
+          "No lead slips through the cracks again",
+          "Proof in black and white that the site pays for itself"
         ],
         "imageAlt": "Example of a monthly website report: visitors, inquiries, calls, conversion rate, a daily chart and where visitors come from.",
-        "imageCaption": "An example monthly report (demo data).",
-        "imageBadge": "Available with every website"
+        "imageCaption": "Sample monthly report (demo data).",
+        "imageBadge": "Included with every site"
       },
       "process": {
         "badge": "How it works",
-        "heading": "Four steps from a website that loses clients to one that wins them",
-        "lead": "Every week you wait is a week of missed enquiries. No long meetings, no surprises — you always know what happens next.",
+        "heading": "Four steps to a website that wins customers",
+        "lead": "No long meetings, no surprises. You always know what happens next.",
         "steps": [
           {
-            "title": "Free website check",
-            "text": "Send the form. Within one business day I review your current site and your competitors and tell you honestly what's holding you back."
+            "title": "Free website audit",
+            "text": "Send the form. Within one business day I look at your site and your competitors and tell you honestly what's holding you back."
           },
           {
             "title": "One clear proposal",
-            "text": "A short call, then one document: what I'll build, when it's ready and one fixed price. You decide with everything on the table."
+            "text": "A short call, then one document: what I'll build, when it's done and one flat price. You decide with everything on the table."
           },
           {
             "title": "Design and build",
-            "text": "I work in short cycles and you follow progress on a preview link. Your current site stays live until the new one is ready."
+            "text": "I work in short rounds and you follow along on a preview link. Your current site stays live until the new one is ready."
           },
           {
-            "title": "Launch and growth",
-            "text": "The site goes live in your name, with SEO and lead tracking switched on. I stay available, with an optional monthly care plan."
+            "title": "Launch and grow",
+            "text": "The site goes live in your name, with SEO and lead tracking switched on. I'm still around afterwards, with a monthly care plan if you want one."
           }
         ]
       },
       "offer": {
-        "badge": "Zero risk to start",
+        "badge": "The first step is free",
         "heading": "Find out what your website is costing you",
-        "lead": "No obligation and no sales pitch — just an honest look at where visitors and enquiries are slipping away today.",
+        "lead": "No obligation and no sales pitch. Just an honest look at where visitors and leads are slipping away today.",
         "items": [
-          "A review of your current site's speed, SEO and AI-search visibility",
-          "A comparison with your top local competitors",
-          "Concrete next steps, whether you work with me or not",
-          "One fixed price if you decide to go ahead"
+          "A check of your speed, SEO and AI search visibility",
+          "A comparison with your strongest local competitor",
+          "Concrete next steps, whether you hire me or not",
+          "One flat price if you decide to go ahead"
         ]
       },
       "faq": {
         "badge": "Questions",
-        "heading": "Before you ask",
+        "heading": "Questions people usually ask",
         "items": [
           {
             "question": "How much does a website cost?",
-            "answer": "Every project gets one fixed price, agreed before any work starts — no hourly billing and no surprises. After the free check you get a clear proposal with the price and the timeline."
+            "answer": "Every project has one flat price agreed before work starts. No hourly billing and no surprise invoices. After the free audit you get a clear proposal with the price and the timeline."
           },
           {
             "question": "How long does it take?",
-            "answer": "That depends on the size of the site and how quickly the content is ready. The proposal names the timeline together with the price, so you know both before we start."
+            "answer": "It depends on the size of the site and how quickly the content is ready. The timeline is in the proposal next to the price, so you know both before we start."
           },
           {
-            "question": "What happens to my current website and Google rankings?",
-            "answer": "Your current site stays live until the new one is ready. Your address, content and rankings move with you, and old pages are redirected so nothing that already ranks gets lost."
+            "question": "What happens to my current site and my Google rankings?",
+            "answer": "Your current site stays live until the new one is ready. Your address and content come with you, and old pages are redirected so nothing that already ranks gets lost."
           },
           {
-            "question": "Do I own the website?",
-            "answer": "Completely. The code, the domain and the hosting are in your name from day one. If you ever want to leave, you take everything with you."
+            "question": "Do I really own the website?",
+            "answer": "Completely. Code, domain and hosting are in your name from day one. If you ever want to leave, you take all of it with you."
           },
           {
-            "question": "Do you work with clients in other countries?",
-            "answer": "Yes. I work with clients in the US and across Europe, entirely by phone, video call and email. Time zones are rarely a problem."
+            "question": "Do you work with businesses outside Europe?",
+            "answer": "Yes. I have clients in the US and across Europe, and everything runs over phone, video calls and email. Time zones haven't been a problem so far."
           },
           {
-            "question": "Can you also run Google Ads or social media ads?",
-            "answer": "Yes — Google Ads and Facebook and Instagram campaigns, with conversion tracking that shows what every euro brings in."
+            "question": "Can you run my Google or Facebook ads too?",
+            "answer": "Yes. I run Google Ads and Facebook and Instagram campaigns, with conversion tracking that shows what every dollar brings back."
+          },
+          {
+            "question": "Am I locked into a long contract?",
+            "answer": "No. The website is a one-time flat price, and ads and SEO run month to month. You stay because it pays, not because a contract says so."
           }
         ]
       },
       "form": {
-        "badge": "Free website check",
+        "badge": "Free website audit",
           "termsLabel": "I have read the {terms} and understand that this enquiry is not an offer or a contract.",
           "termsLink": "Terms of use",
           "termsRequired": "Please confirm that you have read the terms of use.",
-        "heading": "Tell me about your business",
-        "lead": "Three short steps, under a minute. I reply within one business day.",
+        "heading": "Tell me a bit about your business",
+        "lead": "Three short steps, under a minute. I'll get back to you within one business day.",
         "stepLabels": [
           "What you need",
           "Your business",
@@ -1100,19 +707,19 @@
         "sending": "Sending…",
         "chooseService": "Choose what you need to continue.",
         "required": "Please fill in your name and a valid email.",
-        "privacy": "Your details are used only to reply to you. No newsletters, no sharing.",
+        "privacy": "I only use your details to reply to you. No newsletter, and they're never shared.",
         "promise": "Reply within one business day",
-        "successTitle": "Thank you — your request is in!",
-        "successText": "I'll review your website and reply within one business day with honest, concrete next steps. Keep an eye on your inbox.",
-        "error": "Something went wrong. Please try again, or email me directly."
+        "successTitle": "Thanks, got it!",
+        "successText": "I'll look at your site and get back to you within one business day with honest, concrete next steps. Keep an eye on your inbox.",
+        "error": "Something went wrong. Please try again or email me directly."
       },
       "final": {
-        "heading": "Every week you wait, your competitors get the calls",
-        "text": "The check is free and there's no obligation. The worst case: you learn exactly what is losing you clients and what to fix first.",
-        "cta": "Get my free website check"
+        "heading": "Every week you wait, the calls go to someone else",
+        "text": "The audit is free and there's no obligation. Worst case, you find out exactly what's costing you customers and what to fix first.",
+        "cta": "Get my free audit"
       },
-      "footer": "Fast websites, SEO and lead generation for local businesses.",
-      "mobileCta": "Free website check",
+      "footer": "Fast websites, SEO and ads for local businesses.",
+      "mobileCta": "Free website audit",
       "privacy": {
         "toggle": "How I handle your data",
         "title": "Privacy notice",
@@ -1129,198 +736,211 @@
     },
     "about": {
       "meta": {
-        "title": "About — Engineer & Web Developer",
-        "description": "Stojan Petkovic: Ingenieur (title granted by the Bavarian Chamber of Engineers) and web developer. Fast websites for technical businesses, backed by 13+ years in oilfield operations."
+        "title": "About me: ads, SEO and websites",
+        "description": "Stojan Petkovic: ads, SEO, AI visibility and fast websites for service businesses. You work with me directly and see every result in numbers."
       },
       "hero": {
         "badge": "About",
         "titleLead": "Stojan\u00a0Petkovic",
-        "typingWords": ["Engineer", "Digital Architect", "Web Developer", "Problem Solver"],
-        "typingWordsMobile": ["Engineer", "Digital Architect", "Web Developer"],
-        "description": "Engineer (Ingenieur) and web\u00a0developer. I build fast, practical websites, and I bring an engineer's discipline to every project.",
+        "typingWords": [
+          "More calls",
+          "More enquiries",
+          "More customers",
+          "Measured"
+        ],
+        "typingWordsMobile": [
+          "More calls",
+          "More enquiries",
+          "More customers"
+        ],
+        "description": "I help service businesses get found online through ads, SEO, AI search and fast websites. You work with me directly, no middlemen.",
         "imageAlt": "A rocket launching past a lit planet's edge, against a starfield."
       },
       "background": {
         "badge": "Background",
-        "heading": "Engineering first, then code",
+        "heading": "Why I measure everything",
         "paragraphs": [
-          "I hold a degree in Mining Engineering from the University of Belgrade (graduated 2010). In 2026 the Bavarian Chamber of Engineers (Bayerische Ingenieurekammer-Bau) found my education equivalent to German requirements and granted me the professional title Ingenieur.",
-          "I started in 2011 as a mining engineer on mineral exploration projects, including underground work, then moved into drilling in 2012, planning and supervising exploration wells. Since 2013 I have worked in coiled tubing and nitrogen operations, from field engineer to operations manager, on more than 1,000 jobs. That work taught me how real operations behave: pressures, limits, and what breaks when a number is wrong. I bring that habit of checking the numbers into every website and tool I build.",
-          "For technical companies this means less explaining. You do not have to teach me what a job looks like on site before I can build the page for it. This is a personal, independent site. It does not represent any employer or company; see the terms of use."
+          "I'm an engineer by training and spent more than ten years in the field, where a wrong number gets expensive fast. That's where I learned not to assume anything: measure first, then decide.",
+          "I do the same with marketing. Every call, lead and dollar is logged, so within a few weeks we know what brings in customers and what just burns money.",
+          "I work with businesses in the US, Europe and Serbia: contractors, clinics, vacation rentals and local companies. You deal with me directly, there's no agency in between."
         ],
-        "credential": "Title Ingenieur granted by the Bavarian Chamber of Engineers, 2026"
+        "credential": "Engineer by training, with the Ingenieur title recognized by the Bavarian Chamber of Engineers."
       },
       "whatYouGet": {
         "badge": "What I bring",
-        "heading": "Everything your project needs",
-        "lead": "The same care and attention to detail on every project, from the first line of code to launch.",
+        "heading": "What you get",
+        "lead": "The same care on every project, from the first campaign to the last detail on the site.",
         "items": [
           {
-            "icon": "award",
-            "title": "Field experience",
-            "description": "13+ years and more than 1,000 jobs in coiled tubing and nitrogen operations."
+            "icon": "search",
+            "title": "Visibility",
+            "description": "Google, Maps, ChatGPT and social media, wherever your customers are looking."
           },
           {
-            "icon": "book-open",
-            "title": "Documented logic",
-            "description": "Formulas, assumptions and decisions written down, so results can be reviewed."
-          },
-          {
-            "icon": "component",
-            "title": "Clean, reusable code",
-            "description": "Well-structured, typed and documented, so it stays easy to maintain and extend."
-          },
-          {
-            "icon": "server",
-            "title": "Cloud-based by default",
-            "description": "Software that runs on a server and opens in the browser, with nothing to install."
-          },
-          {
-            "icon": "layout",
-            "title": "Clear technical content",
-            "description": "Pages, documentation and case studies laid out so technical readers find what they need fast."
+            "icon": "target",
+            "title": "Ads that pay back",
+            "description": "Google and Meta campaigns judged by calls, not clicks."
           },
           {
             "icon": "zap",
-            "title": "Fast websites when you need them",
-            "description": "Custom Astro websites, built to load quickly and rank well, as a separate service."
+            "title": "A fast website",
+            "description": "Pages that open instantly and lead to a call."
+          },
+          {
+            "icon": "message-circle",
+            "title": "No lead gets lost",
+            "description": "Every lead reaches you instantly, and an AI chat answers after hours."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Numbers every month",
+            "description": "What each enquiry, call and new customer costs."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Everything is yours",
+            "description": "Code, domain, hosting and ad accounts all in your name."
           }
         ]
       },
       "principles": {
         "badge": "How I work",
-        "heading": "Built with intention",
-        "lead": "Every project I take on is guided by the same three principles.",
+        "heading": "Three rules I stick to",
+        "lead": "They apply to every project, big or small.",
         "items": [
-          { "icon": "zap", "title": "Performance First", "description": "Every site I build is optimised for speed and Core Web Vitals from the first line of code." },
-          { "icon": "award", "title": "Engineering Discipline", "description": "Requirements first, then design, then code. Every number and every claim gets checked before it goes live." },
+          { "icon": "zap", "title": "Performance First", "description": "Every site is built to be fast from day one, because a slow page loses both people and Google." },
+          { "icon": "award", "title": "Built to last", "description": "Clean code and simple settings, so the site stays easy to maintain years after launch." },
           { "icon": "award", "title": "Engineering Discipline", "description": "Requirements first, then design, then code. Every number and every claim gets checked before it goes live." }
         ]
       },
       "stack": {
         "badge": "Tools & Tech",
         "title": "The Stack",
-        "description": "The technologies I build with, chosen for performance, reliability, and long-term maintainability."
+        "description": "The tools I use, picked because they're fast, reliable and won't be outdated next year."
       },
       "faq": {
         "badge": "Good to know",
         "heading": "Frequently asked questions",
-        "lead": "A few things people usually ask before we start working together.",
+        "lead": "A few things people usually ask before we start.",
         "cards": [
           {
             "icon": "user",
             "title": "About me",
             "items": [
-              { "question": "What kind of projects do you take on?", "answer": "Websites, custom software and data-driven platforms for technical and engineering businesses, plus classic web design for companies of any size." },
-              { "question": "What technologies do you work with?", "answer": "Modern, fast tools: Astro, TypeScript, and Tailwind CSS on the front end, with cloud infrastructure and automation where a project needs it." },
-              { "question": "Do you work with clients outside your local area?", "answer": "Yes. Most projects run entirely by phone, video, and email, and time zones are rarely a problem." },
-              { "question": "Are you available for new projects?", "answer": "Usually, yes — check the badge on the homepage, or just send a message and I'll tell you honestly." }
+              { "question": "What exactly do you do?", "answer": "I help service businesses win customers online: ads, SEO, AI search visibility, fast websites and tracking of every lead." },
+              { "question": "What technologies do you work with?", "answer": "Astro, TypeScript and Tailwind CSS for websites, plus cloud services and automation when a project needs them." },
+              { "question": "Do you work with clients outside your local area?", "answer": "Of course. Most of the work happens over phone, video and email, and time zones rarely get in the way." },
+              { "question": "Do you have room for new projects right now?", "answer": "Usually, yes. Check the badge on the home page or just send me a message and I'll tell you honestly." }
             ]
           },
           {
             "icon": "briefcase",
             "title": "Working together",
             "items": [
-              { "question": "How do you usually start a project?", "answer": "With a free, no-obligation conversation about what you need, followed by one clear proposal with a timeline and price." },
-              { "question": "Do you offer support after launch?", "answer": "Yes, a monthly care plan is available for updates, monitoring, and small changes after your site goes live." },
-              { "question": "Is the website really mine?", "answer": "Completely. The domain, hosting, and code are in your name from day one." }
+              { "question": "How do you usually start a project?", "answer": "A free call about what you need, with no obligation. After that you get a proposal with a timeline and a price." },
+              { "question": "Do you offer support after launch?", "answer": "Yes. There is a monthly care plan for updates, monitoring and small changes once the site is live." },
+              { "question": "Is the website really mine?", "answer": "Completely. Domain, hosting and code are in your name from day one." }
             ]
           }
         ]
       },
       "openSource": {
         "badge": "Why work with me",
-        "heading": "A dedicated partner, not a vendor",
-        "description": "You work directly with the person building your site — no account managers, no handoffs, and a fixed price agreed before we start.",
+        "heading": "A partner, not just a vendor",
+        "description": "You work directly with the person who builds your site and runs your ads. No account managers, no outsourcing, and the price is agreed up front.",
         "button": "Get in touch",
         "cards": [
-          { "title": "One point of contact", "text": "You talk directly with me from the first message to launch — no sales team in between." },
-          { "title": "Fixed price, no surprises", "text": "Every project gets one clear price agreed before work starts. No hourly billing." },
-          { "title": "Support after launch", "text": "I stay reachable after your site goes live, with a monthly care plan available for ongoing updates." }
+          { "title": "One point of contact", "text": "You talk to me from the first message to launch day. There's no salesperson in between." },
+          { "title": "Fixed price, no surprises", "text": "We agree on the price before work starts. No hourly billing." },
+          { "title": "Support after launch", "text": "I'm still around once the site is live, and there's a monthly care plan for regular updates." }
         ]
       },
       "cta": {
         "badge": "Get started",
-        "heading": "Ready to work together?",
-        "description": "Tell me about your project — I'll get back to you within a business day with honest, practical next steps.",
+        "heading": "Want to work together?",
+        "description": "Send me a few lines about your business. I'll get back to you the same or next business day with an honest answer and a concrete next step.",
         "button": "Get in touch"
       }
     },
     "services": {
       "meta": {
-        "title": "Services — Software and Web",
-        "description": "Cloud-based software and tools and web development, by an engineer. Free first talk, one proposal, one fixed price."
+        "title": "Services: ads, SEO, AI search and websites",
+        "description": "Google and Meta ads, local SEO, AI search visibility and fast websites for service businesses. Free check, fixed price for the website."
       },
       "areas": {
-        "software": {
-          "icon": "code",
-          "badge": "Software & tools",
-          "heading": "Cloud-based software and tools",
+        "marketing": {
+          "icon": "target",
+          "badge": "Ads, SEO and AI",
+          "heading": "Get found by people already looking for what you do",
           "paragraphs": [
-            "Software for technical teams that runs on a server and opens in the browser: nothing to install, one version for everyone.",
-            "I build it the way I run a job: requirements first, numbers checked, and the logic documented so results can be reviewed."
+            "When someone needs a plumber, a dentist or a place to stay, they ask Google, open Maps or ask ChatGPT. My job is to make sure they find you there, not your competitor.",
+            "Ads bring calls from day one. SEO and AI search build a steady stream you don't pay for per click. Everything is tracked, so you know what pays off."
           ],
           "included": [
             {
-              "lead": "Internal tools and dashboards",
-              "text": "your data and workflows in one place."
+              "lead": "Google Ads",
+              "text": "Search and Maps, tuned for the searches that turn into jobs."
             },
             {
-              "lead": "Calculators and engineering tools",
-              "text": "formulas explained, results you can reproduce."
+              "lead": "Facebook and Instagram ads",
+              "text": "campaigns for your area and retargeting people who already visited your site."
             },
             {
-              "lead": "Custom industrial software",
-              "text": "built to order around how your operation works."
+              "lead": "Local SEO",
+              "text": "Google Business Profile, reviews and a page for every service and town."
             },
             {
-              "lead": "Hosting in your name",
-              "text": "set up, secured and kept running, with the code and the domain yours."
+              "lead": "AI search visibility",
+              "text": "so ChatGPT and Google's AI recommend you when someone asks."
             },
             {
-              "lead": "Documentation",
-              "text": "so your team can use it and your auditors can check it."
+              "lead": "AI chat and instant replies",
+              "text": "every enquiry gets an answer, even when you can't get to the phone."
+            },
+            {
+              "lead": "Monthly report",
+              "text": "calls, leads and what each one cost, in plain English."
             }
           ],
-          "ctaLabel": "Discuss a tool"
+          "ctaLabel": "Get my free audit"
         },
         "web": {
           "icon": "layout",
-          "badge": "Web development",
-          "heading": "Websites for technical companies",
+          "badge": "Websites",
+          "heading": "A website people call from",
           "paragraphs": [
-            "Fast websites and web systems for engineering and technical companies, as a separate service with its own page.",
-            "Design, development and optimisation by the same engineer, with one fixed price and everything in your name."
+            "Fast custom websites and landing pages. Within a few seconds a visitor sees what you do and where to tap to call you.",
+            "One flat price, and the code, domain and hosting are in your name from day one."
           ],
           "included": [
             {
               "lead": "Custom design",
-              "text": "shaped around your business and your customers."
+              "text": "fitted to your business and your customers."
             },
             {
               "lead": "Built for speed",
-              "text": "Astro websites that open instantly on every device."
+              "text": "pages open instantly on every phone."
             },
             {
-              "lead": "Found by Google and AI",
-              "text": "SEO and structured data built in from the first line."
+              "lead": "SEO from the first line",
+              "text": "structured data and a page for every service."
             },
             {
-              "lead": "A monthly report",
-              "text": "visitors, enquiries and sources, in plain language."
+              "lead": "Enquiry and call tracking",
+              "text": "every form and every tap on your number is recorded."
             },
             {
               "lead": "Care after launch",
-              "text": "updates and monitoring, with an optional care plan."
+              "text": "updates and monitoring, with an optional monthly plan."
             }
           ],
-          "ctaLabel": "Go to web development"
+          "ctaLabel": "See websites"
         }
       },
       "overviewFaq": {
         "badge": "Questions",
         "heading": "Questions and answers",
-        "lead": "The things clients ask before we start.",
+        "lead": "What people ask before we get started.",
         "cards": [
           {
             "icon": "tag",
@@ -1328,23 +948,23 @@
             "items": [
               {
                 "question": "How much does it cost?",
-                "answer": "Every project gets one fixed price, agreed before the work starts. No hourly billing and no surprises. The free first talk tells me what you need, and you get the price in one clear proposal."
+                "answer": "Every project has one flat price, agreed before work starts. No hourly billing and no surprises. A free first call tells me what you need, and the price comes in one clear proposal."
               },
               {
                 "question": "How long does it take?",
-                "answer": "That depends on the scope. The proposal names the timeline together with the price, so you know both before we start."
+                "answer": "It depends on the scope. The timeline is in the proposal, right next to the price."
               },
               {
-                "question": "Do you work with clients abroad?",
-                "answer": "Yes. I work with clients worldwide, by phone, video and email, in the CET time zone."
+                "question": "Do you work with businesses in other countries?",
+                "answer": "Yes. My clients are in the US and across Europe, and we talk by phone, video call or email. I work on Central European Time."
               },
               {
                 "question": "Who owns what you build?",
-                "answer": "You do. The code, the documentation, the domain and the hosting are in your name from day one."
+                "answer": "You do. Code, domain, hosting and ad accounts are in your name from day one."
               },
               {
-                "question": "Can you take on a small piece of work?",
-                "answer": "Yes. A single tool or a small website is a perfectly good start. Tell me what you have in mind."
+                "question": "Do you take on small jobs?",
+                "answer": "Yes. A single landing page or one campaign is a perfectly good place to start. Tell me what you have in mind."
               }
             ]
           }
@@ -1353,59 +973,62 @@
       "includedLabel": "What you get",
       "hero": {
         "badge": "Services",
-        "titleLead": "Software",
-        "titleHighlight": "and web development",
-        "description": "Two areas, one engineer: cloud-based software for technical teams, and websites as a separate service. The engineering content of this site is informational and is not offered as a service.",
-        "jumpLabels": ["Software & tools", "Web development"]
+        "titleLead": "Everything it takes",
+        "titleHighlight": "for customers to find you",
+        "description": "Ads, SEO and AI search bring people to your site, and a fast site turns them into calls. One person does it all, and you get the numbers every month.",
+        "jumpLabels": [
+          "Ads, SEO and AI",
+          "Websites"
+        ]
       },
       "process": {
         "badge": "How it works",
-        "heading": "How a project runs",
-        "lead": "From your first message to the delivered result.",
+        "heading": "How we work together",
+        "lead": "From your first message to your first calls.",
         "steps": [
-          { "title": "First contact", "description": "You send a message through the contact form. I reply within a working day, and we plan a free, informational talk about what you need. No obligations." },
-          { "title": "Proposal", "description": "After our talk you get one clear document: what I'll build, when it's ready, and the fixed price. You decide with everything on the table." },
-          { "title": "Work in short cycles", "description": "You follow the progress and see the result take shape, whether it is a document, a tool or a website." },
-          { "title": "Delivery & support", "description": "The work is handed over in your name and documented. Afterwards I stay reachable, and there is a monthly care plan if you want regular updates." }
+          { "title": "First contact", "description": "Send a message through the contact page. I reply within one business day and we set up a short call. It's free and you're under no obligation." },
+          { "title": "Proposal", "description": "After the call you get one document: what I will do, by when and what it costs. The price is fixed, and you decide once you have the full picture." },
+          { "title": "Short work rounds", "description": "You can see progress at every stage, whether it's ads, SEO or a new site." },
+          { "title": "Launch and support", "description": "Everything is handed over in your name and documented. I'm still around afterwards, and there's a monthly care plan if you want regular updates." }
         ]
       },
       "cta": {
         "badge": "Let's talk",
-        "heading": "Let's talk about what you need",
-        "description": "The first talk is free and informative, with no obligations: by phone, video, or email. You get honest answers, and after the talk one clear proposal with a timeline and a fixed price.",
+        "heading": "Let's talk about your business",
+        "description": "The first call is free, by phone, video or email. You get straight answers, and afterwards a clear proposal with a timeline and a flat price.",
         "primary": "Send a message",
         "secondary": "More about me"
       }
     },
     "contact": {
       "meta": {
-        "title": "Contact",
-        "description": "Cloud software, engineering tools or a website: tell me what you need. I reply within one business day."
+        "title": "Contact and free website audit",
+        "description": "Ads, SEO, AI search or a new website: tell me what you need. I reply within one business day."
       },
       "hero": {
         "badge": "Contact",
-        "titleLead": "Tell me what you're",
-        "titleHighlight": "working on",
-        "description": "Cloud-based software and tools, or a website. A short message is enough; I reply within one business day."
+        "titleLead": "Let's get you",
+        "titleHighlight": "more customers",
+        "description": "Ads, SEO, AI search or a new website. A few sentences are enough, and you get a reply within one business day."
       },
       "helpTitle": "What I can help with",
       "help": [
         {
-          "icon": "code",
-          "title": "Software and tools",
-          "text": "Cloud-based software and engineering tools for technical B2B companies."
+          "icon": "target",
+          "title": "Ads, SEO and AI visibility",
+          "text": "So people find you on Google, on the map, in ChatGPT and on social media."
         },
         {
           "icon": "layout",
-          "title": "Web development",
-          "text": "Fast websites and web systems, as a separate service."
+          "title": "A website that turns visits into calls",
+          "text": "A fast website or landing page, with every lead tracked."
         }
       ],
       "nextTitle": "What happens next",
       "next": [
         "I reply within one business day.",
-        "We have a short call to define what you need. It is free and without obligation.",
-        "You get one clear proposal with scope, timeline and a fixed price."
+        "We have a short call to work out what you need. It's free and there's no obligation.",
+        "You get one proposal with the scope, the timeline and a flat price."
       ],
       "facts": [
         {"value": "3", "label": "Languages: Serbian, English, German"},
@@ -1416,13 +1039,13 @@
         }
       ],
       "emailLabel": "Email",
-      "preferEmail": "Prefer email? Write to",
+      "preferEmail": "Rather use email? Write to",
       "form": {
-        "badge": "Project enquiry",
+        "badge": "Get in touch",
           "termsLabel": "I have read the {terms} and understand that this enquiry is not an offer or a contract.",
           "termsLink": "Terms of use",
           "termsRequired": "Please confirm that you have read the terms of use.",
-        "heading": "Tell me about your project",
+        "heading": "Tell me what you need",
         "lead": "Three short steps, under a minute. I reply within one business day.",
         "stepLabels": [
           "What you need",
@@ -1433,14 +1056,19 @@
         "serviceLegend": "What do you need?",
         "services": [
           {
-            "value": "software",
-            "icon": "code",
-            "label": "Software or engineering tools"
+            "value": "new-website",
+            "icon": "sparkles",
+            "label": "A new website"
           },
           {
-            "value": "web",
-            "icon": "layout",
-            "label": "A website or web system"
+            "value": "seo",
+            "icon": "search",
+            "label": "SEO and AI search visibility"
+          },
+          {
+            "value": "ads",
+            "icon": "target",
+            "label": "Google or social media ads"
           },
           {
             "value": "other",
@@ -1451,7 +1079,7 @@
         "websiteLabel": "Company website (optional)",
         "websitePlaceholder": "yourcompany.com",
         "businessLabel": "Company and industry",
-        "businessPlaceholder": "e.g. engineering software company, manufacturer",
+        "businessPlaceholder": "e.g. dentist in Vienna, roofing company in Miami",
         "timelineLegend": "When would you like to start?",
         "timelines": [
           {
@@ -1477,1529 +1105,277 @@
         "sending": "Sending…",
         "chooseService": "Choose what you need to continue.",
         "required": "Please fill in your name and a valid email.",
-        "privacy": "Your details are used only to reply to you. No newsletters, no sharing.",
+        "privacy": "I only use your details to reply to you. No newsletter, and they're never shared.",
         "promise": "Reply within one business day",
-        "successTitle": "Thank you — your enquiry is in!",
-        "successText": "I'll read it and reply within one business day with concrete next steps. Keep an eye on your inbox.",
-        "error": "Something went wrong. Please try again, or email me directly."
-      }
-    },
-    "tools": {
-      "featured": {
-        "badge": "Software",
-        "title": "A full application, not a calculator",
-        "text": "The CT Simulator is a workspace laid out like a drawing program, with its own steps, palettes and command line. It runs in the browser and keeps your project on your computer.",
-        "hint": "Large screens and tablets only. There is no mobile version.",
-        "cta": "Open the CT Simulator",
-        "listTitle": "Calculators"
-      },
-      "meta": {
-        "title": "Tools",
-        "description": "Small cloud-based engineering tools and calculators for coiled tubing and oilfield work, built by an engineer, with the method explained."
-      },
-      "hero": {
-        "badge": "Tools",
-        "titleLead": "Engineering tools",
-        "titleHighlight": "that open in the browser",
-        "description": "Small cloud-based tools and calculators for coiled tubing and oilfield work. Each one explains its method, so you can check the result."
-      },
-      "status": "In preparation",
-      "statusAvailable": "Available",
-      "open": "Open the tool",
-      "inputsLabel": "Inputs",
-      "outputsLabel": "Results",
-      "form": {
-        "reportCreated": "Created {date}",
-        "reportInputs": "Inputs",
-        "reportResults": "Results",
-        "reportMethod": "Method and assumptions",
-        "system": {
-          "label": "Units",
-          "us": "Oilfield (US)",
-          "metric": "Metric"
-        },
-        "example": "Load example",
-        "invalidTitle": "Check the inputs",
-        "invalidText": "Some values are missing or out of range. Correct the highlighted fields to see the result.",
-        "print": "Save as PDF",
-        "printInputs": "Inputs",
-        "printFoot": "Calculated at {url} on {date}.",
-        "back": "All tools"
-      },
-      "cta": "Tell me what you need",
-      "notice": {
-        "text": "Results are approximate and for information only. They are not a design, a procedure or professional advice. Check the inputs and the results, and follow your company's procedures and the manufacturer's data.",
-        "link": "Terms of use",
-        "ackTitle": "Before you use the tools",
-        "ackIntro": "The tools and calculators on this site are personal, informational aids made from public formulas and stated assumptions.",
-        "ackItems": [
-          "Results are approximate. They are not a design, a procedure or professional advice.",
-          "Do not use them as the only basis for work on wells, work under pressure, work with nitrogen or any other safety-critical action. Follow your company's procedures, the manufacturer's data and the instruction of the responsible person.",
-          "This is a personal, independent site. It does not represent any employer or company and uses none of their data. You are responsible for the data you enter and for your decisions."
-        ],
-        "ackCheck": "I understand this and accept the {terms}.",
-        "ackButton": "Continue",
-        "ackBack": "Back to the tools"
-      },
-      "note": "The tools are aids for engineers. Check the inputs and the results: responsibility for any decision stays with the user.",
-      "suggest": {
-        "title": "Missing a calculation?",
-        "text": "Tell me which calculation or small tool you use every day. If it helps others too, it may become the next one.",
-        "cta": "Suggest a tool"
-      },
-      "nitrogenZ": {
-        "title": "Compressibility factor of nitrogen",
-        "intro": "Z corrects the ideal gas law for nitrogen at high pressure: above 1 the gas takes more room than an ideal gas, so a vessel or well holds less nitrogen in standard volumes than with Z = 1. The diagram and the table give Z for nitrogen by absolute pressure and temperature; the nitrogen tools interpolate in the table.",
-        "chartLabel": "Compressibility factor Z of nitrogen against absolute pressure, for five temperatures from −20 to 160 °C",
-        "pressureAxis": "Absolute pressure, bar",
-        "marker": "Orange point: the conditions of your calculation.",
-        "pressureHeader": "Absolute pressure",
-        "source": "Computed from the density of nitrogen in the NIST Chemistry WebBook (equation of state of Span et al., 2000) as Z = P·M/(ρ·R·T). Pressures are absolute, gauge pressure plus 1.013 bar. Between the points the tools interpolate linearly; outside 1–500 bar and −20 to 160 °C they use the edge value.",
-        "hint": "Z from the table at these conditions",
-        "use": "Use this value",
-        "outside": "Outside the table: the value at the edge is shown."
-      },
-      "items": [
-        {
-          "href": "/tools/ct-simulator",
-          "tag": "Mechanics",
-          "icon": "layout-dashboard",
-          "title": "CT Simulator",
-          "description": "Draw the well, build the CT string and the BHA, set the job and read the weight indicator, lock-up depth, set-down weight and overpull.",
-          "inputs": [
-            "Well, deviation survey and tubulars, drawn on a schematic",
-            "CT string and BHA, tool by tool",
-            "Fluids, friction and surface equipment"
-          ],
-          "outputs": [
-            "Weight indicator against depth",
-            "Lock-up depth, set-down weight and overpull",
-            "Axial force and buckling along the string"
-          ]
-        },
-        {
-          "href": "/tools/ct-pressure-loss",
-          "tag": "Hydraulics",
-          "icon": "activity",
-          "title": "CT Pressure Loss",
-          "description": "Frictional pressure loss for power-law fluids pumped through coiled tubing, with the string split into straight and reel-wound sections.",
-          "inputs": [
-            "Fluid density, power-law n and K",
-            "Reel size, tubing size and wall",
-            "String length and length on the reel",
-            "Flow rate"
-          ],
-          "outputs": [
-            "Velocity and Reynolds number",
-            "Flow regime, straight and curved",
-            "Pressure loss per section and total"
-          ]
-        },
-        {
-          "href": "/tools/ct-strength-limits",
-          "tag": "Mechanics",
-          "icon": "shield-check",
-          "title": "CT Strength Limits",
-          "description": "Stresses, burst, collapse and tension limits of coiled tubing for a given load, with the von Mises check against the yield factor.",
-          "inputs": [
-            "Tubing size, wall and ovality",
-            "Yield strength, yield factor and modulus",
-            "Pressures, axial force and bend radius"
-          ],
-          "outputs": [
-            "Axial, hoop and von Mises stress",
-            "Burst and collapse (API 5C3, 5C7)",
-            "Tension limits and the yield-factor check"
-          ]
-        },
-        {
-          "href": "/tools/nitrogen-displacement",
-          "tag": "Nitrogen",
-          "icon": "wind",
-          "title": "Nitrogen Displacement",
-          "description": "Nitrogen needed to displace the fluid in a well through coiled tubing, including the tubing left on the reel.",
-          "inputs": [
-            "Coiled tubing length, size and pumping depth",
-            "Production tubing and well fluid density",
-            "Temperatures, compressibility and nitrogen density"
-          ],
-          "outputs": [
-            "Pressure at depth and at the wellhead",
-            "Gas volume at standard conditions",
-            "Liquid nitrogen volume and mass"
-          ]
-        },
-        {
-          "href": "/tools/nitrogen-vessel",
-          "tag": "Nitrogen",
-          "icon": "wind",
-          "title": "Nitrogen for a Vessel",
-          "description": "Nitrogen needed to bring a vessel up to a pressure at a given temperature.",
-          "inputs": [
-            "Vessel volume",
-            "Pressure to raise to, and starting pressure",
-            "Temperature and compressibility"
-          ],
-          "outputs": [
-            "Gas volume at standard conditions",
-            "Liquid nitrogen volume",
-            "Nitrogen mass"
-          ]
-        },
-        {
-          "href": "/tools/well-kill",
-          "tag": "Well control",
-          "icon": "shield-check",
-          "title": "Well Kill",
-          "description": "Kill fluid density, volumes and bullheading pressure for a producing well, and the kill sheet of a drilling well.",
-          "inputs": [
-            "Depth, pressures and fluid density",
-            "Tubing and casing sizes, or string and annulus volumes",
-            "Pump rate or kill-rate pressure"
-          ],
-          "outputs": [
-            "Kill fluid density",
-            "Volumes, strokes and times",
-            "Bullheading pressure, or ICP, FCP and the pressure schedule"
-          ]
-        }
-      ]
-    },
-    "ctStrength": {
-      "meta": {
-        "title": "CT Strength Limits",
-        "description": "Check coiled tubing against burst, collapse and tension: stresses, von Mises equivalent stress and API collapse and burst limits, in oilfield or metric units."
-      },
-      "hero": {
-        "badge": "Mechanics",
-        "title": "CT Strength Limits",
-        "description": "Stresses, burst, collapse and tension limits of coiled tubing for the load you enter, with the von Mises check against the yield factor. Oilfield or metric units."
-      },
-      "groups": {
-        "tubing": "Tubing",
-        "material": "Material",
-        "loads": "Loads"
-      },
-      "fields": {
-        "od": {
-          "label": "Tubing OD"
-        },
-        "wall": {
-          "label": "Wall thickness"
-        },
-        "ovality": {
-          "label": "Ovality",
-          "hint": "(ODmax − ODmin) / OD; about 0.005 for new tubing"
-        },
-        "yieldStress": {
-          "label": "Yield strength",
-          "hint": "Minimum yield strength of the steel"
-        },
-        "yieldFactor": {
-          "label": "Yield factor",
-          "hint": "Design factor on the yield strength"
-        },
-        "modulus": {
-          "label": "Young's modulus",
-          "hint": "Steel: about 30 million psi"
-        },
-        "poisson": {
-          "label": "Poisson's ratio",
-          "hint": "Steel: 0.33"
-        },
-        "pressureIn": {
-          "label": "Internal pressure"
-        },
-        "pressureOut": {
-          "label": "External pressure"
-        },
-        "axialForce": {
-          "label": "Axial force",
-          "hint": "Positive in tension, negative in compression"
-        },
-        "bendingRadius": {
-          "label": "Bend radius",
-          "hint": "Radius the tubing is bent over; 0 for straight tubing"
-        },
-        "safetyFactor": {
-          "label": "Collapse safety factor",
-          "hint": "Safety factor of the API 5C7 collapse correction for tension, at least 1"
-        }
-      },
-      "results": {
-        "title": "Result",
-        "stresses": "Stresses at the inside wall",
-        "axial": "Axial stress (worst side)",
-        "hoop": "Hoop stress",
-        "radial": "Radial stress",
-        "vonMises": "Von Mises stress",
-        "vonMisesPercent": "Share of yield strength",
-        "withinYieldFactor": "Within the yield factor",
-        "exceedsYieldFactor": "Exceeds the yield factor",
-        "burst": "Burst",
-        "burstApi": "API 5C3 internal yield",
-        "burstCapped": "Capped-end yield",
-        "burstTrue": "True burst",
-        "collapse": "Collapse",
-        "timoshenkoRound": "Timoshenko, round",
-        "api5c3": "API 5C3, round",
-        "api5c7Oval": "API 5C7, oval",
-        "timoshenkoOval": "Timoshenko, oval",
-        "api5c7Tension": "API 5C7, oval, with tension",
-        "noTension": "Needs tension",
-        "tension": "Tension limits",
-        "tensionMax": "Maximum tension",
-        "tensionAtPressure": "Maximum tension at this pressure",
-        "differential": "Differential pressure (external − internal)"
-      },
-      "method": {
-        "title": "Method",
-        "intro": "The tubing is checked as a thick-walled steel tube under internal and external pressure, axial force and an optional bend.",
-        "steps": [
-          "Axial stress is the axial force over the steel area. A bend of radius R adds the bending stress E·OD/(2R) on the convex side and subtracts it on the concave side; the larger absolute value is used.",
-          "Hoop and radial stress at the inside wall come from the Lamé equations for a thick cylinder; the radial stress there equals minus the internal pressure. The von Mises stress combines the three: √(σa² + σh² + σr² − σa·σh − σa·σr − σh·σr). Torque is not included.",
-          "Burst: API 5C3 internal yield 0.875 · 2Y·t/D; capped-end yield (4Y/√3)·(t/D)·(1 − t/D), where the von Mises stress at the inside wall reaches Y; true burst (2Y/√3)·ln(OD/ID), where the whole wall yields.",
-          "Collapse: Timoshenko, Pc = [Py·R + Pe·(1 + 3·ov·D/2t) − √((Py·R + Pe·(1 + 3·ov·D/2t))² − 4·Py·Pe·R)] / 2, with Py = 2Y·t/D, Pe = 2E/(1 − ν²)·(t/D)³ and R the reduction for axial stress; round tubing has ov = 0. API 5C3 uses the yield, plastic, transition or elastic range of D/t, with the yield strength reduced for axial stress. API RP 5C7 gives the collapse of oval tubing from the round collapse and the ovality, and in tension reduces it by Kcf = ((1/SF)^(4/3) − (L/Ly)^(4/3))^0.75.",
-          "Tension limits: Ly = yield factor · Y · steel area, and the largest axial force that keeps the von Mises stress at the yield factor with the hoop and radial stress of the entered pressures."
-        ],
-        "assumptionsTitle": "Assumptions",
-        "assumptions": [
-          "A seamless steel tube with uniform wall and the nominal dimensions entered, without corrosion, wear or fatigue.",
-          "Pressures are uniform along the tubing; the stresses are those at the inside wall, the worst case.",
-          "Torque and shear stresses are not included.",
-          "The API collapse equations are valid for the D/t range of the standards; check results outside it."
-        ],
-        "reference": "Based on the API 5C3 and API RP 5C7 equations, Timoshenko collapse, the Lamé equations and the von Mises criterion. The calculation reproduces a reference worksheet for its example case. Check the standards before you rely on a result; fatigue life is not covered."
-      }
-    },
-    "nitrogenDisplacement": {
-      "meta": {
-        "title": "Nitrogen Displacement",
-        "description": "Calculate how much nitrogen is needed to displace the fluid in a well through coiled tubing: gas at standard conditions, as liquid nitrogen and by mass, in metric or oilfield units."
-      },
-      "hero": {
-        "badge": "Nitrogen",
-        "title": "Nitrogen Displacement",
-        "description": "How much nitrogen it takes to displace the fluid in a well through coiled tubing, including the tubing still on the reel. Metric or oilfield units."
-      },
-      "groups": {
-        "coil": "Coiled tubing",
-        "well": "Well",
-        "gas": "Nitrogen"
-      },
-      "fields": {
-        "ctLength": {
-          "label": "Coiled tubing on the reel",
-          "hint": "Total length, including what goes into the well"
-        },
-        "depth": {
-          "label": "Pumping depth",
-          "hint": "Depth the nitrogen is pumped from"
-        },
-        "ctOd": {
-          "label": "Coiled tubing OD"
-        },
-        "ctWall": {
-          "label": "Coiled tubing wall"
-        },
-        "tubingOd": {
-          "label": "Production tubing OD"
-        },
-        "tubingWall": {
-          "label": "Production tubing wall"
-        },
-        "fluidDensity": {
-          "label": "Fluid in the well",
-          "hint": "Density of the fluid being displaced"
-        },
-        "tempDepth": {
-          "label": "Temperature at depth"
-        },
-        "tempSurface": {
-          "label": "Temperature at the wellhead"
-        },
-        "compressibility": {
-          "label": "Compressibility factor, Z",
-          "hint": "1 for an ideal gas. Use the value from the table below."
-        },
-        "nitrogenDensity": {
-          "label": "Mean nitrogen density in the well",
-          "hint": "Average density of the gas column; sets the pressure at the wellhead"
-        }
-      },
-      "results": {
-        "title": "Result",
-        "totalMass": "Total nitrogen required",
-        "conditions": "Gas conditions",
-        "pressureDepth": "Pressure at depth",
-        "pressureSurface": "Pressure at the wellhead",
-        "pressureMean": "Mean pressure",
-        "factorMean": "Volume factor, mean",
-        "factorSurface": "Volume factor, wellhead",
-        "well": "Filling the well",
-        "fillVolume": "Volume filled with gas",
-        "reel": "Filling the tubing on the reel",
-        "total": "Total",
-        "gas": "Gas at standard conditions",
-        "liquid": "As liquid nitrogen",
-        "mass": "Mass"
-      },
-      "method": {
-        "title": "Method",
-        "intro": "The well fluid is displaced down to the pumping depth; the nitrogen that fills the column, and the tubing left on the reel, is totalled as gas, liquid and mass.",
-        "steps": [
-          "Pressure at depth balances the hydrostatic column of the well fluid: P = ρ·g·h. The wellhead pressure is that minus the weight of the nitrogen column, from the mean nitrogen density. The column is taken at the mean of the two pressures and of the two temperatures.",
-          "Volume factor of nitrogen: B = 2.8416·P / (Z·(273 + T)) in sm³/m³, with P in kPa and T in °C. The constant stands for standard conditions of about 15 °C and 101.3 kPa.",
-          "Volume filled with gas: the production tubing bore minus the coiled tubing steel, times the depth. That is the annulus and the coiled tubing bore, each counted once.",
-          "Nitrogen for the well is that volume times the factor at mean conditions. Nitrogen for the tubing still on the reel is its bore volume times the factor at wellhead conditions.",
-          "Liquid nitrogen: 1 m³ of liquid gives 696.5 sm³ of gas and weighs 808 kg."
-        ],
-        "assumptionsTitle": "Assumptions",
-        "assumptions": [
-          "The fluid is displaced completely down to the pumping depth, in a vertical well.",
-          "The compressibility factor is constant along the column; the temperature is the mean of the two ends.",
-          "The mean nitrogen density is an input, not derived from the pressure, so the wellhead pressure follows from it.",
-          "No fluid enters the well and no nitrogen is lost; nothing is allowed for the pumping losses or a reserve."
-        ],
-        "reference": "Reproduces a reference worksheet, with one difference: the worksheet counts the coiled tubing bore twice in the volume filled with gas, which here is counted once, so the nitrogen for the well is lower than the worksheet’s. Check the gas properties against a nitrogen table before you rely on a result."
-      }
-    },
-    "nitrogenVessel": {
-      "meta": {
-        "title": "Nitrogen for a Vessel",
-        "description": "Calculate the nitrogen needed to bring a vessel up to a pressure at a given temperature: gas at standard conditions, as liquid nitrogen and by mass, in metric or oilfield units."
-      },
-      "hero": {
-        "badge": "Nitrogen",
-        "title": "Nitrogen for a Vessel",
-        "description": "Enter the volume of a vessel, the pressure it is raised to and its temperature to get the nitrogen needed. Metric or oilfield units."
-      },
-      "groups": {
-        "vessel": "Vessel",
-        "gas": "Nitrogen"
-      },
-      "fields": {
-        "volume": {
-          "label": "Vessel volume"
-        },
-        "pressure": {
-          "label": "Pressure to raise to",
-          "hint": "Gauge pressure"
-        },
-        "initialPressure": {
-          "label": "Starting pressure",
-          "hint": "Gauge pressure; 0 for an empty vessel at atmospheric pressure"
-        },
-        "temperature": {
-          "label": "Temperature in the vessel"
-        },
-        "compressibility": {
-          "label": "Compressibility factor, Z",
-          "hint": "1 for an ideal gas. Use the value from the table below."
-        }
-      },
-      "results": {
-        "title": "Result",
-        "mass": "Nitrogen required",
-        "factor": "Volume factor at the final pressure",
-        "gasInVessel": "Gas in the vessel at the final pressure",
-        "gas": "Gas to add, at standard conditions",
-        "liquid": "As liquid nitrogen"
-      },
-      "method": {
-        "title": "Method",
-        "intro": "The nitrogen is the gas that has to be added to take the vessel from its starting pressure to the final pressure at constant temperature.",
-        "steps": [
-          "Volume factor of nitrogen: B = 2.8416·P / (Z·(273 + T)) in sm³/m³, with P in kPa (gauge) and T in °C. The constant stands for standard conditions of about 15 °C and 101.3 kPa.",
-          "Gas to add: the vessel volume times the difference of the factors at the final and at the starting pressure.",
-          "Liquid nitrogen: 1 m³ of liquid gives 696.5 sm³ of gas and weighs 808 kg."
-        ],
-        "assumptionsTitle": "Assumptions",
-        "assumptions": [
-          "The pressures are gauge pressures and the vessel starts with no other gas than the air at atmospheric pressure, which is not counted.",
-          "The temperature stays constant while the vessel is filled; heating from compression is not allowed for.",
-          "The compressibility factor is a single value for the whole range of pressure.",
-          "No nitrogen is lost to purging or leaks."
-        ],
-        "reference": "Uses the same volume factor and nitrogen properties as the Nitrogen Displacement tool, which reproduces a reference worksheet. Check the gas properties against a nitrogen table before you rely on a result."
-      }
-    },
-    "wellBuilder": {
-      "units": {
-        "label": "Depth unit"
-      },
-      "palette": {
-        "title": "Components",
-        "hint": "Drag a component onto the schematic, or press Enter on it to add it. Drag in the schematic to move it; drag the round handles to change its depths."
-      },
-      "types": {
-        "casing": "Casing",
-        "liner": "Liner",
-        "tubing": "Tubing",
-        "ct": "Coiled tubing",
-        "packer": "Packer",
-        "nipple": "Landing nipple",
-        "sleeve": "Sliding sleeve",
-        "perforation": "Perforations"
-      },
-      "canvas": {
-        "title": "Well schematic (measured depth)",
-        "empty": "Drag a component here to start the well.",
-        "notToScale": "Depth to scale; widths are not to scale.",
-        "surface": "Surface"
-      },
-      "editor": {
-        "size": "Size",
-        "weight": "Weight",
-        "wall": "Wall",
-        "packerOd": "Packer OD, in",
-        "depth": "Depth",
-        "top": "Top",
-        "bottom": "Bottom",
-        "delete": "Delete",
-        "duplicate": "Duplicate",
-        "none": "Select a component to edit it.",
-        "note": "Note",
-        "notePlaceholder": "e.g. profile XN, ID 2.205\"",
-        "id": "Inside diameter",
-        "drift": "Drift diameter",
-        "capacity": "Capacity",
-        "displacement": "Steel displacement"
-      },
-      "survey": {
-        "title": "Deviation survey",
-        "intro": "Paste measured depth, inclination and azimuth, one station per line, or import a CSV or text file. The path is calculated with the minimum curvature method.",
-        "placeholder": "MD, Inc, Azi\n0, 0, 0\n1500, 0, 0\n3000, 28, 50",
-        "import": "Import a file",
-        "clear": "Clear",
-        "errors": {
-          "empty": "The survey is empty.",
-          "columns": "Line {line}: three columns are needed (MD, inclination, azimuth).",
-          "number": "Line {line}: a value is not a number.",
-          "range": "Line {line}: inclination must be 0–180°, azimuth 0–360° and MD not negative.",
-          "order": "Line {line}: measured depth must increase."
-        },
-        "table": {
-          "md": "MD",
-          "inc": "Inc °",
-          "azi": "Azi °",
-          "tvd": "TVD",
-          "north": "North",
-          "east": "East",
-          "dls": "DLS"
-        },
-        "summary": {
-          "md": "Measured depth",
-          "tvd": "True vertical depth",
-          "departure": "Departure",
-          "closure": "Direction",
-          "maxInc": "Max inclination",
-          "maxDls": "Max dogleg"
-        }
-      },
-      "view": {
-        "title": "3D well path",
-        "hint": "Drag to turn the well, hold Shift and drag to move it, scroll or use + and − to zoom. The dashed line is the path projected on the ground.",
-        "top": "Plan view",
-        "side": "Side view",
-        "reset": "Reset",
-        "zoomIn": "Zoom in",
-        "zoomOut": "Zoom out",
-        "north": "N",
-        "east": "E",
-        "depth": "TVD",
-        "low": "Low",
-        "high": "High",
-        "noSurvey": "No survey yet: the well is drawn straight down to its deepest component.",
-        "legend": "Colour: dogleg severity, from low to high."
-      },
-      "marker": {
-        "shoe": "shoe",
-        "tubing": "Tubing end",
-        "ct": "CT end",
-        "packer": "Packer",
-        "perforations": "Perforations",
-        "nipple": "Landing nipple",
-        "sleeve": "Sliding sleeve"
-      },
-      "print": {
-        "button": "Save as PDF",
-        "title": "Well schematic",
-        "components": "Components",
-        "type": "Type",
-        "size": "Size",
-        "weight": "Weight",
-        "length": "Length",
-        "generated": "Created at {url} on {date}.",
-        "include": "In the PDF:",
-        "optionData": "Well data",
-        "option3d": "3D view"
-      },
-      "data": {
-        "example": "Load an example well",
-        "import": "Import a well",
-        "export": "Export a well",
-        "reset": "Clear the well",
-        "note": "Saved in this browser only.",
-        "confirmExample": "Replace the current well with the example?",
-        "confirmReset": "Clear the well and its survey?",
-        "importError": "That file is not a well exported from this page.",
-        "sizes": "Pipe sizes and weights are the nominal API 5CT values; check them against the standard or the mill data before a design."
-      }
-    },
-    "ctPressureLoss": {
-      "meta": {
-        "title": "CT Pressure Loss",
-        "description": "Calculate the friction pressure loss of a Newtonian, Bingham plastic, power-law, Herschel–Bulkley or empirically measured fluid pumped through coiled tubing, split into straight and reel-wound sections, in oilfield or metric units."
-      },
-      "hero": {
-        "badge": "Hydraulics",
-        "title": "CT Pressure Loss",
-        "description": "Frictional pressure loss for fluids pumped through coiled tubing. Choose the rheology model, enter the fluid, the tubing and the flow rate, in oilfield or metric units."
-      },
-      "groups": {
-        "fluid": "Fluid",
-        "geometry": "Tubing and reel",
-        "flow": "Flow",
-        "fann": "Fann readings",
-        "temperature": "Temperature effects"
-      },
-      "fields": {
-        "density": {
-          "label": "Density"
-        },
-        "n": {
-          "label": "Flow behaviour index, n",
-          "hint": "Power-law exponent; 1 for a Newtonian fluid"
-        },
-        "k": {
-          "label": "Consistency index, K",
-          "hint": "Power-law consistency, from the rheology of the fluid"
-        },
-        "reelDiameter": {
-          "label": "Reel diameter",
-          "hint": "Diameter of the coil the tubing is wound on"
-        },
-        "od": {
-          "label": "Tubing OD"
-        },
-        "wall": {
-          "label": "Wall thickness"
-        },
-        "roughness": {
-          "label": "Wall roughness",
-          "hint": "Absolute roughness of the inside wall; 0 for smooth tubing. Only affects turbulent flow"
-        },
-        "totalLength": {
-          "label": "String length"
-        },
-        "lengthOffReel": {
-          "label": "Tubing off the reel",
-          "hint": "Straight length, not wound on the reel"
-        },
-        "flowRate": {
-          "label": "Flow rate"
-        },
-        "fluidType": {
-          "label": "Fluid type"
-        },
-        "model": {
-          "label": "Rheology model",
-          "hint": "How the flow curve of the fluid is described"
-        },
-        "pv": {
-          "label": "Plastic viscosity (PV)",
-          "hint": "For a Newtonian fluid, its viscosity"
-        },
-        "yp": {
-          "label": "Yield point (YP)",
-          "hint": "Yield stress of the fluid"
-        },
-        "fluidTemperature": {
-          "label": "Fluid temperature",
-          "hint": "Temperature at which PV and YP are taken from the table; empty uses the values above"
-        }
-      },
-      "results": {
-        "title": "Result",
-        "total": "Total friction pressure loss",
-        "straight": "Off the reel (straight)",
-        "curved": "On the reel (curved)",
-        "velocity": "Velocity",
-        "reynolds": "Reynolds number",
-        "dean": "Dean number",
-        "regime": "Flow regime",
-        "effN": "Equivalent flow index n′",
-        "effK": "Equivalent consistency K",
-        "pvUsed": "PV at fluid temperature",
-        "ypUsed": "YP at fluid temperature"
-      },
-      "regimes": {
-        "laminar": "Laminar",
-        "transitional": "Transitional",
-        "turbulent": "Turbulent"
-      },
-      "method": {
-        "title": "Method",
-        "intro": "The loss is calculated separately for the part of the string off the reel (straight) and the part on the reel (curved), and the two are added.",
-        "steps": [
-          "Rheology: the model gives the wall shear stress τ at a wall shear rate γ. Newtonian: τ = μγ. Bingham plastic: τ = YP + PV·γ. Power law: τ = Kγⁿ. Herschel–Bulkley: τ = τ₀ + Kγⁿ. Empirical: the measured Fann points joined by straight lines on log–log axes. Fann speed N rpm gives γ = 1.7023 N 1/s and τ = 1.0678 θ lbf/100 ft².",
-          "Equivalent power law: at the flow in question the pseudo shear rate is Γ = 8V/D. The wall shear rate γw = Γ(3n′+1)/(4n′) is found by iterating with n′, the local slope of the flow curve, and the model's K and n′ are those that give the same wall stress and slope. A power-law fluid returns its own n and K.",
-          "Fann fit: Bingham plastic PV = θ600 − θ300 and YP = θ300 − PV; Herschel–Bulkley τ₀ = 2τ3 − τ6 and a log–log fit for n and K; power law a log–log fit; Newtonian a fit through the origin. The deviation is the root-mean-square relative error of the model against the readings.",
-          "Reynolds number (Metzner–Reed): Re = 31.042 ρ Q^(2−n) / (9.804^n K ID^(4−3n)) · (n/(1+3n))^n, with ρ in lb/gal, Q in gal/min, ID in inches and K in lbf·sⁿ/100 ft².",
-          "Straight tubing: laminar below Re = 3470 − 1370n and turbulent above 4270 − 1370n. Laminar f = 16/Re. Turbulent f = a/Re^b, with a = (log n + 3.93)/50 and b = (1.75 − log n)/7.",
-          "Coiled tubing: the laminar factor is multiplied by ψ·De^φ, where De = Re_g·(ID/D)^0.5 is the Dean number, ψ = 47.969 − 153.8n + 166.22n² − 60.132n³ and φ = 0.875n − 0.515. Turbulent: f = 1.069·a/Re^(0.8b)·(ID/D)^0.1. The laminar limit is (4n/(3n+1))^n · [2100 ψ (ID/D)^(0.5φ)]^(1/(1−φ)) and the turbulent limit is 800 above it.",
-          "Pressure loss: ΔP = f ρ Q² L / (154.63 ID⁵) in oilfield units. Between the two limits the loss is interpolated linearly in Re, from the laminar loss at the lower limit to the turbulent loss at the upper limit."
-        ],
-        "assumptionsTitle": "Assumptions",
-        "assumptions": [
-          "Wall roughness enters only the turbulent friction factor, as the ratio of the Haaland factor with roughness to the one without, so a roughness of 0 gives the smooth-tube result. For n other than 1 this is an estimate.",
-          "For models with a yield stress the equivalent power law is evaluated at the flow rate entered. This is sound for laminar flow; turbulent and transitional values for such fluids are estimates, and the critical Reynolds numbers are those of a power-law fluid.",
-          "A single-phase power-law fluid without solids.",
-          "Smooth tubing and fully developed flow, with fluid properties constant along the string.",
-          "The curvature is that of the reel diameter you enter; tubing off the reel is straight.",
-          "The correlations cover a limited range of n and ID/D. Check results outside it."
-        ],
-        "reference": "Based on published correlations for power-law fluids in coiled tubing (Zhou and Shah), with the Metzner–Reed Reynolds number and Dodge–Metzner turbulent factors. The calculation reproduces a reference worksheet for its example case. Check the original papers before you rely on a result."
-      },
-      "models": {
-        "newtonian": "Newtonian",
-        "bingham": "Bingham plastic",
-        "powerLaw": "Power law",
-        "herschelBulkley": "Herschel–Bulkley",
-        "empirical": "Empirical model"
-      },
-      "fluidTypes": {
-        "liquid": "Liquid",
-        "gas": "Gas",
-        "foam": "Foam",
-        "multiphase": "Multiphase"
-      },
-      "soon": "not yet available",
-      "fann": {
-        "note": "Dial readings θ of a Fann 35 viscometer at each speed. The standard R1-B1 rotor-bob combination and F1 torsion spring are assumed.",
-        "fit": "Fit the model to the readings",
-        "fitted": "Fitted. Deviation from the readings: {dev} %",
-        "direct": "The empirical model uses the readings directly.",
-        "failed": "The readings do not support this model. Enter all 12 readings, or at least 600 and 300 rpm for Bingham plastic."
-      },
-      "temp": {
-        "note": "For Newtonian and Bingham fluids PV and YP are interpolated between the rows at the fluid temperature. Leave the table empty to use the surface values.",
-        "title": "Rheology at different temperatures",
-        "temperature": "Temp.",
-        "pv": "PV",
-        "yp": "YP"
-      }
-    },
-    "wellKill": {
-      "meta": {
-        "title": "Well Kill",
-        "description": "Calculate the kill fluid density and the volumes and pressures for killing a producing well by bullheading or circulation, and the kill sheet of a drilling well for the driller's and wait-and-weight methods, in metric or oilfield units."
-      },
-      "hero": {
-        "badge": "Well control",
-        "title": "Well Kill",
-        "description": "Kill fluid, volumes and pressures for a producing well, or the kill sheet of a drilling well. Pick the method, enter the well, in metric or oilfield units."
-      },
-      "groups": {
-        "wellFluid": "Well and fluid",
-        "kill": "Kill and bullheading",
-        "tubing": "Tubing and casing",
-        "pumping": "Pumping",
-        "drillWell": "Well and mud",
-        "drillPump": "Pump and circulation",
-        "drillVolumes": "Volumes"
-      },
-      "fields": {
-        "wTvd": {
-          "label": "True vertical depth",
-          "hint": "Depth of the formation"
-        },
-        "wMd": {
-          "label": "Tubing length",
-          "hint": "Measured depth of the tubing shoe"
-        },
-        "wDensity": {
-          "label": "Fluid density in the well"
-        },
-        "wSitp": {
-          "label": "Shut-in tubing pressure"
-        },
-        "wMargin": {
-          "label": "Overbalance",
-          "hint": "Pressure the kill fluid adds over the formation pressure"
-        },
-        "wInject": {
-          "label": "Injection pressure above formation",
-          "hint": "Pressure above the formation pressure needed to push fluid into it when bullheading"
-        },
-        "wFracture": {
-          "label": "Fracture pressure",
-          "hint": "At the formation depth; 0 leaves the check out"
-        },
-        "wTubingId": {
-          "label": "Tubing ID"
-        },
-        "wTubingOd": {
-          "label": "Tubing OD"
-        },
-        "wCasingId": {
-          "label": "Casing ID"
-        },
-        "wRate": {
-          "label": "Pump rate"
-        },
-        "dTvd": {
-          "label": "True vertical depth"
-        },
-        "dMud": {
-          "label": "Mud density"
-        },
-        "dSidpp": {
-          "label": "Shut-in drill pipe pressure (SIDPP)"
-        },
-        "dShoeTvd": {
-          "label": "Casing shoe depth (TVD)"
-        },
-        "dLeakoff": {
-          "label": "Leak-off, as mud density",
-          "hint": "Mud density equivalent to the leak-off pressure at the shoe"
-        },
-        "dScr": {
-          "label": "Circulating pressure at the kill rate"
-        },
-        "dSpm": {
-          "label": "Pump speed",
-          "hint": "Strokes per minute at the kill rate"
-        },
-        "dPump": {
-          "label": "Pump output",
-          "hint": "Volume per stroke"
-        },
-        "dStringVolume": {
-          "label": "Drill string volume",
-          "hint": "Inside the drill string"
-        },
-        "dAnnulusVolume": {
-          "label": "Annulus volume",
-          "hint": "Bit to surface"
-        }
-      },
-      "results": {
-        "title": "Result",
-        "killFluid": "Kill fluid density",
-        "killMud": "Kill mud density",
-        "formationPressure": "Formation pressure",
-        "densityIncrease": "Density increase",
-        "hydrostatic": "Hydrostatic pressure of the kill fluid",
-        "tubingVolume": "Tubing volume (bullhead)",
-        "annulusVolume": "Annulus volume",
-        "tubingTime": "Time to pump the tubing",
-        "circulationTime": "Time to pump tubing and annulus",
-        "startPressure": "Surface pressure at the start of bullheading",
-        "endPressure": "Surface pressure at the end of bullheading",
-        "injectionPressure": "Bottomhole pressure while injecting",
-        "fractureMargin": "Margin to fracture pressure",
-        "icp": "Initial circulating pressure (ICP)",
-        "fcp": "Final circulating pressure (FCP)",
-        "strokesToBit": "Strokes to the bit",
-        "strokesToSurface": "Strokes, bit to surface",
-        "timeToBit": "Time to the bit",
-        "timeToSurface": "Time, bit to surface",
-        "totalStrokes": "Strokes of the whole kill",
-        "totalTime": "Time of the whole kill",
-        "maasp": "Maximum allowable annular pressure (MAASP)",
-        "min": "min",
-        "strokes": "strokes"
-      },
-      "schedule": {
-        "title": "Drill pipe pressure schedule",
-        "strokes": "Strokes",
-        "time": "Time",
-        "pressure": "Pressure",
-        "note": "While the kill mud goes down the string, hold the drill pipe pressure to this schedule, then hold the final circulating pressure until the kill mud is at surface."
-      },
-      "methods": {
-        "label": "Method",
-        "hint": "Producing well kill, or a drilling well killed by one of the two circulation methods",
-        "options": {
-          "workover": "Producing well: bullheading and circulation",
-          "drillers": "Drilling well: driller's method",
-          "waitWeight": "Drilling well: wait and weight"
-        }
-      },
-      "method": {
-        "title": "Method",
-        "intro": "The tool calculates the kill from the balance of hydrostatic pressures.",
-        "steps": [
-          "Hydrostatic pressure: P = ρ·g·TVD, with g = 9.80665 m/s². The formation pressure is the shut-in pressure plus the hydrostatic pressure of the fluid in the well.",
-          "Producing well: the kill fluid density balances the formation pressure plus the overbalance, ρ = (P + overbalance) / (g·TVD). Volumes are π/4·ID²·L for the tubing and π/4·(casing ID² − tubing OD²)·L for the annulus.",
-          "Bullheading: the surface pressure is the injection pressure (formation pressure plus the pressure needed to inject) minus the hydrostatic pressure of the fluid in the tubing. It starts at the shut-in pressure plus the injection margin and falls as the kill fluid goes in. The bottomhole pressure is checked against the fracture pressure.",
-          "Drilling well: kill mud density = mud density + SIDPP / (g·TVD). ICP = SIDPP + circulating pressure at the kill rate; FCP = circulating pressure × kill mud / mud density. The drill pipe pressure falls linearly from ICP to FCP over the strokes to the bit.",
-          "Wait and weight circulates once with the kill mud. The driller's method circulates the influx out with the original mud first, holding ICP, and then circulates the kill mud. MAASP = (leak-off density − mud density)·g·shoe TVD."
-        ],
-        "assumptionsTitle": "Assumptions",
-        "assumptions": [
-          "A vertical column of one fluid: no gas in the fluid, no friction while bullheading and no temperature or compressibility effect on the density.",
-          "Pressures are gauge. Check the kill against the casing, tubing and wellhead pressure ratings.",
-          "The kill sheet is for the method the page names; choke operation and the response to a gas influx need judgement on location."
-        ],
-        "reference": "This tool is a planning aid, not a substitute for the operator's well control procedures and the well control certification of the crew. Check the result against the company's own kill sheet."
-      }
-    },
-    "bhaBuilder": {
-      "palette": {
-        "title": "Tools",
-        "hint": "Select a tool to add it at the bottom of the assembly, then edit its sizes."
-      },
-      "types": {
-        "connector": "Coil connector",
-        "crossover": "Cross-over sub",
-        "swivel": "Swivel",
-        "checkValve": "Check valve",
-        "disconnect": "Disconnect",
-        "circSub": "Circulation sub",
-        "motorhead": "Motorhead",
-        "jar": "Jar",
-        "accelerator": "Accelerator",
-        "centralizer": "Centraliser",
-        "nozzle": "Jetting nozzle",
-        "mill": "Mill",
-        "motor": "Mud motor",
-        "packer": "Packer",
-        "overshot": "Overshot",
-        "generic": "Other tool"
-      },
-      "examples": {
-        "sheet": "Sheet example: 1-1/2\" coil, 10 tools",
-        "motorhead1_11_16": "Motorhead 1-11/16\"",
-        "motorhead2_1_8": "Motorhead 2-1/8\"",
-        "motorhead2_3_8": "Motorhead 2-3/8\"",
-        "motorhead2_7_8": "Motorhead 2-7/8\"",
-        "motorhead3_1_8": "Motorhead 3-1/8\""
-      },
-      "fields": {
-        "bhaNo": "BHA no.",
-        "runNo": "Run no.",
-        "preparedBy": "Prepared by"
-      },
-      "drawing": {
-        "title": "Assembly, top to bottom"
-      },
-      "units": {
-        "label": "Units"
-      },
-      "editor": {
-        "description": "Description",
-        "od": "Outside diameter",
-        "bore": "Inside diameter",
-        "length": "Length",
-        "connection": "Connection",
-        "weight": "Weight in air",
-        "up": "Move up",
-        "down": "Move down",
-        "copy": "Duplicate",
-        "remove": "Remove",
-        "empty": "No tools yet. Pick one from the list above, or load an example."
-      },
-      "summary": {
-        "length": "Total length",
-        "maxOd": "Largest OD",
-        "minBore": "Smallest bore",
-        "count": "Tools",
-        "weight": "Weight"
-      },
-      "data": {
-        "example": "Load an example",
-        "export": "Export a BHA",
-        "reset": "Clear the BHA",
-        "note": "Saved in this browser only.",
-        "confirmExample": "Replace the current BHA with the example?",
-        "confirmReset": "Clear the BHA?",
-        "importError": "That file is not a BHA exported from this page.",
-        "disclaimer": "Sizes and lengths are the ones you enter; the examples are typical values from a BHA sheet. Check them against the manufacturer's data before the job.",
-        "import": "Import a BHA"
-      },
-      "print": {
-        "button": "Save as PDF",
-        "title": "Bottom hole assembly",
-        "bhaNo": "BHA no.",
-        "runNo": "Run no.",
-        "preparedBy": "Prepared by",
-        "total": "Total length"
-      }
-    },
-    "ctForces": {
-      "groups": {
-        "well": "Well",
-        "string": "CT string",
-        "bha": "BHA",
-        "fluids": "Fluids, friction and surface",
-        "limits": "Material and limits"
-      },
-      "fields": {
-        "depth": {
-          "label": "BHA depth (MD)",
-          "hint": "Measured depth of the bottom of the BHA to analyse"
-        },
-        "holeId": {
-          "label": "Hole inside diameter",
-          "hint": "Casing or tubing the CT runs in"
-        },
-        "ctOd": {
-          "label": "CT outside diameter"
-        },
-        "s1Len": {
-          "label": "Section 1 length",
-          "hint": "Sections run from the BHA end towards the reel; leave sections 2 and 3 empty for one wall thickness"
-        },
-        "s1Wall": {
-          "label": "Section 1 wall"
-        },
-        "s2Len": {
-          "label": "Section 2 length"
-        },
-        "s2Wall": {
-          "label": "Section 2 wall"
-        },
-        "s3Len": {
-          "label": "Section 3 length"
-        },
-        "s3Wall": {
-          "label": "Section 3 wall"
-        },
-        "bhaLength": {
-          "label": "BHA length"
-        },
-        "bhaWeight": {
-          "label": "BHA weight in air"
-        },
-        "bhaOd": {
-          "label": "BHA outside diameter",
-          "hint": "Used for buoyancy; the BHA is taken as rigid"
-        },
-        "rhoIn": {
-          "label": "Fluid density inside the CT"
-        },
-        "rhoOut": {
-          "label": "Fluid density outside the CT"
-        },
-        "whp": {
-          "label": "Wellhead pressure"
-        },
-        "cf": {
-          "label": "Friction coefficient",
-          "hint": "About 0.30–0.35 water-wet steel, 0.20–0.25 lubricated, 0.15–0.20 oil-wet"
-        },
-        "stripperFriction": {
-          "label": "Stripper friction"
-        },
-        "reelTension": {
-          "label": "Reel back tension"
-        },
-        "modulus": {
-          "label": "Young's modulus"
-        },
-        "yieldStrength": {
-          "label": "Yield strength"
-        },
-        "designFactor": {
-          "label": "Design factor in tension",
-          "hint": "Fraction of the yield force allowed at the surface"
-        },
-        "snubLimit": {
-          "label": "Injector push limit",
-          "hint": "The most the injector can push the CT with; lock-up is declared beyond it"
-        }
-      },
-      "results": {
-        "title": "Result",
-        "reach": "Depth reached before lock-up",
-        "reachTd": "TD, no lock-up",
-        "slackoff": "Weight indicator, RIH",
-        "pickup": "Weight indicator, POOH",
-        "injectorPush": "Injector push at this depth",
-        "maxSetdown": "Maximum set-down weight",
-        "maxOverpull": "Maximum overpull",
-        "tensionLimit": "Tension limit at the surface",
-        "buckleOnset": "Helical buckling starts at",
-        "buckledLength": "Buckled length at this depth",
-        "lockup": "Lock-up"
-      },
-      "charts": {
-        "ctwiTitle": "Weight indicator against depth",
-        "forceTitle": "Axial force along the string",
-        "rih": "RIH",
-        "pooh": "POOH",
-        "limit": "Lock-up limit",
-        "critical": "Critical buckling force",
-        "ctwiAxis": "Weight indicator",
-        "forceAxis": "Axial force",
-        "depthAxis": "Depth",
-        "bha": "BHA"
-      }
-    },
-    "ctSimulator": {
-      "intro": {
-        "title": "Plan a coiled tubing job on a large screen",
-        "lead": "The CT Simulator takes a coiled tubing job from the well to the forces in one workspace. You draw the well, build the CT string and the bottom-hole assembly, set the job, and read the weight indicator, the depth reached before lock-up, the set-down weight, the overpull and where the string starts to buckle. It looks and works like a drawing program: a ribbon of steps, a project palette, a drawing area, a properties palette and a command line.",
-        "stepsTitle": "The five steps",
-        "steps": [
-          {
-            "title": "Well",
-            "text": "Draw casing, liner, tubing and completion tools on the schematic and add the deviation survey."
-          },
-          {
-            "title": "CT string",
-            "text": "Set the outside diameter, the wall sections and the reel, and see the string drawn."
-          },
-          {
-            "title": "BHA",
-            "text": "Build the bottom-hole assembly from tools, with their sizes and weights."
-          },
-          {
-            "title": "Job",
-            "text": "Set the depth, the fluids, the friction and the limits."
-          },
-          {
-            "title": "Results",
-            "text": "Read the forces and the weight indicator and force charts, and save the job as a PDF."
-          }
-        ],
-        "shotsTitle": "The workspace",
-        "shots": {
-          "well": "Well: the schematic with its components",
-          "ct": "CT string: the string and its sections",
-          "bha": "BHA: the tools and the assembly drawing",
-          "results": "Results: forces and charts"
-        },
-        "cta": "Open the workspace",
-        "ctaNote": "The workspace opens over the whole screen. Press Esc or Close to come back to this page.",
-        "noMobileTitle": "No mobile version.",
-        "noMobile": "The CT Simulator works only on large screens and tablets, from 768 pixels wide. Open this page on a computer or a tablet.",
-        "kept": "The well, the BHA and the job are kept in this browser and sent nowhere."
-      },
-      "workspace": {
-        "brand": "CT Simulator",
-        "close": "Close",
-        "fullscreen": "Full screen",
-        "project": "Project",
-        "properties": "Properties",
-        "left": "Project",
-        "right": "Properties",
-        "command": {
-          "label": "Command:",
-          "placeholder": "WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT, UNITS, HELP",
-          "ready": "Type a command and press Enter. Type HELP for the list.",
-          "help": "Commands: WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT [step|all], UNITS [US|METRIC], LEFT, RIGHT, FULLSCREEN, CLOSE. Esc closes the workspace.",
-          "unknown": "Unknown command: {cmd}. Type HELP for the list.",
-          "step": "Step",
-          "units": "Units",
-          "ok": "OK"
-        },
-        "status": {
-          "step": "Step",
-          "units": "Units",
-          "complete": "Complete"
-        }
-      },
-      "meta": {
-        "title": "CT Simulator",
-        "description": "Plan a coiled tubing job in four steps: draw the well, build the CT string and the BHA, set the job, and read the weight indicator, lock-up depth, set-down weight and overpull."
-      },
-      "hero": {
-        "badge": "Coiled tubing",
-        "title": "CT Simulator",
-        "description": "Draw the well, build the string and the BHA, set the job and read the results. The well and the BHA are kept in this browser, so the editors you used elsewhere on this site open here as they were left."
-      },
-      "tabs": {
-        "well": "Well",
-        "ct": "CT string",
-        "bha": "BHA",
-        "job": "Job",
-        "results": "Results",
-        "label": "Steps",
-        "next": "Next",
-        "back": "Back"
-      },
-      "ui": {
-        "printAll": "Save the whole job as PDF",
-        "printStep": "Save this step as PDF",
-        "preview": {
-          "title": "String preview",
-          "reel": "Reel",
-          "string": "CT string",
-          "bha": "BHA",
-          "empty": "Enter the CT outside diameter and a wall section",
-          "wall": "wall"
-        },
-        "example": "Load an example project",
-        "confirm": "Replace the well and the BHA with the example project?",
-        "groups": {
-          "job": "Job"
-        },
-        "fields": {
-          "reelDiameter": {
-            "label": "Reel core diameter",
-            "hint": "Kept for the bending and fatigue checks to come; the forces do not use it yet"
-          }
-        },
-        "strip": {
-          "well": "Well",
-          "pipes": "tubulars",
-          "td": "TD",
-          "bhaTools": "BHA tools",
-          "job": "Depth",
-          "ct": "CT",
-          "bha": "BHA"
-        },
-        "missing": {
-          "title": "Fill in these before the results mean anything",
-          "holes": "Well: add casing, liner or tubing in the Well step, so the CT has a hole to run in.",
-          "surveyError": "Well: the deviation survey cannot be read; correct it in the Well step.",
-          "bha": "BHA: add the tools of the BHA in the BHA step.",
-          "string": "CT string: enter the CT outside diameter and at least one wall section in the CT string step.",
-          "depth": "Job: the BHA depth must be deeper than the BHA length and not deeper than the well.",
-          "survey": "No deviation survey in the Well step: the well is taken as vertical."
-        }
-      },
-      "report": {
-        "title": "CT job report",
-        "created": "Created {date}",
-        "bhaNo": "BHA no.",
-        "runNo": "Run no.",
-        "preparedBy": "Prepared by",
-        "summary": "Summary of the job",
-        "incomplete": "The project is not complete, so there are no results. Fill in:",
-        "depth": "BHA depth (MD)",
-        "reach": "Depth reached before lock-up",
-        "reachTd": "TD, no lock-up",
-        "slackoff": "Weight indicator, RIH",
-        "pickup": "Weight indicator, POOH",
-        "maxSetdown": "Maximum set-down weight",
-        "maxOverpull": "Maximum overpull",
-        "lockup": "Lock-up",
-        "well": "Well",
-        "tubulars": "Tubulars",
-        "type": "Type",
-        "size": "Size",
-        "id": "ID",
-        "top": "Top MD",
-        "bottom": "Bottom MD",
-        "wellTools": "Tools in the well",
-        "survey": "Deviation survey",
-        "vertical": "No deviation survey was entered; the well is taken as vertical.",
-        "stations": "Stations",
-        "tdMd": "Depth, MD",
-        "tdTvd": "Depth, TVD",
-        "maxInc": "Maximum inclination",
-        "maxDls": "Maximum dogleg",
-        "dlsBase": "100 ft",
-        "inc": "Inclination",
-        "azi": "Azimuth",
-        "dls": "Dogleg",
-        "ct": "CT string",
-        "ctOd": "Outside diameter",
-        "reel": "Reel core diameter",
-        "stringLength": "String length",
-        "length": "Length",
-        "wall": "Wall",
-        "weightAir": "Weight in air",
-        "weightBuoyed": "Buoyed weight",
-        "bha": "Bottom hole assembly",
-        "description": "Description",
-        "weight": "Weight in air",
-        "connection": "Connection",
-        "total": "Total",
-        "job": "Job",
-        "rhoIn": "Fluid density inside the CT",
-        "rhoOut": "Fluid density outside the CT",
-        "whp": "Wellhead pressure",
-        "cf": "Friction coefficient",
-        "stripper": "Stripper friction",
-        "reelTension": "Reel back tension",
-        "modulus": "Young's modulus",
-        "yieldStrength": "Yield strength",
-        "designFactor": "Design factor in tension",
-        "snubLimit": "Injector push limit",
-        "results": "Results",
-        "injectorPush": "Injector push at this depth",
-        "tensionLimit": "Tension limit at the surface",
-        "buckleOnset": "Helical buckling starts at",
-        "buckledLength": "Buckled length at this depth",
-        "ctwiTitle": "Weight indicator against depth",
-        "forceTitle": "Axial force along the string",
-        "rih": "RIH",
-        "pooh": "POOH",
-        "limit": "Lock-up limit",
-        "critical": "Critical buckling force",
-        "notesTitle": "Method and assumptions",
-        "disclaimer": "Planning aid, not a substitute for the operator's procedures or a field simulator. Check the result against your own data before the job.",
-        "notes": [
-          "Soft-string model (CTES coiled tubing manual, chapters 6 and 7): no bending moments, constant friction coefficient.",
-          "The BHA is taken as one rigid body; no torque, hydraulic drag or fatigue.",
-          "The buckling threshold is the frictionless one, which is conservative.",
-          "The overpull limit is a simple tension limit on the top section, not the von Mises check with pressure."
-        ]
-      }
-    },
-    "courses": {
-      "meta": {
-        "title": "Courses — Coiled Tubing Training",
-        "description": "Practical coiled tubing training, from the field fundamentals to job design, with worked calculations and material to keep. In preparation."
-      },
-      "hero": {
-        "badge": "Courses",
-        "title": "Coiled tubing courses",
-        "description": "Practical training in coiled tubing, from the field fundamentals to job design. The courses are in preparation and are for information only."
-      },
-      "status": "In preparation",
-      "audience": {
-        "heading": "Who it is for",
-        "items": [
-          {
-            "icon": "hard-hat",
-            "title": "Crews and field technicians",
-            "text": "What the equipment is, what each step of a job is for and why it is done in that order."
-          },
-          {
-            "icon": "graduation-cap",
-            "title": "Young engineers",
-            "text": "The calculations behind a job, step by step, with worked examples you can reproduce."
-          },
-          {
-            "icon": "clipboard-check",
-            "title": "Engineers and supervisors",
-            "text": "Designing a job and reviewing a plan against what the numbers say."
-          }
-        ]
-      },
-      "modules": {
-        "heading": "Planned modules",
-        "lead": "Each module that has a calculation comes with the matching tool on this site, so you can try the numbers as you read.",
-        "tool": "Open the tool",
-        "items": [
-          {
-            "icon": "layers",
-            "title": "Coiled tubing fundamentals",
-            "text": "The string, the reel, the injector and the surface equipment, and what each is for.",
-            "href": null
-          },
-          {
-            "icon": "activity",
-            "title": "Hydraulics and pressure loss",
-            "text": "Friction pressure in straight and reel-wound tubing, and how the fluid model changes the answer.",
-            "href": "/tools/ct-pressure-loss"
-          },
-          {
-            "icon": "shield-check",
-            "title": "Tubing limits",
-            "text": "Burst, collapse and tension limits, and the von Mises check against the yield strength.",
-            "href": "/tools/ct-strength-limits"
-          },
-          {
-            "icon": "wind",
-            "title": "Nitrogen operations",
-            "text": "Nitrogen volumes and displacement, and how the gas behaves with pressure and temperature.",
-            "href": "/tools/nitrogen-displacement"
-          },
-          {
-            "icon": "shield-alert",
-            "title": "Well control",
-            "text": "Killing a well by bullheading or circulation, and the kill sheet of a drilling well.",
-            "href": "/tools/well-kill"
-          },
-          {
-            "icon": "wrench",
-            "title": "Bottom hole assembly",
-            "text": "Choosing and arranging the tools on the end of the string, and drawing the BHA.",
-            "href": "/tools/ct-simulator"
-          }
-        ]
-      },
-      "how": {
-        "heading": "How it will work",
-        "points": [
-          "Self-paced, with material to keep.",
-          "Calculations step by step, with worked examples.",
-          "Plain language, with the numbers shown."
-        ],
-        "note": "Dates, formats and prices are not set yet."
-      },
-      "cta": {
-        "heading": "Tell me what you need",
-        "lead": "Say which module or which crew the training is for, and I will come back with what is planned.",
-        "primary": "Get in touch",
-        "secondary": "Open the tools"
+        "successTitle": "Thanks, message received!",
+        "successText": "I'll read it and get back to you within one business day with concrete next steps. Keep an eye on your inbox.",
+        "error": "Something went wrong. Please try again or email me directly."
       }
     },
     "web": {
       "glance": {"label": "At a glance", "items": [{"label": "Stack", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Price", "value": "One fixed price, agreed before work starts"}, {"label": "Ownership", "value": "Code, domain and hosting in your name"}, {"label": "Reply", "value": "Within one business day"}]},
-      "closing": "Have a website in mind? A short message is enough.",
+      "closing": "Got a website in mind? A few sentences are enough.",
       "meta": {
-        "title": "Web development",
-        "description": "Fast custom Astro websites and web systems for engineering and technical B2B companies, by an engineer. Design, development, optimisation and tracking."
+        "title": "Websites for service businesses",
+        "description": "Fast custom websites and landing pages for service businesses, with SEO and tracking of every lead. One flat price, everything in your name."
       },
       "hero": {
-        "badge": "Web development",
-        "titleLead": "Websites and web systems",
-        "titleHighlight": "for technical companies",
-        "description": "Design, development and optimisation by an engineer who knows the industry. One fixed price, and everything in your name.",
+        "badge": "Websites",
+        "titleLead": "Websites that",
+        "titleHighlight": "make the phone ring",
+        "description": "Design, build and SEO for businesses where work starts with a call or an enquiry. One flat price, and everything is in your name.",
         "primaryCta": "Get in touch",
         "secondaryCta": "Full services"
       },
       "services": {
         "badge": "What I do",
-        "heading": "Design, build, optimise",
-        "lead": "Every project gets all three services.",
+        "heading": "Design, build and SEO in one package",
+        "lead": "Every site gets all three.",
         "cards": [
           {
             "icon": "layout",
-            "title": "Web Design",
-            "description": "Interfaces that feel obvious. Layouts shaped around your content, your brand, and how people actually read on a screen."
+            "title": "Design",
+            "description": "A clean custom design for your business, made for how people really use a site: quickly, on a phone, with one goal."
           },
           {
             "icon": "code",
-            "title": "Web Development",
-            "description": "Sites built to last. Astro, Tailwind, and a clean architecture: fast on day one, easy to maintain on day 500."
+            "title": "Build",
+            "description": "Astro, Tailwind and clean code. The site is fast from day one and easy to maintain for years."
           },
           {
             "icon": "trending-up",
-            "title": "Web Optimisation",
-            "description": "SEO, Core Web Vitals, and accessibility, built in from day one so your site ranks, loads well, and works for every visitor."
+            "title": "SEO",
+            "description": "Speed, SEO and accessibility are part of the build from the start, so Google ranks you well and visitors don't wait."
           }
         ]
       }
     },
     "home": {
       "meta": {
-        "title": "Engineer & Digital Architect",
-        "description": "Case studies and engineering tools, plus cloud-based software and websites for technical companies, by a recognised Ingenieur."
+        "title": "More calls and leads from Google",
+        "description": "Google and Facebook ads, local SEO, AI search and a fast website for service businesses. Every call and lead is tracked. Your first audit is free."
       },
       "hero": {
-        "badge": "Websites and software",
-        "titleLine1": "Stojan\u00a0Petkovic",
-        "titleLine2": "Engineer\u00a0&",
-        "titleLine3": "Digital\u00a0Architect",
-        "description": "Case studies and engineering tools written for engineers. For technical companies, I build cloud-based software and websites.",
-        "descriptionMobile": "Case studies and engineering tools for engineers, and cloud-based software and websites.",
-        "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Title granted by the Bavarian Chamber of Engineers (2026)", "docTitle": "Decision of the Bavarian Chamber of Engineers", "docAlt": "Scan of the decision granting the title Ingenieur, personal details covered in black", "docDescription": "The Bayerische Ingenieurekammer-Bau (Bavarian Chamber of Engineers) examined my degree in Mining Engineering from the University of Belgrade and found it equivalent to the German requirements for engineers (Art. 3 BayIngG). On that basis it granted me the right to use the protected professional title Ingenieur, alone or in a combination of words. The decision is dated 19 August 2026. It confirms the title; it is not a licence for a regulated activity."}, {"icon": "shield-check", "tag": "RS", "title": "Professional exam passed (2019)", "text": "Exploitation of mineral resources, Serbia", "docTitle": "Certificate of the professional exam passed", "docAlt": "Scan of the certificate of the professional exam passed in Serbia and its certified German translation, personal details covered in black", "docDescription": "In 2019 I passed the professional exam for performing professional work in the exploitation of mineral resources. It was taken under the Serbian Law on Mining and Geological Exploration and certified by the Provincial Secretariat for Energy, Construction and Transport of Vojvodina (certificate of 25 September 2019). The pages after the original are its certified German translation by a sworn court interpreter (6 March 2026), with the notary's certification of the copy (10 March 2026)."}],
-        "credentialsDialog": {"close": "Close", "note": "Personal details have been covered in black.", "hint": "View the document", "zoom": "Tap the page to zoom in or out."},
-        "qualifications": {"label": "Qualifications & training", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Mining Engineer (Dipl.)", "text": "University of Belgrade · liquid and gaseous mineral resources"}, {"icon": "shield-check", "year": "2020", "title": "EU Machinery Directive", "text": "Machine safety training · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Technology Management (STM)", "text": "System of Technology Management, corporate programme"}, {"icon": "users", "year": "2018", "title": "Leadership Academy", "text": "Managing people, lower management · Mokra Gora School of Management"}]},
-        "primaryCta": "Get in touch",
-        "secondaryCta": "See what I'm building",
-        "videoPlay": "Play with sound",
-        "videoLabel": "Video introduction"
+        "badge": "Taking on new clients",
+        "titleLead": "More calls and leads",
+        "titleHighlight": "from Google, Maps and AI search",
+        "description": "I run your Google and Facebook ads, get you on the map and into ChatGPT answers, and build a website people actually call from. Every call is tracked, so you know exactly what brings in work.",
+        "primary": "Get a free audit",
+        "secondary": "See the results",
+        "imageAlt": "Stojan Petković in a navy suit in a bright office with code on the screens behind him"
       },
-      "services": {
-        "badge": "Focus",
-        "heading": "Industrial projects, courses and software",
-        "lead": "Three areas, one engineer. The content is being prepared and will be published here.",
-        "learnMore": "Tell me what you need",
-        "status": "In preparation",
-        "cards": [
+      "pillars": {
+        "badge": "How the calls come in",
+        "heading": "From a search to a booked job in four steps",
+        "lead": "I don't sell ads, SEO and websites as separate pieces. They work together with one job: making your phone ring.",
+        "items": [
           {
-            "icon": "layers",
-            "title": "Industrial Projects",
-            "description": "Case studies from coiled tubing and nitrogen operations, written for engineers.",
-            "points": [
-              "Job design and the reasoning behind it",
-              "What was planned, what happened, what changed",
-              "Plain language, with the numbers shown"
-            ],
-            "href": "/projects"
+            "icon": "search",
+            "title": "Get found",
+            "text": "Google Maps and your Business Profile, a page for every service and town you cover, and showing up when someone asks ChatGPT for a recommendation."
           },
           {
-            "icon": "book-open",
-            "title": "Courses",
-            "description": "Practical training in coiled tubing, from the field fundamentals to job design.",
-            "points": [
-              "Fundamentals for crews and young engineers",
-              "Calculations step by step, with worked examples",
-              "Self-paced, with material to keep"
-            ],
-            "href": "/courses"
+            "icon": "target",
+            "title": "Get calls now with ads",
+            "text": "Google Ads plus Facebook and Instagram ads aimed at people who need your service today. From day one you see how many calls the ads bring in."
           },
           {
-            "icon": "code",
-            "title": "Engineering Software",
-            "description": "Cloud-based tools and custom software for technical teams. Everything runs on a server and opens in the browser, with nothing to install.",
-            "points": [
-              "Calculators and tools for everyday field and office work",
-              "Internal dashboards and data handling",
-              "Custom industrial software, built to order"
-            ],
-            "href": "/tools"
+            "icon": "phone-call",
+            "title": "Turn visitors into calls",
+            "text": "A site that loads instantly, tap-to-call and WhatsApp buttons, and an AI chat that answers while you're out on a job."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Know what pays off",
+            "text": "One report a month: where the calls came from, what each one cost, and where your next dollar should go."
           }
-        ],
-        "openLabel": "Open"
-      },
-      "workWithMe": {
-        "badge": "Background",
-        "heading": "Where the content comes from",
-        "lead": "The experience and habits behind the case studies, tools and websites.",
-        "cards": [
-          { "icon": "award", "title": "Field experience", "description": "13+ years in coiled tubing and nitrogen operations." },
-          { "icon": "shield-check", "title": "Numbers checked", "description": "Calculations are verified and assumptions written down." },
-          { "icon": "book-open", "title": "Documented logic", "description": "Formulas and decisions explained, so results can be reviewed." },
-          { "icon": "globe", "title": "Title Ingenieur", "description": "Granted by the Bavarian Chamber of Engineers, 2026." }
-        ],
-        "cta": "Read my services page"
-      },
-      "webGateway": {
-        "badge": "Web development",
-        "heading": "Websites for technical companies",
-        "lead": "A separate service, run alongside the engineering work: fast Astro websites and web systems for engineering and technical B2B companies.",
-        "items": [
-          "Web design",
-          "Web development",
-          "Optimisation and tracking"
-        ],
-        "cta": "Go to web development"
-      },
-      "portfolio": {
-        "badge": "Selected work",
-        "heading": "Projects I've built",
-        "lead": "A selection of recent work.",
-        "viewAll": "View all projects"
-      },
-      "testimonials": {
-        "badge": "Testimonials",
-        "heading": "What clients say",
-        "lead": "Real words from finished projects.",
-        "items": [
-          { "quote": "Stojan moved both of my sites off WordPress and onto Astro, and the speed difference was obvious immediately. Every lead now hits my inbox the second someone submits the form — no more checking a dashboard and missing calls.", "name": "Mirko Calić", "role": "Owner, Tree Jaws & Mahalo Tree Service" },
-          { "quote": "Stojan built our booking site from nothing and set up the Instagram and Facebook ads to go with it. Guests go straight from an ad to a finished reservation, which is exactly what a property our size needed.", "name": "Valentina Jovanović", "role": "Owner, Valena Apartmani" }
         ]
       },
-      "aboutTeaser": {
-        "badge": "About me",
-        "headingLine1": "Engineer first,",
-        "headingLine2": "then developer.",
-        "para1WithLocation": "Mining engineer by degree, with 13+ years in oilfield operations and the title Ingenieur granted by the Bavarian Chamber of Engineers. Based in {location} and available for clients worldwide. I build software and web systems the way I run a job: requirements first, numbers checked, nothing left undocumented.",
-        "para1NoLocation": "Mining engineer by degree, with 13+ years in oilfield operations and the title Ingenieur granted by the Bavarian Chamber of Engineers. Available for clients worldwide. I build software and web systems the way I run a job: requirements first, numbers checked, nothing left undocumented.",
-        "para2": "On the blog, I share the ideas and decisions behind my engineering and software work.",
-        "moreAboutMe": "More about me",
-        "statsIntro": "A few things about me.",
-        "stat1": "13+ Years in Engineering",
-        "stat2": "1,000+ Jobs in the Field",
-        "stat3": "Working worldwide",
-        "stat4": "2 Countries of qualification",
-        "facts": [{"icon": "wrench", "label": "Specialisation", "value": "Coiled tubing and nitrogen operations"}, {"icon": "graduation-cap", "label": "Education", "value": "Dipl. Mining Engineer, University of Belgrade (2010)"}, {"icon": "globe", "label": "Availability", "value": "Worldwide, CET time zone"}, {"icon": "clock", "label": "Reply", "value": "Within one business day"}],
-        "basedIn": "Based in"
+      "industries": {
+        "badge": "Who I work with",
+        "heading": "For businesses where every job starts with a call",
+        "lead": "If your customers search Google or ask ChatGPT to find someone like you, I can help.",
+        "items": [
+          {
+            "icon": "wrench",
+            "title": "Contractors and home services",
+            "text": "Plumbers, electricians, HVAC, cleaning, movers, landscaping and tree services."
+          },
+          {
+            "icon": "bed-double",
+            "title": "Vacation rentals",
+            "text": "Apartments, rooms and villas that want more direct bookings and fewer OTA commissions."
+          },
+          {
+            "icon": "stethoscope",
+            "title": "Clinics and salons",
+            "text": "Dental practices, private clinics, med spas, beauty salons and barbers."
+          },
+          {
+            "icon": "briefcase",
+            "title": "Local and B2B companies",
+            "text": "Transport, manufacturing, accountants and other firms that need a steady flow of leads."
+          }
+        ]
       },
-      "blog": {
-        "badge": "From the blog",
-        "heading": "Featured",
-        "viewAll": "View all posts"
+      "final": {
+        "heading": "The first business they find gets the call.",
+        "text": "Make sure it's yours. I'll look at your site and your competitors and tell you what I'd fix first. Free, and no strings attached.",
+        "cta": "Get my free audit"
       },
-      "cta": {
-        "badge": "Let's talk",
-        "heading": "Let's talk about what you need",
-        "description": "The first talk is free and informative, with no obligations. And from the first conversation to the final delivery, it's me.",
-        "primary": "Send a message",
-        "secondary": "More about me"
+      "testimonials": {
+        "badge": "Client reviews",
+        "heading": "What clients say",
+        "lead": "Two business owners, in their own words.",
+        "items": [
+          {
+            "quote": "Stojan moved both of my sites off WordPress and onto Astro, and the speed difference was obvious immediately. Every lead now hits my inbox the second someone submits the form, so I no longer check a dashboard and miss calls.",
+            "name": "Mirko Calić",
+            "role": "Owner, Tree Jaws & Mahalo Tree Service"
+          },
+          {
+            "quote": "Stojan built our booking site from nothing and set up the Instagram and Facebook ads to go with it. Guests go straight from an ad to a finished reservation, which is exactly what a property our size needed.",
+            "name": "Valentina Jovanović",
+            "role": "Owner, Valena Apartmani"
+          }
+        ]
+      },
+      "portfolio": {
+        "badge": "Work",
+        "heading": "Recent projects",
+        "lead": "Websites I built for businesses in the US and Europe.",
+        "viewAll": "See all projects"
+      },
+      "clients": {
+        "badge": "Clients",
+        "heading": "Businesses that trust me with their website",
+        "lead": "From tree services in Florida to a dental clinic in Serbia. Click any card to see the live site.",
+        "brands": "brands",
+        "countries": "markets: the US and Europe",
+        "visit": "Visit site",
+        "sectors": {
+          "tree": "Tree service",
+          "rental": "Vacation rentals",
+          "dental": "Dental clinic",
+          "transport": "Medical transport",
+          "recipes": "Recipe site",
+          "footwear": "Footwear blog"
+        },
+        "country": {
+          "us": "USA",
+          "rs": "Serbia"
+        },
+        "highlights": {
+          "treejaws": "1,010 leads · 4.9★",
+          "mahalo": "5.0 Google rating"
+        },
+        "next": {
+          "title": "Your business?",
+          "text": "This spot is saved for the next client. I'll review your site for free and tell you what I'd fix first.",
+          "cta": "Get a free audit"
+        }
       }
+    },
+    "privacy": {
+      "meta": {
+        "title": "Privacy Policy",
+        "description": "What data stojanpetkovic.com collects, why, how long it is kept, who receives it and how to exercise your rights."
+      },
+      "hero": {
+        "badge": "Privacy",
+        "title": "Privacy Policy",
+        "description": "What data I collect, why, for how long, and what your rights are."
+      },
+      "updated": "Last updated: 15 November 2026.",
+      "intro": "This policy explains how stojanpetkovic.com processes personal data, in line with the Serbian Law on Personal Data Protection and, where it applies, the EU General Data Protection Regulation (GDPR).",
+      "contactLink": "Contact page",
+      "sections": [
+        {
+          "title": "1. Controller",
+          "paragraphs": [
+            "The controller is Stojan Petkovic, Zrenjanin, Serbia. Contact for any question about your data: {email}."
+          ]
+        },
+        {
+          "title": "2. What I collect",
+          "paragraphs": [],
+          "items": [
+            "Form data (contact and free check): name, email, phone, website address, business and location, your answers and your message.",
+            "Visit data, without cookies: which pages were opened, where the visitor came from (search, ad or link) and whether they tapped the phone number or WhatsApp or sent a form. This is not linked to your name unless you send a form.",
+            "Technical data logged by the server: IP address, browser type and time of access, for security and to run the site.",
+            "Analytics and advertising cookies (Google, Meta), only if you allow them in the cookie banner."
+          ]
+        },
+        {
+          "title": "3. Why, and on what basis",
+          "paragraphs": [],
+          "items": [
+            "To answer your enquiry and prepare a proposal: steps before a contract, at your request.",
+            "To deliver contracted work and keep required records: contract and legal obligation.",
+            "To measure which pages and sources bring enquiries and to keep the site secure: legitimate interest.",
+            "Analytics and ad measurement through cookies: your consent, which you can withdraw at any time.",
+            "I do not sell data, send newsletters or use it for automated decision-making."
+          ]
+        },
+        {
+          "title": "4. Who receives the data",
+          "paragraphs": [
+            "Data is processed by services acting for me as processors, only for the purposes in this policy:"
+          ],
+          "items": [
+            "Vercel: website hosting.",
+            "webtano.com: the system where form enquiries arrive and are stored.",
+            "Resend: email notifications about enquiries.",
+            "Google (Analytics, Ads) and Meta (Facebook, Instagram): only if you allow those cookies.",
+            "Public authorities, only where the law requires it."
+          ]
+        },
+        {
+          "title": "5. Transfers outside Serbia",
+          "paragraphs": [
+            "Some of these services store data in the European Union or the United States. Transfers rely on the safeguards the law provides, such as standard contractual clauses or adequacy decisions."
+          ]
+        },
+        {
+          "title": "6. How long",
+          "paragraphs": [],
+          "items": [
+            "Enquiries: as long as needed to reply and make a proposal, and at most two years after the last contact.",
+            "Client data and invoices: as long as the law requires.",
+            "Cookieless visit data: in aggregate, without a time limit, as it does not relate to an identifiable person.",
+            "Cookies: for the period shown in the cookie settings."
+          ]
+        },
+        {
+          "title": "7. Cookies",
+          "paragraphs": [
+            "Necessary cookies keep the site working and remember your choice in the banner. Analytics and advertising cookies are set only with your consent. You can change your choice at any time in the cookie settings at the foot of the page."
+          ]
+        },
+        {
+          "title": "8. Your rights",
+          "paragraphs": [
+            "You have the right to access your data, to have it corrected or erased, to restrict processing and to data portability, to object to processing based on legitimate interest, and to withdraw consent without affecting earlier processing. Send requests to {email}; I reply within 30 days.",
+            "You can complain to the Serbian Commissioner for Information of Public Importance and Personal Data Protection (www.poverenik.rs) or to the supervisory authority of the EU country where you live."
+          ]
+        },
+        {
+          "title": "9. Security",
+          "paragraphs": [
+            "The site runs over HTTPS, access to enquiries is password-protected and limited to me, and the services I use apply technical and organisational safeguards."
+          ]
+        },
+        {
+          "title": "10. Changes",
+          "paragraphs": [
+            "I may change this policy when the processing changes. The date of the last change is shown at the top."
+          ]
+        }
+      ]
     }
+  },
+  "contactBar": {
+    "reply": "I reply within one business day",
+    "whatsapp": "Message me on WhatsApp"
   }
 }

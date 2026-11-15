@@ -2,12 +2,12 @@
 /**
  * ServicesView — the Services page body.
  *
- * An overview of the two areas of work: cloud-based software and tools, and web
- * development (which has its own page). The site's engineering content is
- * informational and is not offered as a service (see the terms of use).
+ * An overview of the two areas of work: ads, SEO and AI search visibility, and
+ * websites (which have their own page).
  * Shared by the default-locale route (`/services`) and the locale-prefixed route
  * (`/<locale>/services`). Copy is read from `pages.services.*`.
  */
+import { createServiceSchema, createFAQSchema } from '@/lib/schema';
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
@@ -56,7 +56,7 @@ const hero = tData<{ badge: string; titleLead: string; titleHighlight: string; d
   'pages.services.hero',
   locale
 )!;
-const areas = tData<{ software: Area; web: Area }>('pages.services.areas', locale)!;
+const areas = tData<{ marketing: Area; web: Area }>('pages.services.areas', locale)!;
 const processSection = tData<{ badge: string; heading: string; lead: string; steps: ProcessStep[] }>(
   'pages.services.process',
   locale
@@ -73,13 +73,25 @@ const webUrl = localizedPath('/web', locale);
 
 // Each area: its anchor, where its button leads, and the background it sits on.
 const sections = [
-  { id: 'software', area: areas.software, href: contactUrl, bg: 'bg-background-secondary' },
+  { id: 'marketing', area: areas.marketing, href: contactUrl, bg: 'bg-background-secondary' },
   { id: 'web', area: areas.web, href: webUrl, bg: 'bg-background' },
 ];
 ---
 <PageLayout
   title={t('pages.services.meta.title', locale)}
   description={t('pages.services.meta.description', locale)}
+  extraSchemas={[
+    ...[areas.marketing, areas.web].map((area, i) =>
+      createServiceSchema({
+        name: area.heading,
+        description: area.paragraphs.join(' '),
+        url: new URL(`${localizedPath('/services', locale)}#${i === 0 ? 'marketing' : 'web'}`, Astro.site).toString(),
+        locale,
+        serviceType: area.badge,
+      })
+    ),
+    createFAQSchema(faq.cards.flatMap((card) => card.items)),
+  ]}
   footerBackground="secondary"
 >
   <Hero layout="centered" size="sm" class="isolate services-hero pb-[calc(var(--space-section-sm)_+_var(--space-stack-lg))]" showHeroHalo>

@@ -18,6 +18,12 @@ describe('formatDate()', () => {
     expect(formatDate(date, 'zh-CN')).toBe('2026年6月24日');
   });
 
+  it('writes Serbian in Latin script, never Cyrillic', () => {
+    const out = formatDate(date, 'sr');
+    expect(out).toBe('24. jun 2026.');
+    expect(out).not.toMatch(/[\u0400-\u04FF]/);
+  });
+
   it('falls back to the site default locale when none is passed', () => {
     // Default config defaultLocale is 'en' → long English format
     expect(formatDate(date)).toBe('June 24, 2026');

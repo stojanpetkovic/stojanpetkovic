@@ -36,7 +36,7 @@
     "name": "Stojan Petkovic"
   },
   "llms": {
-    "summary": "Stojan Petkovic ist Ingenieur (Titel von der Bayerischen Ingenieurekammer-Bau genehmigt) und Webentwickler mit Sitz in Zrenjanin, Serbien, und arbeitet mit Kunden weltweit. Er hat Bergbau an der Universität Belgrad studiert (2010) und arbeitet seit 2013 mit Coiled Tubing und Stickstoff. Dies ist eine persönliche, unabhängige Seite, die für keinen Arbeitgeber und kein Unternehmen steht. Sie veröffentlicht Fallstudien und Engineering-Werkzeuge zur Information, und er baut schnelle, individuelle Astro-Websites, individuelle Software und datengestützte Plattformen für technische Unternehmen, dazu klassisches Webdesign, SEO und Generative Engine Optimization (GEO). Jedes Projekt hat einen Festpreis, der vor Arbeitsbeginn vereinbart wird, und der Kunde besitzt Code, Domain und Hosting vom ersten Tag an."
+    "summary": "Stojan Petkovic aus Zrenjanin, Serbien, hilft Dienstleistern, online Kunden zu gewinnen: Google- und Meta-Anzeigen, lokales SEO, Sichtbarkeit in der KI-Suche (GEO), schnelle Websites und Landingpages, KI-Chat und die Erfassung jeder Anfrage und jedes Anrufs mit Monatsbericht. Er arbeitet mit Kunden in Serbien, Europa und den USA. Eine Website hat einen Festpreis, Anzeigen und SEO laufen monatlich ohne lange Vertragsbindung, und Code, Domain und Hosting gehören dem Kunden ab dem ersten Tag."
   },
   "nav": {
     "skipToContent": "Zum Inhalt springen",
@@ -55,34 +55,15 @@
     "items": {
       "home": "Start",
       "services": "Leistungen",
-      "tools": "Werkzeuge",
-      "web": "Web",
+      "web": "Websites",
       "projects": "Projekte",
       "blog": "Blog",
       "about": "Über mich",
       "contact": "Kontakt",
       "terms": "Nutzungsbedingungen",
-      "courses": "Kurse"
+      "privacy": "Datenschutz"
     },
-    "mega": {
-      "overview": "Alle Leistungen",
-      "groups": {
-        "engineering": "Engineering",
-        "tools": "Engineering-Werkzeuge",
-        "web": "Software & Web"
-      },
-      "links": {
-        "allTools": "Alle Werkzeuge",
-        "web": "Webentwicklung",
-        "software": "Engineering-Software"
-      },
-      "descriptions": {
-        "courses": "Praxisnahe Coiled-Tubing-Schulung.",
-        "projects": "Fallstudien aus dem Feld.",
-        "software": "Cloud-Werkzeuge nach Maß.",
-        "web": "Schnelle Websites für technische Firmen."
-      }
-    }
+    "cta": "Kostenloser Check"
   },
   "common": {
     "readMore": "Weiterlesen",
@@ -129,18 +110,18 @@
     "share": "Teilen:",
     "shareOn": "Auf {platform} teilen",
     "copyLink": "Link kopieren",
-    "metaTitle": "Blog",
-    "metaDescription": "Artikel über Ingenieurwesen, Software und Webentwicklung.",
+    "metaTitle": "Blog: Anzeigen, SEO und KI-Suche",
+    "metaDescription": "Praxistipps zu Anzeigen, SEO, KI-Suche und Websites, die Kunden bringen.",
     "heroBadge": "Alle Beiträge",
-    "heroDescription": "Artikel über Ingenieurwesen, Software und Webentwicklung.",
+    "heroDescription": "Praxistipps zu Anzeigen, SEO, KI-Suche und Websites, die Kunden bringen.",
     "allPosts": "Alle Beiträge",
     "noPosts": "Keine Beiträge gefunden",
     "pageMetaTitle": "Blog — Seite {page}",
-    "pageMetaDescription": "Seite {page} von {total} — Artikel über Ingenieurwesen, Software und Webentwicklung.",
+    "pageMetaDescription": "Seite {page} von {total} — Praxistipps zu Anzeigen, SEO, KI-Suche und Websites, die Kunden bringen.",
     "pageBadge": "Seite {page} von {total}",
     "newestPosts": "Neueste Beiträge",
     "tagMetaTitle": "#{tag} — Blog",
-    "tagMetaDescription": "Beiträge zum Thema „{tag}“.",
+    "tagMetaDescription": "Beiträge zum Thema „{tag}“: Praxistipps zu Anzeigen, SEO und Websites für Dienstleister.",
     "tagBadge": "Thema",
     "tagCountOne": "{count} Beitrag zum Thema „{tag}“.",
     "tagCountOther": "{count} Beiträge zum Thema „{tag}“.",
@@ -153,8 +134,8 @@
     "updated": "Aktualisiert",
     "rssFeed": "RSS-Feed",
     "cta": {
-      "heading": "Brauchen Sie eine neue Website?",
-      "description": "Erzählen Sie mir von Ihrem Projekt — ich melde mich innerhalb eines Werktags.",
+      "heading": "Mehr Anrufe über Ihre Website?",
+      "description": "Schreiben Sie mir ein paar Zeilen zu Ihrem Betrieb. Ich melde mich innerhalb eines Werktags.",
       "button": "Kontakt aufnehmen"
     }
   },
@@ -182,19 +163,19 @@
     "galleryClose": "Galerie schließen",
     "galleryNextImage": "Nächstes Bild",
     "galleryPreviousImage": "Vorheriges Bild",
-    "metaTitle": "Projekte",
-    "metaDescription": "Ausgewählte Ingenieurprojekte von Stojan Petkovic: Fallstudien zur Geothermie der Vojvodina aus öffentlichen Daten, mit Rechnern, und Websites für Kunden.",
+    "metaTitle": "Projekte: Websites und Kampagnen",
+    "metaDescription": "Websites, SEO und Anzeigen, die ich für Dienstleister umgesetzt habe, mit Zahlen: Anfragen, Anrufe, Google-Rankings und Lighthouse-Werte.",
     "heroBadge": "Portfolio",
-    "heroDescription": "Ingenieur- und Industrieprojekte.",
-    "emptyTitle": "Industrieprojekte sind in Vorbereitung",
-    "emptyText": "Fallstudien aus Coiled-Tubing- und Stickstoffeinsätzen werden hier veröffentlicht. Die Websites, die ich gebaut habe, finden Sie auf der Web-Seite.",
+    "heroDescription": "Unternehmen, denen ich zu mehr Kunden verholfen habe.",
+    "emptyTitle": "Projekte folgen in Kürze",
+    "emptyText": "Bald hier. Bis dahin finden Sie die Ergebnisse auf der Startseite.",
     "emptyWeb": "Webprojekte ansehen",
     "allProjects": "Alle Projekte",
     "pageMetaTitle": "Projekte — Seite {page}",
-    "pageMetaDescription": "Seite {page} von {total} — ausgewählte Ingenieurprojekte von Stojan Petkovic.",
+    "pageMetaDescription": "Seite {page} von {total}: Projekte für Dienstleister, mit Zahlen.",
     "pageBadge": "Seite {page} von {total}",
     "tagMetaTitle": "#{tag} — Projekte",
-    "tagMetaDescription": "Projekte zum Thema „{tag}“ von Stojan Petkovic: ingenieurtechnische Fallstudien, Geothermiemodelle aus öffentlichen Daten und Websites für Kunden.",
+    "tagMetaDescription": "Projekte zum Thema „{tag}“: Websites, SEO und Anzeigen für Dienstleister, mit Zahlen.",
     "tagBadge": "Thema",
     "tagCountOne": "{count} Projekt zum Thema „{tag}“.",
     "tagCountOther": "{count} Projekte zum Thema „{tag}“.",
@@ -208,7 +189,7 @@
     "ctaPrimary": "Nachricht senden",
     "ctaSecondary": "Mehr über mich",
     "closingHeading": "Haben Sie ein Projekt im Kopf?",
-    "closingLead": "Ob eine ganz neue Website oder eine, die frischen Wind braucht — ich freue mich, davon zu hören."
+    "closingLead": "Eine ganz neue Website oder eine, die endlich funktionieren soll? Schreiben Sie mir, worum es geht."
   },
   "pagination": {
     "page": "Seite {current} von {total}",
@@ -223,17 +204,17 @@
     "goHome": "Zur Startseite",
     "metaTitle": "Seite nicht gefunden",
     "metaDescription": "Diese Seite wurde verschoben, gelöscht oder hat nie existiert.",
-    "badge": "404 — nicht gefunden",
+    "badge": "404",
     "titleLead": "Diese Seite gibt",
     "titleHighlight": "es nicht.",
-    "description": "Sie wurde verschoben, gelöscht oder hat nie existiert. Wir bringen Sie zurück auf den richtigen Weg.",
+    "description": "Sie wurde verschoben, gelöscht oder hat nie existiert. Hier geht es zurück.",
     "backHome": "Zurück zur Startseite",
     "browseProjects": "Zu den Projekten",
     "tryInstead": "Vielleicht suchen Sie eines davon",
     "projectsDesc": "Ausgewählte Arbeiten und die Geschichten dahinter.",
-    "toolsDesc": "Rechner und Werkzeuge für Bohrungen und Geothermie.",
     "contactTitle": "Kontakt",
-    "contactDesc": "Schreiben Sie mir zu Ihrem Projekt."
+    "contactDesc": "Schreiben Sie mir zu Ihrem Projekt.",
+    "servicesDesc": "Wie ich dafür sorge, dass Kunden dich online finden."
   },
   "newsletter": {
     "heading": "Newsletter abonnieren",
@@ -287,509 +268,131 @@
   },
   "footer": {
     "copyright": "© {year} {siteName}",
-    "credit": "Persönliche, unabhängige Seite — mit keinem Arbeitgeber und keinem Unternehmen verbunden.",
+    "credit": "Mehr Anrufe und Anfragen aus dem Internet für Dienstleister.",
     "groups": {
       "site": "Website",
-      "topics": "Themen",
-      "projects": "Web-Projekte",
-      "engineering": "Ingenieurwesen",
-      "questions": "Fragen?"
+      "questions": "Fragen?",
+      "services": "Leistungen"
     },
-    "links": { "focus": "Projekte, Kurse und Software" },
-    "followOn": "Folgen Sie mir auf {platform}"
+    "followOn": "Folgen Sie mir auf {platform}",
+    "tagline": "Ich helfe Dienstleistern, mehr Anrufe und Anfragen aus dem Internet zu bekommen: Google- und Meta-Anzeigen, lokales SEO, Sichtbarkeit in der KI-Suche und schnelle Websites. Ohne lange Verträge, mit Ergebnissen, die du in Zahlen siehst.",
+    "links": {
+      "ads": "Google- und Meta-Anzeigen",
+      "seo": "Lokales SEO und KI-Suche",
+      "web": "Websites, die Anfragen bringen",
+      "check": "Kostenloser Check",
+      "faq": "Häufige Fragen"
+    }
   },
   "pages": {
     "terms": {
       "meta": {
         "title": "Nutzungsbedingungen",
-        "description": "Nutzungsbedingungen der Seite: eine persönliche, unabhängige Seite, nur zur Information, ohne Fachberatung und ohne Geschäftsangebot, Haftungsbeschränkung und Erklärung zu Unabhängigkeit und Interessenkonflikten."
+        "description": "Nutzungsbedingungen für stojanpetkovic.com: wer die Leistungen erbringt, wie sie vereinbart werden, was nicht garantiert wird, Eigentum und Haftung."
       },
       "hero": {
-        "badge": "Regeln der Seite",
+        "badge": "Regeln der Website",
         "title": "Nutzungsbedingungen",
-        "description": "Was diese Seite ist, was sie nicht ist, und unter welchen Bedingungen sie genutzt wird."
+        "description": "Wer hinter der Website steht, wie Leistungen vereinbart werden und unter welchen Bedingungen die Website genutzt wird."
       },
-      "updated": "Zuletzt geändert: 17. Oktober 2026.",
-      "intro": "Diese Bedingungen regeln die Nutzung der Seite stojanpetkovic.com (die Seite). Mit der Nutzung der Seite akzeptieren Sie sie. Wenn Sie nicht einverstanden sind, nutzen Sie die Seite nicht.",
+      "updated": "Zuletzt geändert: 15. November 2026.",
+      "intro": "Diese Bedingungen regeln die Nutzung von stojanpetkovic.com (die Website). Mit der Nutzung der Website akzeptieren Sie sie. Wenn Sie nicht einverstanden sind, nutzen Sie die Website nicht.",
+      "contactLink": "Kontaktseite",
       "sections": [
         {
-          "title": "1. Wer die Seite betreibt",
+          "title": "1. Wer die Website betreibt",
           "paragraphs": [
-            "Die Seite wird von Stojan Petković, einer Privatperson (der Autor), als persönliches Projekt betrieben. Sie ist keine Unternehmensseite, steht für keine juristische Person und wird nicht im Namen eines Arbeitgebers, Kunden oder einer anderen juristischen Person betrieben."
+            "Die Website betreibt Stojan Petkovic aus Zrenjanin, Serbien (der Autor). Kontakt: {email}."
           ]
         },
         {
-          "title": "2. Unabhängigkeit und Interessenkonflikte",
+          "title": "2. Leistungen",
           "paragraphs": [
-            "Die Seite und alle Inhalte darauf (Projekte, Blog, Werkzeuge, Rechner, Modelle, Kurse und Texte) erstellt der Autor in eigenem Namen und auf eigene Rechnung. Daher gilt:"
+            "Die Website beschreibt Leistungen in digitalem Marketing und Webentwicklung: Werbung bei Google und in sozialen Medien, SEO, Sichtbarkeit in der KI-Suche, Websites und Landingpages, KI-Chat sowie die Erfassung von Anfragen und Anrufen."
           ],
           "items": [
-            "Es werden keine Daten, Dokumente, Verfahren, Software, Schätzungen, geschäftlichen oder technischen Informationen oder sonstigen Unterlagen verwendet, die einem Arbeitgeber, Kunden oder Dritten gehören und nicht veröffentlicht sind. Die Daten in den Projekten stammen aus öffentlich zugänglichen Quellen, die bei jedem Projekt genannt sind.",
-            "Nichts auf der Seite gibt die Ansicht, Politik, Daten, Schätzung, Empfehlung oder Erklärung eines Arbeitgebers, Unternehmens oder einer Institution wieder. Der Autor spricht nicht in deren Namen und hat dazu keine Befugnis. Der Arbeitgeber des Autors hat in keiner Weise mit der Seite zu tun und haftet nicht für ihren Inhalt.",
-            "Unternehmen, Institutionen, Produkte und Quellen werden nur genannt, um öffentliche Quellen und Tatsachen zu bezeichnen. Das ist weder Empfehlung noch Zusammenarbeit noch Kritik.",
-            "Der Inhalt ist kein Angebot, keine Werbung und keine Einladung zu einer Geschäftsbeziehung im Tätigkeitsfeld des Arbeitgebers des Autors und soll auch nicht dem Arbeitgeber oder seinen Kunden Konkurrenz machen.",
-            "Die Arbeit an der Seite darf die Erfüllung der Pflichten des Autors gegenüber seinem Arbeitgeber nicht beeinträchtigen und tut es nicht.",
-            "Jede zusätzliche Tätigkeit des Autors muss mit seinen Pflichten gegenüber dem Arbeitgeber, dem Gesetz und dem Geschäftsgeheimnis vereinbar sein, mit allen nötigen Zustimmungen, und wird gesondert vereinbart, außerhalb dieser Seite und ihres Inhalts.",
-            "Wenn Sie glauben, dass ein Inhalt vertrauliche Informationen unzulässig nutzt oder den Eindruck erweckt, im Namen eines Unternehmens zu sprechen, melden Sie sich über die Kontaktseite. Der Inhalt wird umgehend geprüft und bei Bedarf berichtigt oder entfernt."
+            "Beschreibungen von Leistungen, Preisen und Beispielen auf der Website sind kein Angebot im rechtlichen Sinn. Jeder Auftrag wird gesondert vereinbart, in einem schriftlichen Angebot oder Vertrag mit Umfang, Termin, Preis und Zahlung.",
+            "Eine Anfrage oder die Bitte um einen kostenlosen Check begründet keinen Vertrag und keine Pflicht für eine Seite.",
+            "Der Autor kann jede Anfrage ohne Angabe von Gründen ablehnen.",
+            "Wo ein Vertrag etwas anderes bestimmt, gilt der Vertrag."
           ]
         },
         {
-          "title": "3. Nur zur Information",
+          "title": "3. Ergebnisse und Garantien",
           "paragraphs": [
-            "Der Inhalt der Seite ist allgemein und informativ. Er ist keine ingenieurtechnische, technische, rechtliche, finanzielle, Anlage- oder sonstige Fachberatung. Er ist keine Planung, Machbarkeitsstudie, Ressourcenbewertung oder Expertenmeinung. Er begründet kein Mandats- oder Beratungsverhältnis und keine Verpflichtung des Autors. Vor jeder Entscheidung wenden Sie sich an qualifizierte Fachleute und die zuständigen Behörden."
+            "Die auf der Website gezeigten Ergebnisse (Anfragen, Anrufe, Werte und Rankings) sind für die genannten Kunden und Zeiträume echt, aber kein Versprechen desselben Ergebnisses für andere. Google-Rankings, Empfehlungen von KI-Assistenten und die Leistung von Anzeigen hängen von Google, Meta und anderen Plattformen, vom Markt, von der Konkurrenz und vom Budget ab, auf die der Autor keinen Einfluss hat. Eine bestimmte Zahl von Anfragen, Anrufen, Verkäufen oder Rankings wird nicht garantiert, sofern nicht ausdrücklich schriftlich vereinbart."
           ]
         },
         {
-          "title": "4. Werkzeuge, Rechner und Modelle",
+          "title": "4. Werbebudget und Konten",
           "paragraphs": [
-            "Die Werkzeuge, Rechner und Modelle auf der Seite liefern Näherungswerte aus den genannten Formeln und Annahmen. Sie ersetzen weder Planungsberechnungen noch Unternehmensverfahren, Herstelleranweisungen, Vorschriften oder die Anweisung der verantwortlichen Person. Verwenden Sie sie nicht als alleinige Grundlage für Arbeiten an Bohrungen, Arbeiten unter Druck, Arbeiten mit Stickstoff oder andere sicherheitsrelevante Handlungen.",
-            "Fehler, Unvollständigkeit und veraltete Daten sind möglich. Eingaben und Ergebnisse prüft der Nutzer. Die Modelle des geothermischen Potenzials zeigen eine Größenordnung aus öffentlichen Daten; sie ersetzen weder einen Test der Bohrung noch die Bewertung der Aufwältigung, eine Machbarkeitsstudie oder Angebote von Auftragnehmern."
+            "Das Werbebudget zahlt der Kunde direkt an die Plattform (Google, Meta und andere), sofern nicht anders vereinbart. Konten für Anzeigen, Analyse, Domain und Hosting werden auf den Namen des Kunden eröffnet oder ihm übergeben, wie vereinbart, sodass der Kunde Zugang und Daten auch nach Ende der Zusammenarbeit behält."
           ]
         },
         {
-          "title": "5. Öffentliche Daten und Quellen Dritter",
+          "title": "5. Unabhängigkeit",
           "paragraphs": [
-            "Die Daten stammen aus öffentlich zugänglichen Quellen und sind beim Inhalt genannt. Der Autor garantiert weder ihre Richtigkeit noch Vollständigkeit oder Aktualität, ist nicht der Autor dieser Quellen und haftet nicht für sie. Urheberrechte an Quellen, Bildern und Karten liegen bei ihren Inhabern; Urheber und Lizenzen sind beim Inhalt genannt (zum Beispiel OpenStreetMap, OpenTopoMap und Wikimedia Commons). Links führen zu Seiten Dritter, auf die der Autor keinen Einfluss hat."
+            "Der Autor erbringt die Leistungen im eigenen Namen und auf eigene Rechnung. Die Website vertritt keinen Arbeitgeber, kein Unternehmen und keine Institution, mit denen der Autor verbunden war oder ist, spricht nicht in deren Namen und nutzt keine ihrer vertraulichen Informationen."
           ]
         },
         {
-          "title": "6. Leistungen und kommerzielle Kommunikation",
+          "title": "6. Blog und allgemeine Informationen",
           "paragraphs": [
-            "Die Seite ist vor allem informativ. Der Inhalt der Projekte, des Blogs, der Werkzeuge und der Kurse ist kein Leistungsangebot. Etwaige Leistungen, die auf der Seite Leistungen genannt sind, werden gesondert und schriftlich vereinbart, und nur wenn sie nicht im Widerspruch zu den Pflichten des Autors gegenüber seinem Arbeitgeber, dem Gesetz oder dem Geschäftsgeheimnis stehen. Der Autor behält sich vor, jede Anfrage wegen eines Interessenkonflikts oder aus jedem anderen Grund abzulehnen. Das Senden einer Anfrage über das Kontaktformular begründet weder eine Verpflichtung des Autors noch einen Vertrag."
+            "Blogbeiträge und andere informative Inhalte sind allgemeiner Natur. Sie sind keine Rechts-, Steuer- oder Finanzberatung und ersetzen keine Beratung im Einzelfall. Erwähnte Daten und Werkzeuge Dritter können sich ändern."
           ]
         },
         {
           "title": "7. Urheberrecht",
           "paragraphs": [
-            "Soweit nicht anders angegeben, sind die Texte, Grafiken, Modelle und der Code dieser Seite durch das Urheberrecht des Autors geschützt. Zitieren ist unter Nennung der Quelle und mit Link erlaubt. Jede andere Übernahme, Vervielfältigung oder kommerzielle Nutzung bedarf der vorherigen schriftlichen Zustimmung des Autors. Daten Dritter bleiben unter den Lizenzen ihrer Inhaber."
+            "Soweit nicht anders angegeben, sind Texte, Grafiken und Code dieser Website urheberrechtlich zugunsten des Autors geschützt. Zitieren mit Quellenangabe und Link ist erlaubt. Namen, Logos und Screenshots von Kundenwebsites gehören ihren Inhabern und werden als Arbeitsbeispiele gezeigt."
           ]
         },
         {
-          "title": "8. Nachrichten, Kommentare und Verhalten",
+          "title": "8. Links und Dienste Dritter",
           "paragraphs": [
-            "Wenn die Seite Kommentare oder Nachrichten erlaubt, ist es verboten, rechtswidrige, beleidigende oder irreführende Inhalte zu veröffentlichen, ebenso vertrauliche Daten Dritter oder von Arbeitgebern und Inhalte, die als Ansicht eines Unternehmens ausgegeben werden. Der Autor kann solche Inhalte ohne Vorankündigung entfernen. Die Verarbeitung personenbezogener Daten (Kontaktformular, Cookies) regelt der Datenschutzhinweis beim Formular und die Cookie-Einstellungen."
+            "Die Website verlinkt auf Websites Dritter und nutzt Dienste Dritter (zum Beispiel Hosting, E-Mail und Video). Der Autor hat keinen Einfluss auf sie und haftet nicht für deren Inhalte oder Betrieb."
           ]
         },
         {
-          "title": "9. Haftungsbeschränkung",
+          "title": "9. Personenbezogene Daten und Cookies",
           "paragraphs": [
-            "Die Seite und ihr Inhalt werden „wie besehen“ bereitgestellt, ohne jede Gewährleistung, ausdrücklich oder stillschweigend. Soweit gesetzlich zulässig, haftet der Autor nicht für Schäden (unmittelbar oder mittelbar, entgangener Gewinn, Schäden an Bohrung, Ausrüstung oder Eigentum, Verletzungen, Datenverlust, Investitionsentscheidungen), die aus der Nutzung der Seite oder dem Vertrauen auf ihren Inhalt entstehen, und nicht für die Nichtverfügbarkeit der Seite. Das schließt keine Haftung aus, die gesetzlich nicht ausgeschlossen oder beschränkt werden kann. Sie nutzen die Seite auf eigene Gefahr."
+            "Wie Daten aus den Kontaktformularen und Cookies verarbeitet werden, beschreibt die Datenschutzerklärung. Analyse- und Werbe-Cookies können Sie in den Cookie-Einstellungen ein- oder ausschalten."
           ]
         },
         {
-          "title": "10. Änderungen und anwendbares Recht",
+          "title": "10. Haftungsbeschränkung",
           "paragraphs": [
-            "Der Autor kann diese Bedingungen ändern. Änderungen gelten ab Veröffentlichung; das Datum der letzten Änderung steht oben. Es gilt das Recht der Republik Serbien, und für Streitigkeiten ist ein Gericht in der Republik Serbien zuständig, soweit zwingende Verbraucherschutzvorschriften nichts anderes bestimmen."
+            "Die Website und ihre Inhalte werden ohne Gewähr bereitgestellt. Soweit gesetzlich zulässig, haftet der Autor nicht für Schäden aus der Nutzung der Website, dem Vertrauen auf ihre Inhalte oder ihrer Nichtverfügbarkeit. Die Haftung für vereinbarte Leistungen regelt der Vertrag. Gesetzlich nicht ausschließbare oder beschränkbare Haftung bleibt unberührt."
           ]
         },
         {
-          "title": "11. Kontakt",
+          "title": "11. Änderungen und anwendbares Recht",
           "paragraphs": [
-            "Fragen, Meldungen und Anliegen zum Inhalt, einschließlich Einwänden zu einem Interessenkonflikt oder vertraulichen Informationen, senden Sie bitte über die Kontaktseite."
+            "Der Autor kann diese Bedingungen ändern. Änderungen gelten ab Veröffentlichung; das Datum der letzten Änderung steht oben. Es gilt das Recht der Republik Serbien, zuständig sind die Gerichte der Republik Serbien, sofern zwingende Verbraucherschutzvorschriften nichts anderes bestimmen."
+          ]
+        },
+        {
+          "title": "12. Kontakt",
+          "paragraphs": [
+            "Fragen zu diesen Bedingungen senden Sie an {email} oder über die Kontaktseite."
           ]
         }
-      ],
-      "contactLink": "Kontaktseite"
-    },
-    "melenciModel": {
-      "profile": {
-        "caption": "Temperatur des Untergrunds unter Melenci nach den Atlaskarten, mit der Tiefe, in der 60 °C erreicht werden.",
-        "temp": "Temperatur, °C",
-        "depth": "Tiefe, km",
-        "aria": "Temperatur über der Tiefe unter Melenci"
-      },
-      "scenarios": {
-        "caption": "Wärme aus einer Bohrung in Melenci in vier Fällen: die bestehende Bohrung mit ihren zwei angegebenen Förderraten und zwei angenommene tiefere Fälle",
-        "cols": [
-          "Fall",
-          "Wasser, °C",
-          "Förderrate, l/s",
-          "Über 20 °C (Atlas), kW",
-          "Gebäudeheizung, kW",
-          "Becken, kW",
-          "Wärmepumpe, kW",
-          "Pumpenstrom, kW",
-          "Gelieferte Wärme, kW",
-          "Wärme pro Jahr, MWh"
-        ],
-        "rows": {
-          "a1": "Me-1/H, Förderrate aus Anhang 1 (2005)",
-          "a2": "Me-1/H, Förderrate des Atlas (2010)",
-          "b": "Tieferer Horizont bei etwa 1.000 m (angenommen)",
-          "c": "Neue Bohrung bei etwa 1.300 m (angenommen)"
-        },
-        "note": "Die Kette ist in jedem Fall gleich: Gebäudeheizung bis 35 °C, Becken bis 28 °C, danach kühlt eine Wärmepumpe das Wasser auf 15 °C ab und liefert Wärme mit 45 °C bei einer Leistungszahl von 0,4 des Carnot-Wertes. Die Wärme pro Jahr gilt für {hours} Vollbenutzungsstunden. Die Fälle mit 55 °C und 75 °C und ihre Förderraten sind Annahmen, keine Messungen."
-      },
-      "economics": {
-        "caption": "Was der Bau kostet und wie schnell sich die Wärme bezahlt macht, nach dem Wert der ersetzten Wärme",
-        "cols": [
-          "Fall",
-          "Geschätzte Investition, Mio. €"
-        ],
-        "range": "Spanne {low}–{high}",
-        "price": "Amortisation bei {price} €/MWh, Jahre",
-        "net": "netto {net} Tsd. € im Jahr",
-        "never": "zahlt sich nicht zurück",
-        "note": "Die Investition ist die Summe der Posten der Kostentabelle, ohne die Aufwältigung und die Gasausrüstung, die nicht bewertet wurden; die Spanne ist die einer Schätzung der Klasse 4 (−30 % bis +50 %). Der Nettogewinn ist der Wert der Wärme abzüglich der jährlichen Betriebskosten aus der Tabelle unten. Die Amortisation ist die Investition geteilt durch den Nettogewinn je Jahr, ohne Abzinsung. Das Gas des Wassers ist hier nicht eingerechnet."
-      },
-      "omitted": {
-        "caption": "Amortisation bei {price} €/MWh, Jahre, mit den Posten, die die Amortisationstabelle auslässt",
-        "cols": {
-          "base": "Wie in der Amortisationstabelle",
-          "reinjection": "Mit Reinjektionsbohrung",
-          "risk": "Mit Bohrrisiko",
-          "workover": "Mit Aufwältigung",
-          "all": "Alles zusammen"
-        },
-        "invest": "Investition {inv} Mio. €",
-        "none": "entfällt",
-        "note": "Die Reinjektionsbohrung reicht bis zur Tiefe des Förderhorizonts ({depth} m für die bestehende Bohrung, in den anderen Fällen bis zur Tiefe der neuen Bohrung), zu {perM} €/m; die Injektionspumpe und ihr Strom sind nicht eingerechnet. Bohrrisiko: {success} % der Bohrungen sind fündig, eine fündige Bohrung kostet also so viel wie 1/0,7 Bohrungen; es gilt nur für neue Bohrungen. Die Aufwältigung ist eine runde Zahl von {workover} €, da es keinen öffentlichen Preis gibt; sie gilt nur für die bestehende Bohrung. Die Instandhaltung (3 % im Jahr) wird auf die höhere Investition gerechnet. Die Gasausrüstung ist weiterhin nicht eingerechnet."
-      },
-      "opex": {
-        "caption": "Betriebskosten pro Jahr (OPEX) nach Fall",
-        "cols": [
-          "Fall",
-          "Strom der Wärmepumpe, Tsd. €",
-            "Instandhaltung, Tsd. €",
-          "Sonstige Fixkosten, Tsd. €",
-          "Betriebskosten, Tsd. € im Jahr"
-        ],
-        "note": "Strom wird mit {electric} €/MWh berechnet. Die Instandhaltung beträgt {upkeep} % der Investition im Jahr, die sonstigen Fixkosten {other} € im Jahr (Überwachung, Wasseranalysen, Betreuung): beides sind Annahmen ohne öffentliche Quelle. Die Reinjektion ist nicht eingerechnet, weil dafür eine weitere neue Bohrung nötig wäre; das abgekühlte Wasser wird abgeleitet. Der Atlas sagt, dass fast alle Bohrungen der Vojvodina von selbst fließen, daher ist keine Förderpumpe gerechnet."
-      },
-      "methane": {
-        "caption": "Im Wasser von Me-1/H gelöstes Gas und was es wert sein könnte",
-        "cols": [
-          "Gas im Wasser, m³ je m³",
-          "Gas im Jahr, m³",
-          "Methanenergie, MWh im Jahr",
-          "Wert, Tsd. € im Jahr",
-          "Gegenüber der Wärme der bestehenden Bohrung"
-        ],
-        "rows": {
-          "low": "niedrigster Wert in der Vojvodina",
-          "high": "höchster Wert in der Vojvodina"
-        },
-        "note": "Nach dem Atlas enthält das Wasser des ersten Systems 0,04 bis 2,2 m³ Gas je m³, überwiegend Methan (80 bis 95 %); angesetzt werden 90 %. Die Förderrate beträgt 6,9 l/s (Anhang 1) über {hours} Stunden im Jahr; die Energie wird mit {price} €/MWh bewertet, dem Preis des Gases, das sie ersetzen würde. Der Gasgehalt von Me-1/H selbst ist nicht veröffentlicht: Er muss gemessen werden und entscheidet, ob sich Abscheidung und Nutzung lohnen. Gas aus dem Wasser ist explosiv, die Nutzung braucht daher Abscheidung, Sicherheitsmaßnahmen und Ausrüstung, die hier nicht bepreist sind."
-      },
-      "costs": {
-        "caption": "Posten der Investition und woher jede Zahl stammt",
-        "cols": [
-          "Posten",
-          "Verwendeter Wert",
-          "Grundlage"
-        ],
-        "rows": {
-          "drilling": {
-            "name": "Bohren einer neuen Bohrung",
-            "basis": "Öffentliche Schätzung von 350 bis 400 € je Meter (Blogbeitrag von 2012 ohne genannte Quelle); der obere Wert wird verwendet. Für die Vojvodina wurde keine neuere öffentliche Zahl gefunden."
-          },
-          "equipment": {
-            "name": "Ausrüstung zur Wärmenutzung (Wärmetauscher, Pumpen)",
-            "basis": "Öffentliche Schätzung von etwa 200.000 € (derselbe Beitrag von 2012). Angenommen wird, dass sie alles über Tage außer Wärmepumpe und Leitung umfasst."
-          },
-          "heatPump": {
-            "name": "Wärmepumpe",
-            "basis": "Annahme. Öffentliche Preise für Serbien gibt es nur für Haushaltsgeräte (3.000 bis 15.000 € eingebaut, ohne Leistungsangabe); ein Gerät von mehreren hundert kW kostet je kW weniger, daher werden 500 € je kW angesetzt."
-          },
-          "pipeline": {
-            "name": "Verteilleitung",
-            "basis": "Annahme: eine Trasse von 500 m zu 400 € je Meter. Einen öffentlichen Preis je Meter für Serbien haben wir nicht gefunden."
-          },
-          "reinjection": {
-            "name": "Reinjektionsbohrung",
-            "basis": "Nur in der Tabelle der ausgelassenen Posten gerechnet: eine Bohrung bis zur Tiefe des Förderhorizonts (560 m für Me-1/H), zu denselben Bohrkosten. Die Injektionspumpe und ihr Strom sind nicht bewertet."
-          },
-          "workover": {
-            "name": "Aufwältigung der bestehenden Bohrung",
-            "basis": "Nicht bewertet, daher nicht enthalten. Es wurde keine öffentliche Kostenangabe gefunden; die Bewertung der Aufwältigung ist ein eigener Schritt."
-          },
-          "gas": {
-            "name": "Ausrüstung zur Gasnutzung",
-            "basis": "Nicht bewertet, daher nicht enthalten. Sie wäre nur nötig, wenn das Wasser genug Gas enthält, um es zu nutzen; der Gasgehalt von Me-1/H muss zuerst gemessen werden."
-          }
-        },
-        "units": {
-          "perM": "€/m",
-          "perKw": "€/kW",
-          "eur": "€",
-          "route": "{m} m × {p} €/m"
-        }
-      },
-      "calc": {
-        "title": "Eigenen Fall berechnen",
-        "intro": "Ändern Sie Wasser, Nutzung und Kosten; das Ergebnis folgt derselben Kette und denselben Formeln wie die Tabellen oben.",
-        "fields": {
-          "temp": "Wassertemperatur am Bohrlochkopf",
-          "flow": "Förderrate",
-          "hours": "Vollbenutzungsstunden pro Jahr",
-          "heatValue": "Wert der ersetzten Wärme",
-          "electricPrice": "Strompreis",
-          "upkeep": "Instandhaltung, Anteil der Investition im Jahr",
-          "newWells": "Neue Bohrungen",
-          "depth": "Tiefe einer neuen Bohrung",
-          "successRate": "Fündigkeitsrate",
-          "drillingPerM": "Bohrkosten",
-          "reinjectionWells": "Reinjektionsbohrungen",
-          "reinjectionDepth": "Tiefe einer Reinjektionsbohrung",
-          "workover": "Aufwältigung der bestehenden Bohrung",
-          "heatPumpPerKw": "Wärmepumpe",
-          "pipelineM": "Länge der Leitung",
-          "pipelinePerM": "Verlegte Leitung",
-          "equipment": "Ausrüstung zur Wärmenutzung",
-            "otherOpex": "Sonstige Fixkosten im Jahr",
-          "gasRatio": "Gas im Wasser",
-          "gasPrice": "Wert des Gases",
-          "gasEquipment": "Ausrüstung zur Gasnutzung"
-        },
-        "results": {
-          "atlas": "Über 20 °C (Atlaswert)",
-          "heating": "Gebäudeheizung",
-          "pools": "Becken",
-          "pump": "Wärme der Wärmepumpe",
-          "electric": "Strom der Wärmepumpe",
-          "cop": "Leistungszahl der Wärmepumpe",
-          "total": "Gelieferte Wärme",
-          "energy": "Wärme pro Jahr",
-          "gasRevenue": "Ersetztes Gas, Wert im Jahr",
-          "opex": "Betriebskosten im Jahr",
-          "net": "Nettogewinn pro Jahr",
-          "investment": "Geschätzte Investition",
-          "payback": "Amortisation"
-        },
-        "note": "Eine Rechnung aus genannten Annahmen, keine Planung. Sie ersetzt weder den Test der Bohrung, die Bewertung ihrer Aufwältigung noch eine Machbarkeitsstudie."
-      },
-      "matrix": {
-        "caption": "Amortisation einer neuen Bohrung in Jahren, wenn die Wärme Brennstoff im Wert von {price} €/MWh ersetzt",
-        "tempCol": "Wasser, °C (Bohrtiefe, m)",
-        "flowHead": "{flow} l/s",
-        "clear": "klar",
-        "limit": "nahe der Grenze",
-        "no": "lohnt sich nicht",
-        "note": "Jede Bohrung hier ist eine neue Bohrung bis zu der Tiefe, in der das Gestein 4 °C wärmer ist als das Wasser (der Gradient von Melenci, 52,5 °C je km), mit denselben Preisen und Annahmen wie oben, der Wärmepumpe, 500 m Leitung und der Ausrüstung über Tage, wobei die gesamte Wärme {hours} Stunden im Jahr genutzt wird. Aufwältigung, Reinjektion, Gas und Förderungen sind nicht eingerechnet. Klar: Amortisation bis {clear} Jahre; nahe der Grenze: {clear} bis {limit} Jahre; lohnt sich nicht: über {limit} Jahre. Diese Grenzen sind unsere Einschätzung."
-      },
-      "pdf": {
-        "button": "Als PDF speichern",
-        "hint": "Öffnet den Druckdialog: „Als PDF speichern“ wählen. Die Seite wird als Bericht mit den Tabellen und dem Temperaturdiagramm gedruckt."
-      }
-    },
-    "geothermalModel": {
-      "canvasLabel": "Interaktives 3D-Modell der Bohrungen in der Vojvodina mit Temperaturschnitten. Ziehen zum Drehen, auf das Modell klicken und scrollen zum Zoomen.",
-      "loading": "3D-Modell wird geladen…",
-      "noWebgl": "Dieser Browser konnte 3D-Grafik nicht starten, das Modell kann daher nicht angezeigt werden.",
-      "hint": "Ziehen dreht · Rechtsklick-Ziehen oder zwei Finger verschieben · auf das Modell klicken, dann scrollen zum Zoomen · Klick auf eine Bohrung zeigt Daten",
-      "zoomIn": "Vergrößern",
-      "zoomOut": "Verkleinern",
-      "views": {
-        "title": "Ansicht",
-        "perspective": "Perspektive",
-        "top": "Von oben",
-        "south": "Von Süden",
-        "west": "Von Westen"
-      },
-      "scale": {
-        "title": "Maßstab",
-        "vertical": "Vertikale Überhöhung",
-        "relief": "Überhöhung des Reliefs",
-        "ground": "Durchsichtigkeit des Geländes"
-      },
-      "layers": {
-        "title": "Schichten",
-        "show": "Horizontale Schichten",
-        "spacing": "Schichtabstand",
-        "opacity": "Durchsichtigkeit der Schichten",
-        "walls": "Seitenwände"
-      },
-      "wells": {
-        "title": "Bohrungen",
-        "labels": "Ortsnamen",
-        "producing": "In Betrieb (2005)",
-        "idle": "Außer Betrieb",
-        "untapped": "Nie in Betrieb"
-      },
-      "contours": {
-        "title": "Höhenlinien am Gelände",
-        "show": "Tiefe bis zu einer gewählten Temperatur",
-        "temp": "Erreichte Temperatur"
-      },
-      "map": {
-        "title": "Geländekarte",
-        "show": "Karte auf dem Gelände anzeigen (lädt Bilder vom Kartenserver)",
-        "loading": "Karte wird geladen…",
-        "error": "Die Karte konnte nicht geladen werden.",
-        "credit": "Kartendaten © <a href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\" rel=\"noopener noreferrer\">OpenStreetMap-Mitwirkende</a>, SRTM · Stil © <a href=\"https://opentopomap.org\" target=\"_blank\" rel=\"noopener noreferrer\">OpenTopoMap</a> (<a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noopener noreferrer\">CC-BY-SA</a>)"
-      },
-      "legend": {
-        "title": "Temperatur, °C",
-        "measured": "Farbiger Balken an der Bohrung: gemessen im getesteten Intervall",
-        "hollow": "Hohler Marker: kein Intervall angegeben, bei Gesamttiefe eingetragen",
-        "modelled": "Farbige Schichten und Wände: Temperatur aus den Atlaskarten für 500, 1.000 und 2.000 m; an den Wänden eine Linie alle 10 °C",
-        "contours": "Linien am Gelände: Tiefe in km, in der die gewählte Temperatur erreicht wird; Ringe schließen sich um die wärmeren Bohrungen",
-        "head": "Bohrlochkopf: gefüllt in Betrieb, grau außer Betrieb, Ring nie in Betrieb"
-      },
-      "detail": {
-        "title": "Bohrung",
-        "empty": "Klicken Sie auf eine Bohrung, um hier ihre Daten zu sehen."
-      },
-      "tip": {
-        "well": "<strong>{id}</strong> · {place}<br>{status}<br>Tiefe {depth} {unit}, {interval}<br>Wasser {temp} {degC}",
-        "interval": "Intervall {top}–{bottom} {unit}",
-        "noInterval": "Intervall nicht angegeben",
-        "section": "<strong>{temp} {degC}</strong> in {depth} {unit} (Atlas)<br>{lat}°N, {lon}°E · Gradient {gradient} {gunit}"
-      },
-      "test": {
-        "interval": "Intervall {top}–{bottom} {unit}",
-        "noInterval": "Kein Intervall angegeben",
-        "lowerBound": "Untergrenze"
-      },
-      "fields": {
-        "place": "Ort",
-        "status": "Status",
-        "year": "Gebohrt",
-        "depth": "Gesamttiefe"
-      },
-      "status": {
-        "producing": "In Betrieb",
-        "idle": "Außer Betrieb",
-        "untapped": "Nie in Betrieb"
-      },
-      "units": {
-        "m": "m",
-        "km": "km",
-        "degC": "°C",
-        "gradient": "°C/km",
-        "flow": "l/s",
-        "minerals": "g/l"
-      },
-      "workspace": {
-        "brand": "Geothermisches Modell der Vojvodina",
-        "open": "Im Vollbildfenster öffnen",
-        "close": "Schließen",
-        "fullscreen": "Vollbild",
-        "dockLeft": "Einstellungen",
-        "dockRight": "Daten",
-        "fit": "An Fenster anpassen",
-        "tool": {
-          "navigate": "Navigieren",
-          "measure": "Messen",
-          "frame": "Druckrahmen",
-          "print": "Drucken",
-          "png": "Bild speichern"
-        },
-        "hint": {
-          "navigate": "Ziehen dreht · Rechtsklick-Ziehen verschiebt · Scrollen zoomt · Klick auf den Boden zeigt das Temperaturprofil · Klick auf eine Bohrung zeigt Details",
-          "measureFirst": "Messen: ersten Punkt auf dem Boden anklicken",
-          "measureSecond": "Messen: zweiten Punkt anklicken",
-          "measureDone": "Entfernung und Richtung stehen im Modell · erneuter Klick beginnt eine neue Messung · Esc löscht",
-          "frame": "Druckrahmen: Leiste ziehen zum Verschieben, Ecke ziehen zum Ändern der Größe, dann Drucken drücken"
-        },
-        "status": {
-          "lat": "Br.",
-          "lon": "L.",
-          "gk": "GK7 E/N, m",
-          "elevation": "Höhe",
-          "temps": "Atlas-Temperatur in 500 · 1.000 · 2.000 m",
-          "none": "Zeiger über das Modell bewegen"
-        },
-        "find": {
-          "label": "Bohrung oder Ort suchen",
-          "placeholder": "Bohrung oder Ort suchen…",
-          "none": "Keine Bohrung und kein Ort mit diesem Namen"
-        },
-        "probe": {
-          "title": "Punkt auf dem Boden",
-          "empty": "Klicken Sie im Modell auf den Boden, um die Temperatur unter diesem Punkt abzulesen.",
-          "clear": "Punkt entfernen",
-          "rows": {
-            "position": "Lage",
-            "gk": "Gauß-Krüger, Zone 7, m",
-            "elevation": "Höhe",
-            "at": "In {depth} m",
-            "depthTo": "Tiefe bis {temp} °C"
-          }
-        },
-        "chart": {
-          "temp": "Temperatur, °C",
-          "depth": "Tiefe, km"
-        },
-        "print": {
-          "title": "Rahmen drucken",
-          "paper": "Papier",
-          "a4": "A4",
-          "a3": "A3",
-          "orientation": "Ausrichtung",
-          "landscape": "Querformat",
-          "portrait": "Hochformat",
-          "showFrame": "Rahmen im Modell zeigen",
-          "print": "Drucken",
-          "save": "Bild speichern",
-          "placeFirst": "Platzieren Sie den Rahmen über dem gewünschten Teil des Modells und drücken Sie erneut Drucken.",
-          "busy": "Blatt wird vorbereitet…",
-          "summary": "{paper}, {orientation}, Bild {w} × {h} mm"
-        },
-        "sheet": {
-          "subtitle": "Geothermisches Potenzial der Vojvodina: 3D-Modell hydrothermaler Bohrungen",
-          "date": "Gedruckt am {date}",
-          "facts": {
-            "frame": "Gebiet im Rahmen",
-            "settings": "Einstellungen des Modells"
-          },
-          "rows": {
-            "centre": "Mittelpunkt",
-            "size": "Breite × Höhe im Gelände",
-            "view": "Ansicht",
-            "scale": "Maßstab",
-            "exaggeration": "Vertikale Überhöhung",
-            "relief": "Reliefüberhöhung",
-            "layers": "Temperaturschichten",
-            "contours": "Isolinien",
-            "map": "Karte",
-            "wells": "Bohrungen",
-            "off": "Aus"
-          },
-          "viewTop": "Von oben",
-          "viewOblique": "Schräg, Richtung {azimuth}°, Neigung {tilt}°",
-          "scaleValue": "1 : {n}",
-          "layersValue": "alle {step} km, Deckkraft {opacity} %",
-          "contoursValue": "Tiefe bis {temp} °C",
-          "mapValue": "OpenTopoMap",
-          "wells": "Bohrungen im Rahmen",
-          "wellsEmpty": "Keine Bohrungen im Rahmen.",
-          "wellsHead": [
-            "Bohrung",
-            "Ort",
-            "Status",
-            "Tiefe, m",
-            "Max. Temp., °C",
-            "Intervall, m",
-            "Gebohrt"
-          ],
-          "selected": "Gewählte Bohrung",
-          "point": "Punkt auf dem Boden"
-        }
-      },
-      "notesTitle": "So ist die Darstellung zu lesen",
-      "notes": [
-        "**Lage.** Der Anhang nennt Orte, keine Koordinaten, daher steht jede Bohrung im Zentrum ihres Ortes. Bohrungen desselben Ortes sind auf einem Ring von etwa 2 km Breite verteilt, damit man sie unterscheiden kann.",
-        "**Gemessen.** Jeder farbige Balken ist die Wassertemperatur im getesteten Intervall. Wo der Anhang kein Intervall nennt, ist der Marker hohl und liegt bei der Gesamttiefe; die Temperatur dort stammt von Wasser, das auch von weiter oben gekommen sein kann, der Gradient dieser Bohrungen ist also eine Untergrenze.",
-        "**Atlas.** Die Schichten, Wände und Höhenlinien sind nicht an den Bohrungen gemessen. Sie stammen aus den Temperaturkarten für 500, 1.000 und 2.000 m des [Geothermischen Atlas der Vojvodina](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Geothermal_atlas_of_AP_Vojvodina.pdf) (2010), digitalisiert aus den Farbklassen der Karten (Schritte von 0,5, 1 und 2 °C). Zwischen den Karten steigt die Temperatur geradlinig von 11 °C an der Oberfläche, was angenommen ist. Unterhalb von 2 km, tiefer als jede Karte, setzt sie sich mit der Steigung zwischen 1 und 2 km fort. Die Balken an den Bohrungen (Anhang) und die Farben (Atlas) sind verschiedene Quellen und stimmen nicht immer überein: Der Atlas ist bei 44 von 53 Tests wärmer als das Wasser des Anhangs, im Mittel um 9 °C.",
-        "**Form und Relief.** Die Form ist die Grenze der AP Vojvodina aus OpenStreetMap. Die Geländehöhen stammen aus Terrain Tiles auf AWS (SRTM und andere Quellen), auf einem 1-km-Raster, gezeichnet über dem Median der Provinz, 79 m, mit der im Maßstab-Panel eingestellten Überhöhung. Die Temperaturschichten sind als Tiefe unter diesem Niveau gezeichnet und folgen dem Gelände nicht; der Unterschied zählt nur an der Fruška Gora und im Vršac-Gebirge. Der Anhang nennt keine Höhen der Bohrungen, daher sitzen die Bohrlochköpfe auf dem Geländemodell.",
-        "**Quelle.** Bohrungen und Tests stammen aus [Anhang 1](https://www.psegs.vojvodina.gov.rs/wp-content/uploads/2013/03/Mogucnosti_koriscenja_energetskog_potencijala_geotermalnih_voda_u_AP_Vojvodini_-_prilog_1-_2005.pdf) der Studie *Mogućnosti korišćenja energetskog potencijala geotermalnih voda u AP Vojvodini* (2005), vom Provinzsekretariat für Energie und mineralische Rohstoffe öffentlich zugänglich gemacht: 51 Bohrungen in drei Tabellen, Kž-2/H einmal gezählt."
       ]
     },
     "landing": {
       "meta": {
-        "title": "Eine Website, die Ihnen Kunden bringt",
-        "description": "Schnelle, maßgeschneiderte Websites, SEO und Sichtbarkeit in der KI-Suche für lokale Dienstleister. Ein Festpreis, alles auf Ihren Namen und ein kostenloser Check Ihrer aktuellen Website."
+        "title": "Eine Website, die Kunden bringt",
+        "description": "Schnelle Websites nach Maß, SEO und Sichtbarkeit in der KI-Suche für lokale Dienstleister. Festpreis, alles auf Ihren Namen und ein kostenloser Check Ihrer aktuellen Seite."
       },
       "header": {
         "cta": "Kostenloser Website-Check"
       },
       "hero": {
-        "badge": "Verfügbar für neue Projekte",
+        "badge": "Freie Kapazitäten für neue Projekte",
         "titleLead": "Schickt Ihre Website Kunden",
-        "titleHighlight": "zu Ihrer Konkurrenz?",
-        "description": "Jede langsame Seite, jede unbeantwortete Anfrage und jedes fehlende Google-Ranking schiebt einen Kunden zu jemand anderem — und Sie sehen es nie. Ich baue schnelle, maßgeschneiderte Websites, richte SEO und Sichtbarkeit in der KI-Suche ein und leite jede Anfrage direkt auf Ihr Telefon.",
-        "primary": "Erfahren, was Ihre Website verliert",
+        "titleHighlight": "zur Konkurrenz?",
+        "description": "Eine langsame Seite, eine unbeantwortete Anfrage, ein Betrieb, den Google nicht zeigt. Jede dieser Kleinigkeiten schickt einen Kunden woandershin, und Sie merken es nicht. Ich baue schnelle Websites, kümmere mich um SEO und KI-Suche und leite jede Anfrage direkt auf Ihr Handy.",
+        "primary": "Herausfinden, was Ihre Website verschenkt",
         "secondary": "Ergebnisse ansehen",
         "trust": [
           {
@@ -802,7 +405,7 @@
           },
           {
             "value": "< 1 Tag",
-            "label": "bis zur Antwort auf jede Anfrage"
+            "label": "bis zu meiner Antwort"
           }
         ],
         "imageAlt": "Stojan Petkovic, der Webentwickler, mit dem Sie direkt arbeiten",
@@ -810,223 +413,227 @@
         "videoLabel": "Vorstellungsvideo"
       },
       "problem": {
-        "badge": "Was es Sie kostet",
-        "heading": "Ihre Website schiebt Ihre Kunden womöglich gerade zur Konkurrenz",
-        "lead": "Nichts warnt Sie: kein Fehler, kein Alarm, nur Anrufe, die nie kommen. Und je länger es dauert, desto teurer wird es.",
+        "badge": "Wo die Kunden hingehen",
+        "heading": "Vielleicht schickt Ihre Website gerade jetzt Kunden zur Konkurrenz",
+        "lead": "Es gibt keine Fehlermeldung und keine Warnung. Das Telefon klingelt einfach seltener, als es sollte, und das oft monatelang.",
         "items": [
           {
             "icon": "hourglass",
-            "title": "Besucher gehen, bevor sie Sie sehen",
-            "text": "Jede zusätzliche Sekunde auf dem Smartphone kostet Besucher, bevor sie Ihre Nummer überhaupt sehen — und zuerst gehen die, für die Sie bezahlt haben. Die Ursache liegt selten in Ihrem Geschäft: Es ist ein schwerer Aufbau aus Themes und Plugins, gewählt für eine Website, die nichts davon je gebraucht hat."
+            "title": "Besucher sind weg, bevor sie Ihre Nummer sehen",
+            "text": "Auf dem Handy wartet niemand. Lädt eine Seite fünf Sekunden, geht der Besucher zurück zu Google und ruft den nächsten Betrieb an. Schuld ist meist ein schweres WordPress-Theme mit Plugins, die Sie nie gebraucht haben."
           },
           {
             "icon": "search-x",
-            "title": "Kunden finden Sie nicht",
-            "text": "Dünne Seiten, kein lokaler Inhalt und technische Fehler halten Sie von Seite eins fern, und KI-Assistenten wie ChatGPT erwähnen Sie gar nicht. Den Anruf bekommt, wer genannt wird."
+            "title": "Bei Google findet Sie niemand",
+            "text": "Dünne Seiten ohne Ortsbezug und mit technischen Fehlern schaffen es nicht auf Seite eins. ChatGPT erwähnt Sie nicht, und den Auftrag bekommt, wer erwähnt wird."
           },
           {
             "icon": "mail-x",
-            "title": "Anfragen gehen an die Konkurrenz",
-            "text": "Formulare landen in einem Postfach, das niemand prüft, und der Kunde hat längst jemand anderen angerufen, wenn Sie antworten."
+            "title": "Anfragen bleiben im Postfach liegen",
+            "text": "Das Formular landet in einem Postfach, in das keiner schaut. Bis Sie antworten, hat der Kunde längst jemand anderen beauftragt."
           },
           {
             "icon": "lock",
-            "title": "Sie sind von anderen abhängig",
-            "text": "Domain, Hosting oder Code laufen auf einen fremden Namen, jede kleine Änderung bedeutet Warten und Bezahlen — und einfach gehen können Sie nicht."
+            "title": "Die Website gehört Ihnen gar nicht",
+            "text": "Domain, Hosting oder Code laufen auf fremden Namen. Jede kleine Änderung heißt warten und zahlen, und einfach wechseln können Sie nicht."
           }
         ]
       },
       "solution": {
-        "badge": "So hören die Verluste auf",
-        "heading": "Ein Ansprechpartner, ein Preis und eine Website, die keine Kunden mehr verliert",
-        "lead": "Design, Entwicklung, SEO und Anfragen-Tracking in einem Projekt, gebaut nur mit den Werkzeugen, die Ihr Unternehmen braucht — damit aus jedem Besucher, den Sie gewinnen, eine Anfrage wird und kein verpasster Anruf.",
+        "badge": "So hört das auf",
+        "heading": "Ein Ansprechpartner, ein Festpreis und eine Website, die für Sie arbeitet",
+        "lead": "Design, Umsetzung, SEO und Anfragen-Tracking in einem Projekt. Ich setze nur ein, was Ihr Betrieb wirklich braucht, damit jeder Besucher einen Grund hat anzurufen.",
         "items": [
           {
             "icon": "zap",
-            "title": "Eine blitzschnelle Website",
-            "text": "Mit Astro gebaut: Seiten öffnen sich sofort auf jedem Smartphone, mit Bestwerten in Googles eigenen Lighthouse-Tests."
+            "title": "Eine Website, die sofort lädt",
+            "text": "Gebaut mit Astro: Die Seiten öffnen sofort, auch bei schlechtem Empfang, mit Bestwerten in den Google-Tests."
           },
           {
             "icon": "search",
-            "title": "Gefunden bei Google und in der KI-Suche",
-            "text": "Leistungs- und Regionsseiten, strukturierte Daten und Inhalte, die so geschrieben sind, wie Ihre Kunden wirklich suchen — bei Google und in ChatGPT."
+            "title": "Sichtbar bei Google und in der KI-Suche",
+            "text": "Eine Seite für jede Leistung und jeden Ort, strukturierte Daten für Google und Texte, die so formuliert sind, wie Ihre Kunden tatsächlich suchen."
           },
           {
             "icon": "bell-ring",
-            "title": "Jede Anfrage, sofort",
-            "text": "Jedes Formular und jeder Anruf wird erfasst und Ihnen in dem Moment gesendet, in dem er passiert — so antworten Sie zuerst und gewinnen den Auftrag."
+            "title": "Jede Anfrage sofort bei Ihnen",
+            "text": "Jedes Formular und jeder Klick auf Ihre Nummer wird erfasst und kommt sofort bei Ihnen an. Sie melden sich als Erster und bekommen den Auftrag."
           },
           {
             "icon": "shield-check",
-            "title": "Ihre vom ersten Tag an",
-            "text": "Code, Domain und Hosting auf Ihren Namen. Keine Knebelverträge, keine versteckten Kosten, keine Plugins, die kaputtgehen."
+            "title": "Von Anfang an Ihr Eigentum",
+            "text": "Code, Domain und Hosting laufen auf Ihren Namen. Keine Vertragslaufzeit, keine versteckten Kosten und keine Plugins, die bei jedem Update kaputtgehen."
           }
         ]
       },
       "results": {
-        "badge": "Beweis, dass es sich beheben lässt",
-        "heading": "Dasselbe Problem, gelöst: der richtige Aufbau für die Aufgabe",
-        "lead": "Zwei Baumpflegefirmen in Südflorida verloren Besucher an schwere Websites, gebaut mit Werkzeugen, die sie nie gebraucht haben. Schlank neu gebaut, öffnen sich ihre Seiten sofort und erreichen den Bestwert 100 bei SEO. Ein lokales Unternehmen braucht Tempo und Anfragen, keinen komplizierten Unterbau.",
-        "note": "Das sind nur zwei Beispiele aus meiner Arbeit — jedes Projekt entsteht auf die gleiche Weise.",
+        "badge": "Ergebnisse",
+        "heading": "Zwei Websites, dasselbe Problem, gelöst",
+        "lead": "Zwei Betriebe für Baumfällung und Baumpflege in Südflorida hatten langsame WordPress-Seiten voller Plugins. Ich habe beide schlank neu gebaut: Die Seiten öffnen sofort und erreichen den SEO-Bestwert 100. Ein lokaler Betrieb braucht Tempo und Anfragen, kein kompliziertes System.",
+        "note": "Das sind zwei Beispiele. Jede Website baue ich nach demselben Prinzip.",
         "cases": [
           {
             "client": "Tree Jaws",
-            "sector": "Baumpflege · Südflorida",
+            "sector": "Baumfällung und Baumpflege · Südflorida",
             "metric": "SEO 100",
-            "metricLabel": "Lighthouse-Wert nach dem Abschied von WordPress",
+            "metricLabel": "Lighthouse-Wert nach dem Umstieg von WordPress",
             "points": [
-              "Von WordPress auf Astro umgebaut — Seiten öffnen sich sofort, selbst bei schwachem 4G",
-              "176 Seiten und 108 lokale Ratgeber, gebaut für die lokale Suche",
+              "Von WordPress auf Astro umgezogen, die Seiten öffnen sofort, selbst bei schwachem 4G",
+              "176 Seiten, davon 108 lokale Ratgeber für die Suche in jedem Ort",
               "1.010 erfasste Anfragen, davon 732 Anrufe",
               "4,9★ aus 427 Google-Bewertungen"
             ]
           },
           {
             "client": "Mahalo Tree Service",
-            "sector": "Baumpflege · Südflorida",
+            "sector": "Baumfällung und Baumpflege · Südflorida",
             "metric": "SEO 100",
-            "metricLabel": "Lighthouse-Wert — und 0 $ für Anzeigen",
+            "metricLabel": "Lighthouse-Wert, ohne einen Dollar für Anzeigen",
             "points": [
-              "Von WordPress auf Astro umgebaut — statische Seiten statt eines Stapels Plugins",
-              "Jede Anfrage landet in der Sekunde des Absendens im Postfach des Inhabers — ohne Portal",
+              "Von WordPress auf Astro umgezogen, schlanke Seiten statt eines Plugin-Bergs",
+              "Jede Anfrage landet sofort beim Inhaber im Postfach, ohne Portal",
               "Wachstum allein über die Suche, ohne bezahlte Anzeigen",
-              "Google-Bewertung 5,0, 18 Regionsseiten und ein wachsender Blog"
+              "Google-Bewertung 5,0, 18 Ortsseiten und ein wachsender Blog"
             ]
           }
         ]
       },
       "story": {
-        "badge": "Eine Beispielgeschichte",
+        "badge": "Ein typischer Fall (ausgedacht)",
         "heading": "Wenn Anzeigen mehr kosten, als sie einbringen",
         "paragraphs": [
-          "Das ist Daniel, ein erfundener Inhaber, zusammengesetzt aus Situationen, die ich immer wieder sehe. Er führt eine Baumpflegefirma. Ein Hausbesitzer, dessen Baum ein Sturm beschädigt hat, ruft die erste Firma an, die vertrauenswürdig wirkt — und wartet nicht.",
-          "Seine Website öffnet sich langsam, Google zeigt sie kaum, und das Geld, das er in Anzeigen steckt, kommt nicht zurück. Besucher, für die er bezahlt, gehen, bevor die Seite überhaupt geladen ist — und er erfährt es nie, weil ihn nichts warnt.",
-          "Dann wird die Website neu gebaut: schnelle Seiten, SEO von Grund auf, jede Anfrage direkt auf sein Telefon. Die Seiten öffnen sich sofort, und das Anzeigenbudget wird endlich zu Anrufen. Hätte er noch eine Saison gewartet, hätten die Anzeigen weiter Besucher bezahlt, die nie angerufen hätten."
+          "Thomas gibt es nicht, seine Lage aber sehr wohl. Ich habe ihn aus Geschichten zusammengesetzt, die ich immer wieder höre. Er führt einen Betrieb für Baumfällungen. Wenn ein Sturm einen Ast aufs Dach wirft, ruft der Hausbesitzer den ersten Betrieb an, der seriös wirkt, und wartet nicht lange.",
+          "Thomas’ Website lädt langsam, bei Google taucht er kaum auf, und das Geld für Anzeigen kommt nicht zurück. Die Besucher, für die er bezahlt, sind weg, bevor die Seite geladen ist. Er erfährt davon nichts, denn niemand sagt es ihm.",
+          "Dann wird die Website neu gebaut: schnelle Seiten, sauberes SEO und jede Anfrage direkt aufs Handy. Das Anzeigenbudget wird endlich zu Anrufen. Eine Saison länger warten hätte geheißen, weiter für Klicks von Leuten zu zahlen, die nie anrufen."
         ],
         "beforeTitle": "Vorher",
         "before": [
-          "Eine schwere Website, gebaut mit Werkzeugen, die er nie gebraucht hat",
-          "Schwaches SEO, bei Google schwer zu finden",
-          "Anzeigenbudget, das sich nicht auszahlt"
+          "Schwere Website voller Plugins, die er nicht brauchte",
+          "Schwaches SEO, bei Google kaum zu finden",
+          "Anzeigen, die sich nicht rechnen"
         ],
         "afterTitle": "Nachher",
         "after": [
-          "Seiten, die sich sofort öffnen",
-          "SEO von Grund auf eingerichtet",
-          "Jede Anfrage erreicht ihn im selben Moment"
+          "Seiten, die sofort laden",
+          "SEO von Anfang an richtig aufgesetzt",
+          "Jede Anfrage kommt sofort bei ihm an"
         ],
         "quote": "Jede Woche, die ich gewartet habe, hat jemand anderes diese Anrufe bekommen.",
-        "author": "Daniel",
-        "role": "Ein erfundener Inhaber — eine Illustration, kein echter Kunde",
-        "imageAlt": "Eine Beispiel-Website einer Baumpflegefirma von Stojan Petkovic"
+        "author": "Thomas",
+        "role": "Ausgedachter Inhaber, kein echter Kunde",
+        "imageAlt": "Beispiel-Website eines Betriebs für Baumfällung, gebaut von Stojan Petković"
       },
       "report": {
-        "badge": "Tracking & Monatsbericht",
-        "heading": "Ohne Zahlen raten Sie — und so verschwinden Budgets",
-        "lead": "Die meisten Websites lassen Sie raten, welche Klicks, Anrufe und Euro wirken und welche verpuffen. Zu jeder Website, die ich baue, bekommen Sie auf Wunsch das klarste Bild Ihres Marketings, das Sie je hatten: jede Anfrage, jeden Anruf und jeden investierten Euro, in einem verständlich geschriebenen Monatsbericht.",
+        "badge": "Tracking und Monatsbericht",
+        "heading": "Ohne Zahlen raten Sie nur, und so verschwinden Budgets",
+        "lead": "Die meisten Inhaber wissen nicht, welche Klicks, Anrufe und Euros wirklich Aufträge bringen. Zu jeder Website, die ich baue, bekommen Sie ein klares Bild: jede Anfrage, jeder Anruf und jeder investierte Euro, in einem Monatsbericht, den Sie in fünf Minuten gelesen haben.",
         "points": [
           {
             "icon": "inbox",
-            "title": "Jede Anfrage, sofort",
-            "text": "Das vollständige Formular, die Seite, von der es kam, und die Anzeige oder Suche, die den Besucher brachte — in der Sekunde des Absendens in Ihrem Postfach."
+            "title": "Jede Anfrage sofort",
+            "text": "Die vollständige Nachricht, die Seite, von der sie kam, und die Anzeige oder Suche, über die der Besucher kam. Sofort in Ihrem Postfach."
           },
           {
             "icon": "phone",
             "title": "Jeder Anruf zählt",
-            "text": "Tipps auf Ihre Telefonnummer, WhatsApp- und SMS-Links werden als Conversions erfasst, statt verloren zu gehen."
+            "text": "Klicks auf Ihre Telefonnummer, WhatsApp und SMS werden als Anfrage erfasst, statt verloren zu gehen."
           },
           {
             "icon": "target",
-            "title": "Die Quelle, die sich lohnt",
-            "text": "Google, Facebook-Anzeigen oder direkte Besuche: Sie sehen, welche Quelle Besuche, Anfragen und Anrufe bringt — und mit welcher Quote."
+            "title": "Sehen, welche Quelle sich lohnt",
+            "text": "Google, Facebook-Anzeigen oder direkte Besuche: Sie sehen, welche Quelle Besuche, Anfragen und Anrufe bringt."
           },
           {
             "icon": "wallet",
             "title": "Kosten pro Anfrage und pro Anruf",
-            "text": "Tragen Sie Ihre Werbeausgaben ein, und der Bericht zeigt, was jede Anfrage, jeder Anruf und jeder gewonnene Kunde wirklich gekostet hat — samt Return on Ad Spend."
+            "text": "Sie tragen ein, was die Anzeigen gekostet haben, und der Bericht zeigt, was Sie jede Anfrage, jeder Anruf und jeder neue Kunde wirklich gekostet hat und was zurückkam."
           },
           {
             "icon": "file-text",
             "title": "Ein Monats-PDF, das jeder versteht",
-            "text": "Keine Logins, keine Dashboards: klare Seiten auf Englisch oder Serbisch, bereit für Partner oder Steuerberater."
+            "text": "Kein Login, kein Dashboard. Klare Seiten, die Sie auch Ihrem Steuerberater geben können."
           },
           {
             "icon": "shield-check",
-            "title": "Datenschutz von Anfang an",
-            "text": "Besucher werden anonym gezählt, ohne Cookies und ohne sie über andere Websites zu verfolgen."
+            "title": "Datenschutz zuerst",
+            "text": "Besucher werden anonym gezählt, ohne Cookies und ohne Tracking über andere Websites hinweg."
           }
         ],
-        "outcomesHeading": "Was das für Ihr Unternehmen bedeutet",
+        "outcomesHeading": "Was das für Ihren Betrieb heißt",
         "outcomes": [
-          "Hören Sie auf, für Kanäle zu zahlen, die Klicks bringen, aber keine Kunden",
-          "Keine Anfrage geht mehr verloren — jede erreicht Sie sofort",
-          "Der Beweis in Zahlen, dass sich Ihre Website rechnet"
+          "Kein Geld mehr für Kanäle, die Klicks statt Kunden bringen",
+          "Keine Anfrage geht mehr verloren",
+          "Schwarz auf weiß, dass sich die Website rechnet"
         ],
         "imageAlt": "Beispiel eines monatlichen Website-Berichts: Besucher, Anfragen, Anrufe, Conversion-Rate, ein Tagesdiagramm und die Herkunft der Besucher.",
-        "imageCaption": "Ein Beispiel für einen Monatsbericht (Demodaten).",
-        "imageBadge": "Für jede Website verfügbar"
+        "imageCaption": "Beispiel eines Monatsberichts (Demodaten).",
+        "imageBadge": "Bei jeder Website dabei"
       },
       "process": {
-        "badge": "So funktioniert es",
-        "heading": "Vier Schritte von einer Website, die Kunden verliert, zu einer, die sie gewinnt",
-        "lead": "Jede Woche des Wartens ist eine Woche verpasster Anfragen. Keine langen Meetings, keine Überraschungen — Sie wissen immer, was als Nächstes passiert.",
+        "badge": "So läuft es ab",
+        "heading": "In vier Schritten zur Website, die Kunden gewinnt",
+        "lead": "Keine langen Meetings, keine Überraschungen. Sie wissen immer, was als Nächstes kommt.",
         "steps": [
           {
             "title": "Kostenloser Website-Check",
-            "text": "Senden Sie das Formular. Innerhalb eines Werktags prüfe ich Ihre aktuelle Website und Ihre Mitbewerber und sage Ihnen ehrlich, was Sie bremst."
+            "text": "Sie schicken das Formular. Innerhalb eines Werktags sehe ich mir Ihre Website und Ihre Mitbewerber an und sage Ihnen ehrlich, was Sie bremst."
           },
           {
             "title": "Ein klares Angebot",
-            "text": "Ein kurzes Gespräch, dann ein Dokument: was ich baue, wann es fertig ist und ein Festpreis. Sie entscheiden mit allen Karten auf dem Tisch."
+            "text": "Ein kurzes Gespräch, dann ein Dokument: was ich umsetze, bis wann und zu welchem Festpreis. Sie entscheiden, wenn alles auf dem Tisch liegt."
           },
           {
-            "title": "Design und Entwicklung",
-            "text": "Ich arbeite in kurzen Zyklen, und Sie verfolgen den Fortschritt über einen Vorschau-Link. Ihre aktuelle Website bleibt online, bis die neue fertig ist."
+            "title": "Design und Umsetzung",
+            "text": "Ich arbeite in kurzen Etappen, und Sie verfolgen den Fortschritt über einen Vorschau-Link. Ihre aktuelle Website bleibt online, bis die neue fertig ist."
           },
           {
-            "title": "Start und Wachstum",
-            "text": "Die Website geht auf Ihren Namen online, mit aktivem SEO und Anfragen-Tracking. Ich bleibe erreichbar, auf Wunsch mit einem monatlichen Wartungspaket."
+            "title": "Livegang und Wachstum",
+            "text": "Die Website geht auf Ihren Namen online, mit SEO und Anfragen-Tracking. Auch danach bin ich für Sie da, auf Wunsch mit einem monatlichen Wartungspaket."
           }
         ]
       },
       "offer": {
-        "badge": "Ohne Risiko starten",
+        "badge": "Der erste Schritt ist kostenlos",
         "heading": "Finden Sie heraus, was Ihre Website Sie kostet",
-        "lead": "Unverbindlich und ohne Verkaufsgespräch — nur ein ehrlicher Blick darauf, wo Ihnen heute Besucher und Anfragen entgehen.",
+        "lead": "Unverbindlich und ohne Verkaufsdruck. Nur ein ehrlicher Blick darauf, wo Ihnen heute Besucher und Anfragen verloren gehen.",
         "items": [
-          "Eine Prüfung von Geschwindigkeit, SEO und Sichtbarkeit in der KI-Suche",
-          "Ein Vergleich mit Ihren stärksten lokalen Mitbewerbern",
+          "Prüfung von Ladezeit, SEO und Sichtbarkeit in der KI-Suche",
+          "Vergleich mit Ihrem stärksten Mitbewerber vor Ort",
           "Konkrete nächste Schritte, ob Sie mit mir arbeiten oder nicht",
-          "Ein Festpreis, wenn Sie sich entscheiden, loszulegen"
+          "Ein Festpreis, wenn Sie loslegen möchten"
         ]
       },
       "faq": {
         "badge": "Fragen",
-        "heading": "Bevor Sie fragen",
+        "heading": "Häufige Fragen",
         "items": [
           {
             "question": "Was kostet eine Website?",
-            "answer": "Jedes Projekt hat einen Festpreis, der vor Beginn der Arbeit vereinbart wird — keine Abrechnung nach Stunden, keine Überraschungen. Nach dem kostenlosen Check erhalten Sie ein klares Angebot mit Preis und Zeitplan."
+            "answer": "Jedes Projekt hat einen Festpreis, den wir vor Beginn vereinbaren. Keine Abrechnung nach Stunden und keine Nachforderungen. Nach dem kostenlosen Check bekommen Sie ein klares Angebot mit Preis und Termin."
           },
           {
             "question": "Wie lange dauert es?",
-            "answer": "Das hängt vom Umfang der Website ab und davon, wie schnell die Inhalte bereitstehen. Das Angebot nennt den Zeitplan zusammen mit dem Preis, sodass Sie beides kennen, bevor wir beginnen."
+            "answer": "Das hängt vom Umfang ab und davon, wie schnell Texte und Bilder bereitstehen. Der Termin steht im Angebot neben dem Preis, Sie kennen also beides vor dem Start."
           },
           {
-            "question": "Was passiert mit meiner aktuellen Website und meinen Google-Platzierungen?",
-            "answer": "Ihre aktuelle Website bleibt online, bis die neue fertig ist. Adresse, Inhalte und Platzierungen ziehen mit um, und alte Seiten werden weitergeleitet, damit nichts verloren geht, was bereits rankt."
+            "question": "Was passiert mit meiner jetzigen Website und meinem Google-Ranking?",
+            "answer": "Ihre jetzige Website bleibt online, bis die neue fertig ist. Adresse und Inhalte ziehen mit um, und alte Seiten werden weitergeleitet, damit nichts verloren geht, was schon gut rankt."
           },
           {
-            "question": "Gehört die Website mir?",
-            "answer": "Vollständig. Code, Domain und Hosting laufen vom ersten Tag an auf Ihren Namen. Wenn Sie jemals wechseln möchten, nehmen Sie alles mit."
+            "question": "Gehört die Website wirklich mir?",
+            "answer": "Ja, komplett. Code, Domain und Hosting laufen von Anfang an auf Ihren Namen. Wenn Sie irgendwann wechseln wollen, nehmen Sie alles mit."
           },
           {
-            "question": "Arbeiten Sie mit Kunden in anderen Ländern?",
-            "answer": "Ja. Ich arbeite mit Kunden in den USA und in ganz Europa, vollständig per Telefon, Videocall und E-Mail. Zeitzonen sind selten ein Problem."
+            "question": "Arbeiten Sie auch mit Betrieben in Deutschland und Österreich?",
+            "answer": "Ja. Ich habe Kunden in Europa und den USA, und alles läuft über Telefon, Videocall und E-Mail. Ich spreche Deutsch und arbeite in Ihrer Zeitzone."
           },
           {
-            "question": "Können Sie auch Google Ads oder Social-Media-Anzeigen betreuen?",
-            "answer": "Ja — Google Ads sowie Facebook- und Instagram-Kampagnen, mit Conversion-Tracking, das zeigt, was jeder Euro einbringt."
+            "question": "Können Sie auch meine Google- oder Facebook-Anzeigen betreuen?",
+            "answer": "Ja. Ich betreue Google Ads sowie Kampagnen auf Facebook und Instagram, mit Conversion-Tracking, das zeigt, was jeder investierte Euro zurückbringt."
+          },
+          {
+            "question": "Binde ich mich mit einem langen Vertrag?",
+            "answer": "Nein. Die Website zahlen Sie einmal zum Festpreis, Anzeigen und SEO sind monatlich kündbar. Sie bleiben, weil es sich rechnet, nicht wegen einer Vertragslaufzeit."
           }
         ]
       },
@@ -1035,8 +642,8 @@
           "termsLabel": "Ich habe die {terms} gelesen und verstehe, dass diese Anfrage weder ein Angebot noch ein Vertrag ist.",
           "termsLink": "Nutzungsbedingungen",
           "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
-        "heading": "Erzählen Sie mir von Ihrem Unternehmen",
-        "lead": "Drei kurze Schritte, unter einer Minute. Ich antworte innerhalb eines Werktags.",
+        "heading": "Erzählen Sie mir kurz von Ihrem Betrieb",
+        "lead": "Drei kurze Schritte, weniger als eine Minute. Ich melde mich innerhalb eines Werktags.",
         "stepLabels": [
           "Was Sie brauchen",
           "Ihr Unternehmen",
@@ -1100,18 +707,18 @@
         "sending": "Wird gesendet…",
         "chooseService": "Wählen Sie aus, was Sie brauchen, um fortzufahren.",
         "required": "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse ein.",
-        "privacy": "Ihre Angaben verwende ich nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
+        "privacy": "Ihre Daten nutze ich nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
         "promise": "Antwort innerhalb eines Werktags",
-        "successTitle": "Vielen Dank — Ihre Anfrage ist eingegangen!",
-        "successText": "Ich prüfe Ihre Website und melde mich innerhalb eines Werktags mit ehrlichen, konkreten nächsten Schritten. Behalten Sie Ihr Postfach im Blick.",
-        "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail."
+        "successTitle": "Danke, Ihre Anfrage ist da!",
+        "successText": "Ich sehe mir Ihre Website an und melde mich innerhalb eines Werktags mit ehrlichen, konkreten nächsten Schritten. Schauen Sie in Ihr Postfach.",
+        "error": "Da ist etwas schiefgelaufen. Bitte versuchen Sie es noch einmal oder schreiben Sie mir direkt."
       },
       "final": {
-        "heading": "Jede Woche des Wartens gehen die Anrufe an Ihre Konkurrenz",
-        "text": "Der Check ist kostenlos und unverbindlich. Im schlimmsten Fall wissen Sie danach genau, was Sie Kunden kostet und was zuerst zu beheben ist.",
-        "cta": "Kostenlosen Website-Check anfordern"
+        "heading": "Jede Woche Warten bringt der Konkurrenz Anrufe",
+        "text": "Der Check ist kostenlos und unverbindlich. Im schlimmsten Fall wissen Sie danach genau, was Sie Kunden kostet und was Sie zuerst angehen sollten.",
+        "cta": "Kostenlosen Check anfordern"
       },
-      "footer": "Schnelle Websites, SEO und Kundengewinnung für lokale Unternehmen.",
+      "footer": "Schnelle Websites, SEO und Anzeigen für lokale Betriebe.",
       "mobileCta": "Kostenloser Website-Check",
       "privacy": {
         "toggle": "Wie ich mit Ihren Daten umgehe",
@@ -1129,198 +736,211 @@
     },
     "about": {
       "meta": {
-        "title": "Über mich — Ingenieur & Webentwickler",
-        "description": "Stojan Petkovic: Ingenieur (Titel genehmigt von der Bayerischen Ingenieurekammer-Bau) und Webentwickler. Schnelle Websites für technische Unternehmen, mit über 13 Jahren Erfahrung in Öl- und Gasoperationen."
+        "title": "Über mich: Anzeigen, SEO, Websites",
+        "description": "Stojan Petkovic: Anzeigen, SEO, KI-Sichtbarkeit und schnelle Websites für Dienstleister. Sie arbeiten direkt mit mir und sehen jedes Ergebnis in Zahlen."
       },
       "hero": {
         "badge": "Über mich",
         "titleLead": "Stojan\u00a0Petkovic",
-        "typingWords": ["Ingenieur", "Digital Architect", "Webentwickler", "Problemlöser"],
-        "typingWordsMobile": ["Ingenieur", "Digital Architect", "Webentwickler"],
-        "description": "Ingenieur und Webentwickler. Ich baue schnelle, praktische Websites und bringe die Disziplin eines Ingenieurs in jedes Projekt.",
+        "typingWords": [
+          "Mehr Anrufe",
+          "Mehr Anfragen",
+          "Mehr Kunden",
+          "Gemessen"
+        ],
+        "typingWordsMobile": [
+          "Mehr Anrufe",
+          "Mehr Anfragen",
+          "Mehr Kunden"
+        ],
+        "description": "Ich helfe Dienstleistern, online gefunden zu werden: mit Anzeigen, SEO, KI-Suche und schnellen Websites. Sie arbeiten direkt mit mir, ohne Agentur dazwischen.",
         "imageAlt": "Eine Rakete fliegt am beleuchteten Rand eines Planeten vorbei, vor einem Sternenhimmel."
       },
       "background": {
         "badge": "Hintergrund",
-        "heading": "Erst Ingenieurwesen, dann Code",
+        "heading": "Warum ich alles messe",
         "paragraphs": [
-          "Ich habe Bergbau an der Universität Belgrad studiert (Abschluss 2010). 2026 stellte die Bayerische Ingenieurekammer-Bau fest, dass meine Ausbildung den deutschen Anforderungen gleichwertig ist, und genehmigte mir die Berufsbezeichnung Ingenieur.",
-          "Ich habe 2011 als Bergbauingenieur bei der Erkundung von Lagerstätten begonnen, auch unter Tage, und bin 2012 zum Bohren gewechselt, wo ich Erkundungsbohrungen geplant und überwacht habe. Seit 2013 arbeite ich mit Coiled Tubing und Stickstoff, vom Feldingenieur bis zum Operations Manager, bei mehr als 1.000 Einsätzen. Dabei habe ich gelernt, wie echte Operationen sich verhalten: Drücke, Grenzen und was kaputtgeht, wenn eine Zahl falsch ist. Diese Gewohnheit, Zahlen zu prüfen, bringe ich in jede Website und jedes Werkzeug ein, das ich baue.",
-          "Für technische Unternehmen heißt das: weniger erklären. Sie müssen mir nicht beibringen, wie ein Einsatz vor Ort aussieht, bevor ich die passende Seite dafür bauen kann. Dies ist eine persönliche, unabhängige Seite. Sie steht für keinen Arbeitgeber und kein Unternehmen; siehe die Nutzungsbedingungen."
+          "Ich bin gelernter Ingenieur und habe über zehn Jahre im Außeneinsatz gearbeitet, wo eine falsche Zahl schnell teuer wird. Dort habe ich gelernt, nichts vorauszusetzen: erst messen, dann entscheiden.",
+          "Genauso arbeite ich im Marketing. Jeder Anruf, jede Anfrage und jeder Euro wird erfasst, und nach ein paar Wochen wissen wir, was Kunden bringt und was nur Geld kostet.",
+          "Ich arbeite mit Betrieben in Deutschland, Europa und den USA: Handwerk, Praxen, Ferienwohnungen und lokale Firmen. Sie sprechen direkt mit mir."
         ],
-        "credential": "Titel Ingenieur, genehmigt von der Bayerischen Ingenieurekammer-Bau, 2026"
+        "credential": "Ingenieur, Berufsbezeichnung anerkannt von der Bayerischen Ingenieurekammer-Bau."
       },
       "whatYouGet": {
         "badge": "Was ich mitbringe",
-        "heading": "Alles, was Ihr Projekt braucht",
-        "lead": "Die gleiche Sorgfalt bei jedem Projekt, von der ersten Codezeile bis zum Start.",
+        "heading": "Das bekommen Sie",
+        "lead": "Dieselbe Sorgfalt bei jedem Projekt, von der ersten Kampagne bis zum letzten Detail der Website.",
         "items": [
           {
-            "icon": "award",
-            "title": "Felderfahrung",
-            "description": "Über 13 Jahre und mehr als 1.000 Einsätze in Coiled-Tubing- und Stickstoffoperationen."
+            "icon": "search",
+            "title": "Sichtbarkeit",
+            "description": "Google, Maps, ChatGPT und Social Media, überall dort, wo Ihre Kunden suchen."
           },
           {
-            "icon": "book-open",
-            "title": "Dokumentierte Logik",
-            "description": "Formeln, Annahmen und Entscheidungen festgehalten, damit Ergebnisse nachvollziehbar sind."
-          },
-          {
-            "icon": "component",
-            "title": "Sauberer, wiederverwendbarer Code",
-            "description": "Gut strukturiert, typisiert und dokumentiert, damit er leicht zu pflegen und zu erweitern bleibt."
-          },
-          {
-            "icon": "server",
-            "title": "Standardmäßig in der Cloud",
-            "description": "Software, die auf einem Server läuft und im Browser öffnet, ohne Installation."
-          },
-          {
-            "icon": "layout",
-            "title": "Klare technische Inhalte",
-            "description": "Seiten, Dokumentation und Fallstudien so aufgebaut, dass technische Leser schnell finden, was sie brauchen."
+            "icon": "target",
+            "title": "Anzeigen, die sich rechnen",
+            "description": "Google- und Meta-Kampagnen, gemessen an Anrufen statt an Klicks."
           },
           {
             "icon": "zap",
-            "title": "Schnelle Websites, wenn Sie sie brauchen",
-            "description": "Individuelle Astro-Websites, gebaut für schnelle Ladezeiten und gute Rankings, als eigene Leistung."
+            "title": "Eine schnelle Website",
+            "description": "Seiten, die sofort laden und zum Anruf führen."
+          },
+          {
+            "icon": "message-circle",
+            "title": "Keine Anfrage geht verloren",
+            "description": "Jede Anfrage kommt sofort an, und ein KI-Chat antwortet auch nach Feierabend."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Zahlen jeden Monat",
+            "description": "Was jede Anfrage, jeder Anruf und jeder Neukunde kostet."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Alles gehört Ihnen",
+            "description": "Code, Domain, Hosting und Werbekonten laufen auf Ihren Namen."
           }
         ]
       },
       "principles": {
         "badge": "Wie ich arbeite",
-        "heading": "Mit Absicht gebaut",
-        "lead": "Jedes Projekt folgt denselben drei Prinzipien.",
+        "heading": "Drei Grundsätze, an die ich mich halte",
+        "lead": "Sie gelten für jedes Projekt, ob groß oder klein.",
         "items": [
-          { "icon": "zap", "title": "Geschwindigkeit zuerst", "description": "Jede Website optimiere ich ab der ersten Codezeile für Geschwindigkeit und Core Web Vitals." },
-          { "icon": "award", "title": "Gebaut, um zu bleiben", "description": "Sauberer, typisierter Code und sinnvolle Voreinstellungen, die auch lange nach dem Start leicht zu pflegen sind." },
-          { "icon": "award", "title": "Ingenieursdisziplin", "description": "Erst die Anforderungen, dann Design, dann Code. Jede Zahl und jede Aussage wird geprüft, bevor sie live geht." }
+          { "icon": "zap", "title": "Geschwindigkeit zuerst", "description": "Jede Website ist ab dem ersten Tag schnell, denn eine langsame Seite verliert Besucher und Google gleichermaßen." },
+          { "icon": "award", "title": "Gebaut, um zu bleiben", "description": "Sauberer Code und einfache Einstellungen, damit die Website auch Jahre später leicht zu pflegen ist." },
+          { "icon": "award", "title": "Ingenieursdisziplin", "description": "Erst die Anforderungen, dann das Design, dann der Code. Jede Zahl und jede Aussage wird geprüft, bevor sie online geht." }
         ]
       },
       "stack": {
         "badge": "Werkzeuge & Technik",
         "title": "Technologien",
-        "description": "Die Technologien, mit denen ich arbeite — ausgewählt nach Geschwindigkeit, Zuverlässigkeit und langfristiger Wartbarkeit."
+        "description": "Die Werkzeuge, mit denen ich arbeite. Ausgewählt, weil sie schnell und zuverlässig sind und nicht nächstes Jahr veraltet."
       },
       "faq": {
         "badge": "Gut zu wissen",
         "heading": "Häufige Fragen",
-        "lead": "Ein paar Dinge, die Kunden meist fragen, bevor wir zusammenarbeiten.",
+        "lead": "Ein paar Fragen, die mir vor dem Start oft gestellt werden.",
         "cards": [
           {
             "icon": "user",
             "title": "Über mich",
             "items": [
-              { "question": "Welche Projekte übernehmen Sie?", "answer": "Websites, individuelle Software und datengestützte Plattformen für technische und Ingenieurunternehmen, dazu klassisches Webdesign für Unternehmen jeder Größe." },
-              { "question": "Mit welchen Technologien arbeiten Sie?", "answer": "Mit modernen, schnellen Werkzeugen: Astro, TypeScript und Tailwind CSS im Frontend, dazu Cloud-Infrastruktur und Automatisierung, wo ein Projekt sie braucht." },
-              { "question": "Arbeiten Sie auch mit Kunden außerhalb Ihrer Region?", "answer": "Ja. Die meisten Projekte laufen vollständig per Telefon, Video und E-Mail, und Zeitzonen sind selten ein Problem." },
-              { "question": "Haben Sie Kapazität für neue Projekte?", "answer": "Meistens ja — sehen Sie auf der Startseite nach oder schreiben Sie mir einfach, und ich sage es Ihnen ehrlich." }
+              { "question": "Was genau machen Sie?", "answer": "Ich helfe Dienstleistern, online Kunden zu gewinnen: Anzeigen, SEO, Sichtbarkeit in der KI-Suche, schnelle Websites und Tracking jeder Anfrage." },
+              { "question": "Mit welchen Technologien arbeiten Sie?", "answer": "Astro, TypeScript und Tailwind CSS für Websites, dazu Cloud-Dienste und Automatisierung, wenn ein Projekt sie braucht." },
+              { "question": "Arbeiten Sie auch mit Kunden außerhalb Ihrer Region?", "answer": "Natürlich. Das meiste läuft über Telefon, Videocall und E-Mail, und Zeitzonen stören selten." },
+              { "question": "Haben Sie gerade Zeit für neue Projekte?", "answer": "Meistens ja. Schauen Sie auf den Hinweis auf der Startseite oder schreiben Sie mir einfach, ich sage Ihnen ehrlich Bescheid." }
             ]
           },
           {
             "icon": "briefcase",
             "title": "Zusammenarbeit",
             "items": [
-              { "question": "Wie beginnt ein Projekt?", "answer": "Mit einem kostenlosen, unverbindlichen Gespräch darüber, was Sie brauchen, gefolgt von einem klaren Angebot mit Zeitplan und Preis." },
-              { "question": "Bieten Sie Unterstützung nach dem Start?", "answer": "Ja, es gibt ein monatliches Wartungspaket für Updates, Überwachung und kleine Änderungen, nachdem Ihre Website online ist." },
-              { "question": "Gehört die Website wirklich mir?", "answer": "Vollständig. Domain, Hosting und Code laufen vom ersten Tag an auf Ihren Namen." }
+              { "question": "Wie beginnt ein Projekt?", "answer": "Mit einem kostenlosen, unverbindlichen Gespräch darüber, was Sie brauchen. Danach bekommen Sie ein Angebot mit Termin und Preis." },
+              { "question": "Bieten Sie Unterstützung nach dem Start?", "answer": "Ja. Es gibt ein monatliches Wartungspaket für Updates, Überwachung und kleine Änderungen nach dem Livegang." },
+              { "question": "Gehört die Website wirklich mir?", "answer": "Ja, komplett. Domain, Hosting und Code laufen von Anfang an auf Ihren Namen." }
             ]
           }
         ]
       },
       "openSource": {
         "badge": "Warum mit mir arbeiten",
-        "heading": "Ein Partner, nicht nur ein Dienstleister",
-        "description": "Sie arbeiten direkt mit der Person, die Ihre Website baut — ohne Account-Manager, ohne Übergaben und mit einem Festpreis, der vor Beginn vereinbart wird.",
+        "heading": "Partner statt nur Dienstleister",
+        "description": "Sie arbeiten direkt mit dem, der Ihre Website baut und Ihre Anzeigen betreut. Keine Projektmanager, kein Weiterreichen an Subunternehmer, und der Preis steht vorher fest.",
         "button": "Kontakt aufnehmen",
         "cards": [
-          { "title": "Ein Ansprechpartner", "text": "Sie sprechen von der ersten Nachricht bis zum Start direkt mit mir — kein Vertriebsteam dazwischen." },
-          { "title": "Festpreis, keine Überraschungen", "text": "Jedes Projekt hat einen klaren Preis, der vor Arbeitsbeginn vereinbart wird. Keine Abrechnung nach Stunden." },
-          { "title": "Unterstützung nach dem Start", "text": "Ich bleibe erreichbar, wenn Ihre Website online ist, mit einem monatlichen Wartungspaket für laufende Updates." }
+          { "title": "Ein Ansprechpartner", "text": "Von der ersten Nachricht bis zum Livegang sprechen Sie mit mir. Kein Vertriebler dazwischen." },
+          { "title": "Festpreis, keine Überraschungen", "text": "Den Preis vereinbaren wir vor dem Start. Keine Stundenabrechnung." },
+          { "title": "Unterstützung nach dem Start", "text": "Auch nach dem Livegang bin ich erreichbar, und für regelmäßige Updates gibt es ein Wartungspaket." }
         ]
       },
       "cta": {
         "badge": "Loslegen",
-        "heading": "Bereit für die Zusammenarbeit?",
-        "description": "Erzählen Sie mir von Ihrem Projekt — ich melde mich innerhalb eines Werktags mit ehrlichen, praktischen nächsten Schritten.",
+        "heading": "Wollen wir zusammenarbeiten?",
+        "description": "Schreiben Sie mir ein paar Zeilen zu Ihrem Betrieb. Ich melde mich am selben oder nächsten Werktag mit einer ehrlichen Antwort und einem konkreten Vorschlag.",
         "button": "Kontakt aufnehmen"
       }
     },
     "services": {
       "meta": {
-        "title": "Leistungen — Software und Web",
-        "description": "Cloud-basierte Software und Werkzeuge sowie Webentwicklung, von einem Ingenieur. Kostenloses Erstgespräch, ein Angebot, ein Festpreis."
+        "title": "Leistungen: Anzeigen, SEO, Websites",
+        "description": "Google- und Meta-Anzeigen, lokales SEO, Sichtbarkeit in der KI-Suche und schnelle Websites für Dienstleister. Kostenloser Check, Festpreis."
       },
       "areas": {
-        "software": {
-          "icon": "code",
-          "badge": "Software & Werkzeuge",
-          "heading": "Cloud-basierte Software und Werkzeuge",
+        "marketing": {
+          "icon": "target",
+          "badge": "Anzeigen, SEO und KI",
+          "heading": "Gefunden werden von Menschen, die Sie schon suchen",
           "paragraphs": [
-            "Software für technische Teams, die auf einem Server läuft und im Browser öffnet: nichts zu installieren, eine Version für alle.",
-            "Ich baue sie so, wie ich einen Einsatz fahre: erst die Anforderungen, Zahlen geprüft und die Logik dokumentiert, damit Ergebnisse nachvollziehbar sind."
+            "Wer einen Handwerker, eine Zahnärztin oder eine Unterkunft braucht, fragt Google, öffnet Maps oder fragt ChatGPT. Meine Aufgabe ist, dass er dort Sie findet und nicht die Konkurrenz.",
+            "Anzeigen bringen ab dem ersten Tag Anrufe. SEO und KI-Suche sorgen für einen stetigen Strom, für den Sie nicht pro Klick zahlen. Alles wird gemessen, damit Sie wissen, was sich rechnet."
           ],
           "included": [
             {
-              "lead": "Interne Werkzeuge und Dashboards",
-              "text": "Ihre Daten und Abläufe an einem Ort."
+              "lead": "Google Ads",
+              "text": "Suche und Maps, ausgerichtet auf Suchanfragen, aus denen Aufträge werden."
             },
             {
-              "lead": "Rechner und Engineering-Werkzeuge",
-              "text": "erklärte Formeln, reproduzierbare Ergebnisse."
+              "lead": "Facebook- und Instagram-Anzeigen",
+              "text": "Kampagnen für Ihre Region und Retargeting für alle, die schon auf Ihrer Seite waren."
             },
             {
-              "lead": "Individuelle Industriesoftware",
-              "text": "nach Maß gebaut, passend zu Ihrem Betrieb."
+              "lead": "Lokales SEO",
+              "text": "Google-Unternehmensprofil, Bewertungen und eine Seite für jede Leistung und jeden Ort."
             },
             {
-              "lead": "Hosting auf Ihren Namen",
-              "text": "eingerichtet, abgesichert und am Laufen gehalten, Code und Domain gehören Ihnen."
+              "lead": "Sichtbarkeit in der KI-Suche",
+              "text": "damit ChatGPT und Googles KI Sie empfehlen, wenn jemand fragt."
             },
             {
-              "lead": "Dokumentation",
-              "text": "damit Ihr Team sie nutzen und Ihre Prüfer sie kontrollieren können."
+              "lead": "KI-Chat und Sofortantworten",
+              "text": "jede Anfrage bekommt eine Antwort, auch wenn Sie gerade nicht rangehen können."
+            },
+            {
+              "lead": "Monatsbericht",
+              "text": "Anrufe, Anfragen und was jede gekostet hat, ohne Fachchinesisch."
             }
           ],
-          "ctaLabel": "Ein Werkzeug besprechen"
+          "ctaLabel": "Kostenlosen Check anfordern"
         },
         "web": {
           "icon": "layout",
-          "badge": "Webentwicklung",
-          "heading": "Websites für technische Unternehmen",
+          "badge": "Websites",
+          "heading": "Eine Website, über die Kunden anrufen",
           "paragraphs": [
-            "Schnelle Websites und Websysteme für Ingenieur- und technische Unternehmen, als eigene Leistung mit eigener Seite.",
-            "Design, Entwicklung und Optimierung vom selben Ingenieur, mit einem Festpreis und allem auf Ihren Namen."
+            "Schnelle Websites und Landingpages nach Maß. In wenigen Sekunden sieht der Besucher, was Sie anbieten und wo er tippen muss, um Sie anzurufen.",
+            "Festpreis, und Code, Domain und Hosting laufen von Anfang an auf Ihren Namen."
           ],
           "included": [
             {
               "lead": "Individuelles Design",
-              "text": "zugeschnitten auf Ihr Unternehmen und Ihre Kunden."
+              "text": "passend zu Ihrem Unternehmen und Ihren Kunden."
             },
             {
-              "lead": "Auf Geschwindigkeit gebaut",
-              "text": "Astro-Websites, die auf jedem Gerät sofort öffnen."
+              "lead": "Gebaut für Geschwindigkeit",
+              "text": "Seiten öffnen sich sofort auf jedem Telefon."
             },
             {
-              "lead": "Gefunden bei Google und KI",
-              "text": "SEO und strukturierte Daten von der ersten Zeile an."
+              "lead": "SEO ab der ersten Zeile",
+              "text": "strukturierte Daten und eine Seite für jede Leistung."
             },
             {
-              "lead": "Ein Monatsbericht",
-              "text": "Besucher, Anfragen und Quellen, in klarer Sprache."
+              "lead": "Erfassung von Anfragen und Anrufen",
+              "text": "jedes Formular und jeder Tipp auf Ihre Nummer wird erfasst."
             },
             {
               "lead": "Betreuung nach dem Start",
-              "text": "Updates und Überwachung, mit optionalem Pflegeplan."
+              "text": "Updates und Überwachung, mit optionalem Monatspaket."
             }
           ],
-          "ctaLabel": "Zur Webentwicklung"
+          "ctaLabel": "Zu den Websites"
         }
       },
       "overviewFaq": {
         "badge": "Fragen",
         "heading": "Fragen und Antworten",
-        "lead": "Was Kunden fragen, bevor wir anfangen.",
+        "lead": "Was Kunden fragen, bevor wir starten.",
         "cards": [
           {
             "icon": "tag",
@@ -1328,23 +948,23 @@
             "items": [
               {
                 "question": "Was kostet es?",
-                "answer": "Jedes Projekt bekommt einen Festpreis, der vor Arbeitsbeginn vereinbart wird. Keine Stundenabrechnung und keine Überraschungen. Das kostenlose Erstgespräch zeigt mir, was Sie brauchen, und Sie erhalten den Preis in einem klaren Angebot."
+                "answer": "Jedes Projekt hat einen Festpreis, den wir vor Beginn vereinbaren. Keine Stundenabrechnung, keine Überraschungen. Ein kostenloses Erstgespräch zeigt mir, was Sie brauchen, und den Preis bekommen Sie in einem klaren Angebot."
               },
               {
                 "question": "Wie lange dauert es?",
-                "answer": "Das hängt vom Umfang ab. Das Angebot nennt den Zeitplan zusammen mit dem Preis, damit Sie beides vor dem Start kennen."
+                "answer": "Das hängt vom Umfang ab. Der Termin steht im Angebot, direkt neben dem Preis."
               },
               {
-                "question": "Arbeiten Sie mit Kunden im Ausland?",
-                "answer": "Ja. Ich arbeite mit Kunden weltweit, per Telefon, Video und E-Mail, in der Zeitzone MEZ."
+                "question": "Arbeiten Sie auch mit Betrieben im Ausland?",
+                "answer": "Ja. Meine Kunden sitzen in Deutschland, Europa und den USA, und wir sprechen per Telefon, Videocall oder E-Mail. Ich arbeite in der mitteleuropäischen Zeitzone."
               },
               {
                 "question": "Wem gehört, was Sie bauen?",
-                "answer": "Ihnen. Code, Dokumentation, Domain und Hosting laufen von Anfang an auf Ihren Namen."
+                "answer": "Ihnen. Code, Domain, Hosting und Werbekonten laufen von Anfang an auf Ihren Namen."
               },
               {
-                "question": "Übernehmen Sie auch kleine Aufträge?",
-                "answer": "Ja. Ein einzelnes Werkzeug oder eine kleine Website sind ein guter Anfang. Sagen Sie mir, was Sie vorhaben."
+                "question": "Übernehmen Sie auch kleinere Aufträge?",
+                "answer": "Ja. Eine einzelne Landingpage oder eine Kampagne ist ein guter Anfang. Schreiben Sie mir, was Sie vorhaben."
               }
             ]
           }
@@ -1353,59 +973,62 @@
       "includedLabel": "Was Sie bekommen",
       "hero": {
         "badge": "Leistungen",
-        "titleLead": "Software",
-        "titleHighlight": "und Webentwicklung",
-        "description": "Zwei Bereiche, ein Ingenieur: Cloud-basierte Software für technische Teams und Websites als eigene Leistung. Der Ingenieurinhalt dieser Seite dient der Information und wird nicht als Leistung angeboten.",
-        "jumpLabels": ["Software & Werkzeuge", "Webentwicklung"]
+        "titleLead": "Alles, damit",
+        "titleHighlight": "Kunden Sie finden",
+        "description": "Anzeigen, SEO und KI-Suche bringen Besucher, eine schnelle Website macht Anrufe daraus. Alles aus einer Hand, mit Zahlen jeden Monat.",
+        "jumpLabels": [
+          "Anzeigen, SEO und KI",
+          "Websites"
+        ]
       },
       "process": {
         "badge": "So funktioniert es",
-        "heading": "So läuft ein Projekt ab",
-        "lead": "Von Ihrer ersten Nachricht bis zum gelieferten Ergebnis.",
+        "heading": "So läuft die Zusammenarbeit",
+        "lead": "Von Ihrer ersten Nachricht bis zu den ersten Anrufen.",
         "steps": [
-          { "title": "Erstkontakt", "description": "Sie senden eine Nachricht über das Kontaktformular. Ich antworte innerhalb eines Werktags, und wir vereinbaren ein kostenloses, informatives Gespräch darüber, was Sie brauchen. Unverbindlich." },
-          { "title": "Angebot", "description": "Nach dem Gespräch erhalten Sie ein klares Dokument: was ich baue, wann es fertig ist und den Festpreis. Sie entscheiden mit allen Karten auf dem Tisch." },
-          { "title": "In kurzen Zyklen arbeiten", "description": "Sie verfolgen den Fortschritt und sehen, wie das Ergebnis entsteht, ob Dokument, Werkzeug oder Website." },
-          { "title": "Übergabe & Betreuung", "description": "Die Arbeit wird auf Ihren Namen übergeben und dokumentiert. Danach bleibe ich erreichbar, und es gibt einen monatlichen Pflegeplan, wenn Sie regelmäßige Updates möchten." }
+          { "title": "Erstkontakt", "description": "Sie schreiben mir über die Kontaktseite. Ich melde mich innerhalb eines Werktags, und wir vereinbaren ein kurzes Gespräch. Kostenlos und unverbindlich." },
+          { "title": "Angebot", "description": "Nach dem Gespräch bekommen Sie ein Dokument: was ich umsetze, bis wann und was es kostet. Der Preis ist fest, und Sie entscheiden in Ruhe." },
+          { "title": "Arbeit in kurzen Etappen", "description": "Sie sehen jederzeit, wie weit es ist, ob bei Anzeigen, SEO oder der neuen Website." },
+          { "title": "Übergabe und Betreuung", "description": "Alles wird auf Ihren Namen übergeben und dokumentiert. Auch danach bin ich erreichbar, und für regelmäßige Updates gibt es ein monatliches Wartungspaket." }
         ]
       },
       "cta": {
         "badge": "Sprechen wir",
-        "heading": "Sprechen wir über Ihr Projekt",
-        "description": "Das erste Gespräch ist kostenlos und unverbindlich: per Telefon, Video oder E-Mail. Sie erhalten ehrliche Antworten und nach dem Gespräch ein klares Angebot mit Zeitplan und Festpreis.",
+        "heading": "Sprechen wir über Ihren Betrieb",
+        "description": "Das Erstgespräch ist kostenlos, per Telefon, Video oder E-Mail. Sie bekommen ehrliche Antworten und danach ein klares Angebot mit Termin und Festpreis.",
         "primary": "Nachricht senden",
         "secondary": "Mehr über mich"
       }
     },
     "contact": {
       "meta": {
-        "title": "Kontakt",
-        "description": "Cloud-Software, Engineering-Werkzeuge oder eine Website: Sagen Sie mir, was Sie brauchen. Ich antworte innerhalb eines Werktags."
+        "title": "Kontakt und kostenloser Website-Check",
+        "description": "Anzeigen, SEO, KI-Suche oder eine neue Website: Schreiben Sie mir, was Sie brauchen. Antwort innerhalb eines Werktags."
       },
       "hero": {
         "badge": "Kontakt",
-        "titleLead": "Erzählen Sie mir,",
-        "titleHighlight": "woran Sie arbeiten",
-        "description": "Cloud-basierte Software und Werkzeuge oder eine Website. Eine kurze Nachricht genügt; ich antworte innerhalb eines Werktags."
+        "titleLead": "Holen wir Ihnen",
+        "titleHighlight": "mehr Kunden",
+        "description": "Anzeigen, SEO, KI-Suche oder eine neue Website. Ein paar Sätze genügen, die Antwort kommt innerhalb eines Werktags."
       },
       "helpTitle": "Wobei ich helfen kann",
       "help": [
         {
-          "icon": "code",
-          "title": "Software und Werkzeuge",
-          "text": "Cloud-basierte Software und Engineering-Werkzeuge für technische B2B-Unternehmen."
+          "icon": "target",
+          "title": "Anzeigen, SEO und KI-Sichtbarkeit",
+          "text": "Damit man Sie bei Google, auf der Karte, in ChatGPT und in sozialen Medien findet."
         },
         {
           "icon": "layout",
-          "title": "Webentwicklung",
-          "text": "Schnelle Websites und Websysteme, als eigene Leistung."
+          "title": "Eine Website, die Besuche in Anrufe verwandelt",
+          "text": "Eine schnelle Website oder Landingpage, bei der jede Anfrage erfasst wird."
         }
       ],
       "nextTitle": "Wie es weitergeht",
       "next": [
         "Ich antworte innerhalb eines Werktags.",
-        "Wir sprechen kurz, um zu klären, was Sie brauchen. Das ist kostenlos und unverbindlich.",
-        "Sie erhalten ein klares Angebot mit Umfang, Zeitplan und Festpreis."
+        "In einem kurzen Gespräch klären wir, was Sie brauchen. Kostenlos und unverbindlich.",
+        "Sie bekommen ein Angebot mit Umfang, Termin und Festpreis."
       ],
       "facts": [
         {"value": "3", "label": "Sprachen: Serbisch, Englisch, Deutsch"},
@@ -1418,12 +1041,12 @@
       "emailLabel": "E-Mail",
       "preferEmail": "Lieber per E-Mail? Schreiben Sie an",
       "form": {
-        "badge": "Projektanfrage",
+        "badge": "Anfrage",
           "termsLabel": "Ich habe die {terms} gelesen und verstehe, dass diese Anfrage weder ein Angebot noch ein Vertrag ist.",
           "termsLink": "Nutzungsbedingungen",
           "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
-        "heading": "Erzählen Sie mir von Ihrem Projekt",
-        "lead": "Drei kurze Schritte, unter einer Minute. Ich antworte innerhalb eines Werktags.",
+        "heading": "Was kann ich für Sie tun?",
+        "lead": "Drei kurze Schritte, weniger als eine Minute. Antwort innerhalb eines Werktags.",
         "stepLabels": [
           "Was Sie brauchen",
           "Ihr Unternehmen",
@@ -1433,14 +1056,19 @@
         "serviceLegend": "Was brauchen Sie?",
         "services": [
           {
-            "value": "software",
-            "icon": "code",
-            "label": "Software oder Engineering-Werkzeuge"
+            "value": "new-website",
+            "icon": "sparkles",
+            "label": "Neue Website"
           },
           {
-            "value": "web",
-            "icon": "layout",
-            "label": "Eine Website oder ein Websystem"
+            "value": "seo",
+            "icon": "search",
+            "label": "SEO und Sichtbarkeit in der KI-Suche"
+          },
+          {
+            "value": "ads",
+            "icon": "target",
+            "label": "Google- oder Social-Media-Anzeigen"
           },
           {
             "value": "other",
@@ -1451,7 +1079,7 @@
         "websiteLabel": "Website des Unternehmens (optional)",
         "websitePlaceholder": "ihrunternehmen.de",
         "businessLabel": "Unternehmen und Branche",
-        "businessPlaceholder": "z. B. Engineering-Softwarefirma, Hersteller",
+        "businessPlaceholder": "z. B. Zahnarzt in Wien, Dachdecker in München",
         "timelineLegend": "Wann möchten Sie starten?",
         "timelines": [
           {
@@ -1477,1529 +1105,277 @@
         "sending": "Wird gesendet…",
         "chooseService": "Wählen Sie aus, was Sie brauchen, um fortzufahren.",
         "required": "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse an.",
-        "privacy": "Ihre Angaben werden nur verwendet, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
+        "privacy": "Ihre Daten nutze ich nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
         "promise": "Antwort innerhalb eines Werktags",
-        "successTitle": "Danke — Ihre Anfrage ist eingegangen!",
-        "successText": "Ich lese sie und antworte innerhalb eines Werktags mit konkreten nächsten Schritten. Behalten Sie Ihr Postfach im Blick.",
-        "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt."
-      }
-    },
-    "tools": {
-      "featured": {
-        "badge": "Software",
-        "title": "Eine vollständige Anwendung, kein Rechner",
-        "text": "Der CT Simulator ist ein Arbeitsbereich im Stil eines Zeichenprogramms, mit eigenen Schritten, Paletten und Befehlszeile. Er läuft im Browser und behält Ihr Projekt auf Ihrem Computer.",
-        "hint": "Nur für große Bildschirme und Tablets. Es gibt keine mobile Version.",
-        "cta": "CT Simulator öffnen",
-        "listTitle": "Rechner"
-      },
-      "meta": {
-        "title": "Werkzeuge",
-        "description": "Kleine Cloud-Werkzeuge und Rechner für Coiled Tubing und Öl- und Gasfeldarbeit, von einem Ingenieur gebaut, mit erklärter Methode."
-      },
-      "hero": {
-        "badge": "Werkzeuge",
-        "titleLead": "Engineering-Werkzeuge",
-        "titleHighlight": "im Browser",
-        "description": "Kleine Cloud-basierte Werkzeuge und Rechner für Coiled Tubing und Arbeiten im Ölfeld. Jedes erklärt seine Methode, damit Sie das Ergebnis prüfen können."
-      },
-      "status": "In Vorbereitung",
-      "statusAvailable": "Verfügbar",
-      "open": "Werkzeug öffnen",
-      "inputsLabel": "Eingaben",
-      "outputsLabel": "Ergebnisse",
-      "form": {
-        "reportCreated": "Erstellt am {date}",
-        "reportInputs": "Eingaben",
-        "reportResults": "Ergebnisse",
-        "reportMethod": "Methode und Annahmen",
-        "system": {
-          "label": "Einheiten",
-          "us": "Feldeinheiten (US)",
-          "metric": "Metrisch"
-        },
-        "example": "Beispiel laden",
-        "invalidTitle": "Eingaben prüfen",
-        "invalidText": "Einige Werte fehlen oder liegen außerhalb des Bereichs. Korrigieren Sie die markierten Felder, um das Ergebnis zu sehen.",
-        "print": "Als PDF speichern",
-        "printInputs": "Eingaben",
-        "printFoot": "Berechnet auf {url} am {date}.",
-        "back": "Alle Werkzeuge"
-      },
-      "cta": "Sagen Sie mir, was Sie brauchen",
-      "notice": {
-        "text": "Die Ergebnisse sind Näherungswerte und nur zur Information. Sie sind keine Planung, kein Verfahren und keine Fachberatung. Prüfen Sie Eingaben und Ergebnisse und halten Sie sich an die Verfahren Ihres Unternehmens und die Herstellerangaben.",
-        "link": "Nutzungsbedingungen",
-        "ackTitle": "Bevor Sie die Werkzeuge nutzen",
-        "ackIntro": "Die Werkzeuge und Rechner auf dieser Seite sind persönliche, informative Hilfsmittel aus öffentlichen Formeln und genannten Annahmen.",
-        "ackItems": [
-          "Die Ergebnisse sind Näherungswerte. Sie sind keine Planung, kein Verfahren und keine Fachberatung.",
-          "Verwenden Sie sie nicht als alleinige Grundlage für Arbeiten an Bohrungen, Arbeiten unter Druck, Arbeiten mit Stickstoff oder andere sicherheitsrelevante Handlungen. Halten Sie sich an die Verfahren Ihres Unternehmens, die Herstellerangaben und die Anweisung der verantwortlichen Person.",
-          "Dies ist eine persönliche, unabhängige Seite. Sie steht für keinen Arbeitgeber und kein Unternehmen und verwendet keine deren Daten. Für die eingegebenen Daten und Ihre Entscheidungen sind Sie selbst verantwortlich."
-        ],
-        "ackCheck": "Ich habe das verstanden und akzeptiere die {terms}.",
-        "ackButton": "Weiter",
-        "ackBack": "Zurück zu den Werkzeugen"
-      },
-      "note": "Die Werkzeuge sind Hilfsmittel für Ingenieure. Prüfen Sie Eingaben und Ergebnisse: die Verantwortung für jede Entscheidung bleibt beim Nutzer.",
-      "suggest": {
-        "title": "Fehlt eine Berechnung?",
-        "text": "Sagen Sie mir, welche Berechnung oder welches kleine Werkzeug Sie täglich nutzen. Wenn es auch anderen hilft, wird es vielleicht das nächste.",
-        "cta": "Werkzeug vorschlagen"
-      },
-      "nitrogenZ": {
-        "title": "Kompressibilitätsfaktor von Stickstoff",
-        "intro": "Z korrigiert das ideale Gasgesetz für Stickstoff bei hohem Druck: Über 1 braucht das Gas mehr Raum als ein ideales Gas, sodass ein Behälter oder eine Bohrung in Normvolumen weniger Stickstoff fasst als mit Z = 1. Diagramm und Tabelle geben Z für Stickstoff nach absolutem Druck und Temperatur an; die Stickstoff-Werkzeuge interpolieren in der Tabelle.",
-        "chartLabel": "Kompressibilitätsfaktor Z von Stickstoff über dem absoluten Druck, für fünf Temperaturen von −20 bis 160 °C",
-        "pressureAxis": "Absoluter Druck, bar",
-        "marker": "Oranger Punkt: die Bedingungen Ihrer Berechnung.",
-        "pressureHeader": "Absoluter Druck",
-        "source": "Berechnet aus der Dichte von Stickstoff im NIST Chemistry WebBook (Zustandsgleichung von Span et al., 2000) als Z = P·M/(ρ·R·T). Die Drücke sind absolut, Überdruck plus 1,013 bar. Zwischen den Punkten interpolieren die Werkzeuge linear; außerhalb von 1–500 bar und −20 bis 160 °C verwenden sie den Randwert.",
-        "hint": "Z aus der Tabelle bei diesen Bedingungen",
-        "use": "Diesen Wert übernehmen",
-        "outside": "Außerhalb der Tabelle: der Wert am Rand wird angezeigt."
-      },
-      "items": [
-        {
-          "href": "/tools/ct-simulator",
-          "tag": "Mechanik",
-          "icon": "layout-dashboard",
-          "title": "CT-Simulator",
-          "description": "Bohrung zeichnen, CT-Strang und BHA aufbauen, den Einsatz festlegen und Gewichtsanzeige, Lock-up-Tiefe, Aufsetzgewicht und Überzug ablesen.",
-          "inputs": [
-            "Bohrung, Abweichungsmessung und Rohre, im Schema gezeichnet",
-            "CT-Strang und BHA, Werkzeug für Werkzeug",
-            "Fluide, Reibung und Oberflächenausrüstung"
-          ],
-          "outputs": [
-            "Gewichtsanzeige über der Tiefe",
-            "Lock-up-Tiefe, Aufsetzgewicht und Überzug",
-            "Axialkraft und Knickung entlang des Strangs"
-          ]
-        },
-        {
-          "href": "/tools/ct-pressure-loss",
-          "tag": "Hydraulik",
-          "icon": "activity",
-          "title": "CT-Druckverlust",
-          "description": "Reibungsdruckverlust für Potenzgesetz-Fluide in Coiled Tubing, mit dem String aufgeteilt in gerade und auf der Haspel gewickelte Abschnitte.",
-          "inputs": [
-            "Fluiddichte, Potenzgesetz n und K",
-            "Haspel- und Rohrgröße, Wandstärke",
-            "Stranglänge und Länge auf der Haspel",
-            "Förderrate"
-          ],
-          "outputs": [
-            "Geschwindigkeit und Reynolds-Zahl",
-            "Strömungsregime, gerade und gekrümmt",
-            "Druckverlust je Abschnitt und gesamt"
-          ]
-        },
-        {
-          "href": "/tools/ct-strength-limits",
-          "tag": "Mechanik",
-          "icon": "shield-check",
-          "title": "CT-Festigkeitsgrenzen",
-          "description": "Spannungen, Platz-, Kollaps- und Zuggrenzen von Coiled Tubing für eine gegebene Last, mit der von-Mises-Prüfung gegen den Streckgrenzenfaktor.",
-          "inputs": [
-            "Rohrgröße, Wand und Ovalität",
-            "Streckgrenze, Streckgrenzenfaktor und E-Modul",
-            "Drücke, Axialkraft und Biegeradius"
-          ],
-          "outputs": [
-            "Axial-, Umfangs- und Vergleichsspannung",
-            "Platzen und Kollaps (API 5C3, 5C7)",
-            "Zuggrenzen und Prüfung des Streckgrenzenfaktors"
-          ]
-        },
-        {
-          "href": "/tools/nitrogen-displacement",
-          "tag": "Stickstoff",
-          "icon": "wind",
-          "title": "Stickstoff-Verdrängung",
-          "description": "Stickstoff, der nötig ist, um die Flüssigkeit in einer Bohrung über Coiled Tubing zu verdrängen, einschließlich des Rohrs auf der Haspel.",
-          "inputs": [
-            "Länge, Größe und Pumptiefe des Coiled Tubings",
-            "Förderrohr und Dichte der Bohrlochflüssigkeit",
-            "Temperaturen, Kompressibilität und Stickstoffdichte"
-          ],
-          "outputs": [
-            "Druck in der Tiefe und am Bohrlochkopf",
-            "Gasvolumen im Normzustand",
-            "Volumen und Masse des flüssigen Stickstoffs"
-          ]
-        },
-        {
-          "href": "/tools/nitrogen-vessel",
-          "tag": "Stickstoff",
-          "icon": "wind",
-          "title": "Stickstoff für einen Behälter",
-          "description": "Stickstoff, der nötig ist, um einen Behälter bei gegebener Temperatur auf einen Druck zu bringen.",
-          "inputs": [
-            "Behältervolumen",
-            "Zieldruck und Anfangsdruck",
-            "Temperatur und Kompressibilität"
-          ],
-          "outputs": [
-            "Gasvolumen im Normzustand",
-            "Volumen des flüssigen Stickstoffs",
-            "Stickstoffmasse"
-          ]
-        },
-        {
-          "href": "/tools/well-kill",
-          "tag": "Bohrlochkontrolle",
-          "icon": "shield-check",
-          "title": "Bohrlochkill",
-          "description": "Dichte der Kill-Flüssigkeit, Volumen und Bullheading-Druck für eine Förderbohrung und das Kill-Sheet einer Bohrung im Bohrbetrieb.",
-          "inputs": [
-            "Tiefe, Drücke und Flüssigkeitsdichte",
-            "Rohr- und Casing-Größen oder Strang- und Ringraumvolumen",
-            "Pumprate oder Druck bei Kill-Rate"
-          ],
-          "outputs": [
-            "Dichte der Kill-Flüssigkeit",
-            "Volumen, Hübe und Zeiten",
-            "Bullheading-Druck oder ICP, FCP und Druckplan"
-          ]
-        }
-      ]
-    },
-    "ctStrength": {
-      "meta": {
-        "title": "CT-Festigkeitsgrenzen",
-        "description": "Prüfen Sie Coiled Tubing auf Platzen, Kollaps und Zug: Spannungen, Vergleichsspannung nach von Mises sowie API-Kollaps- und Berstgrenzen, in Feld- oder metrischen Einheiten."
-      },
-      "hero": {
-        "badge": "Mechanik",
-        "title": "CT-Festigkeitsgrenzen",
-        "description": "Spannungen, Platz-, Kollaps- und Zuggrenzen von Coiled Tubing für die eingegebene Last, mit der von-Mises-Prüfung gegen den Streckgrenzenfaktor. Feld- oder metrische Einheiten."
-      },
-      "groups": {
-        "tubing": "Rohr",
-        "material": "Werkstoff",
-        "loads": "Lasten"
-      },
-      "fields": {
-        "od": {
-          "label": "Rohr-Außendurchmesser"
-        },
-        "wall": {
-          "label": "Wandstärke"
-        },
-        "ovality": {
-          "label": "Ovalität",
-          "hint": "(ODmax − ODmin) / OD; etwa 0,005 bei neuem Rohr"
-        },
-        "yieldStress": {
-          "label": "Streckgrenze",
-          "hint": "Mindeststreckgrenze des Stahls"
-        },
-        "yieldFactor": {
-          "label": "Streckgrenzenfaktor",
-          "hint": "Auslegungsfaktor auf die Streckgrenze"
-        },
-        "modulus": {
-          "label": "Elastizitätsmodul",
-          "hint": "Stahl: etwa 30 Millionen psi"
-        },
-        "poisson": {
-          "label": "Querkontraktionszahl",
-          "hint": "Stahl: 0,33"
-        },
-        "pressureIn": {
-          "label": "Innendruck"
-        },
-        "pressureOut": {
-          "label": "Außendruck"
-        },
-        "axialForce": {
-          "label": "Axialkraft",
-          "hint": "Positiv bei Zug, negativ bei Druck"
-        },
-        "bendingRadius": {
-          "label": "Biegeradius",
-          "hint": "Radius, über den das Rohr gebogen wird; 0 für gerades Rohr"
-        },
-        "safetyFactor": {
-          "label": "Kollaps-Sicherheitsfaktor",
-          "hint": "Sicherheitsfaktor der API-5C7-Kollapskorrektur für Zug, mindestens 1"
-        }
-      },
-      "results": {
-        "title": "Ergebnis",
-        "stresses": "Spannungen an der Innenwand",
-        "axial": "Axialspannung (ungünstige Seite)",
-        "hoop": "Umfangsspannung",
-        "radial": "Radialspannung",
-        "vonMises": "Vergleichsspannung nach von Mises",
-        "vonMisesPercent": "Anteil der Streckgrenze",
-        "withinYieldFactor": "Innerhalb des Streckgrenzenfaktors",
-        "exceedsYieldFactor": "Überschreitet den Streckgrenzenfaktor",
-        "burst": "Platzen",
-        "burstApi": "API 5C3 Innendruck-Streckgrenze",
-        "burstCapped": "Streckgrenze bei geschlossenem Ende",
-        "burstTrue": "Tatsächlicher Berstdruck",
-        "collapse": "Kollaps",
-        "timoshenkoRound": "Timoshenko, rund",
-        "api5c3": "API 5C3, rund",
-        "api5c7Oval": "API 5C7, oval",
-        "timoshenkoOval": "Timoshenko, oval",
-        "api5c7Tension": "API 5C7, oval, mit Zug",
-        "noTension": "Zug erforderlich",
-        "tension": "Zuggrenzen",
-        "tensionMax": "Maximaler Zug",
-        "tensionAtPressure": "Maximaler Zug bei diesem Druck",
-        "differential": "Differenzdruck (außen − innen)"
-      },
-      "method": {
-        "title": "Methode",
-        "intro": "Das Rohr wird als dickwandiges Stahlrohr unter Innen- und Außendruck, Axialkraft und optionaler Biegung geprüft.",
-        "steps": [
-          "Die Axialspannung ist die Axialkraft geteilt durch die Stahlfläche. Eine Biegung mit Radius R addiert die Biegespannung E·OD/(2R) auf der konvexen Seite und zieht sie auf der konkaven ab; es zählt der größere Betrag.",
-          "Umfangs- und Radialspannung an der Innenwand folgen aus den Lamé-Gleichungen für den dickwandigen Zylinder; die Radialspannung dort ist gleich dem negativen Innendruck. Die Vergleichsspannung nach von Mises fasst die drei zusammen: √(σa² + σh² + σr² − σa·σh − σa·σr − σh·σr). Torsion ist nicht enthalten.",
-          "Platzen: API-5C3-Innendruck-Streckgrenze 0,875 · 2Y·t/D; Streckgrenze bei geschlossenem Ende (4Y/√3)·(t/D)·(1 − t/D), wenn die Vergleichsspannung an der Innenwand Y erreicht; tatsächlicher Berstdruck (2Y/√3)·ln(OD/ID), wenn die ganze Wand fließt.",
-          "Kollaps: Timoshenko, Pc = [Py·R + Pe·(1 + 3·ov·D/2t) − √((Py·R + Pe·(1 + 3·ov·D/2t))² − 4·Py·Pe·R)] / 2, mit Py = 2Y·t/D, Pe = 2E/(1 − ν²)·(t/D)³ und R als Abminderung für die Axialspannung; rundes Rohr hat ov = 0. API 5C3 nutzt den Fließ-, Plastik-, Übergangs- oder elastischen Bereich von D/t, mit für die Axialspannung abgeminderter Streckgrenze. API RP 5C7 liefert den Kollaps ovaler Rohre aus dem runden Kollaps und der Ovalität und mindert ihn bei Zug um Kcf = ((1/SF)^(4/3) − (L/Ly)^(4/3))^0,75.",
-          "Zuggrenzen: Ly = Streckgrenzenfaktor · Y · Stahlfläche sowie die größte Axialkraft, bei der die Vergleichsspannung mit den Umfangs- und Radialspannungen der eingegebenen Drücke den Streckgrenzenfaktor erreicht."
-        ],
-        "assumptionsTitle": "Annahmen",
-        "assumptions": [
-          "Ein nahtloses Stahlrohr mit gleichmäßiger Wand und den eingegebenen Nennmaßen, ohne Korrosion, Verschleiß oder Ermüdung.",
-          "Die Drücke sind entlang des Rohrs gleichmäßig; die Spannungen gelten an der Innenwand, dem ungünstigsten Fall.",
-          "Torsion und Schubspannungen sind nicht enthalten.",
-          "Die API-Kollapsgleichungen gelten im D/t-Bereich der Normen; prüfen Sie Ergebnisse außerhalb davon."
-        ],
-        "reference": "Basiert auf den Gleichungen von API 5C3 und API RP 5C7, dem Timoshenko-Kollaps, den Lamé-Gleichungen und dem Kriterium nach von Mises. Die Berechnung reproduziert für ihren Beispielfall ein Referenz-Arbeitsblatt. Prüfen Sie die Normen, bevor Sie sich auf ein Ergebnis verlassen; die Lebensdauer unter Ermüdung ist nicht abgedeckt."
-      }
-    },
-    "nitrogenDisplacement": {
-      "meta": {
-        "title": "Stickstoff-Verdrängung",
-        "description": "Berechnen Sie, wie viel Stickstoff nötig ist, um die Flüssigkeit in einer Bohrung über Coiled Tubing zu verdrängen: Gas im Normzustand, als flüssiger Stickstoff und als Masse, in metrischen oder Feldeinheiten."
-      },
-      "hero": {
-        "badge": "Stickstoff",
-        "title": "Stickstoff-Verdrängung",
-        "description": "Wie viel Stickstoff nötig ist, um die Flüssigkeit in einer Bohrung über Coiled Tubing zu verdrängen, einschließlich des Rohrs auf der Haspel. Metrische oder Feldeinheiten."
-      },
-      "groups": {
-        "coil": "Coiled Tubing",
-        "well": "Bohrung",
-        "gas": "Stickstoff"
-      },
-      "fields": {
-        "ctLength": {
-          "label": "Coiled Tubing auf der Haspel",
-          "hint": "Gesamtlänge, einschließlich des Teils in der Bohrung"
-        },
-        "depth": {
-          "label": "Pumptiefe",
-          "hint": "Tiefe, aus der der Stickstoff gepumpt wird"
-        },
-        "ctOd": {
-          "label": "Außendurchmesser Coiled Tubing"
-        },
-        "ctWall": {
-          "label": "Wandstärke Coiled Tubing"
-        },
-        "tubingOd": {
-          "label": "Außendurchmesser Förderrohr"
-        },
-        "tubingWall": {
-          "label": "Wandstärke Förderrohr"
-        },
-        "fluidDensity": {
-          "label": "Flüssigkeit in der Bohrung",
-          "hint": "Dichte der verdrängten Flüssigkeit"
-        },
-        "tempDepth": {
-          "label": "Temperatur in der Tiefe"
-        },
-        "tempSurface": {
-          "label": "Temperatur am Bohrlochkopf"
-        },
-        "compressibility": {
-          "label": "Kompressibilitätsfaktor, Z",
-          "hint": "1 für ein ideales Gas. Nehmen Sie den Wert aus der Tabelle unten."
-        },
-        "nitrogenDensity": {
-          "label": "Mittlere Stickstoffdichte in der Bohrung",
-          "hint": "Mittlere Dichte der Gassäule; bestimmt den Druck am Bohrlochkopf"
-        }
-      },
-      "results": {
-        "title": "Ergebnis",
-        "totalMass": "Gesamter Stickstoffbedarf",
-        "conditions": "Gaszustand",
-        "pressureDepth": "Druck in der Tiefe",
-        "pressureSurface": "Druck am Bohrlochkopf",
-        "pressureMean": "Mittlerer Druck",
-        "factorMean": "Volumenfaktor, Mittel",
-        "factorSurface": "Volumenfaktor, Bohrlochkopf",
-        "well": "Füllen der Bohrung",
-        "fillVolume": "Mit Gas gefülltes Volumen",
-        "reel": "Füllen des Rohrs auf der Haspel",
-        "total": "Gesamt",
-        "gas": "Gas im Normzustand",
-        "liquid": "Als flüssiger Stickstoff",
-        "mass": "Masse"
-      },
-      "method": {
-        "title": "Methode",
-        "intro": "Die Bohrlochflüssigkeit wird bis zur Pumptiefe verdrängt; der Stickstoff, der die Säule und das Rohr auf der Haspel füllt, wird als Gas, Flüssigkeit und Masse summiert.",
-        "steps": [
-          "Der Druck in der Tiefe hält der hydrostatischen Säule der Bohrlochflüssigkeit die Waage: P = ρ·g·h. Der Druck am Bohrlochkopf ist dieser Wert minus das Gewicht der Stickstoffsäule, aus der mittleren Stickstoffdichte. Die Säule wird beim Mittel beider Drücke und beider Temperaturen betrachtet.",
-          "Volumenfaktor von Stickstoff: B = 2,8416·P / (Z·(273 + T)) in sm³/m³, mit P in kPa und T in °C. Die Konstante steht für einen Normzustand von etwa 15 °C und 101,3 kPa.",
-          "Mit Gas gefülltes Volumen: das Volumen der Förderrohrbohrung minus der Coiled-Tubing-Stahl, mal die Tiefe. Das sind der Ringraum und die Coiled-Tubing-Bohrung, jeweils einmal gezählt.",
-          "Der Stickstoff für die Bohrung ist dieses Volumen mal der Faktor bei mittleren Bedingungen. Der Stickstoff für das Rohr auf der Haspel ist dessen Bohrungsvolumen mal der Faktor bei Bedingungen am Bohrlochkopf.",
-          "Flüssiger Stickstoff: 1 m³ Flüssigkeit ergibt 696,5 sm³ Gas und wiegt 808 kg."
-        ],
-        "assumptionsTitle": "Annahmen",
-        "assumptions": [
-          "Die Flüssigkeit wird in einer vertikalen Bohrung vollständig bis zur Pumptiefe verdrängt.",
-          "Der Kompressibilitätsfaktor ist entlang der Säule konstant; die Temperatur ist das Mittel der beiden Enden.",
-          "Die mittlere Stickstoffdichte ist eine Eingabe und wird nicht aus dem Druck abgeleitet; der Druck am Bohrlochkopf folgt daraus.",
-          "Es fließt keine Flüssigkeit zu und es geht kein Stickstoff verloren; Pumpverluste oder eine Reserve sind nicht berücksichtigt."
-        ],
-        "reference": "Reproduziert ein Referenz-Arbeitsblatt, mit einem Unterschied: Das Arbeitsblatt zählt die Coiled-Tubing-Bohrung im gasgefüllten Volumen doppelt, hier wird sie einmal gezählt, sodass der Stickstoff für die Bohrung niedriger ausfällt als im Arbeitsblatt. Prüfen Sie die Gaseigenschaften an einer Stickstofftabelle, bevor Sie sich auf ein Ergebnis verlassen."
-      }
-    },
-    "nitrogenVessel": {
-      "meta": {
-        "title": "Stickstoff für einen Behälter",
-        "description": "Berechnen Sie den Stickstoff, der nötig ist, um einen Behälter bei gegebener Temperatur auf einen Druck zu bringen: Gas im Normzustand, als flüssiger Stickstoff und als Masse, in metrischen oder Feldeinheiten."
-      },
-      "hero": {
-        "badge": "Stickstoff",
-        "title": "Stickstoff für einen Behälter",
-        "description": "Geben Sie das Behältervolumen, den Zieldruck und die Temperatur ein, um den nötigen Stickstoff zu erhalten. Metrische oder Feldeinheiten."
-      },
-      "groups": {
-        "vessel": "Behälter",
-        "gas": "Stickstoff"
-      },
-      "fields": {
-        "volume": {
-          "label": "Behältervolumen"
-        },
-        "pressure": {
-          "label": "Zieldruck",
-          "hint": "Überdruck"
-        },
-        "initialPressure": {
-          "label": "Anfangsdruck",
-          "hint": "Überdruck; 0 für einen leeren Behälter bei Atmosphärendruck"
-        },
-        "temperature": {
-          "label": "Temperatur im Behälter"
-        },
-        "compressibility": {
-          "label": "Kompressibilitätsfaktor, Z",
-          "hint": "1 für ein ideales Gas. Nehmen Sie den Wert aus der Tabelle unten."
-        }
-      },
-      "results": {
-        "title": "Ergebnis",
-        "mass": "Benötigter Stickstoff",
-        "factor": "Volumenfaktor beim Enddruck",
-        "gasInVessel": "Gas im Behälter beim Enddruck",
-        "gas": "Zuzuführendes Gas im Normzustand",
-        "liquid": "Als flüssiger Stickstoff"
-      },
-      "method": {
-        "title": "Methode",
-        "intro": "Der Stickstoff ist das Gas, das zugeführt werden muss, um den Behälter bei konstanter Temperatur vom Anfangsdruck auf den Enddruck zu bringen.",
-        "steps": [
-          "Volumenfaktor von Stickstoff: B = 2,8416·P / (Z·(273 + T)) in sm³/m³, mit P in kPa (Überdruck) und T in °C. Die Konstante steht für einen Normzustand von etwa 15 °C und 101,3 kPa.",
-          "Zuzuführendes Gas: das Behältervolumen mal die Differenz der Faktoren beim End- und beim Anfangsdruck.",
-          "Flüssiger Stickstoff: 1 m³ Flüssigkeit ergibt 696,5 sm³ Gas und wiegt 808 kg."
-        ],
-        "assumptionsTitle": "Annahmen",
-        "assumptions": [
-          "Die Drücke sind Überdrücke, und der Behälter enthält anfangs nur die Luft bei Atmosphärendruck, die nicht mitgezählt wird.",
-          "Die Temperatur bleibt beim Füllen konstant; die Erwärmung durch Verdichtung ist nicht berücksichtigt.",
-          "Der Kompressibilitätsfaktor ist ein einzelner Wert für den ganzen Druckbereich.",
-          "Es geht kein Stickstoff durch Spülen oder Leckagen verloren."
-        ],
-        "reference": "Verwendet denselben Volumenfaktor und dieselben Stickstoffeigenschaften wie das Werkzeug Stickstoff-Verdrängung, das ein Referenz-Arbeitsblatt reproduziert. Prüfen Sie die Gaseigenschaften an einer Stickstofftabelle, bevor Sie sich auf ein Ergebnis verlassen."
-      }
-    },
-    "wellBuilder": {
-      "units": {
-        "label": "Tiefeneinheit"
-      },
-      "palette": {
-        "title": "Komponenten",
-        "hint": "Ziehen Sie eine Komponente auf das Schema oder drücken Sie Enter, um sie hinzuzufügen. Im Schema verschieben Sie sie durch Ziehen; die runden Griffe ändern ihre Tiefen."
-      },
-      "types": {
-        "casing": "Verrohrung",
-        "liner": "Liner",
-        "tubing": "Tubing",
-        "ct": "Coiled Tubing",
-        "packer": "Packer",
-        "nipple": "Landenippel",
-        "sleeve": "Gleithülse (Zirkulationsmuffe)",
-        "perforation": "Perforationen"
-      },
-      "canvas": {
-        "title": "Bohrungsschema (gemessene Tiefe)",
-        "empty": "Ziehen Sie eine Komponente hierher, um die Bohrung zu beginnen.",
-        "notToScale": "Tiefe maßstäblich; Breiten nicht maßstäblich.",
-        "surface": "Oberfläche (Geländeoberkante)"
-      },
-      "editor": {
-        "size": "Größe",
-        "weight": "Gewicht",
-        "wall": "Wand",
-        "packerOd": "Packer-Außendurchmesser, in",
-        "depth": "Tiefe",
-        "top": "Oberkante",
-        "bottom": "Unterkante",
-        "delete": "Löschen",
-        "duplicate": "Duplizieren",
-        "none": "Wählen Sie eine Komponente zum Bearbeiten.",
-        "note": "Notiz",
-        "notePlaceholder": "z. B. Profil XN, ID 2,205\"",
-        "id": "Innendurchmesser",
-        "drift": "Driftdurchmesser",
-        "capacity": "Fassungsvermögen",
-        "displacement": "Stahlverdrängung"
-      },
-      "survey": {
-        "title": "Neigungsprofil",
-        "intro": "Fügen Sie gemessene Tiefe, Neigung und Azimut ein, eine Messstation pro Zeile, oder importieren Sie eine CSV- oder Textdatei. Der Verlauf wird mit der Minimum-Curvature-Methode berechnet.",
-        "placeholder": "MD, Inc, Azi\n0, 0, 0\n1500, 0, 0\n3000, 28, 50",
-        "import": "Datei importieren",
-        "clear": "Leeren",
-        "errors": {
-          "empty": "Das Profil ist leer.",
-          "columns": "Zeile {line}: Es werden drei Spalten benötigt (MD, Neigung, Azimut).",
-          "number": "Zeile {line}: Ein Wert ist keine Zahl.",
-          "range": "Zeile {line}: Die Neigung muss 0–180°, der Azimut 0–360° sein und die MD nicht negativ.",
-          "order": "Zeile {line}: Die gemessene Tiefe muss zunehmen."
-        },
-        "table": {
-          "md": "MD",
-          "inc": "Neig. °",
-          "azi": "Azi °",
-          "tvd": "TVD",
-          "north": "Nord",
-          "east": "Ost",
-          "dls": "DLS"
-        },
-        "summary": {
-          "md": "Gemessene Tiefe",
-          "tvd": "Wahre vertikale Tiefe",
-          "departure": "Abweichung",
-          "closure": "Richtung",
-          "maxInc": "Max. Neigung",
-          "maxDls": "Max. Dogleg"
-        }
-      },
-      "view": {
-        "title": "3D-Bohrpfad",
-        "hint": "Ziehen Sie, um die Bohrung zu drehen, mit gedrückter Umschalttaste verschieben Sie sie, mit dem Mausrad oder + und − zoomen Sie. Die gestrichelte Linie ist der auf den Boden projizierte Pfad.",
-        "top": "Draufsicht",
-        "side": "Seitenansicht",
-        "reset": "Zurücksetzen",
-        "zoomIn": "Vergrößern",
-        "zoomOut": "Verkleinern",
-        "north": "N",
-        "east": "O",
-        "depth": "TVD",
-        "low": "Niedrig",
-        "high": "Hoch",
-        "noSurvey": "Noch kein Profil: Die Bohrung wird senkrecht bis zur tiefsten Komponente gezeichnet.",
-        "legend": "Farbe: Dogleg-Stärke, von niedrig bis hoch."
-      },
-      "marker": {
-        "shoe": "Schuh",
-        "tubing": "Tubing-Ende",
-        "ct": "CT-Ende",
-        "packer": "Packer",
-        "perforations": "Perforationen",
-        "nipple": "Landenippel",
-        "sleeve": "Gleithülse"
-      },
-      "print": {
-        "button": "Als PDF speichern",
-        "title": "Bohrungsschema",
-        "components": "Komponenten",
-        "type": "Typ",
-        "size": "Größe",
-        "weight": "Gewicht",
-        "length": "Länge",
-        "generated": "Erstellt auf {url} am {date}.",
-        "include": "Im PDF:",
-        "optionData": "Bohrungsdaten",
-        "option3d": "3D-Ansicht"
-      },
-      "data": {
-        "example": "Beispielbohrung laden",
-        "import": "Bohrung importieren",
-        "export": "Bohrung exportieren",
-        "reset": "Bohrung leeren",
-        "note": "Nur in diesem Browser gespeichert.",
-        "confirmExample": "Die aktuelle Bohrung durch das Beispiel ersetzen?",
-        "confirmReset": "Die Bohrung und ihr Profil leeren?",
-        "importError": "Diese Datei ist keine von dieser Seite exportierte Bohrung.",
-        "sizes": "Rohrgrößen und Gewichte sind die Nennwerte nach API 5CT; prüfen Sie sie vor einer Auslegung anhand der Norm oder der Herstellerdaten."
-      }
-    },
-    "ctPressureLoss": {
-      "meta": {
-        "title": "CT-Druckverlust",
-        "description": "Berechnen Sie den Reibungsdruckverlust eines newtonschen, Bingham-plastischen, Potenzgesetz-, Herschel-Bulkley- oder empirisch gemessenen Fluids im Coiled Tubing, getrennt nach geradem Abschnitt und Abschnitt auf der Haspel, in Oilfield- oder metrischen Einheiten."
-      },
-      "hero": {
-        "badge": "Hydraulik",
-        "title": "CT-Druckverlust",
-        "description": "Reibungsdruckverlust für Fluide im Coiled Tubing. Wählen Sie das Rheologiemodell und geben Sie Fluid, Rohr und Förderrate in Oilfield- oder metrischen Einheiten ein."
-      },
-      "groups": {
-        "fluid": "Fluid",
-        "geometry": "Rohr und Haspel",
-        "flow": "Förderung",
-        "fann": "Fann-Messwerte",
-        "temperature": "Temperatureinfluss"
-      },
-      "fields": {
-        "density": {
-          "label": "Dichte"
-        },
-        "n": {
-          "label": "Fließindex, n",
-          "hint": "Potenzgesetz-Exponent; 1 für ein newtonsches Fluid"
-        },
-        "k": {
-          "label": "Konsistenzindex, K",
-          "hint": "Konsistenz nach Potenzgesetz, aus der Rheologie des Fluids"
-        },
-        "reelDiameter": {
-          "label": "Haspeldurchmesser",
-          "hint": "Durchmesser der Wicklung, auf der das Rohr aufgewickelt ist"
-        },
-        "od": {
-          "label": "Rohr-Außendurchmesser"
-        },
-        "wall": {
-          "label": "Wandstärke"
-        },
-        "roughness": {
-          "label": "Wandrauheit",
-          "hint": "Absolute Rauheit der Innenwand; 0 für glattes Rohr. Wirkt nur bei turbulenter Strömung"
-        },
-        "totalLength": {
-          "label": "Stranglänge"
-        },
-        "lengthOffReel": {
-          "label": "Rohr außerhalb der Haspel",
-          "hint": "Gerade Länge, nicht auf der Haspel gewickelt"
-        },
-        "flowRate": {
-          "label": "Förderrate"
-        },
-        "fluidType": {
-          "label": "Fluidtyp"
-        },
-        "model": {
-          "label": "Rheologiemodell",
-          "hint": "Wie die Fließkurve des Fluids beschrieben wird"
-        },
-        "pv": {
-          "label": "Plastische Viskosität (PV)",
-          "hint": "Bei einem newtonschen Fluid seine Viskosität"
-        },
-        "yp": {
-          "label": "Fließgrenze (YP)",
-          "hint": "Fließspannung des Fluids"
-        },
-        "fluidTemperature": {
-          "label": "Fluidtemperatur",
-          "hint": "Temperatur, bei der PV und YP aus der Tabelle entnommen werden; leer verwendet die obigen Werte"
-        }
-      },
-      "results": {
-        "title": "Ergebnis",
-        "total": "Gesamter Reibungsdruckverlust",
-        "straight": "Außerhalb der Haspel (gerade)",
-        "curved": "Auf der Haspel (gekrümmt)",
-        "velocity": "Geschwindigkeit",
-        "reynolds": "Reynolds-Zahl",
-        "dean": "Dean-Zahl",
-        "regime": "Strömungsregime",
-        "effN": "Äquivalenter Fließindex n′",
-        "effK": "Äquivalenter Konsistenzindex K",
-        "pvUsed": "PV bei Fluidtemperatur",
-        "ypUsed": "YP bei Fluidtemperatur"
-      },
-      "regimes": {
-        "laminar": "Laminar",
-        "transitional": "Übergang",
-        "turbulent": "Turbulent"
-      },
-      "method": {
-        "title": "Methode",
-        "intro": "Der Verlust wird getrennt für den Teil des Strangs außerhalb der Haspel (gerade) und den Teil auf der Haspel (gekrümmt) berechnet und addiert.",
-        "steps": [
-          "Rheologie: Das Modell liefert die Wandschubspannung τ bei der Wandschergeschwindigkeit γ. Newtonsch: τ = μγ. Bingham-plastisch: τ = YP + PV·γ. Potenzgesetz: τ = Kγⁿ. Herschel–Bulkley: τ = τ₀ + Kγⁿ. Empirisch: die gemessenen Fann-Punkte, auf log–log-Achsen durch Geraden verbunden. Die Fann-Drehzahl N ergibt γ = 1,7023 N 1/s und τ = 1,0678 θ lbf/100 ft².",
-          "Äquivalentes Potenzgesetz: Für die betrachtete Förderung ist die Pseudo-Schergeschwindigkeit Γ = 8V/D. Die Wandschergeschwindigkeit γw = Γ(3n′+1)/(4n′) wird iterativ mit n′, der lokalen Steigung der Fließkurve, bestimmt; K und n′ des Modells sind die mit gleicher Wandspannung und Steigung. Ein Potenzgesetz-Fluid liefert seine eigenen n und K.",
-          "Fann-Anpassung: Bingham-plastisch PV = θ600 − θ300 und YP = θ300 − PV; Herschel–Bulkley τ₀ = 2τ3 − τ6 und log–log-Anpassung für n und K; Potenzgesetz log–log-Anpassung; newtonsch Anpassung durch den Ursprung. Die Abweichung ist der quadratische Mittelwert des relativen Fehlers des Modells gegenüber den Messwerten.",
-          "Reynolds-Zahl (Metzner–Reed): Re = 31,042 ρ Q^(2−n) / (9,804^n K ID^(4−3n)) · (n/(1+3n))^n, mit ρ in lb/gal, Q in gal/min, ID in Zoll und K in lbf·sⁿ/100 ft².",
-          "Gerades Rohr: laminar unter Re = 3470 − 1370n und turbulent über 4270 − 1370n. Laminar f = 16/Re. Turbulent f = a/Re^b, mit a = (log n + 3,93)/50 und b = (1,75 − log n)/7.",
-          "Coiled Tubing: Der laminare Faktor wird mit ψ·De^φ multipliziert, wobei De = Re_g·(ID/D)^0,5 die Dean-Zahl ist, ψ = 47,969 − 153,8n + 166,22n² − 60,132n³ und φ = 0,875n − 0,515. Turbulent: f = 1,069·a/Re^(0,8b)·(ID/D)^0,1. Die laminare Grenze ist (4n/(3n+1))^n · [2100 ψ (ID/D)^(0,5φ)]^(1/(1−φ)), die turbulente Grenze liegt 800 darüber.",
-          "Druckverlust: ΔP = f ρ Q² L / (154,63 ID⁵) in Feldeinheiten. Zwischen den beiden Grenzen wird der Verlust linear in Re interpoliert, vom laminaren Verlust an der unteren Grenze zum turbulenten Verlust an der oberen Grenze."
-        ],
-        "assumptionsTitle": "Annahmen",
-        "assumptions": [
-          "Die Wandrauheit geht nur in den turbulenten Reibungsfaktor ein, als Verhältnis des Haaland-Faktors mit Rauheit zu dem ohne; bei Rauheit 0 ergibt sich das Ergebnis für glattes Rohr. Für n ungleich 1 ist das eine Schätzung.",
-          "Bei Modellen mit Fließspannung wird das äquivalente Potenzgesetz für die eingegebene Förderrate ausgewertet. Das ist für laminare Strömung belastbar; turbulente und Übergangswerte für solche Fluide sind Schätzungen, und die kritischen Reynolds-Zahlen sind die eines Potenzgesetz-Fluids.",
-          "Ein einphasiges Potenzgesetz-Fluid ohne Feststoffe.",
-          "Glattes Rohr und ausgebildete Strömung, mit entlang des Strangs konstanten Fluideigenschaften.",
-          "Die Krümmung ist die des eingegebenen Haspeldurchmessers; Rohr außerhalb der Haspel ist gerade.",
-          "Die Korrelationen decken nur einen begrenzten Bereich von n und ID/D ab. Prüfen Sie Ergebnisse außerhalb davon."
-        ],
-        "reference": "Basiert auf veröffentlichten Korrelationen für Potenzgesetz-Fluide in Coiled Tubing (Zhou und Shah), mit der Reynolds-Zahl nach Metzner–Reed und den turbulenten Faktoren nach Dodge–Metzner. Die Berechnung reproduziert für ihren Beispielfall ein Referenz-Arbeitsblatt. Prüfen Sie die Originalarbeiten, bevor Sie sich auf ein Ergebnis verlassen."
-      },
-      "models": {
-        "newtonian": "Newtonsch",
-        "bingham": "Bingham-plastisch",
-        "powerLaw": "Potenzgesetz",
-        "herschelBulkley": "Herschel–Bulkley",
-        "empirical": "Empirisches Modell"
-      },
-      "fluidTypes": {
-        "liquid": "Flüssigkeit",
-        "gas": "Gas",
-        "foam": "Schaum",
-        "multiphase": "Mehrphasig"
-      },
-      "soon": "noch nicht verfügbar",
-      "fann": {
-        "note": "Skalenwerte θ eines Fann-35-Viskosimeters bei jeder Drehzahl. Angenommen werden die Standardkombination Rotor-Bob R1-B1 und die Torsionsfeder F1.",
-        "fit": "Modell an Messwerte anpassen",
-        "fitted": "Angepasst. Abweichung von den Messwerten: {dev} %",
-        "direct": "Das empirische Modell verwendet die Messwerte direkt.",
-        "failed": "Die Messwerte tragen dieses Modell nicht. Geben Sie alle 12 Messwerte ein, für Bingham-plastisch mindestens 600 und 300 U/min."
-      },
-      "temp": {
-        "note": "Bei newtonschen und Bingham-Fluiden werden PV und YP zwischen den Zeilen bei der Fluidtemperatur interpoliert. Tabelle leer lassen, um die Oberflächenwerte zu verwenden.",
-        "title": "Rheologie bei verschiedenen Temperaturen",
-        "temperature": "Temp.",
-        "pv": "PV",
-        "yp": "YP"
-      }
-    },
-    "wellKill": {
-      "meta": {
-        "title": "Bohrlochkill",
-        "description": "Berechnen Sie die Dichte der Kill-Flüssigkeit sowie Volumen und Drücke für das Töten einer Förderbohrung durch Bullheading oder Zirkulation und das Kill-Sheet einer Bohrung im Bohrbetrieb für Driller's Method und Wait-and-Weight, in metrischen oder Oilfield-Einheiten."
-      },
-      "hero": {
-        "badge": "Bohrlochkontrolle",
-        "title": "Bohrlochkill",
-        "description": "Kill-Flüssigkeit, Volumen und Drücke für eine Förderbohrung oder das Kill-Sheet einer Bohrung im Bohrbetrieb. Wählen Sie das Verfahren und geben Sie die Bohrung in metrischen oder Oilfield-Einheiten ein."
-      },
-      "groups": {
-        "wellFluid": "Bohrung und Flüssigkeit",
-        "kill": "Kill und Bullheading",
-        "tubing": "Rohre und Verrohrung",
-        "pumping": "Pumpen",
-        "drillWell": "Bohrung und Spülung",
-        "drillPump": "Pumpe und Zirkulation",
-        "drillVolumes": "Volumen"
-      },
-      "fields": {
-        "wTvd": {
-          "label": "Wahre vertikale Tiefe",
-          "hint": "Tiefe der Formation"
-        },
-        "wMd": {
-          "label": "Rohrlänge",
-          "hint": "Gemessene Tiefe des Rohrschuhs"
-        },
-        "wDensity": {
-          "label": "Dichte der Flüssigkeit in der Bohrung"
-        },
-        "wSitp": {
-          "label": "Geschlossener Rohrdruck"
-        },
-        "wMargin": {
-          "label": "Überdruck",
-          "hint": "Druck, den die Kill-Flüssigkeit über dem Formationsdruck liefert"
-        },
-        "wInject": {
-          "label": "Injektionsdruck über Formation",
-          "hint": "Druck über dem Formationsdruck, der zum Einpressen beim Bullheading nötig ist"
-        },
-        "wFracture": {
-          "label": "Frac-Druck",
-          "hint": "In der Formationstiefe; 0 lässt die Prüfung weg"
-        },
-        "wTubingId": {
-          "label": "Rohr-Innendurchmesser"
-        },
-        "wTubingOd": {
-          "label": "Rohr-Außendurchmesser"
-        },
-        "wCasingId": {
-          "label": "Casing-Innendurchmesser"
-        },
-        "wRate": {
-          "label": "Pumprate"
-        },
-        "dTvd": {
-          "label": "Wahre vertikale Tiefe"
-        },
-        "dMud": {
-          "label": "Spülungsdichte"
-        },
-        "dSidpp": {
-          "label": "Geschlossener Bohrgestängedruck (SIDPP)"
-        },
-        "dShoeTvd": {
-          "label": "Tiefe des Casing-Schuhs (TVD)"
-        },
-        "dLeakoff": {
-          "label": "Leak-off, als Spülungsdichte",
-          "hint": "Spülungsdichte, die dem Leak-off-Druck am Schuh entspricht"
-        },
-        "dScr": {
-          "label": "Zirkulationsdruck bei Kill-Rate"
-        },
-        "dSpm": {
-          "label": "Pumpengeschwindigkeit",
-          "hint": "Hübe pro Minute bei Kill-Rate"
-        },
-        "dPump": {
-          "label": "Pumpenleistung",
-          "hint": "Volumen pro Hub"
-        },
-        "dStringVolume": {
-          "label": "Bohrstrangvolumen",
-          "hint": "Im Bohrstrang"
-        },
-        "dAnnulusVolume": {
-          "label": "Ringraumvolumen",
-          "hint": "Meißel bis Oberfläche"
-        }
-      },
-      "results": {
-        "title": "Ergebnis",
-        "killFluid": "Dichte der Kill-Flüssigkeit",
-        "killMud": "Dichte der Kill-Spülung",
-        "formationPressure": "Formationsdruck",
-        "densityIncrease": "Dichteerhöhung",
-        "hydrostatic": "Hydrostatischer Druck der Kill-Flüssigkeit",
-        "tubingVolume": "Rohrvolumen (Bullheading)",
-        "annulusVolume": "Ringraumvolumen",
-        "tubingTime": "Zeit zum Pumpen des Rohrs",
-        "circulationTime": "Zeit zum Pumpen von Rohr und Ringraum",
-        "startPressure": "Oberflächendruck zu Beginn des Bullheadings",
-        "endPressure": "Oberflächendruck am Ende des Bullheadings",
-        "injectionPressure": "Sohlendruck beim Einpressen",
-        "fractureMargin": "Abstand zum Frac-Druck",
-        "icp": "Anfänglicher Zirkulationsdruck (ICP)",
-        "fcp": "Endzirkulationsdruck (FCP)",
-        "strokesToBit": "Hübe bis zum Meißel",
-        "strokesToSurface": "Hübe, Meißel bis Oberfläche",
-        "timeToBit": "Zeit bis zum Meißel",
-        "timeToSurface": "Zeit, Meißel bis Oberfläche",
-        "totalStrokes": "Hübe des gesamten Kills",
-        "totalTime": "Zeit des gesamten Kills",
-        "maasp": "Maximal zulässiger Ringraumdruck (MAASP)",
-        "min": "min",
-        "strokes": "Hübe"
-      },
-      "schedule": {
-        "title": "Druckplan im Bohrgestänge",
-        "strokes": "Hübe",
-        "time": "Zeit",
-        "pressure": "Druck",
-        "note": "Solange die Kill-Spülung im Strang nach unten geht, halten Sie den Gestängedruck nach diesem Plan und danach den Endzirkulationsdruck, bis die Kill-Spülung die Oberfläche erreicht."
-      },
-      "methods": {
-        "label": "Verfahren",
-        "hint": "Töten einer Förderbohrung oder einer Bohrung im Bohrbetrieb mit einem der beiden Zirkulationsverfahren",
-        "options": {
-          "workover": "Förderbohrung: Bullheading und Zirkulation",
-          "drillers": "Bohrung im Bohrbetrieb: Driller's Method",
-          "waitWeight": "Bohrung im Bohrbetrieb: Wait and Weight"
-        }
-      },
-      "method": {
-        "title": "Methode",
-        "intro": "Das Werkzeug berechnet den Kill aus dem Gleichgewicht der hydrostatischen Drücke.",
-        "steps": [
-          "Hydrostatischer Druck: P = ρ·g·TVD, mit g = 9,80665 m/s². Der Formationsdruck ist der Schließdruck plus der hydrostatische Druck der Flüssigkeit in der Bohrung.",
-          "Förderbohrung: Die Dichte der Kill-Flüssigkeit gleicht den Formationsdruck plus Überdruck aus, ρ = (P + Überdruck) / (g·TVD). Volumen: π/4·ID²·L für das Rohr und π/4·(Casing-ID² − Rohr-AD²)·L für den Ringraum.",
-          "Bullheading: Der Oberflächendruck ist der Injektionsdruck (Formationsdruck plus Einpressdruck) minus der hydrostatische Druck der Flüssigkeit im Rohr. Er beginnt beim Schließdruck plus Injektionsreserve und fällt, während die Kill-Flüssigkeit einströmt. Der Sohlendruck wird mit dem Frac-Druck verglichen.",
-          "Bohrung im Bohrbetrieb: Kill-Spülungsdichte = Spülungsdichte + SIDPP / (g·TVD). ICP = SIDPP + Zirkulationsdruck bei Kill-Rate; FCP = Zirkulationsdruck × Kill-Spülung / Spülungsdichte. Der Gestängedruck fällt linear von ICP auf FCP über die Hübe bis zum Meißel.",
-          "Wait and Weight zirkuliert einmal mit der Kill-Spülung. Die Driller's Method zirkuliert zuerst den Zufluss mit der Originalspülung aus und hält dabei ICP, dann die Kill-Spülung. MAASP = (Leak-off-Dichte − Spülungsdichte)·g·Schuh-TVD."
-        ],
-        "assumptionsTitle": "Annahmen",
-        "assumptions": [
-          "Eine vertikale Säule eines Fluids: kein Gas im Fluid, keine Reibung beim Bullheading und kein Temperatur- oder Kompressibilitätseinfluss auf die Dichte.",
-          "Drücke sind Überdrücke. Prüfen Sie den Kill gegen die Druckwerte von Casing, Rohr und Bohrlochkopf.",
-          "Das Kill-Sheet gilt für das genannte Verfahren; Chokebedienung und Reaktion auf einen Gaszufluss erfordern Urteil vor Ort."
-        ],
-        "reference": "Das Werkzeug ist eine Planungshilfe und kein Ersatz für die Bohrlochkontrollverfahren des Betreibers und die Zertifizierung der Mannschaft. Prüfen Sie das Ergebnis gegen das eigene Kill-Sheet des Unternehmens."
-      }
-    },
-    "bhaBuilder": {
-      "palette": {
-        "title": "Werkzeuge",
-        "hint": "Wählen Sie ein Werkzeug, um es unten an die Garnitur anzufügen, und bearbeiten Sie dann seine Maße."
-      },
-      "types": {
-        "connector": "Coil-Konnektor",
-        "crossover": "Übergangsstück",
-        "swivel": "Swivel",
-        "checkValve": "Rückschlagventil",
-        "disconnect": "Disconnect",
-        "circSub": "Zirkulationssub",
-        "motorhead": "Motorhead",
-        "jar": "Jar",
-        "accelerator": "Akzelerator",
-        "centralizer": "Zentrierer",
-        "nozzle": "Spüldüse",
-        "mill": "Fräser",
-        "motor": "Bohrmotor",
-        "packer": "Packer",
-        "overshot": "Overshot",
-        "generic": "Sonstiges Werkzeug"
-      },
-      "examples": {
-        "sheet": "Beispiel aus dem Blatt: Coil 1-1/2\", 10 Werkzeuge",
-        "motorhead1_11_16": "Motorhead 1-11/16\"",
-        "motorhead2_1_8": "Motorhead 2-1/8\"",
-        "motorhead2_3_8": "Motorhead 2-3/8\"",
-        "motorhead2_7_8": "Motorhead 2-7/8\"",
-        "motorhead3_1_8": "Motorhead 3-1/8\""
-      },
-      "fields": {
-        "bhaNo": "BHA-Nr.",
-        "runNo": "Fahrt-Nr.",
-        "preparedBy": "Erstellt von"
-      },
-      "drawing": {
-        "title": "Garnitur, von oben nach unten"
-      },
-      "units": {
-        "label": "Einheiten"
-      },
-      "editor": {
-        "description": "Beschreibung",
-        "od": "Außendurchmesser",
-        "bore": "Innendurchmesser",
-        "length": "Länge",
-        "connection": "Verbindung",
-        "weight": "Gewicht in Luft",
-        "up": "Nach oben",
-        "down": "Nach unten",
-        "copy": "Duplizieren",
-        "remove": "Entfernen",
-        "empty": "Noch keine Werkzeuge. Wählen Sie oben eines aus oder laden Sie ein Beispiel."
-      },
-      "summary": {
-        "length": "Gesamtlänge",
-        "maxOd": "Größter AD",
-        "minBore": "Kleinste Bohrung",
-        "count": "Werkzeuge",
-        "weight": "Gewicht"
-      },
-      "data": {
-        "example": "Beispiel laden",
-        "export": "BHA exportieren",
-        "reset": "BHA leeren",
-        "note": "Nur in diesem Browser gespeichert.",
-        "confirmExample": "Die aktuelle BHA durch das Beispiel ersetzen?",
-        "confirmReset": "BHA leeren?",
-        "importError": "Diese Datei ist keine von dieser Seite exportierte BHA.",
-        "disclaimer": "Maße und Längen sind Ihre Eingaben; die Beispiele sind typische Werte aus einem BHA-Blatt. Prüfen Sie sie vor dem Einsatz anhand der Herstellerdaten.",
-        "import": "BHA importieren"
-      },
-      "print": {
-        "button": "Als PDF speichern",
-        "title": "Bohrlochgarnitur",
-        "bhaNo": "BHA-Nr.",
-        "runNo": "Fahrt-Nr.",
-        "preparedBy": "Erstellt von",
-        "total": "Gesamtlänge"
-      }
-    },
-    "ctForces": {
-      "groups": {
-        "well": "Bohrung",
-        "string": "CT-Strang",
-        "bha": "BHA",
-        "fluids": "Fluide, Reibung und Oberfläche",
-        "limits": "Werkstoff und Grenzen"
-      },
-      "fields": {
-        "depth": {
-          "label": "BHA-Tiefe (MD)",
-          "hint": "Gemessene Tiefe des unteren Endes der BHA, die untersucht wird"
-        },
-        "holeId": {
-          "label": "Innendurchmesser des Bohrlochs",
-          "hint": "Casing oder Rohr, in dem das CT läuft"
-        },
-        "ctOd": {
-          "label": "CT-Außendurchmesser"
-        },
-        "s1Len": {
-          "label": "Länge Abschnitt 1",
-          "hint": "Die Abschnitte laufen vom BHA-Ende zur Haspel; Abschnitte 2 und 3 für eine Wanddicke leer lassen"
-        },
-        "s1Wall": {
-          "label": "Wand Abschnitt 1"
-        },
-        "s2Len": {
-          "label": "Länge Abschnitt 2"
-        },
-        "s2Wall": {
-          "label": "Wand Abschnitt 2"
-        },
-        "s3Len": {
-          "label": "Länge Abschnitt 3"
-        },
-        "s3Wall": {
-          "label": "Wand Abschnitt 3"
-        },
-        "bhaLength": {
-          "label": "BHA-Länge"
-        },
-        "bhaWeight": {
-          "label": "BHA-Gewicht in Luft"
-        },
-        "bhaOd": {
-          "label": "BHA-Außendurchmesser",
-          "hint": "Für den Auftrieb; die BHA gilt als starr"
-        },
-        "rhoIn": {
-          "label": "Fluiddichte im CT"
-        },
-        "rhoOut": {
-          "label": "Fluiddichte außerhalb des CT"
-        },
-        "whp": {
-          "label": "Bohrlochkopfdruck"
-        },
-        "cf": {
-          "label": "Reibungskoeffizient",
-          "hint": "Etwa 0,30–0,35 wassernasser Stahl, 0,20–0,25 geschmiert, 0,15–0,20 ölnass"
-        },
-        "stripperFriction": {
-          "label": "Stripper-Reibung"
-        },
-        "reelTension": {
-          "label": "Haspel-Rückspannung"
-        },
-        "modulus": {
-          "label": "Elastizitätsmodul"
-        },
-        "yieldStrength": {
-          "label": "Streckgrenze"
-        },
-        "designFactor": {
-          "label": "Auslegungsfaktor auf Zug",
-          "hint": "Anteil der Streckkraft, der an der Oberfläche zulässig ist"
-        },
-        "snubLimit": {
-          "label": "Schubgrenze des Injektors",
-          "hint": "Das Meiste, womit der Injektor das CT schieben kann; darüber gilt Lock-up"
-        }
-      },
-      "results": {
-        "title": "Ergebnis",
-        "reach": "Tiefe bis zum Lock-up",
-        "reachTd": "TD, kein Lock-up",
-        "slackoff": "Gewichtsanzeige, RIH",
-        "pickup": "Gewichtsanzeige, POOH",
-        "injectorPush": "Injektorschub in dieser Tiefe",
-        "maxSetdown": "Maximales Aufsetzgewicht",
-        "maxOverpull": "Maximaler Überzug",
-        "tensionLimit": "Zuggrenze an der Oberfläche",
-        "buckleOnset": "Helikale Knickung beginnt bei",
-        "buckledLength": "Geknickte Länge in dieser Tiefe",
-        "lockup": "Lock-up"
-      },
-      "charts": {
-        "ctwiTitle": "Gewichtsanzeige über der Tiefe",
-        "forceTitle": "Axialkraft entlang des Strangs",
-        "rih": "RIH",
-        "pooh": "POOH",
-        "limit": "Lock-up-Grenze",
-        "critical": "Kritische Knickkraft",
-        "ctwiAxis": "Gewichtsanzeige",
-        "forceAxis": "Axialkraft",
-        "depthAxis": "Tiefe",
-        "bha": "BHA"
-      }
-    },
-    "ctSimulator": {
-      "intro": {
-        "title": "Einen Coiled-Tubing-Einsatz auf einem großen Bildschirm planen",
-        "lead": "Der CT Simulator führt einen Coiled-Tubing-Einsatz in einem Arbeitsbereich von der Bohrung bis zu den Kräften. Sie zeichnen die Bohrung, bauen den CT-String und die BHA auf, legen den Einsatz fest und lesen Gewichtsanzeige, Tiefe bis zum Lock-up, Absetzgewicht, Überzug und den Beginn des Ausknickens ab. Er sieht aus und arbeitet wie ein Zeichenprogramm: Multifunktionsleiste mit Schritten, Projektpalette, Zeichenfläche, Eigenschaftenpalette und Befehlszeile.",
-        "stepsTitle": "Die fünf Schritte",
-        "steps": [
-          {
-            "title": "Bohrung",
-            "text": "Zeichnen Sie Verrohrung, Liner, Tubing und Komplettierungswerkzeuge im Schema und fügen Sie die Abweichungsmessung hinzu."
-          },
-          {
-            "title": "CT-String",
-            "text": "Legen Sie Außendurchmesser, Wandabschnitte und Haspel fest und sehen Sie den gezeichneten String."
-          },
-          {
-            "title": "BHA",
-            "text": "Bauen Sie die BHA aus Werkzeugen mit ihren Abmessungen und Gewichten auf."
-          },
-          {
-            "title": "Einsatz",
-            "text": "Legen Sie Tiefe, Fluide, Reibung und Grenzwerte fest."
-          },
-          {
-            "title": "Ergebnisse",
-            "text": "Lesen Sie Kräfte sowie Diagramme zu Gewichtsanzeige und Kraft ab und speichern Sie den Einsatz als PDF."
-          }
-        ],
-        "shotsTitle": "Der Arbeitsbereich",
-        "shots": {
-          "well": "Bohrung: das Schema mit seinen Komponenten",
-          "ct": "CT-String: der String und seine Abschnitte",
-          "bha": "BHA: die Werkzeuge und die Zeichnung der Garnitur",
-          "results": "Ergebnisse: Kräfte und Diagramme"
-        },
-        "cta": "Arbeitsbereich öffnen",
-        "ctaNote": "Der Arbeitsbereich öffnet sich über den ganzen Bildschirm. Mit Esc oder Schließen kehren Sie zu dieser Seite zurück.",
-        "noMobileTitle": "Keine mobile Version.",
-        "noMobile": "Der CT Simulator funktioniert nur auf großen Bildschirmen und Tablets, ab 768 Pixeln Breite. Öffnen Sie diese Seite an einem Computer oder Tablet.",
-        "kept": "Bohrung, BHA und Einsatz bleiben in diesem Browser und werden nirgendwohin gesendet."
-      },
-      "workspace": {
-        "brand": "CT Simulator",
-        "close": "Schließen",
-        "fullscreen": "Vollbild",
-        "project": "Projekt",
-        "properties": "Eigenschaften",
-        "left": "Projekt",
-        "right": "Eigenschaften",
-        "command": {
-          "label": "Befehl:",
-          "placeholder": "WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT, UNITS, HELP",
-          "ready": "Befehl eingeben und Enter drücken. HELP zeigt die Liste.",
-          "help": "Befehle: WELL, CT, BHA, JOB, RESULTS, EXAMPLE, PRINT [Schritt|all], UNITS [US|METRIC], LEFT, RIGHT, FULLSCREEN, CLOSE. Esc schließt den Arbeitsbereich.",
-          "unknown": "Unbekannter Befehl: {cmd}. HELP zeigt die Liste.",
-          "step": "Schritt",
-          "units": "Einheiten",
-          "ok": "OK"
-        },
-        "status": {
-          "step": "Schritt",
-          "units": "Einheiten",
-          "complete": "Vollständig"
-        }
-      },
-      "meta": {
-        "title": "CT-Simulator",
-        "description": "Planen Sie einen Coiled-Tubing-Einsatz in vier Schritten: Bohrung zeichnen, CT-Strang und BHA aufbauen, den Einsatz festlegen und Gewichtsanzeige, Lock-up-Tiefe, Aufsetzgewicht und Überzug ablesen."
-      },
-      "hero": {
-        "badge": "Coiled Tubing",
-        "title": "CT-Simulator",
-        "description": "Zeichnen Sie die Bohrung, bauen Sie Strang und BHA auf, legen Sie den Einsatz fest und lesen Sie die Ergebnisse ab. Bohrung und BHA werden in diesem Browser gespeichert; die Editoren, die Sie anderswo auf dieser Website benutzt haben, öffnen sich hier wie Sie sie verlassen haben."
-      },
-      "tabs": {
-        "well": "Bohrung",
-        "ct": "CT-Strang",
-        "bha": "BHA",
-        "job": "Einsatz",
-        "results": "Ergebnisse",
-        "label": "Schritte",
-        "next": "Weiter",
-        "back": "Zurück"
-      },
-      "ui": {
-        "printAll": "Ganzen Einsatz als PDF speichern",
-        "printStep": "Diesen Schritt als PDF speichern",
-        "preview": {
-          "title": "Strangvorschau",
-          "reel": "Haspel",
-          "string": "CT-Strang",
-          "bha": "BHA",
-          "empty": "CT-Außendurchmesser und einen Wandabschnitt eingeben",
-          "wall": "Wand"
-        },
-        "example": "Beispielprojekt laden",
-        "confirm": "Bohrung und BHA durch das Beispielprojekt ersetzen?",
-        "groups": {
-          "job": "Einsatz"
-        },
-        "fields": {
-          "reelDiameter": {
-            "label": "Haspelkern-Durchmesser",
-            "hint": "Für die kommenden Biege- und Ermüdungsprüfungen gespeichert; die Kräfte nutzen ihn noch nicht"
-          }
-        },
-        "strip": {
-          "well": "Bohrung",
-          "pipes": "Rohre",
-          "td": "TD",
-          "bhaTools": "BHA-Werkzeuge",
-          "job": "Tiefe",
-          "ct": "CT",
-          "bha": "BHA"
-        },
-        "missing": {
-          "title": "Füllen Sie dies aus, bevor die Ergebnisse etwas bedeuten",
-          "holes": "Bohrung: Fügen Sie im Schritt Bohrung Casing, Liner oder Rohr hinzu, damit das CT ein Bohrloch hat.",
-          "surveyError": "Bohrung: Die Ablenkungsmessung ist nicht lesbar; korrigieren Sie sie im Schritt Bohrung.",
-          "bha": "BHA: Fügen Sie im Schritt BHA die Werkzeuge der BHA hinzu.",
-          "string": "CT-Strang: Geben Sie im Schritt CT-Strang den CT-Außendurchmesser und mindestens einen Wandabschnitt ein.",
-          "depth": "Einsatz: Die BHA-Tiefe muss größer als die BHA-Länge und nicht größer als die Bohrung sein.",
-          "survey": "Keine Ablenkungsmessung im Schritt Bohrung: Die Bohrung gilt als vertikal."
-        }
-      },
-      "report": {
-        "title": "CT-Einsatzbericht",
-        "created": "Erstellt am {date}",
-        "bhaNo": "BHA-Nr.",
-        "runNo": "Fahrt-Nr.",
-        "preparedBy": "Erstellt von",
-        "summary": "Zusammenfassung des Einsatzes",
-        "incomplete": "Das Projekt ist nicht vollständig, daher gibt es keine Ergebnisse. Bitte ausfüllen:",
-        "depth": "BHA-Tiefe (MD)",
-        "reach": "Tiefe bis zum Lock-up",
-        "reachTd": "TD, kein Lock-up",
-        "slackoff": "Gewichtsanzeige, RIH",
-        "pickup": "Gewichtsanzeige, POOH",
-        "maxSetdown": "Maximales Aufsetzgewicht",
-        "maxOverpull": "Maximaler Überzug",
-        "lockup": "Lock-up",
-        "well": "Bohrung",
-        "tubulars": "Rohre",
-        "type": "Typ",
-        "size": "Größe",
-        "id": "ID",
-        "top": "Oberkante MD",
-        "bottom": "Unterkante MD",
-        "wellTools": "Werkzeuge in der Bohrung",
-        "survey": "Ablenkungsmessung",
-        "vertical": "Es wurde keine Ablenkungsmessung eingegeben; die Bohrung gilt als vertikal.",
-        "stations": "Stationen",
-        "tdMd": "Tiefe, MD",
-        "tdTvd": "Tiefe, TVD",
-        "maxInc": "Maximale Neigung",
-        "maxDls": "Maximaler Dogleg",
-        "dlsBase": "100 ft",
-        "inc": "Neigung",
-        "azi": "Azimut",
-        "dls": "Dogleg",
-        "ct": "CT-Strang",
-        "ctOd": "Außendurchmesser",
-        "reel": "Haspelkern-Durchmesser",
-        "stringLength": "Stranglänge",
-        "length": "Länge",
-        "wall": "Wand",
-        "weightAir": "Gewicht in Luft",
-        "weightBuoyed": "Auftriebsgewicht",
-        "bha": "Bohrlochgarnitur",
-        "description": "Beschreibung",
-        "weight": "Gewicht in Luft",
-        "connection": "Verbindung",
-        "total": "Gesamt",
-        "job": "Einsatz",
-        "rhoIn": "Fluiddichte im CT",
-        "rhoOut": "Fluiddichte außerhalb des CT",
-        "whp": "Bohrlochkopfdruck",
-        "cf": "Reibungskoeffizient",
-        "stripper": "Stripper-Reibung",
-        "reelTension": "Haspel-Rückspannung",
-        "modulus": "Elastizitätsmodul",
-        "yieldStrength": "Streckgrenze",
-        "designFactor": "Auslegungsfaktor auf Zug",
-        "snubLimit": "Schubgrenze des Injektors",
-        "results": "Ergebnisse",
-        "injectorPush": "Injektorschub in dieser Tiefe",
-        "tensionLimit": "Zuggrenze an der Oberfläche",
-        "buckleOnset": "Helikale Knickung beginnt bei",
-        "buckledLength": "Geknickte Länge in dieser Tiefe",
-        "ctwiTitle": "Gewichtsanzeige über der Tiefe",
-        "forceTitle": "Axialkraft entlang des Strangs",
-        "rih": "RIH",
-        "pooh": "POOH",
-        "limit": "Lock-up-Grenze",
-        "critical": "Kritische Knickkraft",
-        "notesTitle": "Methode und Annahmen",
-        "disclaimer": "Planungshilfe, kein Ersatz für die Verfahren des Betreibers oder einen Feldsimulator. Prüfen Sie das Ergebnis vor dem Einsatz anhand Ihrer eigenen Daten.",
-        "notes": [
-          "Soft-String-Modell (CTES-Coiled-Tubing-Handbuch, Kapitel 6 und 7): keine Biegemomente, konstanter Reibungskoeffizient.",
-          "Die BHA gilt als ein starrer Körper; kein Drehmoment, hydraulischer Widerstand oder Ermüdung.",
-          "Die Knickschwelle ist die reibungsfreie und damit konservativ.",
-          "Die Überzuggrenze ist eine einfache Zuggrenze des oberen Abschnitts, nicht die von-Mises-Prüfung mit Druck."
-        ]
-      }
-    },
-    "courses": {
-      "meta": {
-        "title": "Kurse — Coiled-Tubing-Schulung",
-        "description": "Praxisnahe Coiled-Tubing-Schulung, von den Grundlagen im Feld bis zur Einsatzplanung, mit Berechnungen Schritt für Schritt und Material zum Behalten. In Vorbereitung."
-      },
-      "hero": {
-        "badge": "Kurse",
-        "title": "Coiled-Tubing-Kurse",
-        "description": "Praxisnahe Schulung zu Coiled Tubing, von den Grundlagen im Feld bis zur Einsatzplanung. Die Kurse sind in Vorbereitung und dienen nur der Information."
-      },
-      "status": "In Vorbereitung",
-      "audience": {
-        "heading": "Für wen",
-        "items": [
-          {
-            "icon": "hard-hat",
-            "title": "Mannschaften und Techniker im Feld",
-            "text": "Was die Ausrüstung ist, wofür jeder Schritt eines Einsatzes dient und warum er in dieser Reihenfolge erfolgt."
-          },
-          {
-            "icon": "graduation-cap",
-            "title": "Junge Ingenieure",
-            "text": "Die Berechnungen hinter einem Einsatz, Schritt für Schritt, mit durchgerechneten Beispielen zum Nachvollziehen."
-          },
-          {
-            "icon": "clipboard-check",
-            "title": "Ingenieure und Aufsichten",
-            "text": "Einen Einsatz planen und einen Plan an dem messen, was die Zahlen sagen."
-          }
-        ]
-      },
-      "modules": {
-        "heading": "Geplante Module",
-        "lead": "Zu jedem Modul mit einer Berechnung gehört das passende Werkzeug auf dieser Website, sodass Sie die Zahlen beim Lesen ausprobieren können.",
-        "tool": "Werkzeug öffnen",
-        "items": [
-          {
-            "icon": "layers",
-            "title": "Grundlagen des Coiled Tubing",
-            "text": "Strang, Haspel, Injektor und Oberflächenausrüstung und wofür jedes Teil da ist.",
-            "href": null
-          },
-          {
-            "icon": "activity",
-            "title": "Hydraulik und Druckverlust",
-            "text": "Reibungsdruck in geradem und aufgehaspeltem Rohr und wie das Fluidmodell das Ergebnis verändert.",
-            "href": "/tools/ct-pressure-loss"
-          },
-          {
-            "icon": "shield-check",
-            "title": "Rohrgrenzen",
-            "text": "Berst-, Kollaps- und Zuggrenzen und die von-Mises-Prüfung gegen die Streckgrenze.",
-            "href": "/tools/ct-strength-limits"
-          },
-          {
-            "icon": "wind",
-            "title": "Stickstoffeinsätze",
-            "text": "Stickstoffmengen und Verdrängung und wie sich das Gas mit Druck und Temperatur verhält.",
-            "href": "/tools/nitrogen-displacement"
-          },
-          {
-            "icon": "shield-alert",
-            "title": "Bohrlochkontrolle",
-            "text": "Töten einer Bohrung durch Bullheading oder Zirkulation und das Kill-Sheet einer Bohrung im Bohrbetrieb.",
-            "href": "/tools/well-kill"
-          },
-          {
-            "icon": "wrench",
-            "title": "Bohrlochgarnitur",
-            "text": "Auswahl und Anordnung der Werkzeuge am Strangende und das Zeichnen der BHA.",
-            "href": "/tools/ct-simulator"
-          }
-        ]
-      },
-      "how": {
-        "heading": "So wird es ablaufen",
-        "points": [
-          "Im eigenen Tempo, mit Material zum Behalten.",
-          "Berechnungen Schritt für Schritt, mit durchgerechneten Beispielen.",
-          "In einfacher Sprache, mit sichtbaren Zahlen."
-        ],
-        "note": "Termine, Formate und Preise stehen noch nicht fest."
-      },
-      "cta": {
-        "heading": "Sagen Sie mir, was Sie brauchen",
-        "lead": "Nennen Sie das Modul oder die Mannschaft, für die die Schulung gedacht ist, und ich melde mich mit dem, was geplant ist.",
-        "primary": "Kontakt aufnehmen",
-        "secondary": "Werkzeuge öffnen"
+        "successTitle": "Danke, Ihre Nachricht ist angekommen!",
+        "successText": "Ich lese sie und melde mich innerhalb eines Werktags mit konkreten nächsten Schritten. Schauen Sie in Ihr Postfach.",
+        "error": "Da ist etwas schiefgelaufen. Bitte versuchen Sie es noch einmal oder schreiben Sie mir direkt."
       }
     },
     "web": {
       "glance": {"label": "Auf einen Blick", "items": [{"label": "Technik", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Preis", "value": "Ein Festpreis, vor Arbeitsbeginn vereinbart"}, {"label": "Eigentum", "value": "Code, Domain und Hosting auf Ihren Namen"}, {"label": "Antwort", "value": "Innerhalb eines Werktags"}]},
-      "closing": "Eine Website im Sinn? Eine kurze Nachricht genügt.",
+      "closing": "Sie haben eine Website im Kopf? Ein paar Sätze genügen.",
       "meta": {
-        "title": "Webentwicklung",
-        "description": "Schnelle individuelle Astro-Websites und Websysteme für Ingenieur- und technische B2B-Unternehmen, von einem Ingenieur. Design, Entwicklung, Optimierung und Tracking."
+        "title": "Websites für Dienstleister",
+        "description": "Schnelle Websites und Landingpages nach Maß für Dienstleister, mit SEO und Tracking jeder Anfrage. Festpreis, alles auf Ihren Namen."
       },
       "hero": {
-        "badge": "Webentwicklung",
-        "titleLead": "Websites und Websysteme",
-        "titleHighlight": "für technische Unternehmen",
-        "description": "Design, Entwicklung und Optimierung von einem Ingenieur, der die Branche kennt. Ein Festpreis, und alles auf Ihren Namen.",
+        "badge": "Websites",
+        "titleLead": "Websites, über die",
+        "titleHighlight": "Kunden anrufen",
+        "description": "Design, Umsetzung und SEO für Betriebe, bei denen jeder Auftrag mit einem Anruf oder einer Anfrage beginnt. Festpreis, und alles gehört Ihnen.",
         "primaryCta": "Kontakt aufnehmen",
         "secondaryCta": "Alle Leistungen"
       },
       "services": {
         "badge": "Was ich mache",
-        "heading": "Gestalten, bauen, optimieren",
-        "lead": "Jedes Projekt bekommt alle drei Leistungen.",
+        "heading": "Design, Umsetzung und SEO in einem Paket",
+        "lead": "Jede Website bekommt alle drei.",
         "cards": [
           {
             "icon": "layout",
-            "title": "Webdesign",
-            "description": "Oberflächen, die selbsterklärend wirken. Layouts, die auf Ihre Inhalte, Ihre Marke und das Leseverhalten am Bildschirm zugeschnitten sind."
+            "title": "Design",
+            "description": "Ein klares Design nach Maß für Ihren Betrieb, gemacht dafür, wie Menschen eine Website wirklich nutzen: schnell, am Handy, mit einem Ziel."
           },
           {
             "icon": "code",
-            "title": "Webentwicklung",
-            "description": "Websites, die bleiben. Astro, Tailwind und eine klare Architektur: schnell am ersten Tag, leicht zu pflegen am fünfhundertsten."
+            "title": "Umsetzung",
+            "description": "Astro, Tailwind und sauberer Code. Die Website ist ab dem ersten Tag schnell und bleibt jahrelang leicht zu pflegen."
           },
           {
             "icon": "trending-up",
-            "title": "Weboptimierung",
-            "description": "SEO, Core Web Vitals und Barrierefreiheit von Anfang an eingebaut, damit Ihre Website gut rankt, schnell lädt und für jeden Besucher funktioniert."
+            "title": "SEO",
+            "description": "Ladezeit, SEO und Barrierefreiheit sind von Anfang an Teil der Umsetzung, damit Google Sie gut einstuft und niemand warten muss."
           }
         ]
       }
     },
     "home": {
       "meta": {
-        "title": "Ingenieur & Digital Architect",
-        "description": "Fallstudien und Engineering-Werkzeuge sowie Cloud-basierte Software und Websites für technische Unternehmen — von einem anerkannten Ingenieur."
+        "title": "Mehr Anfragen aus dem Internet",
+        "description": "Google- und Meta-Anzeigen, lokales SEO, KI-Suche und eine schnelle Website für Dienstleister. Jeder Anruf wird gemessen. Der erste Check ist kostenlos."
       },
       "hero": {
-        "badge": "Websites und Software",
-        "titleLine1": "Stojan\u00a0Petkovic",
-        "titleLine2": "Ingenieur\u00a0&",
-        "titleLine3": "Digital\u00a0Architect",
-        "description": "Fallstudien und Engineering-Werkzeuge für Ingenieure. Für technische Unternehmen baue ich Cloud-basierte Software und Websites.",
-        "descriptionMobile": "Fallstudien und Engineering-Werkzeuge für Ingenieure sowie Cloud-basierte Software und Websites.",
-        "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Titel von der Bayerischen Ingenieurekammer-Bau genehmigt (2026)", "docTitle": "Bescheid der Bayerischen Ingenieurekammer-Bau", "docAlt": "Scan des Bescheids über die Genehmigung der Berufsbezeichnung Ingenieur, persönliche Angaben geschwärzt", "docDescription": "Die Bayerische Ingenieurekammer-Bau hat mein Studium im Fach Bergbau an der Universität Belgrad geprüft und als gleichwertig mit den deutschen Anforderungen an Ingenieure anerkannt (Art. 3 BayIngG). Auf dieser Grundlage hat sie mir genehmigt, die geschützte Berufsbezeichnung Ingenieur allein oder in einer Wortverbindung zu führen. Der Bescheid ist vom 19. August 2026. Er bestätigt die Berufsbezeichnung; er ist keine Zulassung für eine reglementierte Tätigkeit."}, {"icon": "shield-check", "tag": "RS", "title": "Fachprüfung bestanden (2019)", "text": "Gewinnung mineralischer Rohstoffe, Serbien", "docTitle": "Bescheinigung über die bestandene Fachprüfung", "docAlt": "Scan der Bescheinigung über die in Serbien bestandene Fachprüfung und ihrer beglaubigten deutschen Übersetzung, persönliche Angaben geschwärzt", "docDescription": "2019 habe ich die Fachprüfung für die Ausübung fachlicher Tätigkeiten bei der Förderung mineralischer Rohstoffe bestanden. Sie wurde nach dem serbischen Gesetz über Bergbau und geologische Untersuchungen abgelegt und vom Provinzsekretariat für Energetik, Bauwesen und Verkehr der Vojvodina bescheinigt (Bescheinigung vom 25. September 2019). Die Seiten nach dem Original sind die beglaubigte deutsche Übersetzung einer vereidigten Gerichtsdolmetscherin (6. März 2026) mit der notariellen Beglaubigung der Kopie (10. März 2026)."}],
-        "credentialsDialog": {"close": "Schließen", "note": "Persönliche Angaben wurden geschwärzt.", "hint": "Dokument ansehen", "zoom": "Seite antippen zum Vergrößern oder Verkleinern."},
-        "qualifications": {"label": "Qualifikationen & Schulungen", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Dipl.-Ing. Bergbau", "text": "Universität Belgrad · flüssige und gasförmige mineralische Rohstoffe"}, {"icon": "shield-check", "year": "2020", "title": "EU-Maschinenrichtlinie", "text": "Schulung Maschinensicherheit · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Technologiemanagement (STM)", "text": "System of Technology Management, Unternehmensprogramm"}, {"icon": "users", "year": "2018", "title": "Führungsakademie", "text": "Personalführung, unteres Management · Mokra Gora School of Management"}]},
-        "primaryCta": "Kontakt aufnehmen",
-        "secondaryCta": "Sehen, woran ich arbeite",
-        "videoPlay": "Mit Ton abspielen",
-        "videoLabel": "Vorstellungsvideo"
+        "badge": "Freie Kapazitäten",
+        "titleLead": "Mehr Anrufe und Anfragen",
+        "titleHighlight": "aus dem Internet für Ihren Betrieb",
+        "description": "Ich schalte Ihre Anzeigen bei Google und auf Social Media, sorge dafür, dass Sie bei Google Maps und in ChatGPT auftauchen, und baue eine Website, über die Kunden wirklich anrufen. Jeder Anruf wird gezählt, damit Sie schwarz auf weiß sehen, was Aufträge bringt.",
+        "primary": "Kostenloser Website-Check",
+        "secondary": "Ergebnisse ansehen",
+        "imageAlt": "Stojan Petković im dunkelblauen Anzug in einem hellen Büro, hinter ihm Bildschirme mit Code"
       },
-      "services": {
-        "badge": "Schwerpunkt",
-        "heading": "Industrieprojekte, Kurse und Software",
-        "lead": "Drei Bereiche, ein Ingenieur. Die Inhalte werden vorbereitet und hier veröffentlicht.",
-        "learnMore": "Sagen Sie mir, was Sie brauchen",
-        "status": "In Vorbereitung",
-        "cards": [
-          {
-            "icon": "layers",
-            "title": "Industrieprojekte",
-            "description": "Fallstudien aus Coiled-Tubing- und Stickstoffeinsätzen, für Ingenieure geschrieben.",
-            "points": [
-              "Einsatzplanung und die Überlegungen dahinter",
-              "Was geplant war, was passiert ist, was sich geändert hat",
-              "Klare Sprache, mit sichtbaren Zahlen"
-            ],
-            "href": "/projects"
-          },
-          {
-            "icon": "book-open",
-            "title": "Kurse",
-            "description": "Praxisnahe Schulungen zu Coiled Tubing, von den Grundlagen im Feld bis zur Einsatzplanung.",
-            "points": [
-              "Grundlagen für Crews und junge Ingenieure",
-              "Berechnungen Schritt für Schritt, mit durchgerechneten Beispielen",
-              "Im eigenen Tempo, mit Material zum Behalten"
-            ],
-            "href": "/courses"
-          },
-          {
-            "icon": "code",
-            "title": "Engineering-Software",
-            "description": "Cloud-basierte Werkzeuge und individuelle Software für technische Teams. Alles läuft auf einem Server und öffnet im Browser, ohne Installation.",
-            "points": [
-              "Rechner und Werkzeuge für den Alltag im Feld und im Büro",
-              "Interne Dashboards und Datenverarbeitung",
-              "Individuelle Industriesoftware, nach Maß gebaut"
-            ],
-            "href": "/tools"
-          }
-        ],
-        "openLabel": "Öffnen"
-      },
-      "workWithMe": {
-        "badge": "Hintergrund",
-        "heading": "Woher der Inhalt kommt",
-        "lead": "Die Erfahrung und die Gewohnheiten hinter Fallstudien, Werkzeugen und Websites.",
-        "cards": [
-          { "icon": "award", "title": "Felderfahrung", "description": "Über 13 Jahre in Coiled-Tubing- und Stickstoffoperationen." },
-          { "icon": "shield-check", "title": "Geprüfte Zahlen", "description": "Berechnungen werden geprüft, Annahmen festgehalten." },
-          { "icon": "book-open", "title": "Dokumentierte Logik", "description": "Formeln und Entscheidungen erklärt, damit Ergebnisse nachvollziehbar sind." },
-          { "icon": "globe", "title": "Titel Ingenieur", "description": "Von der Bayerischen Ingenieurekammer-Bau genehmigt, 2026." }
-        ],
-        "cta": "Alle Leistungen ansehen"
-      },
-      "webGateway": {
-        "badge": "Webentwicklung",
-        "heading": "Websites für technische Unternehmen",
-        "lead": "Ein eigener Bereich neben der Ingenieurarbeit: schnelle Astro-Websites und Websysteme für Ingenieur- und technische B2B-Unternehmen.",
+      "pillars": {
+        "badge": "So kommen die Anfragen",
+        "heading": "In vier Schritten von der Suche zum Anruf",
+        "lead": "Ich verkaufe keine einzelnen Kanäle, sondern ein System, das Ihr Telefon klingeln lässt.",
         "items": [
-          "Webdesign",
-          "Webentwicklung",
-          "Optimierung und Tracking"
-        ],
-        "cta": "Zur Webentwicklung"
+          {
+            "icon": "search",
+            "title": "Gefunden werden",
+            "text": "Google Maps und Ihr Unternehmensprofil, eine eigene Seite für jede Leistung und jeden Ort, und Empfehlungen, wenn jemand ChatGPT fragt."
+          },
+          {
+            "icon": "target",
+            "title": "Sofort Anfragen über Anzeigen",
+            "text": "Google Ads sowie Anzeigen auf Facebook und Instagram für Menschen, die genau jetzt Ihre Leistung suchen. Ab dem ersten Tag sehen Sie, wie viele Anrufe die Anzeigen bringen."
+          },
+          {
+            "icon": "phone-call",
+            "title": "Aus Besuchern werden Anrufe",
+            "text": "Eine Website, die sofort lädt, Anruf und WhatsApp mit einem Fingertipp und ein KI-Chat, der auch antwortet, wenn Sie gerade auf der Baustelle sind."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Wissen, was sich rechnet",
+            "text": "Einmal im Monat ein Bericht: woher die Anrufe kamen, was jeder gekostet hat und wo sich der nächste Euro lohnt."
+          }
+        ]
       },
-      "portfolio": {
-        "badge": "Portfolio",
-        "heading": "Meine Projekte",
-        "lead": "Ausgewählte Arbeiten für Kunden in Europa und den USA.",
-        "viewAll": "Alle Projekte ansehen"
+      "industries": {
+        "badge": "Für wen ich arbeite",
+        "heading": "Für Betriebe, bei denen jeder Auftrag mit einem Anruf beginnt",
+        "lead": "Wenn Ihre Kunden bei Google suchen oder ChatGPT fragen, kann ich helfen.",
+        "items": [
+          {
+            "icon": "wrench",
+            "title": "Handwerk und Hausservice",
+            "text": "Sanitär, Elektro, Heizung und Klima, Reinigung, Umzüge, Garten- und Baumpflege."
+          },
+          {
+            "icon": "bed-double",
+            "title": "Ferienwohnungen und Unterkünfte",
+            "text": "Ferienwohnungen, Zimmer und Häuser, die mehr Direktbuchungen und weniger Provision an Portale wollen."
+          },
+          {
+            "icon": "stethoscope",
+            "title": "Praxen und Studios",
+            "text": "Zahnarztpraxen, Privatkliniken, Kosmetikstudios und Friseursalons."
+          },
+          {
+            "icon": "briefcase",
+            "title": "Lokale und B2B-Unternehmen",
+            "text": "Transport, Produktion, Steuerbüros und andere Firmen, die laufend neue Anfragen brauchen."
+          }
+        ]
+      },
+      "final": {
+        "heading": "Wer zuerst gefunden wird, bekommt den Auftrag.",
+        "text": "Sorgen wir dafür, dass Sie das sind. Ich sehe mir Ihre Website und Ihre Mitbewerber an und sage Ihnen, was ich zuerst ändern würde. Kostenlos und unverbindlich.",
+        "cta": "Kostenlosen Check anfordern"
       },
       "testimonials": {
         "badge": "Kundenstimmen",
-        "heading": "Was Kunden sagen",
-        "lead": "Echte Worte nach abgeschlossenen Projekten.",
+        "heading": "Das sagen meine Kunden",
+        "lead": "Zwei Inhaber, in ihren eigenen Worten.",
         "items": [
-          { "quote": "Stojan hat meine beiden Websites von WordPress auf Astro umgestellt, und der Geschwindigkeitsunterschied war sofort spürbar. Jede Anfrage landet jetzt in der Sekunde in meinem Postfach, in der jemand das Formular absendet — kein Dashboard mehr, das ich prüfen muss, keine verpassten Anrufe.", "name": "Mirko Calić", "role": "Inhaber, Tree Jaws & Mahalo Tree Service" },
-          { "quote": "Stojan hat unsere Buchungswebsite von Grund auf gebaut und die Instagram- und Facebook-Anzeigen dazu eingerichtet. Gäste kommen direkt von der Anzeige zur fertigen Reservierung — genau das, was eine Unterkunft unserer Größe gebraucht hat.", "name": "Valentina Jovanović", "role": "Inhaberin, Valena Apartmani" }
+          {
+            "quote": "Stojan hat meine beiden Websites von WordPress auf Astro umgestellt, und der Geschwindigkeitsunterschied war sofort spürbar. Jede Anfrage landet jetzt in der Sekunde in meinem Postfach, in der jemand das Formular absendet — kein Dashboard mehr, das ich prüfen muss, keine verpassten Anrufe.",
+            "name": "Mirko Calić",
+            "role": "Inhaber, Tree Jaws & Mahalo Tree Service"
+          },
+          {
+            "quote": "Stojan hat unsere Buchungswebsite von Grund auf gebaut und die Instagram- und Facebook-Anzeigen dazu eingerichtet. Gäste kommen direkt von der Anzeige zur fertigen Reservierung — genau das, was eine Unterkunft unserer Größe gebraucht hat.",
+            "name": "Valentina Jovanović",
+            "role": "Inhaberin, Valena Apartmani"
+          }
         ]
       },
-      "aboutTeaser": {
-        "badge": "Über mich",
-        "headingLine1": "Erst Ingenieur,",
-        "headingLine2": "dann Entwickler.",
-        "para1WithLocation": "Bergbauingenieur mit über 13 Jahren Erfahrung in Öl- und Gasoperationen und dem von der Bayerischen Ingenieurekammer-Bau genehmigten Titel Ingenieur. Mit Sitz in {location} und für Kunden weltweit verfügbar. Ich baue Software und Websysteme so, wie ich einen Einsatz fahre: erst die Anforderungen, Zahlen geprüft, nichts undokumentiert.",
-        "para1NoLocation": "Bergbauingenieur mit über 13 Jahren Erfahrung in Öl- und Gasoperationen und dem von der Bayerischen Ingenieurekammer-Bau genehmigten Titel Ingenieur. Für Kunden weltweit verfügbar. Ich baue Software und Websysteme so, wie ich einen Einsatz fahre: erst die Anforderungen, Zahlen geprüft, nichts undokumentiert.",
-        "para2": "Im Blog teile ich die Ideen und Entscheidungen hinter meiner Ingenieur- und Softwarearbeit.",
-        "moreAboutMe": "Mehr über mich",
-        "statsIntro": "Ein paar Dinge über mich.",
-        "stat1": "13+ Jahre Ingenieurpraxis",
-        "stat2": "1.000+ Einsätze im Feld",
-        "stat3": "Weltweit tätig",
-        "stat4": "2 Länder mit Qualifikation",
-        "facts": [{"icon": "wrench", "label": "Spezialisierung", "value": "Coiled-Tubing- und Stickstoffeinsätze"}, {"icon": "graduation-cap", "label": "Ausbildung", "value": "Dipl.-Ing. Bergbau, Universität Belgrad (2010)"}, {"icon": "globe", "label": "Verfügbarkeit", "value": "Weltweit, Zeitzone MEZ"}, {"icon": "clock", "label": "Antwort", "value": "Innerhalb eines Werktags"}],
-        "basedIn": "Standort:"
+      "portfolio": {
+        "badge": "Referenzen",
+        "heading": "Ausgewählte Projekte",
+        "lead": "Websites für Betriebe in Europa und den USA.",
+        "viewAll": "Alle Projekte ansehen"
       },
-      "blog": {
-        "badge": "Blog",
-        "heading": "Empfohlene Beiträge",
-        "viewAll": "Alle Beiträge ansehen"
-      },
-      "cta": {
-        "badge": "Kontakt",
-        "heading": "Sprechen wir über Ihr Projekt",
-        "description": "Das erste Gespräch ist kostenlos und unverbindlich. Vom ersten Gespräch bis zur fertigen Website arbeiten Sie direkt mit mir.",
-        "primary": "Nachricht senden",
-        "secondary": "Mehr über mich"
+      "clients": {
+        "badge": "Kunden",
+        "heading": "Betriebe, die mir ihre Website anvertrauen",
+        "lead": "Von Baumpflege-Firmen in Florida bis zur Zahnarztpraxis in Serbien. Klicken Sie auf eine Karte und sehen Sie die Website live.",
+        "brands": "Marken",
+        "countries": "Märkte: Europa und die USA",
+        "visit": "Website ansehen",
+        "sectors": {
+          "tree": "Baumfällung und Baumpflege",
+          "rental": "Ferienwohnungen",
+          "dental": "Zahnarztpraxis",
+          "transport": "Krankentransport",
+          "recipes": "Rezeptportal",
+          "footwear": "Blog über Schuhe"
+        },
+        "country": {
+          "us": "USA",
+          "rs": "Serbien"
+        },
+        "highlights": {
+          "treejaws": "1.010 Anfragen · 4,9★",
+          "mahalo": "Google-Bewertung 5,0"
+        },
+        "next": {
+          "title": "Ihr Betrieb?",
+          "text": "Dieser Platz ist für den nächsten Kunden reserviert. Ich prüfe Ihre Website kostenlos und sage Ihnen, was ich zuerst ändern würde.",
+          "cta": "Kostenlose Prüfung"
+        }
       }
+    },
+    "privacy": {
+      "meta": {
+        "title": "Datenschutzerklärung",
+        "description": "Welche Daten stojanpetkovic.com erhebt, warum, wie lange sie gespeichert werden, wer sie erhält und wie Sie Ihre Rechte ausüben."
+      },
+      "hero": {
+        "badge": "Datenschutz",
+        "title": "Datenschutzerklärung",
+        "description": "Welche Daten ich erhebe, warum, wie lange und welche Rechte Sie haben."
+      },
+      "updated": "Zuletzt geändert: 15. November 2026.",
+      "intro": "Diese Erklärung beschreibt, wie stojanpetkovic.com personenbezogene Daten verarbeitet, nach dem serbischen Datenschutzgesetz und, soweit anwendbar, der EU-Datenschutz-Grundverordnung (DSGVO).",
+      "contactLink": "Kontaktseite",
+      "sections": [
+        {
+          "title": "1. Verantwortlicher",
+          "paragraphs": [
+            "Verantwortlich ist Stojan Petkovic, Zrenjanin, Serbien. Kontakt für alle Fragen zu Ihren Daten: {email}."
+          ]
+        },
+        {
+          "title": "2. Welche Daten ich erhebe",
+          "paragraphs": [],
+          "items": [
+            "Formulardaten (Kontakt und kostenloser Check): Name, E-Mail, Telefon, Website-Adresse, Branche und Ort, Ihre Antworten und Ihre Nachricht.",
+            "Besuchsdaten ohne Cookies: welche Seiten geöffnet wurden, woher der Besuch kam (Suche, Anzeige oder Link) und ob Telefon, WhatsApp oder ein Formular genutzt wurde. Diese Daten werden nur mit Ihrem Namen verknüpft, wenn Sie ein Formular senden.",
+            "Technische Daten im Serverprotokoll: IP-Adresse, Browsertyp und Zugriffszeit, für Sicherheit und Betrieb.",
+            "Analyse- und Werbe-Cookies (Google, Meta), nur wenn Sie sie im Cookie-Banner erlauben."
+          ]
+        },
+        {
+          "title": "3. Zweck und Rechtsgrundlage",
+          "paragraphs": [],
+          "items": [
+            "Beantwortung Ihrer Anfrage und Erstellung eines Angebots: vorvertragliche Maßnahmen auf Ihre Anfrage.",
+            "Erbringung vereinbarter Leistungen und gesetzliche Aufbewahrung: Vertrag und rechtliche Pflicht.",
+            "Messung, welche Seiten und Quellen Anfragen bringen, und Sicherheit der Website: berechtigtes Interesse.",
+            "Analyse und Anzeigenmessung per Cookies: Ihre Einwilligung, jederzeit widerrufbar.",
+            "Ich verkaufe keine Daten, versende keine Newsletter und nutze keine automatisierte Entscheidungsfindung."
+          ]
+        },
+        {
+          "title": "4. Empfänger",
+          "paragraphs": [
+            "Daten werden von Diensten verarbeitet, die für mich als Auftragsverarbeiter tätig sind, nur zu den hier genannten Zwecken:"
+          ],
+          "items": [
+            "Vercel: Hosting der Website.",
+            "webtano.com: das System, in dem Formularanfragen eingehen und gespeichert werden.",
+            "Resend: E-Mail-Benachrichtigungen über Anfragen.",
+            "Google (Analytics, Ads) und Meta (Facebook, Instagram): nur wenn Sie diese Cookies erlauben.",
+            "Behörden, nur soweit gesetzlich vorgeschrieben."
+          ]
+        },
+        {
+          "title": "5. Übermittlung außerhalb Serbiens",
+          "paragraphs": [
+            "Einige dieser Dienste speichern Daten in der Europäischen Union oder in den USA. Die Übermittlung stützt sich auf gesetzlich vorgesehene Garantien wie Standardvertragsklauseln oder Angemessenheitsbeschlüsse."
+          ]
+        },
+        {
+          "title": "6. Speicherdauer",
+          "paragraphs": [],
+          "items": [
+            "Anfragen: solange für Antwort und Angebot nötig, höchstens zwei Jahre nach dem letzten Kontakt.",
+            "Kundendaten und Rechnungen: solange gesetzlich vorgeschrieben.",
+            "Besuchsdaten ohne Cookies: zusammengefasst und ohne Frist, da sie keine identifizierbare Person betreffen.",
+            "Cookies: für die in den Cookie-Einstellungen genannte Dauer."
+          ]
+        },
+        {
+          "title": "7. Cookies",
+          "paragraphs": [
+            "Notwendige Cookies halten die Website funktionsfähig und speichern Ihre Auswahl im Banner. Analyse- und Werbe-Cookies werden nur mit Ihrer Einwilligung gesetzt. Ihre Auswahl können Sie jederzeit in den Cookie-Einstellungen am Seitenende ändern."
+          ]
+        },
+        {
+          "title": "8. Ihre Rechte",
+          "paragraphs": [
+            "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit, auf Widerspruch gegen Verarbeitung aufgrund berechtigten Interesses und auf Widerruf einer Einwilligung, ohne dass frühere Verarbeitung unrechtmäßig wird. Anfragen an {email}; ich antworte innerhalb von 30 Tagen.",
+            "Sie können sich beim serbischen Beauftragten für Informationen von öffentlicher Bedeutung und Datenschutz (www.poverenik.rs) oder bei der Aufsichtsbehörde Ihres EU-Landes beschweren."
+          ]
+        },
+        {
+          "title": "9. Sicherheit",
+          "paragraphs": [
+            "Die Website läuft über HTTPS, der Zugang zu Anfragen ist passwortgeschützt und auf mich beschränkt, und die genutzten Dienste wenden technische und organisatorische Schutzmaßnahmen an."
+          ]
+        },
+        {
+          "title": "10. Änderungen",
+          "paragraphs": [
+            "Ich kann diese Erklärung ändern, wenn sich die Verarbeitung ändert. Das Datum der letzten Änderung steht oben."
+          ]
+        }
+      ]
     }
+  },
+  "contactBar": {
+    "reply": "Antwort innerhalb eines Werktags",
+    "whatsapp": "Schreib mir auf WhatsApp"
   }
 }

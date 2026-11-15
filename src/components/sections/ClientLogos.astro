@@ -1,0 +1,275 @@
+---
+/**
+ * The client wall, right under the hero: the home page's section head
+ * (numbered eyebrow, heading, lead and two figures), then one card per client
+ * in the site's focus-card style (brand rule on top, lift on hover), four
+ * across on desktop. Each card links to the client's live site; its logo is
+ * greyscale until hovered. A plain row under the grid invites the next client
+ * to the contact page.
+ */
+import { Image } from 'astro:assets';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+import { clients } from '@/config/clients';
+import { t, localizedPath } from '@/i18n';
+
+interface Props {
+  locale: string;
+  /** Section number shown in the eyebrow, e.g. "01". */
+  num: string;
+}
+
+const { locale, num } = Astro.props;
+const C = (key: string) => t(`pages.home.clients.${key}`, locale);
+const countries = new Set(clients.map((c) => c.country)).size;
+---
+
+<section class="client-wall relative z-10 overflow-hidden border-y border-border pb-[var(--space-section-lg)] pt-14 md:pt-20" aria-labelledby="client-wall-heading">
+  <div class="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 sm:px-6">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="section-eyebrow"><span class="section-eyebrow-num">{num}</span><span>{C('badge')}</span></p>
+        <h2 id="client-wall-heading" class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground text-balance">{C('heading')}</h2>
+      </div>
+      <div>
+        <p class="section-lead">{C('lead')}</p>
+        <dl class="mt-5 flex gap-8">
+          <div>
+            <dt class="sr-only">{C('brands')}</dt>
+            <dd class="font-display text-3xl font-bold text-brand-600 dark:text-brand-400">{clients.length}+</dd>
+            <dd class="text-sm text-foreground-muted">{C('brands')}</dd>
+          </div>
+          <div class="border-l border-border pl-8">
+            <dt class="sr-only">{C('countries')}</dt>
+            <dd class="font-display text-3xl font-bold text-brand-600 dark:text-brand-400">{countries}</dd>
+            <dd class="text-sm text-foreground-muted">{C('countries')}</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-8">
+      <ul class="cw-grid" role="list">
+        {clients.map((c, i) => (
+          <li data-reveal data-reveal-delay={(i % 4) || undefined}>
+            <a href={c.url} target="_blank" rel="noopener" class="cw-cell group" aria-label={`${c.name}, ${C(`sectors.${c.sector}`)}: ${C('visit')}`}>
+              <span class="cw-top">
+                {c.highlight ? <span class="cw-chip cw-chip-brand">{C(`highlights.${c.highlight}`)}</span> : <span></span>}
+                <span class="cw-chip">{C(`country.${c.country}`)}</span>
+              </span>
+
+              <span class="cw-logo-wrap">
+                {c.logo ? (
+                  <Image src={c.logo} alt="" height={160} class="cw-logo" loading="lazy" />
+                ) : (
+                  <span class="cw-mark">
+                    <Icon name={c.icon} size="lg" class="text-brand-600" />
+                    <span class="flex flex-col items-start leading-none">
+                      <span class="cw-name">{c.name}</span>
+                      {c.tagline && <span class="cw-tag">{c.tagline}</span>}
+                    </span>
+                  </span>
+                )}
+              </span>
+
+              <span class="cw-meta">
+                <span class="min-w-0">
+                  <span class="block truncate font-display text-sm font-bold text-foreground">{c.name}</span>
+                  <span class="block truncate text-xs text-foreground-muted">{C(`sectors.${c.sector}`)}</span>
+                </span>
+                <span class="cw-arrow" aria-hidden="true"><Icon name="arrow-up-right" size="sm" /></span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <div class="flex flex-col items-start justify-between gap-5 border-t border-border pt-8 md:flex-row md:items-center" data-reveal>
+        <div class="flex items-center gap-4">
+          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-700 text-white shadow-sm">
+            <Icon name="plus" size="md" />
+          </span>
+          <div>
+            <p class="font-display text-lg font-bold text-foreground">{C('next.title')}</p>
+            <p class="mt-0.5 max-w-xl text-sm leading-relaxed text-foreground-muted">{C('next.text')}</p>
+          </div>
+        </div>
+        <Button href={localizedPath('/contact', locale)} class="cta-btn-brand shrink-0 gap-2">
+          {C('next.cta')}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Soft band with a faint brand grid fading out from the top, so this section
+     reads apart from the white hero foot above and the white section below. */
+  .client-wall { background-color: var(--color-background-secondary); }
+  .client-wall::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--color-brand-600) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--color-brand-600) 8%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 85% 75% at 50% 0%, #000 25%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 0%, #000 25%, transparent 80%);
+    pointer-events: none;
+  }
+  .cw-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  @media (min-width: 1024px) {
+    .cw-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  .cw-cell {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 13.5rem;
+    overflow: hidden;
+    padding: 1.1rem 1.1rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-card);
+    box-shadow: var(--theme-shadow-sm);
+    transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+  }
+  /* The brand rule the other cards on the page carry along their top edge. */
+  .cw-cell::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-brand-700), var(--color-brand-400));
+  }
+  .cw-cell:hover,
+  .cw-cell:focus-visible {
+    transform: translateY(-4px);
+    border-color: var(--color-brand-300);
+    box-shadow: var(--theme-shadow-lg);
+  }
+  .cw-cell::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(120% 80% at 50% 0%, color-mix(in srgb, var(--color-brand-600) 10%, transparent), transparent 70%);
+    opacity: 0;
+    transition: opacity 250ms;
+    pointer-events: none;
+  }
+  .cw-cell:hover::before,
+  .cw-cell:focus-visible::before { opacity: 1; }
+  .cw-top {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.4rem;
+    min-height: 1.5rem;
+  }
+  .cw-logo-wrap {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 0;
+  }
+  .cw-logo,
+  .cw-mark {
+    filter: grayscale(1);
+    opacity: 0.7;
+    transition: filter 250ms, opacity 250ms, transform 250ms;
+  }
+  .cw-logo { max-height: 4.25rem; width: auto; max-width: 78%; object-fit: contain; }
+  .cw-cell:hover .cw-logo,
+  .cw-cell:hover .cw-mark,
+  .cw-cell:focus-visible .cw-logo,
+  .cw-cell:focus-visible .cw-mark { filter: none; opacity: 1; transform: translateY(-4px); }
+  .cw-mark { display: inline-flex; align-items: center; gap: 0.55rem; color: var(--color-foreground); }
+  .cw-name {
+    font-family: var(--font-display, inherit);
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+  .cw-tag {
+    margin-top: 0.3rem;
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-foreground-muted);
+    white-space: nowrap;
+  }
+  .cw-meta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .cw-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.15rem 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-foreground-subtle);
+    white-space: nowrap;
+  }
+  .cw-chip-brand {
+    border-color: color-mix(in srgb, var(--color-brand-600) 30%, transparent);
+    background: color-mix(in srgb, var(--color-brand-600) 8%, transparent);
+    color: var(--color-brand-700);
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
+  :global(.dark) .cw-chip-brand { color: var(--color-brand-300); }
+  .cw-arrow {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    color: var(--color-foreground-subtle);
+    transition: background 250ms, color 250ms, transform 250ms;
+  }
+  .cw-cell:hover .cw-arrow,
+  .cw-cell:focus-visible .cw-arrow {
+    background: var(--color-brand-600);
+    color: #fff;
+    transform: rotate(45deg);
+  }
+  @media (max-width: 639px) {
+    .cw-grid { gap: 0.75rem; }
+    .cw-cell { min-height: 11.5rem; padding: 0.9rem 0.8rem 0.8rem; }
+    .cw-logo { max-height: 3.25rem; }
+    .cw-name { font-size: 0.95rem; }
+    .cw-tag { display: none; }
+    .cw-top .cw-chip-brand { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cw-cell, .cw-cell::before, .cw-logo, .cw-mark, .cw-arrow { transition: none; }
+    .cw-cell:hover, .cw-cell:focus-visible, .cw-cell:hover .cw-logo, .cw-cell:hover .cw-mark { transform: none; }
+  }
+</style>

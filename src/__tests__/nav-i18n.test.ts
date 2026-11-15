@@ -21,16 +21,16 @@ import { getNavItems, getLogoHref, resolveNavItem, type NavItem } from '@/config
 describe('nav config — locale resolution (en default, de secondary)', () => {
   it('keeps default-locale hrefs at the site root', () => {
     const items = getNavItems('en');
-    expect(items.find((i) => i.label === 'Projects')?.href).toBe('/projects');
+    expect(items.find((i) => i.label === 'Blog')?.href).toBe('/blog');
     expect(items.find((i) => i.label === 'About')?.href).toBe('/about');
   });
 
   it('prefixes secondary-locale hrefs with the locale', () => {
     const items = getNavItems('de');
     expect(items.map((i) => i.href)).toEqual([
-      '/de',
       '/de/leistungen',
-      '/de/projekte',
+      '/de/web',
+      '/de/blog',
       '/de/ueber-mich',
       '/de/kontakt',
     ]);
@@ -86,33 +86,18 @@ describe('nav config — locale resolution (en default, de secondary)', () => {
   });
 });
 
-describe('Services mega menu', () => {
-  const services = (locale: 'en' | 'de') => getNavItems(locale).find((i) => i.mega)!;
-
-  it('groups the service pages under Services and keeps the top bar short', () => {
+describe('top bar', () => {
+  it('lists the client-facing pages only, with no engineering section', () => {
     const items = getNavItems('en');
-    expect(items.map((i) => i.label)).toEqual(['Home', 'Services', 'Projects', 'About', 'Contact']);
-    const hrefs = services('en').mega!.groups.flatMap((g) => g.links.map((l) => l.href));
-    expect(hrefs).toContain('/courses');
-    expect(hrefs).toContain('/tools');
-    expect(hrefs).toContain('/web');
-    expect(hrefs).toContain('/tools/well-kill');
+    expect(items.map((i) => i.label)).toEqual(['Services', 'Websites', 'Blog', 'About', 'Contact']);
+    expect(items.some((i) => i.mega)).toBe(false);
   });
 
-  it('prefixes every link and the covered sections with the locale', () => {
-    const mega = services('de').mega!;
-    for (const link of [...mega.groups.flatMap((g) => g.links), mega.overview]) {
-      expect(link.href.startsWith('/de/'), link.href).toBe(true);
-    }
-    expect(mega.activePrefixes).toContain('/de/kurse');
-  });
-
-  it('every link has a label and goes to a page that exists', () => {
+  it('every link goes to a page that exists', () => {
     const pages = resolve(__dirname, '../pages');
-    for (const link of services('en').mega!.groups.flatMap((g) => g.links)) {
-      expect(link.label, link.href).toBeTruthy();
-      const path = link.href.split('#')[0].replace(/^\//, '');
-      expect(existsSync(resolve(pages, `${path}.astro`)) || existsSync(resolve(pages, path, 'index.astro')), link.href).toBe(true);
+    for (const item of getNavItems('en')) {
+      const path = item.href.split('#')[0].replace(/^\//, '') || 'index';
+      expect(existsSync(resolve(pages, `${path}.astro`)) || existsSync(resolve(pages, path, 'index.astro')), item.href).toBe(true);
     }
   });
 });

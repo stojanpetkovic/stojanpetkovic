@@ -9,6 +9,7 @@
  * landing page's, pointed at its own `pages.contact.form` copy, and the
  * privacy notice is shared with the landing page.
  */
+import { createProfessionalServiceSchema } from '@/lib/schema';
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
@@ -36,6 +37,8 @@ const facts = tData<{ value: string; label: string }[]>('pages.contact.facts', l
 <PageLayout
   title={t('pages.contact.meta.title', locale)}
   description={t('pages.contact.meta.description', locale)}
+  pageType="ContactPage"
+  extraSchemas={[createProfessionalServiceSchema(locale)]}
   eagerReveal
 >
   <Hero layout="centered" size="sm" class="isolate" showHeroHalo>

@@ -1,5 +1,5 @@
 ---
-import HomeView from '@/components/pages/views/HomeView.astro';
+import LandingPageView from '@/components/pages/views/LandingPageView.astro';
 import { getSecondaryLocales } from '@/i18n';
 
 // Locale-prefixed landing page (`/<locale>`). One page per non-default locale;
@@ -12,4 +12,4 @@ export function getStaticPaths() {
 const { locale } = Astro.params;
 ---
 
-<HomeView locale={locale} />
+<LandingPageView locale={locale} variant="home" />

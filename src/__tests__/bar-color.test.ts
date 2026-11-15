@@ -27,7 +27,7 @@ import { join } from 'node:path';
 
 const read = (p: string) => readFileSync(join(process.cwd(), p), 'utf8');
 
-const HOME = 'src/components/pages/views/HomeView.astro';
+const HOME = 'src/components/pages/views/LandingPageView.astro';
 const LAYOUT = 'src/layouts/BaseLayout.astro';
 const GLOBAL_CSS = 'src/styles/global.css';
 

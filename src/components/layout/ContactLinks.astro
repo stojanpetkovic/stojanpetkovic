@@ -1,0 +1,114 @@
+---
+/**
+ * The ways to reach Stojan: phone, WhatsApp, email and the social profiles.
+ *
+ * Plain `tel:`, `wa.me` and `mailto:` links on purpose. The webtano leads.js
+ * script loaded in BaseLayout records clicks on exactly these link types, so
+ * every call, chat and email started from the top bar or the footer is
+ * counted without any extra code here.
+ *
+ * Social icons come from `siteConfig.socialLinks`; add a profile URL there
+ * and its icon shows up in both places.
+ */
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import siteConfig from '@/config/site.config';
+import { resolveSocialLinks } from '@/lib/utils';
+import { cn } from '@/lib/cn';
+import { t, defaultLocale } from '@/i18n';
+
+interface Props {
+  variant: 'topbar' | 'footer';
+  locale?: string;
+  class?: string;
+}
+
+const { variant, locale = defaultLocale, class: className } = Astro.props;
+
+const phone = siteConfig.phone ?? '';
+const phoneDigits = phone.replace(/[^\d]/g, '');
+/** +381638776419 → +381 63 877 6419 */
+const phoneDisplay = phoneDigits.startsWith('381')
+  ? `+381 ${phoneDigits.slice(3, 5)} ${phoneDigits.slice(5, 8)} ${phoneDigits.slice(8)}`
+  : phone;
+const whatsappHref = phoneDigits ? `https://wa.me/${phoneDigits}` : '';
+const email = siteConfig.email;
+const socials = resolveSocialLinks(siteConfig.socialLinks);
+const isTopbar = variant === 'topbar';
+---
+
+{isTopbar ? (
+  <div class={cn('contact-topbar flex items-center justify-between gap-4 text-xs', className)}>
+    <div class="flex min-w-0 items-center gap-x-4 gap-y-1">
+      {phone && (
+        <a href={`tel:${phone}`} class="contact-link inline-flex items-center gap-1.5 font-semibold">
+          <Icon name="phone" size="xs" />
+          <span>{phoneDisplay}</span>
+        </a>
+      )}
+      {whatsappHref && (
+        <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="contact-link inline-flex items-center gap-1.5">
+          <Icon name="whatsapp" size="xs" />
+          <span class="hidden sm:inline">WhatsApp</span>
+        </a>
+      )}
+      {email && (
+        <a href={`mailto:${email}`} class="contact-link hidden items-center gap-1.5 md:inline-flex">
+          <Icon name="mail" size="xs" />
+          <span>{email}</span>
+        </a>
+      )}
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="contact-note hidden lg:inline">{t('contactBar.reply', locale)}</span>
+      {socials.map((s) => (
+        <a href={s.href} target="_blank" rel="noopener noreferrer" class="contact-link" aria-label={s.label}>
+          <Icon name={s.icon} size="xs" />
+        </a>
+      ))}
+    </div>
+  </div>
+) : (
+  <div class={cn('space-y-3', className)}>
+    <ul class="space-y-2 text-sm">
+      {phone && (
+        <li>
+          <a href={`tel:${phone}`} class="inline-flex items-center gap-2 font-semibold text-foreground transition-colors hover:text-brand-600">
+            <Icon name="phone" size="sm" class="text-brand-600" />
+            {phoneDisplay}
+          </a>
+        </li>
+      )}
+      {whatsappHref && (
+        <li>
+          <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-foreground-muted transition-colors hover:text-foreground">
+            <Icon name="whatsapp" size="sm" class="text-brand-600" />
+            {t('contactBar.whatsapp', locale)}
+          </a>
+        </li>
+      )}
+      {email && (
+        <li>
+          <a href={`mailto:${email}`} class="inline-flex items-center gap-2 text-foreground-muted transition-colors hover:text-foreground">
+            <Icon name="mail" size="sm" class="text-brand-600" />
+            {email}
+          </a>
+        </li>
+      )}
+    </ul>
+    {socials.length > 0 && (
+      <div class="flex items-center gap-2 pt-1">
+        {socials.map((s) => (
+          <a
+            href={s.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t('footer.followOn', locale, { platform: s.label })}
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-foreground-muted transition-colors hover:border-brand-500 hover:text-brand-600"
+          >
+            <Icon name={s.icon} size="sm" />
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+)}
