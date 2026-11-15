@@ -121,7 +121,7 @@
     "pageBadge": "Page {page} of {total}",
     "newestPosts": "Newest posts",
     "tagMetaTitle": "#{tag} — Blog",
-    "tagMetaDescription": "Posts tagged \"{tag}\".",
+    "tagMetaDescription": "Posts about \"{tag}\": practical advice on ads, SEO and websites for service businesses.",
     "tagBadge": "Tag",
     "tagCountOne": "{count} post tagged \"{tag}\".",
     "tagCountOther": "{count} posts tagged \"{tag}\".",

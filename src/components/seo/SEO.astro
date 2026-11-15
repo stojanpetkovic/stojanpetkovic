@@ -49,7 +49,13 @@ const {
 // and spends ~16 characters of a box that truncates around 60-70.
 const siteName = getSiteName(getLocaleFromPath(Astro.url.pathname));
 // A title that already names the brand is not given it twice.
-const pageTitle = title ? (title.includes(siteName) ? title : `${title} — ${siteName}`) : siteName;
+// Long article headlines go out alone: with the brand appended they would be
+// cut off in search results, and og:site_name already carries the brand.
+const pageTitle = !title
+  ? siteName
+  : title.includes(siteName) || (article && title.length > 45)
+    ? title
+    : `${title} — ${siteName}`;
 const socialTitle = title || siteName;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);

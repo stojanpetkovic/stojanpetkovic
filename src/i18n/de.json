@@ -121,7 +121,7 @@
     "pageBadge": "Seite {page} von {total}",
     "newestPosts": "Neueste Beiträge",
     "tagMetaTitle": "#{tag} — Blog",
-    "tagMetaDescription": "Beiträge zum Thema „{tag}“.",
+    "tagMetaDescription": "Beiträge zum Thema „{tag}“: Praxistipps zu Anzeigen, SEO und Websites für Dienstleister.",
     "tagBadge": "Thema",
     "tagCountOne": "{count} Beitrag zum Thema „{tag}“.",
     "tagCountOther": "{count} Beiträge zum Thema „{tag}“.",

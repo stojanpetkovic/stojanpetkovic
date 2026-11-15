@@ -121,7 +121,7 @@
     "pageBadge": "Strana {page} od {total}",
     "newestPosts": "Najnoviji tekstovi",
     "tagMetaTitle": "#{tag} — Blog",
-    "tagMetaDescription": "Tekstovi na temu \"{tag}\".",
+    "tagMetaDescription": "Tekstovi na temu „{tag}“: praktični saveti o oglasima, SEO-u i sajtovima za uslužne firme.",
     "tagBadge": "Tema",
     "tagCountOne": "{count} tekst na temu \"{tag}\".",
     "tagCountOther": "Tekstova na temu \"{tag}\": {count}.",

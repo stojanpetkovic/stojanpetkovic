@@ -602,7 +602,10 @@ export default defineConfig({
         const locale = localeOfPath(pathname);
         // The admin is private and noindex; it has no business in the sitemap either.
         if (/^\/admin(\/|$)/.test(pathname)) return false;
-        return !/^\/start\/?$/.test(toCanonicalRoute(withoutLocale(pathname, locale), locale));
+        const route = toCanonicalRoute(withoutLocale(pathname, locale), locale);
+        // Tag listings are thin, overlapping pages: noindex, and kept out of the sitemap.
+        if (/\/tag\//.test(route)) return false;
+        return !/^\/start\/?$/.test(route);
       },
       ...(i18nEnabled ? { serialize: sitemapAlternates } : {}),
     }),
