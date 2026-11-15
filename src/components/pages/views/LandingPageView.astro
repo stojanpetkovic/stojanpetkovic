@@ -159,7 +159,7 @@ const year = new Date().getFullYear();
        gradient. data-header-flip-anchor keeps the header in its over-the-hero
        look until this section is nearly out from under it (Header.astro). -->
   {isHome && (
-    <Hero layout="split" imagePosition="left" size="xl" class="hero-dark-gradient max-lg:pt-[calc(5rem+var(--topbar-h)+var(--space-section-gap))]" fullHeight data-header-flip-anchor>
+    <Hero layout="split" imagePosition="left" size="xl" class="hero-dark-gradient pb-12 lg:pb-16 max-lg:pt-[calc(5rem+var(--topbar-h)+var(--space-section-gap))]" fullHeight data-header-flip-anchor>
       {/* Framed like the header's glass pill, with a brand glow behind it so
           the photo reads as lit by the hero rather than pasted onto it. */}
       <div slot="aside" class="relative w-full rounded-3xl border border-brand-400/30 bg-white/[0.08] p-2 shadow-2xl shadow-brand-500/30 backdrop-blur-md">
