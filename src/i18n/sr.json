@@ -719,7 +719,6 @@
         "cta": "Zatraži besplatnu proveru"
       },
       "footer": "Brzi sajtovi, SEO i oglasi za lokalne firme.",
-      "mobileCta": "Besplatna provera sajta",
       "privacy": {
         "toggle": "Kako postupam sa tvojim podacima",
         "title": "Izjava o privatnosti",
@@ -1377,5 +1376,10 @@
   "contactBar": {
     "reply": "Odgovor u roku od jednog radnog dana",
     "whatsapp": "Piši mi na WhatsApp"
+  },
+  "mobileBar": {
+    "label": "Brzi kontakt",
+    "check": "Provera sajta",
+    "whatsapp": "WhatsApp"
   }
 }

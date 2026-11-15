@@ -699,14 +699,6 @@ const year = new Date().getFullYear();
     </footer>
   )}
 
-  <!-- Phones: the action stays in reach while reading. Hidden once the form
-       itself is on screen. -->
-  <div class="lp-sticky fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur-md md:hidden" data-sticky-cta>
-    <Button href={formHref} fullWidth class="lp-glow cta-btn-brand gap-2">
-      {L('mobileCta')}
-      <Icon name="arrow-down" size="sm" />
-    </Button>
-  </div>
 </Layout>
 
 <style>
@@ -737,19 +729,6 @@ const year = new Date().getFullYear();
   .lp-final {
     background: linear-gradient(180deg, var(--color-brand-500) -16%, var(--color-brand-900) 100%);
   }
-
-  .lp-sticky {
-    transition: transform 200ms ease;
-  }
-  .lp-sticky[data-hidden] {
-    transform: translateY(110%);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .lp-sticky {
-      transition: none;
-    }
-  }
 </style>
 
 <script>
@@ -768,16 +747,4 @@ const year = new Date().getFullYear();
     });
   }
   initHeroVideo();
-
-  function initStickyCta(): void {
-    const sticky = document.querySelector<HTMLElement>('[data-sticky-cta]');
-    const target = document.getElementById('form');
-    if (!sticky || !target || typeof IntersectionObserver === 'undefined') return;
-    new IntersectionObserver(
-      (entries) => sticky.toggleAttribute('data-hidden', entries.some((entry) => entry.isIntersecting)),
-      { rootMargin: '0px 0px -20% 0px' }
-    ).observe(target);
-  }
-
-  initStickyCta();
 </script>
