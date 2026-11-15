@@ -25,6 +25,7 @@ import {
 } from '@/config/nav.config';
 import { footerVariants, footerColumnGridVariants } from './footer.variants';
 import Logo from '@/components/ui/marketing/Logo/Logo.astro';
+import ContactLinks from '@/components/layout/ContactLinks.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import siteConfig from '@/config/site.config';
 import { t, tData, getLocaleFromPath } from '@/i18n';
@@ -238,6 +239,8 @@ const footerNote = siteConfig.footerNote;
 // to remove it. It used to be wired into the centered layout alone, so any
 // site on another layout lost it without anything saying so.
 const footerCredit = tData<string>('footer.credit', locale);
+// Selling line under the logo in the columns layout.
+const columnsPitch = tData<string>('footer.tagline', locale);
 const legalLine = footerCredit ? `${processedCopyright} · ${footerCredit}` : processedCopyright;
 
 // Check slots
@@ -415,11 +418,12 @@ function getSocialIcon(platform: string): string {
                   </span>
                 </a>
               )}
-              {(hasTaglineSlot || tagline) && (
-                <p class="text-sm max-w-xs text-foreground-muted">
-                  {hasTaglineSlot ? <slot name="tagline" /> : tagline}
+              {(hasTaglineSlot || tagline || columnsPitch) && (
+                <p class="text-sm max-w-xs leading-relaxed text-foreground-muted">
+                  {hasTaglineSlot ? <slot name="tagline" /> : (tagline ?? columnsPitch)}
                 </p>
               )}
+              <ContactLinks variant="footer" locale={locale} />
               {showFooterNewsletter && !hasLogoSlot && (
                 <div class="max-w-xs pt-2">
                   <NewsletterForm layout="stacked" size="sm" description={t('newsletter.description', locale)} />
@@ -492,17 +496,6 @@ function getSocialIcon(platform: string): string {
                   >
                     <Icon name="rss" size="md" />
                   </a>
-                  {showSocial && resolvedSocialLinks.map((social) => (
-                    <a
-                      href={social.href}
-                      class="transition-colors text-foreground-muted hover:text-foreground"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={social.label || t('footer.followOn', locale, { platform: social.platform })}
-                    >
-                      <Icon name={getSocialIcon(social.platform)} size="md" />
-                    </a>
-                  ))}
                 </div>
               </>
             )}

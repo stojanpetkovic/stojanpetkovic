@@ -55,14 +55,15 @@
     "items": {
       "home": "Početna",
       "services": "Usluge",
-      "web": "Web",
+      "web": "Sajtovi",
       "projects": "Projekti",
       "blog": "Blog",
       "about": "O meni",
       "contact": "Kontakt",
       "terms": "Uslovi korišćenja",
       "privacy": "Politika privatnosti"
-    }
+    },
+    "cta": "Besplatna provera"
   },
   "common": {
     "readMore": "Pročitaj više",
@@ -110,13 +111,13 @@
     "shareOn": "Podeli na {platform}",
     "copyLink": "Kopiraj link",
     "metaTitle": "Blog",
-    "metaDescription": "Članci o inženjerstvu, softveru i web razvoju.",
+    "metaDescription": "Saveti o oglasima, SEO-u, AI pretrazi i sajtovima koji donose klijente.",
     "heroBadge": "Svi tekstovi",
-    "heroDescription": "Članci o inženjerstvu, softveru i web razvoju.",
+    "heroDescription": "Saveti o oglasima, SEO-u, AI pretrazi i sajtovima koji donose klijente.",
     "allPosts": "Svi tekstovi",
     "noPosts": "Još nema tekstova",
     "pageMetaTitle": "Blog — strana {page}",
-    "pageMetaDescription": "Strana {page} od {total} — članci o inženjerstvu, softveru i web razvoju.",
+    "pageMetaDescription": "Strana {page} od {total} — saveti o oglasima, SEO-u, AI pretrazi i sajtovima koji donose klijente.",
     "pageBadge": "Strana {page} od {total}",
     "newestPosts": "Najnoviji tekstovi",
     "tagMetaTitle": "#{tag} — Blog",
@@ -270,11 +271,18 @@
     "credit": "Više poziva i upita sa interneta za uslužne firme.",
     "groups": {
       "site": "Sajt",
-      "topics": "Teme",
-      "projects": "Web projekti",
-      "questions": "Imaš pitanje?"
+      "questions": "Imaš pitanje?",
+      "services": "Usluge"
     },
-    "followOn": "Prati me na {platform}"
+    "followOn": "Prati me na {platform}",
+    "tagline": "Pomažem uslužnim firmama da dobiju više poziva i upita sa interneta: Google i Meta oglasi, lokalni SEO, vidljivost u AI pretrazi i brzi sajtovi. Bez dugih ugovora, sa rezultatima koje vidiš u brojkama.",
+    "links": {
+      "ads": "Google i Meta oglasi",
+      "seo": "Lokalni SEO i AI pretraga",
+      "web": "Sajtovi koji donose upite",
+      "check": "Besplatna provera",
+      "faq": "Česta pitanja"
+    }
   },
   "pages": {
     "terms": {
@@ -1336,5 +1344,9 @@
         }
       ]
     }
+  },
+  "contactBar": {
+    "reply": "Odgovor istog radnog dana",
+    "whatsapp": "Piši mi na WhatsApp"
   }
 }

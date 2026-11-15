@@ -55,14 +55,15 @@
     "items": {
       "home": "Home",
       "services": "Services",
-      "web": "Web",
+      "web": "Websites",
       "projects": "Projects",
       "blog": "Blog",
       "about": "About",
       "contact": "Contact",
       "terms": "Terms of use",
       "privacy": "Privacy Policy"
-    }
+    },
+    "cta": "Free check"
   },
   "common": {
     "readMore": "Read more",
@@ -110,13 +111,13 @@
     "shareOn": "Share on {platform}",
     "copyLink": "Copy link",
     "metaTitle": "Blog",
-    "metaDescription": "Articles on engineering, software and web development.",
+    "metaDescription": "Practical advice on ads, SEO, AI search and websites that bring in customers.",
     "heroBadge": "All posts",
-    "heroDescription": "Articles on engineering, software and web development.",
+    "heroDescription": "Practical advice on ads, SEO, AI search and websites that bring in customers.",
     "allPosts": "All posts",
     "noPosts": "No posts found",
     "pageMetaTitle": "Blog — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — articles on engineering, software and web development.",
+    "pageMetaDescription": "Page {page} of {total} — practical advice on ads, SEO, AI search and websites that bring in customers.",
     "pageBadge": "Page {page} of {total}",
     "newestPosts": "Newest posts",
     "tagMetaTitle": "#{tag} — Blog",
@@ -270,11 +271,18 @@
     "credit": "More calls and enquiries from the internet for service businesses.",
     "groups": {
       "site": "Site",
-      "topics": "Topics",
-      "projects": "Web projects",
-      "questions": "Got questions?"
+      "questions": "Got questions?",
+      "services": "Services"
     },
-    "followOn": "Follow us on {platform}"
+    "followOn": "Follow us on {platform}",
+    "tagline": "I help service businesses get more calls and enquiries from the internet: Google and Meta ads, local SEO, AI search visibility and fast websites. No long contracts, and results you can see in numbers.",
+    "links": {
+      "ads": "Google and Meta ads",
+      "seo": "Local SEO and AI search",
+      "web": "Websites that bring enquiries",
+      "check": "Free check",
+      "faq": "FAQ"
+    }
   },
   "pages": {
     "terms": {
@@ -1336,5 +1344,9 @@
         }
       ]
     }
+  },
+  "contactBar": {
+    "reply": "Replies the same working day",
+    "whatsapp": "Message me on WhatsApp"
   }
 }

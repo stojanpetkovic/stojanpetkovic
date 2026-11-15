@@ -55,14 +55,15 @@
     "items": {
       "home": "Start",
       "services": "Leistungen",
-      "web": "Web",
+      "web": "Websites",
       "projects": "Projekte",
       "blog": "Blog",
       "about": "Über mich",
       "contact": "Kontakt",
       "terms": "Nutzungsbedingungen",
       "privacy": "Datenschutz"
-    }
+    },
+    "cta": "Kostenloser Check"
   },
   "common": {
     "readMore": "Weiterlesen",
@@ -110,13 +111,13 @@
     "shareOn": "Auf {platform} teilen",
     "copyLink": "Link kopieren",
     "metaTitle": "Blog",
-    "metaDescription": "Artikel über Ingenieurwesen, Software und Webentwicklung.",
+    "metaDescription": "Praxistipps zu Anzeigen, SEO, KI-Suche und Websites, die Kunden bringen.",
     "heroBadge": "Alle Beiträge",
-    "heroDescription": "Artikel über Ingenieurwesen, Software und Webentwicklung.",
+    "heroDescription": "Praxistipps zu Anzeigen, SEO, KI-Suche und Websites, die Kunden bringen.",
     "allPosts": "Alle Beiträge",
     "noPosts": "Keine Beiträge gefunden",
     "pageMetaTitle": "Blog — Seite {page}",
-    "pageMetaDescription": "Seite {page} von {total} — Artikel über Ingenieurwesen, Software und Webentwicklung.",
+    "pageMetaDescription": "Seite {page} von {total} — Praxistipps zu Anzeigen, SEO, KI-Suche und Websites, die Kunden bringen.",
     "pageBadge": "Seite {page} von {total}",
     "newestPosts": "Neueste Beiträge",
     "tagMetaTitle": "#{tag} — Blog",
@@ -270,11 +271,18 @@
     "credit": "Mehr Anrufe und Anfragen aus dem Internet für Dienstleister.",
     "groups": {
       "site": "Website",
-      "topics": "Themen",
-      "projects": "Web-Projekte",
-      "questions": "Fragen?"
+      "questions": "Fragen?",
+      "services": "Leistungen"
     },
-    "followOn": "Folgen Sie mir auf {platform}"
+    "followOn": "Folgen Sie mir auf {platform}",
+    "tagline": "Ich helfe Dienstleistern, mehr Anrufe und Anfragen aus dem Internet zu bekommen: Google- und Meta-Anzeigen, lokales SEO, Sichtbarkeit in der KI-Suche und schnelle Websites. Ohne lange Verträge, mit Ergebnissen, die du in Zahlen siehst.",
+    "links": {
+      "ads": "Google- und Meta-Anzeigen",
+      "seo": "Lokales SEO und KI-Suche",
+      "web": "Websites, die Anfragen bringen",
+      "check": "Kostenloser Check",
+      "faq": "Häufige Fragen"
+    }
   },
   "pages": {
     "terms": {
@@ -1336,5 +1344,9 @@
         }
       ]
     }
+  },
+  "contactBar": {
+    "reply": "Antwort am selben Werktag",
+    "whatsapp": "Schreib mir auf WhatsApp"
   }
 }

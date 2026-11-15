@@ -131,19 +131,18 @@ export interface ResolvedNavItem {
 }
 
 export const navItems: NavItem[] = [
-  { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
-  { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Web', href: '/web', order: 2, labelKey: 'nav.items.web' },
-  { label: 'Projects', href: '/projects', order: 3, labelKey: 'nav.items.projects' },
-  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
+  { label: 'Services', href: '/services', order: 0, labelKey: 'nav.items.services' },
+  { label: 'Websites', href: '/web', order: 1, labelKey: 'nav.items.web' },
+  { label: 'Blog', href: '/blog', order: 2, labelKey: 'nav.items.blog' },
+  { label: 'About', href: '/about', order: 3, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 4, labelKey: 'nav.items.contact' },
 ];
 
 export const footerNavItems: NavItem[] = [
   { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
   { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Web', href: '/web', order: 2, labelKey: 'nav.items.web' },
-  { label: 'Projects', href: '/projects', order: 3, labelKey: 'nav.items.projects' },
+  { label: 'Websites', href: '/web', order: 2, labelKey: 'nav.items.web' },
+  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
   { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
   { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
 ];
@@ -172,11 +171,21 @@ export const legalLinks: LegalLink[] = [
  */
 export const footerLinkGroups: FooterLinkGroupConfig[] = [
   {
+    titleKey: 'footer.groups.services',
+    title: 'Services',
+    links: [
+      { label: 'Google and Meta ads', href: '/services#marketing', labelKey: 'footer.links.ads' },
+      { label: 'SEO and AI visibility', href: '/services#marketing', labelKey: 'footer.links.seo' },
+      { label: 'Websites', href: '/web', labelKey: 'footer.links.web' },
+      { label: 'Free website check', href: '/contact', labelKey: 'footer.links.check' },
+    ],
+  },
+  {
     titleKey: 'footer.groups.questions',
     title: 'Got questions?',
     links: [
-      { label: 'FAQ', href: '/about#faq' },
-      { label: 'Email', href: 'mailto:petkovicstojan@gmail.com' },
+      { label: 'FAQ', href: '/about#faq', labelKey: 'footer.links.faq' },
+      { label: 'Contact', href: '/contact', labelKey: 'nav.items.contact' },
     ],
   },
 ];

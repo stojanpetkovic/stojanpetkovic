@@ -33,8 +33,9 @@ import ThemeModeDropdown from '@/components/layout/ThemeModeDropdown.astro';
 import ThemeSelector from '@/components/layout/ThemeSelector.astro';
 import ThemeSelectorDropdown from '@/components/layout/ThemeSelectorDropdown.astro';
 import LanguageSwitcher from '@/components/layout/LanguageSwitcher.astro';
+import ContactLinks from '@/components/layout/ContactLinks.astro';
 import siteConfig from '@/config/site.config';
-import { isEnabled as i18nIsEnabled, getLocaleFromPath, stripLocaleFromPath, t } from '@/i18n';
+import { isEnabled as i18nIsEnabled, getLocaleFromPath, stripLocaleFromPath, t, localizedPath } from '@/i18n';
 import { getSiteName } from '@/lib/site-name';
 
 export interface NavItem {
@@ -82,6 +83,8 @@ interface Props extends HTMLAttributes<'header'> {
   showScrollProgress?: boolean;
   scrollProgressPosition?: 'top' | 'bottom';
   autoHide?: boolean;
+  /** Thin contact strip (phone, WhatsApp, email, socials) above the bar. Bar shape only. */
+  showTopbar?: boolean;
   invertOnReturn?: boolean;
   /**
    * Max width of the inner container (only applies when `shape='bar'`).
@@ -99,8 +102,8 @@ const {
   shape = 'bar',
   nav,
   extraNav = [],
-  showCta = false,
-  cta = { label: 'Start a project', href: '/contact' },
+  showCta = true,
+  cta: ctaProp,
   actions = [],
   showSearch = true,
   showThemeToggle = false,
@@ -113,6 +116,7 @@ const {
   showScrollProgress = false,
   scrollProgressPosition = 'bottom',
   autoHide = true,
+  showTopbar = true,
   invertOnReturn = true,
   logoText,
   hideLogo = false,
@@ -146,6 +150,13 @@ const defaultNav = getNavItems(locale).map((item) => ({
 }));
 const navItems: NavItem[] = nav || [...extraNav, ...defaultNav];
 const logoHref = getLogoHref(locale);
+// Default CTA: the free check, on the localized contact page, where every
+// enquiry is tracked.
+const cta = ctaProp ?? {
+  label: t('nav.cta', locale),
+  href: localizedPath('/contact', locale),
+  trailingIcon: 'arrow-right',
+};
 const ctaHref = cta.href?.startsWith('#') && !isLandingPage ? `/${cta.href}` : cta.href;
 
 const hasLogoSlot = Astro.slots.has('logo');
@@ -241,6 +252,13 @@ const buttonId = `${menuId}-button`;
   data-header-invert-on-return={invertOnReturn ? 'true' : 'false'}
   {...attrs}
 >
+  {showTopbar && !isFloating && (
+    <div class="hdr-topbar" data-header-topbar>
+      <div class={cn('mx-auto flex h-full items-center px-6', maxWidthClass)}>
+        <ContactLinks variant="topbar" locale={locale} class="w-full" />
+      </div>
+    </div>
+  )}
   <div class={cn(innerClasses, 'hdr-inner')}>
     {
       !hideLogo &&
@@ -679,6 +697,21 @@ const buttonId = `${menuId}-button`;
 }
 
 <script>
+  // Fold the contact strip after the first bit of scroll. One listener for
+  // the whole session; it looks the header up each time, so it survives
+  // view-transition swaps.
+  function updateTopbar() {
+    const collapsed = window.scrollY > 40;
+    document.querySelectorAll('header').forEach((h) => {
+      if (h.querySelector('[data-header-topbar]')) h.toggleAttribute('data-topbar-collapsed', collapsed);
+    });
+  }
+  updateTopbar();
+  window.addEventListener('scroll', updateTopbar, { passive: true });
+  document.addEventListener('astro:after-swap', updateTopbar);
+</script>
+
+<script>
   import { trapFocus } from '@/lib/focus-trap';
 
   function initMobileMenu() {
@@ -1024,6 +1057,20 @@ const buttonId = `${menuId}-button`;
 </script>
 
 <style is:global>
+  /* Contact strip above the bar. It folds away once the page scrolls so the
+     sticky bar stays slim; the layouts reserve its height via --topbar-h. */
+  .hdr-topbar {
+    height: var(--topbar-h);
+    overflow: hidden;
+    background: var(--color-brand-900);
+    color: rgb(255 255 255 / 0.85);
+    transition: height 200ms ease;
+  }
+  .hdr-topbar .contact-link { color: rgb(255 255 255 / 0.9); transition: color 150ms; }
+  .hdr-topbar .contact-link:hover { color: #fff; }
+  .hdr-topbar .contact-note { color: rgb(255 255 255 / 0.65); }
+  header[data-topbar-collapsed] .hdr-topbar { height: 0; }
+  @media (prefers-reduced-motion: reduce) { .hdr-topbar { transition: none; } }
   .mobile-menu-blur {
     opacity: 0.3;
     filter: blur(4px);

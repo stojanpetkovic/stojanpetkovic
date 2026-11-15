@@ -51,12 +51,11 @@ const { title, description, image, imageAlt, noindex, nofollow, showScrollProgre
     variant="solid"
     size="lg"
     showActiveState
-    showCta={false}
     showScrollProgress={showScrollProgress}
     languageAlternates={languageAlternates}
   />
 
-  <main class="min-h-screen pt-16">
+  <main class="min-h-screen pt-[calc(4rem+var(--topbar-h))]">
     <slot />
   </main>
 

@@ -21,17 +21,16 @@ import { getNavItems, getLogoHref, resolveNavItem, type NavItem } from '@/config
 describe('nav config — locale resolution (en default, de secondary)', () => {
   it('keeps default-locale hrefs at the site root', () => {
     const items = getNavItems('en');
-    expect(items.find((i) => i.label === 'Projects')?.href).toBe('/projects');
+    expect(items.find((i) => i.label === 'Blog')?.href).toBe('/blog');
     expect(items.find((i) => i.label === 'About')?.href).toBe('/about');
   });
 
   it('prefixes secondary-locale hrefs with the locale', () => {
     const items = getNavItems('de');
     expect(items.map((i) => i.href)).toEqual([
-      '/de',
       '/de/leistungen',
       '/de/web',
-      '/de/projekte',
+      '/de/blog',
       '/de/ueber-mich',
       '/de/kontakt',
     ]);
@@ -90,7 +89,7 @@ describe('nav config — locale resolution (en default, de secondary)', () => {
 describe('top bar', () => {
   it('lists the client-facing pages only, with no engineering section', () => {
     const items = getNavItems('en');
-    expect(items.map((i) => i.label)).toEqual(['Home', 'Services', 'Web', 'Projects', 'About', 'Contact']);
+    expect(items.map((i) => i.label)).toEqual(['Services', 'Websites', 'Blog', 'About', 'Contact']);
     expect(items.some((i) => i.mega)).toBe(false);
   });
 

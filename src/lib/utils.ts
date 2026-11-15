@@ -79,6 +79,9 @@ const SOCIAL_PLATFORMS = [
   { key: 'linkedin',  match: /linkedin\.com/i,                label: 'LinkedIn',    icon: 'linkedin'  },
   { key: 'instagram', match: /instagram\.com/i,               label: 'Instagram',   icon: 'instagram' },
   { key: 'bluesky',   match: /bsky\.app|bluesky\.social/i,    label: 'Bluesky',     icon: 'bluesky'   },
+  { key: 'facebook',  match: /facebook\.com|fb\.com/i,        label: 'Facebook',    icon: 'facebook'  },
+  { key: 'youtube',   match: /youtube\.com|youtu\.be/i,       label: 'YouTube',     icon: 'youtube'   },
+  { key: 'tiktok',    match: /tiktok\.com/i,                  label: 'TikTok',      icon: 'tiktok'    },
 ] as const;
 
 export interface ResolvedSocialLink {

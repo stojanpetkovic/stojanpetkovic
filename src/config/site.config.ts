@@ -284,6 +284,7 @@ const siteConfig: SiteConfig = {
   ogImage: '/og/default.png',
   author: SITE_NAME,
   email: 'petkovicstojan@gmail.com',
+  phone: '+381638776419',
   address: {
     city: 'Zrenjanin',
     country: 'Serbia',

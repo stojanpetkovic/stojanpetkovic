@@ -182,7 +182,7 @@
        references, `#id` links) so the target lands *below* the fixed header
        instead of behind it. The bar header is 4rem tall (h-16); ~1rem extra
        gives it breathing room. */
-    scroll-padding-top: 5rem;
+    scroll-padding-top: calc(5rem + var(--topbar-h, 0px));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: clip;
