@@ -1248,7 +1248,13 @@
       },
       "clients": {
         "heading": "Betriebe, die mir vertrauen",
-        "lead": "Websites, SEO und Anzeigen für Firmen in Europa und den USA. Ihr Betrieb könnte der nächste sein."
+        "lead": "Websites, SEO und Anzeigen für Firmen in Europa und den USA. Ihr Betrieb könnte der nächste sein.",
+        "badge": "Kunden",
+        "statBrands": "Marken, für die ich Websites oder Marketing mache",
+        "statMarkets": "Märkte: Europa und die USA",
+        "cta": "Werden Sie der nächste Kunde",
+        "visit": "Website ansehen",
+        "services": "Websites · SEO · Google Ads · Social Media"
       }
     },
     "privacy": {

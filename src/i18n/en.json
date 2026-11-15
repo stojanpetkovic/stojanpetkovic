@@ -1248,7 +1248,13 @@
       },
       "clients": {
         "heading": "Trusted by service businesses. Proven by results.",
-        "lead": "Websites, SEO and ads for companies in the US and Europe. Yours could be next."
+        "lead": "Websites, SEO and ads for companies in the US and Europe. Yours could be next.",
+        "badge": "Clients",
+        "statBrands": "brands I build sites or run marketing for",
+        "statMarkets": "markets: the US and Europe",
+        "cta": "Become the next one",
+        "visit": "Visit site",
+        "services": "Websites · SEO · Google Ads · Social media"
       }
     },
     "privacy": {

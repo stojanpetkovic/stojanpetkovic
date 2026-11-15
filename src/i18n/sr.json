@@ -1248,7 +1248,13 @@
       },
       "clients": {
         "heading": "Brendovi koji mi veruju",
-        "lead": "Sajtovi, SEO i oglasi za firme u Srbiji i Americi. Sledeća može biti tvoja."
+        "lead": "Sajtovi, SEO i oglasi za firme u Srbiji i Americi. Sledeća može biti tvoja.",
+        "badge": "Klijenti",
+        "statBrands": "brendova kojima radim sajt ili marketing",
+        "statMarkets": "tržišta: Srbija i Amerika",
+        "cta": "Postani sledeći klijent",
+        "visit": "Pogledaj sajt",
+        "services": "Sajtovi · SEO · Google oglasi · Društvene mreže"
       }
     },
     "privacy": {
