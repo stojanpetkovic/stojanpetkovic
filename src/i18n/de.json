@@ -469,12 +469,12 @@
       "results": {
         "badge": "Ergebnisse",
         "heading": "Zwei Websites, dasselbe Problem, gelöst",
-        "lead": "Zwei Baumpflegebetriebe in Südflorida hatten langsame WordPress-Seiten voller Plugins. Ich habe beide schlank neu gebaut: Die Seiten öffnen sofort und erreichen den SEO-Bestwert 100. Ein lokaler Betrieb braucht Tempo und Anfragen, kein kompliziertes System.",
+        "lead": "Zwei Betriebe für Baumfällung und Baumpflege in Südflorida hatten langsame WordPress-Seiten voller Plugins. Ich habe beide schlank neu gebaut: Die Seiten öffnen sofort und erreichen den SEO-Bestwert 100. Ein lokaler Betrieb braucht Tempo und Anfragen, kein kompliziertes System.",
         "note": "Das sind zwei Beispiele. Jede Website baue ich nach demselben Prinzip.",
         "cases": [
           {
             "client": "Tree Jaws",
-            "sector": "Baumpflege · Südflorida",
+            "sector": "Baumfällung und Baumpflege · Südflorida",
             "metric": "SEO 100",
             "metricLabel": "Lighthouse-Wert nach dem Umstieg von WordPress",
             "points": [
@@ -486,7 +486,7 @@
           },
           {
             "client": "Mahalo Tree Service",
-            "sector": "Baumpflege · Südflorida",
+            "sector": "Baumfällung und Baumpflege · Südflorida",
             "metric": "SEO 100",
             "metricLabel": "Lighthouse-Wert, ohne einen Dollar für Anzeigen",
             "points": [
@@ -502,7 +502,7 @@
         "badge": "Ein typischer Fall (ausgedacht)",
         "heading": "Wenn Anzeigen mehr kosten, als sie einbringen",
         "paragraphs": [
-          "Thomas gibt es nicht, seine Lage aber sehr wohl. Ich habe ihn aus Geschichten zusammengesetzt, die ich immer wieder höre. Er führt einen Baumpflegebetrieb. Wenn ein Sturm einen Ast aufs Dach wirft, ruft der Hausbesitzer den ersten Betrieb an, der seriös wirkt, und wartet nicht lange.",
+          "Thomas gibt es nicht, seine Lage aber sehr wohl. Ich habe ihn aus Geschichten zusammengesetzt, die ich immer wieder höre. Er führt einen Betrieb für Baumfällungen. Wenn ein Sturm einen Ast aufs Dach wirft, ruft der Hausbesitzer den ersten Betrieb an, der seriös wirkt, und wartet nicht lange.",
           "Thomas’ Website lädt langsam, bei Google taucht er kaum auf, und das Geld für Anzeigen kommt nicht zurück. Die Besucher, für die er bezahlt, sind weg, bevor die Seite geladen ist. Er erfährt davon nichts, denn niemand sagt es ihm.",
           "Dann wird die Website neu gebaut: schnelle Seiten, sauberes SEO und jede Anfrage direkt aufs Handy. Das Anzeigenbudget wird endlich zu Anrufen. Eine Saison länger warten hätte geheißen, weiter für Klicks von Leuten zu zahlen, die nie anrufen."
         ],
@@ -521,7 +521,7 @@
         "quote": "Jede Woche, die ich gewartet habe, hat jemand anderes diese Anrufe bekommen.",
         "author": "Thomas",
         "role": "Ausgedachter Inhaber, kein echter Kunde",
-        "imageAlt": "Eine Beispiel-Website einer Baumpflegefirma von Stojan Petkovic"
+        "imageAlt": "Beispiel-Website eines Betriebs für Baumfällung, gebaut von Stojan Petković"
       },
       "report": {
         "badge": "Tracking und Monatsbericht",
