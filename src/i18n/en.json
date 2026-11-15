@@ -36,7 +36,7 @@
     "name": "Stojan Petkovic"
   },
   "llms": {
-    "summary": "Stojan Petkovic is an engineer (Ingenieur, title granted by the Bavarian Chamber of Engineers) and web developer based in Zrenjanin, Serbia, working with clients worldwide. He holds a degree in Mining Engineering from the University of Belgrade (2010) and has worked in coiled tubing and nitrogen operations since 2013. This is a personal, independent site that does not represent any employer or company. It publishes case studies and engineering tools for information, and he builds fast, custom Astro websites, custom software and data-driven platforms for technical companies, with classic web design, SEO and generative engine optimisation (GEO). Every project has one fixed price agreed before work starts, and the client owns the code, the domain and the hosting from day one."
+    "summary": "Stojan Petkovic, based in Zrenjanin, Serbia, helps service businesses win customers online: Google and Meta ads, local SEO, AI search visibility (GEO), fast websites and landing pages, AI chat, and tracking of every enquiry and call with a monthly report. He works with clients in Serbia, Europe and the US. A website has one fixed price, ads and SEO run month to month with no long contract, and the client owns the code, the domain and the hosting from day one."
   },
   "nav": {
     "skipToContent": "Skip to content",
@@ -162,18 +162,18 @@
     "galleryNextImage": "Next image",
     "galleryPreviousImage": "Previous image",
     "metaTitle": "Projects",
-    "metaDescription": "Selected engineering projects by Stojan Petkovic: geothermal case studies of Vojvodina built from public data, with calculators, and websites built for clients.",
+    "metaDescription": "Websites, SEO and ads I have built for service businesses, with the numbers: enquiries, calls, Google rankings and Lighthouse scores.",
     "heroBadge": "Selected work",
-    "heroDescription": "Engineering and industrial projects.",
-    "emptyTitle": "Industrial projects are in preparation",
-    "emptyText": "Case studies from coiled tubing and nitrogen operations will be published here. The websites I have built are on the Web page.",
+    "heroDescription": "Businesses I have helped win more customers.",
+    "emptyTitle": "Projects coming soon",
+    "emptyText": "Coming soon. Meanwhile, see the results on the home page.",
     "emptyWeb": "See web projects",
     "allProjects": "All projects",
     "pageMetaTitle": "Projects — Page {page}",
-    "pageMetaDescription": "Page {page} of {total} — selected engineering projects by Stojan Petkovic.",
+    "pageMetaDescription": "Page {page} of {total}: projects for service businesses, with the numbers.",
     "pageBadge": "Page {page} of {total}",
     "tagMetaTitle": "#{tag} — Projects",
-    "tagMetaDescription": "Projects tagged \"{tag}\" by Stojan Petkovic: engineering case studies, geothermal models from public data and websites built for clients.",
+    "tagMetaDescription": "Projects tagged \"{tag}\": websites, SEO and ads for service businesses, with the numbers.",
     "tagBadge": "Tag",
     "tagCountOne": "{count} project tagged \"{tag}\".",
     "tagCountOther": "{count} projects tagged \"{tag}\".",
@@ -266,7 +266,7 @@
   },
   "footer": {
     "copyright": "© {year} {siteName}",
-    "credit": "Personal, independent site — not affiliated with any employer or company.",
+    "credit": "More calls and enquiries from the internet for service businesses.",
     "groups": {
       "site": "Site",
       "topics": "Topics",
@@ -725,26 +725,35 @@
     },
     "about": {
       "meta": {
-        "title": "About — Engineer & Web Developer",
-        "description": "Stojan Petkovic: Ingenieur (title granted by the Bavarian Chamber of Engineers) and web developer. Fast websites for technical businesses, backed by 13+ years in oilfield operations."
+        "title": "About — Stojan Petkovic",
+        "description": "Stojan Petkovic: ads, SEO, AI visibility and fast websites for service businesses. You work with me directly and see every result in numbers."
       },
       "hero": {
         "badge": "About",
         "titleLead": "Stojan\u00a0Petkovic",
-        "typingWords": ["Engineer", "Digital Architect", "Web Developer", "Problem Solver"],
-        "typingWordsMobile": ["Engineer", "Digital Architect", "Web Developer"],
-        "description": "Engineer (Ingenieur) and web\u00a0developer. I build fast, practical websites, and I bring an engineer's discipline to every project.",
+        "typingWords": [
+          "More calls",
+          "More enquiries",
+          "More customers",
+          "Measured"
+        ],
+        "typingWordsMobile": [
+          "More calls",
+          "More enquiries",
+          "More customers"
+        ],
+        "description": "I help service businesses get found online, through ads, SEO, AI search and fast websites. You work with me directly.",
         "imageAlt": "A rocket launching past a lit planet's edge, against a starfield."
       },
       "background": {
         "badge": "Background",
-        "heading": "Engineering first, then code",
+        "heading": "Why I measure everything",
         "paragraphs": [
-          "I hold a degree in Mining Engineering from the University of Belgrade (graduated 2010). In 2026 the Bavarian Chamber of Engineers (Bayerische Ingenieurekammer-Bau) found my education equivalent to German requirements and granted me the professional title Ingenieur.",
-          "I started in 2011 as a mining engineer on mineral exploration projects, including underground work, then moved into drilling in 2012, planning and supervising exploration wells. Since 2013 I have worked in coiled tubing and nitrogen operations, from field engineer to operations manager, on more than 1,000 jobs. That work taught me how real operations behave: pressures, limits, and what breaks when a number is wrong. I bring that habit of checking the numbers into every website and tool I build.",
-          "For technical companies this means less explaining. You do not have to teach me what a job looks like on site before I can build the page for it. This is a personal, independent site. It does not represent any employer or company; see the terms of use."
+          "I'm an engineer by training and spent more than ten years in field operations, where a wrong number is expensive. That taught me to assume nothing: measure first, then decide.",
+          "I treat marketing the same way. Every call, enquiry and euro spent is recorded, so within a few weeks we know what brings customers and what only costs money.",
+          "I work with businesses in Serbia, Europe and the US: trades, clinics, hospitality and local companies. You talk to me directly, with no agency in between."
         ],
-        "credential": "Title Ingenieur granted by the Bavarian Chamber of Engineers, 2026"
+        "credential": "Engineer by training; Ingenieur title granted by the Bavarian Chamber of Engineers."
       },
       "whatYouGet": {
         "badge": "What I bring",
@@ -752,34 +761,34 @@
         "lead": "The same care and attention to detail on every project, from the first line of code to launch.",
         "items": [
           {
-            "icon": "award",
-            "title": "Field experience",
-            "description": "13+ years and more than 1,000 jobs in coiled tubing and nitrogen operations."
+            "icon": "search",
+            "title": "Visibility",
+            "description": "Google, the map, ChatGPT and social media: wherever your customers look."
           },
           {
-            "icon": "book-open",
-            "title": "Documented logic",
-            "description": "Formulas, assumptions and decisions written down, so results can be reviewed."
-          },
-          {
-            "icon": "component",
-            "title": "Clean, reusable code",
-            "description": "Well-structured, typed and documented, so it stays easy to maintain and extend."
-          },
-          {
-            "icon": "server",
-            "title": "Cloud-based by default",
-            "description": "Software that runs on a server and opens in the browser, with nothing to install."
-          },
-          {
-            "icon": "layout",
-            "title": "Clear technical content",
-            "description": "Pages, documentation and case studies laid out so technical readers find what they need fast."
+            "icon": "target",
+            "title": "Ads that pay back",
+            "description": "Google and Meta campaigns run on calls, not clicks."
           },
           {
             "icon": "zap",
-            "title": "Fast websites when you need them",
-            "description": "Custom Astro websites, built to load quickly and rank well, as a separate service."
+            "title": "A fast website",
+            "description": "Pages that open instantly and lead to a call."
+          },
+          {
+            "icon": "message-circle",
+            "title": "No lost enquiries",
+            "description": "Every enquiry arrives instantly, and an AI chat answers after hours."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Numbers every month",
+            "description": "What each enquiry, call and new customer costs."
+          },
+          {
+            "icon": "shield-check",
+            "title": "Everything is yours",
+            "description": "Code, domain, hosting and ad accounts in your name."
           }
         ]
       },
@@ -807,7 +816,7 @@
             "icon": "user",
             "title": "About me",
             "items": [
-              { "question": "What kind of projects do you take on?", "answer": "Websites, custom software and data-driven platforms for technical and engineering businesses, plus classic web design for companies of any size." },
+              { "question": "What kind of projects do you take on?", "answer": "I help service businesses win customers online: ads, SEO, AI search visibility, fast websites and tracking of every enquiry." },
               { "question": "What technologies do you work with?", "answer": "Modern, fast tools: Astro, TypeScript, and Tailwind CSS on the front end, with cloud infrastructure and automation where a project needs it." },
               { "question": "Do you work with clients outside your local area?", "answer": "Yes. Most projects run entirely by phone, video, and email, and time zones are rarely a problem." },
               { "question": "Are you available for new projects?", "answer": "Usually, yes — check the badge on the homepage, or just send a message and I'll tell you honestly." }
@@ -844,73 +853,77 @@
     },
     "services": {
       "meta": {
-        "title": "Services — Software and Web",
-        "description": "Cloud-based software and tools and web development, by an engineer. Free first talk, one proposal, one fixed price."
+        "title": "Services — ads, SEO, AI and websites",
+        "description": "Google and Meta ads, local SEO, AI search visibility and fast websites for service businesses. Free check, fixed price for the website."
       },
       "areas": {
-        "software": {
-          "icon": "code",
-          "badge": "Software & tools",
-          "heading": "Cloud-based software and tools",
+        "marketing": {
+          "icon": "target",
+          "badge": "Ads, SEO and AI",
+          "heading": "Get found by people already looking for your service",
           "paragraphs": [
-            "Software for technical teams that runs on a server and opens in the browser: nothing to install, one version for everyone.",
-            "I build it the way I run a job: requirements first, numbers checked, and the logic documented so results can be reviewed."
+            "When someone needs a contractor, a dentist or a place to stay, they ask Google, the map or ChatGPT. I make sure they find you there, not your competitors.",
+            "Ads bring calls now; SEO and AI visibility build a steady flow you don't pay for per click. Everything is measured, so you know what pays off."
           ],
           "included": [
             {
-              "lead": "Internal tools and dashboards",
-              "text": "your data and workflows in one place."
+              "lead": "Google Ads",
+              "text": "search and maps, tuned to the searches that bring work."
             },
             {
-              "lead": "Calculators and engineering tools",
-              "text": "formulas explained, results you can reproduce."
+              "lead": "Facebook and Instagram ads",
+              "text": "campaigns and retargeting for your area."
             },
             {
-              "lead": "Custom industrial software",
-              "text": "built to order around how your operation works."
+              "lead": "Local SEO",
+              "text": "Google Business Profile, reviews and a page for every service and area."
             },
             {
-              "lead": "Hosting in your name",
-              "text": "set up, secured and kept running, with the code and the domain yours."
+              "lead": "AI search visibility",
+              "text": "so ChatGPT and Google's AI recommend you when someone asks."
             },
             {
-              "lead": "Documentation",
-              "text": "so your team can use it and your auditors can check it."
+              "lead": "AI chat and instant replies",
+              "text": "an enquiry gets an answer even when you can't."
+            },
+            {
+              "lead": "Monthly report",
+              "text": "calls, enquiries and the cost of each, in plain language."
             }
           ],
-          "ctaLabel": "Discuss a tool"
+          "ctaLabel": "Get a free check"
         },
         "web": {
           "icon": "layout",
-          "badge": "Web development",
-          "heading": "Websites for technical companies",
+          "badge": "Websites",
+          "heading": "A website that turns visits into calls",
           "paragraphs": [
-            "Fast websites and web systems for engineering and technical companies, as a separate service with its own page.",
-            "Design, development and optimisation by the same engineer, with one fixed price and everything in your name."
+            "Fast custom websites and landing pages, built so a visitor sees what you offer within seconds and calls.",
+            "One fixed price, and the code, the domain and the hosting are in your name from day one."
           ],
           "included": [
             {
               "lead": "Custom design",
-              "text": "shaped around your business and your customers."
+              "text": "fitted to your business and your customers."
             },
             {
               "lead": "Built for speed",
-              "text": "Astro websites that open instantly on every device."
+              "text": "pages open instantly on every phone."
             },
             {
-              "lead": "Found by Google and AI",
-              "text": "SEO and structured data built in from the first line."
+              "lead": "SEO from the first line",
+              "text": "structured data and a page for every service."
             },
             {
-              "lead": "A monthly report",
-              "text": "visitors, enquiries and sources, in plain language."
+              "lead": "Enquiry and call tracking",
+              "text": "every form and every tap on your number is recorded."
             },
             {
               "lead": "Care after launch",
-              "text": "updates and monitoring, with an optional care plan."
+              "text": "updates and monitoring, with an optional monthly plan."
             }
           ],
-          "ctaLabel": "Go to web development"
+          "ctaLabel": "Go to websites"
         }
       },
       "overviewFaq": {
@@ -949,10 +962,13 @@
       "includedLabel": "What you get",
       "hero": {
         "badge": "Services",
-        "titleLead": "Software",
-        "titleHighlight": "and web development",
-        "description": "Two areas, one engineer: cloud-based software for technical teams, and websites as a separate service. The engineering content of this site is informational and is not offered as a service.",
-        "jumpLabels": ["Software & tools", "Web development"]
+        "titleLead": "Everything it takes",
+        "titleHighlight": "for customers to find you",
+        "description": "Ads, SEO and AI search visibility bring people in, and a fast website turns them into calls. All from one person, with the numbers every month.",
+        "jumpLabels": [
+          "Ads, SEO and AI",
+          "Websites"
+        ]
       },
       "process": {
         "badge": "How it works",
@@ -976,25 +992,25 @@
     "contact": {
       "meta": {
         "title": "Contact",
-        "description": "Cloud software, engineering tools or a website: tell me what you need. I reply within one business day."
+        "description": "Ads, SEO, AI visibility or a new website: tell me what you need. I reply within one working day."
       },
       "hero": {
         "badge": "Contact",
-        "titleLead": "Tell me what you're",
-        "titleHighlight": "working on",
-        "description": "Cloud-based software and tools, or a website. A short message is enough; I reply within one business day."
+        "titleLead": "Let's bring you",
+        "titleHighlight": "more customers",
+        "description": "Ads, SEO, AI search visibility or a new website. A short message is enough; I reply within one working day."
       },
       "helpTitle": "What I can help with",
       "help": [
         {
-          "icon": "code",
-          "title": "Software and tools",
-          "text": "Cloud-based software and engineering tools for technical B2B companies."
+          "icon": "target",
+          "title": "Ads, SEO and AI visibility",
+          "text": "So people find you on Google, on the map, in ChatGPT and on social media."
         },
         {
           "icon": "layout",
-          "title": "Web development",
-          "text": "Fast websites and web systems, as a separate service."
+          "title": "A website that turns visits into calls",
+          "text": "A fast website or landing page, with every enquiry tracked."
         }
       ],
       "nextTitle": "What happens next",
@@ -1029,14 +1045,19 @@
         "serviceLegend": "What do you need?",
         "services": [
           {
-            "value": "software",
-            "icon": "code",
-            "label": "Software or engineering tools"
+            "value": "new-website",
+            "icon": "sparkles",
+            "label": "A new website"
           },
           {
-            "value": "web",
-            "icon": "layout",
-            "label": "A website or web system"
+            "value": "seo",
+            "icon": "search",
+            "label": "SEO and AI search visibility"
+          },
+          {
+            "value": "ads",
+            "icon": "target",
+            "label": "Google or social media ads"
           },
           {
             "value": "other",
@@ -1047,7 +1068,7 @@
         "websiteLabel": "Company website (optional)",
         "websitePlaceholder": "yourcompany.com",
         "businessLabel": "Company and industry",
-        "businessPlaceholder": "e.g. engineering software company, manufacturer",
+        "businessPlaceholder": "e.g. dentist in Vienna, roofing company in Miami",
         "timelineLegend": "When would you like to start?",
         "timelines": [
           {
@@ -1085,13 +1106,13 @@
       "closing": "Have a website in mind? A short message is enough.",
       "meta": {
         "title": "Web development",
-        "description": "Fast custom Astro websites and web systems for engineering and technical B2B companies, by an engineer. Design, development, optimisation and tracking."
+        "description": "Fast custom websites and landing pages for service businesses, with SEO and tracking of every enquiry. One fixed price, everything in your name."
       },
       "hero": {
         "badge": "Web development",
         "titleLead": "Websites and web systems",
-        "titleHighlight": "for technical companies",
-        "description": "Design, development and optimisation by an engineer who knows the industry. One fixed price, and everything in your name.",
+        "titleHighlight": "that bring enquiries",
+        "description": "Design, build and SEO for businesses that live on calls and enquiries. One fixed price, and everything in your name.",
         "primaryCta": "Get in touch",
         "secondaryCta": "Full services"
       },

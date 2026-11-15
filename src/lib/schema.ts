@@ -45,7 +45,7 @@ export function createPersonSchema(locale: Locale = defaultLocale): WithContext<
     '@context': 'https://schema.org',
     '@type': 'Person',
     ...brandName(locale),
-    jobTitle: 'Engineer',
+    jobTitle: 'Digital marketing and web developer',
     description: siteConfig.description,
     alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Belgrade' },
     hasCredential: [
@@ -57,11 +57,12 @@ export function createPersonSchema(locale: Locale = defaultLocale): WithContext<
       },
     ],
     knowsAbout: [
-      'Coiled tubing',
-      'Nitrogen operations',
-      'Oil and gas engineering',
-      'Cloud-based industrial software',
+      'Google Ads',
+      'Meta advertising',
+      'Local SEO',
+      'Generative engine optimization',
       'Web development',
+      'Conversion tracking',
     ],
     url: siteConfig.url,
     email: siteConfig.email,
@@ -103,7 +104,7 @@ export function createProfessionalServiceSchema(locale: Locale = defaultLocale):
         }
       : {}),
     description: siteConfig.description,
-    makesOffer: ['Industrial software development', 'Web development'].map((name) => ({
+    makesOffer: ['Google Ads management', 'Social media advertising', 'Local SEO', 'AI search visibility', 'Web development'].map((name) => ({
       '@type': 'Offer' as const,
       itemOffered: { '@type': 'Service' as const, name },
     })),

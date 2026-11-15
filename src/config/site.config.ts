@@ -357,9 +357,9 @@ const siteConfig: SiteConfig = {
     },
   },
   newsletter: {
-    // On by default: the form knows whether it has keys and says so itself,
-    // in dev only. Set RESEND_API_KEY and RESEND_AUDIENCE_ID to make it work.
-    enabled: true,
+    // Off: there is no newsletter list. Set RESEND_API_KEY and
+    // RESEND_AUDIENCE_ID and turn it back on to offer one.
+    enabled: false,
   },
   blog: {
     postsPerPage: 12,

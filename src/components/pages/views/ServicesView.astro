@@ -2,8 +2,8 @@
 /**
  * ServicesView — the Services page body.
  *
- * An overview of the two areas of work: cloud-based software and tools, and web
- * development (which has its own page).
+ * An overview of the two areas of work: ads, SEO and AI search visibility, and
+ * websites (which have their own page).
  * Shared by the default-locale route (`/services`) and the locale-prefixed route
  * (`/<locale>/services`). Copy is read from `pages.services.*`.
  */
@@ -55,7 +55,7 @@ const hero = tData<{ badge: string; titleLead: string; titleHighlight: string; d
   'pages.services.hero',
   locale
 )!;
-const areas = tData<{ software: Area; web: Area }>('pages.services.areas', locale)!;
+const areas = tData<{ marketing: Area; web: Area }>('pages.services.areas', locale)!;
 const processSection = tData<{ badge: string; heading: string; lead: string; steps: ProcessStep[] }>(
   'pages.services.process',
   locale
@@ -72,7 +72,7 @@ const webUrl = localizedPath('/web', locale);
 
 // Each area: its anchor, where its button leads, and the background it sits on.
 const sections = [
-  { id: 'software', area: areas.software, href: contactUrl, bg: 'bg-background-secondary' },
+  { id: 'marketing', area: areas.marketing, href: contactUrl, bg: 'bg-background-secondary' },
   { id: 'web', area: areas.web, href: webUrl, bg: 'bg-background' },
 ];
 ---
