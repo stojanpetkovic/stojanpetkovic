@@ -11,6 +11,7 @@
  * Rendering with the default locale produces the same markup the page had
  * before this was extracted.
  */
+import { createPersonSchema, createFAQSchema } from '@/lib/schema';
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
@@ -85,6 +86,11 @@ const cta = tData<{ badge: string; heading: string; description: string; button:
 <PageLayout
   title={t('pages.about.meta.title', locale)}
   description={t('pages.about.meta.description', locale)}
+  pageType="AboutPage"
+  extraSchemas={[
+    createPersonSchema(locale),
+    createFAQSchema(faq.cards.flatMap((card) => card.items)),
+  ]}
   footerBackground="secondary"
 >
   <Hero layout="centered" size="sm" class="isolate pb-[var(--space-section-md)]" showHeroHalo>

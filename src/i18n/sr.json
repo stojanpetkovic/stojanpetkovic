@@ -110,7 +110,7 @@
     "share": "Podeli:",
     "shareOn": "Podeli na {platform}",
     "copyLink": "Kopiraj link",
-    "metaTitle": "Blog",
+    "metaTitle": "Blog: oglasi, SEO i AI pretraga",
     "metaDescription": "Saveti o oglasima, SEO-u, AI pretrazi i sajtovima koji donose klijente.",
     "heroBadge": "Svi tekstovi",
     "heroDescription": "Saveti o oglasima, SEO-u, AI pretrazi i sajtovima koji donose klijente.",
@@ -163,7 +163,7 @@
     "galleryClose": "Zatvori galeriju",
     "galleryNextImage": "Sledeća slika",
     "galleryPreviousImage": "Prethodna slika",
-    "metaTitle": "Projekti",
+    "metaTitle": "Projekti: sajtovi i kampanje",
     "metaDescription": "Sajtovi, SEO i oglasi koje sam radio za uslužne firme, sa brojkama: upiti, pozivi, pozicije na Google-u i Lighthouse ocene.",
     "heroBadge": "Portfolio",
     "heroDescription": "Firme kojima sam pomogao da dođu do više klijenata.",
@@ -736,7 +736,7 @@
     },
     "about": {
       "meta": {
-        "title": "O meni — Stojan Petković",
+        "title": "O meni: oglasi, SEO i sajtovi",
         "description": "Stojan Petković: oglasi, SEO, AI vidljivost i brzi sajtovi za uslužne firme. Radiš direktno sa mnom, a svaki rezultat vidiš u brojkama."
       },
       "hero": {
@@ -1002,7 +1002,7 @@
     },
     "contact": {
       "meta": {
-        "title": "Kontakt",
+        "title": "Kontakt i besplatna provera sajta",
         "description": "Oglasi, SEO, AI pretraga ili nov sajt: napiši mi šta ti treba. Odgovaram u roku od jednog radnog dana."
       },
       "hero": {
@@ -1116,7 +1116,7 @@
       "glance": {"label": "Ukratko", "items": [{"label": "Tehnologije", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Cena", "value": "Jedna fiksna cena, dogovorena pre početka"}, {"label": "Vlasništvo", "value": "Kod, domen i hosting na tvoje ime"}, {"label": "Odgovor", "value": "U roku od jednog radnog dana"}]},
       "closing": "Imaš sajt na umu? Dovoljno je par rečenica.",
       "meta": {
-        "title": "Izrada sajtova",
+        "title": "Izrada sajtova za uslužne firme",
         "description": "Brzi sajtovi i landing strane po meri za uslužne firme, sa SEO-om i praćenjem svakog upita. Fiksna cena, sve na tvoje ime."
       },
       "hero": {
@@ -1152,7 +1152,7 @@
     },
     "home": {
       "meta": {
-        "title": "Više klijenata sa interneta",
+        "title": "Više poziva i upita sa interneta",
         "description": "Google i Facebook oglasi, lokalni SEO, AI pretraga i brz sajt za uslužne firme. Svaki poziv i upit se meri. Prva provera je besplatna."
       },
       "hero": {

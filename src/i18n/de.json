@@ -110,7 +110,7 @@
     "share": "Teilen:",
     "shareOn": "Auf {platform} teilen",
     "copyLink": "Link kopieren",
-    "metaTitle": "Blog",
+    "metaTitle": "Blog: Anzeigen, SEO und KI-Suche",
     "metaDescription": "Praxistipps zu Anzeigen, SEO, KI-Suche und Websites, die Kunden bringen.",
     "heroBadge": "Alle Beiträge",
     "heroDescription": "Praxistipps zu Anzeigen, SEO, KI-Suche und Websites, die Kunden bringen.",
@@ -163,7 +163,7 @@
     "galleryClose": "Galerie schließen",
     "galleryNextImage": "Nächstes Bild",
     "galleryPreviousImage": "Vorheriges Bild",
-    "metaTitle": "Projekte",
+    "metaTitle": "Projekte: Websites und Kampagnen",
     "metaDescription": "Websites, SEO und Anzeigen, die ich für Dienstleister umgesetzt habe, mit Zahlen: Anfragen, Anrufe, Google-Rankings und Lighthouse-Werte.",
     "heroBadge": "Portfolio",
     "heroDescription": "Unternehmen, denen ich zu mehr Kunden verholfen habe.",
@@ -736,7 +736,7 @@
     },
     "about": {
       "meta": {
-        "title": "Über mich — Stojan Petkovic",
+        "title": "Über mich: Anzeigen, SEO, Websites",
         "description": "Stojan Petkovic: Anzeigen, SEO, KI-Sichtbarkeit und schnelle Websites für Dienstleister. Sie arbeiten direkt mit mir und sehen jedes Ergebnis in Zahlen."
       },
       "hero": {
@@ -864,7 +864,7 @@
     },
     "services": {
       "meta": {
-        "title": "Leistungen: Anzeigen, SEO, KI-Suche und Websites",
+        "title": "Leistungen: Anzeigen, SEO, Websites",
         "description": "Google- und Meta-Anzeigen, lokales SEO, Sichtbarkeit in der KI-Suche und schnelle Websites für Dienstleister. Kostenloser Check, Festpreis."
       },
       "areas": {
@@ -1002,7 +1002,7 @@
     },
     "contact": {
       "meta": {
-        "title": "Kontakt",
+        "title": "Kontakt und kostenloser Website-Check",
         "description": "Anzeigen, SEO, KI-Suche oder eine neue Website: Schreiben Sie mir, was Sie brauchen. Antwort innerhalb eines Werktags."
       },
       "hero": {
@@ -1116,7 +1116,7 @@
       "glance": {"label": "Auf einen Blick", "items": [{"label": "Technik", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Preis", "value": "Ein Festpreis, vor Arbeitsbeginn vereinbart"}, {"label": "Eigentum", "value": "Code, Domain und Hosting auf Ihren Namen"}, {"label": "Antwort", "value": "Innerhalb eines Werktags"}]},
       "closing": "Sie haben eine Website im Kopf? Ein paar Sätze genügen.",
       "meta": {
-        "title": "Websites erstellen lassen",
+        "title": "Websites für Dienstleister",
         "description": "Schnelle Websites und Landingpages nach Maß für Dienstleister, mit SEO und Tracking jeder Anfrage. Festpreis, alles auf Ihren Namen."
       },
       "hero": {

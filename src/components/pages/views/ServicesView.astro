@@ -7,6 +7,7 @@
  * Shared by the default-locale route (`/services`) and the locale-prefixed route
  * (`/<locale>/services`). Copy is read from `pages.services.*`.
  */
+import { createServiceSchema, createFAQSchema } from '@/lib/schema';
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
@@ -79,6 +80,18 @@ const sections = [
 <PageLayout
   title={t('pages.services.meta.title', locale)}
   description={t('pages.services.meta.description', locale)}
+  extraSchemas={[
+    ...[areas.marketing, areas.web].map((area, i) =>
+      createServiceSchema({
+        name: area.heading,
+        description: area.paragraphs.join(' '),
+        url: new URL(`${localizedPath('/services', locale)}#${i === 0 ? 'marketing' : 'web'}`, Astro.site).toString(),
+        locale,
+        serviceType: area.badge,
+      })
+    ),
+    createFAQSchema(faq.cards.flatMap((card) => card.items)),
+  ]}
   footerBackground="secondary"
 >
   <Hero layout="centered" size="sm" class="isolate services-hero pb-[calc(var(--space-section-sm)_+_var(--space-stack-lg))]" showHeroHalo>

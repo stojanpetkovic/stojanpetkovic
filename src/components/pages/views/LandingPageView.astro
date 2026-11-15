@@ -24,6 +24,7 @@
  * It is noindex and kept out of the sitemap: it repeats the services page for
  * ad traffic and should not compete with it in search.
  */
+import { createFAQSchema } from '@/lib/schema';
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import LandingLayout from '@/layouts/LandingLayout.astro';
@@ -121,7 +122,11 @@ const formHref = isHome ? localizedPath('/contact', locale) : '#form';
 
 const Layout = isHome ? LandingLayout : BaseLayout;
 const layoutProps = isHome
-  ? { includePersonSchema: true, includeProfessionalServiceSchema: true }
+  ? {
+      includePersonSchema: true,
+      includeProfessionalServiceSchema: true,
+      extraSchemas: [createFAQSchema(faqItems)],
+    }
   : { noindex: true, nofollow: true };
 
 // One image per case, in the order the copy lists them.

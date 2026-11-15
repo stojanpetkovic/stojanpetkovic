@@ -110,7 +110,7 @@
     "share": "Share:",
     "shareOn": "Share on {platform}",
     "copyLink": "Copy link",
-    "metaTitle": "Blog",
+    "metaTitle": "Blog: ads, SEO and AI search tips",
     "metaDescription": "Practical advice on ads, SEO, AI search and websites that bring in customers.",
     "heroBadge": "All posts",
     "heroDescription": "Practical advice on ads, SEO, AI search and websites that bring in customers.",
@@ -163,7 +163,7 @@
     "galleryClose": "Close lightbox",
     "galleryNextImage": "Next image",
     "galleryPreviousImage": "Previous image",
-    "metaTitle": "Projects",
+    "metaTitle": "Projects: websites and campaigns",
     "metaDescription": "Websites, SEO and ads I have built for service businesses, with the numbers: enquiries, calls, Google rankings and Lighthouse scores.",
     "heroBadge": "Selected work",
     "heroDescription": "Businesses I have helped win more customers.",
@@ -736,7 +736,7 @@
     },
     "about": {
       "meta": {
-        "title": "About — Stojan Petkovic",
+        "title": "About me: ads, SEO and websites",
         "description": "Stojan Petkovic: ads, SEO, AI visibility and fast websites for service businesses. You work with me directly and see every result in numbers."
       },
       "hero": {
@@ -1002,7 +1002,7 @@
     },
     "contact": {
       "meta": {
-        "title": "Contact",
+        "title": "Contact and free website audit",
         "description": "Ads, SEO, AI search or a new website: tell me what you need. I reply within one business day."
       },
       "hero": {
@@ -1116,7 +1116,7 @@
       "glance": {"label": "At a glance", "items": [{"label": "Stack", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Price", "value": "One fixed price, agreed before work starts"}, {"label": "Ownership", "value": "Code, domain and hosting in your name"}, {"label": "Reply", "value": "Within one business day"}]},
       "closing": "Got a website in mind? A few sentences are enough.",
       "meta": {
-        "title": "Website design and development",
+        "title": "Websites for service businesses",
         "description": "Fast custom websites and landing pages for service businesses, with SEO and tracking of every lead. One flat price, everything in your name."
       },
       "hero": {

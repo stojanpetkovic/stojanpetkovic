@@ -8,6 +8,7 @@
  * via CLI for users who want the full landing page experience.
  */
 import BaseLayout from './BaseLayout.astro';
+import type { Thing, WithContext } from 'schema-dts';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
 
@@ -22,6 +23,9 @@ interface Props {
   includePersonSchema?: boolean;
   includeProfessionalServiceSchema?: boolean;
   preloadImage?: string;
+  /** schema.org type of the page and extra JSON-LD, forwarded to BaseLayout. */
+  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'ProfilePage';
+  extraSchemas?: WithContext<Thing>[];
 }
 
 const {
@@ -35,6 +39,8 @@ const {
   includePersonSchema = false,
   includeProfessionalServiceSchema = false,
   preloadImage,
+  pageType,
+  extraSchemas,
 } = Astro.props;
 ---
 
@@ -49,6 +55,8 @@ const {
   includePersonSchema={includePersonSchema}
   includeProfessionalServiceSchema={includeProfessionalServiceSchema}
   preloadImage={preloadImage}
+  pageType={pageType}
+  extraSchemas={extraSchemas}
 >
   <Header
     slot="header"

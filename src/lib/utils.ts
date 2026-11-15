@@ -1,12 +1,21 @@
 import { defaultLocale } from '@/i18n';
 
 /**
+ * The BCP 47 tag to hand to `Intl`. Plain `sr` makes ICU write Serbian in
+ * Cyrillic ("1. октобар 2026."); the site is Latin-only, so Serbian always
+ * goes out as `sr-Latn`.
+ */
+export function intlLocale(locale: string): string {
+  return locale === 'sr' ? 'sr-Latn' : locale;
+}
+
+/**
  * Format a date for display. Defaults to the site's default locale so dates
  * read correctly per language (e.g. "24. Juni 2026" on a German page, "2026年6月24日"
  * on a Chinese one); callers that know the active locale should pass it.
  */
 export function formatDate(date: Date, locale: string = defaultLocale): string {
-  return new Intl.DateTimeFormat(locale, {
+  return new Intl.DateTimeFormat(intlLocale(locale), {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

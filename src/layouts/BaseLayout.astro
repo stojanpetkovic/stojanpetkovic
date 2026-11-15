@@ -7,10 +7,10 @@ import JsonLd from '@/components/seo/JsonLd.astro';
 import Analytics from '@/components/layout/Analytics.astro';
 import ConsentBanner from '@/components/ui/overlay/ConsentBanner';
 import CursorTrail from '@/components/effects/CursorTrail.astro';
-import { createWebsiteSchema, createOrganizationSchema, createPersonSchema, createProfessionalServiceSchema } from '@/lib/schema';
+import { createWebsiteSchema, createOrganizationSchema, createPersonSchema, createProfessionalServiceSchema, createWebPageSchema } from '@/lib/schema';
 import type { Thing, WithContext } from 'schema-dts';
 import siteConfig from '@/config/site.config';
-import { t, getLocaleFromPath } from '@/i18n';
+import { t, getLocaleFromPath, localizedPath } from '@/i18n';
 import { getSiteName } from '@/lib/site-name';
 import { getRssUrl } from '@/lib/blog';
 
@@ -31,6 +31,8 @@ interface Props {
   includePersonSchema?: boolean;
   includeProfessionalServiceSchema?: boolean;
   extraSchemas?: WithContext<Thing>[];
+  /** schema.org type of the page itself (AboutPage, ContactPage, CollectionPage…). */
+  pageType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage' | 'ProfilePage';
   eagerReveal?: boolean;
   /** An image that is the largest thing on first paint (a video poster, say). Preloaded at high priority. */
   preloadImage?: string;
@@ -50,6 +52,7 @@ const {
   includePersonSchema = false,
   includeProfessionalServiceSchema = false,
   extraSchemas = [],
+  pageType = 'WebPage',
   eagerReveal = false,
   preloadImage,
   localeAlternates,
@@ -70,6 +73,32 @@ if (includeProfessionalServiceSchema) {
   schemas.push(createProfessionalServiceSchema(locale));
 }
 schemas.push(...extraSchemas);
+
+// Every indexable page describes itself: type, language, site and, one level
+// below home, a breadcrumb back to it. Deeper pages carry their own
+// BreadcrumbList from the Breadcrumbs component.
+if (!noindex) {
+  const homePath = localizedPath('/', locale);
+  const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+  const depth = Astro.url.pathname.replace(homePath, '/').split('/').filter(Boolean).length;
+  const pageName = title ?? siteName;
+  schemas.push(
+    createWebPageSchema({
+      type: pageType,
+      name: pageName,
+      description,
+      url: pageUrl,
+      locale,
+      breadcrumb:
+        depth === 1
+          ? [
+              { name: t('nav.items.home', locale), url: new URL(homePath, Astro.site).toString() },
+              { name: pageName, url: pageUrl },
+            ]
+          : undefined,
+    }) as WithContext<Thing>
+  );
+}
 const commentsConfig = siteConfig.articleFeatures?.comments;
 
 let commentsPreconnectHref: string | null = null;
@@ -93,7 +122,7 @@ if (commentsConfig?.enabled) {
 ---
 
 <!doctype html>
-<html lang={locale} class="scroll-smooth" data-theme="blue" data-theme-mode="light">
+<html lang={locale === 'sr' ? 'sr-Latn' : locale} class="scroll-smooth" data-theme="blue" data-theme-mode="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

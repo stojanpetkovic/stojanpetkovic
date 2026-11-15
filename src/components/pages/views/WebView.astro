@@ -9,6 +9,7 @@
  * the projects heading and the quotes are read from `pages.home.portfolio` and
  * `pages.home.testimonials`, so each piece of text lives once.
  */
+import { createServiceSchema } from '@/lib/schema';
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
@@ -58,6 +59,15 @@ const contactUrl = localizedPath('/contact', locale);
 <PageLayout
   title={t('pages.web.meta.title', locale)}
   description={t('pages.web.meta.description', locale)}
+  extraSchemas={[
+    createServiceSchema({
+      name: t('pages.web.meta.title', locale),
+      description: t('pages.web.meta.description', locale),
+      url: new URL(localizedPath('/web', locale), Astro.site).toString(),
+      locale,
+      serviceType: 'Web design',
+    }),
+  ]}
   footerBackground="secondary"
 >
   <!-- Header: copy on the left, a small fact panel on the right -->
