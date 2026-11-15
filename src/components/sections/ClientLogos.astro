@@ -1,102 +1,60 @@
 ---
 /**
- * The brands Stojan has worked for, as a card that matches the other home
- * sections: numbered eyebrow and heading on the left, figures on the right,
- * and two rows of logo tiles drifting in opposite directions inside the card.
- * Tiles are greyscale until hovered. Each row is duplicated once so the loop
- * is seamless; the copy is hidden from assistive tech, and with reduced motion
- * one row sits still and wraps instead.
+ * A quiet "trusted by" strip: a small caption over one row of client logos
+ * drifting sideways, greyscale until hovered, faded and blurred at the edges
+ * of the content width. The row is duplicated once so the loop is seamless;
+ * the copy is hidden from assistive tech, and with reduced motion the row
+ * sits still and wraps instead.
  */
 import { Image } from 'astro:assets';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import { clients, type Client } from '@/config/clients';
-import { t, localizedPath } from '@/i18n';
+import { clients } from '@/config/clients';
+import { t } from '@/i18n';
 
 interface Props {
   locale: string;
-  /** Section number shown in the eyebrow, e.g. "01". */
-  num: string;
 }
 
-const { locale, num } = Astro.props;
+const { locale } = Astro.props;
 const C = (key: string) => t(`pages.home.clients.${key}`, locale);
-
-// Both rows carry every client, the second starting halfway through the list,
-// so each row is wider than the card and the loop never shows a gap.
-const half = Math.ceil(clients.length / 2);
-const rows: Client[][] = [clients, [...clients.slice(half), ...clients.slice(0, half)]];
-
-const stats = [
-  { value: `${clients.length}+`, label: C('statBrands') },
-  { value: '2', label: C('statMarkets') },
-];
 ---
 
-<section class="client-logos relative z-10 border-t border-border bg-background-secondary py-[var(--space-section-md)]" aria-labelledby="client-logos-heading">
+<section class="client-logos relative z-10 border-t border-border bg-background py-12 md:py-14" aria-labelledby="client-logos-heading">
   <div class="mx-auto max-w-6xl px-4 sm:px-6">
-    <div class="relative overflow-hidden rounded-3xl border border-border bg-card shadow-lg" data-reveal>
-      <div class="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-500/10 blur-3xl" aria-hidden="true"></div>
+    <h2 id="client-logos-heading" class="text-center font-mono text-xs font-semibold uppercase tracking-[0.2em] text-foreground-subtle">{C('heading')}</h2>
 
-      <div class="relative grid gap-8 px-6 pt-8 sm:px-10 sm:pt-10 lg:grid-cols-[1.5fr_1fr] lg:items-end">
-        <div>
-          <p class="section-eyebrow"><span class="section-eyebrow-num">{num}</span><span>{C('badge')}</span></p>
-          <h2 id="client-logos-heading" class="font-display text-3xl font-bold tracking-tight text-foreground text-balance md:text-4xl">{C('heading')}</h2>
-          <p class="mt-3 max-w-xl text-foreground-muted leading-relaxed">{C('lead')}</p>
-        </div>
-        <dl class="grid grid-cols-2 gap-3">
-          {stats.map((s) => (
-            <div class="rounded-xl border border-l-4 border-border border-l-brand-600 bg-background px-4 py-3">
-              <dt class="sr-only">{s.label}</dt>
-              <dd class="font-display text-3xl font-bold text-brand-600 dark:text-brand-400">{s.value}</dd>
-              <dd class="mt-1 text-xs leading-snug text-foreground-muted sm:text-sm">{s.label}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-
-      <div class="cl-viewport relative mt-8 space-y-4 overflow-hidden py-2">
-        <span class="cl-edge cl-edge-l" aria-hidden="true"></span>
-        <span class="cl-edge cl-edge-r" aria-hidden="true"></span>
-        {rows.map((row, r) => (
-          <div class:list={['cl-track', r === 1 && 'cl-reverse']} aria-hidden={r === 1 ? 'true' : undefined}>
-            {[0, 1].map((copy) => (
-              <ul class="cl-row" role="list" aria-hidden={copy === 1 ? 'true' : undefined}>
-                {row.map((c) => (
-                  <li>
-                    <a
-                      href={c.url}
-                      target="_blank"
-                      rel="noopener"
-                      tabindex={copy === 1 || r === 1 ? -1 : undefined}
-                      class="cl-tile"
-                      aria-label={`${c.name}: ${C('visit')}`}
-                    >
-                      {c.logo ? (
-                        <Image src={c.logo} alt="" height={120} class="cl-img" loading="lazy" />
-                      ) : (
-                        <span class="cl-mark">
-                          <Icon name={c.icon} size="md" class="cl-ico" />
-                          <span class="flex flex-col items-start leading-none">
-                            <span class="cl-name">{c.name}</span>
-                            {c.tagline && <span class="cl-tag">{c.tagline}</span>}
-                          </span>
-                        </span>
-                      )}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+    <div class="cl-viewport relative mt-8 overflow-hidden">
+      <span class="cl-edge cl-edge-l" aria-hidden="true"></span>
+      <span class="cl-edge cl-edge-r" aria-hidden="true"></span>
+      <div class="cl-track">
+        {[0, 1].map((copy) => (
+          <ul class="cl-row" role="list" aria-hidden={copy === 1 ? 'true' : undefined}>
+            {clients.map((c) => (
+              <li>
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener"
+                  tabindex={copy === 1 ? -1 : undefined}
+                  class="cl-item"
+                  aria-label={`${c.name}: ${C('visit')}`}
+                >
+                  {c.logo ? (
+                    <Image src={c.logo} alt="" height={120} class="cl-img" loading="lazy" />
+                  ) : (
+                    <span class="cl-mark">
+                      <Icon name={c.icon} size="md" class="cl-ico" />
+                      <span class="flex flex-col items-start leading-none">
+                        <span class="cl-name">{c.name}</span>
+                        {c.tagline && <span class="cl-tag">{c.tagline}</span>}
+                      </span>
+                    </span>
+                  )}
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         ))}
-      </div>
-
-      <div class="relative mt-6 flex flex-col items-start justify-between gap-3 border-t border-border bg-background-secondary/60 px-6 py-4 sm:flex-row sm:items-center sm:px-10">
-        <p class="font-mono text-[11px] font-semibold uppercase tracking-widest text-foreground-subtle">{C('services')}</p>
-        <a href={localizedPath('/contact', locale)} class="group inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-300">
-          {C('cta')}
-          <Icon name="arrow-right" size="sm" class="transition-transform group-hover:translate-x-0.5" />
-        </a>
       </div>
     </div>
   </div>
@@ -104,14 +62,14 @@ const stats = [
 
 <style>
   .cl-viewport {
-    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
   }
   .cl-edge {
     position: absolute;
     top: 0;
     bottom: 0;
     z-index: 2;
-    width: 12%;
+    width: 14%;
     pointer-events: none;
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -131,43 +89,30 @@ const stats = [
     width: max-content;
     animation: cl-scroll 45s linear infinite;
   }
-  .cl-reverse { animation-direction: reverse; animation-duration: 52s; }
   .cl-viewport:hover .cl-track { animation-play-state: paused; }
   .cl-row {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding-right: 1rem;
+    gap: 3.5rem;
+    padding-right: 3.5rem;
   }
   @keyframes cl-scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
-  .cl-tile {
+  .cl-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 12.5rem;
-    height: 5.5rem;
-    padding: 0.75rem 1.25rem;
-    border: 1px solid var(--color-border);
-    border-radius: 1rem;
-    background: var(--color-background);
+    height: 3.5rem;
     filter: grayscale(1);
-    opacity: 0.75;
-    transition: filter 200ms, opacity 200ms, border-color 200ms, transform 200ms, box-shadow 200ms;
+    opacity: 0.6;
+    transition: filter 200ms, opacity 200ms;
   }
-  .cl-tile:hover,
-  .cl-tile:focus-visible {
-    filter: none;
-    opacity: 1;
-    border-color: color-mix(in srgb, var(--color-brand-600) 45%, var(--color-border));
-    box-shadow: var(--theme-shadow-sm);
-    transform: translateY(-2px);
-  }
-  .cl-img { max-height: 3.5rem; width: auto; max-width: 100%; object-fit: contain; }
+  .cl-item:hover,
+  .cl-item:focus-visible { filter: none; opacity: 1; }
+  .cl-img { height: 3rem; width: auto; max-width: 10rem; object-fit: contain; }
   .cl-mark { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--color-foreground); }
-  .cl-ico { color: var(--color-brand-600); flex-shrink: 0; }
+  .cl-ico { color: var(--color-foreground-muted); flex-shrink: 0; }
   .cl-name {
     font-family: var(--font-display, inherit);
     font-weight: 800;
@@ -184,17 +129,12 @@ const stats = [
     color: var(--color-foreground-muted);
     white-space: nowrap;
   }
-  @media (max-width: 639px) {
-    .cl-tile { width: 10rem; height: 4.75rem; }
-    .cl-img { max-height: 3rem; }
-  }
   @media (prefers-reduced-motion: reduce) {
-    .cl-track { animation: none; width: auto; justify-content: center; flex-wrap: wrap; padding: 0 1.5rem; }
+    .cl-track { animation: none; width: auto; justify-content: center; }
     .cl-track > .cl-row[aria-hidden] { display: none; }
-    .cl-track.cl-reverse { display: none; }
-    .cl-row { flex-wrap: wrap; justify-content: center; padding-right: 0; }
+    .cl-row { flex-wrap: wrap; justify-content: center; padding-right: 0; gap: 2rem 2.5rem; }
     .cl-viewport { mask-image: none; }
     .cl-edge { display: none; }
-    .cl-tile { transition: none; }
+    .cl-item { transition: none; }
   }
 </style>

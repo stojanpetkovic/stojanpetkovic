@@ -113,7 +113,7 @@ const answer = pillars ?? {
 
 // Section numbers for the eyebrows, in page order.
 const sectionOrder = isHome
-  ? ['clients', 'problem', 'answer', 'results', 'testimonials', 'industries', 'report', 'process', 'form']
+  ? ['problem', 'answer', 'results', 'testimonials', 'industries', 'report', 'process', 'form']
   : ['problem', 'answer', 'results', 'report', 'process', 'form'];
 const num = (id: string) => String(sectionOrder.indexOf(id) + 1).padStart(2, '0');
 
@@ -207,8 +207,6 @@ const year = new Date().getFullYear();
       </dl>
     </Hero>
   )}
-
-  {isHome && <ClientLogos locale={locale} num={num('clients')} />}
 
   <!-- Hero (landing page) -->
   {!isHome && <section class="lp-hero relative overflow-hidden bg-background-secondary pb-16 pt-12 sm:pt-16 lg:pb-24 lg:pt-20">
@@ -375,6 +373,9 @@ const year = new Date().getFullYear();
       <p class="text-center text-sm italic text-foreground-muted">{L('results.note')}</p>
     </div>
   </section>
+
+  <!-- Home: a quiet greyscale strip of client logos, as proof next to the results. -->
+  {isHome && <ClientLogos locale={locale} />}
 
   <!-- Home: what clients say, on the plain background. -->
   {testimonials && (
