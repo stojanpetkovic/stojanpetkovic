@@ -1,0 +1,87 @@
+---
+/**
+ * Phones only: two actions pinned to the foot of the screen on every page.
+ * "Free check" goes to the contact page (or to the page's own #form when it
+ * has one, hiding while that form is on screen); WhatsApp opens a chat with
+ * the site's phone number. Plain `wa.me` link on purpose, so the webtano
+ * leads.js counts the click like every other WhatsApp link.
+ */
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import siteConfig from '@/config/site.config';
+import { t, localizedPath, defaultLocale } from '@/i18n';
+
+interface Props {
+  locale?: string;
+}
+
+const { locale = defaultLocale } = Astro.props;
+const phoneDigits = (siteConfig.phone ?? '').replace(/[^\d]/g, '');
+const whatsappHref = phoneDigits ? `https://wa.me/${phoneDigits}` : '';
+---
+
+<div class="mab-spacer md:hidden" aria-hidden="true"></div>
+<nav class="mab fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-md md:hidden" aria-label={t('mobileBar.label', locale)} data-mobile-bar>
+  <div class="grid grid-cols-2 gap-2 px-3 pt-3">
+    <a href={localizedPath('/contact', locale)} class="mab-btn btn-primary" data-mobile-check>
+      <Icon name="search-check" size="sm" />
+      {t('mobileBar.check', locale)}
+    </a>
+    {whatsappHref && (
+      <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="mab-btn mab-wa">
+        <Icon name="whatsapp" size="sm" />
+        {t('mobileBar.whatsapp', locale)}
+      </a>
+    )}
+  </div>
+</nav>
+
+<style>
+  .mab {
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    transition: transform 200ms ease;
+  }
+  .mab[data-hidden] { transform: translateY(110%); }
+  .mab-spacer { height: calc(4.5rem + env(safe-area-inset-bottom)); }
+  .mab-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 2.875rem;
+    padding: 0 0.75rem;
+    border-radius: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  /* WhatsApp's own green, so the button is recognised at a glance. */
+  .mab-wa {
+    background: #1fa855;
+    color: #fff;
+  }
+  .mab-wa:hover { background: #198f48; }
+  /* Keep the back-to-top button clear of the bar on phones. */
+  @media (max-width: 767px) {
+    :global(#back-to-top) { bottom: calc(5.25rem + env(safe-area-inset-bottom)) !important; right: 1rem !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mab { transition: none; }
+  }
+</style>
+
+<script>
+  // A page with its own form (the landing page) sends the check button there
+  // and tucks the bar away while the form is on screen.
+  function initMobileBar(): void {
+    const bar = document.querySelector<HTMLElement>('[data-mobile-bar]');
+    const form = document.getElementById('form');
+    if (!bar || !form) return;
+    bar.querySelector<HTMLAnchorElement>('[data-mobile-check]')?.setAttribute('href', '#form');
+    if (typeof IntersectionObserver === 'undefined') return;
+    new IntersectionObserver(
+      (entries) => bar.toggleAttribute('data-hidden', entries.some((entry) => entry.isIntersecting)),
+      { rootMargin: '0px 0px -20% 0px' }
+    ).observe(form);
+  }
+  initMobileBar();
+</script>
