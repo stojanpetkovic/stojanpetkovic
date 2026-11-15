@@ -24,8 +24,8 @@ const C = (key: string) => t(`pages.home.clients.${key}`, locale);
 const countries = new Set(clients.map((c) => c.country)).size;
 ---
 
-<section class="client-wall relative z-10 border-b border-border bg-background pb-[var(--space-section-lg)] pt-10 md:pt-14" aria-labelledby="client-wall-heading">
-  <div class="mx-auto flex max-w-6xl flex-col gap-10 px-4 sm:px-6">
+<section class="client-wall relative z-10 overflow-hidden border-y border-border pb-[var(--space-section-lg)] pt-14 md:pt-20" aria-labelledby="client-wall-heading">
+  <div class="relative mx-auto flex max-w-6xl flex-col gap-10 px-4 sm:px-6">
     <div class="section-head" data-reveal>
       <div>
         <p class="section-eyebrow"><span class="section-eyebrow-num">{num}</span><span>{C('badge')}</span></p>
@@ -104,6 +104,21 @@ const countries = new Set(clients.map((c) => c.country)).size;
 </section>
 
 <style>
+  /* Soft band with a faint brand grid fading out from the top, so this section
+     reads apart from the white hero foot above and the white section below. */
+  .client-wall { background-color: var(--color-background-secondary); }
+  .client-wall::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--color-brand-600) 8%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--color-brand-600) 8%, transparent) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 85% 75% at 50% 0%, #000 25%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 0%, #000 25%, transparent 80%);
+    pointer-events: none;
+  }
   .cw-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -156,8 +171,9 @@ const countries = new Set(clients.map((c) => c.country)).size;
     position: relative;
     display: flex;
     align-items: flex-start;
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 0.5rem;
+    gap: 0.4rem;
     min-height: 1.5rem;
   }
   .cw-logo-wrap {
