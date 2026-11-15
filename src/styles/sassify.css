@@ -360,6 +360,18 @@ html:root[data-theme='blue'] .focus-card:hover {
   border-color: var(--color-brand-300);
   box-shadow: var(--theme-shadow-lg);
 }
+/* A problem card: the same card with a warning-red rule, for what is going wrong. */
+html:root[data-theme='blue'] .focus-card-alert::before {
+  background: linear-gradient(90deg, var(--color-destructive), color-mix(in srgb, var(--color-destructive) 40%, transparent));
+}
+html:root[data-theme='blue'] .focus-card-alert:hover {
+  border-color: color-mix(in srgb, var(--color-destructive) 35%, var(--color-border));
+}
+@media (prefers-reduced-motion: reduce) {
+  html:root[data-theme='blue'] .focus-card:hover {
+    transform: none;
+  }
+}
 
 html:root[data-theme='blue'] .why-band {
   background:
