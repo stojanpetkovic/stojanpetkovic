@@ -12,7 +12,7 @@ import Dialog from '@/components/ui/overlay/Dialog';
 import Button from '@/components/ui/form/Button';
 import Switch from '@/components/ui/form/Switch';
 import type { ConsentUIText } from '@/lib/consent.types';
-import { tData, getLocaleFromPath } from '@/i18n';
+import { tData, getLocaleFromPath, localizedPath } from '@/i18n';
 
 interface Props {
   position?: 'top' | 'bottom';
@@ -29,12 +29,13 @@ const {
 } = Astro.props;
 
 const consentEnabled = PUBLIC_CONSENT_ENABLED;
-const privacyPolicyUrl = PUBLIC_PRIVACY_POLICY_URL;
 
 // Merge UI text: the page's locale file (`consent.ui`) overrides the English
 // defaults in consent.config, and props override both. Without this the
 // banner spoke English on every locale.
 const locale = getLocaleFromPath(Astro.url.pathname);
+// The site's own Privacy Policy, in the page's language, unless an env var points elsewhere.
+const privacyPolicyUrl = PUBLIC_PRIVACY_POLICY_URL || localizedPath('/privacy', locale);
 const localeUi = tData<Partial<ConsentUIText>>('consent.ui', locale) ?? {};
 const localeCategories =
   tData<Record<string, { label?: string; description?: string }>>('consent.categories', locale) ?? {};

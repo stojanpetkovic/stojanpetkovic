@@ -60,7 +60,8 @@
       "blog": "Blog",
       "about": "About",
       "contact": "Contact",
-      "terms": "Terms of use"
+      "terms": "Terms of use",
+      "privacy": "Privacy Policy"
     }
   },
   "common": {
@@ -279,94 +280,96 @@
     "terms": {
       "meta": {
         "title": "Terms of use",
-        "description": "Terms of use of the site: a personal, independent site, for information only, with no professional advice and no business offer, a limitation of liability and a statement of independence and conflicts of interest."
+        "description": "Terms of use for stojanpetkovic.com: who provides the services, how they are agreed, what is not guaranteed, ownership and limitation of liability."
       },
       "hero": {
         "badge": "Site rules",
         "title": "Terms of use",
-        "description": "What this site is, what it is not, and the terms on which it is used."
+        "description": "Who is behind the site, how services are agreed, and the terms on which the site is used."
       },
-      "updated": "Last changed: 17 October 2026.",
-      "intro": "These terms govern the use of the site stojanpetkovic.com (the site). By using the site you accept them. If you do not agree, do not use the site.",
+      "updated": "Last updated: 15 November 2026.",
+      "intro": "These terms govern the use of stojanpetkovic.com (the site). By using the site you accept them. If you do not agree with them, do not use the site.",
+      "contactLink": "Contact page",
       "sections": [
         {
           "title": "1. Who runs the site",
           "paragraphs": [
-            "The site is run by Stojan Petković, a private individual (the author), as a personal project. It is not a company site, does not represent a legal entity and is not run on behalf of any employer, client or other legal person."
+            "The site is run by Stojan Petkovic of Zrenjanin, Serbia (the author). Contact: {email}."
           ]
         },
         {
-          "title": "2. Independence and conflicts of interest",
+          "title": "2. Services",
           "paragraphs": [
-            "The site and all content on it (projects, blog, tools, calculators, models, courses and texts) is made by the author in his own name and at his own expense. Therefore:"
+            "The site describes digital marketing and website services: Google and social media advertising, SEO, AI search visibility, websites and landing pages, AI chat, and tracking of enquiries and calls."
           ],
           "items": [
-            "No data, document, procedure, software, estimate, business or technical information or other material that belongs to an employer, a client or a third party and has not been published is used. The data in the projects come from publicly released sources named with each project.",
-            "Nothing on the site represents the view, policy, data, estimate, recommendation or statement of any employer, company or institution. The author does not speak on their behalf and has no authority to do so. The author's employer has no connection with the site in any way and is not responsible for its content.",
-            "Companies, institutions, products and sources are mentioned only to identify public sources and facts. This is no endorsement, recommendation, cooperation or criticism.",
-            "The content is not an offer, an advertisement or an invitation to a business relationship in the field of the author's employer, nor is it meant to compete with the employer or its clients.",
-            "Work on the site must not affect, and does not affect, the author's performance of his duties to his employer.",
-            "Any additional engagement of the author must comply with his duties to his employer, with the law and with trade secrets, with all necessary consents, and is agreed separately, outside this site and its content.",
-            "If you believe any content improperly uses confidential information, or gives the impression of speaking on behalf of a company, get in touch through the Contact page. The content will be checked promptly and, if needed, corrected or removed."
+            "Descriptions of services, prices and examples on the site are not an offer in the legal sense. Each engagement is agreed separately, in a written proposal or contract that sets the scope, timing, price and payment.",
+            "Sending an enquiry or asking for a free check creates no contract and no obligation for either side.",
+            "The author may decline any enquiry without giving a reason.",
+            "Where a contract says otherwise, the contract applies."
           ]
         },
         {
-          "title": "3. For information only",
+          "title": "3. Results and guarantees",
           "paragraphs": [
-            "The content of the site is general and informational. It is not engineering, technical, legal, financial, investment or other professional advice. It is not a design, a feasibility study, a resource assessment or an expert opinion. It creates no client–adviser relationship and no obligation on the author. Before any decision, consult qualified professionals and the competent authorities."
+            "Results shown on the site (enquiries, calls, scores and rankings) are real for the clients and periods named, but they are not a promise of the same result for others. Google rankings, AI assistant recommendations and ad performance depend on Google, Meta and other platforms, the market, competitors and budget, which the author does not control. No number of enquiries, calls, sales or rankings is guaranteed unless expressly agreed in writing."
           ]
         },
         {
-          "title": "4. Tools, calculators and models",
+          "title": "4. Ad budget and accounts",
           "paragraphs": [
-            "The tools, calculators and models on the site give approximate results from the stated formulas and assumptions. They are no substitute for design calculations, company procedures, manufacturers' instructions, regulations or the instruction of the responsible person. Do not use them as the only basis for work on wells, work under pressure, work with nitrogen or other safety-critical actions.",
-            "Errors, incompleteness and out-of-date data are possible. The user checks the inputs and the results. The geothermal potential models show an order of magnitude from public data; they do not replace a test of the well, an assessment of the workover, a feasibility study or contractors' quotations."
+            "The client pays the ad budget directly to the platform (Google, Meta and others) unless agreed otherwise. Accounts for ads, analytics, the domain and hosting are opened in the client's name or handed over to the client, as agreed, so the client keeps access and data when the work ends."
           ]
         },
         {
-          "title": "5. Public data and third-party sources",
+          "title": "5. Independence",
           "paragraphs": [
-            "The data come from publicly released sources and are named with the content. The author does not guarantee their accuracy, completeness or currency, is not the author of those sources and is not responsible for them. Copyright in the sources, images and maps belongs to their owners; the authors and licences are named with the content (for example OpenStreetMap, OpenTopoMap and Wikimedia Commons). Links lead to third-party sites over which the author has no control."
+            "The author provides the services in his own name and on his own account. The site does not represent any employer, company or institution the author has been or is connected with, does not speak for them, and uses none of their confidential information."
           ]
         },
         {
-          "title": "6. Services and commercial communication",
+          "title": "6. Blog and general information",
           "paragraphs": [
-            "The site is above all informational. The content of the projects, the blog, the tools and the courses is not an offer of services. Any services named on the Services page are agreed separately, in writing, and only if they do not conflict with the author's duties to his employer, with the law or with trade secrets. The author reserves the right to turn down any enquiry because of a conflict of interest or for any other reason. Sending an enquiry through the contact form creates no obligation on the author and no contract."
+            "Blog posts and other informational content are general in nature. They are not legal, tax or financial advice and do not replace advice on your specific case. Third-party data and tools mentioned may change."
           ]
         },
         {
           "title": "7. Copyright",
           "paragraphs": [
-            "Unless stated otherwise, the texts, graphics, models and code of this site are protected by the author's copyright. Quoting is allowed with the source named and a link. Any other copying, reproduction or commercial use needs the author's prior written consent. Third-party data remain under their owners' licences."
+            "Unless stated otherwise, the text, graphics and code of this site are protected by the author's copyright. Quoting with attribution and a link is allowed. Names, logos and screenshots of client websites belong to their owners and are shown as examples of work."
           ]
         },
         {
-          "title": "8. Messages, comments and conduct",
+          "title": "8. Links and third-party services",
           "paragraphs": [
-            "If the site allows comments or messages, it is forbidden to post unlawful, offensive or misleading content, confidential data of third parties or employers, or content presented as the view of a company. The author may remove such content without notice. The processing of personal data (the contact form, cookies) is covered by the privacy notice with the form and by the cookie settings."
+            "The site links to third-party websites and uses third-party services (for example hosting, email and video). The author has no control over them and is not responsible for their content or operation."
           ]
         },
         {
-          "title": "9. Limitation of liability",
+          "title": "9. Personal data and cookies",
           "paragraphs": [
-            "The site and its content are provided “as is”, with no warranty of any kind, express or implied. To the fullest extent permitted by law, the author is not liable for any damage (direct or indirect, lost profit, damage to a well, equipment or property, injury, loss of data, investment decisions) arising from the use of the site or reliance on its content, nor for the site being unavailable. This does not exclude liability that cannot be excluded or limited by law. You use the site at your own risk."
+            "How data from the contact forms and cookies are handled is described in the Privacy Policy. You can turn analytics and advertising cookies on or off in the cookie settings."
           ]
         },
         {
-          "title": "10. Changes and governing law",
+          "title": "10. Limitation of liability",
           "paragraphs": [
-            "The author may change these terms. Changes apply from publication; the date of the last change is given at the top. The law of the Republic of Serbia applies, and disputes fall to a court in the Republic of Serbia, unless mandatory consumer protection rules provide otherwise."
+            "The site and its content are provided as is. To the fullest extent permitted by law, the author is not liable for loss arising from use of the site, reliance on its content or its unavailability. Liability for contracted services is governed by the contract. This does not exclude liability that cannot be excluded or limited by law."
           ]
         },
         {
-          "title": "11. Contact",
+          "title": "11. Changes and governing law",
           "paragraphs": [
-            "Send questions, reports and requests about the content, including objections about a conflict of interest or confidential information, through the Contact page."
+            "The author may change these terms. Changes apply from publication; the date of the last change is shown at the top. The law of the Republic of Serbia applies and the courts of the Republic of Serbia have jurisdiction, unless mandatory consumer protection rules provide otherwise."
+          ]
+        },
+        {
+          "title": "12. Contact",
+          "paragraphs": [
+            "Send questions about these terms to {email} or through the Contact page."
           ]
         }
-      ],
-      "contactLink": "Contact page"
+      ]
     },
     "landing": {
       "meta": {
@@ -1234,6 +1237,103 @@
         "lead": "A selection of recent work.",
         "viewAll": "View all projects"
       }
+    },
+    "privacy": {
+      "meta": {
+        "title": "Privacy Policy",
+        "description": "What data stojanpetkovic.com collects, why, how long it is kept, who receives it and how to exercise your rights."
+      },
+      "hero": {
+        "badge": "Privacy",
+        "title": "Privacy Policy",
+        "description": "What data I collect, why, for how long, and what your rights are."
+      },
+      "updated": "Last updated: 15 November 2026.",
+      "intro": "This policy explains how stojanpetkovic.com processes personal data, in line with the Serbian Law on Personal Data Protection and, where it applies, the EU General Data Protection Regulation (GDPR).",
+      "contactLink": "Contact page",
+      "sections": [
+        {
+          "title": "1. Controller",
+          "paragraphs": [
+            "The controller is Stojan Petkovic, Zrenjanin, Serbia. Contact for any question about your data: {email}."
+          ]
+        },
+        {
+          "title": "2. What I collect",
+          "paragraphs": [],
+          "items": [
+            "Form data (contact and free check): name, email, phone, website address, business and location, your answers and your message.",
+            "Visit data, without cookies: which pages were opened, where the visitor came from (search, ad or link) and whether they tapped the phone number or WhatsApp or sent a form. This is not linked to your name unless you send a form.",
+            "Technical data logged by the server: IP address, browser type and time of access, for security and to run the site.",
+            "Analytics and advertising cookies (Google, Meta), only if you allow them in the cookie banner."
+          ]
+        },
+        {
+          "title": "3. Why, and on what basis",
+          "paragraphs": [],
+          "items": [
+            "To answer your enquiry and prepare a proposal: steps before a contract, at your request.",
+            "To deliver contracted work and keep required records: contract and legal obligation.",
+            "To measure which pages and sources bring enquiries and to keep the site secure: legitimate interest.",
+            "Analytics and ad measurement through cookies: your consent, which you can withdraw at any time.",
+            "I do not sell data, send newsletters or use it for automated decision-making."
+          ]
+        },
+        {
+          "title": "4. Who receives the data",
+          "paragraphs": [
+            "Data is processed by services acting for me as processors, only for the purposes in this policy:"
+          ],
+          "items": [
+            "Vercel: website hosting.",
+            "webtano.com: the system where form enquiries arrive and are stored.",
+            "Resend: email notifications about enquiries.",
+            "Google (Analytics, Ads) and Meta (Facebook, Instagram): only if you allow those cookies.",
+            "Public authorities, only where the law requires it."
+          ]
+        },
+        {
+          "title": "5. Transfers outside Serbia",
+          "paragraphs": [
+            "Some of these services store data in the European Union or the United States. Transfers rely on the safeguards the law provides, such as standard contractual clauses or adequacy decisions."
+          ]
+        },
+        {
+          "title": "6. How long",
+          "paragraphs": [],
+          "items": [
+            "Enquiries: as long as needed to reply and make a proposal, and at most two years after the last contact.",
+            "Client data and invoices: as long as the law requires.",
+            "Cookieless visit data: in aggregate, without a time limit, as it does not relate to an identifiable person.",
+            "Cookies: for the period shown in the cookie settings."
+          ]
+        },
+        {
+          "title": "7. Cookies",
+          "paragraphs": [
+            "Necessary cookies keep the site working and remember your choice in the banner. Analytics and advertising cookies are set only with your consent. You can change your choice at any time in the cookie settings at the foot of the page."
+          ]
+        },
+        {
+          "title": "8. Your rights",
+          "paragraphs": [
+            "You have the right to access your data, to have it corrected or erased, to restrict processing and to data portability, to object to processing based on legitimate interest, and to withdraw consent without affecting earlier processing. Send requests to {email}; I reply within 30 days.",
+            "You can complain to the Serbian Commissioner for Information of Public Importance and Personal Data Protection (www.poverenik.rs) or to the supervisory authority of the EU country where you live."
+          ]
+        },
+        {
+          "title": "9. Security",
+          "paragraphs": [
+            "The site runs over HTTPS, access to enquiries is password-protected and limited to me, and the services I use apply technical and organisational safeguards."
+          ]
+        },
+        {
+          "title": "10. Changes",
+          "paragraphs": [
+            "I may change this policy when the processing changes. The date of the last change is shown at the top."
+          ]
+        }
+      ]
     }
   }
 }

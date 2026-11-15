@@ -60,7 +60,8 @@
       "blog": "Blog",
       "about": "O meni",
       "contact": "Kontakt",
-      "terms": "Uslovi korišćenja"
+      "terms": "Uslovi korišćenja",
+      "privacy": "Politika privatnosti"
     }
   },
   "common": {
@@ -279,94 +280,96 @@
     "terms": {
       "meta": {
         "title": "Uslovi korišćenja",
-        "description": "Uslovi korišćenja sajta: lični i nezavisni sajt, samo informativna namena, bez stručnog saveta, bez poslovne ponude, ograničenje odgovornosti i izjava o nezavisnosti i sukobu interesa."
+        "description": "Uslovi korišćenja sajta stojanpetkovic.com: ko pruža usluge, kako se ugovaraju, šta se ne garantuje, vlasništvo i ograničenje odgovornosti."
       },
       "hero": {
         "badge": "Pravila sajta",
         "title": "Uslovi korišćenja",
-        "description": "Šta je ovaj sajt, šta nije, i pod kojim uslovima se koristi."
+        "description": "Ko stoji iza sajta, kako se ugovaraju usluge i pod kojim uslovima se sajt koristi."
       },
-      "updated": "Poslednja izmena: 17. oktobar 2026.",
+      "updated": "Poslednja izmena: 15. novembar 2026.",
       "intro": "Ovi uslovi uređuju korišćenje sajta stojanpetkovic.com (u daljem tekstu: sajt). Korišćenjem sajta prihvatate ih. Ako se ne slažete sa njima, ne koristite sajt.",
+      "contactLink": "Stranica Kontakt",
       "sections": [
         {
           "title": "1. Ko vodi sajt",
           "paragraphs": [
-            "Sajt vodi Stojan Petković, fizičko lice (u daljem tekstu: autor), kao lični projekat. Sajt nije sajt kompanije, ne predstavlja pravno lice i ne vodi se u ime nijednog poslodavca, klijenta ni drugog pravnog lica."
+            "Sajt vodi Stojan Petković iz Zrenjanina, Srbija (u daljem tekstu: autor). Kontakt: {email}."
           ]
         },
         {
-          "title": "2. Nezavisnost i sukob interesa",
+          "title": "2. Usluge",
           "paragraphs": [
-            "Sajt i sav sadržaj na njemu (projekti, blog, alati, kalkulatori, modeli, kursevi i tekstovi) autor izrađuje u svoje lično ime i na svoj račun. Zbog toga važi sledeće:"
+            "Na sajtu su opisane usluge digitalnog marketinga i izrade sajtova: oglašavanje na Google-u i društvenim mrežama, SEO, vidljivost u AI pretrazi, izrada sajtova i landing strana, AI chat i praćenje upita i poziva."
           ],
           "items": [
-            "Ne koristi se nijedan podatak, dokument, procedura, softver, procena, poslovna ni tehnička informacija ili drugi materijal koji pripada poslodavcu, klijentu ili trećoj strani, a nije javno objavljen. Podaci u projektima potiču iz javno objavljenih izvora koji su navedeni uz svaki projekat.",
-            "Ništa na sajtu ne predstavlja stav, politiku, podatak, procenu, preporuku ni izjavu bilo kog poslodavca, kompanije ili institucije. Autor ne govori u njihovo ime i nema ovlašćenje da to čini. Poslodavac autora nije ni na koji način povezan sa sajtom i ne odgovara za njegov sadržaj.",
-            "Pominjanje kompanija, institucija, proizvoda i izvora služi isključivo za označavanje javnih izvora i činjenica. Ne znači podršku, preporuku, saradnju ni kritiku.",
-            "Sadržaj nije ponuda, reklama ni poziv na poslovni odnos u delatnosti poslodavca autora, niti ima nameru da se konkuriše poslodavcu ili njegovim klijentima.",
-            "Rad na sajtu ne sme da utiče na izvršavanje obaveza autora prema poslodavcu, i ne utiče na njega.",
-            "Svaki dodatni angažman autora mora da bude u skladu sa njegovim obavezama prema poslodavcu, propisima i poslovnoj tajni, uz sve potrebne saglasnosti, i ugovara se posebno, izvan ovog sajta i njegovog sadržaja.",
-            "Ako smatrate da neki sadržaj nepropisno koristi poverljivu informaciju, ili da stvara utisak da govori u ime neke kompanije, javite se preko stranice Kontakt. Sadržaj će biti hitno proveren i, po potrebi, ispravljen ili uklonjen."
+            "Opis usluga, cena i primera na sajtu nije ponuda u pravnom smislu. Svaki posao se ugovara posebno, pisanom ponudom ili ugovorom koji određuje obim, rok, cenu i način plaćanja.",
+            "Slanje upita ili zahteva za besplatnu proveru ne stvara ugovorni odnos ni obavezu za bilo koju stranu.",
+            "Autor može da odbije upit bez navođenja razloga.",
+            "Ako je u ugovoru drugačije navedeno, važi ugovor."
           ]
         },
         {
-          "title": "3. Samo informativna namena",
+          "title": "3. Rezultati i garancije",
           "paragraphs": [
-            "Sadržaj sajta je opšteg i informativnog karaktera. Nije inženjerski, tehnički, pravni, finansijski, investicioni ni drugi stručni savet. Nije projekat, studija izvodljivosti, procena resursa ni stručno mišljenje. Ne stvara odnos klijent–savetnik ni bilo kakvu obavezu autora. Pre svake odluke obratite se kvalifikovanim stručnjacima i nadležnim organima."
+            "Rezultati prikazani na sajtu (broj upita, poziva, ocene i pozicije) stvarni su za navedene klijente i navedeni period, ali nisu obećanje istog rezultata za druge. Pozicije na Google-u, preporuke AI asistenata i učinak oglasa zavise od Google-a, Meta-e, drugih platformi, tržišta, konkurencije i budžeta, na koje autor ne može da utiče. Određen broj upita, poziva, prodaja ili pozicija se ne garantuje, osim ako je izričito ugovoreno u pisanoj formi."
           ]
         },
         {
-          "title": "4. Alati, kalkulatori i modeli",
+          "title": "4. Budžet za oglase i nalozi",
           "paragraphs": [
-            "Alati, kalkulatori i modeli na sajtu daju približne rezultate iz navedenih formula i pretpostavki. Oni nisu zamena za projektne proračune, procedure kompanije, uputstva proizvođača opreme, propise ni nalog odgovornog lica. Ne koristite ih kao jedinu osnovu za radove na bušotinama, rad pod pritiskom, rad sa azotom, niti za druge bezbednosno značajne radnje.",
-            "Greške, nepotpunost i zastarelost podataka su mogući. Ulazne podatke i rezultate proverava korisnik. Modeli geotermalnog potencijala pokazuju red veličine iz javnih podataka; ne zamenjuju ispitivanje bušotine, procenu remonta, studiju izvodljivosti ni ponude izvođača."
+            "Budžet za oglase klijent plaća direktno platformi (Google, Meta i druge), osim ako je drugačije ugovoreno. Nalozi za oglase, analitiku, domen i hosting otvaraju se na ime klijenta ili mu se predaju, kako je ugovoreno, tako da klijent zadržava pristup i podatke i kada saradnja prestane."
           ]
         },
         {
-          "title": "5. Javni podaci i izvori trećih strana",
+          "title": "5. Nezavisnost",
           "paragraphs": [
-            "Podaci potiču iz javno objavljenih izvora i navedeni su uz sadržaj. Autor ne garantuje njihovu tačnost, potpunost ni aktuelnost, nije autor tih izvora i ne odgovara za njih. Autorska prava na izvore, slike i mape pripadaju njihovim vlasnicima; autori i licence su navedeni uz sadržaj (na primer OpenStreetMap, OpenTopoMap i Wikimedia Commons). Linkovi vode na sajtove trećih strana, nad kojima autor nema kontrolu."
+            "Autor usluge pruža u svoje ime i za svoj račun. Sajt ne predstavlja nijednog poslodavca, kompaniju ni instituciju sa kojom je autor bio ili jeste povezan, ne govori u njihovo ime i ne koristi njihove poverljive podatke."
           ]
         },
         {
-          "title": "6. Usluge i komercijalna komunikacija",
+          "title": "6. Blog i informativni sadržaj",
           "paragraphs": [
-            "Sajt je pre svega informativan. Sadržaj projekata, bloga, alata i kurseva nije ponuda usluga. Eventualne usluge koje su navedene na stranici Usluge ugovaraju se posebno, u pisanoj formi, i samo ako nisu u sukobu sa obavezama autora prema poslodavcu, propisima i poslovnoj tajni. Autor zadržava pravo da odbije svaki upit zbog sukoba interesa ili bilo kog drugog razloga. Slanje upita preko kontakt forme ne stvara obavezu autora ni ugovorni odnos."
+            "Tekstovi na blogu i drugi informativni sadržaj su opšteg karaktera. Nisu pravni, poreski ni finansijski savet i ne zamenjuju savet za vaš konkretan slučaj. Podaci i alati trećih strana koji se pominju mogu da se promene."
           ]
         },
         {
           "title": "7. Autorska prava",
           "paragraphs": [
-            "Osim ako je drugačije navedeno, tekstovi, grafike, modeli i kod ovog sajta zaštićeni su autorskim pravom autora. Dozvoljeno je citiranje uz navođenje izvora i link. Svako drugo preuzimanje, kopiranje ili komercijalno korišćenje traži prethodnu pisanu saglasnost autora. Podaci trećih strana ostaju pod licencama svojih vlasnika."
+            "Osim ako je drugačije navedeno, tekstovi, grafike i kod ovog sajta zaštićeni su autorskim pravom autora. Dozvoljeno je citiranje uz navođenje izvora i link. Nazivi, logotipi i snimci ekrana sajtova klijenata pripadaju njihovim vlasnicima i prikazani su kao primeri rada."
           ]
         },
         {
-          "title": "8. Poruke, komentari i ponašanje korisnika",
+          "title": "8. Linkovi i usluge trećih strana",
           "paragraphs": [
-            "Ako sajt omogućava komentare ili slanje poruka, zabranjeno je objavljivanje nezakonitog, uvredljivog ili obmanjujućeg sadržaja, kao i poverljivih podataka trećih strana ili poslodavaca, i sadržaja koji se predstavlja kao stav neke kompanije. Autor može da ukloni takav sadržaj bez prethodne najave. Obrada ličnih podataka (kontakt forma, kolačići) uređena je obaveštenjem o privatnosti uz formu i podešavanjima kolačića."
+            "Sajt sadrži linkove na sajtove trećih strana i koristi njihove usluge (na primer hosting, email i video). Autor nema kontrolu nad njima i ne odgovara za njihov sadržaj ni rad."
           ]
         },
         {
-          "title": "9. Ograničenje odgovornosti",
+          "title": "9. Lični podaci i kolačići",
           "paragraphs": [
-            "Sajt i sadržaj se pružaju „takvi kakvi jesu“, bez ikakve garancije, izričite ili podrazumevane. U najvećoj meri dozvoljenoj zakonom, autor ne odgovara za bilo kakvu štetu (neposrednu ili posrednu, izgubljenu dobit, štetu na bušotini, opremi ili imovini, povredu, gubitak podataka, odluke o ulaganju) nastalu korišćenjem sajta ili oslanjanjem na njegov sadržaj, niti za nedostupnost sajta. Ovo ne isključuje odgovornost koja se po zakonu ne može isključiti ili ograničiti. Sajt koristite na sopstvenu odgovornost."
+            "Kako se obrađuju podaci iz kontakt formi i kolačići opisano je u Politici privatnosti. Kolačiće za analitiku i oglase možete da uključite ili isključite u podešavanjima kolačića."
           ]
         },
         {
-          "title": "10. Izmene i merodavno pravo",
+          "title": "10. Ograničenje odgovornosti",
+          "paragraphs": [
+            "Sajt i njegov sadržaj se pružaju „takvi kakvi jesu“. U najvećoj meri dozvoljenoj zakonom, autor ne odgovara za štetu nastalu korišćenjem sajta, oslanjanjem na njegov sadržaj ili njegovom nedostupnošću. Odgovornost za ugovorene usluge uređuje ugovor. Ovo ne isključuje odgovornost koja se po zakonu ne može isključiti ili ograničiti."
+          ]
+        },
+        {
+          "title": "11. Izmene i merodavno pravo",
           "paragraphs": [
             "Autor može da izmeni ove uslove. Izmene važe od objavljivanja; datum poslednje izmene naveden je na vrhu. Primenjuje se pravo Republike Srbije, a za sporove je nadležan sud u Republici Srbiji, osim ako obavezni propisi o zaštiti potrošača određuju drugačije."
           ]
         },
         {
-          "title": "11. Kontakt",
+          "title": "12. Kontakt",
           "paragraphs": [
-            "Pitanja, prijave i zahteve u vezi sa sadržajem, uključujući primedbe o sukobu interesa ili poverljivim informacijama, šaljite preko stranice Kontakt."
+            "Pitanja o ovim uslovima šaljite na {email} ili preko stranice Kontakt."
           ]
         }
-      ],
-      "contactLink": "Stranica Kontakt"
+      ]
     },
     "landing": {
       "meta": {
@@ -1234,6 +1237,103 @@
         "lead": "Izdvojeni radovi za klijente iz Srbije i inostranstva.",
         "viewAll": "Pogledaj sve projekte"
       }
+    },
+    "privacy": {
+      "meta": {
+        "title": "Politika privatnosti",
+        "description": "Koje podatke prikuplja stojanpetkovic.com, zašto, koliko dugo ih čuva, kome ih dostavlja i kako da ostvariš svoja prava."
+      },
+      "hero": {
+        "badge": "Privatnost",
+        "title": "Politika privatnosti",
+        "description": "Koje podatke prikupljam, zašto, koliko dugo i koja su tvoja prava."
+      },
+      "updated": "Poslednja izmena: 15. novembar 2026.",
+      "intro": "Ova politika objašnjava kako sajt stojanpetkovic.com obrađuje lične podatke, u skladu sa Zakonom o zaštiti podataka o ličnosti Republike Srbije i, kada se primenjuje, Opštom uredbom o zaštiti podataka EU (GDPR).",
+      "contactLink": "Stranica Kontakt",
+      "sections": [
+        {
+          "title": "1. Rukovalac",
+          "paragraphs": [
+            "Rukovalac podacima je Stojan Petković, Zrenjanin, Srbija. Kontakt za sva pitanja o podacima: {email}."
+          ]
+        },
+        {
+          "title": "2. Koje podatke prikupljam",
+          "paragraphs": [],
+          "items": [
+            "Podatke iz formi (kontakt i besplatna provera): ime, email, telefon, adresu sajta, delatnost i mesto, tvoje odgovore i poruku.",
+            "Podatke o poseti, bez kolačića: koje stranice su otvorene, odakle je posetilac došao (pretraga, oglas ili link) i da li je kliknuo na telefon, WhatsApp ili poslao formu. Ovi podaci se ne povezuju sa tvojim imenom osim kada pošalješ formu.",
+            "Tehničke podatke koje beleži server: IP adresu, vrstu pregledača i vreme pristupa, radi bezbednosti i rada sajta.",
+            "Kolačiće za analitiku i oglase (Google, Meta), samo ako ih dozvoliš u baneru za kolačiće."
+          ]
+        },
+        {
+          "title": "3. Zašto i na kom osnovu",
+          "paragraphs": [],
+          "items": [
+            "Da odgovorim na upit i pripremim ponudu: radnje pre zaključenja ugovora, na tvoj zahtev.",
+            "Da izvršim ugovorenu uslugu i vodim propisanu dokumentaciju: ugovor i zakonska obaveza.",
+            "Da merim koje stranice i izvori donose upite i da čuvam sajt bezbednim: legitimni interes.",
+            "Analitika i merenje oglasa preko kolačića: tvoj pristanak, koji možeš da povučeš u svakom trenutku.",
+            "Podatke ne prodajem, ne šaljem newsletter i ne koristim ih za automatsko odlučivanje."
+          ]
+        },
+        {
+          "title": "4. Kome se podaci dostavljaju",
+          "paragraphs": [
+            "Podaci se obrađuju preko servisa koji za mene rade kao obrađivači, samo za svrhe iz ove politike:"
+          ],
+          "items": [
+            "Vercel: hosting sajta.",
+            "webtano.com: sistem u kome stižu i čuvaju se upiti sa formi.",
+            "Resend: slanje email obaveštenja o upitima.",
+            "Google (Analytics, Ads) i Meta (Facebook, Instagram): samo ako dozvoliš te kolačiće.",
+            "Državnim organima, samo kada to zakon nalaže."
+          ]
+        },
+        {
+          "title": "5. Prenos van Srbije",
+          "paragraphs": [
+            "Neki od navedenih servisa čuvaju podatke u Evropskoj uniji ili u SAD. Prenos se vrši uz mere koje zakon predviđa, kao što su standardne ugovorne klauzule ili odluke o adekvatnom nivou zaštite."
+          ]
+        },
+        {
+          "title": "6. Koliko dugo",
+          "paragraphs": [],
+          "items": [
+            "Upiti: dok je potrebno za odgovor i ponudu, a najduže dve godine od poslednjeg kontakta.",
+            "Podaci klijenata i računi: koliko propisi zahtevaju.",
+            "Podaci o poseti bez kolačića: u zbirnom obliku, bez roka, jer se ne odnose na osobu koja se može identifikovati.",
+            "Kolačići: prema roku navedenom u podešavanjima kolačića."
+          ]
+        },
+        {
+          "title": "7. Kolačići",
+          "paragraphs": [
+            "Neophodni kolačići su potrebni da bi sajt radio i pamtio tvoj izbor u baneru. Kolačići za analitiku i oglase postavljaju se samo uz tvoj pristanak. Izbor možeš da promeniš u svakom trenutku preko podešavanja kolačića u dnu strane."
+          ]
+        },
+        {
+          "title": "8. Tvoja prava",
+          "paragraphs": [
+            "Imaš pravo da tražiš uvid u svoje podatke, ispravku, brisanje, ograničenje obrade i prenos podataka, da uložiš prigovor na obradu zasnovanu na legitimnom interesu i da povučeš pristanak, bez uticaja na raniju obradu. Zahtev pošalji na {email}; odgovaram najkasnije u roku od 30 dana.",
+            "Možeš da podneseš pritužbu Povereniku za informacije od javnog značaja i zaštitu podataka o ličnosti (www.poverenik.rs) ili nadzornom organu u zemlji EU u kojoj živiš."
+          ]
+        },
+        {
+          "title": "9. Bezbednost",
+          "paragraphs": [
+            "Sajt radi preko HTTPS-a, pristup upitima je zaštićen lozinkom i ograničen na mene, a servisi koje koristim primenjuju tehničke i organizacione mere zaštite."
+          ]
+        },
+        {
+          "title": "10. Izmene",
+          "paragraphs": [
+            "Ovu politiku mogu da izmenim kada se promeni način obrade. Datum poslednje izmene naveden je na vrhu."
+          ]
+        }
+      ]
     }
   }
 }

@@ -37,6 +37,7 @@ const routesConfig: RoutesConfig = {
     contact: { sr: 'kontakt', de: 'kontakt' },
     services: { sr: 'usluge', de: 'leistungen' },
     terms: { sr: 'uslovi-koriscenja', de: 'nutzungsbedingungen' },
+    privacy: { sr: 'politika-privatnosti', de: 'datenschutz' },
     start: { sr: 'pocetak' },
   },
   projectSubsegments: {

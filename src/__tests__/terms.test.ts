@@ -5,29 +5,44 @@ import de from '@/i18n/de.json';
 import { legalLinks } from '@/config/nav.config';
 
 type Section = { title: string; paragraphs: string[]; items?: string[] };
-const terms = (d: unknown) => (d as { pages: { terms: { sections: Section[] } } }).pages.terms;
+const legal = (d: unknown, page: 'terms' | 'privacy') =>
+  (d as { pages: Record<string, { sections: Section[] }> }).pages[page];
 
-describe('terms of use', () => {
-  const base = terms(en).sections;
+describe.each(['terms', 'privacy'] as const)('%s page', (page) => {
+  const base = legal(en, page).sections;
 
   it.each([
     ['sr', sr],
     ['de', de],
   ])('%s has the same sections, paragraphs and list items as English', (_, locale) => {
-    const sections = terms(locale).sections;
+    const sections = legal(locale, page).sections;
     expect(sections.map((s) => [s.paragraphs.length, s.items?.length ?? 0])).toEqual(
       base.map((s) => [s.paragraphs.length, s.items?.length ?? 0]),
     );
   });
 
-  it('keeps a section on independence and conflicts of interest, with its list of commitments', () => {
-    const section = base[1];
-    expect(section.title).toMatch(/conflicts of interest/i);
-    expect(section.items!.length).toBeGreaterThanOrEqual(7);
+  it('is linked from the footer', () => {
+    expect(legalLinks.some((l) => l.href === `/${page}`)).toBe(true);
+  });
+});
+
+describe('terms of use', () => {
+  it('keeps a section on independence from any employer', () => {
+    const section = legal(en, 'terms').sections.find((s) => /independence/i.test(s.title));
+    expect(section?.paragraphs.join(' ')).toMatch(/employer/i);
   });
 
-  it('is linked from the footer', () => {
-    expect(legalLinks.some((l) => l.href === '/terms')).toBe(true);
+  it('says results are not guaranteed', () => {
+    expect(legal(en, 'terms').sections.some((s) => /guarantee/i.test(s.title))).toBe(true);
+  });
+});
+
+describe('privacy policy', () => {
+  it('names the controller, the processors and the rights', () => {
+    const text = JSON.stringify(legal(en, 'privacy'));
+    for (const word of ['Controller', 'Vercel', 'Resend', 'webtano.com', 'withdraw consent', 'poverenik.rs']) {
+      expect(text).toContain(word);
+    }
   });
 });
 

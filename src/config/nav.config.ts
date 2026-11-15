@@ -149,6 +149,7 @@ export const footerNavItems: NavItem[] = [
 ];
 
 export const legalLinks: LegalLink[] = [
+  { label: 'Privacy Policy', href: '/privacy', labelKey: 'nav.items.privacy' },
   { label: 'Terms of use', href: '/terms', labelKey: 'nav.items.terms' },
 ];
 

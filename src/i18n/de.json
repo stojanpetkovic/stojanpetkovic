@@ -60,7 +60,8 @@
       "blog": "Blog",
       "about": "Über mich",
       "contact": "Kontakt",
-      "terms": "Nutzungsbedingungen"
+      "terms": "Nutzungsbedingungen",
+      "privacy": "Datenschutz"
     }
   },
   "common": {
@@ -279,94 +280,96 @@
     "terms": {
       "meta": {
         "title": "Nutzungsbedingungen",
-        "description": "Nutzungsbedingungen der Seite: eine persönliche, unabhängige Seite, nur zur Information, ohne Fachberatung und ohne Geschäftsangebot, Haftungsbeschränkung und Erklärung zu Unabhängigkeit und Interessenkonflikten."
+        "description": "Nutzungsbedingungen für stojanpetkovic.com: wer die Leistungen erbringt, wie sie vereinbart werden, was nicht garantiert wird, Eigentum und Haftung."
       },
       "hero": {
-        "badge": "Regeln der Seite",
+        "badge": "Regeln der Website",
         "title": "Nutzungsbedingungen",
-        "description": "Was diese Seite ist, was sie nicht ist, und unter welchen Bedingungen sie genutzt wird."
+        "description": "Wer hinter der Website steht, wie Leistungen vereinbart werden und unter welchen Bedingungen die Website genutzt wird."
       },
-      "updated": "Zuletzt geändert: 17. Oktober 2026.",
-      "intro": "Diese Bedingungen regeln die Nutzung der Seite stojanpetkovic.com (die Seite). Mit der Nutzung der Seite akzeptieren Sie sie. Wenn Sie nicht einverstanden sind, nutzen Sie die Seite nicht.",
+      "updated": "Zuletzt geändert: 15. November 2026.",
+      "intro": "Diese Bedingungen regeln die Nutzung von stojanpetkovic.com (die Website). Mit der Nutzung der Website akzeptieren Sie sie. Wenn Sie nicht einverstanden sind, nutzen Sie die Website nicht.",
+      "contactLink": "Kontaktseite",
       "sections": [
         {
-          "title": "1. Wer die Seite betreibt",
+          "title": "1. Wer die Website betreibt",
           "paragraphs": [
-            "Die Seite wird von Stojan Petković, einer Privatperson (der Autor), als persönliches Projekt betrieben. Sie ist keine Unternehmensseite, steht für keine juristische Person und wird nicht im Namen eines Arbeitgebers, Kunden oder einer anderen juristischen Person betrieben."
+            "Die Website betreibt Stojan Petkovic aus Zrenjanin, Serbien (der Autor). Kontakt: {email}."
           ]
         },
         {
-          "title": "2. Unabhängigkeit und Interessenkonflikte",
+          "title": "2. Leistungen",
           "paragraphs": [
-            "Die Seite und alle Inhalte darauf (Projekte, Blog, Werkzeuge, Rechner, Modelle, Kurse und Texte) erstellt der Autor in eigenem Namen und auf eigene Rechnung. Daher gilt:"
+            "Die Website beschreibt Leistungen in digitalem Marketing und Webentwicklung: Werbung bei Google und in sozialen Medien, SEO, Sichtbarkeit in der KI-Suche, Websites und Landingpages, KI-Chat sowie die Erfassung von Anfragen und Anrufen."
           ],
           "items": [
-            "Es werden keine Daten, Dokumente, Verfahren, Software, Schätzungen, geschäftlichen oder technischen Informationen oder sonstigen Unterlagen verwendet, die einem Arbeitgeber, Kunden oder Dritten gehören und nicht veröffentlicht sind. Die Daten in den Projekten stammen aus öffentlich zugänglichen Quellen, die bei jedem Projekt genannt sind.",
-            "Nichts auf der Seite gibt die Ansicht, Politik, Daten, Schätzung, Empfehlung oder Erklärung eines Arbeitgebers, Unternehmens oder einer Institution wieder. Der Autor spricht nicht in deren Namen und hat dazu keine Befugnis. Der Arbeitgeber des Autors hat in keiner Weise mit der Seite zu tun und haftet nicht für ihren Inhalt.",
-            "Unternehmen, Institutionen, Produkte und Quellen werden nur genannt, um öffentliche Quellen und Tatsachen zu bezeichnen. Das ist weder Empfehlung noch Zusammenarbeit noch Kritik.",
-            "Der Inhalt ist kein Angebot, keine Werbung und keine Einladung zu einer Geschäftsbeziehung im Tätigkeitsfeld des Arbeitgebers des Autors und soll auch nicht dem Arbeitgeber oder seinen Kunden Konkurrenz machen.",
-            "Die Arbeit an der Seite darf die Erfüllung der Pflichten des Autors gegenüber seinem Arbeitgeber nicht beeinträchtigen und tut es nicht.",
-            "Jede zusätzliche Tätigkeit des Autors muss mit seinen Pflichten gegenüber dem Arbeitgeber, dem Gesetz und dem Geschäftsgeheimnis vereinbar sein, mit allen nötigen Zustimmungen, und wird gesondert vereinbart, außerhalb dieser Seite und ihres Inhalts.",
-            "Wenn Sie glauben, dass ein Inhalt vertrauliche Informationen unzulässig nutzt oder den Eindruck erweckt, im Namen eines Unternehmens zu sprechen, melden Sie sich über die Kontaktseite. Der Inhalt wird umgehend geprüft und bei Bedarf berichtigt oder entfernt."
+            "Beschreibungen von Leistungen, Preisen und Beispielen auf der Website sind kein Angebot im rechtlichen Sinn. Jeder Auftrag wird gesondert vereinbart, in einem schriftlichen Angebot oder Vertrag mit Umfang, Termin, Preis und Zahlung.",
+            "Eine Anfrage oder die Bitte um einen kostenlosen Check begründet keinen Vertrag und keine Pflicht für eine Seite.",
+            "Der Autor kann jede Anfrage ohne Angabe von Gründen ablehnen.",
+            "Wo ein Vertrag etwas anderes bestimmt, gilt der Vertrag."
           ]
         },
         {
-          "title": "3. Nur zur Information",
+          "title": "3. Ergebnisse und Garantien",
           "paragraphs": [
-            "Der Inhalt der Seite ist allgemein und informativ. Er ist keine ingenieurtechnische, technische, rechtliche, finanzielle, Anlage- oder sonstige Fachberatung. Er ist keine Planung, Machbarkeitsstudie, Ressourcenbewertung oder Expertenmeinung. Er begründet kein Mandats- oder Beratungsverhältnis und keine Verpflichtung des Autors. Vor jeder Entscheidung wenden Sie sich an qualifizierte Fachleute und die zuständigen Behörden."
+            "Die auf der Website gezeigten Ergebnisse (Anfragen, Anrufe, Werte und Rankings) sind für die genannten Kunden und Zeiträume echt, aber kein Versprechen desselben Ergebnisses für andere. Google-Rankings, Empfehlungen von KI-Assistenten und die Leistung von Anzeigen hängen von Google, Meta und anderen Plattformen, vom Markt, von der Konkurrenz und vom Budget ab, auf die der Autor keinen Einfluss hat. Eine bestimmte Zahl von Anfragen, Anrufen, Verkäufen oder Rankings wird nicht garantiert, sofern nicht ausdrücklich schriftlich vereinbart."
           ]
         },
         {
-          "title": "4. Werkzeuge, Rechner und Modelle",
+          "title": "4. Werbebudget und Konten",
           "paragraphs": [
-            "Die Werkzeuge, Rechner und Modelle auf der Seite liefern Näherungswerte aus den genannten Formeln und Annahmen. Sie ersetzen weder Planungsberechnungen noch Unternehmensverfahren, Herstelleranweisungen, Vorschriften oder die Anweisung der verantwortlichen Person. Verwenden Sie sie nicht als alleinige Grundlage für Arbeiten an Bohrungen, Arbeiten unter Druck, Arbeiten mit Stickstoff oder andere sicherheitsrelevante Handlungen.",
-            "Fehler, Unvollständigkeit und veraltete Daten sind möglich. Eingaben und Ergebnisse prüft der Nutzer. Die Modelle des geothermischen Potenzials zeigen eine Größenordnung aus öffentlichen Daten; sie ersetzen weder einen Test der Bohrung noch die Bewertung der Aufwältigung, eine Machbarkeitsstudie oder Angebote von Auftragnehmern."
+            "Das Werbebudget zahlt der Kunde direkt an die Plattform (Google, Meta und andere), sofern nicht anders vereinbart. Konten für Anzeigen, Analyse, Domain und Hosting werden auf den Namen des Kunden eröffnet oder ihm übergeben, wie vereinbart, sodass der Kunde Zugang und Daten auch nach Ende der Zusammenarbeit behält."
           ]
         },
         {
-          "title": "5. Öffentliche Daten und Quellen Dritter",
+          "title": "5. Unabhängigkeit",
           "paragraphs": [
-            "Die Daten stammen aus öffentlich zugänglichen Quellen und sind beim Inhalt genannt. Der Autor garantiert weder ihre Richtigkeit noch Vollständigkeit oder Aktualität, ist nicht der Autor dieser Quellen und haftet nicht für sie. Urheberrechte an Quellen, Bildern und Karten liegen bei ihren Inhabern; Urheber und Lizenzen sind beim Inhalt genannt (zum Beispiel OpenStreetMap, OpenTopoMap und Wikimedia Commons). Links führen zu Seiten Dritter, auf die der Autor keinen Einfluss hat."
+            "Der Autor erbringt die Leistungen im eigenen Namen und auf eigene Rechnung. Die Website vertritt keinen Arbeitgeber, kein Unternehmen und keine Institution, mit denen der Autor verbunden war oder ist, spricht nicht in deren Namen und nutzt keine ihrer vertraulichen Informationen."
           ]
         },
         {
-          "title": "6. Leistungen und kommerzielle Kommunikation",
+          "title": "6. Blog und allgemeine Informationen",
           "paragraphs": [
-            "Die Seite ist vor allem informativ. Der Inhalt der Projekte, des Blogs, der Werkzeuge und der Kurse ist kein Leistungsangebot. Etwaige Leistungen, die auf der Seite Leistungen genannt sind, werden gesondert und schriftlich vereinbart, und nur wenn sie nicht im Widerspruch zu den Pflichten des Autors gegenüber seinem Arbeitgeber, dem Gesetz oder dem Geschäftsgeheimnis stehen. Der Autor behält sich vor, jede Anfrage wegen eines Interessenkonflikts oder aus jedem anderen Grund abzulehnen. Das Senden einer Anfrage über das Kontaktformular begründet weder eine Verpflichtung des Autors noch einen Vertrag."
+            "Blogbeiträge und andere informative Inhalte sind allgemeiner Natur. Sie sind keine Rechts-, Steuer- oder Finanzberatung und ersetzen keine Beratung im Einzelfall. Erwähnte Daten und Werkzeuge Dritter können sich ändern."
           ]
         },
         {
           "title": "7. Urheberrecht",
           "paragraphs": [
-            "Soweit nicht anders angegeben, sind die Texte, Grafiken, Modelle und der Code dieser Seite durch das Urheberrecht des Autors geschützt. Zitieren ist unter Nennung der Quelle und mit Link erlaubt. Jede andere Übernahme, Vervielfältigung oder kommerzielle Nutzung bedarf der vorherigen schriftlichen Zustimmung des Autors. Daten Dritter bleiben unter den Lizenzen ihrer Inhaber."
+            "Soweit nicht anders angegeben, sind Texte, Grafiken und Code dieser Website urheberrechtlich zugunsten des Autors geschützt. Zitieren mit Quellenangabe und Link ist erlaubt. Namen, Logos und Screenshots von Kundenwebsites gehören ihren Inhabern und werden als Arbeitsbeispiele gezeigt."
           ]
         },
         {
-          "title": "8. Nachrichten, Kommentare und Verhalten",
+          "title": "8. Links und Dienste Dritter",
           "paragraphs": [
-            "Wenn die Seite Kommentare oder Nachrichten erlaubt, ist es verboten, rechtswidrige, beleidigende oder irreführende Inhalte zu veröffentlichen, ebenso vertrauliche Daten Dritter oder von Arbeitgebern und Inhalte, die als Ansicht eines Unternehmens ausgegeben werden. Der Autor kann solche Inhalte ohne Vorankündigung entfernen. Die Verarbeitung personenbezogener Daten (Kontaktformular, Cookies) regelt der Datenschutzhinweis beim Formular und die Cookie-Einstellungen."
+            "Die Website verlinkt auf Websites Dritter und nutzt Dienste Dritter (zum Beispiel Hosting, E-Mail und Video). Der Autor hat keinen Einfluss auf sie und haftet nicht für deren Inhalte oder Betrieb."
           ]
         },
         {
-          "title": "9. Haftungsbeschränkung",
+          "title": "9. Personenbezogene Daten und Cookies",
           "paragraphs": [
-            "Die Seite und ihr Inhalt werden „wie besehen“ bereitgestellt, ohne jede Gewährleistung, ausdrücklich oder stillschweigend. Soweit gesetzlich zulässig, haftet der Autor nicht für Schäden (unmittelbar oder mittelbar, entgangener Gewinn, Schäden an Bohrung, Ausrüstung oder Eigentum, Verletzungen, Datenverlust, Investitionsentscheidungen), die aus der Nutzung der Seite oder dem Vertrauen auf ihren Inhalt entstehen, und nicht für die Nichtverfügbarkeit der Seite. Das schließt keine Haftung aus, die gesetzlich nicht ausgeschlossen oder beschränkt werden kann. Sie nutzen die Seite auf eigene Gefahr."
+            "Wie Daten aus den Kontaktformularen und Cookies verarbeitet werden, beschreibt die Datenschutzerklärung. Analyse- und Werbe-Cookies können Sie in den Cookie-Einstellungen ein- oder ausschalten."
           ]
         },
         {
-          "title": "10. Änderungen und anwendbares Recht",
+          "title": "10. Haftungsbeschränkung",
           "paragraphs": [
-            "Der Autor kann diese Bedingungen ändern. Änderungen gelten ab Veröffentlichung; das Datum der letzten Änderung steht oben. Es gilt das Recht der Republik Serbien, und für Streitigkeiten ist ein Gericht in der Republik Serbien zuständig, soweit zwingende Verbraucherschutzvorschriften nichts anderes bestimmen."
+            "Die Website und ihre Inhalte werden ohne Gewähr bereitgestellt. Soweit gesetzlich zulässig, haftet der Autor nicht für Schäden aus der Nutzung der Website, dem Vertrauen auf ihre Inhalte oder ihrer Nichtverfügbarkeit. Die Haftung für vereinbarte Leistungen regelt der Vertrag. Gesetzlich nicht ausschließbare oder beschränkbare Haftung bleibt unberührt."
           ]
         },
         {
-          "title": "11. Kontakt",
+          "title": "11. Änderungen und anwendbares Recht",
           "paragraphs": [
-            "Fragen, Meldungen und Anliegen zum Inhalt, einschließlich Einwänden zu einem Interessenkonflikt oder vertraulichen Informationen, senden Sie bitte über die Kontaktseite."
+            "Der Autor kann diese Bedingungen ändern. Änderungen gelten ab Veröffentlichung; das Datum der letzten Änderung steht oben. Es gilt das Recht der Republik Serbien, zuständig sind die Gerichte der Republik Serbien, sofern zwingende Verbraucherschutzvorschriften nichts anderes bestimmen."
+          ]
+        },
+        {
+          "title": "12. Kontakt",
+          "paragraphs": [
+            "Fragen zu diesen Bedingungen senden Sie an {email} oder über die Kontaktseite."
           ]
         }
-      ],
-      "contactLink": "Kontaktseite"
+      ]
     },
     "landing": {
       "meta": {
@@ -1234,6 +1237,103 @@
         "lead": "Ausgewählte Arbeiten für Kunden in Europa und den USA.",
         "viewAll": "Alle Projekte ansehen"
       }
+    },
+    "privacy": {
+      "meta": {
+        "title": "Datenschutzerklärung",
+        "description": "Welche Daten stojanpetkovic.com erhebt, warum, wie lange sie gespeichert werden, wer sie erhält und wie Sie Ihre Rechte ausüben."
+      },
+      "hero": {
+        "badge": "Datenschutz",
+        "title": "Datenschutzerklärung",
+        "description": "Welche Daten ich erhebe, warum, wie lange und welche Rechte Sie haben."
+      },
+      "updated": "Zuletzt geändert: 15. November 2026.",
+      "intro": "Diese Erklärung beschreibt, wie stojanpetkovic.com personenbezogene Daten verarbeitet, nach dem serbischen Datenschutzgesetz und, soweit anwendbar, der EU-Datenschutz-Grundverordnung (DSGVO).",
+      "contactLink": "Kontaktseite",
+      "sections": [
+        {
+          "title": "1. Verantwortlicher",
+          "paragraphs": [
+            "Verantwortlich ist Stojan Petkovic, Zrenjanin, Serbien. Kontakt für alle Fragen zu Ihren Daten: {email}."
+          ]
+        },
+        {
+          "title": "2. Welche Daten ich erhebe",
+          "paragraphs": [],
+          "items": [
+            "Formulardaten (Kontakt und kostenloser Check): Name, E-Mail, Telefon, Website-Adresse, Branche und Ort, Ihre Antworten und Ihre Nachricht.",
+            "Besuchsdaten ohne Cookies: welche Seiten geöffnet wurden, woher der Besuch kam (Suche, Anzeige oder Link) und ob Telefon, WhatsApp oder ein Formular genutzt wurde. Diese Daten werden nur mit Ihrem Namen verknüpft, wenn Sie ein Formular senden.",
+            "Technische Daten im Serverprotokoll: IP-Adresse, Browsertyp und Zugriffszeit, für Sicherheit und Betrieb.",
+            "Analyse- und Werbe-Cookies (Google, Meta), nur wenn Sie sie im Cookie-Banner erlauben."
+          ]
+        },
+        {
+          "title": "3. Zweck und Rechtsgrundlage",
+          "paragraphs": [],
+          "items": [
+            "Beantwortung Ihrer Anfrage und Erstellung eines Angebots: vorvertragliche Maßnahmen auf Ihre Anfrage.",
+            "Erbringung vereinbarter Leistungen und gesetzliche Aufbewahrung: Vertrag und rechtliche Pflicht.",
+            "Messung, welche Seiten und Quellen Anfragen bringen, und Sicherheit der Website: berechtigtes Interesse.",
+            "Analyse und Anzeigenmessung per Cookies: Ihre Einwilligung, jederzeit widerrufbar.",
+            "Ich verkaufe keine Daten, versende keine Newsletter und nutze keine automatisierte Entscheidungsfindung."
+          ]
+        },
+        {
+          "title": "4. Empfänger",
+          "paragraphs": [
+            "Daten werden von Diensten verarbeitet, die für mich als Auftragsverarbeiter tätig sind, nur zu den hier genannten Zwecken:"
+          ],
+          "items": [
+            "Vercel: Hosting der Website.",
+            "webtano.com: das System, in dem Formularanfragen eingehen und gespeichert werden.",
+            "Resend: E-Mail-Benachrichtigungen über Anfragen.",
+            "Google (Analytics, Ads) und Meta (Facebook, Instagram): nur wenn Sie diese Cookies erlauben.",
+            "Behörden, nur soweit gesetzlich vorgeschrieben."
+          ]
+        },
+        {
+          "title": "5. Übermittlung außerhalb Serbiens",
+          "paragraphs": [
+            "Einige dieser Dienste speichern Daten in der Europäischen Union oder in den USA. Die Übermittlung stützt sich auf gesetzlich vorgesehene Garantien wie Standardvertragsklauseln oder Angemessenheitsbeschlüsse."
+          ]
+        },
+        {
+          "title": "6. Speicherdauer",
+          "paragraphs": [],
+          "items": [
+            "Anfragen: solange für Antwort und Angebot nötig, höchstens zwei Jahre nach dem letzten Kontakt.",
+            "Kundendaten und Rechnungen: solange gesetzlich vorgeschrieben.",
+            "Besuchsdaten ohne Cookies: zusammengefasst und ohne Frist, da sie keine identifizierbare Person betreffen.",
+            "Cookies: für die in den Cookie-Einstellungen genannte Dauer."
+          ]
+        },
+        {
+          "title": "7. Cookies",
+          "paragraphs": [
+            "Notwendige Cookies halten die Website funktionsfähig und speichern Ihre Auswahl im Banner. Analyse- und Werbe-Cookies werden nur mit Ihrer Einwilligung gesetzt. Ihre Auswahl können Sie jederzeit in den Cookie-Einstellungen am Seitenende ändern."
+          ]
+        },
+        {
+          "title": "8. Ihre Rechte",
+          "paragraphs": [
+            "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung und Datenübertragbarkeit, auf Widerspruch gegen Verarbeitung aufgrund berechtigten Interesses und auf Widerruf einer Einwilligung, ohne dass frühere Verarbeitung unrechtmäßig wird. Anfragen an {email}; ich antworte innerhalb von 30 Tagen.",
+            "Sie können sich beim serbischen Beauftragten für Informationen von öffentlicher Bedeutung und Datenschutz (www.poverenik.rs) oder bei der Aufsichtsbehörde Ihres EU-Landes beschweren."
+          ]
+        },
+        {
+          "title": "9. Sicherheit",
+          "paragraphs": [
+            "Die Website läuft über HTTPS, der Zugang zu Anfragen ist passwortgeschützt und auf mich beschränkt, und die genutzten Dienste wenden technische und organisatorische Schutzmaßnahmen an."
+          ]
+        },
+        {
+          "title": "10. Änderungen",
+          "paragraphs": [
+            "Ich kann diese Erklärung ändern, wenn sich die Verarbeitung ändert. Das Datum der letzten Änderung steht oben."
+          ]
+        }
+      ]
     }
   }
 }
