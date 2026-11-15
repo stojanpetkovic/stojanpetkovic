@@ -130,63 +130,22 @@ export interface ResolvedNavItem {
   mega?: ResolvedMegaMenu;
 }
 
-/**
- * The Services mega menu. The site offers three kinds of work and each has its
- * own pages; grouping them here keeps the top bar short and shows a visitor
- * everything under Services without opening each page.
- */
-const servicesMega: MegaMenuConfig = {
-  activePrefixes: ['/services', '/tools', '/web', '/courses'],
-  overview: { label: 'All services', labelKey: 'nav.mega.overview', href: '/services', icon: 'arrow-right' },
-  groups: [
-    {
-      title: 'Engineering',
-      titleKey: 'nav.mega.groups.engineering',
-      links: [
-        { label: 'Courses', labelKey: 'nav.items.courses', descriptionKey: 'nav.mega.descriptions.courses', href: '/courses', icon: 'book-open' },
-        { label: 'Projects', labelKey: 'nav.items.projects', descriptionKey: 'nav.mega.descriptions.projects', href: '/projects', icon: 'layers' },
-      ],
-    },
-    {
-      title: 'Engineering tools',
-      titleKey: 'nav.mega.groups.tools',
-      links: [
-        { label: 'CT Simulator', labelKey: 'pages.ctSimulator.hero.title', href: '/tools/ct-simulator', icon: 'layout-dashboard' },
-        { label: 'CT Pressure Loss', labelKey: 'pages.ctPressureLoss.hero.title', href: '/tools/ct-pressure-loss', icon: 'activity' },
-        { label: 'CT Strength Limits', labelKey: 'pages.ctStrength.hero.title', href: '/tools/ct-strength-limits', icon: 'shield-check' },
-        { label: 'Nitrogen Displacement', labelKey: 'pages.nitrogenDisplacement.hero.title', href: '/tools/nitrogen-displacement', icon: 'wind' },
-        { label: 'Well Kill', labelKey: 'pages.wellKill.hero.title', href: '/tools/well-kill', icon: 'shield-check' },
-        { label: 'All tools', labelKey: 'nav.mega.links.allTools', href: '/tools', icon: 'arrow-right' },
-      ],
-    },
-    {
-      title: 'Software & web',
-      titleKey: 'nav.mega.groups.web',
-      links: [
-        { label: 'Engineering software', labelKey: 'nav.mega.links.software', descriptionKey: 'nav.mega.descriptions.software', href: '/services#software', icon: 'code' },
-        { label: 'Web development', labelKey: 'nav.mega.links.web', descriptionKey: 'nav.mega.descriptions.web', href: '/web', icon: 'layout' },
-      ],
-    },
-  ],
-};
-
 export const navItems: NavItem[] = [
   { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
-  { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services', mega: servicesMega },
-  { label: 'Projects', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
-  { label: 'About', href: '/about', order: 3, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 4, labelKey: 'nav.items.contact' },
+  { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
+  { label: 'Web', href: '/web', order: 2, labelKey: 'nav.items.web' },
+  { label: 'Projects', href: '/projects', order: 3, labelKey: 'nav.items.projects' },
+  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
 ];
 
 export const footerNavItems: NavItem[] = [
   { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
   { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Courses', href: '/courses', order: 2, labelKey: 'nav.items.courses' },
-  { label: 'Tools', href: '/tools', order: 3, labelKey: 'nav.items.tools' },
-  { label: 'Web', href: '/web', order: 4, labelKey: 'nav.items.web' },
-  { label: 'Projects', href: '/projects', order: 5, labelKey: 'nav.items.projects' },
-  { label: 'About', href: '/about', order: 6, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 7, labelKey: 'nav.items.contact' },
+  { label: 'Web', href: '/web', order: 2, labelKey: 'nav.items.web' },
+  { label: 'Projects', href: '/projects', order: 3, labelKey: 'nav.items.projects' },
+  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
 ];
 
 export const legalLinks: LegalLink[] = [
@@ -211,16 +170,6 @@ export const legalLinks: LegalLink[] = [
  * fork: they inherit whatever is here.
  */
 export const footerLinkGroups: FooterLinkGroupConfig[] = [
-  {
-    titleKey: 'footer.groups.engineering',
-    title: 'Engineering',
-    links: [
-      { label: 'Projects, courses and software', href: '/#focus', labelKey: 'footer.links.focus' },
-      { label: 'Courses', href: '/courses', labelKey: 'nav.items.courses' },
-      { label: 'About', href: '/about', labelKey: 'nav.items.about' },
-      { label: 'Contact', href: '/contact', labelKey: 'nav.items.contact' },
-    ],
-  },
   {
     titleKey: 'footer.groups.questions',
     title: 'Got questions?',

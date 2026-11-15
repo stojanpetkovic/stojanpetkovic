@@ -2,10 +2,10 @@
  * Routes Configuration
  *
  * The address of every page in each language. The code works with one
- * canonical path per page, the English one (`/tools/well-kill`); this file
+ * canonical path per page, the English one (`/projects/tag/seo`); this file
  * says what each part of that path is called in the other languages, so a
- * Serbian page lives at `/sr/alati/gusenje-busotine` and a German one at
- * `/de/werkzeuge/bohrlochkill`.
+ * Serbian page lives at `/sr/projekti/oznaka/seo` and a German one at
+ * `/de/projekte/schlagwort/seo`.
  *
  * `localizedPath()` in `src/i18n` applies these names to every link, the
  * language switcher, hreflang and the sitemap, and `astro.config.mjs` turns
@@ -33,10 +33,8 @@ export interface RoutesConfig {
 const routesConfig: RoutesConfig = {
   segments: {
     projects: { sr: 'projekti', de: 'projekte' },
-    tools: { sr: 'alati', de: 'werkzeuge' },
     about: { sr: 'o-meni', de: 'ueber-mich' },
     contact: { sr: 'kontakt', de: 'kontakt' },
-    courses: { sr: 'kursevi', de: 'kurse' },
     services: { sr: 'usluge', de: 'leistungen' },
     terms: { sr: 'uslovi-koriscenja', de: 'nutzungsbedingungen' },
     start: { sr: 'pocetak' },
@@ -45,23 +43,8 @@ const routesConfig: RoutesConfig = {
     tag: { sr: 'oznaka', de: 'schlagwort' },
     page: { sr: 'strana', de: 'seite' },
   },
-  tools: {
-    'ct-pressure-loss': { sr: 'ct-pad-pritiska', de: 'ct-druckverlust' },
-    'ct-strength-limits': { sr: 'ct-granice-cvrstoce', de: 'ct-festigkeitsgrenzen' },
-    'nitrogen-displacement': { sr: 'zamena-fluida-azotom', de: 'stickstoff-verdraengung' },
-    'nitrogen-vessel': { sr: 'azot-za-sud', de: 'stickstoff-fuer-behaelter' },
-    'well-kill': { sr: 'gusenje-busotine', de: 'bohrlochkill' },
-  },
-  projects: {
-    'geotermalni-model-melenci': {
-      en: 'melenci-geothermal-model',
-      de: 'geothermisches-modell-melenci',
-    },
-    'geotermalni-potencijal-vojvodine': {
-      en: 'geothermal-potential-of-vojvodina',
-      de: 'geothermisches-potenzial-der-vojvodina',
-    },
-  },
+  tools: {},
+  projects: {},
 };
 
 export default routesConfig;

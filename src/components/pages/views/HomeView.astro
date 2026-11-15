@@ -32,12 +32,6 @@ interface IconCard {
   title: string;
   description: string;
 }
-interface Pillar extends IconCard {
-  points: string[];
-  /** The card's own page, when it has one. */
-  href?: string;
-}
-
 const { locale = defaultLocale } = Astro.props;
 
 /** The country a credential belongs to, named in the language of the page ("DE" becomes "Germany", "Nemačka"). */
@@ -54,11 +48,10 @@ let postItems = await getPublishedPosts(locale);
 if (postItems.length === 0 && locale !== defaultLocale) {
   postItems = await getPublishedPosts(defaultLocale);
 }
-// The home page shows engineering posts only. Posts tagged for the web or for
-// marketing stay on the blog and under /web; this section stays out of the way
-// until there is an engineering post to show.
+// The home page leaves out the old engineering posts; this section stays out
+// of the way until there is a post to show.
 const posts = [...postItems]
-  .filter((post) => post.data.tags.some(isEngineeringTag))
+  .filter((post) => !post.data.tags.some(isEngineeringTag))
   .sort((a, b) => {
     if (a.data.featured !== b.data.featured) return a.data.featured ? -1 : 1;
     return b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf();
@@ -92,14 +85,6 @@ const workWithMe = tData<{ badge: string; heading: string; lead: string; cards: 
   'pages.home.workWithMe',
   locale
 )!;
-const servicesSection = tData<{
-  badge: string;
-  heading: string;
-  lead: string;
-  learnMore: string;
-  status: string;
-  cards: Pillar[];
-}>('pages.home.services', locale)!;
 const webGateway = tData<{ badge: string; heading: string; lead: string; items: string[]; cta: string }>(
   'pages.home.webGateway',
   locale
@@ -133,6 +118,7 @@ const splitStat = (stat: string) => {
 const servicesUrl = localizedPath('/services', locale);
 const webUrl = localizedPath('/web', locale);
 const aboutUrl = localizedPath('/about', locale);
+const projectsUrl = localizedPath('/projects', locale);
 const contactUrl = localizedPath('/contact', locale);
 const blogUrl = localizedPath('/blog', locale);
 
@@ -237,7 +223,7 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
         {hero.primaryCta}
         <Icon name="arrow-right" size="sm" />
       </Button>
-      <Button size="lg" variant="outline" href="#focus">
+      <Button size="lg" variant="outline" href={projectsUrl}>
         {hero.secondaryCta}
         <Icon name="arrow-right" size="sm" />
       </Button>
@@ -328,60 +314,6 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
       <div class="credential-dialog-body" id="credential-dialog-pages" tabindex="0"></div>
     </div>
   </dialog>
-
-  <!-- Focus: industrial projects, courses, software -->
-  <section id="focus" class="relative z-10 py-[var(--space-section-lg)] bg-background-secondary border-t border-border">
-    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-12">
-      <div class="section-head" data-reveal>
-        <div>
-          <p class="section-eyebrow"><span class="section-eyebrow-num">01</span><span>{servicesSection.badge}</span></p>
-          <h2 class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground">
-            {servicesSection.heading}
-          </h2>
-        </div>
-        <p class="section-lead">{servicesSection.lead}</p>
-      </div>
-
-      {/* Subgrid: the four rows of each card (header, title, text, list) line up
-          across the three cards, whatever the length of the copy. */}
-      <div class="grid gap-6 md:grid-cols-3 md:gap-y-0 md:grid-rows-[repeat(4,auto)]">
-        {servicesSection.cards.map((card, i) => (
-          <article class="focus-card md:row-span-4 md:grid md:grid-rows-subgrid md:gap-y-5 flex flex-col gap-5" data-reveal data-reveal-delay={i || undefined}>
-            <div class="flex items-center justify-between gap-3">
-              <span class="font-mono text-xs font-semibold tracking-[0.2em] text-brand-600">{`0${i + 1}`}</span>
-              <span class="rounded-full border border-border bg-background-secondary px-3 py-1 text-xs font-medium text-foreground-muted">
-                {servicesSection.status}
-              </span>
-            </div>
-            <div class="flex items-center gap-4">
-              <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-700 text-white shadow-sm">
-                <Icon name={card.icon} size="md" />
-              </span>
-              <h3 class="font-display text-xl font-bold leading-tight text-foreground">
-                {card.href ? <a href={localizedPath(card.href, locale)} class="hover:text-brand-700 hover:underline underline-offset-4">{card.title}</a> : card.title}
-              </h3>
-            </div>
-            <p class="text-foreground-muted leading-relaxed">{card.description}</p>
-            <ul class="flex flex-col gap-2.5 border-t border-border pt-5 text-sm text-foreground-muted" role="list">
-              {card.points.map((point) => (
-                <li class="flex items-start gap-2.5">
-                  <Icon name="check" size="sm" class="mt-0.5 shrink-0 text-brand-600" />
-                  <span>{point}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
-        ))}
-      </div>
-
-      <div class="flex justify-center" data-reveal>
-        <Button size="lg" href={contactUrl}>
-          {servicesSection.learnMore}
-          <Icon name="arrow-right" size="sm" />
-        </Button>
-      </div>
-    </div>
-  </section>
 
   <!-- Why work with an engineer: a dark band, to break the rhythm of the page -->
   <section class="why-band invert-section relative z-10 overflow-hidden py-[var(--space-section-lg)] border-t border-border">
@@ -531,7 +463,7 @@ const basedInDisplay = `${city ?? 'Your City'}${country ? `, ${country}` : ''}`;
     </div>
   </section>
 
-  <!-- Blog: engineering posts only -->
+  <!-- Blog -->
   {posts.length > 0 && (
   <section class="relative z-10 py-[var(--space-section-md)] bg-background-secondary border-t border-border">
     <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">

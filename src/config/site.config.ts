@@ -275,8 +275,8 @@ const siteConfig: SiteConfig = {
   // import this file, uses the same values. Change them there.
   name: SITE_NAME,
   description:
-    'Case studies and engineering tools, plus cloud-based software and websites for technical companies, by an engineer.',
-  tagline: 'Engineer building software and web systems for technical businesses',
+    'Websites, SEO, AI search visibility and ads that bring service businesses more calls and enquiries.',
+  tagline: 'More customers from the internet for service businesses',
   url: SITE_URL || SITE_URL_FALLBACK,
   // Generated at build time from `name`, `tagline` and the brand colour below.
   // Point this at a file in `public/` to use your own — it has to be a raster

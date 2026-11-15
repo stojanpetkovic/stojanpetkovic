@@ -45,9 +45,9 @@ export async function getDerivedFooterGroups(
   // time — a footer full of a site's own subjects reads better than a footer
   // full of its section names twice over.
   const posts = await getPublishedPosts(locale);
-  // Only engineering tags: the web and marketing tags stay on the blog.
+  // The old engineering tags stay out of the footer.
   const topics = collectTopTags(posts, 50)
-    .filter(isEngineeringTag)
+    .filter((tag) => !isEngineeringTag(tag))
     .slice(0, TOPICS_LIMIT)
     .map((tag) => ({
     label: tag,

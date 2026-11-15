@@ -31,20 +31,9 @@ describe('terms of use', () => {
   });
 });
 
-describe('tool notice and contact form terms', () => {
-  type Notice = { ackItems: string[]; ackCheck: string };
-  const notice = (d: unknown) => (d as { pages: { tools: { notice: Notice } } }).pages.tools.notice;
+describe('contact form terms', () => {
   const form = (d: unknown, ns: 'landing' | 'contact') =>
     (d as { pages: Record<string, { form: Record<string, string> }> }).pages[ns].form;
-
-  it.each([
-    ['en', en],
-    ['sr', sr],
-    ['de', de],
-  ])('%s has the acknowledgment items and a {terms} placeholder in its label', (_, locale) => {
-    expect(notice(locale).ackItems).toHaveLength(notice(en).ackItems.length);
-    expect(notice(locale).ackCheck).toContain('{terms}');
-  });
 
   it.each([
     ['en', en],

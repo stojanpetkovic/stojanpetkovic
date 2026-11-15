@@ -367,7 +367,7 @@ function verifySiteUrl() {
 const i18nEnabled = i18nConfig.enabled === true && i18nConfig.locales.length > 1;
 /**
  * Old addresses → new ones, for the pages whose segments are named per locale
- * in `src/config/routes.config.ts`. The tools and projects that exist are read
+ * in `src/config/routes.config.ts`. The projects that exist are read
  * from their folders, so a new one is covered without editing this file.
  */
 const slugsIn = (dir, ext) => {
@@ -401,29 +401,63 @@ const redirects = i18nEnabled
   : {};
 
 /**
- * The BHA Builder and the Well Builder are steps of the CT Simulator now. Each
- * address either page ever had — the English one and the translated one, with
- * and without a locale prefix — redirects to the simulator.
+ * The engineering section (tools, courses and the geothermal case studies) was
+ * removed in November 2026, when the site turned to finding clients online.
+ * Every address those pages had, in English and in each translation, with and
+ * without a locale prefix, goes to the home page of its language; the
+ * geothermal projects and their tags go to the project list.
  */
-const retiredTools = {
-  'bha-builder': {},
-  'well-builder': { sr: 'crtanje-busotine', de: 'bohrungs-builder' },
+const removedEngineering = {
+  en: {
+    tools: ['tools'],
+    toolSlugs: ['ct-simulator', 'ct-pressure-loss', 'ct-strength-limits', 'nitrogen-displacement', 'nitrogen-vessel', 'well-kill', 'bha-builder', 'well-builder'],
+    courses: ['courses'],
+    projects: ['projects'],
+    projectSlugs: ['melenci-geothermal-model', 'geothermal-potential-of-vojvodina'],
+    tag: 'tag',
+    tags: ['Case study', 'Geothermal', 'Melenci', 'Banat', 'Direct use', 'Heat pump', 'Vojvodina', '3D Model', 'Energy'],
+  },
+  sr: {
+    tools: ['tools', 'alati'],
+    toolSlugs: ['ct-pad-pritiska', 'ct-granice-cvrstoce', 'zamena-fluida-azotom', 'azot-za-sud', 'gusenje-busotine', 'crtanje-busotine'],
+    courses: ['courses', 'kursevi'],
+    projects: ['projects', 'projekti'],
+    projectSlugs: [],
+    tag: 'oznaka',
+    tags: ['Studija slučaja', 'Geotermija', 'Melenci', 'Banat', 'Direktno korišćenje', 'Toplotna pumpa', 'Vojvodina', '3D model', 'Energija'],
+  },
+  de: {
+    tools: ['tools', 'werkzeuge'],
+    toolSlugs: ['ct-druckverlust', 'ct-festigkeitsgrenzen', 'stickstoff-verdraengung', 'stickstoff-fuer-behaelter', 'bohrlochkill', 'bohrungs-builder'],
+    courses: ['courses', 'kurse'],
+    projects: ['projects', 'projekte'],
+    projectSlugs: ['geothermisches-modell-melenci', 'geothermisches-potenzial-der-vojvodina'],
+    tag: 'schlagwort',
+    tags: ['Fallstudie', 'Geothermie', 'Melenci', 'Banat', 'Direkte Nutzung', 'Wärmepumpe', 'Vojvodina', '3D-Modell', 'Energie'],
+  },
 };
-const retiredToolRedirects = i18nEnabled
-  ? Object.fromEntries(
-      i18nConfig.locales.flatMap((locale) => {
-        const prefix = locale === i18nConfig.defaultLocale ? '' : `/${locale}`;
-        const tools = toLocalizedRoute('/tools', locale);
-        const target = `${prefix}${toLocalizedRoute('/tools/ct-simulator', locale)}/`;
-        return Object.entries(retiredTools).flatMap(([tool, names]) =>
-          [...new Set([`/tools/${tool}`, `${tools}/${tool}`, `${tools}/${names[locale] ?? tool}`])].map((path) => [
-            `${prefix}${path}`,
-            target,
-          ])
-        );
-      })
-    )
-  : { '/tools/bha-builder': '/tools/ct-simulator/', '/tools/well-builder': '/tools/ct-simulator/' };
+const removedEngineeringRedirects = Object.fromEntries(
+  i18nConfig.locales.flatMap((locale) => {
+    const names = removedEngineering[locale];
+    if (!names) return [];
+    const prefix = i18nEnabled && locale !== i18nConfig.defaultLocale ? `/${locale}` : '';
+    const home = `${prefix}/`;
+    const projectList = `${prefix}${i18nEnabled ? toLocalizedRoute('/projects', locale) : '/projects'}/`;
+    const toolSlugs = [...removedEngineering.en.toolSlugs, ...names.toolSlugs];
+    const projectSlugs = ['geotermalni-model-melenci', 'geotermalni-potencijal-vojvodine', ...removedEngineering.en.projectSlugs, ...names.projectSlugs];
+    const paths = [
+      ...names.tools.flatMap((tools) => [[`/${tools}`, home], ...toolSlugs.map((slug) => [`/${tools}/${slug}`, home])]),
+      ...names.courses.map((courses) => [`/${courses}`, home]),
+      ...names.projects.flatMap((projects) => [
+        ...projectSlugs.map((slug) => [`/${projects}/${slug}`, projectList]),
+        ...[...new Set(['tag', names.tag])].flatMap((tag) =>
+          names.tags.map((name) => [`/${projects}/${tag}/${tagToSlug(name)}`, projectList])
+        ),
+      ]),
+    ];
+    return paths.map(([path, target]) => [`${prefix}${path}`, target]);
+  })
+);
 
 /**
  * hreflang alternates for the sitemap. A page's canonical path is the same in
@@ -503,7 +537,7 @@ export default defineConfig({
 
   site: process.env.SITE_URL || SITE_URL_FALLBACK,
   ...(astroI18nOptions ? { i18n: astroI18nOptions } : {}),
-  redirects: { ...redirects, ...retiredToolRedirects },
+  redirects: { ...redirects, ...removedEngineeringRedirects },
 
   // Astro 7 changed the default to 'jsx', which strips whitespace between
   // inline elements (React-style). Pin to `true` to keep this theme's v6
