@@ -619,6 +619,10 @@
           {
             "question": "Können Sie auch Google Ads oder Social-Media-Anzeigen betreuen?",
             "answer": "Ja — Google Ads sowie Facebook- und Instagram-Kampagnen, mit Conversion-Tracking, das zeigt, was jeder Euro einbringt."
+          },
+          {
+            "question": "Bindet mich ein langer Vertrag?",
+            "answer": "Nein. Die Website hat einen Festpreis, Anzeigen und SEO laufen monatlich. Sie bleiben, weil es sich lohnt, nicht wegen eines Vertrags."
           }
         ]
       },
@@ -1116,89 +1120,98 @@
     },
     "home": {
       "meta": {
-        "title": "Ingenieur & Digital Architect",
-        "description": "Fallstudien und Engineering-Werkzeuge sowie Cloud-basierte Software und Websites für technische Unternehmen — von einem anerkannten Ingenieur."
+        "title": "Mehr Kunden aus dem Internet",
+        "description": "Google Ads, SEO, Sichtbarkeit in der KI-Suche und eine schnelle Website für Dienstleister. Mehr Anrufe und Anfragen, jede gemessen. Kostenloser Check."
       },
       "hero": {
-        "badge": "Websites und Software",
-        "titleLine1": "Stojan\u00a0Petkovic",
-        "titleLine2": "Ingenieur\u00a0&",
-        "titleLine3": "Digital\u00a0Architect",
-        "description": "Fallstudien und Engineering-Werkzeuge für Ingenieure. Für technische Unternehmen baue ich Cloud-basierte Software und Websites.",
-        "descriptionMobile": "Fallstudien und Engineering-Werkzeuge für Ingenieure sowie Cloud-basierte Software und Websites.",
-        "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Titel von der Bayerischen Ingenieurekammer-Bau genehmigt (2026)", "docTitle": "Bescheid der Bayerischen Ingenieurekammer-Bau", "docAlt": "Scan des Bescheids über die Genehmigung der Berufsbezeichnung Ingenieur, persönliche Angaben geschwärzt", "docDescription": "Die Bayerische Ingenieurekammer-Bau hat mein Studium im Fach Bergbau an der Universität Belgrad geprüft und als gleichwertig mit den deutschen Anforderungen an Ingenieure anerkannt (Art. 3 BayIngG). Auf dieser Grundlage hat sie mir genehmigt, die geschützte Berufsbezeichnung Ingenieur allein oder in einer Wortverbindung zu führen. Der Bescheid ist vom 19. August 2026. Er bestätigt die Berufsbezeichnung; er ist keine Zulassung für eine reglementierte Tätigkeit."}, {"icon": "shield-check", "tag": "RS", "title": "Fachprüfung bestanden (2019)", "text": "Gewinnung mineralischer Rohstoffe, Serbien", "docTitle": "Bescheinigung über die bestandene Fachprüfung", "docAlt": "Scan der Bescheinigung über die in Serbien bestandene Fachprüfung und ihrer beglaubigten deutschen Übersetzung, persönliche Angaben geschwärzt", "docDescription": "2019 habe ich die Fachprüfung für die Ausübung fachlicher Tätigkeiten bei der Förderung mineralischer Rohstoffe bestanden. Sie wurde nach dem serbischen Gesetz über Bergbau und geologische Untersuchungen abgelegt und vom Provinzsekretariat für Energetik, Bauwesen und Verkehr der Vojvodina bescheinigt (Bescheinigung vom 25. September 2019). Die Seiten nach dem Original sind die beglaubigte deutsche Übersetzung einer vereidigten Gerichtsdolmetscherin (6. März 2026) mit der notariellen Beglaubigung der Kopie (10. März 2026)."}],
-        "credentialsDialog": {"close": "Schließen", "note": "Persönliche Angaben wurden geschwärzt.", "hint": "Dokument ansehen", "zoom": "Seite antippen zum Vergrößern oder Verkleinern."},
-        "qualifications": {"label": "Qualifikationen & Schulungen", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Dipl.-Ing. Bergbau", "text": "Universität Belgrad · flüssige und gasförmige mineralische Rohstoffe"}, {"icon": "shield-check", "year": "2020", "title": "EU-Maschinenrichtlinie", "text": "Schulung Maschinensicherheit · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Technologiemanagement (STM)", "text": "System of Technology Management, Unternehmensprogramm"}, {"icon": "users", "year": "2018", "title": "Führungsakademie", "text": "Personalführung, unteres Management · Mokra Gora School of Management"}]},
-        "primaryCta": "Kontakt aufnehmen",
-        "secondaryCta": "Sehen, woran ich arbeite",
-        "videoPlay": "Mit Ton abspielen",
-        "videoLabel": "Vorstellungsvideo"
+        "badge": "Verfügbar für neue Kunden",
+        "titleLead": "Mehr Anrufe und Anfragen",
+        "titleHighlight": "aus dem Internet für Ihr Unternehmen",
+        "description": "Google Ads, SEO, Sichtbarkeit in der KI-Suche und eine schnelle Website, verbunden zu einem System, das jeden Anruf misst. Sie zahlen für Kunden, nicht für Klicks.",
+        "primary": "Kostenloser Website-Check",
+        "secondary": "Ergebnisse ansehen"
       },
-      "workWithMe": {
-        "badge": "Hintergrund",
-        "heading": "Woher der Inhalt kommt",
-        "lead": "Die Erfahrung und die Gewohnheiten hinter Fallstudien, Werkzeugen und Websites.",
-        "cards": [
-          { "icon": "award", "title": "Felderfahrung", "description": "Über 13 Jahre in Coiled-Tubing- und Stickstoffoperationen." },
-          { "icon": "shield-check", "title": "Geprüfte Zahlen", "description": "Berechnungen werden geprüft, Annahmen festgehalten." },
-          { "icon": "book-open", "title": "Dokumentierte Logik", "description": "Formeln und Entscheidungen erklärt, damit Ergebnisse nachvollziehbar sind." },
-          { "icon": "globe", "title": "Titel Ingenieur", "description": "Von der Bayerischen Ingenieurekammer-Bau genehmigt, 2026." }
-        ],
-        "cta": "Alle Leistungen ansehen"
-      },
-      "webGateway": {
-        "badge": "Webentwicklung",
-        "heading": "Websites für technische Unternehmen",
-        "lead": "Ein eigener Bereich neben der Ingenieurarbeit: schnelle Astro-Websites und Websysteme für Ingenieur- und technische B2B-Unternehmen.",
+      "pillars": {
+        "badge": "Wie Kunden kommen",
+        "heading": "Vier Schritte von der Suche zum Anruf",
+        "lead": "Ich verkaufe keine einzelnen Leistungen, sondern den ganzen Weg: Man findet Sie, man wählt Sie, und Sie wissen, was sich lohnt.",
         "items": [
-          "Webdesign",
-          "Webentwicklung",
-          "Optimierung und Tracking"
-        ],
-        "cta": "Zur Webentwicklung"
+          {
+            "icon": "search",
+            "title": "Gefunden werden",
+            "text": "Lokales SEO, Google-Unternehmensprofil und Karte, eine Seite für jede Leistung und jeden Ort und Sichtbarkeit in ChatGPT und der KI-Suche."
+          },
+          {
+            "icon": "target",
+            "title": "Sofort Kunden holen",
+            "text": "Google Ads sowie Facebook- und Instagram-Anzeigen für Menschen, die genau Ihre Leistung suchen, mit Conversion-Tracking ab dem ersten Tag."
+          },
+          {
+            "icon": "phone-call",
+            "title": "Besuche in Anrufe verwandeln",
+            "text": "Eine schnelle Website oder Landingpage, Telefon und WhatsApp mit einem Tipp und ein KI-Chat, der auch nach Feierabend antwortet. Jede Anfrage erreicht Sie sofort."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Messen, was sich lohnt",
+            "text": "Ein Monatsbericht: woher Anrufe und Anfragen kommen, was jede kostet und wo Ihr nächster Euro am meisten bringt."
+          }
+        ]
       },
-      "portfolio": {
-        "badge": "Portfolio",
-        "heading": "Meine Projekte",
-        "lead": "Ausgewählte Arbeiten für Kunden in Europa und den USA.",
-        "viewAll": "Alle Projekte ansehen"
+      "industries": {
+        "badge": "Für wen ich arbeite",
+        "heading": "Für Unternehmen, die von Anrufen und Anfragen leben",
+        "lead": "Wenn Ihre Kunden Ihre Leistung bei Google suchen oder ChatGPT fragen, kann ich helfen.",
+        "items": [
+          {
+            "icon": "wrench",
+            "title": "Handwerk und Service",
+            "text": "Handwerker, Montage, Reparatur, Wartung, Reinigung und Baumpflege."
+          },
+          {
+            "icon": "bed-double",
+            "title": "Unterkünfte und Tourismus",
+            "text": "Apartments, Zimmer und Villen, mit Direktbuchungen statt Provisionen."
+          },
+          {
+            "icon": "stethoscope",
+            "title": "Praxen und Salons",
+            "text": "Zahnärzte, Kliniken, Kosmetik- und Friseursalons."
+          },
+          {
+            "icon": "briefcase",
+            "title": "Lokale und B2B-Unternehmen",
+            "text": "Transport, Produktion und Fachdienstleister, die einen steten Strom an Anfragen brauchen."
+          }
+        ]
+      },
+      "final": {
+        "heading": "Wer zuerst auftaucht, bekommt den Auftrag.",
+        "text": "Kunden rufen das erste Unternehmen an, das sie finden. Sorgen wir dafür, dass Sie das sind. Der Check Ihrer Website und Ihrer Konkurrenz ist kostenlos und unverbindlich.",
+        "cta": "Kostenlosen Check anfordern"
       },
       "testimonials": {
         "badge": "Kundenstimmen",
         "heading": "Was Kunden sagen",
         "lead": "Echte Worte nach abgeschlossenen Projekten.",
         "items": [
-          { "quote": "Stojan hat meine beiden Websites von WordPress auf Astro umgestellt, und der Geschwindigkeitsunterschied war sofort spürbar. Jede Anfrage landet jetzt in der Sekunde in meinem Postfach, in der jemand das Formular absendet — kein Dashboard mehr, das ich prüfen muss, keine verpassten Anrufe.", "name": "Mirko Calić", "role": "Inhaber, Tree Jaws & Mahalo Tree Service" },
-          { "quote": "Stojan hat unsere Buchungswebsite von Grund auf gebaut und die Instagram- und Facebook-Anzeigen dazu eingerichtet. Gäste kommen direkt von der Anzeige zur fertigen Reservierung — genau das, was eine Unterkunft unserer Größe gebraucht hat.", "name": "Valentina Jovanović", "role": "Inhaberin, Valena Apartmani" }
+          {
+            "quote": "Stojan hat meine beiden Websites von WordPress auf Astro umgestellt, und der Geschwindigkeitsunterschied war sofort spürbar. Jede Anfrage landet jetzt in der Sekunde in meinem Postfach, in der jemand das Formular absendet — kein Dashboard mehr, das ich prüfen muss, keine verpassten Anrufe.",
+            "name": "Mirko Calić",
+            "role": "Inhaber, Tree Jaws & Mahalo Tree Service"
+          },
+          {
+            "quote": "Stojan hat unsere Buchungswebsite von Grund auf gebaut und die Instagram- und Facebook-Anzeigen dazu eingerichtet. Gäste kommen direkt von der Anzeige zur fertigen Reservierung — genau das, was eine Unterkunft unserer Größe gebraucht hat.",
+            "name": "Valentina Jovanović",
+            "role": "Inhaberin, Valena Apartmani"
+          }
         ]
       },
-      "aboutTeaser": {
-        "badge": "Über mich",
-        "headingLine1": "Erst Ingenieur,",
-        "headingLine2": "dann Entwickler.",
-        "para1WithLocation": "Bergbauingenieur mit über 13 Jahren Erfahrung in Öl- und Gasoperationen und dem von der Bayerischen Ingenieurekammer-Bau genehmigten Titel Ingenieur. Mit Sitz in {location} und für Kunden weltweit verfügbar. Ich baue Software und Websysteme so, wie ich einen Einsatz fahre: erst die Anforderungen, Zahlen geprüft, nichts undokumentiert.",
-        "para1NoLocation": "Bergbauingenieur mit über 13 Jahren Erfahrung in Öl- und Gasoperationen und dem von der Bayerischen Ingenieurekammer-Bau genehmigten Titel Ingenieur. Für Kunden weltweit verfügbar. Ich baue Software und Websysteme so, wie ich einen Einsatz fahre: erst die Anforderungen, Zahlen geprüft, nichts undokumentiert.",
-        "para2": "Im Blog teile ich die Ideen und Entscheidungen hinter meiner Ingenieur- und Softwarearbeit.",
-        "moreAboutMe": "Mehr über mich",
-        "statsIntro": "Ein paar Dinge über mich.",
-        "stat1": "13+ Jahre Ingenieurpraxis",
-        "stat2": "1.000+ Einsätze im Feld",
-        "stat3": "Weltweit tätig",
-        "stat4": "2 Länder mit Qualifikation",
-        "facts": [{"icon": "wrench", "label": "Spezialisierung", "value": "Coiled-Tubing- und Stickstoffeinsätze"}, {"icon": "graduation-cap", "label": "Ausbildung", "value": "Dipl.-Ing. Bergbau, Universität Belgrad (2010)"}, {"icon": "globe", "label": "Verfügbarkeit", "value": "Weltweit, Zeitzone MEZ"}, {"icon": "clock", "label": "Antwort", "value": "Innerhalb eines Werktags"}],
-        "basedIn": "Standort:"
-      },
-      "blog": {
-        "badge": "Blog",
-        "heading": "Empfohlene Beiträge",
-        "viewAll": "Alle Beiträge ansehen"
-      },
-      "cta": {
-        "badge": "Kontakt",
-        "heading": "Sprechen wir über Ihr Projekt",
-        "description": "Das erste Gespräch ist kostenlos und unverbindlich. Vom ersten Gespräch bis zur fertigen Website arbeiten Sie direkt mit mir.",
-        "primary": "Nachricht senden",
-        "secondary": "Mehr über mich"
+      "portfolio": {
+        "badge": "Portfolio",
+        "heading": "Meine Projekte",
+        "lead": "Ausgewählte Arbeiten für Kunden in Europa und den USA.",
+        "viewAll": "Alle Projekte ansehen"
       }
     }
   }

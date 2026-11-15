@@ -619,6 +619,10 @@
           {
             "question": "Can you also run Google Ads or social media ads?",
             "answer": "Yes — Google Ads and Facebook and Instagram campaigns, with conversion tracking that shows what every euro brings in."
+          },
+          {
+            "question": "Am I tied into a long contract?",
+            "answer": "No. The website has one fixed price, and ads and SEO run month to month. You stay because it pays off, not because of a contract."
           }
         ]
       },
@@ -1116,89 +1120,98 @@
     },
     "home": {
       "meta": {
-        "title": "Engineer & Digital Architect",
-        "description": "Case studies and engineering tools, plus cloud-based software and websites for technical companies, by a recognised Ingenieur."
+        "title": "More customers from the internet",
+        "description": "Google Ads, SEO, AI search visibility and a fast website for service businesses. More calls and enquiries, each one measured. Free website check."
       },
       "hero": {
-        "badge": "Websites and software",
-        "titleLine1": "Stojan\u00a0Petkovic",
-        "titleLine2": "Engineer\u00a0&",
-        "titleLine3": "Digital\u00a0Architect",
-        "description": "Case studies and engineering tools written for engineers. For technical companies, I build cloud-based software and websites.",
-        "descriptionMobile": "Case studies and engineering tools for engineers, and cloud-based software and websites.",
-        "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Title granted by the Bavarian Chamber of Engineers (2026)", "docTitle": "Decision of the Bavarian Chamber of Engineers", "docAlt": "Scan of the decision granting the title Ingenieur, personal details covered in black", "docDescription": "The Bayerische Ingenieurekammer-Bau (Bavarian Chamber of Engineers) examined my degree in Mining Engineering from the University of Belgrade and found it equivalent to the German requirements for engineers (Art. 3 BayIngG). On that basis it granted me the right to use the protected professional title Ingenieur, alone or in a combination of words. The decision is dated 19 August 2026. It confirms the title; it is not a licence for a regulated activity."}, {"icon": "shield-check", "tag": "RS", "title": "Professional exam passed (2019)", "text": "Exploitation of mineral resources, Serbia", "docTitle": "Certificate of the professional exam passed", "docAlt": "Scan of the certificate of the professional exam passed in Serbia and its certified German translation, personal details covered in black", "docDescription": "In 2019 I passed the professional exam for performing professional work in the exploitation of mineral resources. It was taken under the Serbian Law on Mining and Geological Exploration and certified by the Provincial Secretariat for Energy, Construction and Transport of Vojvodina (certificate of 25 September 2019). The pages after the original are its certified German translation by a sworn court interpreter (6 March 2026), with the notary's certification of the copy (10 March 2026)."}],
-        "credentialsDialog": {"close": "Close", "note": "Personal details have been covered in black.", "hint": "View the document", "zoom": "Tap the page to zoom in or out."},
-        "qualifications": {"label": "Qualifications & training", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Mining Engineer (Dipl.)", "text": "University of Belgrade · liquid and gaseous mineral resources"}, {"icon": "shield-check", "year": "2020", "title": "EU Machinery Directive", "text": "Machine safety training · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Technology Management (STM)", "text": "System of Technology Management, corporate programme"}, {"icon": "users", "year": "2018", "title": "Leadership Academy", "text": "Managing people, lower management · Mokra Gora School of Management"}]},
-        "primaryCta": "Get in touch",
-        "secondaryCta": "See what I'm building",
-        "videoPlay": "Play with sound",
-        "videoLabel": "Video introduction"
+        "badge": "Available for new clients",
+        "titleLead": "More calls and enquiries",
+        "titleHighlight": "from the internet for your business",
+        "description": "Google Ads, SEO, AI search visibility and a fast website, joined into one system that measures every call. You pay for customers, not clicks.",
+        "primary": "Free website check",
+        "secondary": "See the results"
       },
-      "workWithMe": {
-        "badge": "Background",
-        "heading": "Where the content comes from",
-        "lead": "The experience and habits behind the case studies, tools and websites.",
-        "cards": [
-          { "icon": "award", "title": "Field experience", "description": "13+ years in coiled tubing and nitrogen operations." },
-          { "icon": "shield-check", "title": "Numbers checked", "description": "Calculations are verified and assumptions written down." },
-          { "icon": "book-open", "title": "Documented logic", "description": "Formulas and decisions explained, so results can be reviewed." },
-          { "icon": "globe", "title": "Title Ingenieur", "description": "Granted by the Bavarian Chamber of Engineers, 2026." }
-        ],
-        "cta": "Read my services page"
-      },
-      "webGateway": {
-        "badge": "Web development",
-        "heading": "Websites for technical companies",
-        "lead": "A separate service, run alongside the engineering work: fast Astro websites and web systems for engineering and technical B2B companies.",
+      "pillars": {
+        "badge": "How customers arrive",
+        "heading": "Four steps from a search to a call",
+        "lead": "I don't sell separate services but the whole path: people find you, they choose you, and you know what pays off.",
         "items": [
-          "Web design",
-          "Web development",
-          "Optimisation and tracking"
-        ],
-        "cta": "Go to web development"
+          {
+            "icon": "search",
+            "title": "Get found",
+            "text": "Local SEO, your Google Business Profile and the map, a page for every service and area, and visibility in ChatGPT and AI search."
+          },
+          {
+            "icon": "target",
+            "title": "Bring them in now",
+            "text": "Google Ads, Facebook and Instagram ads aimed at people looking for exactly your service, with conversion tracking from day one."
+          },
+          {
+            "icon": "phone-call",
+            "title": "Turn visits into calls",
+            "text": "A fast website or landing page, one-tap phone and WhatsApp, and an AI chat that answers after hours. Every enquiry reaches you instantly."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Measure what pays",
+            "text": "A monthly report: where calls and enquiries come from, what each one costs, and where to put your next euro."
+          }
+        ]
       },
-      "portfolio": {
-        "badge": "Selected work",
-        "heading": "Projects I've built",
-        "lead": "A selection of recent work.",
-        "viewAll": "View all projects"
+      "industries": {
+        "badge": "Who I work with",
+        "heading": "For businesses that live on calls and enquiries",
+        "lead": "If your customers look for your service on Google or ask ChatGPT, I can help.",
+        "items": [
+          {
+            "icon": "wrench",
+            "title": "Trades and home services",
+            "text": "Contractors, installers, repairs, maintenance, cleaning and tree services."
+          },
+          {
+            "icon": "bed-double",
+            "title": "Hospitality and travel",
+            "text": "Apartments, rooms and villas, with direct bookings instead of commissions."
+          },
+          {
+            "icon": "stethoscope",
+            "title": "Clinics and salons",
+            "text": "Dentists, clinics, beauty salons and hairdressers."
+          },
+          {
+            "icon": "briefcase",
+            "title": "Local and B2B companies",
+            "text": "Transport, manufacturing and professional services that need a steady flow of enquiries."
+          }
+        ]
+      },
+      "final": {
+        "heading": "Whoever shows up first gets the job.",
+        "text": "Customers call the first business they find. Let's make sure it's you. The check of your website and your competitors is free and comes with no obligation.",
+        "cta": "Get your free check"
       },
       "testimonials": {
         "badge": "Testimonials",
         "heading": "What clients say",
         "lead": "Real words from finished projects.",
         "items": [
-          { "quote": "Stojan moved both of my sites off WordPress and onto Astro, and the speed difference was obvious immediately. Every lead now hits my inbox the second someone submits the form — no more checking a dashboard and missing calls.", "name": "Mirko Calić", "role": "Owner, Tree Jaws & Mahalo Tree Service" },
-          { "quote": "Stojan built our booking site from nothing and set up the Instagram and Facebook ads to go with it. Guests go straight from an ad to a finished reservation, which is exactly what a property our size needed.", "name": "Valentina Jovanović", "role": "Owner, Valena Apartmani" }
+          {
+            "quote": "Stojan moved both of my sites off WordPress and onto Astro, and the speed difference was obvious immediately. Every lead now hits my inbox the second someone submits the form — no more checking a dashboard and missing calls.",
+            "name": "Mirko Calić",
+            "role": "Owner, Tree Jaws & Mahalo Tree Service"
+          },
+          {
+            "quote": "Stojan built our booking site from nothing and set up the Instagram and Facebook ads to go with it. Guests go straight from an ad to a finished reservation, which is exactly what a property our size needed.",
+            "name": "Valentina Jovanović",
+            "role": "Owner, Valena Apartmani"
+          }
         ]
       },
-      "aboutTeaser": {
-        "badge": "About me",
-        "headingLine1": "Engineer first,",
-        "headingLine2": "then developer.",
-        "para1WithLocation": "Mining engineer by degree, with 13+ years in oilfield operations and the title Ingenieur granted by the Bavarian Chamber of Engineers. Based in {location} and available for clients worldwide. I build software and web systems the way I run a job: requirements first, numbers checked, nothing left undocumented.",
-        "para1NoLocation": "Mining engineer by degree, with 13+ years in oilfield operations and the title Ingenieur granted by the Bavarian Chamber of Engineers. Available for clients worldwide. I build software and web systems the way I run a job: requirements first, numbers checked, nothing left undocumented.",
-        "para2": "On the blog, I share the ideas and decisions behind my engineering and software work.",
-        "moreAboutMe": "More about me",
-        "statsIntro": "A few things about me.",
-        "stat1": "13+ Years in Engineering",
-        "stat2": "1,000+ Jobs in the Field",
-        "stat3": "Working worldwide",
-        "stat4": "2 Countries of qualification",
-        "facts": [{"icon": "wrench", "label": "Specialisation", "value": "Coiled tubing and nitrogen operations"}, {"icon": "graduation-cap", "label": "Education", "value": "Dipl. Mining Engineer, University of Belgrade (2010)"}, {"icon": "globe", "label": "Availability", "value": "Worldwide, CET time zone"}, {"icon": "clock", "label": "Reply", "value": "Within one business day"}],
-        "basedIn": "Based in"
-      },
-      "blog": {
-        "badge": "From the blog",
-        "heading": "Featured",
-        "viewAll": "View all posts"
-      },
-      "cta": {
-        "badge": "Let's talk",
-        "heading": "Let's talk about what you need",
-        "description": "The first talk is free and informative, with no obligations. And from the first conversation to the final delivery, it's me.",
-        "primary": "Send a message",
-        "secondary": "More about me"
+      "portfolio": {
+        "badge": "Selected work",
+        "heading": "Projects I've built",
+        "lead": "A selection of recent work.",
+        "viewAll": "View all projects"
       }
     }
   }

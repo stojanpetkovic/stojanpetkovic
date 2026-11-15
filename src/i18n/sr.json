@@ -619,6 +619,10 @@
           {
             "question": "Možeš li da vodiš i Google ili Facebook oglase?",
             "answer": "Mogu — Google Ads i Facebook i Instagram kampanje, uz praćenje konverzija koje pokazuje šta ti donosi svaki uloženi evro."
+          },
+          {
+            "question": "Da li me vezuje dugoročni ugovor?",
+            "answer": "Ne. Sajt ima jednu fiksnu cenu, a oglasi i SEO idu iz meseca u mesec. Ostaješ zato što se isplati, a ne zbog ugovora."
           }
         ]
       },
@@ -1116,89 +1120,98 @@
     },
     "home": {
       "meta": {
-        "title": "Inženjer i Digital Architect",
-        "description": "Studije slučaja i inženjerski alati, uz softver u oblaku i sajtove za tehničke firme — gradi ih priznati inženjer."
+        "title": "Više klijenata sa interneta",
+        "description": "Google oglasi, SEO, vidljivost u AI pretrazi i brz sajt za uslužne firme. Više poziva i upita, svaki izmeren. Besplatna provera sajta."
       },
       "hero": {
-        "badge": "Sajtovi i softver",
-        "titleLine1": "Stojan\u00a0Petković",
-        "titleLine2": "Inženjer\u00a0i",
-        "titleLine3": "Digital\u00a0Architect",
-        "description": "Studije slučaja i inženjerski alati napisani za inženjere. Za tehničke firme pravim softver u oblaku i sajtove.",
-        "descriptionMobile": "Studije slučaja i inženjerski alati za inženjere, i softver u oblaku i sajtovi za tehničke firme.",
-        "badges": [{"icon": "award", "tag": "DE", "title": "Ingenieur", "text": "Zvanje odobrila Bavarska inženjerska komora (2026)", "docTitle": "Rešenje Bavarske inženjerske komore", "docAlt": "Sken rešenja o odobravanju zvanja Ingenieur, lični podaci su precrtani", "docDescription": "Bavarska inženjerska komora (Bayerische Ingenieurekammer-Bau) ispitala je moje studije rudarstva na Univerzitetu u Beogradu i utvrdila da su ravnopravne nemačkim zahtevima za inženjere (čl. 3 BayIngG). Na toj osnovi mi je odobrila da koristim zaštićeno zvanje Ingenieur, samostalno ili u sastavu reči. Rešenje je od 19. avgusta 2026. Ono potvrđuje zvanje; nije licenca za regulisanu delatnost."}, {"icon": "shield-check", "tag": "RS", "title": "Položen stručni ispit (2019)", "text": "Eksploatacija mineralnih sirovina, Srbija", "docTitle": "Uverenje o položenom stručnom ispitu", "docAlt": "Sken uverenja o stručnom ispitu položenom u Srbiji i njegovog overenog prevoda na nemački, lični podaci su precrtani", "docDescription": "Godine 2019. položio sam stručni ispit za obavljanje stručnih poslova pri eksploataciji mineralnih sirovina. Polagan je prema srpskom Zakonu o rudarstvu i geološkim istraživanjima, a uverenje je izdao Pokrajinski sekretarijat za energetiku, građevinarstvo i saobraćaj AP Vojvodine (uverenje od 25. septembra 2019). Stranice posle originala su overeni prevod na nemački koji je izradio sudski tumač (6. mart 2026), sa overom kopije kod javnog beležnika (10. mart 2026)."}],
-        "credentialsDialog": {"close": "Zatvori", "note": "Lični podaci su precrtani.", "hint": "Pogledaj dokument", "zoom": "Dodirni stranicu za uvećanje ili umanjenje."},
-        "qualifications": {"label": "Kvalifikacije i obuke", "items": [{"icon": "graduation-cap", "year": "2010", "title": "Diplomirani inženjer rudarstva", "text": "Univerzitet u Beogradu · tečne i gasovite mineralne sirovine"}, {"icon": "shield-check", "year": "2020", "title": "Evropska direktiva o mašinama", "text": "Obuka o bezbednosti mašina · MNG Centar"}, {"icon": "settings", "year": "2022", "title": "Upravljanje tehnologijom (STM)", "text": "System of Technology Management, korporativni program"}, {"icon": "users", "year": "2018", "title": "Akademija liderstva", "text": "Upravljanje ljudima, niži menadžment · Mokra Gora School of Management"}]},
-        "primaryCta": "Javi se",
-        "secondaryCta": "Pogledaj na čemu radim",
-        "videoPlay": "Pusti sa zvukom",
-        "videoLabel": "Video predstavljanje"
+        "badge": "Dostupan za nove klijente",
+        "titleLead": "Više poziva i upita",
+        "titleHighlight": "sa interneta za tvoju firmu",
+        "description": "Google oglasi, SEO, vidljivost u AI pretrazi i brz sajt, povezani u jedan sistem koji meri svaki poziv. Plaćaš za klijente, a ne za klikove.",
+        "primary": "Besplatna provera",
+        "secondary": "Pogledaj rezultate"
       },
-      "workWithMe": {
-        "badge": "Pozadina",
-        "heading": "Odakle sadržaj potiče",
-        "lead": "Iskustvo i navike iza studija slučaja, alata i sajtova.",
-        "cards": [
-          { "icon": "award", "title": "Iskustvo sa terena", "description": "Više od 13 godina u coiled tubing i azotnim operacijama." },
-          { "icon": "shield-check", "title": "Proverene brojke", "description": "Proračuni se proveravaju, a pretpostavke zapisuju." },
-          { "icon": "book-open", "title": "Dokumentovana logika", "description": "Formule i odluke su objašnjene, da se rezultati mogu proveriti." },
-          { "icon": "globe", "title": "Zvanje Ingenieur", "description": "Odobrila Bavarska inženjerska komora, 2026." }
-        ],
-        "cta": "Pogledaj sve usluge"
-      },
-      "webGateway": {
-        "badge": "Web razvoj",
-        "heading": "Sajtovi za tehničke firme",
-        "lead": "Poseban servis uz inženjerski rad: brzi Astro sajtovi i veb sistemi za inženjerske i tehničke B2B firme.",
+      "pillars": {
+        "badge": "Kako dolaze klijenti",
+        "heading": "Četiri koraka od pretrage do poziva",
+        "lead": "Ne prodajem pojedinačne usluge, nego ceo put: da te nađu, da te izaberu i da znaš šta ti se isplati.",
         "items": [
-          "Web dizajn",
-          "Web razvoj",
-          "Optimizacija i praćenje"
-        ],
-        "cta": "Idi na web razvoj"
+          {
+            "icon": "search",
+            "title": "Budi pronađen",
+            "text": "Lokalni SEO, Google Business profil i mapa, stranice za svaku uslugu i mesto, i vidljivost u ChatGPT-u i AI pretrazi."
+          },
+          {
+            "icon": "target",
+            "title": "Dovedi ih odmah",
+            "text": "Google Ads, Facebook i Instagram oglasi, usmereni na ljude koji traže baš tvoju uslugu, sa praćenjem konverzija od prvog dana."
+          },
+          {
+            "icon": "phone-call",
+            "title": "Pretvori posetu u poziv",
+            "text": "Brz sajt ili landing strana, telefon i WhatsApp jednim dodirom i AI chat koji odgovara i van radnog vremena. Svaki upit ti stiže odmah."
+          },
+          {
+            "icon": "trending-up",
+            "title": "Izmeri šta se isplati",
+            "text": "Mesečni izveštaj: odakle dolaze pozivi i upiti, koliko košta svaki i gde da uložiš sledeći evro."
+          }
+        ]
       },
-      "portfolio": {
-        "badge": "Portfolio",
-        "heading": "Moji projekti",
-        "lead": "Izdvojeni radovi za klijente iz Srbije i inostranstva.",
-        "viewAll": "Pogledaj sve projekte"
+      "industries": {
+        "badge": "Za koga radim",
+        "heading": "Za firme koje žive od poziva i upita",
+        "lead": "Ako tvoji klijenti uslugu traže na Google-u ili pitaju ChatGPT, mogu da pomognem.",
+        "items": [
+          {
+            "icon": "wrench",
+            "title": "Zanatlije i servisi",
+            "text": "Majstori, montaža, popravke, održavanje, čišćenje i usluge sa drvećem."
+          },
+          {
+            "icon": "bed-double",
+            "title": "Smeštaj i turizam",
+            "text": "Apartmani, sobe i vile, sa direktnim rezervacijama umesto provizija."
+          },
+          {
+            "icon": "stethoscope",
+            "title": "Ordinacije i saloni",
+            "text": "Stomatolozi, klinike, saloni lepote i frizeri."
+          },
+          {
+            "icon": "briefcase",
+            "title": "Lokalne i B2B firme",
+            "text": "Prevoz, proizvodnja i stručne usluge kojima treba stalan priliv upita."
+          }
+        ]
+      },
+      "final": {
+        "heading": "Ko se prvi pojavi, dobija posao.",
+        "text": "Klijent zove prvu firmu koju nađe. Pobrinimo se da to budeš ti. Provera tvog sajta i konkurencije je besplatna i bez obaveza.",
+        "cta": "Zatraži besplatnu proveru"
       },
       "testimonials": {
         "badge": "Utisci klijenata",
         "heading": "Šta kažu klijenti",
         "lead": "Utisci klijenata posle završenih projekata.",
         "items": [
-          { "quote": "Stojan je oba moja sajta prebacio sa WordPress-a na Astro i razlika u brzini se osetila odmah. Svaki upit mi sad stigne na email istog trenutka kad neko pošalje formu — ne moram više da proveravam dashboard i propuštam pozive.", "name": "Mirko Calić", "role": "Vlasnik, Tree Jaws i Mahalo Tree Service" },
-          { "quote": "Stojan nam je napravio sajt za rezervacije od nule i uz njega podesio Instagram i Facebook oglase. Gosti idu pravo sa oglasa do gotove rezervacije, a to je baš ono što nam je trebalo za smeštaj naše veličine.", "name": "Valentina Jovanović", "role": "Vlasnica, Valena Apartmani" }
+          {
+            "quote": "Stojan je oba moja sajta prebacio sa WordPress-a na Astro i razlika u brzini se osetila odmah. Svaki upit mi sad stigne na email istog trenutka kad neko pošalje formu — ne moram više da proveravam dashboard i propuštam pozive.",
+            "name": "Mirko Calić",
+            "role": "Vlasnik, Tree Jaws i Mahalo Tree Service"
+          },
+          {
+            "quote": "Stojan nam je napravio sajt za rezervacije od nule i uz njega podesio Instagram i Facebook oglase. Gosti idu pravo sa oglasa do gotove rezervacije, a to je baš ono što nam je trebalo za smeštaj naše veličine.",
+            "name": "Valentina Jovanović",
+            "role": "Vlasnica, Valena Apartmani"
+          }
         ]
       },
-      "aboutTeaser": {
-        "badge": "O meni",
-        "headingLine1": "Prvo inženjer,",
-        "headingLine2": "zatim developer.",
-        "para1WithLocation": "Rudarski inženjer sa više od 13 godina iskustva u radu na naftnim bušotinama i titulom Ingenieur koju je odobrila Bavarska inženjerska komora. Sa sedištem u {location}, dostupan za klijente širom sveta. Softver i veb sisteme pravim onako kako vodim posao na terenu: prvo zahtevi, brojke provereno, ništa nedokumentovano.",
-        "para1NoLocation": "Rudarski inženjer sa više od 13 godina iskustva u radu na naftnim bušotinama i titulom Ingenieur koju je odobrila Bavarska inženjerska komora. Dostupan za klijente širom sveta. Softver i veb sisteme pravim onako kako vodim posao na terenu: prvo zahtevi, brojke provereno, ništa nedokumentovano.",
-        "para2": "Na blogu delim ideje i odluke iza mog inženjerskog i softverskog rada.",
-        "moreAboutMe": "Više o meni",
-        "statsIntro": "Par stvari o meni.",
-        "stat1": "13+ godina u inženjerstvu",
-        "stat2": "1.000+ poslova na terenu",
-        "stat3": "Klijenti iz celog sveta",
-        "stat4": "2 države kvalifikacija",
-        "facts": [{"icon": "wrench", "label": "Specijalnost", "value": "Coiled tubing i azotne operacije"}, {"icon": "graduation-cap", "label": "Obrazovanje", "value": "Dipl. inženjer rudarstva, Univerzitet u Beogradu (2010)"}, {"icon": "globe", "label": "Dostupnost", "value": "Širom sveta, vremenska zona CET"}, {"icon": "clock", "label": "Odgovor", "value": "U roku od jednog radnog dana"}],
-        "basedIn": "Baza:"
-      },
-      "blog": {
-        "badge": "Blog",
-        "heading": "Izdvojeni tekstovi",
-        "viewAll": "Pogledaj sve tekstove"
-      },
-      "cta": {
-        "badge": "Kontakt",
-        "heading": "Popričajmo o tvom projektu",
-        "description": "Prvi razgovor je besplatan i bez obaveza. Od prvog razgovora do gotovog sajta radiš direktno sa mnom.",
-        "primary": "Pošalji poruku",
-        "secondary": "Više o meni"
+      "portfolio": {
+        "badge": "Portfolio",
+        "heading": "Moji projekti",
+        "lead": "Izdvojeni radovi za klijente iz Srbije i inostranstva.",
+        "viewAll": "Pogledaj sve projekte"
       }
     }
   }

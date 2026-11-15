@@ -13,12 +13,13 @@ import sr from '../i18n/sr.json';
 const locales = { en, de, sr } as Record<string, unknown>;
 
 const BLOCKS = [
-  'pages.home.hero.badges',
-  'pages.home.hero.qualifications',
-  'pages.home.hero.credentialsDialog',
-  'pages.home.workWithMe.cards',
-  'pages.home.webGateway.items',
-  'pages.home.aboutTeaser.facts',
+  'pages.home.meta',
+  'pages.home.hero',
+  'pages.home.pillars.items',
+  'pages.home.industries.items',
+  'pages.home.testimonials.items',
+  'pages.home.portfolio',
+  'pages.home.final',
   'pages.web.meta',
   'pages.web.hero',
   'pages.web.services.cards',
