@@ -27,6 +27,7 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import LandingLayout from '@/layouts/LandingLayout.astro';
+import { Hero } from '@/components/hero';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
@@ -38,6 +39,7 @@ import { getSiteName } from '@/lib/site-name';
 import treeJawsImg from '@/assets/projects/tree-jaws-hero-dark.webp';
 import mahaloImg from '@/assets/projects/mahalo-hero.webp';
 import storyImg from '@/assets/projects/sf-tree-removal-home.webp';
+import portraitImg from '@/assets/profile/stojan-portrait-office.webp';
 import reportExampleEn from '@/assets/services/report-example-en.png';
 import reportExampleSr from '@/assets/services/report-example-sr.png';
 
@@ -129,8 +131,61 @@ const year = new Date().getFullYear();
     </div>
   </header>}
 
-  <!-- Hero -->
-  <section class:list={['lp-hero relative overflow-hidden bg-background-secondary pb-16 lg:pb-24', isHome ? 'pt-28 sm:pt-32 lg:pt-36' : 'pt-12 sm:pt-16 lg:pt-20']}>
+  <!-- Hero (home): the split hero with the portrait on the left, on the dark
+       gradient. data-header-flip-anchor keeps the header in its over-the-hero
+       look until this section is nearly out from under it (Header.astro). -->
+  {isHome && (
+    <Hero layout="split" imagePosition="left" size="xl" class="hero-dark-gradient max-lg:pt-[calc(5rem+var(--space-section-gap))]" fullHeight data-header-flip-anchor>
+      {/* Framed like the header's glass pill, with a brand glow behind it so
+          the photo reads as lit by the hero rather than pasted onto it. */}
+      <div slot="aside" class="relative w-full rounded-3xl border border-brand-400/30 bg-white/[0.08] p-2 shadow-2xl shadow-brand-500/30 backdrop-blur-md">
+        <div class="pointer-events-none absolute -inset-12 -z-10 rounded-full bg-brand-500/35 blur-3xl" aria-hidden="true"></div>
+        <Image
+          src={portraitImg}
+          alt={t('pages.home.hero.imageAlt', locale)}
+          widths={[480, 720, 960, 1254]}
+          sizes="(min-width: 1024px) 40vw, 100vw"
+          loading="eager"
+          fetchpriority="high"
+          class="aspect-square w-full rounded-2xl object-cover"
+        />
+      </div>
+
+      <Badge slot="badge" variant="brand" pill pulse class="dark:text-brand-200">{L('hero.badge')}</Badge>
+
+      <h1 slot="title" class="!text-[clamp(1.75rem,9vw,3rem)] sm:!text-5xl lg:!text-6xl !text-balance">
+        <span class="text-brand-600 dark:text-foreground [-webkit-text-fill-color:currentColor]">{L('hero.titleLead')}</span>{' '}
+        <span class="text-brand-500 dark:text-brand-300 [-webkit-text-fill-color:currentColor]">{L('hero.titleHighlight')}</span>
+      </h1>
+
+      <p slot="description" class="!text-balance">{L('hero.description')}</p>
+
+      <Fragment slot="actions">
+        <Button size="lg" href="#form" class="lp-glow cta-btn-brand gap-2">
+          {L('hero.primary')}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+        <Button size="lg" variant="outline" href="#results">
+          {L('hero.secondary')}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </Fragment>
+
+      {/* Trust figures, in the card style the hero's credential cards used. */}
+      <dl class="mt-8 grid w-full grid-cols-3 gap-3">
+        {trust.map((item) => (
+          <div class="flex flex-col rounded-xl border border-l-4 border-border border-l-brand-600 bg-card px-3 py-3 text-left shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md sm:px-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+            <dt class="sr-only">{item.label}</dt>
+            <dd class="font-display text-2xl font-bold text-brand-600 dark:text-brand-400 sm:text-3xl">{item.value}</dd>
+            <dd class="mt-1 text-xs leading-snug text-foreground-muted sm:text-sm">{item.label}</dd>
+          </div>
+        ))}
+      </dl>
+    </Hero>
+  )}
+
+  <!-- Hero (landing page) -->
+  {!isHome && <section class="lp-hero relative overflow-hidden bg-background-secondary pb-16 pt-12 sm:pt-16 lg:pb-24 lg:pt-20">
     <div class="lp-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
     <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-stretch lg:gap-14">
       <div class="text-center lg:text-left">
@@ -189,7 +244,7 @@ const year = new Date().getFullYear();
         </div>
       </div>
     </div>
-  </section>
+  </section>}
 
   <!-- Problem -->
   <section class="bg-background py-[var(--space-section-md)]">
