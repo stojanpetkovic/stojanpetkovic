@@ -15,6 +15,11 @@ export interface Client {
   url: string;
   /** Lucide icon drawn beside the wordmark when there is no logo file. */
   icon: string;
+  /** Key under `pages.home.clients.sectors` in the locale files. */
+  sector: 'tree' | 'rental' | 'dental' | 'transport' | 'recipes' | 'footwear';
+  country: 'us' | 'rs';
+  /** Key under `pages.home.clients.highlights`: a real, published result. */
+  highlight?: 'treejaws' | 'mahalo';
   logo?: ImageMetadata;
 }
 
@@ -29,14 +34,14 @@ const logoFor = (domain: string): ImageMetadata | undefined => {
 };
 
 const list: Omit<Client, 'logo'>[] = [
-  { name: 'Tree Jaws', tagline: 'Tree Service · Florida', url: 'https://treejaws.com', icon: 'trees' },
-  { name: 'Mahalo', tagline: 'Tree Service', url: 'https://mahalotreeservice.com', icon: 'tree-palm' },
-  { name: 'SF Tree Removal', tagline: 'Smart Tree Solutions', url: 'https://sftreeremoval.com', icon: 'axe' },
-  { name: 'Valena', tagline: 'Apartmani · Divčibare', url: 'https://valenaapartmani.com', icon: 'mountain' },
-  { name: 'Erić Dental', tagline: 'Centar · Pančevo', url: 'https://zubarpancevo.com', icon: 'smile' },
-  { name: 'CARETRANS', tagline: 'Sanitetski prevoz', url: 'https://prevozpacijenatacaretrans.rs', icon: 'ambulance' },
-  { name: 'Kako se pravi', tagline: 'Recepti i vodiči', url: 'https://kakosepravi.com', icon: 'chef-hat' },
-  { name: 'Kožna obuća', tagline: 'Blog o obući', url: 'https://koznaobuca.com', icon: 'footprints' },
+  { name: 'Tree Jaws', tagline: 'Tree Service · Florida', url: 'https://treejaws.com', icon: 'trees', sector: 'tree', country: 'us', highlight: 'treejaws' },
+  { name: 'Mahalo', tagline: 'Tree Service', url: 'https://mahalotreeservice.com', icon: 'tree-palm', sector: 'tree', country: 'us', highlight: 'mahalo' },
+  { name: 'SF Tree Removal', tagline: 'Smart Tree Solutions', url: 'https://sftreeremoval.com', icon: 'axe', sector: 'tree', country: 'us' },
+  { name: 'Valena', tagline: 'Apartmani · Divčibare', url: 'https://valenaapartmani.com', icon: 'mountain', sector: 'rental', country: 'rs' },
+  { name: 'Erić Dental', tagline: 'Centar · Pančevo', url: 'https://zubarpancevo.com', icon: 'smile', sector: 'dental', country: 'rs' },
+  { name: 'CARETRANS', tagline: 'Sanitetski prevoz', url: 'https://prevozpacijenatacaretrans.rs', icon: 'ambulance', sector: 'transport', country: 'rs' },
+  { name: 'Kako se pravi', tagline: 'Recepti i vodiči', url: 'https://kakosepravi.com', icon: 'chef-hat', sector: 'recipes', country: 'rs' },
+  { name: 'Kožna obuća', tagline: 'Blog o obući', url: 'https://koznaobuca.com', icon: 'footprints', sector: 'footwear', country: 'rs' },
 ];
 
 export const clients: Client[] = list.map((c) => ({

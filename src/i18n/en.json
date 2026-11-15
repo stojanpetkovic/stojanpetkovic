@@ -1247,10 +1247,33 @@
         "viewAll": "See all projects"
       },
       "clients": {
-        "heading": "Trusted by service businesses",
-        "visit": "Visit site",
+        "badge": "Clients",
+        "heading": "Businesses that trust me with their website",
+        "lead": "From tree services in Florida to a dental clinic in Serbia. Click any card to see the live site.",
         "brands": "brands",
-        "countries": "markets: the US and Europe"
+        "countries": "markets: the US and Europe",
+        "visit": "Visit site",
+        "sectors": {
+          "tree": "Tree service",
+          "rental": "Vacation rentals",
+          "dental": "Dental clinic",
+          "transport": "Medical transport",
+          "recipes": "Recipe site",
+          "footwear": "Footwear blog"
+        },
+        "country": {
+          "us": "USA",
+          "rs": "Serbia"
+        },
+        "highlights": {
+          "treejaws": "1,010 tracked leads · 4.9★",
+          "mahalo": "5.0 Google rating"
+        },
+        "next": {
+          "title": "Your business?",
+          "text": "This spot is saved for the next client. I'll review your site for free and tell you what I'd fix first.",
+          "cta": "Get a free audit"
+        }
       }
     },
     "privacy": {

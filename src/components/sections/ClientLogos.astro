@@ -1,155 +1,227 @@
 ---
 /**
- * A quiet "trusted by" strip under the hero, on the plain background so it reads
- * as the foot of the hero: a small caption and two figures over two rows of
- * client logos drifting in opposite directions, greyscale until hovered, faded and blurred at the edges
- * of the content width. Each row is duplicated once so the loop is seamless;
- * the copies are hidden from assistive tech, and with reduced motion one row
- * sits still and wraps instead.
+ * The client wall: one card per brand Stojan has built a site or run marketing
+ * for, in the home page's section pattern (numbered eyebrow, heading, lead).
+ * Each card links to the live site and shows the logo on a soft stage
+ * (greyscale until hovered), the trade, the country and, where a result is
+ * published on this page, that result. The last cell is kept for the next
+ * client and links to the contact page.
  */
 import { Image } from 'astro:assets';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import { clients, type Client } from '@/config/clients';
-import { t } from '@/i18n';
+import { clients } from '@/config/clients';
+import { t, localizedPath } from '@/i18n';
 
 interface Props {
   locale: string;
+  /** Section number shown in the eyebrow, e.g. "01". */
+  num: string;
 }
 
-const { locale } = Astro.props;
+const { locale, num } = Astro.props;
 const C = (key: string) => t(`pages.home.clients.${key}`, locale);
-
-// Both rows carry every client, the second starting halfway through the list,
-// so each row is wider than the content and the loop never shows a gap.
-const half = Math.ceil(clients.length / 2);
-const rows: Client[][] = [clients, [...clients.slice(half), ...clients.slice(0, half)]];
+const countries = new Set(clients.map((c) => c.country)).size;
 ---
 
-<section class="client-logos relative z-10 border-b border-border bg-background py-12 md:py-14" aria-labelledby="client-logos-heading">
-  <div class="mx-auto max-w-6xl px-4 sm:px-6">
-    <h2 id="client-logos-heading" class="text-center font-mono text-xs font-semibold uppercase tracking-[0.2em] text-foreground-subtle">{C('heading')}</h2>
-    <p class="mt-3 flex flex-wrap items-baseline justify-center gap-x-5 gap-y-1 text-sm text-foreground-muted">
-      <span><strong class="font-display text-lg font-bold text-brand-600 dark:text-brand-400">{clients.length}+</strong> {C('brands')}</span>
-      <span class="text-border" aria-hidden="true">|</span>
-      <span><strong class="font-display text-lg font-bold text-brand-600 dark:text-brand-400">2</strong> {C('countries')}</span>
-    </p>
-
-    <div class="cl-viewport relative mt-8 space-y-6 overflow-hidden">
-      <span class="cl-edge cl-edge-l" aria-hidden="true"></span>
-      <span class="cl-edge cl-edge-r" aria-hidden="true"></span>
-      {rows.map((row, r) => (
-      <div class:list={['cl-track', r === 1 && 'cl-reverse']} aria-hidden={r === 1 ? 'true' : undefined}>
-        {[0, 1].map((copy) => (
-          <ul class="cl-row" role="list" aria-hidden={copy === 1 ? 'true' : undefined}>
-            {row.map((c) => (
-              <li>
-                <a
-                  href={c.url}
-                  target="_blank"
-                  rel="noopener"
-                  tabindex={copy === 1 || r === 1 ? -1 : undefined}
-                  class="cl-item"
-                  aria-label={`${c.name}: ${C('visit')}`}
-                >
-                  {c.logo ? (
-                    <Image src={c.logo} alt="" height={120} class="cl-img" loading="lazy" />
-                  ) : (
-                    <span class="cl-mark">
-                      <Icon name={c.icon} size="md" class="cl-ico" />
-                      <span class="flex flex-col items-start leading-none">
-                        <span class="cl-name">{c.name}</span>
-                        {c.tagline && <span class="cl-tag">{c.tagline}</span>}
-                      </span>
-                    </span>
-                  )}
-                </a>
-              </li>
-            ))}
-          </ul>
-        ))}
+<section class="client-wall relative z-10 border-b border-border bg-background py-[var(--space-section-lg)]" aria-labelledby="client-wall-heading">
+  <div class="mx-auto flex max-w-6xl flex-col gap-12 px-4 sm:px-6">
+    <div class="section-head" data-reveal>
+      <div>
+        <p class="section-eyebrow"><span class="section-eyebrow-num">{num}</span><span>{C('badge')}</span></p>
+        <h2 id="client-wall-heading" class="font-display text-3xl md:text-4xl lg:text-[2.75rem] lg:leading-[1.12] font-bold tracking-tight text-foreground text-balance">{C('heading')}</h2>
       </div>
-      ))}
+      <div>
+        <p class="section-lead">{C('lead')}</p>
+        <dl class="mt-5 flex gap-8">
+          <div>
+            <dt class="sr-only">{C('brands')}</dt>
+            <dd class="font-display text-3xl font-bold text-brand-600 dark:text-brand-400">{clients.length}+</dd>
+            <dd class="text-sm text-foreground-muted">{C('brands')}</dd>
+          </div>
+          <div class="border-l border-border pl-8">
+            <dt class="sr-only">{C('countries')}</dt>
+            <dd class="font-display text-3xl font-bold text-brand-600 dark:text-brand-400">{countries}</dd>
+            <dd class="text-sm text-foreground-muted">{C('countries')}</dd>
+          </div>
+        </dl>
+      </div>
     </div>
+
+    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
+      {clients.map((c, i) => (
+        <li data-reveal data-reveal-delay={(i % 3) || undefined}>
+          <a href={c.url} target="_blank" rel="noopener" class="cw-card group" aria-label={`${c.name}, ${C(`sectors.${c.sector}`)}: ${C('visit')}`}>
+            <div class="cw-stage">
+              <span class="cw-num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              {c.logo ? (
+                <Image src={c.logo} alt="" height={160} class="cw-logo" loading="lazy" />
+              ) : (
+                <span class="cw-mark">
+                  <Icon name={c.icon} size="lg" class="text-brand-600" />
+                  <span class="flex flex-col items-start leading-none">
+                    <span class="cw-name">{c.name}</span>
+                    {c.tagline && <span class="cw-tag">{c.tagline}</span>}
+                  </span>
+                </span>
+              )}
+            </div>
+            <div class="flex items-start justify-between gap-3 px-5 pb-5 pt-4">
+              <div class="min-w-0">
+                <p class="font-display text-lg font-bold text-foreground">{c.name}</p>
+                <p class="mt-0.5 text-sm text-foreground-muted">{C(`sectors.${c.sector}`)}</p>
+                <p class="mt-3 flex flex-wrap gap-2">
+                  <span class="cw-chip">{C(`country.${c.country}`)}</span>
+                  {c.highlight && <span class="cw-chip cw-chip-brand">{C(`highlights.${c.highlight}`)}</span>}
+                </p>
+              </div>
+              <span class="cw-arrow" aria-hidden="true"><Icon name="arrow-up-right" size="sm" /></span>
+            </div>
+          </a>
+        </li>
+      ))}
+      <li data-reveal data-reveal-delay="2">
+        <a href={localizedPath('/contact', locale)} class="cw-next group">
+          <span class="flex h-12 w-12 items-center justify-center rounded-full bg-brand-600 text-white shadow-md transition-transform group-hover:scale-110 motion-reduce:transition-none">
+            <Icon name="plus" size="md" />
+          </span>
+          <p class="mt-5 font-display text-xl font-bold text-foreground">{C('next.title')}</p>
+          <p class="mt-2 max-w-xs text-sm leading-relaxed text-foreground-muted">{C('next.text')}</p>
+          <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 dark:text-brand-300">
+            {C('next.cta')}
+            <Icon name="arrow-right" size="sm" class="transition-transform group-hover:translate-x-0.5" />
+          </span>
+        </a>
+      </li>
+    </ul>
   </div>
 </section>
 
 <style>
-  .cl-viewport {
-    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  .cw-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 1.25rem;
+    background: var(--color-card);
+    box-shadow: var(--theme-shadow-sm);
+    transition: transform 220ms, box-shadow 220ms, border-color 220ms;
   }
-  .cl-edge {
+  .cw-card:hover,
+  .cw-card:focus-visible {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--color-brand-600) 40%, var(--color-border));
+    box-shadow: var(--theme-shadow-lg, 0 18px 40px -18px rgb(0 0 0 / 0.25));
+  }
+  .cw-stage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 9.5rem;
+    margin: 0.5rem 0.5rem 0;
+    border-radius: 0.9rem;
+    background-color: var(--color-background-secondary);
+    background-image: radial-gradient(color-mix(in srgb, var(--color-brand-600) 14%, transparent) 1px, transparent 1px);
+    background-size: 14px 14px;
+  }
+  .cw-num {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    z-index: 2;
-    width: 14%;
-    pointer-events: none;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    top: 0.75rem;
+    left: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--color-foreground-subtle);
   }
-  .cl-edge-l {
-    left: 0;
-    mask-image: linear-gradient(to right, #000, transparent);
-    -webkit-mask-image: linear-gradient(to right, #000, transparent);
-  }
-  .cl-edge-r {
-    right: 0;
-    mask-image: linear-gradient(to left, #000, transparent);
-    -webkit-mask-image: linear-gradient(to left, #000, transparent);
-  }
-  .cl-track {
-    display: flex;
-    width: max-content;
-    animation: cl-scroll 45s linear infinite;
-  }
-  .cl-reverse { animation-direction: reverse; animation-duration: 52s; }
-  .cl-viewport:hover .cl-track { animation-play-state: paused; }
-  .cl-row {
-    display: flex;
-    align-items: center;
-    gap: 3.5rem;
-    padding-right: 3.5rem;
-  }
-  @keyframes cl-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  .cl-item {
-    display: flex;
-    align-items: center;
-    height: 3.5rem;
+  .cw-logo,
+  .cw-mark {
     filter: grayscale(1);
-    opacity: 0.6;
-    transition: filter 200ms, opacity 200ms;
+    opacity: 0.75;
+    transition: filter 220ms, opacity 220ms, transform 220ms;
   }
-  .cl-item:hover,
-  .cl-item:focus-visible { filter: none; opacity: 1; }
-  .cl-img { height: 3rem; width: auto; max-width: 10rem; object-fit: contain; }
-  .cl-mark { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--color-foreground); }
-  .cl-ico { color: var(--color-foreground-muted); flex-shrink: 0; }
-  .cl-name {
+  .cw-logo { max-height: 4.5rem; width: auto; max-width: 70%; object-fit: contain; }
+  .cw-card:hover .cw-logo,
+  .cw-card:hover .cw-mark,
+  .cw-card:focus-visible .cw-logo,
+  .cw-card:focus-visible .cw-mark { filter: none; opacity: 1; transform: scale(1.04); }
+  .cw-mark { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--color-foreground); }
+  .cw-name {
     font-family: var(--font-display, inherit);
     font-weight: 800;
-    font-size: 1.05rem;
+    font-size: 1.35rem;
     letter-spacing: -0.02em;
     white-space: nowrap;
   }
-  .cl-tag {
+  .cw-tag {
     margin-top: 0.3rem;
-    font-size: 0.6rem;
+    font-size: 0.625rem;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--color-foreground-muted);
     white-space: nowrap;
   }
+  .cw-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.55rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--color-foreground-muted);
+  }
+  .cw-chip-brand {
+    border-color: color-mix(in srgb, var(--color-brand-600) 30%, transparent);
+    background: color-mix(in srgb, var(--color-brand-600) 8%, transparent);
+    color: var(--color-brand-700);
+  }
+  :global(.dark) .cw-chip-brand { color: var(--color-brand-300); }
+  .cw-arrow {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    color: var(--color-foreground-muted);
+    transition: background 220ms, color 220ms, border-color 220ms, transform 220ms;
+  }
+  .cw-card:hover .cw-arrow,
+  .cw-card:focus-visible .cw-arrow {
+    background: var(--color-brand-600);
+    border-color: var(--color-brand-600);
+    color: #fff;
+    transform: rotate(45deg);
+  }
+  .cw-next {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    min-height: 16rem;
+    padding: 1.75rem;
+    border: 2px dashed color-mix(in srgb, var(--color-brand-600) 35%, var(--color-border));
+    border-radius: 1.25rem;
+    background: color-mix(in srgb, var(--color-brand-600) 4%, transparent);
+    transition: border-color 220ms, background 220ms;
+  }
+  .cw-next:hover,
+  .cw-next:focus-visible {
+    border-color: var(--color-brand-600);
+    background: color-mix(in srgb, var(--color-brand-600) 8%, transparent);
+  }
   @media (prefers-reduced-motion: reduce) {
-    .cl-track { animation: none; width: auto; justify-content: center; }
-    .cl-track > .cl-row[aria-hidden],
-    .cl-track.cl-reverse { display: none; }
-    .cl-row { flex-wrap: wrap; justify-content: center; padding-right: 0; gap: 2rem 2.5rem; }
-    .cl-viewport { mask-image: none; }
-    .cl-edge { display: none; }
-    .cl-item { transition: none; }
+    .cw-card, .cw-logo, .cw-mark, .cw-arrow { transition: none; }
+    .cw-card:hover, .cw-card:focus-visible { transform: none; }
+    .cw-card:hover .cw-logo, .cw-card:hover .cw-mark { transform: none; }
   }
 </style>

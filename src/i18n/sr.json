@@ -1247,10 +1247,33 @@
         "viewAll": "Svi projekti"
       },
       "clients": {
-        "heading": "Brendovi sa kojima sam radio",
-        "visit": "Pogledaj sajt",
+        "badge": "Klijenti",
+        "heading": "Firme koje su mi poverile svoj sajt",
+        "lead": "Od firmi za seču drveća na Floridi do stomatološke ordinacije u Pančevu. Klikni na karticu i pogledaj sajt uživo.",
         "brands": "brendova",
-        "countries": "zemlje: Srbija i Amerika"
+        "countries": "zemlje: Srbija i Amerika",
+        "visit": "Pogledaj sajt",
+        "sectors": {
+          "tree": "Seča i održavanje drveća",
+          "rental": "Apartmani za odmor",
+          "dental": "Stomatološka ordinacija",
+          "transport": "Sanitetski prevoz",
+          "recipes": "Portal sa receptima",
+          "footwear": "Blog o obući"
+        },
+        "country": {
+          "us": "SAD",
+          "rs": "Srbija"
+        },
+        "highlights": {
+          "treejaws": "1.010 praćenih upita · 4,9★",
+          "mahalo": "Google ocena 5,0"
+        },
+        "next": {
+          "title": "Tvoja firma?",
+          "text": "Ovo mesto čeka sledećeg klijenta. Besplatno pogledam tvoj sajt i kažem šta bih prvo popravio.",
+          "cta": "Zakaži proveru"
+        }
       }
     },
     "privacy": {

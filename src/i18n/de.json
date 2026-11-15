@@ -1247,10 +1247,33 @@
         "viewAll": "Alle Projekte ansehen"
       },
       "clients": {
-        "heading": "Betriebe, für die ich arbeite",
-        "visit": "Website ansehen",
+        "badge": "Kunden",
+        "heading": "Betriebe, die mir ihre Website anvertrauen",
+        "lead": "Von Baumpflege-Firmen in Florida bis zur Zahnarztpraxis in Serbien. Klicken Sie auf eine Karte und sehen Sie die Website live.",
         "brands": "Marken",
-        "countries": "Märkte: Europa und die USA"
+        "countries": "Märkte: Europa und die USA",
+        "visit": "Website ansehen",
+        "sectors": {
+          "tree": "Baumfällung und Baumpflege",
+          "rental": "Ferienwohnungen",
+          "dental": "Zahnarztpraxis",
+          "transport": "Krankentransport",
+          "recipes": "Rezeptportal",
+          "footwear": "Blog über Schuhe"
+        },
+        "country": {
+          "us": "USA",
+          "rs": "Serbien"
+        },
+        "highlights": {
+          "treejaws": "1.010 erfasste Anfragen · 4,9★",
+          "mahalo": "Google-Bewertung 5,0"
+        },
+        "next": {
+          "title": "Ihr Betrieb?",
+          "text": "Dieser Platz ist für den nächsten Kunden reserviert. Ich prüfe Ihre Website kostenlos und sage Ihnen, was ich zuerst ändern würde.",
+          "cta": "Kostenlose Prüfung"
+        }
       }
     },
     "privacy": {
