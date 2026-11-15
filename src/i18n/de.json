@@ -134,8 +134,8 @@
     "updated": "Aktualisiert",
     "rssFeed": "RSS-Feed",
     "cta": {
-      "heading": "Brauchen Sie eine neue Website?",
-      "description": "Erzählen Sie mir von Ihrem Projekt — ich melde mich innerhalb eines Werktags.",
+      "heading": "Mehr Anrufe über Ihre Website?",
+      "description": "Schreiben Sie mir ein paar Zeilen zu Ihrem Betrieb. Ich melde mich innerhalb eines Werktags.",
       "button": "Kontakt aufnehmen"
     }
   },
@@ -189,7 +189,7 @@
     "ctaPrimary": "Nachricht senden",
     "ctaSecondary": "Mehr über mich",
     "closingHeading": "Haben Sie ein Projekt im Kopf?",
-    "closingLead": "Ob eine ganz neue Website oder eine, die frischen Wind braucht — ich freue mich, davon zu hören."
+    "closingLead": "Eine ganz neue Website oder eine, die endlich funktionieren soll? Schreiben Sie mir, worum es geht."
   },
   "pagination": {
     "page": "Seite {current} von {total}",
@@ -204,10 +204,10 @@
     "goHome": "Zur Startseite",
     "metaTitle": "Seite nicht gefunden",
     "metaDescription": "Diese Seite wurde verschoben, gelöscht oder hat nie existiert.",
-    "badge": "404 — nicht gefunden",
+    "badge": "404",
     "titleLead": "Diese Seite gibt",
     "titleHighlight": "es nicht.",
-    "description": "Sie wurde verschoben, gelöscht oder hat nie existiert. Wir bringen Sie zurück auf den richtigen Weg.",
+    "description": "Sie wurde verschoben, gelöscht oder hat nie existiert. Hier geht es zurück.",
     "backHome": "Zurück zur Startseite",
     "browseProjects": "Zu den Projekten",
     "tryInstead": "Vielleicht suchen Sie eines davon",
@@ -381,18 +381,18 @@
     },
     "landing": {
       "meta": {
-        "title": "Eine Website, die Ihnen Kunden bringt",
-        "description": "Schnelle, maßgeschneiderte Websites, SEO und Sichtbarkeit in der KI-Suche für lokale Dienstleister. Ein Festpreis, alles auf Ihren Namen und ein kostenloser Check Ihrer aktuellen Website."
+        "title": "Eine Website, die Kunden bringt",
+        "description": "Schnelle Websites nach Maß, SEO und Sichtbarkeit in der KI-Suche für lokale Dienstleister. Festpreis, alles auf Ihren Namen und ein kostenloser Check Ihrer aktuellen Seite."
       },
       "header": {
         "cta": "Kostenloser Website-Check"
       },
       "hero": {
-        "badge": "Verfügbar für neue Projekte",
+        "badge": "Freie Kapazitäten für neue Projekte",
         "titleLead": "Schickt Ihre Website Kunden",
-        "titleHighlight": "zu Ihrer Konkurrenz?",
-        "description": "Jede langsame Seite, jede unbeantwortete Anfrage und jedes fehlende Google-Ranking schiebt einen Kunden zu jemand anderem — und Sie sehen es nie. Ich baue schnelle, maßgeschneiderte Websites, richte SEO und Sichtbarkeit in der KI-Suche ein und leite jede Anfrage direkt auf Ihr Telefon.",
-        "primary": "Erfahren, was Ihre Website verliert",
+        "titleHighlight": "zur Konkurrenz?",
+        "description": "Eine langsame Seite, eine unbeantwortete Anfrage, ein Betrieb, den Google nicht zeigt. Jede dieser Kleinigkeiten schickt einen Kunden woandershin, und Sie merken es nicht. Ich baue schnelle Websites, kümmere mich um SEO und KI-Suche und leite jede Anfrage direkt auf Ihr Handy.",
+        "primary": "Herausfinden, was Ihre Website verschenkt",
         "secondary": "Ergebnisse ansehen",
         "trust": [
           {
@@ -405,7 +405,7 @@
           },
           {
             "value": "< 1 Tag",
-            "label": "bis zur Antwort auf jede Anfrage"
+            "label": "bis zu meiner Antwort"
           }
         ],
         "imageAlt": "Stojan Petkovic, der Webentwickler, mit dem Sie direkt arbeiten",
@@ -413,73 +413,73 @@
         "videoLabel": "Vorstellungsvideo"
       },
       "problem": {
-        "badge": "Was es Sie kostet",
-        "heading": "Ihre Website schiebt Ihre Kunden womöglich gerade zur Konkurrenz",
-        "lead": "Nichts warnt Sie: kein Fehler, kein Alarm, nur Anrufe, die nie kommen. Und je länger es dauert, desto teurer wird es.",
+        "badge": "Wo die Kunden hingehen",
+        "heading": "Vielleicht schickt Ihre Website gerade jetzt Kunden zur Konkurrenz",
+        "lead": "Es gibt keine Fehlermeldung und keine Warnung. Das Telefon klingelt einfach seltener, als es sollte, und das oft monatelang.",
         "items": [
           {
             "icon": "hourglass",
-            "title": "Besucher gehen, bevor sie Sie sehen",
-            "text": "Jede zusätzliche Sekunde auf dem Smartphone kostet Besucher, bevor sie Ihre Nummer überhaupt sehen — und zuerst gehen die, für die Sie bezahlt haben. Die Ursache liegt selten in Ihrem Geschäft: Es ist ein schwerer Aufbau aus Themes und Plugins, gewählt für eine Website, die nichts davon je gebraucht hat."
+            "title": "Besucher sind weg, bevor sie Ihre Nummer sehen",
+            "text": "Auf dem Handy wartet niemand. Lädt eine Seite fünf Sekunden, geht der Besucher zurück zu Google und ruft den nächsten Betrieb an. Schuld ist meist ein schweres WordPress-Theme mit Plugins, die Sie nie gebraucht haben."
           },
           {
             "icon": "search-x",
-            "title": "Kunden finden Sie nicht",
-            "text": "Dünne Seiten, kein lokaler Inhalt und technische Fehler halten Sie von Seite eins fern, und KI-Assistenten wie ChatGPT erwähnen Sie gar nicht. Den Anruf bekommt, wer genannt wird."
+            "title": "Bei Google findet Sie niemand",
+            "text": "Dünne Seiten ohne Ortsbezug und mit technischen Fehlern schaffen es nicht auf Seite eins. ChatGPT erwähnt Sie nicht, und den Auftrag bekommt, wer erwähnt wird."
           },
           {
             "icon": "mail-x",
-            "title": "Anfragen gehen an die Konkurrenz",
-            "text": "Formulare landen in einem Postfach, das niemand prüft, und der Kunde hat längst jemand anderen angerufen, wenn Sie antworten."
+            "title": "Anfragen bleiben im Postfach liegen",
+            "text": "Das Formular landet in einem Postfach, in das keiner schaut. Bis Sie antworten, hat der Kunde längst jemand anderen beauftragt."
           },
           {
             "icon": "lock",
-            "title": "Sie sind von anderen abhängig",
-            "text": "Domain, Hosting oder Code laufen auf einen fremden Namen, jede kleine Änderung bedeutet Warten und Bezahlen — und einfach gehen können Sie nicht."
+            "title": "Die Website gehört Ihnen gar nicht",
+            "text": "Domain, Hosting oder Code laufen auf fremden Namen. Jede kleine Änderung heißt warten und zahlen, und einfach wechseln können Sie nicht."
           }
         ]
       },
       "solution": {
-        "badge": "So hören die Verluste auf",
-        "heading": "Ein Ansprechpartner, ein Preis und eine Website, die keine Kunden mehr verliert",
-        "lead": "Design, Entwicklung, SEO und Anfragen-Tracking in einem Projekt, gebaut nur mit den Werkzeugen, die Ihr Unternehmen braucht — damit aus jedem Besucher, den Sie gewinnen, eine Anfrage wird und kein verpasster Anruf.",
+        "badge": "So hört das auf",
+        "heading": "Ein Ansprechpartner, ein Festpreis und eine Website, die für Sie arbeitet",
+        "lead": "Design, Umsetzung, SEO und Anfragen-Tracking in einem Projekt. Ich setze nur ein, was Ihr Betrieb wirklich braucht, damit jeder Besucher einen Grund hat anzurufen.",
         "items": [
           {
             "icon": "zap",
-            "title": "Eine blitzschnelle Website",
-            "text": "Mit Astro gebaut: Seiten öffnen sich sofort auf jedem Smartphone, mit Bestwerten in Googles eigenen Lighthouse-Tests."
+            "title": "Eine Website, die sofort lädt",
+            "text": "Gebaut mit Astro: Die Seiten öffnen sofort, auch bei schlechtem Empfang, mit Bestwerten in den Google-Tests."
           },
           {
             "icon": "search",
-            "title": "Gefunden bei Google und in der KI-Suche",
-            "text": "Leistungs- und Regionsseiten, strukturierte Daten und Inhalte, die so geschrieben sind, wie Ihre Kunden wirklich suchen — bei Google und in ChatGPT."
+            "title": "Sichtbar bei Google und in der KI-Suche",
+            "text": "Eine Seite für jede Leistung und jeden Ort, strukturierte Daten für Google und Texte, die so formuliert sind, wie Ihre Kunden tatsächlich suchen."
           },
           {
             "icon": "bell-ring",
-            "title": "Jede Anfrage, sofort",
-            "text": "Jedes Formular und jeder Anruf wird erfasst und Ihnen in dem Moment gesendet, in dem er passiert — so antworten Sie zuerst und gewinnen den Auftrag."
+            "title": "Jede Anfrage sofort bei Ihnen",
+            "text": "Jedes Formular und jeder Klick auf Ihre Nummer wird erfasst und kommt sofort bei Ihnen an. Sie melden sich als Erster und bekommen den Auftrag."
           },
           {
             "icon": "shield-check",
-            "title": "Ihre vom ersten Tag an",
-            "text": "Code, Domain und Hosting auf Ihren Namen. Keine Knebelverträge, keine versteckten Kosten, keine Plugins, die kaputtgehen."
+            "title": "Von Anfang an Ihr Eigentum",
+            "text": "Code, Domain und Hosting laufen auf Ihren Namen. Keine Vertragslaufzeit, keine versteckten Kosten und keine Plugins, die bei jedem Update kaputtgehen."
           }
         ]
       },
       "results": {
-        "badge": "Beweis, dass es sich beheben lässt",
-        "heading": "Dasselbe Problem, gelöst: der richtige Aufbau für die Aufgabe",
-        "lead": "Zwei Baumpflegefirmen in Südflorida verloren Besucher an schwere Websites, gebaut mit Werkzeugen, die sie nie gebraucht haben. Schlank neu gebaut, öffnen sich ihre Seiten sofort und erreichen den Bestwert 100 bei SEO. Ein lokales Unternehmen braucht Tempo und Anfragen, keinen komplizierten Unterbau.",
-        "note": "Das sind nur zwei Beispiele aus meiner Arbeit — jedes Projekt entsteht auf die gleiche Weise.",
+        "badge": "Ergebnisse",
+        "heading": "Zwei Websites, dasselbe Problem, gelöst",
+        "lead": "Zwei Baumpflegebetriebe in Südflorida hatten langsame WordPress-Seiten voller Plugins. Ich habe beide schlank neu gebaut: Die Seiten öffnen sofort und erreichen den SEO-Bestwert 100. Ein lokaler Betrieb braucht Tempo und Anfragen, kein kompliziertes System.",
+        "note": "Das sind zwei Beispiele. Jede Website baue ich nach demselben Prinzip.",
         "cases": [
           {
             "client": "Tree Jaws",
             "sector": "Baumpflege · Südflorida",
             "metric": "SEO 100",
-            "metricLabel": "Lighthouse-Wert nach dem Abschied von WordPress",
+            "metricLabel": "Lighthouse-Wert nach dem Umstieg von WordPress",
             "points": [
-              "Von WordPress auf Astro umgebaut — Seiten öffnen sich sofort, selbst bei schwachem 4G",
-              "176 Seiten und 108 lokale Ratgeber, gebaut für die lokale Suche",
+              "Von WordPress auf Astro umgezogen, die Seiten öffnen sofort, selbst bei schwachem 4G",
+              "176 Seiten, davon 108 lokale Ratgeber für die Suche in jedem Ort",
               "1.010 erfasste Anfragen, davon 732 Anrufe",
               "4,9★ aus 427 Google-Bewertungen"
             ]
@@ -488,152 +488,152 @@
             "client": "Mahalo Tree Service",
             "sector": "Baumpflege · Südflorida",
             "metric": "SEO 100",
-            "metricLabel": "Lighthouse-Wert — und 0 $ für Anzeigen",
+            "metricLabel": "Lighthouse-Wert, ohne einen Dollar für Anzeigen",
             "points": [
-              "Von WordPress auf Astro umgebaut — statische Seiten statt eines Stapels Plugins",
-              "Jede Anfrage landet in der Sekunde des Absendens im Postfach des Inhabers — ohne Portal",
+              "Von WordPress auf Astro umgezogen, schlanke Seiten statt eines Plugin-Bergs",
+              "Jede Anfrage landet sofort beim Inhaber im Postfach, ohne Portal",
               "Wachstum allein über die Suche, ohne bezahlte Anzeigen",
-              "Google-Bewertung 5,0, 18 Regionsseiten und ein wachsender Blog"
+              "Google-Bewertung 5,0, 18 Ortsseiten und ein wachsender Blog"
             ]
           }
         ]
       },
       "story": {
-        "badge": "Eine Beispielgeschichte",
+        "badge": "Ein typischer Fall (ausgedacht)",
         "heading": "Wenn Anzeigen mehr kosten, als sie einbringen",
         "paragraphs": [
-          "Das ist Daniel, ein erfundener Inhaber, zusammengesetzt aus Situationen, die ich immer wieder sehe. Er führt eine Baumpflegefirma. Ein Hausbesitzer, dessen Baum ein Sturm beschädigt hat, ruft die erste Firma an, die vertrauenswürdig wirkt — und wartet nicht.",
-          "Seine Website öffnet sich langsam, Google zeigt sie kaum, und das Geld, das er in Anzeigen steckt, kommt nicht zurück. Besucher, für die er bezahlt, gehen, bevor die Seite überhaupt geladen ist — und er erfährt es nie, weil ihn nichts warnt.",
-          "Dann wird die Website neu gebaut: schnelle Seiten, SEO von Grund auf, jede Anfrage direkt auf sein Telefon. Die Seiten öffnen sich sofort, und das Anzeigenbudget wird endlich zu Anrufen. Hätte er noch eine Saison gewartet, hätten die Anzeigen weiter Besucher bezahlt, die nie angerufen hätten."
+          "Thomas gibt es nicht, seine Lage aber sehr wohl. Ich habe ihn aus Geschichten zusammengesetzt, die ich immer wieder höre. Er führt einen Baumpflegebetrieb. Wenn ein Sturm einen Ast aufs Dach wirft, ruft der Hausbesitzer den ersten Betrieb an, der seriös wirkt, und wartet nicht lange.",
+          "Thomas’ Website lädt langsam, bei Google taucht er kaum auf, und das Geld für Anzeigen kommt nicht zurück. Die Besucher, für die er bezahlt, sind weg, bevor die Seite geladen ist. Er erfährt davon nichts, denn niemand sagt es ihm.",
+          "Dann wird die Website neu gebaut: schnelle Seiten, sauberes SEO und jede Anfrage direkt aufs Handy. Das Anzeigenbudget wird endlich zu Anrufen. Eine Saison länger warten hätte geheißen, weiter für Klicks von Leuten zu zahlen, die nie anrufen."
         ],
         "beforeTitle": "Vorher",
         "before": [
-          "Eine schwere Website, gebaut mit Werkzeugen, die er nie gebraucht hat",
-          "Schwaches SEO, bei Google schwer zu finden",
-          "Anzeigenbudget, das sich nicht auszahlt"
+          "Schwere Website voller Plugins, die er nicht brauchte",
+          "Schwaches SEO, bei Google kaum zu finden",
+          "Anzeigen, die sich nicht rechnen"
         ],
         "afterTitle": "Nachher",
         "after": [
-          "Seiten, die sich sofort öffnen",
-          "SEO von Grund auf eingerichtet",
-          "Jede Anfrage erreicht ihn im selben Moment"
+          "Seiten, die sofort laden",
+          "SEO von Anfang an richtig aufgesetzt",
+          "Jede Anfrage kommt sofort bei ihm an"
         ],
         "quote": "Jede Woche, die ich gewartet habe, hat jemand anderes diese Anrufe bekommen.",
-        "author": "Daniel",
-        "role": "Ein erfundener Inhaber — eine Illustration, kein echter Kunde",
+        "author": "Thomas",
+        "role": "Ausgedachter Inhaber, kein echter Kunde",
         "imageAlt": "Eine Beispiel-Website einer Baumpflegefirma von Stojan Petkovic"
       },
       "report": {
-        "badge": "Tracking & Monatsbericht",
-        "heading": "Ohne Zahlen raten Sie — und so verschwinden Budgets",
-        "lead": "Die meisten Websites lassen Sie raten, welche Klicks, Anrufe und Euro wirken und welche verpuffen. Zu jeder Website, die ich baue, bekommen Sie auf Wunsch das klarste Bild Ihres Marketings, das Sie je hatten: jede Anfrage, jeden Anruf und jeden investierten Euro, in einem verständlich geschriebenen Monatsbericht.",
+        "badge": "Tracking und Monatsbericht",
+        "heading": "Ohne Zahlen raten Sie nur, und so verschwinden Budgets",
+        "lead": "Die meisten Inhaber wissen nicht, welche Klicks, Anrufe und Euros wirklich Aufträge bringen. Zu jeder Website, die ich baue, bekommen Sie ein klares Bild: jede Anfrage, jeder Anruf und jeder investierte Euro, in einem Monatsbericht, den Sie in fünf Minuten gelesen haben.",
         "points": [
           {
             "icon": "inbox",
-            "title": "Jede Anfrage, sofort",
-            "text": "Das vollständige Formular, die Seite, von der es kam, und die Anzeige oder Suche, die den Besucher brachte — in der Sekunde des Absendens in Ihrem Postfach."
+            "title": "Jede Anfrage sofort",
+            "text": "Die vollständige Nachricht, die Seite, von der sie kam, und die Anzeige oder Suche, über die der Besucher kam. Sofort in Ihrem Postfach."
           },
           {
             "icon": "phone",
             "title": "Jeder Anruf zählt",
-            "text": "Tipps auf Ihre Telefonnummer, WhatsApp- und SMS-Links werden als Conversions erfasst, statt verloren zu gehen."
+            "text": "Klicks auf Ihre Telefonnummer, WhatsApp und SMS werden als Anfrage erfasst, statt verloren zu gehen."
           },
           {
             "icon": "target",
-            "title": "Die Quelle, die sich lohnt",
-            "text": "Google, Facebook-Anzeigen oder direkte Besuche: Sie sehen, welche Quelle Besuche, Anfragen und Anrufe bringt — und mit welcher Quote."
+            "title": "Sehen, welche Quelle sich lohnt",
+            "text": "Google, Facebook-Anzeigen oder direkte Besuche: Sie sehen, welche Quelle Besuche, Anfragen und Anrufe bringt."
           },
           {
             "icon": "wallet",
             "title": "Kosten pro Anfrage und pro Anruf",
-            "text": "Tragen Sie Ihre Werbeausgaben ein, und der Bericht zeigt, was jede Anfrage, jeder Anruf und jeder gewonnene Kunde wirklich gekostet hat — samt Return on Ad Spend."
+            "text": "Sie tragen ein, was die Anzeigen gekostet haben, und der Bericht zeigt, was Sie jede Anfrage, jeder Anruf und jeder neue Kunde wirklich gekostet hat und was zurückkam."
           },
           {
             "icon": "file-text",
             "title": "Ein Monats-PDF, das jeder versteht",
-            "text": "Keine Logins, keine Dashboards: klare Seiten auf Englisch oder Serbisch, bereit für Partner oder Steuerberater."
+            "text": "Kein Login, kein Dashboard. Klare Seiten, die Sie auch Ihrem Steuerberater geben können."
           },
           {
             "icon": "shield-check",
-            "title": "Datenschutz von Anfang an",
-            "text": "Besucher werden anonym gezählt, ohne Cookies und ohne sie über andere Websites zu verfolgen."
+            "title": "Datenschutz zuerst",
+            "text": "Besucher werden anonym gezählt, ohne Cookies und ohne Tracking über andere Websites hinweg."
           }
         ],
-        "outcomesHeading": "Was das für Ihr Unternehmen bedeutet",
+        "outcomesHeading": "Was das für Ihren Betrieb heißt",
         "outcomes": [
-          "Hören Sie auf, für Kanäle zu zahlen, die Klicks bringen, aber keine Kunden",
-          "Keine Anfrage geht mehr verloren — jede erreicht Sie sofort",
-          "Der Beweis in Zahlen, dass sich Ihre Website rechnet"
+          "Kein Geld mehr für Kanäle, die Klicks statt Kunden bringen",
+          "Keine Anfrage geht mehr verloren",
+          "Schwarz auf weiß, dass sich die Website rechnet"
         ],
         "imageAlt": "Beispiel eines monatlichen Website-Berichts: Besucher, Anfragen, Anrufe, Conversion-Rate, ein Tagesdiagramm und die Herkunft der Besucher.",
-        "imageCaption": "Ein Beispiel für einen Monatsbericht (Demodaten).",
-        "imageBadge": "Für jede Website verfügbar"
+        "imageCaption": "Beispiel eines Monatsberichts (Demodaten).",
+        "imageBadge": "Bei jeder Website dabei"
       },
       "process": {
-        "badge": "So funktioniert es",
-        "heading": "Vier Schritte von einer Website, die Kunden verliert, zu einer, die sie gewinnt",
-        "lead": "Jede Woche des Wartens ist eine Woche verpasster Anfragen. Keine langen Meetings, keine Überraschungen — Sie wissen immer, was als Nächstes passiert.",
+        "badge": "So läuft es ab",
+        "heading": "In vier Schritten zur Website, die Kunden gewinnt",
+        "lead": "Keine langen Meetings, keine Überraschungen. Sie wissen immer, was als Nächstes kommt.",
         "steps": [
           {
             "title": "Kostenloser Website-Check",
-            "text": "Senden Sie das Formular. Innerhalb eines Werktags prüfe ich Ihre aktuelle Website und Ihre Mitbewerber und sage Ihnen ehrlich, was Sie bremst."
+            "text": "Sie schicken das Formular. Innerhalb eines Werktags sehe ich mir Ihre Website und Ihre Mitbewerber an und sage Ihnen ehrlich, was Sie bremst."
           },
           {
             "title": "Ein klares Angebot",
-            "text": "Ein kurzes Gespräch, dann ein Dokument: was ich baue, wann es fertig ist und ein Festpreis. Sie entscheiden mit allen Karten auf dem Tisch."
+            "text": "Ein kurzes Gespräch, dann ein Dokument: was ich umsetze, bis wann und zu welchem Festpreis. Sie entscheiden, wenn alles auf dem Tisch liegt."
           },
           {
-            "title": "Design und Entwicklung",
-            "text": "Ich arbeite in kurzen Zyklen, und Sie verfolgen den Fortschritt über einen Vorschau-Link. Ihre aktuelle Website bleibt online, bis die neue fertig ist."
+            "title": "Design und Umsetzung",
+            "text": "Ich arbeite in kurzen Etappen, und Sie verfolgen den Fortschritt über einen Vorschau-Link. Ihre aktuelle Website bleibt online, bis die neue fertig ist."
           },
           {
-            "title": "Start und Wachstum",
-            "text": "Die Website geht auf Ihren Namen online, mit aktivem SEO und Anfragen-Tracking. Ich bleibe erreichbar, auf Wunsch mit einem monatlichen Wartungspaket."
+            "title": "Livegang und Wachstum",
+            "text": "Die Website geht auf Ihren Namen online, mit SEO und Anfragen-Tracking. Auch danach bin ich für Sie da, auf Wunsch mit einem monatlichen Wartungspaket."
           }
         ]
       },
       "offer": {
-        "badge": "Ohne Risiko starten",
+        "badge": "Der erste Schritt ist kostenlos",
         "heading": "Finden Sie heraus, was Ihre Website Sie kostet",
-        "lead": "Unverbindlich und ohne Verkaufsgespräch — nur ein ehrlicher Blick darauf, wo Ihnen heute Besucher und Anfragen entgehen.",
+        "lead": "Unverbindlich und ohne Verkaufsdruck. Nur ein ehrlicher Blick darauf, wo Ihnen heute Besucher und Anfragen verloren gehen.",
         "items": [
-          "Eine Prüfung von Geschwindigkeit, SEO und Sichtbarkeit in der KI-Suche",
-          "Ein Vergleich mit Ihren stärksten lokalen Mitbewerbern",
+          "Prüfung von Ladezeit, SEO und Sichtbarkeit in der KI-Suche",
+          "Vergleich mit Ihrem stärksten Mitbewerber vor Ort",
           "Konkrete nächste Schritte, ob Sie mit mir arbeiten oder nicht",
-          "Ein Festpreis, wenn Sie sich entscheiden, loszulegen"
+          "Ein Festpreis, wenn Sie loslegen möchten"
         ]
       },
       "faq": {
         "badge": "Fragen",
-        "heading": "Bevor Sie fragen",
+        "heading": "Häufige Fragen",
         "items": [
           {
             "question": "Was kostet eine Website?",
-            "answer": "Jedes Projekt hat einen Festpreis, der vor Beginn der Arbeit vereinbart wird — keine Abrechnung nach Stunden, keine Überraschungen. Nach dem kostenlosen Check erhalten Sie ein klares Angebot mit Preis und Zeitplan."
+            "answer": "Jedes Projekt hat einen Festpreis, den wir vor Beginn vereinbaren. Keine Abrechnung nach Stunden und keine Nachforderungen. Nach dem kostenlosen Check bekommen Sie ein klares Angebot mit Preis und Termin."
           },
           {
             "question": "Wie lange dauert es?",
-            "answer": "Das hängt vom Umfang der Website ab und davon, wie schnell die Inhalte bereitstehen. Das Angebot nennt den Zeitplan zusammen mit dem Preis, sodass Sie beides kennen, bevor wir beginnen."
+            "answer": "Das hängt vom Umfang ab und davon, wie schnell Texte und Bilder bereitstehen. Der Termin steht im Angebot neben dem Preis, Sie kennen also beides vor dem Start."
           },
           {
-            "question": "Was passiert mit meiner aktuellen Website und meinen Google-Platzierungen?",
-            "answer": "Ihre aktuelle Website bleibt online, bis die neue fertig ist. Adresse, Inhalte und Platzierungen ziehen mit um, und alte Seiten werden weitergeleitet, damit nichts verloren geht, was bereits rankt."
+            "question": "Was passiert mit meiner jetzigen Website und meinem Google-Ranking?",
+            "answer": "Ihre jetzige Website bleibt online, bis die neue fertig ist. Adresse und Inhalte ziehen mit um, und alte Seiten werden weitergeleitet, damit nichts verloren geht, was schon gut rankt."
           },
           {
-            "question": "Gehört die Website mir?",
-            "answer": "Vollständig. Code, Domain und Hosting laufen vom ersten Tag an auf Ihren Namen. Wenn Sie jemals wechseln möchten, nehmen Sie alles mit."
+            "question": "Gehört die Website wirklich mir?",
+            "answer": "Ja, komplett. Code, Domain und Hosting laufen von Anfang an auf Ihren Namen. Wenn Sie irgendwann wechseln wollen, nehmen Sie alles mit."
           },
           {
-            "question": "Arbeiten Sie mit Kunden in anderen Ländern?",
-            "answer": "Ja. Ich arbeite mit Kunden in den USA und in ganz Europa, vollständig per Telefon, Videocall und E-Mail. Zeitzonen sind selten ein Problem."
+            "question": "Arbeiten Sie auch mit Betrieben in Deutschland und Österreich?",
+            "answer": "Ja. Ich habe Kunden in Europa und den USA, und alles läuft über Telefon, Videocall und E-Mail. Ich spreche Deutsch und arbeite in Ihrer Zeitzone."
           },
           {
-            "question": "Können Sie auch Google Ads oder Social-Media-Anzeigen betreuen?",
-            "answer": "Ja — Google Ads sowie Facebook- und Instagram-Kampagnen, mit Conversion-Tracking, das zeigt, was jeder Euro einbringt."
+            "question": "Können Sie auch meine Google- oder Facebook-Anzeigen betreuen?",
+            "answer": "Ja. Ich betreue Google Ads sowie Kampagnen auf Facebook und Instagram, mit Conversion-Tracking, das zeigt, was jeder investierte Euro zurückbringt."
           },
           {
-            "question": "Bindet mich ein langer Vertrag?",
-            "answer": "Nein. Die Website hat einen Festpreis, Anzeigen und SEO laufen monatlich. Sie bleiben, weil es sich lohnt, nicht wegen eines Vertrags."
+            "question": "Binde ich mich mit einem langen Vertrag?",
+            "answer": "Nein. Die Website zahlen Sie einmal zum Festpreis, Anzeigen und SEO sind monatlich kündbar. Sie bleiben, weil es sich rechnet, nicht wegen einer Vertragslaufzeit."
           }
         ]
       },
@@ -642,8 +642,8 @@
           "termsLabel": "Ich habe die {terms} gelesen und verstehe, dass diese Anfrage weder ein Angebot noch ein Vertrag ist.",
           "termsLink": "Nutzungsbedingungen",
           "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
-        "heading": "Erzählen Sie mir von Ihrem Unternehmen",
-        "lead": "Drei kurze Schritte, unter einer Minute. Ich antworte innerhalb eines Werktags.",
+        "heading": "Erzählen Sie mir kurz von Ihrem Betrieb",
+        "lead": "Drei kurze Schritte, weniger als eine Minute. Ich melde mich innerhalb eines Werktags.",
         "stepLabels": [
           "Was Sie brauchen",
           "Ihr Unternehmen",
@@ -707,18 +707,18 @@
         "sending": "Wird gesendet…",
         "chooseService": "Wählen Sie aus, was Sie brauchen, um fortzufahren.",
         "required": "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse ein.",
-        "privacy": "Ihre Angaben verwende ich nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
+        "privacy": "Ihre Daten nutze ich nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
         "promise": "Antwort innerhalb eines Werktags",
-        "successTitle": "Vielen Dank — Ihre Anfrage ist eingegangen!",
-        "successText": "Ich prüfe Ihre Website und melde mich innerhalb eines Werktags mit ehrlichen, konkreten nächsten Schritten. Behalten Sie Ihr Postfach im Blick.",
-        "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail."
+        "successTitle": "Danke, Ihre Anfrage ist da!",
+        "successText": "Ich sehe mir Ihre Website an und melde mich innerhalb eines Werktags mit ehrlichen, konkreten nächsten Schritten. Schauen Sie in Ihr Postfach.",
+        "error": "Da ist etwas schiefgelaufen. Bitte versuchen Sie es noch einmal oder schreiben Sie mir direkt."
       },
       "final": {
-        "heading": "Jede Woche des Wartens gehen die Anrufe an Ihre Konkurrenz",
-        "text": "Der Check ist kostenlos und unverbindlich. Im schlimmsten Fall wissen Sie danach genau, was Sie Kunden kostet und was zuerst zu beheben ist.",
-        "cta": "Kostenlosen Website-Check anfordern"
+        "heading": "Jede Woche Warten bringt der Konkurrenz Anrufe",
+        "text": "Der Check ist kostenlos und unverbindlich. Im schlimmsten Fall wissen Sie danach genau, was Sie Kunden kostet und was Sie zuerst angehen sollten.",
+        "cta": "Kostenlosen Check anfordern"
       },
-      "footer": "Schnelle Websites, SEO und Kundengewinnung für lokale Unternehmen.",
+      "footer": "Schnelle Websites, SEO und Anzeigen für lokale Betriebe.",
       "mobileCta": "Kostenloser Website-Check",
       "privacy": {
         "toggle": "Wie ich mit Ihren Daten umgehe",
@@ -753,33 +753,33 @@
           "Mehr Anfragen",
           "Mehr Kunden"
         ],
-        "description": "Ich helfe Dienstleistern, online gefunden zu werden, mit Anzeigen, SEO, KI-Suche und schnellen Websites. Sie arbeiten direkt mit mir.",
+        "description": "Ich helfe Dienstleistern, online gefunden zu werden: mit Anzeigen, SEO, KI-Suche und schnellen Websites. Sie arbeiten direkt mit mir, ohne Agentur dazwischen.",
         "imageAlt": "Eine Rakete fliegt am beleuchteten Rand eines Planeten vorbei, vor einem Sternenhimmel."
       },
       "background": {
         "badge": "Hintergrund",
         "heading": "Warum ich alles messe",
         "paragraphs": [
-          "Ich bin Ingenieur und habe über zehn Jahre im Feldeinsatz gearbeitet, wo eine falsche Zahl teuer ist. Dort habe ich gelernt, nichts vorauszusetzen: erst messen, dann entscheiden.",
-          "Genauso gehe ich mit Marketing um. Jeder Anruf, jede Anfrage und jeder ausgegebene Euro wird erfasst, sodass wir nach wenigen Wochen wissen, was Kunden bringt und was nur Geld kostet.",
-          "Ich arbeite mit Unternehmen in Serbien, Europa und den USA: Handwerk, Praxen, Unterkünfte und lokale Firmen. Sie sprechen direkt mit mir, ohne Agentur dazwischen."
+          "Ich bin gelernter Ingenieur und habe über zehn Jahre im Außeneinsatz gearbeitet, wo eine falsche Zahl schnell teuer wird. Dort habe ich gelernt, nichts vorauszusetzen: erst messen, dann entscheiden.",
+          "Genauso arbeite ich im Marketing. Jeder Anruf, jede Anfrage und jeder Euro wird erfasst, und nach ein paar Wochen wissen wir, was Kunden bringt und was nur Geld kostet.",
+          "Ich arbeite mit Betrieben in Deutschland, Europa und den USA: Handwerk, Praxen, Ferienwohnungen und lokale Firmen. Sie sprechen direkt mit mir."
         ],
-        "credential": "Ingenieur, Titel von der Bayerischen Ingenieurekammer-Bau genehmigt."
+        "credential": "Ingenieur, Berufsbezeichnung anerkannt von der Bayerischen Ingenieurekammer-Bau."
       },
       "whatYouGet": {
         "badge": "Was ich mitbringe",
-        "heading": "Alles, was Ihr Projekt braucht",
-        "lead": "Die gleiche Sorgfalt bei jedem Projekt, von der ersten Codezeile bis zum Start.",
+        "heading": "Das bekommen Sie",
+        "lead": "Dieselbe Sorgfalt bei jedem Projekt, von der ersten Kampagne bis zum letzten Detail der Website.",
         "items": [
           {
             "icon": "search",
             "title": "Sichtbarkeit",
-            "description": "Google, Karte, ChatGPT und soziale Medien: dort, wo Ihre Kunden suchen."
+            "description": "Google, Maps, ChatGPT und Social Media, überall dort, wo Ihre Kunden suchen."
           },
           {
             "icon": "target",
             "title": "Anzeigen, die sich rechnen",
-            "description": "Google- und Meta-Kampagnen, gesteuert nach Anrufen, nicht nach Klicks."
+            "description": "Google- und Meta-Kampagnen, gemessen an Anrufen statt an Klicks."
           },
           {
             "icon": "zap",
@@ -788,7 +788,7 @@
           },
           {
             "icon": "message-circle",
-            "title": "Keine verlorenen Anfragen",
+            "title": "Keine Anfrage geht verloren",
             "description": "Jede Anfrage kommt sofort an, und ein KI-Chat antwortet auch nach Feierabend."
           },
           {
@@ -799,91 +799,91 @@
           {
             "icon": "shield-check",
             "title": "Alles gehört Ihnen",
-            "description": "Code, Domain, Hosting und Werbekonten auf Ihren Namen."
+            "description": "Code, Domain, Hosting und Werbekonten laufen auf Ihren Namen."
           }
         ]
       },
       "principles": {
         "badge": "Wie ich arbeite",
-        "heading": "Mit Absicht gebaut",
-        "lead": "Jedes Projekt folgt denselben drei Prinzipien.",
+        "heading": "Drei Grundsätze, an die ich mich halte",
+        "lead": "Sie gelten für jedes Projekt, ob groß oder klein.",
         "items": [
-          { "icon": "zap", "title": "Geschwindigkeit zuerst", "description": "Jede Website optimiere ich ab der ersten Codezeile für Geschwindigkeit und Core Web Vitals." },
-          { "icon": "award", "title": "Gebaut, um zu bleiben", "description": "Sauberer, typisierter Code und sinnvolle Voreinstellungen, die auch lange nach dem Start leicht zu pflegen sind." },
-          { "icon": "award", "title": "Ingenieursdisziplin", "description": "Erst die Anforderungen, dann Design, dann Code. Jede Zahl und jede Aussage wird geprüft, bevor sie live geht." }
+          { "icon": "zap", "title": "Geschwindigkeit zuerst", "description": "Jede Website ist ab dem ersten Tag schnell, denn eine langsame Seite verliert Besucher und Google gleichermaßen." },
+          { "icon": "award", "title": "Gebaut, um zu bleiben", "description": "Sauberer Code und einfache Einstellungen, damit die Website auch Jahre später leicht zu pflegen ist." },
+          { "icon": "award", "title": "Ingenieursdisziplin", "description": "Erst die Anforderungen, dann das Design, dann der Code. Jede Zahl und jede Aussage wird geprüft, bevor sie online geht." }
         ]
       },
       "stack": {
         "badge": "Werkzeuge & Technik",
         "title": "Technologien",
-        "description": "Die Technologien, mit denen ich arbeite — ausgewählt nach Geschwindigkeit, Zuverlässigkeit und langfristiger Wartbarkeit."
+        "description": "Die Werkzeuge, mit denen ich arbeite. Ausgewählt, weil sie schnell und zuverlässig sind und nicht nächstes Jahr veraltet."
       },
       "faq": {
         "badge": "Gut zu wissen",
         "heading": "Häufige Fragen",
-        "lead": "Ein paar Dinge, die Kunden meist fragen, bevor wir zusammenarbeiten.",
+        "lead": "Ein paar Fragen, die mir vor dem Start oft gestellt werden.",
         "cards": [
           {
             "icon": "user",
             "title": "Über mich",
             "items": [
-              { "question": "Welche Projekte übernehmen Sie?", "answer": "Ich helfe Dienstleistern, online Kunden zu gewinnen: Anzeigen, SEO, Sichtbarkeit in der KI-Suche, schnelle Websites und die Erfassung jeder Anfrage." },
-              { "question": "Mit welchen Technologien arbeiten Sie?", "answer": "Mit modernen, schnellen Werkzeugen: Astro, TypeScript und Tailwind CSS im Frontend, dazu Cloud-Infrastruktur und Automatisierung, wo ein Projekt sie braucht." },
-              { "question": "Arbeiten Sie auch mit Kunden außerhalb Ihrer Region?", "answer": "Ja. Die meisten Projekte laufen vollständig per Telefon, Video und E-Mail, und Zeitzonen sind selten ein Problem." },
-              { "question": "Haben Sie Kapazität für neue Projekte?", "answer": "Meistens ja — sehen Sie auf der Startseite nach oder schreiben Sie mir einfach, und ich sage es Ihnen ehrlich." }
+              { "question": "Was genau machen Sie?", "answer": "Ich helfe Dienstleistern, online Kunden zu gewinnen: Anzeigen, SEO, Sichtbarkeit in der KI-Suche, schnelle Websites und Tracking jeder Anfrage." },
+              { "question": "Mit welchen Technologien arbeiten Sie?", "answer": "Astro, TypeScript und Tailwind CSS für Websites, dazu Cloud-Dienste und Automatisierung, wenn ein Projekt sie braucht." },
+              { "question": "Arbeiten Sie auch mit Kunden außerhalb Ihrer Region?", "answer": "Natürlich. Das meiste läuft über Telefon, Videocall und E-Mail, und Zeitzonen stören selten." },
+              { "question": "Haben Sie gerade Zeit für neue Projekte?", "answer": "Meistens ja. Schauen Sie auf den Hinweis auf der Startseite oder schreiben Sie mir einfach, ich sage Ihnen ehrlich Bescheid." }
             ]
           },
           {
             "icon": "briefcase",
             "title": "Zusammenarbeit",
             "items": [
-              { "question": "Wie beginnt ein Projekt?", "answer": "Mit einem kostenlosen, unverbindlichen Gespräch darüber, was Sie brauchen, gefolgt von einem klaren Angebot mit Zeitplan und Preis." },
-              { "question": "Bieten Sie Unterstützung nach dem Start?", "answer": "Ja, es gibt ein monatliches Wartungspaket für Updates, Überwachung und kleine Änderungen, nachdem Ihre Website online ist." },
-              { "question": "Gehört die Website wirklich mir?", "answer": "Vollständig. Domain, Hosting und Code laufen vom ersten Tag an auf Ihren Namen." }
+              { "question": "Wie beginnt ein Projekt?", "answer": "Mit einem kostenlosen, unverbindlichen Gespräch darüber, was Sie brauchen. Danach bekommen Sie ein Angebot mit Termin und Preis." },
+              { "question": "Bieten Sie Unterstützung nach dem Start?", "answer": "Ja. Es gibt ein monatliches Wartungspaket für Updates, Überwachung und kleine Änderungen nach dem Livegang." },
+              { "question": "Gehört die Website wirklich mir?", "answer": "Ja, komplett. Domain, Hosting und Code laufen von Anfang an auf Ihren Namen." }
             ]
           }
         ]
       },
       "openSource": {
         "badge": "Warum mit mir arbeiten",
-        "heading": "Ein Partner, nicht nur ein Dienstleister",
-        "description": "Sie arbeiten direkt mit der Person, die Ihre Website baut — ohne Account-Manager, ohne Übergaben und mit einem Festpreis, der vor Beginn vereinbart wird.",
+        "heading": "Partner statt nur Dienstleister",
+        "description": "Sie arbeiten direkt mit dem, der Ihre Website baut und Ihre Anzeigen betreut. Keine Projektmanager, kein Weiterreichen an Subunternehmer, und der Preis steht vorher fest.",
         "button": "Kontakt aufnehmen",
         "cards": [
-          { "title": "Ein Ansprechpartner", "text": "Sie sprechen von der ersten Nachricht bis zum Start direkt mit mir — kein Vertriebsteam dazwischen." },
-          { "title": "Festpreis, keine Überraschungen", "text": "Jedes Projekt hat einen klaren Preis, der vor Arbeitsbeginn vereinbart wird. Keine Abrechnung nach Stunden." },
-          { "title": "Unterstützung nach dem Start", "text": "Ich bleibe erreichbar, wenn Ihre Website online ist, mit einem monatlichen Wartungspaket für laufende Updates." }
+          { "title": "Ein Ansprechpartner", "text": "Von der ersten Nachricht bis zum Livegang sprechen Sie mit mir. Kein Vertriebler dazwischen." },
+          { "title": "Festpreis, keine Überraschungen", "text": "Den Preis vereinbaren wir vor dem Start. Keine Stundenabrechnung." },
+          { "title": "Unterstützung nach dem Start", "text": "Auch nach dem Livegang bin ich erreichbar, und für regelmäßige Updates gibt es ein Wartungspaket." }
         ]
       },
       "cta": {
         "badge": "Loslegen",
-        "heading": "Bereit für die Zusammenarbeit?",
-        "description": "Erzählen Sie mir von Ihrem Projekt — ich melde mich innerhalb eines Werktags mit ehrlichen, praktischen nächsten Schritten.",
+        "heading": "Wollen wir zusammenarbeiten?",
+        "description": "Schreiben Sie mir ein paar Zeilen zu Ihrem Betrieb. Ich melde mich am selben oder nächsten Werktag mit einer ehrlichen Antwort und einem konkreten Vorschlag.",
         "button": "Kontakt aufnehmen"
       }
     },
     "services": {
       "meta": {
-        "title": "Leistungen — Anzeigen, SEO, KI und Websites",
+        "title": "Leistungen: Anzeigen, SEO, KI-Suche und Websites",
         "description": "Google- und Meta-Anzeigen, lokales SEO, Sichtbarkeit in der KI-Suche und schnelle Websites für Dienstleister. Kostenloser Check, Festpreis."
       },
       "areas": {
         "marketing": {
           "icon": "target",
           "badge": "Anzeigen, SEO und KI",
-          "heading": "Gefunden werden von Menschen, die Ihre Leistung schon suchen",
+          "heading": "Gefunden werden von Menschen, die Sie schon suchen",
           "paragraphs": [
-            "Wer einen Handwerker, Zahnarzt oder eine Unterkunft braucht, fragt Google, die Karte oder ChatGPT. Ich sorge dafür, dass man dort Sie findet und nicht die Konkurrenz.",
-            "Anzeigen bringen sofort Anrufe, SEO und KI-Sichtbarkeit einen steten Strom, der nicht pro Klick kostet. Alles wird gemessen, damit Sie wissen, was sich lohnt."
+            "Wer einen Handwerker, eine Zahnärztin oder eine Unterkunft braucht, fragt Google, öffnet Maps oder fragt ChatGPT. Meine Aufgabe ist, dass er dort Sie findet und nicht die Konkurrenz.",
+            "Anzeigen bringen ab dem ersten Tag Anrufe. SEO und KI-Suche sorgen für einen stetigen Strom, für den Sie nicht pro Klick zahlen. Alles wird gemessen, damit Sie wissen, was sich rechnet."
           ],
           "included": [
             {
               "lead": "Google Ads",
-              "text": "Suche und Karte, ausgerichtet auf Suchanfragen, die Aufträge bringen."
+              "text": "Suche und Maps, ausgerichtet auf Suchanfragen, aus denen Aufträge werden."
             },
             {
               "lead": "Facebook- und Instagram-Anzeigen",
-              "text": "Kampagnen und Retargeting für Ihre Region."
+              "text": "Kampagnen für Ihre Region und Retargeting für alle, die schon auf Ihrer Seite waren."
             },
             {
               "lead": "Lokales SEO",
@@ -891,15 +891,15 @@
             },
             {
               "lead": "Sichtbarkeit in der KI-Suche",
-              "text": "damit ChatGPT und Googles KI Sie empfehlen."
+              "text": "damit ChatGPT und Googles KI Sie empfehlen, wenn jemand fragt."
             },
             {
               "lead": "KI-Chat und Sofortantworten",
-              "text": "eine Anfrage bekommt eine Antwort, auch wenn Sie keine Zeit haben."
+              "text": "jede Anfrage bekommt eine Antwort, auch wenn Sie gerade nicht rangehen können."
             },
             {
               "lead": "Monatsbericht",
-              "text": "Anrufe, Anfragen und die Kosten jeder einzelnen, verständlich erklärt."
+              "text": "Anrufe, Anfragen und was jede gekostet hat, ohne Fachchinesisch."
             }
           ],
           "ctaLabel": "Kostenlosen Check anfordern"
@@ -907,10 +907,10 @@
         "web": {
           "icon": "layout",
           "badge": "Websites",
-          "heading": "Eine Website, die Besuche in Anrufe verwandelt",
+          "heading": "Eine Website, über die Kunden anrufen",
           "paragraphs": [
-            "Schnelle, maßgeschneiderte Websites und Landingpages, gebaut, damit Besucher in Sekunden sehen, was Sie bieten, und anrufen.",
-            "Ein Festpreis, und Code, Domain und Hosting laufen ab dem ersten Tag auf Ihren Namen."
+            "Schnelle Websites und Landingpages nach Maß. In wenigen Sekunden sieht der Besucher, was Sie anbieten und wo er tippen muss, um Sie anzurufen.",
+            "Festpreis, und Code, Domain und Hosting laufen von Anfang an auf Ihren Namen."
           ],
           "included": [
             {
@@ -940,7 +940,7 @@
       "overviewFaq": {
         "badge": "Fragen",
         "heading": "Fragen und Antworten",
-        "lead": "Was Kunden fragen, bevor wir anfangen.",
+        "lead": "Was Kunden fragen, bevor wir starten.",
         "cards": [
           {
             "icon": "tag",
@@ -948,23 +948,23 @@
             "items": [
               {
                 "question": "Was kostet es?",
-                "answer": "Jedes Projekt bekommt einen Festpreis, der vor Arbeitsbeginn vereinbart wird. Keine Stundenabrechnung und keine Überraschungen. Das kostenlose Erstgespräch zeigt mir, was Sie brauchen, und Sie erhalten den Preis in einem klaren Angebot."
+                "answer": "Jedes Projekt hat einen Festpreis, den wir vor Beginn vereinbaren. Keine Stundenabrechnung, keine Überraschungen. Ein kostenloses Erstgespräch zeigt mir, was Sie brauchen, und den Preis bekommen Sie in einem klaren Angebot."
               },
               {
                 "question": "Wie lange dauert es?",
-                "answer": "Das hängt vom Umfang ab. Das Angebot nennt den Zeitplan zusammen mit dem Preis, damit Sie beides vor dem Start kennen."
+                "answer": "Das hängt vom Umfang ab. Der Termin steht im Angebot, direkt neben dem Preis."
               },
               {
-                "question": "Arbeiten Sie mit Kunden im Ausland?",
-                "answer": "Ja. Ich arbeite mit Kunden weltweit, per Telefon, Video und E-Mail, in der Zeitzone MEZ."
+                "question": "Arbeiten Sie auch mit Betrieben im Ausland?",
+                "answer": "Ja. Meine Kunden sitzen in Deutschland, Europa und den USA, und wir sprechen per Telefon, Videocall oder E-Mail. Ich arbeite in der mitteleuropäischen Zeitzone."
               },
               {
                 "question": "Wem gehört, was Sie bauen?",
-                "answer": "Ihnen. Code, Dokumentation, Domain und Hosting laufen von Anfang an auf Ihren Namen."
+                "answer": "Ihnen. Code, Domain, Hosting und Werbekonten laufen von Anfang an auf Ihren Namen."
               },
               {
-                "question": "Übernehmen Sie auch kleine Aufträge?",
-                "answer": "Ja. Ein einzelnes Werkzeug oder eine kleine Website sind ein guter Anfang. Sagen Sie mir, was Sie vorhaben."
+                "question": "Übernehmen Sie auch kleinere Aufträge?",
+                "answer": "Ja. Eine einzelne Landingpage oder eine Kampagne ist ein guter Anfang. Schreiben Sie mir, was Sie vorhaben."
               }
             ]
           }
@@ -973,9 +973,9 @@
       "includedLabel": "Was Sie bekommen",
       "hero": {
         "badge": "Leistungen",
-        "titleLead": "Alles, was es braucht,",
-        "titleHighlight": "damit Kunden Sie finden",
-        "description": "Anzeigen, SEO und KI-Sichtbarkeit bringen Menschen zu Ihnen, eine schnelle Website macht daraus Anrufe. Alles aus einer Hand, mit Zahlen jeden Monat.",
+        "titleLead": "Alles, damit",
+        "titleHighlight": "Kunden Sie finden",
+        "description": "Anzeigen, SEO und KI-Suche bringen Besucher, eine schnelle Website macht Anrufe daraus. Alles aus einer Hand, mit Zahlen jeden Monat.",
         "jumpLabels": [
           "Anzeigen, SEO und KI",
           "Websites"
@@ -983,19 +983,19 @@
       },
       "process": {
         "badge": "So funktioniert es",
-        "heading": "So läuft ein Projekt ab",
-        "lead": "Von Ihrer ersten Nachricht bis zum gelieferten Ergebnis.",
+        "heading": "So läuft die Zusammenarbeit",
+        "lead": "Von Ihrer ersten Nachricht bis zu den ersten Anrufen.",
         "steps": [
-          { "title": "Erstkontakt", "description": "Sie senden eine Nachricht über das Kontaktformular. Ich antworte innerhalb eines Werktags, und wir vereinbaren ein kostenloses, informatives Gespräch darüber, was Sie brauchen. Unverbindlich." },
-          { "title": "Angebot", "description": "Nach dem Gespräch erhalten Sie ein klares Dokument: was ich baue, wann es fertig ist und den Festpreis. Sie entscheiden mit allen Karten auf dem Tisch." },
-          { "title": "In kurzen Zyklen arbeiten", "description": "Sie verfolgen den Fortschritt und sehen, wie das Ergebnis entsteht, ob Dokument, Werkzeug oder Website." },
-          { "title": "Übergabe & Betreuung", "description": "Die Arbeit wird auf Ihren Namen übergeben und dokumentiert. Danach bleibe ich erreichbar, und es gibt einen monatlichen Pflegeplan, wenn Sie regelmäßige Updates möchten." }
+          { "title": "Erstkontakt", "description": "Sie schreiben mir über die Kontaktseite. Ich melde mich innerhalb eines Werktags, und wir vereinbaren ein kurzes Gespräch. Kostenlos und unverbindlich." },
+          { "title": "Angebot", "description": "Nach dem Gespräch bekommen Sie ein Dokument: was ich umsetze, bis wann und was es kostet. Der Preis ist fest, und Sie entscheiden in Ruhe." },
+          { "title": "Arbeit in kurzen Etappen", "description": "Sie sehen jederzeit, wie weit es ist, ob bei Anzeigen, SEO oder der neuen Website." },
+          { "title": "Übergabe und Betreuung", "description": "Alles wird auf Ihren Namen übergeben und dokumentiert. Auch danach bin ich erreichbar, und für regelmäßige Updates gibt es ein monatliches Wartungspaket." }
         ]
       },
       "cta": {
         "badge": "Sprechen wir",
-        "heading": "Sprechen wir über Ihr Projekt",
-        "description": "Das erste Gespräch ist kostenlos und unverbindlich: per Telefon, Video oder E-Mail. Sie erhalten ehrliche Antworten und nach dem Gespräch ein klares Angebot mit Zeitplan und Festpreis.",
+        "heading": "Sprechen wir über Ihren Betrieb",
+        "description": "Das Erstgespräch ist kostenlos, per Telefon, Video oder E-Mail. Sie bekommen ehrliche Antworten und danach ein klares Angebot mit Termin und Festpreis.",
         "primary": "Nachricht senden",
         "secondary": "Mehr über mich"
       }
@@ -1003,13 +1003,13 @@
     "contact": {
       "meta": {
         "title": "Kontakt",
-        "description": "Anzeigen, SEO, KI-Sichtbarkeit oder eine neue Website: Sagen Sie mir, was Sie brauchen. Antwort innerhalb eines Werktags."
+        "description": "Anzeigen, SEO, KI-Suche oder eine neue Website: Schreiben Sie mir, was Sie brauchen. Antwort innerhalb eines Werktags."
       },
       "hero": {
         "badge": "Kontakt",
         "titleLead": "Holen wir Ihnen",
         "titleHighlight": "mehr Kunden",
-        "description": "Anzeigen, SEO, Sichtbarkeit in der KI-Suche oder eine neue Website. Eine kurze Nachricht genügt; ich antworte innerhalb eines Werktags."
+        "description": "Anzeigen, SEO, KI-Suche oder eine neue Website. Ein paar Sätze genügen, die Antwort kommt innerhalb eines Werktags."
       },
       "helpTitle": "Wobei ich helfen kann",
       "help": [
@@ -1021,14 +1021,14 @@
         {
           "icon": "layout",
           "title": "Eine Website, die Besuche in Anrufe verwandelt",
-          "text": "Eine schnelle Website oder Landingpage, mit Erfassung jeder Anfrage."
+          "text": "Eine schnelle Website oder Landingpage, bei der jede Anfrage erfasst wird."
         }
       ],
       "nextTitle": "Wie es weitergeht",
       "next": [
         "Ich antworte innerhalb eines Werktags.",
-        "Wir sprechen kurz, um zu klären, was Sie brauchen. Das ist kostenlos und unverbindlich.",
-        "Sie erhalten ein klares Angebot mit Umfang, Zeitplan und Festpreis."
+        "In einem kurzen Gespräch klären wir, was Sie brauchen. Kostenlos und unverbindlich.",
+        "Sie bekommen ein Angebot mit Umfang, Termin und Festpreis."
       ],
       "facts": [
         {"value": "3", "label": "Sprachen: Serbisch, Englisch, Deutsch"},
@@ -1041,12 +1041,12 @@
       "emailLabel": "E-Mail",
       "preferEmail": "Lieber per E-Mail? Schreiben Sie an",
       "form": {
-        "badge": "Projektanfrage",
+        "badge": "Anfrage",
           "termsLabel": "Ich habe die {terms} gelesen und verstehe, dass diese Anfrage weder ein Angebot noch ein Vertrag ist.",
           "termsLink": "Nutzungsbedingungen",
           "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
-        "heading": "Erzählen Sie mir von Ihrem Projekt",
-        "lead": "Drei kurze Schritte, unter einer Minute. Ich antworte innerhalb eines Werktags.",
+        "heading": "Was kann ich für Sie tun?",
+        "lead": "Drei kurze Schritte, weniger als eine Minute. Antwort innerhalb eines Werktags.",
         "stepLabels": [
           "Was Sie brauchen",
           "Ihr Unternehmen",
@@ -1105,128 +1105,128 @@
         "sending": "Wird gesendet…",
         "chooseService": "Wählen Sie aus, was Sie brauchen, um fortzufahren.",
         "required": "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse an.",
-        "privacy": "Ihre Angaben werden nur verwendet, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
+        "privacy": "Ihre Daten nutze ich nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
         "promise": "Antwort innerhalb eines Werktags",
-        "successTitle": "Danke — Ihre Anfrage ist eingegangen!",
-        "successText": "Ich lese sie und antworte innerhalb eines Werktags mit konkreten nächsten Schritten. Behalten Sie Ihr Postfach im Blick.",
-        "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt."
+        "successTitle": "Danke, Ihre Nachricht ist angekommen!",
+        "successText": "Ich lese sie und melde mich innerhalb eines Werktags mit konkreten nächsten Schritten. Schauen Sie in Ihr Postfach.",
+        "error": "Da ist etwas schiefgelaufen. Bitte versuchen Sie es noch einmal oder schreiben Sie mir direkt."
       }
     },
     "web": {
       "glance": {"label": "Auf einen Blick", "items": [{"label": "Technik", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Preis", "value": "Ein Festpreis, vor Arbeitsbeginn vereinbart"}, {"label": "Eigentum", "value": "Code, Domain und Hosting auf Ihren Namen"}, {"label": "Antwort", "value": "Innerhalb eines Werktags"}]},
-      "closing": "Eine Website im Sinn? Eine kurze Nachricht genügt.",
+      "closing": "Sie haben eine Website im Kopf? Ein paar Sätze genügen.",
       "meta": {
-        "title": "Webentwicklung",
-        "description": "Schnelle, maßgeschneiderte Websites und Landingpages für Dienstleister, mit SEO und Erfassung jeder Anfrage. Ein Festpreis, alles auf Ihren Namen."
+        "title": "Websites erstellen lassen",
+        "description": "Schnelle Websites und Landingpages nach Maß für Dienstleister, mit SEO und Tracking jeder Anfrage. Festpreis, alles auf Ihren Namen."
       },
       "hero": {
-        "badge": "Webentwicklung",
-        "titleLead": "Websites und Websysteme",
-        "titleHighlight": "die Anfragen bringen",
-        "description": "Design, Umsetzung und SEO für Unternehmen, die von Anrufen und Anfragen leben. Ein Festpreis, und alles auf Ihren Namen.",
+        "badge": "Websites",
+        "titleLead": "Websites, über die",
+        "titleHighlight": "Kunden anrufen",
+        "description": "Design, Umsetzung und SEO für Betriebe, bei denen jeder Auftrag mit einem Anruf oder einer Anfrage beginnt. Festpreis, und alles gehört Ihnen.",
         "primaryCta": "Kontakt aufnehmen",
         "secondaryCta": "Alle Leistungen"
       },
       "services": {
         "badge": "Was ich mache",
-        "heading": "Gestalten, bauen, optimieren",
-        "lead": "Jedes Projekt bekommt alle drei Leistungen.",
+        "heading": "Design, Umsetzung und SEO in einem Paket",
+        "lead": "Jede Website bekommt alle drei.",
         "cards": [
           {
             "icon": "layout",
-            "title": "Webdesign",
-            "description": "Oberflächen, die selbsterklärend wirken. Layouts, die auf Ihre Inhalte, Ihre Marke und das Leseverhalten am Bildschirm zugeschnitten sind."
+            "title": "Design",
+            "description": "Ein klares Design nach Maß für Ihren Betrieb, gemacht dafür, wie Menschen eine Website wirklich nutzen: schnell, am Handy, mit einem Ziel."
           },
           {
             "icon": "code",
-            "title": "Webentwicklung",
-            "description": "Websites, die bleiben. Astro, Tailwind und eine klare Architektur: schnell am ersten Tag, leicht zu pflegen am fünfhundertsten."
+            "title": "Umsetzung",
+            "description": "Astro, Tailwind und sauberer Code. Die Website ist ab dem ersten Tag schnell und bleibt jahrelang leicht zu pflegen."
           },
           {
             "icon": "trending-up",
-            "title": "Weboptimierung",
-            "description": "SEO, Core Web Vitals und Barrierefreiheit von Anfang an eingebaut, damit Ihre Website gut rankt, schnell lädt und für jeden Besucher funktioniert."
+            "title": "SEO",
+            "description": "Ladezeit, SEO und Barrierefreiheit sind von Anfang an Teil der Umsetzung, damit Google Sie gut einstuft und niemand warten muss."
           }
         ]
       }
     },
     "home": {
       "meta": {
-        "title": "Mehr Kunden aus dem Internet",
-        "description": "Google Ads, SEO, Sichtbarkeit in der KI-Suche und eine schnelle Website für Dienstleister. Mehr Anrufe und Anfragen, jede gemessen. Kostenloser Check."
+        "title": "Mehr Anfragen aus dem Internet",
+        "description": "Google- und Meta-Anzeigen, lokales SEO, KI-Suche und eine schnelle Website für Dienstleister. Jeder Anruf wird gemessen. Der erste Check ist kostenlos."
       },
       "hero": {
-        "badge": "Verfügbar für neue Kunden",
+        "badge": "Freie Kapazitäten",
         "titleLead": "Mehr Anrufe und Anfragen",
-        "titleHighlight": "aus dem Internet für Ihr Unternehmen",
-        "description": "Google Ads, SEO, Sichtbarkeit in der KI-Suche und eine schnelle Website, verbunden zu einem System, das jeden Anruf misst. Sie zahlen für Kunden, nicht für Klicks.",
+        "titleHighlight": "aus dem Internet für Ihren Betrieb",
+        "description": "Ich schalte Ihre Anzeigen bei Google und auf Social Media, sorge dafür, dass Sie bei Google Maps und in ChatGPT auftauchen, und baue eine Website, über die Kunden wirklich anrufen. Jeder Anruf wird gezählt, damit Sie schwarz auf weiß sehen, was Aufträge bringt.",
         "primary": "Kostenloser Website-Check",
         "secondary": "Ergebnisse ansehen",
         "imageAlt": "Stojan Petković im dunkelblauen Anzug in einem hellen Büro, hinter ihm Bildschirme mit Code"
       },
       "pillars": {
-        "badge": "Wie Kunden kommen",
-        "heading": "Vier Schritte von der Suche zum Anruf",
-        "lead": "Ich verkaufe keine einzelnen Leistungen, sondern den ganzen Weg: Man findet Sie, man wählt Sie, und Sie wissen, was sich lohnt.",
+        "badge": "So kommen die Anfragen",
+        "heading": "In vier Schritten von der Suche zum Anruf",
+        "lead": "Ich verkaufe keine einzelnen Kanäle, sondern ein System, das Ihr Telefon klingeln lässt.",
         "items": [
           {
             "icon": "search",
             "title": "Gefunden werden",
-            "text": "Lokales SEO, Google-Unternehmensprofil und Karte, eine Seite für jede Leistung und jeden Ort und Sichtbarkeit in ChatGPT und der KI-Suche."
+            "text": "Google Maps und Ihr Unternehmensprofil, eine eigene Seite für jede Leistung und jeden Ort, und Empfehlungen, wenn jemand ChatGPT fragt."
           },
           {
             "icon": "target",
-            "title": "Sofort Kunden holen",
-            "text": "Google Ads sowie Facebook- und Instagram-Anzeigen für Menschen, die genau Ihre Leistung suchen, mit Conversion-Tracking ab dem ersten Tag."
+            "title": "Sofort Anfragen über Anzeigen",
+            "text": "Google Ads sowie Anzeigen auf Facebook und Instagram für Menschen, die genau jetzt Ihre Leistung suchen. Ab dem ersten Tag sehen Sie, wie viele Anrufe die Anzeigen bringen."
           },
           {
             "icon": "phone-call",
-            "title": "Besuche in Anrufe verwandeln",
-            "text": "Eine schnelle Website oder Landingpage, Telefon und WhatsApp mit einem Tipp und ein KI-Chat, der auch nach Feierabend antwortet. Jede Anfrage erreicht Sie sofort."
+            "title": "Aus Besuchern werden Anrufe",
+            "text": "Eine Website, die sofort lädt, Anruf und WhatsApp mit einem Fingertipp und ein KI-Chat, der auch antwortet, wenn Sie gerade auf der Baustelle sind."
           },
           {
             "icon": "trending-up",
-            "title": "Messen, was sich lohnt",
-            "text": "Ein Monatsbericht: woher Anrufe und Anfragen kommen, was jede kostet und wo Ihr nächster Euro am meisten bringt."
+            "title": "Wissen, was sich rechnet",
+            "text": "Einmal im Monat ein Bericht: woher die Anrufe kamen, was jeder gekostet hat und wo sich der nächste Euro lohnt."
           }
         ]
       },
       "industries": {
         "badge": "Für wen ich arbeite",
-        "heading": "Für Unternehmen, die von Anrufen und Anfragen leben",
-        "lead": "Wenn Ihre Kunden Ihre Leistung bei Google suchen oder ChatGPT fragen, kann ich helfen.",
+        "heading": "Für Betriebe, bei denen jeder Auftrag mit einem Anruf beginnt",
+        "lead": "Wenn Ihre Kunden bei Google suchen oder ChatGPT fragen, kann ich helfen.",
         "items": [
           {
             "icon": "wrench",
-            "title": "Handwerk und Service",
-            "text": "Handwerker, Montage, Reparatur, Wartung, Reinigung und Baumpflege."
+            "title": "Handwerk und Hausservice",
+            "text": "Sanitär, Elektro, Heizung und Klima, Reinigung, Umzüge, Garten- und Baumpflege."
           },
           {
             "icon": "bed-double",
-            "title": "Unterkünfte und Tourismus",
-            "text": "Apartments, Zimmer und Villen, mit Direktbuchungen statt Provisionen."
+            "title": "Ferienwohnungen und Unterkünfte",
+            "text": "Ferienwohnungen, Zimmer und Häuser, die mehr Direktbuchungen und weniger Provision an Portale wollen."
           },
           {
             "icon": "stethoscope",
-            "title": "Praxen und Salons",
-            "text": "Zahnärzte, Kliniken, Kosmetik- und Friseursalons."
+            "title": "Praxen und Studios",
+            "text": "Zahnarztpraxen, Privatkliniken, Kosmetikstudios und Friseursalons."
           },
           {
             "icon": "briefcase",
             "title": "Lokale und B2B-Unternehmen",
-            "text": "Transport, Produktion und Fachdienstleister, die einen steten Strom an Anfragen brauchen."
+            "text": "Transport, Produktion, Steuerbüros und andere Firmen, die laufend neue Anfragen brauchen."
           }
         ]
       },
       "final": {
-        "heading": "Wer zuerst auftaucht, bekommt den Auftrag.",
-        "text": "Kunden rufen das erste Unternehmen an, das sie finden. Sorgen wir dafür, dass Sie das sind. Der Check Ihrer Website und Ihrer Konkurrenz ist kostenlos und unverbindlich.",
+        "heading": "Wer zuerst gefunden wird, bekommt den Auftrag.",
+        "text": "Sorgen wir dafür, dass Sie das sind. Ich sehe mir Ihre Website und Ihre Mitbewerber an und sage Ihnen, was ich zuerst ändern würde. Kostenlos und unverbindlich.",
         "cta": "Kostenlosen Check anfordern"
       },
       "testimonials": {
         "badge": "Kundenstimmen",
-        "heading": "Was Kunden sagen",
-        "lead": "Echte Worte nach abgeschlossenen Projekten.",
+        "heading": "Das sagen meine Kunden",
+        "lead": "Zwei Inhaber, in ihren eigenen Worten.",
         "items": [
           {
             "quote": "Stojan hat meine beiden Websites von WordPress auf Astro umgestellt, und der Geschwindigkeitsunterschied war sofort spürbar. Jede Anfrage landet jetzt in der Sekunde in meinem Postfach, in der jemand das Formular absendet — kein Dashboard mehr, das ich prüfen muss, keine verpassten Anrufe.",
@@ -1241,9 +1241,9 @@
         ]
       },
       "portfolio": {
-        "badge": "Portfolio",
-        "heading": "Meine Projekte",
-        "lead": "Ausgewählte Arbeiten für Kunden in Europa und den USA.",
+        "badge": "Referenzen",
+        "heading": "Ausgewählte Projekte",
+        "lead": "Websites für Betriebe in Europa und den USA.",
         "viewAll": "Alle Projekte ansehen"
       }
     },
@@ -1346,7 +1346,7 @@
     }
   },
   "contactBar": {
-    "reply": "Antwort am selben Werktag",
+    "reply": "Antwort innerhalb eines Werktags",
     "whatsapp": "Schreib mir auf WhatsApp"
   }
 }

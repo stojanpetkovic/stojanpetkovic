@@ -63,7 +63,7 @@
       "terms": "Terms of use",
       "privacy": "Privacy Policy"
     },
-    "cta": "Free check"
+    "cta": "Free audit"
   },
   "common": {
     "readMore": "Read more",
@@ -134,8 +134,8 @@
     "updated": "Updated",
     "rssFeed": "RSS Feed",
     "cta": {
-      "heading": "Ready to build?",
-      "description": "Tell me about your project — I'll get back to you within a business day.",
+      "heading": "Want more calls from your website?",
+      "description": "Send me a few lines about your business. I'll get back to you within one business day.",
       "button": "Get in touch"
     }
   },
@@ -189,7 +189,7 @@
     "ctaPrimary": "Send a message",
     "ctaSecondary": "More about me",
     "closingHeading": "Have a project in mind?",
-    "closingLead": "Whether it's a new build or something that needs a fresh perspective — I'd love to hear about it."
+    "closingLead": "Need a new site, or one that finally works the way it should? Tell me what's going on."
   },
   "pagination": {
     "page": "Page {current} of {total}",
@@ -204,10 +204,10 @@
     "goHome": "Go to homepage",
     "metaTitle": "Page not found",
     "metaDescription": "This page has moved, been removed, or never existed in the first place.",
-    "badge": "404 — page not found",
+    "badge": "404",
     "titleLead": "Page not",
     "titleHighlight": "found.",
-    "description": "This page has moved, been removed, or never existed in the first place. Let's get you back on track.",
+    "description": "It has moved, been removed or never existed. Here's how to get back.",
     "backHome": "Back to home",
     "browseProjects": "Browse the projects",
     "tryInstead": "Try one of these instead",
@@ -280,7 +280,7 @@
       "ads": "Google and Meta ads",
       "seo": "Local SEO and AI search",
       "web": "Websites that bring enquiries",
-      "check": "Free check",
+      "check": "Free audit",
       "faq": "FAQ"
     }
   },
@@ -381,18 +381,18 @@
     },
     "landing": {
       "meta": {
-        "title": "A website that brings you clients",
-        "description": "Fast custom websites, SEO and AI-search visibility for local service businesses. One fixed price, everything in your name, and a free check of your current site."
+        "title": "A website that brings in customers",
+        "description": "Fast custom websites, SEO and AI search visibility for local service businesses. One flat price, everything in your name, and a free audit of your current site."
       },
       "header": {
-        "cta": "Free website check"
+        "cta": "Free website audit"
       },
       "hero": {
-        "badge": "Available for new projects",
-        "titleLead": "Is your website sending clients to",
-        "titleHighlight": "your competitors?",
-        "description": "Every slow page, unanswered enquiry and missing Google ranking hands a customer to someone else — and you never see it happen. I build fast custom websites, set up SEO and AI-search visibility, and wire every enquiry straight to your phone.",
-        "primary": "See what my website is losing",
+        "badge": "Taking on new projects",
+        "titleLead": "Is your website sending customers",
+        "titleHighlight": "to your competitors?",
+        "description": "A slow page, a form nobody answered, a business that doesn't show up on Google. Each of these sends a customer to someone else, and you never see it happen. I build fast websites, fix your SEO and AI search presence, and send every lead straight to your phone.",
+        "primary": "See what your site is missing",
         "secondary": "See the results",
         "trust": [
           {
@@ -401,11 +401,11 @@
           },
           {
             "value": "100",
-            "label": "Google Lighthouse SEO score"
+            "label": "SEO score in Google Lighthouse"
           },
           {
             "value": "< 1 day",
-            "label": "to reply to every enquiry"
+            "label": "until I reply to your message"
           }
         ],
         "imageAlt": "Stojan Petkovic, the web developer you work with directly",
@@ -413,64 +413,64 @@
         "videoLabel": "Video introduction"
       },
       "problem": {
-        "badge": "What it's costing you",
-        "heading": "Right now, your website may be handing clients to your competitors",
-        "lead": "Nothing warns you: no error, no alert, just calls that never come. And the longer it goes on, the more it costs.",
+        "badge": "Where the customers go",
+        "heading": "Your website might be sending customers to the competition right now",
+        "lead": "There's no error message and no warning. The phone just rings less than it should, month after month.",
         "items": [
           {
             "icon": "hourglass",
-            "title": "Visitors leave before they see you",
-            "text": "Every extra second on a phone loses visitors before they even see your number — and the ones you paid for are the first to go. The cause is rarely your business: it's a heavy build of themes and plugins, chosen for a site that never needed any of it."
+            "title": "People leave before they see your number",
+            "text": "Nobody waits on a phone. If a page takes five seconds, they hit back and call the next company. The usual culprit is a heavy WordPress theme stuffed with plugins you never needed."
           },
           {
             "icon": "search-x",
-            "title": "Customers can't find you",
-            "text": "Thin pages, no local content and technical errors keep you off page one, and AI assistants like ChatGPT don't mention you at all. Whoever they do name gets the call."
+            "title": "You're invisible on Google",
+            "text": "Thin pages with no local content and technical errors never make page one. ChatGPT doesn't mention you, and the job goes to whoever it does mention. Page two doesn't pay the bills."
           },
           {
             "icon": "mail-x",
-            "title": "Enquiries go to your competitor",
-            "text": "Forms land in an inbox nobody checks, and the customer has already called someone else by the time you reply."
+            "title": "Leads sit in an inbox",
+            "text": "The form goes to an email nobody checks. By the time you reply, they have already hired someone else."
           },
           {
             "icon": "lock",
-            "title": "You're at someone else's mercy",
-            "text": "The domain, hosting or code sits in someone else's name, so every small change means waiting and paying — and you can't simply leave."
+            "title": "Your site isn't really yours",
+            "text": "The domain, hosting or code is in someone else's name. Every small change means waiting and another invoice, and leaving isn't easy."
           }
         ]
       },
       "solution": {
-        "badge": "How the losses stop",
-        "heading": "One person, one price, and a website that stops losing clients",
-        "lead": "Design, development, SEO and lead tracking in one project, built with only the tools your business needs — so every visitor you earn turns into an enquiry instead of a missed call.",
+        "badge": "How it gets fixed",
+        "heading": "One person, one price, and a website that works for you",
+        "lead": "Design, build, SEO and lead tracking in a single project. I only use what your business actually needs, so every visitor has a reason to pick up the phone.",
         "items": [
           {
             "icon": "zap",
-            "title": "A lightning-fast website",
-            "text": "Built with Astro: pages open instantly on any phone, with top marks in Google's own Lighthouse tests."
+            "title": "A site that loads instantly",
+            "text": "Built with Astro, so pages open right away even on a weak signal, with top scores on Google's speed tests."
           },
           {
             "icon": "search",
             "title": "Found on Google and in AI search",
-            "text": "Service and area pages, structured data and content written for how your customers actually search — in Google and in ChatGPT."
+            "text": "A page for every service and area, structured data for Google, and copy written the way people really search."
           },
           {
             "icon": "bell-ring",
-            "title": "Every enquiry, instantly",
-            "text": "Each form and call is tracked and sent to you the moment it happens, so you reply first and win the job."
+            "title": "Every lead, instantly",
+            "text": "Every form and every tap on your number is tracked and reaches you right away. You call back first and win the job."
           },
           {
             "icon": "shield-check",
             "title": "Yours from day one",
-            "text": "Code, domain and hosting in your name. No lock-in contracts, no hidden fees, no plugins to break."
+            "text": "Code, domain and hosting in your name. No contract holding you in, no hidden fees, no plugins that break with every update."
           }
         ]
       },
       "results": {
-        "badge": "Proof it can be fixed",
-        "heading": "The same problem, fixed: the right build for the job",
-        "lead": "Two tree service companies in South Florida were losing visitors to heavy sites built on tools they never needed. Rebuilt lean, their pages open instantly and score a perfect 100 for SEO. A local business needs speed and enquiries, not a complicated stack.",
-        "note": "These are just two examples from my work — every project is built the same way.",
+        "badge": "Results",
+        "heading": "Two sites, same problem, fixed",
+        "lead": "Two tree service companies in South Florida had slow WordPress sites loaded with plugins. I rebuilt both as lean sites: pages open instantly and score a perfect 100 for SEO. A local business needs speed and leads, not a complicated system.",
+        "note": "These are two examples. I build every site the same way.",
         "cases": [
           {
             "client": "Tree Jaws",
@@ -478,172 +478,172 @@
             "metric": "SEO 100",
             "metricLabel": "Lighthouse score after leaving WordPress",
             "points": [
-              "Rebuilt from WordPress in Astro — pages open instantly, even on a weak 4G connection",
-              "176 pages and 108 local guides, built to rank in local search",
+              "Moved from WordPress to Astro, pages open instantly even on a weak 4G signal",
+              "176 pages, including 108 local guides built to rank in each town",
               "1,010 tracked leads, 732 of them phone calls",
-              "4.9★ across 427 Google reviews"
+              "4.9★ rating from 427 Google reviews"
             ]
           },
           {
             "client": "Mahalo Tree Service",
             "sector": "Tree service · South Florida",
             "metric": "SEO 100",
-            "metricLabel": "Lighthouse score — and $0 spent on ads",
+            "metricLabel": "Lighthouse score, with $0 spent on ads",
             "points": [
-              "Rebuilt from WordPress in Astro — static pages instead of a stack of plugins",
-              "Every enquiry reaches the owner's inbox the second it's sent — no portal to check",
-              "Growth from search alone, with no paid ads",
+              "Moved from WordPress to Astro, plain fast pages instead of a pile of plugins",
+              "Every lead lands in the owner's inbox instantly, no portal to check",
+              "Growth from search alone, no paid ads",
               "5.0 Google rating, 18 service-area pages and a growing blog"
             ]
           }
         ]
       },
       "story": {
-        "badge": "An illustrative story",
+        "badge": "A typical story (made up)",
         "heading": "When the ads cost more than they brought in",
         "paragraphs": [
-          "Meet Daniel, a made-up owner built from situations I see again and again. He runs a tree service company. A homeowner with a storm-damaged tree calls the first company that looks trustworthy — and doesn't wait.",
-          "His website opens slowly, Google barely shows it, and the money he puts into ads isn't coming back. Visitors he pays for leave before the page has even loaded — and he never finds out, because nothing tells him.",
-          "Then the site is rebuilt: fast pages, SEO from the ground up, every enquiry sent straight to his phone. The pages open instantly and the ad budget finally turns into phone calls. Had he waited another season, the ads would have kept paying for visitors who never called."
+          "Dan isn't real, but his situation is. I pieced him together from stories I hear all the time. He runs a tree removal company. When a storm drops a limb on someone's roof, the homeowner calls the first company that looks legit and doesn't wait around.",
+          "Dan's site loads slowly, he barely shows up on Google, and his ad spend never comes back. The people he paid to visit leave before the page even loads. He has no idea, because nothing tells him.",
+          "Then the site gets rebuilt: fast pages, SEO done right, and every lead straight to his phone. The ad budget finally turns into calls. One more season of waiting would have meant paying for clicks from people who never call."
         ],
         "beforeTitle": "Before",
         "before": [
-          "A heavy site built on tools he never needed",
+          "A heavy site full of plugins he didn't need",
           "Weak SEO, hard to find on Google",
-          "Ad spend that didn't pay back"
+          "Ads that didn't pay for themselves"
         ],
         "afterTitle": "After",
         "after": [
           "Pages that open instantly",
-          "SEO set up from the ground up",
-          "Every enquiry reaches him the moment it's sent"
+          "SEO set up properly from the start",
+          "Every lead reaches him instantly"
         ],
         "quote": "Every week I waited, someone else got those calls.",
-        "author": "Daniel",
-        "role": "A fictional owner — an illustration, not a real client",
+        "author": "Dan",
+        "role": "Made-up owner, not a real client",
         "imageAlt": "An example tree service website built by Stojan Petkovic"
       },
       "report": {
-        "badge": "Tracking & monthly report",
-        "heading": "Without numbers, you're guessing — and that's how budgets disappear",
-        "lead": "Most websites leave you guessing which clicks, calls and euros are working and which are wasted. Every site I build can give you the clearest picture you'll ever have of your marketing: every inquiry, every call and every euro, in one monthly report written in plain language.",
+        "badge": "Tracking and monthly report",
+        "heading": "Without numbers you're guessing, and that's where budgets disappear",
+        "lead": "Most owners have no idea which clicks, calls and dollars actually bring in work. With every site I build you get a clear picture: every lead, every call and every dollar spent, in one monthly report you can read in five minutes.",
         "points": [
           {
             "icon": "inbox",
-            "title": "Every inquiry, instantly",
-            "text": "The full form, the page it came from and the ad or search that brought the visitor — in your inbox the second it's sent."
+            "title": "Every lead, instantly",
+            "text": "The full message, the page it came from and the ad or search that brought the visitor, in your inbox the moment it arrives."
           },
           {
             "icon": "phone",
-            "title": "Every call counted",
-            "text": "Taps on your phone number, WhatsApp and text links are recorded as conversions, not lost in the noise."
+            "title": "Every call counts",
+            "text": "Taps on your phone number, WhatsApp and text links are logged as leads instead of getting lost."
           },
           {
             "icon": "target",
-            "title": "The source that pays",
-            "text": "Google, Facebook ads or direct visits: see which one brings visits, inquiries and calls, and at what rate."
+            "title": "See which source pays",
+            "text": "Google, Facebook ads or direct visits: see which one brings visits, leads and calls, and at what rate."
           },
           {
             "icon": "wallet",
-            "title": "Cost per inquiry and per call",
-            "text": "Add your ad spend and the report shows what each inquiry, each call and each won client really cost you — and your return on ad spend."
+            "title": "Cost per lead and per call",
+            "text": "Enter what you spent on ads and the report shows what each lead, call and new customer really cost you, and what came back."
           },
           {
             "icon": "file-text",
             "title": "A monthly PDF anyone can read",
-            "text": "No logins, no dashboards to learn: clear pages in English or Serbian, ready for your partners or your accountant."
+            "text": "No logins, no dashboards. Plain pages you can hand to your partner or your accountant."
           },
           {
             "icon": "shield-check",
-            "title": "Private by design",
-            "text": "Visitors are counted anonymously, without cookies and without following them across other websites."
+            "title": "Privacy first",
+            "text": "Visitors are counted anonymously, with no cookies and no tracking across other sites."
           }
         ],
-        "outcomesHeading": "What it means for your business",
+        "outcomesHeading": "What that means for your business",
         "outcomes": [
-          "Stop paying for channels that bring clicks but no customers",
-          "Never lose an inquiry again — every one reaches you instantly",
-          "Proof in numbers that your website pays for itself"
+          "Stop paying for channels that bring clicks instead of customers",
+          "No lead slips through the cracks again",
+          "Proof in black and white that the site pays for itself"
         ],
         "imageAlt": "Example of a monthly website report: visitors, inquiries, calls, conversion rate, a daily chart and where visitors come from.",
-        "imageCaption": "An example monthly report (demo data).",
-        "imageBadge": "Available with every website"
+        "imageCaption": "Sample monthly report (demo data).",
+        "imageBadge": "Included with every site"
       },
       "process": {
         "badge": "How it works",
-        "heading": "Four steps from a website that loses clients to one that wins them",
-        "lead": "Every week you wait is a week of missed enquiries. No long meetings, no surprises — you always know what happens next.",
+        "heading": "Four steps to a website that wins customers",
+        "lead": "No long meetings, no surprises. You always know what happens next.",
         "steps": [
           {
-            "title": "Free website check",
-            "text": "Send the form. Within one business day I review your current site and your competitors and tell you honestly what's holding you back."
+            "title": "Free website audit",
+            "text": "Send the form. Within one business day I look at your site and your competitors and tell you honestly what's holding you back."
           },
           {
             "title": "One clear proposal",
-            "text": "A short call, then one document: what I'll build, when it's ready and one fixed price. You decide with everything on the table."
+            "text": "A short call, then one document: what I'll build, when it's done and one flat price. You decide with everything on the table."
           },
           {
             "title": "Design and build",
-            "text": "I work in short cycles and you follow progress on a preview link. Your current site stays live until the new one is ready."
+            "text": "I work in short rounds and you follow along on a preview link. Your current site stays live until the new one is ready."
           },
           {
-            "title": "Launch and growth",
-            "text": "The site goes live in your name, with SEO and lead tracking switched on. I stay available, with an optional monthly care plan."
+            "title": "Launch and grow",
+            "text": "The site goes live in your name, with SEO and lead tracking switched on. I'm still around afterwards, with a monthly care plan if you want one."
           }
         ]
       },
       "offer": {
-        "badge": "Zero risk to start",
+        "badge": "The first step is free",
         "heading": "Find out what your website is costing you",
-        "lead": "No obligation and no sales pitch — just an honest look at where visitors and enquiries are slipping away today.",
+        "lead": "No obligation and no sales pitch. Just an honest look at where visitors and leads are slipping away today.",
         "items": [
-          "A review of your current site's speed, SEO and AI-search visibility",
-          "A comparison with your top local competitors",
-          "Concrete next steps, whether you work with me or not",
-          "One fixed price if you decide to go ahead"
+          "A check of your speed, SEO and AI search visibility",
+          "A comparison with your strongest local competitor",
+          "Concrete next steps, whether you hire me or not",
+          "One flat price if you decide to go ahead"
         ]
       },
       "faq": {
         "badge": "Questions",
-        "heading": "Before you ask",
+        "heading": "Questions people usually ask",
         "items": [
           {
             "question": "How much does a website cost?",
-            "answer": "Every project gets one fixed price, agreed before any work starts — no hourly billing and no surprises. After the free check you get a clear proposal with the price and the timeline."
+            "answer": "Every project has one flat price agreed before work starts. No hourly billing and no surprise invoices. After the free audit you get a clear proposal with the price and the timeline."
           },
           {
             "question": "How long does it take?",
-            "answer": "That depends on the size of the site and how quickly the content is ready. The proposal names the timeline together with the price, so you know both before we start."
+            "answer": "It depends on the size of the site and how quickly the content is ready. The timeline is in the proposal next to the price, so you know both before we start."
           },
           {
-            "question": "What happens to my current website and Google rankings?",
-            "answer": "Your current site stays live until the new one is ready. Your address, content and rankings move with you, and old pages are redirected so nothing that already ranks gets lost."
+            "question": "What happens to my current site and my Google rankings?",
+            "answer": "Your current site stays live until the new one is ready. Your address and content come with you, and old pages are redirected so nothing that already ranks gets lost."
           },
           {
-            "question": "Do I own the website?",
-            "answer": "Completely. The code, the domain and the hosting are in your name from day one. If you ever want to leave, you take everything with you."
+            "question": "Do I really own the website?",
+            "answer": "Completely. Code, domain and hosting are in your name from day one. If you ever want to leave, you take all of it with you."
           },
           {
-            "question": "Do you work with clients in other countries?",
-            "answer": "Yes. I work with clients in the US and across Europe, entirely by phone, video call and email. Time zones are rarely a problem."
+            "question": "Do you work with businesses outside Europe?",
+            "answer": "Yes. I have clients in the US and across Europe, and everything runs over phone, video calls and email. Time zones haven't been a problem so far."
           },
           {
-            "question": "Can you also run Google Ads or social media ads?",
-            "answer": "Yes — Google Ads and Facebook and Instagram campaigns, with conversion tracking that shows what every euro brings in."
+            "question": "Can you run my Google or Facebook ads too?",
+            "answer": "Yes. I run Google Ads and Facebook and Instagram campaigns, with conversion tracking that shows what every dollar brings back."
           },
           {
-            "question": "Am I tied into a long contract?",
-            "answer": "No. The website has one fixed price, and ads and SEO run month to month. You stay because it pays off, not because of a contract."
+            "question": "Am I locked into a long contract?",
+            "answer": "No. The website is a one-time flat price, and ads and SEO run month to month. You stay because it pays, not because a contract says so."
           }
         ]
       },
       "form": {
-        "badge": "Free website check",
+        "badge": "Free website audit",
           "termsLabel": "I have read the {terms} and understand that this enquiry is not an offer or a contract.",
           "termsLink": "Terms of use",
           "termsRequired": "Please confirm that you have read the terms of use.",
-        "heading": "Tell me about your business",
-        "lead": "Three short steps, under a minute. I reply within one business day.",
+        "heading": "Tell me a bit about your business",
+        "lead": "Three short steps, under a minute. I'll get back to you within one business day.",
         "stepLabels": [
           "What you need",
           "Your business",
@@ -707,19 +707,19 @@
         "sending": "Sending…",
         "chooseService": "Choose what you need to continue.",
         "required": "Please fill in your name and a valid email.",
-        "privacy": "Your details are used only to reply to you. No newsletters, no sharing.",
+        "privacy": "I only use your details to reply to you. No newsletter, and they're never shared.",
         "promise": "Reply within one business day",
-        "successTitle": "Thank you — your request is in!",
-        "successText": "I'll review your website and reply within one business day with honest, concrete next steps. Keep an eye on your inbox.",
-        "error": "Something went wrong. Please try again, or email me directly."
+        "successTitle": "Thanks, got it!",
+        "successText": "I'll look at your site and get back to you within one business day with honest, concrete next steps. Keep an eye on your inbox.",
+        "error": "Something went wrong. Please try again or email me directly."
       },
       "final": {
-        "heading": "Every week you wait, your competitors get the calls",
-        "text": "The check is free and there's no obligation. The worst case: you learn exactly what is losing you clients and what to fix first.",
-        "cta": "Get my free website check"
+        "heading": "Every week you wait, the calls go to someone else",
+        "text": "The audit is free and there's no obligation. Worst case, you find out exactly what's costing you customers and what to fix first.",
+        "cta": "Get my free audit"
       },
-      "footer": "Fast websites, SEO and lead generation for local businesses.",
-      "mobileCta": "Free website check",
+      "footer": "Fast websites, SEO and ads for local businesses.",
+      "mobileCta": "Free website audit",
       "privacy": {
         "toggle": "How I handle your data",
         "title": "Privacy notice",
@@ -753,33 +753,33 @@
           "More enquiries",
           "More customers"
         ],
-        "description": "I help service businesses get found online, through ads, SEO, AI search and fast websites. You work with me directly.",
+        "description": "I help service businesses get found online through ads, SEO, AI search and fast websites. You work with me directly, no middlemen.",
         "imageAlt": "A rocket launching past a lit planet's edge, against a starfield."
       },
       "background": {
         "badge": "Background",
         "heading": "Why I measure everything",
         "paragraphs": [
-          "I'm an engineer by training and spent more than ten years in field operations, where a wrong number is expensive. That taught me to assume nothing: measure first, then decide.",
-          "I treat marketing the same way. Every call, enquiry and euro spent is recorded, so within a few weeks we know what brings customers and what only costs money.",
-          "I work with businesses in Serbia, Europe and the US: trades, clinics, hospitality and local companies. You talk to me directly, with no agency in between."
+          "I'm an engineer by training and spent more than ten years in the field, where a wrong number gets expensive fast. That's where I learned not to assume anything: measure first, then decide.",
+          "I do the same with marketing. Every call, lead and dollar is logged, so within a few weeks we know what brings in customers and what just burns money.",
+          "I work with businesses in the US, Europe and Serbia: contractors, clinics, vacation rentals and local companies. You deal with me directly, there's no agency in between."
         ],
-        "credential": "Engineer by training; Ingenieur title granted by the Bavarian Chamber of Engineers."
+        "credential": "Engineer by training, with the Ingenieur title recognized by the Bavarian Chamber of Engineers."
       },
       "whatYouGet": {
         "badge": "What I bring",
-        "heading": "Everything your project needs",
-        "lead": "The same care and attention to detail on every project, from the first line of code to launch.",
+        "heading": "What you get",
+        "lead": "The same care on every project, from the first campaign to the last detail on the site.",
         "items": [
           {
             "icon": "search",
             "title": "Visibility",
-            "description": "Google, the map, ChatGPT and social media: wherever your customers look."
+            "description": "Google, Maps, ChatGPT and social media, wherever your customers are looking."
           },
           {
             "icon": "target",
             "title": "Ads that pay back",
-            "description": "Google and Meta campaigns run on calls, not clicks."
+            "description": "Google and Meta campaigns judged by calls, not clicks."
           },
           {
             "icon": "zap",
@@ -788,8 +788,8 @@
           },
           {
             "icon": "message-circle",
-            "title": "No lost enquiries",
-            "description": "Every enquiry arrives instantly, and an AI chat answers after hours."
+            "title": "No lead gets lost",
+            "description": "Every lead reaches you instantly, and an AI chat answers after hours."
           },
           {
             "icon": "trending-up",
@@ -799,95 +799,95 @@
           {
             "icon": "shield-check",
             "title": "Everything is yours",
-            "description": "Code, domain, hosting and ad accounts in your name."
+            "description": "Code, domain, hosting and ad accounts all in your name."
           }
         ]
       },
       "principles": {
         "badge": "How I work",
-        "heading": "Built with intention",
-        "lead": "Every project I take on is guided by the same three principles.",
+        "heading": "Three rules I stick to",
+        "lead": "They apply to every project, big or small.",
         "items": [
-          { "icon": "zap", "title": "Performance First", "description": "Every site I build is optimised for speed and Core Web Vitals from the first line of code." },
-          { "icon": "award", "title": "Engineering Discipline", "description": "Requirements first, then design, then code. Every number and every claim gets checked before it goes live." },
+          { "icon": "zap", "title": "Performance First", "description": "Every site is built to be fast from day one, because a slow page loses both people and Google." },
+          { "icon": "award", "title": "Built to last", "description": "Clean code and simple settings, so the site stays easy to maintain years after launch." },
           { "icon": "award", "title": "Engineering Discipline", "description": "Requirements first, then design, then code. Every number and every claim gets checked before it goes live." }
         ]
       },
       "stack": {
         "badge": "Tools & Tech",
         "title": "The Stack",
-        "description": "The technologies I build with, chosen for performance, reliability, and long-term maintainability."
+        "description": "The tools I use, picked because they're fast, reliable and won't be outdated next year."
       },
       "faq": {
         "badge": "Good to know",
         "heading": "Frequently asked questions",
-        "lead": "A few things people usually ask before we start working together.",
+        "lead": "A few things people usually ask before we start.",
         "cards": [
           {
             "icon": "user",
             "title": "About me",
             "items": [
-              { "question": "What kind of projects do you take on?", "answer": "I help service businesses win customers online: ads, SEO, AI search visibility, fast websites and tracking of every enquiry." },
-              { "question": "What technologies do you work with?", "answer": "Modern, fast tools: Astro, TypeScript, and Tailwind CSS on the front end, with cloud infrastructure and automation where a project needs it." },
-              { "question": "Do you work with clients outside your local area?", "answer": "Yes. Most projects run entirely by phone, video, and email, and time zones are rarely a problem." },
-              { "question": "Are you available for new projects?", "answer": "Usually, yes — check the badge on the homepage, or just send a message and I'll tell you honestly." }
+              { "question": "What exactly do you do?", "answer": "I help service businesses win customers online: ads, SEO, AI search visibility, fast websites and tracking of every lead." },
+              { "question": "What technologies do you work with?", "answer": "Astro, TypeScript and Tailwind CSS for websites, plus cloud services and automation when a project needs them." },
+              { "question": "Do you work with clients outside your local area?", "answer": "Of course. Most of the work happens over phone, video and email, and time zones rarely get in the way." },
+              { "question": "Do you have room for new projects right now?", "answer": "Usually, yes. Check the badge on the home page or just send me a message and I'll tell you honestly." }
             ]
           },
           {
             "icon": "briefcase",
             "title": "Working together",
             "items": [
-              { "question": "How do you usually start a project?", "answer": "With a free, no-obligation conversation about what you need, followed by one clear proposal with a timeline and price." },
-              { "question": "Do you offer support after launch?", "answer": "Yes, a monthly care plan is available for updates, monitoring, and small changes after your site goes live." },
-              { "question": "Is the website really mine?", "answer": "Completely. The domain, hosting, and code are in your name from day one." }
+              { "question": "How do you usually start a project?", "answer": "A free call about what you need, with no obligation. After that you get a proposal with a timeline and a price." },
+              { "question": "Do you offer support after launch?", "answer": "Yes. There is a monthly care plan for updates, monitoring and small changes once the site is live." },
+              { "question": "Is the website really mine?", "answer": "Completely. Domain, hosting and code are in your name from day one." }
             ]
           }
         ]
       },
       "openSource": {
         "badge": "Why work with me",
-        "heading": "A dedicated partner, not a vendor",
-        "description": "You work directly with the person building your site — no account managers, no handoffs, and a fixed price agreed before we start.",
+        "heading": "A partner, not just a vendor",
+        "description": "You work directly with the person who builds your site and runs your ads. No account managers, no outsourcing, and the price is agreed up front.",
         "button": "Get in touch",
         "cards": [
-          { "title": "One point of contact", "text": "You talk directly with me from the first message to launch — no sales team in between." },
-          { "title": "Fixed price, no surprises", "text": "Every project gets one clear price agreed before work starts. No hourly billing." },
-          { "title": "Support after launch", "text": "I stay reachable after your site goes live, with a monthly care plan available for ongoing updates." }
+          { "title": "One point of contact", "text": "You talk to me from the first message to launch day. There's no salesperson in between." },
+          { "title": "Fixed price, no surprises", "text": "We agree on the price before work starts. No hourly billing." },
+          { "title": "Support after launch", "text": "I'm still around once the site is live, and there's a monthly care plan for regular updates." }
         ]
       },
       "cta": {
         "badge": "Get started",
-        "heading": "Ready to work together?",
-        "description": "Tell me about your project — I'll get back to you within a business day with honest, practical next steps.",
+        "heading": "Want to work together?",
+        "description": "Send me a few lines about your business. I'll get back to you the same or next business day with an honest answer and a concrete next step.",
         "button": "Get in touch"
       }
     },
     "services": {
       "meta": {
-        "title": "Services — ads, SEO, AI and websites",
+        "title": "Services: ads, SEO, AI search and websites",
         "description": "Google and Meta ads, local SEO, AI search visibility and fast websites for service businesses. Free check, fixed price for the website."
       },
       "areas": {
         "marketing": {
           "icon": "target",
           "badge": "Ads, SEO and AI",
-          "heading": "Get found by people already looking for your service",
+          "heading": "Get found by people already looking for what you do",
           "paragraphs": [
-            "When someone needs a contractor, a dentist or a place to stay, they ask Google, the map or ChatGPT. I make sure they find you there, not your competitors.",
-            "Ads bring calls now; SEO and AI visibility build a steady flow you don't pay for per click. Everything is measured, so you know what pays off."
+            "When someone needs a plumber, a dentist or a place to stay, they ask Google, open Maps or ask ChatGPT. My job is to make sure they find you there, not your competitor.",
+            "Ads bring calls from day one. SEO and AI search build a steady stream you don't pay for per click. Everything is tracked, so you know what pays off."
           ],
           "included": [
             {
               "lead": "Google Ads",
-              "text": "search and maps, tuned to the searches that bring work."
+              "text": "Search and Maps, tuned for the searches that turn into jobs."
             },
             {
               "lead": "Facebook and Instagram ads",
-              "text": "campaigns and retargeting for your area."
+              "text": "campaigns for your area and retargeting people who already visited your site."
             },
             {
               "lead": "Local SEO",
-              "text": "Google Business Profile, reviews and a page for every service and area."
+              "text": "Google Business Profile, reviews and a page for every service and town."
             },
             {
               "lead": "AI search visibility",
@@ -895,22 +895,22 @@
             },
             {
               "lead": "AI chat and instant replies",
-              "text": "an enquiry gets an answer even when you can't."
+              "text": "every enquiry gets an answer, even when you can't get to the phone."
             },
             {
               "lead": "Monthly report",
-              "text": "calls, enquiries and the cost of each, in plain language."
+              "text": "calls, leads and what each one cost, in plain English."
             }
           ],
-          "ctaLabel": "Get a free check"
+          "ctaLabel": "Get my free audit"
         },
         "web": {
           "icon": "layout",
           "badge": "Websites",
-          "heading": "A website that turns visits into calls",
+          "heading": "A website people call from",
           "paragraphs": [
-            "Fast custom websites and landing pages, built so a visitor sees what you offer within seconds and calls.",
-            "One fixed price, and the code, the domain and the hosting are in your name from day one."
+            "Fast custom websites and landing pages. Within a few seconds a visitor sees what you do and where to tap to call you.",
+            "One flat price, and the code, domain and hosting are in your name from day one."
           ],
           "included": [
             {
@@ -934,13 +934,13 @@
               "text": "updates and monitoring, with an optional monthly plan."
             }
           ],
-          "ctaLabel": "Go to websites"
+          "ctaLabel": "See websites"
         }
       },
       "overviewFaq": {
         "badge": "Questions",
         "heading": "Questions and answers",
-        "lead": "The things clients ask before we start.",
+        "lead": "What people ask before we get started.",
         "cards": [
           {
             "icon": "tag",
@@ -948,23 +948,23 @@
             "items": [
               {
                 "question": "How much does it cost?",
-                "answer": "Every project gets one fixed price, agreed before the work starts. No hourly billing and no surprises. The free first talk tells me what you need, and you get the price in one clear proposal."
+                "answer": "Every project has one flat price, agreed before work starts. No hourly billing and no surprises. A free first call tells me what you need, and the price comes in one clear proposal."
               },
               {
                 "question": "How long does it take?",
-                "answer": "That depends on the scope. The proposal names the timeline together with the price, so you know both before we start."
+                "answer": "It depends on the scope. The timeline is in the proposal, right next to the price."
               },
               {
-                "question": "Do you work with clients abroad?",
-                "answer": "Yes. I work with clients worldwide, by phone, video and email, in the CET time zone."
+                "question": "Do you work with businesses in other countries?",
+                "answer": "Yes. My clients are in the US and across Europe, and we talk by phone, video call or email. I work on Central European Time."
               },
               {
                 "question": "Who owns what you build?",
-                "answer": "You do. The code, the documentation, the domain and the hosting are in your name from day one."
+                "answer": "You do. Code, domain, hosting and ad accounts are in your name from day one."
               },
               {
-                "question": "Can you take on a small piece of work?",
-                "answer": "Yes. A single tool or a small website is a perfectly good start. Tell me what you have in mind."
+                "question": "Do you take on small jobs?",
+                "answer": "Yes. A single landing page or one campaign is a perfectly good place to start. Tell me what you have in mind."
               }
             ]
           }
@@ -975,7 +975,7 @@
         "badge": "Services",
         "titleLead": "Everything it takes",
         "titleHighlight": "for customers to find you",
-        "description": "Ads, SEO and AI search visibility bring people in, and a fast website turns them into calls. All from one person, with the numbers every month.",
+        "description": "Ads, SEO and AI search bring people to your site, and a fast site turns them into calls. One person does it all, and you get the numbers every month.",
         "jumpLabels": [
           "Ads, SEO and AI",
           "Websites"
@@ -983,19 +983,19 @@
       },
       "process": {
         "badge": "How it works",
-        "heading": "How a project runs",
-        "lead": "From your first message to the delivered result.",
+        "heading": "How we work together",
+        "lead": "From your first message to your first calls.",
         "steps": [
-          { "title": "First contact", "description": "You send a message through the contact form. I reply within a working day, and we plan a free, informational talk about what you need. No obligations." },
-          { "title": "Proposal", "description": "After our talk you get one clear document: what I'll build, when it's ready, and the fixed price. You decide with everything on the table." },
-          { "title": "Work in short cycles", "description": "You follow the progress and see the result take shape, whether it is a document, a tool or a website." },
-          { "title": "Delivery & support", "description": "The work is handed over in your name and documented. Afterwards I stay reachable, and there is a monthly care plan if you want regular updates." }
+          { "title": "First contact", "description": "Send a message through the contact page. I reply within one business day and we set up a short call. It's free and you're under no obligation." },
+          { "title": "Proposal", "description": "After the call you get one document: what I will do, by when and what it costs. The price is fixed, and you decide once you have the full picture." },
+          { "title": "Short work rounds", "description": "You can see progress at every stage, whether it's ads, SEO or a new site." },
+          { "title": "Launch and support", "description": "Everything is handed over in your name and documented. I'm still around afterwards, and there's a monthly care plan if you want regular updates." }
         ]
       },
       "cta": {
         "badge": "Let's talk",
-        "heading": "Let's talk about what you need",
-        "description": "The first talk is free and informative, with no obligations: by phone, video, or email. You get honest answers, and after the talk one clear proposal with a timeline and a fixed price.",
+        "heading": "Let's talk about your business",
+        "description": "The first call is free, by phone, video or email. You get straight answers, and afterwards a clear proposal with a timeline and a flat price.",
         "primary": "Send a message",
         "secondary": "More about me"
       }
@@ -1003,13 +1003,13 @@
     "contact": {
       "meta": {
         "title": "Contact",
-        "description": "Ads, SEO, AI visibility or a new website: tell me what you need. I reply within one working day."
+        "description": "Ads, SEO, AI search or a new website: tell me what you need. I reply within one business day."
       },
       "hero": {
         "badge": "Contact",
-        "titleLead": "Let's bring you",
+        "titleLead": "Let's get you",
         "titleHighlight": "more customers",
-        "description": "Ads, SEO, AI search visibility or a new website. A short message is enough; I reply within one working day."
+        "description": "Ads, SEO, AI search or a new website. A few sentences are enough, and you get a reply within one business day."
       },
       "helpTitle": "What I can help with",
       "help": [
@@ -1021,14 +1021,14 @@
         {
           "icon": "layout",
           "title": "A website that turns visits into calls",
-          "text": "A fast website or landing page, with every enquiry tracked."
+          "text": "A fast website or landing page, with every lead tracked."
         }
       ],
       "nextTitle": "What happens next",
       "next": [
         "I reply within one business day.",
-        "We have a short call to define what you need. It is free and without obligation.",
-        "You get one clear proposal with scope, timeline and a fixed price."
+        "We have a short call to work out what you need. It's free and there's no obligation.",
+        "You get one proposal with the scope, the timeline and a flat price."
       ],
       "facts": [
         {"value": "3", "label": "Languages: Serbian, English, German"},
@@ -1039,13 +1039,13 @@
         }
       ],
       "emailLabel": "Email",
-      "preferEmail": "Prefer email? Write to",
+      "preferEmail": "Rather use email? Write to",
       "form": {
-        "badge": "Project enquiry",
+        "badge": "Get in touch",
           "termsLabel": "I have read the {terms} and understand that this enquiry is not an offer or a contract.",
           "termsLink": "Terms of use",
           "termsRequired": "Please confirm that you have read the terms of use.",
-        "heading": "Tell me about your project",
+        "heading": "Tell me what you need",
         "lead": "Three short steps, under a minute. I reply within one business day.",
         "stepLabels": [
           "What you need",
@@ -1105,131 +1105,131 @@
         "sending": "Sending…",
         "chooseService": "Choose what you need to continue.",
         "required": "Please fill in your name and a valid email.",
-        "privacy": "Your details are used only to reply to you. No newsletters, no sharing.",
+        "privacy": "I only use your details to reply to you. No newsletter, and they're never shared.",
         "promise": "Reply within one business day",
-        "successTitle": "Thank you — your enquiry is in!",
-        "successText": "I'll read it and reply within one business day with concrete next steps. Keep an eye on your inbox.",
-        "error": "Something went wrong. Please try again, or email me directly."
+        "successTitle": "Thanks, message received!",
+        "successText": "I'll read it and get back to you within one business day with concrete next steps. Keep an eye on your inbox.",
+        "error": "Something went wrong. Please try again or email me directly."
       }
     },
     "web": {
       "glance": {"label": "At a glance", "items": [{"label": "Stack", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Price", "value": "One fixed price, agreed before work starts"}, {"label": "Ownership", "value": "Code, domain and hosting in your name"}, {"label": "Reply", "value": "Within one business day"}]},
-      "closing": "Have a website in mind? A short message is enough.",
+      "closing": "Got a website in mind? A few sentences are enough.",
       "meta": {
-        "title": "Web development",
-        "description": "Fast custom websites and landing pages for service businesses, with SEO and tracking of every enquiry. One fixed price, everything in your name."
+        "title": "Website design and development",
+        "description": "Fast custom websites and landing pages for service businesses, with SEO and tracking of every lead. One flat price, everything in your name."
       },
       "hero": {
-        "badge": "Web development",
-        "titleLead": "Websites and web systems",
-        "titleHighlight": "that bring enquiries",
-        "description": "Design, build and SEO for businesses that live on calls and enquiries. One fixed price, and everything in your name.",
+        "badge": "Websites",
+        "titleLead": "Websites that",
+        "titleHighlight": "make the phone ring",
+        "description": "Design, build and SEO for businesses where work starts with a call or an enquiry. One flat price, and everything is in your name.",
         "primaryCta": "Get in touch",
         "secondaryCta": "Full services"
       },
       "services": {
         "badge": "What I do",
-        "heading": "Design, build, optimise",
-        "lead": "Every project gets all three services.",
+        "heading": "Design, build and SEO in one package",
+        "lead": "Every site gets all three.",
         "cards": [
           {
             "icon": "layout",
-            "title": "Web Design",
-            "description": "Interfaces that feel obvious. Layouts shaped around your content, your brand, and how people actually read on a screen."
+            "title": "Design",
+            "description": "A clean custom design for your business, made for how people really use a site: quickly, on a phone, with one goal."
           },
           {
             "icon": "code",
-            "title": "Web Development",
-            "description": "Sites built to last. Astro, Tailwind, and a clean architecture: fast on day one, easy to maintain on day 500."
+            "title": "Build",
+            "description": "Astro, Tailwind and clean code. The site is fast from day one and easy to maintain for years."
           },
           {
             "icon": "trending-up",
-            "title": "Web Optimisation",
-            "description": "SEO, Core Web Vitals, and accessibility, built in from day one so your site ranks, loads well, and works for every visitor."
+            "title": "SEO",
+            "description": "Speed, SEO and accessibility are part of the build from the start, so Google ranks you well and visitors don't wait."
           }
         ]
       }
     },
     "home": {
       "meta": {
-        "title": "More customers from the internet",
-        "description": "Google Ads, SEO, AI search visibility and a fast website for service businesses. More calls and enquiries, each one measured. Free website check."
+        "title": "More calls and leads from Google",
+        "description": "Google and Facebook ads, local SEO, AI search and a fast website for service businesses. Every call and lead is tracked. Your first audit is free."
       },
       "hero": {
-        "badge": "Available for new clients",
-        "titleLead": "More calls and enquiries",
-        "titleHighlight": "from the internet for your business",
-        "description": "Google Ads, SEO, AI search visibility and a fast website, joined into one system that measures every call. You pay for customers, not clicks.",
-        "primary": "Free website check",
+        "badge": "Taking on new clients",
+        "titleLead": "More calls and leads",
+        "titleHighlight": "from Google, Maps and AI search",
+        "description": "I run your Google and Facebook ads, get you on the map and into ChatGPT answers, and build a website people actually call from. Every call is tracked, so you know exactly what brings in work.",
+        "primary": "Get a free audit",
         "secondary": "See the results",
         "imageAlt": "Stojan Petković in a navy suit in a bright office with code on the screens behind him"
       },
       "pillars": {
-        "badge": "How customers arrive",
-        "heading": "Four steps from a search to a call",
-        "lead": "I don't sell separate services but the whole path: people find you, they choose you, and you know what pays off.",
+        "badge": "How the calls come in",
+        "heading": "From a search to a booked job in four steps",
+        "lead": "I don't sell ads, SEO and websites as separate pieces. They work together with one job: making your phone ring.",
         "items": [
           {
             "icon": "search",
             "title": "Get found",
-            "text": "Local SEO, your Google Business Profile and the map, a page for every service and area, and visibility in ChatGPT and AI search."
+            "text": "Google Maps and your Business Profile, a page for every service and town you cover, and showing up when someone asks ChatGPT for a recommendation."
           },
           {
             "icon": "target",
-            "title": "Bring them in now",
-            "text": "Google Ads, Facebook and Instagram ads aimed at people looking for exactly your service, with conversion tracking from day one."
+            "title": "Get calls now with ads",
+            "text": "Google Ads plus Facebook and Instagram ads aimed at people who need your service today. From day one you see how many calls the ads bring in."
           },
           {
             "icon": "phone-call",
-            "title": "Turn visits into calls",
-            "text": "A fast website or landing page, one-tap phone and WhatsApp, and an AI chat that answers after hours. Every enquiry reaches you instantly."
+            "title": "Turn visitors into calls",
+            "text": "A site that loads instantly, tap-to-call and WhatsApp buttons, and an AI chat that answers while you're out on a job."
           },
           {
             "icon": "trending-up",
-            "title": "Measure what pays",
-            "text": "A monthly report: where calls and enquiries come from, what each one costs, and where to put your next euro."
+            "title": "Know what pays off",
+            "text": "One report a month: where the calls came from, what each one cost, and where your next dollar should go."
           }
         ]
       },
       "industries": {
         "badge": "Who I work with",
-        "heading": "For businesses that live on calls and enquiries",
-        "lead": "If your customers look for your service on Google or ask ChatGPT, I can help.",
+        "heading": "For businesses where every job starts with a call",
+        "lead": "If your customers search Google or ask ChatGPT to find someone like you, I can help.",
         "items": [
           {
             "icon": "wrench",
-            "title": "Trades and home services",
-            "text": "Contractors, installers, repairs, maintenance, cleaning and tree services."
+            "title": "Contractors and home services",
+            "text": "Plumbers, electricians, HVAC, cleaning, movers, landscaping and tree services."
           },
           {
             "icon": "bed-double",
-            "title": "Hospitality and travel",
-            "text": "Apartments, rooms and villas, with direct bookings instead of commissions."
+            "title": "Vacation rentals",
+            "text": "Apartments, rooms and villas that want more direct bookings and fewer OTA commissions."
           },
           {
             "icon": "stethoscope",
             "title": "Clinics and salons",
-            "text": "Dentists, clinics, beauty salons and hairdressers."
+            "text": "Dental practices, private clinics, med spas, beauty salons and barbers."
           },
           {
             "icon": "briefcase",
             "title": "Local and B2B companies",
-            "text": "Transport, manufacturing and professional services that need a steady flow of enquiries."
+            "text": "Transport, manufacturing, accountants and other firms that need a steady flow of leads."
           }
         ]
       },
       "final": {
-        "heading": "Whoever shows up first gets the job.",
-        "text": "Customers call the first business they find. Let's make sure it's you. The check of your website and your competitors is free and comes with no obligation.",
-        "cta": "Get your free check"
+        "heading": "The first business they find gets the call.",
+        "text": "Make sure it's yours. I'll look at your site and your competitors and tell you what I'd fix first. Free, and no strings attached.",
+        "cta": "Get my free audit"
       },
       "testimonials": {
-        "badge": "Testimonials",
+        "badge": "Client reviews",
         "heading": "What clients say",
-        "lead": "Real words from finished projects.",
+        "lead": "Two business owners, in their own words.",
         "items": [
           {
-            "quote": "Stojan moved both of my sites off WordPress and onto Astro, and the speed difference was obvious immediately. Every lead now hits my inbox the second someone submits the form — no more checking a dashboard and missing calls.",
+            "quote": "Stojan moved both of my sites off WordPress and onto Astro, and the speed difference was obvious immediately. Every lead now hits my inbox the second someone submits the form, so I no longer check a dashboard and miss calls.",
             "name": "Mirko Calić",
             "role": "Owner, Tree Jaws & Mahalo Tree Service"
           },
@@ -1241,10 +1241,10 @@
         ]
       },
       "portfolio": {
-        "badge": "Selected work",
-        "heading": "Projects I've built",
-        "lead": "A selection of recent work.",
-        "viewAll": "View all projects"
+        "badge": "Work",
+        "heading": "Recent projects",
+        "lead": "Websites I built for businesses in the US and Europe.",
+        "viewAll": "See all projects"
       }
     },
     "privacy": {
@@ -1346,7 +1346,7 @@
     }
   },
   "contactBar": {
-    "reply": "Replies the same working day",
+    "reply": "I reply within one business day",
     "whatsapp": "Message me on WhatsApp"
   }
 }

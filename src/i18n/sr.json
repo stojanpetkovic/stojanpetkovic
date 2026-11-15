@@ -134,8 +134,8 @@
     "updated": "Ažurirano",
     "rssFeed": "RSS feed",
     "cta": {
-      "heading": "Treba ti novi sajt?",
-      "description": "Piši mi o svom projektu — javljam se u toku radnog dana.",
+      "heading": "Treba ti sajt koji donosi pozive?",
+      "description": "Napiši mi par reči o svojoj firmi. Javljam se u toku radnog dana.",
       "button": "Piši mi"
     }
   },
@@ -185,11 +185,11 @@
     "moreProjects": "Još projekata",
     "ctaBadge": "Popričajmo",
     "ctaHeading": "Popričajmo o tvom projektu",
-    "ctaLead": "Svaki projekat koji preuzimam gradi se oko problema koji treba da reši. Reci mi šta imaš na umu.",
+    "ctaLead": "Svaki projekat krojim prema problemu koji treba da reši. Napiši mi šta imaš na umu.",
     "ctaPrimary": "Pošalji poruku",
     "ctaSecondary": "Više o meni",
     "closingHeading": "Imaš projekat na umu?",
-    "closingLead": "Bilo da ti treba potpuno nov sajt ili da postojeći dobije novi život — rado ću da čujem o čemu se radi."
+    "closingLead": "Treba ti nov sajt ili stari da proradi kako treba? Napiši mi o čemu se radi."
   },
   "pagination": {
     "page": "Strana {current} od {total}",
@@ -204,10 +204,10 @@
     "goHome": "Idi na početnu",
     "metaTitle": "Stranica nije pronađena",
     "metaDescription": "Ova stranica je premeštena, obrisana ili nikad nije ni postojala.",
-    "badge": "404 — nema je",
+    "badge": "404",
     "titleLead": "Ups, ova stranica",
     "titleHighlight": "ne postoji.",
-    "description": "Premeštena je, obrisana ili nikad nije ni postojala. Hajde da te vratimo na pravi put.",
+    "description": "Premeštena je, obrisana ili nikad nije postojala. Evo kako da se vratiš.",
     "backHome": "Nazad na početnu",
     "browseProjects": "Pogledaj projekte",
     "tryInstead": "Možda tražiš nešto od ovoga",
@@ -382,17 +382,17 @@
     "landing": {
       "meta": {
         "title": "Sajt koji ti donosi klijente",
-        "description": "Brzi sajtovi po meri, SEO i vidljivost u AI pretrazi za lokalne uslužne firme. Jedna fiksna cena, sve na tvoje ime i besplatna provera tvog trenutnog sajta."
+        "description": "Brz sajt po meri, SEO i vidljivost u AI pretrazi za lokalne uslužne firme. Fiksna cena, sve na tvoje ime, a provera postojećeg sajta je besplatna."
       },
       "header": {
         "cta": "Besplatna provera sajta"
       },
       "hero": {
-        "badge": "Dostupan za nove projekte",
+        "badge": "Primam nove projekte",
         "titleLead": "Da li tvoj sajt šalje klijente",
         "titleHighlight": "tvojoj konkurenciji?",
-        "description": "Svaka spora stranica, neodgovoren upit i izostanak sa Google-a predaju klijenta nekom drugom — a ti to nikad ne vidiš. Pravim brze sajtove po meri, podešavam SEO i vidljivost u AI pretrazi i povezujem svaki upit direktno sa tvojim telefonom.",
-        "primary": "Saznaj šta tvoj sajt gubi",
+        "description": "Spor sajt, upit na koji niko nije odgovorio, firma koje nema na Google-u. Svaka od tih sitnica pošalje klijenta nekom drugom, a ti to ne vidiš. Pravim brze sajtove, sređujem SEO i AI pretragu i povezujem svaki upit direktno sa tvojim telefonom.",
+        "primary": "Vidi šta tvoj sajt propušta",
         "secondary": "Pogledaj rezultate",
         "trust": [
           {
@@ -405,7 +405,7 @@
           },
           {
             "value": "< 1 dan",
-            "label": "da odgovorim na svaki upit"
+            "label": "do mog odgovora na upit"
           }
         ],
         "imageAlt": "Stojan Petković, web developer sa kojim radiš direktno",
@@ -413,227 +413,227 @@
         "videoLabel": "Video predstavljanje"
       },
       "problem": {
-        "badge": "Šta te košta",
-        "heading": "Tvoj sajt upravo sada možda predaje klijente konkurenciji",
-        "lead": "Ništa te ne upozorava: nema greške ni obaveštenja, samo pozivi koji ne stižu. A što duže traje, to više košta.",
+        "badge": "Gde odlaze klijenti",
+        "heading": "Možda ti sajt baš sad šalje klijente konkurenciji",
+        "lead": "Ne stiže nikakvo upozorenje. Telefon prosto zvoni ređe nego što bi trebalo, i to tako traje mesecima.",
         "items": [
           {
             "icon": "hourglass",
-            "title": "Posetioci odlaze pre nego što te vide",
-            "text": "Svaka sekunda viška na telefonu otera posetioce pre nego što uopšte vide tvoj broj — a prvi odlaze oni koje si platio. Uzrok retko leži u tvom poslu: to je teška izrada od tema i plugina, izabrana za sajt kojem to nikad nije trebalo."
+            "title": "Ljudi odu pre nego što vide tvoj broj",
+            "text": "Na telefonu niko ne čeka. Ako se stranica učitava pet sekundi, čovek se vrati na Google i klikne na sledeću firmu. Najčešće je kriva teška WordPress tema sa gomilom dodataka koji ti nisu ni trebali."
           },
           {
             "icon": "search-x",
-            "title": "Klijenti te ne mogu da nađu",
-            "text": "Tanke stranice, bez lokalnog sadržaja i sa tehničkim greškama drže te daleko od prve strane, a AI asistenti kao ChatGPT te uopšte ne pominju. Poziv dobija onaj koga pomenu."
+            "title": "Na Google-u te nema",
+            "text": "Prazne stranice, bez pomena grada i sa tehničkim greškama, ne stižu do prve strane. ChatGPT te ne preporučuje, a posao dobija onaj koga pomene."
           },
           {
             "icon": "mail-x",
-            "title": "Upiti idu konkurenciji",
-            "text": "Forme stižu u inbox koji niko ne proverava, a klijent je već pozvao nekog drugog dok mu ti odgovoriš."
+            "title": "Upiti stoje u inboxu",
+            "text": "Forma ode na mejl koji niko ne gleda. Dok odgovoriš, čovek je već pozvao drugog."
           },
           {
             "icon": "lock",
-            "title": "Prepušten si tuđoj volji",
-            "text": "Domen, hosting ili kod su na tuđe ime, pa svaka sitna izmena znači čekanje i plaćanje — a ne možeš jednostavno da odeš."
+            "title": "Sajt zapravo nije tvoj",
+            "text": "Domen, hosting ili kod su na tuđe ime. Svaka sitna izmena znači čekanje i novi račun, a otići ne možeš tek tako."
           }
         ]
       },
       "solution": {
-        "badge": "Kako gubici prestaju",
-        "heading": "Jedan čovek, jedna cena i sajt koji prestaje da gubi klijente",
-        "lead": "Dizajn, izrada, SEO i praćenje upita u jednom projektu, napravljeni samo od alata koji tvojoj firmi trebaju — da se svaki posetilac koga dobiješ pretvori u upit, a ne u propušten poziv.",
+        "badge": "Kako se to rešava",
+        "heading": "Jedan čovek, jedna cena i sajt koji radi za tebe",
+        "lead": "Dizajn, izrada, SEO i praćenje upita u jednom projektu. Koristim samo ono što tvojoj firmi stvarno treba, da svaki posetilac ima razlog da pozove.",
         "items": [
           {
             "icon": "zap",
-            "title": "Munjevito brz sajt",
-            "text": "Napravljen u Astro-u: stranice se otvaraju odmah na svakom telefonu, uz vrhunske ocene na Google-ovim Lighthouse testovima."
+            "title": "Sajt koji se otvara odmah",
+            "text": "Pravim ga u Astro-u, pa se stranice otvaraju bez čekanja i na slabom signalu, uz najviše ocene na Google-ovim testovima brzine."
           },
           {
             "icon": "search",
-            "title": "Vidljiv na Google-u i u AI pretrazi",
-            "text": "Stranice usluga i oblasti, strukturirani podaci i sadržaj pisan onako kako tvoji klijenti stvarno traže — na Google-u i u ChatGPT-u."
+            "title": "Na Google-u i u AI pretrazi",
+            "text": "Posebna stranica za svaku uslugu i grad, sređeni podaci za Google i tekst pisan onako kako ljudi stvarno pretražuju."
           },
           {
             "icon": "bell-ring",
-            "title": "Svaki upit, odmah",
-            "text": "Svaka forma i poziv se prate i stižu ti istog trenutka, pa se javiš prvi i dobiješ posao."
+            "title": "Upit ti stiže odmah",
+            "text": "Svaka forma i svaki klik na broj se beleže i stižu ti istog trenutka. Javiš se prvi i dobiješ posao."
           },
           {
             "icon": "shield-check",
-            "title": "Tvoje od prvog dana",
-            "text": "Kod, domen i hosting na tvoje ime. Bez ugovora koji te vezuju, bez skrivenih troškova, bez plugina koji pucaju."
+            "title": "Sve je na tvoje ime",
+            "text": "Kod, domen i hosting su tvoji od prvog dana. Nema ugovora koji te drži, skrivenih troškova ni dodataka koji se kvare posle svakog ažuriranja."
           }
         ]
       },
       "results": {
-        "badge": "Dokaz da se može popraviti",
-        "heading": "Isti problem, rešen: prava izrada za pravi posao",
-        "lead": "Dve firme za usluge sa drvećem iz Južne Floride gubile su posetioce zbog teških sajtova sagrađenih od alata koji im nikad nisu trebali. Posle lake prerade stranice se otvaraju odmah i imaju savršenu SEO ocenu 100. Lokalnoj firmi trebaju brzina i upiti, a ne komplikovan sistem.",
-        "note": "Ovo su samo dva primera iz mog rada — svaki projekat pravim na isti način.",
+        "badge": "Rezultati",
+        "heading": "Dva sajta, isti problem, rešen",
+        "lead": "Dve firme za seču i održavanje drveća sa Floride imale su spore WordPress sajtove pune dodataka. Prebacio sam ih na lagan sajt: stranice se otvaraju odmah, a SEO ocena je 100. Lokalnoj firmi trebaju brzina i upiti, a ne komplikovan sistem.",
+        "note": "Ovo su dva primera. Svaki sajt radim na isti način.",
         "cases": [
           {
             "client": "Tree Jaws",
-            "sector": "Usluge sa drvećem · Južna Florida",
+            "sector": "Seča i održavanje drveća · Južna Florida",
             "metric": "SEO 100",
             "metricLabel": "Lighthouse ocena posle prelaska sa WordPress-a",
             "points": [
-              "Prebačen sa WordPress-a na Astro — stranice se otvaraju odmah, čak i na slaboj 4G vezi",
-              "176 stranica i 108 lokalnih vodiča, napravljenih da kotiraju u lokalnoj pretrazi",
+              "Prebačen sa WordPress-a na Astro, stranice se otvaraju odmah i na slabom 4G signalu",
+              "176 stranica, od toga 108 lokalnih vodiča za pretragu po gradovima",
               "1.010 praćenih upita, od toga 732 telefonska poziva",
-              "Ocena 4.9★ iz 427 Google recenzija"
+              "Ocena 4,9★ iz 427 Google recenzija"
             ]
           },
           {
             "client": "Mahalo Tree Service",
-            "sector": "Usluge sa drvećem · Južna Florida",
+            "sector": "Seča i održavanje drveća · Južna Florida",
             "metric": "SEO 100",
-            "metricLabel": "Lighthouse ocena — uz $0 potrošeno na oglase",
+            "metricLabel": "Lighthouse ocena, bez ijednog dolara za oglase",
             "points": [
-              "Prebačen sa WordPress-a na Astro — statičke stranice umesto gomile plugina",
-              "Svaki upit stiže vlasniku na email istog trenutka — bez portala koji treba proveravati",
-              "Rast samo iz pretrage, bez plaćenih oglasa",
-              "Google ocena 5.0, 18 stranica za oblasti i blog koji raste"
+              "Prebačen sa WordPress-a na Astro, obične brze stranice umesto gomile dodataka",
+              "Svaki upit stiže vlasniku na mejl odmah, bez portala koji mora da proverava",
+              "Raste samo iz pretrage, bez plaćenih oglasa",
+              "Google ocena 5,0, 18 stranica za gradove i blog koji raste"
             ]
           }
         ]
       },
       "story": {
-        "badge": "Ilustrativna priča",
+        "badge": "Priča iz prakse (izmišljena)",
         "heading": "Kad oglasi koštaju više nego što donesu",
         "paragraphs": [
-          "Upoznaj Dragana, izmišljenog vlasnika sastavljenog od situacija koje viđam iznova i iznova. Vodi firmu za uklanjanje drveća. Vlasnik kuće kome je oluja oštetila drvo zove prvu firmu koja deluje ozbiljno — i ne čeka.",
-          "Njegov sajt se sporo otvara, Google ga jedva prikazuje, a novac koji ulaže u oglase ne vraća se. Posetioci koje plaća odlaze pre nego što se stranica uopšte učita — a on to nikad ne sazna, jer ga ništa ne upozorava.",
-          "Zatim se sajt prepravlja: brze stranice, SEO od temelja, svaki upit stiže pravo na njegov telefon. Stranice se otvaraju odmah, a budžet za oglase se konačno pretvara u telefonske pozive. Da je čekao još jednu sezonu, oglasi bi nastavili da plaćaju posetioce koji nikad ne pozovu."
+          "Dragan je izmišljen, ali njegova situacija nije. Sklopio sam ga od priča koje stalno slušam. Ima firmu za seču drveća. Kad oluja obori granu na krov, vlasnik kuće zove prvu firmu koja deluje ozbiljno i ne čeka da mu se neko javi.",
+          "Draganov sajt se sporo otvara, na Google-u ga jedva ima, a novac za oglase se ne vraća. Ljudi koje je platio da dođu odu pre nego što se stranica učita. On to ne zna, jer mu to niko ne javlja.",
+          "Onda prepravimo sajt: brze stranice, SEO od temelja i svaki upit pravo na njegov telefon. Novac za oglase konačno postaje pozivi. Da je čekao još jednu sezonu, plaćao bi posete ljudi koji nikad ne zovu."
         ],
         "beforeTitle": "Pre",
         "before": [
-          "Težak sajt sagrađen od alata koji mu nikad nisu trebali",
-          "Slab SEO, teško ga je naći na Google-u",
-          "Novac za oglase koji se ne vraća"
+          "Težak sajt pun dodataka koji mu ne trebaju",
+          "Slab SEO, na Google-u ga je teško naći",
+          "Oglasi koji se ne isplate"
         ],
         "afterTitle": "Posle",
         "after": [
           "Stranice koje se otvaraju odmah",
-          "SEO postavljen od temelja",
-          "Svaki upit stiže do njega istog trenutka"
+          "SEO postavljen kako treba od početka",
+          "Svaki upit mu stiže istog trenutka"
         ],
-        "quote": "Svake nedelje koju sam čekao, te pozive je dobijao neko drugi.",
+        "quote": "Svake nedelje dok sam čekao, te pozive je dobijao neko drugi.",
         "author": "Dragan",
-        "role": "Izmišljeni vlasnik — ilustracija, a ne stvarni klijent",
+        "role": "Izmišljen lik, ne stvaran klijent",
         "imageAlt": "Primer sajta firme za uklanjanje drveća koji je napravio Stojan Petković"
       },
       "report": {
         "badge": "Praćenje i mesečni izveštaj",
-        "heading": "Bez brojki nagađaš — a tako nestaju budžeti",
-        "lead": "Većina sajtova te ostavlja da nagađaš koji klikovi, pozivi i evri rade, a koji se bacaju. Uz svaki sajt koji napravim možeš da dobiješ najjasniju sliku tvog marketinga koju ćeš ikad imati: svaki upit, svaki poziv i svaki uloženi evro, u jednom mesečnom izveštaju napisanom razumljivim jezikom.",
+        "heading": "Bez brojki samo nagađaš, a budžet ode",
+        "lead": "Većina vlasnika ne zna koji oglas, poziv i dinar zaista donose posao. Uz sajt koji napravim dobijaš jasnu sliku: svaki upit, svaki poziv i svaki uloženi dinar, u jednom mesečnom izveštaju koji se pročita za pet minuta.",
         "points": [
           {
             "icon": "inbox",
-            "title": "Svaki upit, odmah",
-            "text": "Cela forma, stranica sa koje je stigla i oglas ili pretraga koja je dovela posetioca — u tvom inboxu istog trenutka."
+            "title": "Upit ti stiže odmah",
+            "text": "Cela poruka, stranica sa koje je poslata i oglas ili pretraga preko koje je čovek došao. Sve u tvom inboxu istog trenutka."
           },
           {
             "icon": "phone",
             "title": "Svaki poziv se broji",
-            "text": "Klikovi na broj telefona, WhatsApp i SMS beleže se kao konverzije, umesto da se izgube."
+            "text": "Klik na broj telefona, WhatsApp ili SMS beleži se kao upit, umesto da se izgubi."
           },
           {
             "icon": "target",
-            "title": "Izvor koji se isplati",
-            "text": "Google, Facebook oglasi ili direktne posete: vidiš koji donosi posete, upite i pozive, i sa kojom stopom."
+            "title": "Vidiš šta se isplati",
+            "text": "Google, Facebook oglasi ili direktne posete: vidiš koji izvor donosi posete, upite i pozive."
           },
           {
             "icon": "wallet",
-            "title": "Cena po upitu i po pozivu",
-            "text": "Uneseš koliko je potrošeno na oglase, a izveštaj pokaže koliko te je stvarno koštao svaki upit, svaki poziv i svaki dobijeni klijent — i koliko ti se vratilo."
+            "title": "Koliko košta jedan upit",
+            "text": "Upišeš koliko si dao za oglase, a izveštaj pokaže koliko te je koštao svaki upit, svaki poziv i svaki novi klijent, i koliko ti se vratilo."
           },
           {
             "icon": "file-text",
-            "title": "Mesečni PDF koji svako razume",
-            "text": "Bez logovanja i dashboarda: jasne stranice na srpskom ili engleskom, spremne za partnere ili knjigovođu."
+            "title": "Mesečni PDF bez komplikacija",
+            "text": "Ne moraš nigde da se loguješ. Jasne stranice na srpskom ili engleskom, koje možeš da pokažeš ortaku ili knjigovođi."
           },
           {
             "icon": "shield-check",
-            "title": "Privatnost na prvom mestu",
-            "text": "Posetioci se broje anonimno, bez kolačića i bez praćenja po drugim sajtovima."
+            "title": "Bez praćenja posetilaca",
+            "text": "Posete se broje anonimno, bez kolačića i bez praćenja po drugim sajtovima."
           }
         ],
-        "outcomesHeading": "Šta to znači za tvoj biznis",
+        "outcomesHeading": "Šta ti to donosi",
         "outcomes": [
-          "Prestani da plaćaš kanale koji donose klikove, a ne klijente",
-          "Nijedan upit više ne propada — svaki stiže do tebe odmah",
-          "Dokaz u brojkama da se sajt isplaćuje"
+          "Prestaješ da plaćaš kanale koji donose klikove, a ne klijente",
+          "Nijedan upit se više ne zagubi",
+          "Crno na belo vidiš da se sajt isplaćuje"
         ],
         "imageAlt": "Primer mesečnog izveštaja o sajtu: posetioci, upiti, pozivi, stopa konverzije, dnevni grafikon i odakle dolaze posetioci.",
-        "imageCaption": "Primer mesečnog izveštaja (demo podaci).",
-        "imageBadge": "Dostupno uz svaki sajt"
+        "imageCaption": "Primer mesečnog izveštaja (izmišljeni podaci).",
+        "imageBadge": "Uz svaki sajt"
       },
       "process": {
-        "badge": "Kako to ide",
-        "heading": "Četiri koraka od sajta koji gubi klijente do sajta koji ih dobija",
-        "lead": "Svaka nedelja čekanja je nedelja propuštenih upita. Bez dugih sastanaka i bez iznenađenja — uvek znaš šta sledi.",
+        "badge": "Kako radimo",
+        "heading": "Četiri koraka do sajta koji donosi klijente",
+        "lead": "Bez dugih sastanaka i bez iznenađenja. U svakom trenutku znaš šta sledi.",
         "steps": [
           {
-            "title": "Besplatna provera sajta",
-            "text": "Pošalješ formu. U roku od jednog radnog dana pregledam tvoj sajt i konkurenciju i iskreno ti kažem šta te koči."
+            "title": "Besplatna provera",
+            "text": "Pošalješ formu. Za jedan radni dan pogledam tvoj sajt i konkurenciju i kažem ti iskreno šta te koči."
           },
           {
-            "title": "Jedna jasna ponuda",
-            "text": "Kratak razgovor, pa jedan dokument: šta pravim, kad je gotovo i jedna fiksna cena. Odlučuješ kad su ti sve karte na stolu."
+            "title": "Jasna ponuda",
+            "text": "Kratko se čujemo, pa dobiješ jedan dokument: šta radim, do kada i za koliko. Cena je fiksna, a odluka tvoja."
           },
           {
             "title": "Dizajn i izrada",
-            "text": "Radim u kratkim ciklusima, a napredak pratiš preko test linka. Tvoj trenutni sajt radi dok novi ne bude spreman."
+            "text": "Radim u kratkim krugovima i sve vidiš na probnom linku. Stari sajt radi dok novi ne bude spreman."
           },
           {
-            "title": "Lansiranje i rast",
-            "text": "Sajt ide uživo na tvoje ime, sa uključenim SEO-om i praćenjem upita. Tu sam i posle, uz mesečni paket održavanja ako želiš."
+            "title": "Puštanje i rast",
+            "text": "Sajt ide uživo na tvoje ime, sa sređenim SEO-om i praćenjem upita. I posle toga sam tu, a ako želiš, postoji mesečno održavanje."
           }
         ]
       },
       "offer": {
-        "badge": "Bez rizika na početku",
-        "heading": "Saznaj šta te sajt košta",
-        "lead": "Bez obaveza i bez prodajnog pritiska — samo iskren pogled na to gde ti danas izmiču posetioci i upiti.",
+        "badge": "Prvi korak je besplatan",
+        "heading": "Saznaj koliko te košta sajt kakav sad imaš",
+        "lead": "Nema obaveze ni nagovaranja. Dobiješ iskren pregled gde ti danas beže posetioci i upiti.",
         "items": [
-          "Pregled brzine, SEO-a i vidljivosti u AI pretrazi tvog sajta",
-          "Poređenje sa tvojom najjačom lokalnom konkurencijom",
-          "Konkretni sledeći koraci, radio sa mnom ili ne",
-          "Jedna fiksna cena ako odlučiš da krenemo"
+          "Pregled brzine, SEO-a i vidljivosti u AI pretrazi",
+          "Poređenje sa najjačom konkurencijom u tvom gradu",
+          "Konkretni sledeći koraci, radili mi zajedno ili ne",
+          "Fiksna cena, ako odlučiš da krenemo"
         ]
       },
       "faq": {
         "badge": "Pitanja",
-        "heading": "Pre nego što pitaš",
+        "heading": "Šta me najčešće pitaju",
         "items": [
           {
             "question": "Koliko košta sajt?",
-            "answer": "Svaki projekat ima jednu fiksnu cenu, dogovorenu pre početka rada — bez naplate po satu i bez iznenađenja. Posle besplatne provere dobijaš jasnu ponudu sa cenom i rokom."
+            "answer": "Svaki projekat ima fiksnu cenu koju dogovorimo pre početka. Ne naplaćujem po satu i nema naknadnih troškova. Posle besplatne provere dobiješ ponudu sa cenom i rokom."
           },
           {
             "question": "Koliko traje izrada?",
-            "answer": "Zavisi od veličine sajta i od toga koliko brzo je sadržaj spreman. U ponudi je rok zajedno sa cenom, pa oba znaš pre nego što počnemo."
+            "answer": "Zavisi od veličine sajta i od toga koliko brzo stignu tekstovi i slike. Rok piše u ponudi, pored cene, pa oba znaš pre nego što krenemo."
           },
           {
-            "question": "Šta biva sa mojim trenutnim sajtom i pozicijama na Google-u?",
-            "answer": "Trenutni sajt radi dok novi ne bude spreman. Adresa, sadržaj i pozicije prelaze sa tobom, a stare stranice se preusmeravaju da ništa što već kotira ne propadne."
+            "question": "Šta biva sa mojim sadašnjim sajtom i mestom na Google-u?",
+            "answer": "Stari sajt radi dok novi ne bude gotov. Adresa i sadržaj ostaju, a stare stranice preusmerim na nove, da ne izgubiš ništa što već dobro stoji na Google-u."
           },
           {
-            "question": "Da li je sajt stvarno moj?",
-            "answer": "Sto posto. Kod, domen i hosting su na tvoje ime od prvog dana. Ako ikad poželiš da odeš, sve nosiš sa sobom."
+            "question": "Da li je sajt zaista moj?",
+            "answer": "Jeste, ceo. Kod, domen i hosting su na tvoje ime od prvog dana. Ako jednog dana odeš, sve nosiš sa sobom."
           },
           {
-            "question": "Radiš li sa klijentima iz drugih zemalja?",
-            "answer": "Radim. Imam klijente u Americi i širom Evrope, a sve ide preko telefona, video poziva i email-a. Vremenske zone su retko problem."
+            "question": "Radiš li sa firmama iz inostranstva?",
+            "answer": "Radim. Imam klijente u Americi i po Evropi, a sve ide telefonom, video pozivom i mejlom. Vremenska razlika do sad nije bila problem."
           },
           {
             "question": "Možeš li da vodiš i Google ili Facebook oglase?",
-            "answer": "Mogu — Google Ads i Facebook i Instagram kampanje, uz praćenje konverzija koje pokazuje šta ti donosi svaki uloženi evro."
+            "answer": "Mogu. Vodim Google Ads i kampanje na Facebook-u i Instagramu i merim koliko ti vraća svaki uloženi dinar."
           },
           {
-            "question": "Da li me vezuje dugoročni ugovor?",
-            "answer": "Ne. Sajt ima jednu fiksnu cenu, a oglasi i SEO idu iz meseca u mesec. Ostaješ zato što se isplati, a ne zbog ugovora."
+            "question": "Da li potpisujem dugoročni ugovor?",
+            "answer": "Ne. Sajt plaćaš jednom, po fiksnoj ceni, a oglasi i SEO idu iz meseca u mesec. Ostaješ jer ti se isplati, a ne zato što moraš."
           }
         ]
       },
@@ -642,8 +642,8 @@
           "termsLabel": "Pročitao/la sam {terms} i razumem da ovaj upit nije ponuda ni ugovor.",
           "termsLink": "Uslove korišćenja",
           "termsRequired": "Potvrdite da ste pročitali uslove korišćenja.",
-        "heading": "Ispričaj mi nešto o svom biznisu",
-        "lead": "Tri kratka koraka, manje od minut. Javljam se u roku od jednog radnog dana.",
+        "heading": "Reci mi nešto o svojoj firmi",
+        "lead": "Tri kratka koraka, za manje od minut. Javljam se u roku od jednog radnog dana.",
         "stepLabels": [
           "Šta ti treba",
           "Tvoj biznis",
@@ -707,27 +707,27 @@
         "sending": "Šaljem…",
         "chooseService": "Izaberi šta ti treba da bi nastavio.",
         "required": "Upiši ime i ispravnu email adresu.",
-        "privacy": "Tvoje podatke koristim samo da ti odgovorim. Bez newslettera i bez deljenja.",
+        "privacy": "Tvoje podatke koristim samo da ti odgovorim. Ne šaljem newsletter i ne delim ih ni sa kim.",
         "promise": "Odgovor u roku od jednog radnog dana",
-        "successTitle": "Hvala — zahtev je stigao!",
-        "successText": "Pregledaću tvoj sajt i javiti se u roku od jednog radnog dana sa iskrenim, konkretnim sledećim koracima. Prati svoj inbox.",
-        "error": "Nešto je pošlo naopako. Probaj ponovo ili mi piši direktno na email."
+        "successTitle": "Hvala, zahtev je stigao!",
+        "successText": "Pogledaću tvoj sajt i javiti se u roku od jednog radnog dana sa konkretnim predlozima. Baci pogled na inbox.",
+        "error": "Nešto nije u redu. Pokušaj ponovo ili mi piši direktno na mejl."
       },
       "final": {
-        "heading": "Svake nedelje čekanja pozive dobija konkurencija",
-        "text": "Provera je besplatna i bez obaveza. U najgorem slučaju saznaš tačno šta ti gubi klijente i šta prvo treba popraviti.",
+        "heading": "Dok čekaš, pozive dobija konkurencija",
+        "text": "Provera je besplatna i ne obavezuje te ni na šta. U najgorem slučaju saznaš šta ti odbija klijente i šta prvo treba popraviti.",
         "cta": "Zatraži besplatnu proveru"
       },
-      "footer": "Brzi sajtovi, SEO i privlačenje klijenata za lokalne firme.",
+      "footer": "Brzi sajtovi, SEO i oglasi za lokalne firme.",
       "mobileCta": "Besplatna provera sajta",
       "privacy": {
         "toggle": "Kako postupam sa tvojim podacima",
         "title": "Izjava o privatnosti",
         "items": [
-          "Ko: Stojan Petković, freelance web developer. Kontakt: {email}.",
-          "Šta: podaci koje upišeš u ovu formu — ime, email, telefon, sajt, delatnost, tvoji odgovori i poruka.",
-          "Zašto: samo da odgovorim na tvoj zahtev i pripremim ponudu. Bez newslettera, a podaci se nikad ne prodaju i ne dele za marketing.",
-          "Gde: čuvaju se kod hosting, email i database servisa preko kojih radi ovaj sajt, uz ugovore o obradi podataka.",
+          "Ko: Stojan Petković, frilenser. Kontakt: {email}.",
+          "Šta: podaci koje upišeš u ovu formu, odnosno ime, mejl, telefon, sajt, delatnost, odgovori i poruka.",
+          "Zašto: samo da odgovorim na tvoj zahtev i pripremim ponudu. Ne šaljem newsletter, a podatke nikad ne prodajem niti delim za marketing.",
+          "Gde: kod hosting, mejl i database servisa preko kojih radi ovaj sajt, uz ugovore o obradi podataka.",
           "Koliko dugo: dok je potrebno za tvoj zahtev, a najduže dve godine bez daljeg kontakta.",
           "Tvoja prava: u svakom trenutku možeš email-om da tražiš uvid, ispravku ili brisanje podataka, ili da povučeš saglasnost. Možeš i da podneseš pritužbu nadležnom organu za zaštitu podataka.",
           "Kolačići: analitički i kolačići za merenje oglasa postavljaju se samo ako ih dozvoliš u baneru za kolačiće."
@@ -753,33 +753,33 @@
           "Više upita",
           "Više klijenata"
         ],
-        "description": "Pomažem uslužnim firmama da ih klijenti nađu na internetu, preko oglasa, SEO-a, AI pretrage i brzih sajtova. Radiš direktno sa mnom.",
+        "description": "Pomažem uslužnim firmama da ih klijenti nađu na internetu: oglasi, SEO, AI pretraga i brzi sajtovi. Radiš direktno sa mnom, bez posrednika.",
         "imageAlt": "Raketa koja leti pored osvetljene ivice planete, na pozadini zvezdanog neba."
       },
       "background": {
         "badge": "Pozadina",
-        "heading": "Zašto merim sve",
+        "heading": "Zašto sve merim",
         "paragraphs": [
-          "Po struci sam inženjer i više od deset godina sam radio na terenu, gde broj koji nije tačan košta. Tu sam naučio da ništa ne podrazumevam: prvo merim, pa odlučujem.",
-          "Isto radim i sa marketingom. Svaki poziv, upit i uloženi evro se beleži, pa za par nedelja znamo šta donosi klijente, a šta samo troši novac.",
-          "Radim sa firmama u Srbiji, Evropi i SAD: majstorima, ordinacijama, smeštajem i lokalnim firmama. Pričaš direktno sa mnom, bez agencijskih posrednika."
+          "Po struci sam inženjer. Više od deset godina radio sam na terenu, gde pogrešan broj skupo košta. Tamo sam naučio da ništa ne uzimam zdravo za gotovo: prvo izmerim, pa onda odlučim.",
+          "Isto radim i u marketingu. Beležim svaki poziv, upit i uloženi dinar, pa posle par nedelja znamo šta donosi klijente, a šta samo troši pare.",
+          "Radim sa firmama iz Srbije, Evrope i Amerike: majstorima, ordinacijama, smeštajem i lokalnim firmama. Sve dogovaraš sa mnom, nema agencije između nas."
         ],
-        "credential": "Inženjer po struci, zvanje Ingenieur odobrila Bavarska inženjerska komora."
+        "credential": "Inženjer po struci, sa zvanjem Ingenieur koje je priznala Bavarska inženjerska komora."
       },
       "whatYouGet": {
         "badge": "Šta dobijaš",
-        "heading": "Sve što tvom projektu treba",
-        "lead": "Ista pažnja na svakom projektu, od prve linije koda do puštanja sajta uživo.",
+        "heading": "Šta sve dobijaš",
+        "lead": "Svaki projekat radim sa istom pažnjom, od prve kampanje do poslednjeg detalja na sajtu.",
         "items": [
           {
             "icon": "search",
             "title": "Vidljivost",
-            "description": "Google, mapa, ChatGPT i mreže: tamo gde tvoji klijenti traže."
+            "description": "Google, mapa, ChatGPT i mreže, svuda gde te klijenti traže."
           },
           {
             "icon": "target",
             "title": "Oglasi koji se vraćaju",
-            "description": "Google i Meta kampanje vođene prema pozivima, a ne prema klikovima."
+            "description": "Google i Meta kampanje koje merim po pozivima, a ne po klikovima."
           },
           {
             "icon": "zap",
@@ -788,8 +788,8 @@
           },
           {
             "icon": "message-circle",
-            "title": "Nijedan upit ne propada",
-            "description": "Svaki upit stiže odmah, a AI chat odgovara i van radnog vremena."
+            "title": "Nijedan upit se ne gubi",
+            "description": "Upit ti stiže odmah, a AI chat odgovara i posle radnog vremena."
           },
           {
             "icon": "trending-up",
@@ -799,47 +799,47 @@
           {
             "icon": "shield-check",
             "title": "Sve je tvoje",
-            "description": "Kod, domen, hosting i nalozi za oglase na tvoje ime."
+            "description": "Kod, domen, hosting i nalozi za oglase su na tvoje ime."
           }
         ]
       },
       "principles": {
         "badge": "Kako radim",
-        "heading": "Principi u radu",
-        "lead": "Svaki projekat radim po ista tri principa.",
+        "heading": "Tri pravila kojih se držim",
+        "lead": "Važe za svaki projekat, mali ili veliki.",
         "items": [
-          { "icon": "zap", "title": "Brzina na prvom mestu", "description": "Svaki sajt optimizujem za brzinu i Core Web Vitals od prve linije koda." },
-          { "icon": "award", "title": "Pravljeno da traje", "description": "Čist, tipiziran kod i pametna podešavanja koja se lako održavaju i posle lansiranja." },
-          { "icon": "award", "title": "Inženjerska disciplina", "description": "Prvo zahtevi, pa dizajn, pa kod. Svaki broj i svaka tvrdnja proverava se pre objave." }
+          { "icon": "zap", "title": "Brzina pre svega", "description": "Svaki sajt pravim da bude brz od prvog dana, jer spora stranica odbija i ljude i Google." },
+          { "icon": "award", "title": "Da traje", "description": "Čist kod i jednostavna podešavanja, da se sajt bez muke održava i godinama posle." },
+          { "icon": "award", "title": "Inženjerska disciplina", "description": "Prvo šta ti treba, pa dizajn, pa kod. Svaku brojku i svaku tvrdnju proverim pre nego što ode uživo." }
         ]
       },
       "stack": {
         "badge": "Alati i tehnologije",
         "title": "Tehnologije",
-        "description": "Alati sa kojima radim, izabrani zbog brzine, pouzdanosti i toga što traju."
+        "description": "Alati sa kojima radim. Biram ih jer su brzi, pouzdani i ne zastarevaju za godinu dana."
       },
       "faq": {
         "badge": "Dobro je da znaš",
         "heading": "Česta pitanja",
-        "lead": "Par stvari koje me ljudi obično pitaju pre nego što krenemo.",
+        "lead": "Par stvari koje ljudi obično pitaju pre nego što krenemo.",
         "cards": [
           {
             "icon": "user",
             "title": "O meni",
             "items": [
-              { "question": "Kakve projekte radiš?", "answer": "Pomažem uslužnim firmama da dođu do klijenata preko interneta: oglasi, SEO, vidljivost u AI pretrazi, brzi sajtovi i praćenje svakog upita." },
-              { "question": "Sa kojim tehnologijama radiš?", "answer": "Sa modernim, brzim alatima: Astro, TypeScript i Tailwind CSS za frontend, plus cloud i automatizacija kad projekat to traži." },
-              { "question": "Radiš li sa klijentima iz drugih gradova i zemalja?", "answer": "Naravno. Većina projekata ide preko telefona, video poziva i email-a, a vremenske zone su retko problem." },
-              { "question": "Imaš li trenutno vremena za nove projekte?", "answer": "Uglavnom imam — pogledaj oznaku na početnoj ili mi samo pošalji poruku, pa ću ti iskreno reći." }
+              { "question": "Čime se tačno baviš?", "answer": "Pomažem uslužnim firmama da preko interneta dođu do klijenata: oglasi, SEO, vidljivost u AI pretrazi, brzi sajtovi i praćenje svakog upita." },
+              { "question": "Sa kojim tehnologijama radiš?", "answer": "Astro, TypeScript i Tailwind CSS za sajtove, a po potrebi i cloud servisi i automatizacija." },
+              { "question": "Radiš li sa klijentima iz drugih gradova i zemalja?", "answer": "Naravno. Većina posla ide telefonom, video pozivom i mejlom, a vremenska razlika retko smeta." },
+              { "question": "Imaš li sad vremena za nove projekte?", "answer": "Uglavnom imam. Pogledaj oznaku na početnoj strani ili mi samo piši, pa ću ti reći iskreno." }
             ]
           },
           {
             "icon": "briefcase",
             "title": "Saradnja",
             "items": [
-              { "question": "Kako počinje saradnja?", "answer": "Besplatnim razgovorom bez ikakvih obaveza o tome šta ti treba. Posle toga dobijaš jednu jasnu ponudu sa rokom i cenom." },
-              { "question": "Da li si tu i posle lansiranja?", "answer": "Jesam. Postoji mesečni paket održavanja za ažuriranja, praćenje sajta i sitne izmene kad sajt krene da radi." },
-              { "question": "Da li je sajt stvarno moj?", "answer": "Sto posto. Domen, hosting i kod su na tvoje ime od prvog dana." }
+              { "question": "Kako počinje saradnja?", "answer": "Besplatnim razgovorom o tome šta ti treba, bez ikakve obaveze. Posle toga dobiješ ponudu sa rokom i cenom." },
+              { "question": "Da li si tu i posle lansiranja?", "answer": "Jesam. Postoji mesečno održavanje: ažuriranja, nadzor sajta i sitne izmene." },
+              { "question": "Da li je sajt zaista moj?", "answer": "Jeste, ceo. Domen, hosting i kod su na tvoje ime od prvog dana." }
             ]
           }
         ]
@@ -847,24 +847,24 @@
       "openSource": {
         "badge": "Zašto ja",
         "heading": "Partner, a ne samo izvođač",
-        "description": "Radiš direktno sa čovekom koji pravi tvoj sajt — bez menadžera, bez prosleđivanja posla drugima, i uz fiksnu cenu dogovorenu unapred.",
+        "description": "Radiš direktno sa čovekom koji pravi tvoj sajt i vodi tvoje oglase. Nema menadžera, posao ne prosleđujem drugima, a cena je dogovorena unapred.",
         "button": "Javi se",
         "cards": [
-          { "title": "Jedan čovek za sve", "text": "Pričaš direktno sa mnom od prve poruke do lansiranja — bez prodavaca između nas." },
-          { "title": "Fiksna cena, bez iznenađenja", "text": "Svaki projekat ima jednu jasnu cenu dogovorenu pre početka. Nema naplate po satu." },
-          { "title": "Tu sam i posle", "text": "Dostupan sam i kad sajt krene da radi, a za redovna ažuriranja postoji mesečni paket održavanja." }
+          { "title": "Jedan čovek za sve", "text": "Pričaš sa mnom od prve poruke do puštanja sajta. Nema prodavca između nas." },
+          { "title": "Fiksna cena, bez iznenađenja", "text": "Cenu dogovorimo pre početka. Ne naplaćujem po satu." },
+          { "title": "Tu sam i posle", "text": "Možeš da mi se javiš i kad sajt proradi, a za redovna ažuriranja postoji mesečni paket." }
         ]
       },
       "cta": {
         "badge": "Krenimo",
         "heading": "Hoćeš da radimo zajedno?",
-        "description": "Piši mi o svom projektu — javljam se u toku radnog dana sa iskrenim odgovorom i konkretnim sledećim koracima.",
+        "description": "Napiši mi par reči o svojoj firmi. Javljam se istog ili sledećeg radnog dana, sa iskrenim odgovorom i konkretnim predlogom.",
         "button": "Javi se"
       }
     },
     "services": {
       "meta": {
-        "title": "Usluge — oglasi, SEO, AI i sajtovi",
+        "title": "Usluge: oglasi, SEO, AI pretraga i sajtovi",
         "description": "Google i Meta oglasi, lokalni SEO, vidljivost u AI pretrazi i brzi sajtovi za uslužne firme. Besplatna provera, fiksna cena za sajt."
       },
       "areas": {
@@ -873,33 +873,33 @@
           "badge": "Oglasi, SEO i AI",
           "heading": "Da te nađu ljudi koji već traže tvoju uslugu",
           "paragraphs": [
-            "Kad nekome zatreba majstor, zubar ili smeštaj, pita Google, mapu ili ChatGPT. Pobrinem se da tamo nađe tebe, a ne konkurenciju.",
-            "Oglasi donose pozive odmah, SEO i AI vidljivost grade stalan priliv koji ne plaćaš po kliku. Sve se meri, pa znaš šta se isplati."
+            "Kad nekom zatreba majstor, zubar ili smeštaj, pita Google, otvori mapu ili pita ChatGPT. Moj posao je da tamo nađe tebe, a ne konkurenciju.",
+            "Oglasi donose pozive od prvog dana. SEO i AI pretraga grade stalan priliv za koji ne plaćaš svaki klik. Sve se meri, pa znaš šta se isplati."
           ],
           "included": [
             {
               "lead": "Google Ads",
-              "text": "pretraga i mapa, podešeni na upite koji donose posao."
+              "text": "pretraga i mapa, podešeni na upite od kojih ima posla."
             },
             {
               "lead": "Facebook i Instagram oglasi",
-              "text": "kampanje i retargeting za tvoje područje."
+              "text": "kampanje za tvoj kraj i ponovno prikazivanje ljudima koji su već bili na sajtu."
             },
             {
               "lead": "Lokalni SEO",
-              "text": "Google Business profil, recenzije i stranice za svaku uslugu i mesto."
+              "text": "Google Business profil, recenzije i stranica za svaku uslugu i grad."
             },
             {
               "lead": "Vidljivost u AI pretrazi",
-              "text": "da te ChatGPT i Google AI preporuče kad te neko traži."
+              "text": "da te ChatGPT i Google-ov AI preporuče kad neko pita za tvoju uslugu."
             },
             {
               "lead": "AI chat i automatski odgovori",
-              "text": "upit dobija odgovor i kad ti ne stigneš."
+              "text": "upit dobije odgovor i kad ti ne stigneš da se javiš."
             },
             {
               "lead": "Mesečni izveštaj",
-              "text": "pozivi, upiti i cena po svakom, jasnim jezikom."
+              "text": "pozivi, upiti i koliko je koštao svaki, bez stručnih izraza."
             }
           ],
           "ctaLabel": "Zatraži besplatnu proveru"
@@ -907,40 +907,40 @@
         "web": {
           "icon": "layout",
           "badge": "Sajtovi",
-          "heading": "Sajt koji pretvara posete u pozive",
+          "heading": "Sajt sa kog ljudi zovu",
           "paragraphs": [
-            "Brzi sajtovi i landing strane po meri, napravljeni da posetilac za par sekundi vidi šta nudiš i pozove.",
-            "Jedna fiksna cena, a kod, domen i hosting su na tvoje ime od prvog dana."
+            "Brzi sajtovi i landing strane po meri. Posetilac za par sekundi vidi čime se baviš i gde da klikne da te pozove.",
+            "Cena je fiksna, a kod, domen i hosting su na tvoje ime od prvog dana."
           ],
           "included": [
             {
               "lead": "Dizajn po meri",
-              "text": "prilagođen tvojoj firmi i tvojim klijentima."
+              "text": "prilagođen tvojoj firmi i ljudima koji kod tebe dolaze."
             },
             {
               "lead": "Napravljeno za brzinu",
-              "text": "stranice se otvaraju odmah na svakom telefonu."
+              "text": "stranice se otvaraju odmah, na svakom telefonu."
             },
             {
-              "lead": "SEO od prve linije",
-              "text": "strukturirani podaci i stranice za svaku uslugu."
+              "lead": "SEO od početka",
+              "text": "sređeni podaci za Google i stranica za svaku uslugu."
             },
             {
               "lead": "Praćenje upita i poziva",
-              "text": "svaka forma i svaki klik na telefon se beleže."
+              "text": "svaka poslata forma i svaki klik na broj se beleže."
             },
             {
               "lead": "Briga posle lansiranja",
-              "text": "ažuriranje i nadzor, uz opcioni mesečni paket."
+              "text": "ažuriranja i nadzor, uz mesečno održavanje ako ti treba."
             }
           ],
-          "ctaLabel": "Idi na sajtove"
+          "ctaLabel": "Pogledaj sajtove"
         }
       },
       "overviewFaq": {
         "badge": "Pitanja",
         "heading": "Pitanja i odgovori",
-        "lead": "Ono što klijenti pitaju pre nego što počnemo.",
+        "lead": "Ono što me ljudi pitaju pre nego što krenemo.",
         "cards": [
           {
             "icon": "tag",
@@ -948,23 +948,23 @@
             "items": [
               {
                 "question": "Koliko košta?",
-                "answer": "Svaki projekat ima jednu fiksnu cenu, dogovorenu pre početka rada. Bez plaćanja po satu i bez iznenađenja. Besplatan prvi razgovor mi pokazuje šta ti treba, a cenu dobijaš u jednoj jasnoj ponudi."
+                "answer": "Svaki projekat ima fiksnu cenu, dogovorenu pre početka. Nema naplate po satu ni iznenađenja. Iz prvog, besplatnog razgovora vidim šta ti treba, a cenu dobiješ u ponudi."
               },
               {
                 "question": "Koliko traje?",
-                "answer": "To zavisi od obima. Ponuda navodi rok zajedno sa cenom, pa oba znaš pre početka."
+                "answer": "Zavisi od obima. Rok piše u ponudi, odmah pored cene."
               },
               {
-                "question": "Da li radiš sa klijentima iz inostranstva?",
-                "answer": "Da. Radim sa klijentima širom sveta, telefonom, video pozivom i emailom, u vremenskoj zoni CET."
+                "question": "Radiš li sa firmama iz inostranstva?",
+                "answer": "Radim. Klijenti su mi u Srbiji, Evropi i Americi, a čujemo se telefonom, video pozivom ili mejlom."
               },
               {
                 "question": "Čije je ono što napraviš?",
-                "answer": "Tvoje. Kod, dokumentacija, domen i hosting su na tvoje ime od prvog dana."
+                "answer": "Tvoje. Kod, domen, hosting i nalozi za oglase su na tvoje ime od prvog dana."
               },
               {
-                "question": "Da li preuzimaš i manje poslove?",
-                "answer": "Da. Jedan alat ili mali sajt su sasvim dobar početak. Reci mi šta imaš na umu."
+                "question": "Uzimaš li i manje poslove?",
+                "answer": "Uzimam. Jedna landing strana ili jedna kampanja sasvim je dobar početak. Napiši mi šta imaš na umu."
               }
             ]
           }
@@ -973,9 +973,9 @@
       "includedLabel": "Šta dobijaš",
       "hero": {
         "badge": "Usluge",
-        "titleLead": "Sve što treba",
+        "titleLead": "Sve što ti treba",
         "titleHighlight": "da te klijenti nađu",
-        "description": "Oglasi, SEO i vidljivost u AI pretrazi dovode ljude, a brz sajt ih pretvara u pozive. Sve iz jednih ruku, sa brojkama svakog meseca.",
+        "description": "Oglasi, SEO i AI pretraga dovode ljude na sajt, a brz sajt ih pretvara u pozive. Sve radi jedan čovek, a brojke dobijaš svakog meseca.",
         "jumpLabels": [
           "Oglasi, SEO i AI",
           "Sajtovi"
@@ -984,18 +984,18 @@
       "process": {
         "badge": "Kako to ide",
         "heading": "Kako izgleda saradnja",
-        "lead": "Od tvoje prve poruke do isporučenog rezultata.",
+        "lead": "Od prve poruke do prvih poziva.",
         "steps": [
-          { "title": "Prvi kontakt", "description": "Pošalješ poruku preko kontakt forme. Javljam se u roku od jednog radnog dana i dogovaramo besplatan razgovor o tome šta ti treba. Bez ikakvih obaveza." },
-          { "title": "Ponuda", "description": "Posle razgovora dobijaš jedan jasan dokument: šta pravim, kad će biti gotovo i koliko košta — fiksno. Odlučuješ kad su ti sve karte na stolu." },
-          { "title": "Rad u kratkim ciklusima", "description": "Pratiš napredak i vidiš kako rezultat dobija oblik, bilo da je dokument, alat ili sajt." },
-          { "title": "Isporuka i podrška", "description": "Rad se predaje na tvoje ime i dokumentovan. Posle toga ostajem dostupan, a postoji i mesečni plan održavanja ako želiš redovna ažuriranja." }
+          { "title": "Prvi kontakt", "description": "Pošalješ poruku preko kontakt strane. Javim se u roku od jednog radnog dana i dogovorimo kratak razgovor. Besplatno je i ne obavezuje te." },
+          { "title": "Ponuda", "description": "Posle razgovora dobiješ jedan dokument: šta radim, do kada i koliko košta. Cena je fiksna, a odluku donosiš kad sve znaš." },
+          { "title": "Rad u kratkim krugovima", "description": "Sve vreme vidiš dokle se stiglo, bilo da su u pitanju oglasi, SEO ili novi sajt." },
+          { "title": "Puštanje i podrška", "description": "Sve je na tvoje ime i lepo opisano. I posle sam tu, a ako želiš redovna ažuriranja, postoji mesečni paket." }
         ]
       },
       "cta": {
-        "badge": "Popričajmo",
-        "heading": "Popričajmo o tvom projektu",
-        "description": "Prvi razgovor je besplatan i bez obaveza: telefonom, video pozivom ili email-om. Dobijaš iskrene odgovore, a posle razgovora jasnu ponudu sa rokom i fiksnom cenom.",
+        "badge": "Javi se",
+        "heading": "Hajde da popričamo o tvojoj firmi",
+        "description": "Prvi razgovor je besplatan, telefonom, video pozivom ili mejlom. Dobiješ iskrene odgovore, a posle toga jasnu ponudu sa rokom i fiksnom cenom.",
         "primary": "Pošalji poruku",
         "secondary": "Više o meni"
       }
@@ -1003,13 +1003,13 @@
     "contact": {
       "meta": {
         "title": "Kontakt",
-        "description": "Oglasi, SEO, AI vidljivost ili nov sajt: reci mi šta ti treba. Odgovaram u roku od jednog radnog dana."
+        "description": "Oglasi, SEO, AI pretraga ili nov sajt: napiši mi šta ti treba. Odgovaram u roku od jednog radnog dana."
       },
       "hero": {
         "badge": "Kontakt",
         "titleLead": "Hajde da ti dovedemo",
         "titleHighlight": "više klijenata",
-        "description": "Oglasi, SEO, vidljivost u AI pretrazi ili nov sajt. Dovoljna je kratka poruka; odgovaram u roku od jednog radnog dana."
+        "description": "Oglasi, SEO, AI pretraga ili nov sajt. Dovoljno je par rečenica, a odgovor stiže u roku od jednog radnog dana."
       },
       "helpTitle": "Čime mogu da pomognem",
       "help": [
@@ -1021,14 +1021,14 @@
         {
           "icon": "layout",
           "title": "Sajt koji pretvara posete u pozive",
-          "text": "Brz sajt ili landing strana, sa praćenjem svakog upita."
+          "text": "Brz sajt ili landing strana, uz praćenje svakog upita."
         }
       ],
       "nextTitle": "Šta sledi",
       "next": [
-        "Odgovaram u roku od jednog radnog dana.",
-        "Kratko razgovaramo da definišemo šta ti treba. Besplatno je i bez obaveza.",
-        "Dobijaš jednu jasnu ponudu sa obimom posla, rokom i fiksnom cenom."
+        "Javim se u roku od jednog radnog dana.",
+        "Kratko se čujemo da vidimo šta ti treba. Besplatno je i ne obavezuje te.",
+        "Dobiješ ponudu sa obimom posla, rokom i fiksnom cenom."
       ],
       "facts": [
         {"value": "3", "label": "jezika: srpski, engleski, nemački"},
@@ -1039,14 +1039,14 @@
         }
       ],
       "emailLabel": "Email",
-      "preferEmail": "Više voliš email? Piši na",
+      "preferEmail": "Lakše ti je mejlom? Piši na",
       "form": {
-        "badge": "Upit za projekat",
+        "badge": "Upit",
           "termsLabel": "Pročitao/la sam {terms} i razumem da ovaj upit nije ponuda ni ugovor.",
           "termsLink": "Uslove korišćenja",
           "termsRequired": "Potvrdite da ste pročitali uslove korišćenja.",
-        "heading": "Reci mi o svom projektu",
-        "lead": "Tri kratka koraka, manje od minuta. Odgovaram u roku od jednog radnog dana.",
+        "heading": "Reci mi šta ti treba",
+        "lead": "Tri kratka koraka, za manje od minut. Odgovaram u roku od jednog radnog dana.",
         "stepLabels": [
           "Šta ti treba",
           "Tvoja firma",
@@ -1105,47 +1105,47 @@
         "sending": "Šaljem…",
         "chooseService": "Izaberi šta ti treba da nastaviš.",
         "required": "Unesi ime i ispravnu email adresu.",
-        "privacy": "Podaci se koriste samo da ti odgovorim. Bez newslettera i bez deljenja.",
+        "privacy": "Podatke koristim samo da ti odgovorim. Ne šaljem newsletter i ne delim ih ni sa kim.",
         "promise": "Odgovor u roku od jednog radnog dana",
-        "successTitle": "Hvala — upit je stigao!",
-        "successText": "Pročitaću ga i odgovoriti u roku od jednog radnog dana sa konkretnim sledećim koracima. Proveri inbox.",
-        "error": "Nešto je pošlo naopako. Pokušaj ponovo ili mi piši direktno."
+        "successTitle": "Hvala, poruka je stigla!",
+        "successText": "Pročitaću je i javiti se u roku od jednog radnog dana sa konkretnim sledećim koracima. Baci pogled na inbox.",
+        "error": "Nešto nije u redu. Pokušaj ponovo ili mi piši direktno."
       }
     },
     "web": {
       "glance": {"label": "Ukratko", "items": [{"label": "Tehnologije", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Cena", "value": "Jedna fiksna cena, dogovorena pre početka"}, {"label": "Vlasništvo", "value": "Kod, domen i hosting na tvoje ime"}, {"label": "Odgovor", "value": "U roku od jednog radnog dana"}]},
-      "closing": "Imaš sajt na umu? Dovoljna je kratka poruka.",
+      "closing": "Imaš sajt na umu? Dovoljno je par rečenica.",
       "meta": {
-        "title": "Web razvoj",
-        "description": "Brzi sajtovi i landing strane po meri za uslužne firme, sa SEO-om i praćenjem svakog upita. Jedna fiksna cena, sve na tvoje ime."
+        "title": "Izrada sajtova",
+        "description": "Brzi sajtovi i landing strane po meri za uslužne firme, sa SEO-om i praćenjem svakog upita. Fiksna cena, sve na tvoje ime."
       },
       "hero": {
-        "badge": "Web razvoj",
-        "titleLead": "Sajtovi i veb sistemi",
-        "titleHighlight": "koji donose upite",
-        "description": "Dizajn, izrada i SEO za firme koje žive od poziva i upita. Jedna fiksna cena, a sve na tvoje ime.",
+        "badge": "Izrada sajtova",
+        "titleLead": "Sajtovi sa kojih",
+        "titleHighlight": "ljudi zovu",
+        "description": "Dizajn, izrada i SEO za firme kojima posao počinje pozivom ili upitom. Cena je fiksna, a sve je na tvoje ime.",
         "primaryCta": "Javi se",
         "secondaryCta": "Sve usluge"
       },
       "services": {
         "badge": "Čime se bavim",
-        "heading": "Web dizajn, izrada sajtova i SEO",
-        "lead": "Sve tri usluge u svakom projektu.",
+        "heading": "Dizajn, izrada i SEO u istom paketu",
+        "lead": "Svaki sajt dobija sve troje.",
         "cards": [
           {
             "icon": "layout",
-            "title": "Web dizajn",
-            "description": "Pregledan i moderan dizajn, prilagođen tvom brendu, sadržaju i načinu na koji ljudi stvarno koriste sajt."
+            "title": "Dizajn",
+            "description": "Pregledan dizajn po meri tvoje firme, za to kako ljudi zaista koriste sajt: brzo, sa telefona i sa jednim ciljem."
           },
           {
             "icon": "code",
-            "title": "Izrada sajtova",
-            "description": "Sajtovi koji traju. Astro, Tailwind i čist kod: brzi od prvog dana i laki za održavanje i godinama kasnije."
+            "title": "Izrada",
+            "description": "Astro, Tailwind i čist kod. Sajt je brz od prvog dana i lako se održava godinama."
           },
           {
             "icon": "trending-up",
-            "title": "SEO optimizacija",
-            "description": "SEO, brzina učitavanja i pristupačnost ugrađeni od starta, da sajt bude dobro pozicioniran na Google-u i radi za svakog posetioca."
+            "title": "SEO",
+            "description": "Brzina, SEO i pristupačnost su deo izrade od početka, da te Google dobro rangira, a posetioci ne čekaju."
           }
         ]
       }
@@ -1153,83 +1153,83 @@
     "home": {
       "meta": {
         "title": "Više klijenata sa interneta",
-        "description": "Google oglasi, SEO, vidljivost u AI pretrazi i brz sajt za uslužne firme. Više poziva i upita, svaki izmeren. Besplatna provera sajta."
+        "description": "Google i Facebook oglasi, lokalni SEO, AI pretraga i brz sajt za uslužne firme. Svaki poziv i upit se meri. Prva provera je besplatna."
       },
       "hero": {
-        "badge": "Dostupan za nove klijente",
+        "badge": "Primam nove klijente",
         "titleLead": "Više poziva i upita",
         "titleHighlight": "sa interneta za tvoju firmu",
-        "description": "Google oglasi, SEO, vidljivost u AI pretrazi i brz sajt, povezani u jedan sistem koji meri svaki poziv. Plaćaš za klijente, a ne za klikove.",
+        "description": "Postavim oglase na Google-u i mrežama, sredim da te nađu na mapi i u ChatGPT-u i napravim sajt sa kog ljudi zovu. Svaki poziv se broji, pa tačno znaš šta ti donosi posao.",
         "primary": "Besplatna provera",
         "secondary": "Pogledaj rezultate",
         "imageAlt": "Stojan Petković u tamnoplavom odelu u svetloj kancelariji, iza njega ekrani sa kodom"
       },
       "pillars": {
         "badge": "Kako dolaze klijenti",
-        "heading": "Četiri koraka od pretrage do poziva",
-        "lead": "Ne prodajem pojedinačne usluge, nego ceo put: da te nađu, da te izaberu i da znaš šta ti se isplati.",
+        "heading": "Od pretrage do poziva u četiri koraka",
+        "lead": "Ne prodajem oglase posebno, SEO posebno i sajt posebno. Sve to zajedno ima jedan zadatak: da ti zazvoni telefon.",
         "items": [
           {
             "icon": "search",
-            "title": "Budi pronađen",
-            "text": "Lokalni SEO, Google Business profil i mapa, stranice za svaku uslugu i mesto, i vidljivost u ChatGPT-u i AI pretrazi."
+            "title": "Da te nađu",
+            "text": "Google mapa i Google Business profil, stranica za svaku uslugu i grad u kom radiš, i da te ChatGPT pomene kad ga neko pita za preporuku."
           },
           {
             "icon": "target",
-            "title": "Dovedi ih odmah",
-            "text": "Google Ads, Facebook i Instagram oglasi, usmereni na ljude koji traže baš tvoju uslugu, sa praćenjem konverzija od prvog dana."
+            "title": "Pozivi odmah, preko oglasa",
+            "text": "Google Ads i oglasi na Facebook-u i Instagramu za ljude koji baš sad traže tvoju uslugu. Od prvog dana znaš koliko je poziva došlo sa oglasa."
           },
           {
             "icon": "phone-call",
-            "title": "Pretvori posetu u poziv",
-            "text": "Brz sajt ili landing strana, telefon i WhatsApp jednim dodirom i AI chat koji odgovara i van radnog vremena. Svaki upit ti stiže odmah."
+            "title": "Da posetilac pozove",
+            "text": "Sajt koji se otvara odmah, broj telefona i WhatsApp na jedan dodir i AI chat koji odgovara i dok si ti na terenu."
           },
           {
             "icon": "trending-up",
-            "title": "Izmeri šta se isplati",
-            "text": "Mesečni izveštaj: odakle dolaze pozivi i upiti, koliko košta svaki i gde da uložiš sledeći evro."
+            "title": "Da znaš šta se isplati",
+            "text": "Jednom mesečno dobiješ izveštaj: odakle su došli pozivi, koliko te je koštao svaki i gde vredi uložiti sledeći dinar."
           }
         ]
       },
       "industries": {
         "badge": "Za koga radim",
-        "heading": "Za firme koje žive od poziva i upita",
-        "lead": "Ako tvoji klijenti uslugu traže na Google-u ili pitaju ChatGPT, mogu da pomognem.",
+        "heading": "Za firme kojima posao počinje pozivom",
+        "lead": "Ako tvoji klijenti uslugu traže na Google-u ili pitaju ChatGPT, tu mogu da pomognem.",
         "items": [
           {
             "icon": "wrench",
-            "title": "Zanatlije i servisi",
-            "text": "Majstori, montaža, popravke, održavanje, čišćenje i usluge sa drvećem."
+            "title": "Majstori i servisi",
+            "text": "Vodoinstalateri, električari, klima servisi, čišćenje, selidbe i održavanje dvorišta."
           },
           {
             "icon": "bed-double",
             "title": "Smeštaj i turizam",
-            "text": "Apartmani, sobe i vile, sa direktnim rezervacijama umesto provizija."
+            "text": "Apartmani, sobe i vikendice koje hoće više direktnih rezervacija i manje provizije za Booking."
           },
           {
             "icon": "stethoscope",
             "title": "Ordinacije i saloni",
-            "text": "Stomatolozi, klinike, saloni lepote i frizeri."
+            "text": "Stomatološke ordinacije, privatne klinike, saloni lepote i frizeri."
           },
           {
             "icon": "briefcase",
             "title": "Lokalne i B2B firme",
-            "text": "Prevoz, proizvodnja i stručne usluge kojima treba stalan priliv upita."
+            "text": "Prevoz, proizvodnja, knjigovođe i druge firme kojima treba stalan priliv upita."
           }
         ]
       },
       "final": {
-        "heading": "Ko se prvi pojavi, dobija posao.",
-        "text": "Klijent zove prvu firmu koju nađe. Pobrinimo se da to budeš ti. Provera tvog sajta i konkurencije je besplatna i bez obaveza.",
+        "heading": "Klijent zove prvog koga nađe.",
+        "text": "Neka to budeš ti. Pogledam tvoj sajt i konkurenciju i kažem ti šta bih prvo promenio. Besplatno i bez obaveze.",
         "cta": "Zatraži besplatnu proveru"
       },
       "testimonials": {
-        "badge": "Utisci klijenata",
-        "heading": "Šta kažu klijenti",
-        "lead": "Utisci klijenata posle završenih projekata.",
+        "badge": "Iskustva klijenata",
+        "heading": "Šta kažu oni sa kojima radim",
+        "lead": "Dvoje vlasnika firmi, svojim rečima.",
         "items": [
           {
-            "quote": "Stojan je oba moja sajta prebacio sa WordPress-a na Astro i razlika u brzini se osetila odmah. Svaki upit mi sad stigne na email istog trenutka kad neko pošalje formu — ne moram više da proveravam dashboard i propuštam pozive.",
+            "quote": "Stojan je oba moja sajta prebacio sa WordPress-a na Astro i razlika u brzini se osetila odmah. Svaki upit mi sad stigne na mejl čim neko pošalje formu, pa više ne moram da proveravam dashboard i ne propuštam pozive.",
             "name": "Mirko Calić",
             "role": "Vlasnik, Tree Jaws i Mahalo Tree Service"
           },
@@ -1241,10 +1241,10 @@
         ]
       },
       "portfolio": {
-        "badge": "Portfolio",
-        "heading": "Moji projekti",
-        "lead": "Izdvojeni radovi za klijente iz Srbije i inostranstva.",
-        "viewAll": "Pogledaj sve projekte"
+        "badge": "Radovi",
+        "heading": "Neki od mojih projekata",
+        "lead": "Sajtovi koje sam radio za firme u Srbiji i inostranstvu.",
+        "viewAll": "Svi projekti"
       }
     },
     "privacy": {
@@ -1346,7 +1346,7 @@
     }
   },
   "contactBar": {
-    "reply": "Odgovor istog radnog dana",
+    "reply": "Odgovor u roku od jednog radnog dana",
     "whatsapp": "Piši mi na WhatsApp"
   }
 }
