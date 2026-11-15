@@ -1248,7 +1248,9 @@
       },
       "clients": {
         "heading": "Trusted by service businesses",
-        "visit": "Visit site"
+        "visit": "Visit site",
+        "brands": "brands",
+        "countries": "markets: the US and Europe"
       }
     },
     "privacy": {

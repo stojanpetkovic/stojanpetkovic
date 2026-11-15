@@ -1248,7 +1248,9 @@
       },
       "clients": {
         "heading": "Brendovi sa kojima sam radio",
-        "visit": "Pogledaj sajt"
+        "visit": "Pogledaj sajt",
+        "brands": "brendova",
+        "countries": "zemlje: Srbija i Amerika"
       }
     },
     "privacy": {

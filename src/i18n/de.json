@@ -1248,7 +1248,9 @@
       },
       "clients": {
         "heading": "Betriebe, für die ich arbeite",
-        "visit": "Website ansehen"
+        "visit": "Website ansehen",
+        "brands": "Marken",
+        "countries": "Märkte: Europa und die USA"
       }
     },
     "privacy": {
