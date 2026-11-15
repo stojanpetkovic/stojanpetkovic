@@ -34,7 +34,7 @@ import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import WebsiteCheckForm from '@/components/patterns/WebsiteCheckForm.astro';
 import Accordion from '@/components/ui/overlay/Accordion/Accordion.astro';
 import siteConfig from '@/config/site.config';
-import { t, tData, defaultLocale } from '@/i18n';
+import { t, tData, defaultLocale, localizedPath } from '@/i18n';
 import { getSiteName } from '@/lib/site-name';
 import treeJawsImg from '@/assets/projects/tree-jaws-hero-dark.webp';
 import mahaloImg from '@/assets/projects/mahalo-hero.webp';
@@ -115,6 +115,10 @@ const sectionOrder = isHome
   : ['problem', 'answer', 'results', 'report', 'process', 'form'];
 const num = (id: string) => String(sectionOrder.indexOf(id) + 1).padStart(2, '0');
 
+// The landing page keeps its own form; on the home page every call to action
+// goes to the contact page, so all enquiries arrive through one form.
+const formHref = isHome ? localizedPath('/contact', locale) : '#form';
+
 const Layout = isHome ? LandingLayout : BaseLayout;
 const layoutProps = isHome
   ? { includePersonSchema: true, includeProfessionalServiceSchema: true }
@@ -138,7 +142,7 @@ const year = new Date().getFullYear();
             logo alone carries the brand there. */}
         <span class="font-display text-lg font-bold tracking-tight text-brand-700 dark:text-foreground whitespace-nowrap max-[359px]:sr-only">{siteName}</span>
       </span>
-      <Button href="#form" size="sm" class="lp-glow cta-btn-brand gap-1.5 whitespace-nowrap">
+      <Button href={formHref} size="sm" class="lp-glow cta-btn-brand gap-1.5 whitespace-nowrap">
         {L('header.cta')}
         <Icon name="arrow-down" size="sm" />
       </Button>
@@ -175,7 +179,7 @@ const year = new Date().getFullYear();
       <p slot="description" class="!text-balance">{L('hero.description')}</p>
 
       <Fragment slot="actions">
-        <Button size="lg" href="#form" class="lp-glow cta-btn-brand gap-2">
+        <Button size="lg" href={formHref} class="lp-glow cta-btn-brand gap-2">
           {L('hero.primary')}
           <Icon name="arrow-right" size="sm" />
         </Button>
@@ -209,7 +213,7 @@ const year = new Date().getFullYear();
         </h1>
         <p class="mx-auto mt-5 max-w-xl text-lg text-foreground-muted lg:mx-0 text-pretty">{L('hero.description')}</p>
         <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-          <Button href="#form" size="lg" class="lp-glow cta-btn-brand w-full gap-2 sm:w-auto">
+          <Button href={formHref} size="lg" class="lp-glow cta-btn-brand w-full gap-2 sm:w-auto">
             {L('hero.primary')}
             <Icon name="arrow-right" size="sm" />
           </Button>
@@ -313,7 +317,7 @@ const year = new Date().getFullYear();
         ))}
       </ol>
       <div class="flex justify-center" data-reveal>
-        <Button href="#form" size="lg" class="lp-glow cta-btn-brand gap-2">
+        <Button href={formHref} size="lg" class="lp-glow cta-btn-brand gap-2">
           {L('hero.primary')}
           <Icon name="arrow-right" size="sm" />
         </Button>
@@ -405,7 +409,7 @@ const year = new Date().getFullYear();
             <p class="section-eyebrow !mb-0"><span class="section-eyebrow-num">{num('industries')}</span><span>{industries.badge}</span></p>
             <h2 class="font-display text-3xl font-bold tracking-tight text-foreground text-balance">{industries.heading}</h2>
             <p class="text-lg text-foreground-muted leading-relaxed">{industries.lead}</p>
-            <Button href="#form" class="lp-glow cta-btn-brand mt-2 gap-2 self-start">
+            <Button href={formHref} class="lp-glow cta-btn-brand mt-2 gap-2 self-start">
               {L('hero.primary')}
               <Icon name="arrow-right" size="sm" />
             </Button>
@@ -558,7 +562,7 @@ const year = new Date().getFullYear();
           ))}
         </ul>
         <div class="mt-6 text-center">
-          <Button href="#form" size="lg" class="lp-glow cta-btn-brand gap-2">
+          <Button href={formHref} size="lg" class="lp-glow cta-btn-brand gap-2">
             {L('hero.primary')}
             <Icon name="arrow-right" size="sm" />
           </Button>
@@ -590,7 +594,7 @@ const year = new Date().getFullYear();
         ))}
       </ol>
       <div class="text-center" data-reveal>
-        <Button href="#form" size="lg" class="lp-glow cta-btn-brand gap-2">
+        <Button href={formHref} size="lg" class="lp-glow cta-btn-brand gap-2">
           {L('hero.primary')}
           <Icon name="arrow-right" size="sm" />
         </Button>
@@ -598,8 +602,8 @@ const year = new Date().getFullYear();
     </div>
   </section>
 
-  <!-- Offer + form -->
-  <section id="form" class="scroll-mt-16 bg-background-tertiary py-[var(--space-section-md)] border-y border-border">
+  <!-- Offer + form (the home page shows the offer and links to the contact page) -->
+  <section id={isHome ? 'offer' : 'form'} class="scroll-mt-16 bg-background-tertiary py-[var(--space-section-md)] border-y border-border">
     <div class="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
       <div>
         <p class="section-eyebrow"><span class="section-eyebrow-num">{num('form')}</span><span>{L('offer.badge')}</span></p>
@@ -629,7 +633,21 @@ const year = new Date().getFullYear();
         </div>
       </div>
 
-      <WebsiteCheckForm {locale} source={isHome ? 'home' : 'landing'} />
+      {isHome ? (
+        <div class="focus-card flex flex-col justify-center gap-6 !p-8 sm:!p-10 self-center" data-reveal>
+          <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-700 text-white shadow-sm">
+            <Icon name="search-check" size="md" />
+          </span>
+          <h3 class="font-display text-2xl font-bold text-foreground text-balance">{L('form.heading')}</h3>
+          <p class="text-foreground-muted leading-relaxed">{L('form.lead')}</p>
+          <Button href={formHref} size="lg" class="lp-glow cta-btn-brand gap-2 self-start">
+            {L('hero.primary')}
+            <Icon name="arrow-right" size="sm" />
+          </Button>
+        </div>
+      ) : (
+        <WebsiteCheckForm {locale} source="landing" />
+      )}
     </div>
   </section>
 
@@ -656,7 +674,7 @@ const year = new Date().getFullYear();
         <div class="lp-story-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
         <h2 class="relative mx-auto max-w-2xl font-display text-3xl font-bold text-white md:text-5xl text-balance">{L('final.heading')}</h2>
         <p class="relative mx-auto mt-4 max-w-xl text-lg text-white/85">{L('final.text')}</p>
-        <Button href="#form" size="lg" variant="secondary" class="lp-glow lp-glow-light relative mt-8 gap-2">
+        <Button href={formHref} size="lg" variant="secondary" class="lp-glow lp-glow-light relative mt-8 gap-2">
           {L('final.cta')}
           <Icon name="arrow-up" size="sm" />
         </Button>
@@ -675,7 +693,7 @@ const year = new Date().getFullYear();
   <!-- Phones: the action stays in reach while reading. Hidden once the form
        itself is on screen. -->
   <div class="lp-sticky fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur-md md:hidden" data-sticky-cta>
-    <Button href="#form" fullWidth class="lp-glow cta-btn-brand gap-2">
+    <Button href={formHref} fullWidth class="lp-glow cta-btn-brand gap-2">
       {L('mobileCta')}
       <Icon name="arrow-down" size="sm" />
     </Button>
