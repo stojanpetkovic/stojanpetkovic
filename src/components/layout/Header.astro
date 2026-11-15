@@ -214,6 +214,8 @@ function getSocialIconData(url: string): { icon: string; label: string } {
   if (url.includes('linkedin.com'))  return { icon: 'linkedin',  label: 'LinkedIn' };
   if (url.includes('bsky.app'))      return { icon: 'bluesky',   label: 'Bluesky' };
   if (url.includes('youtube.com'))   return { icon: 'youtube',   label: 'YouTube' };
+  if (url.includes('facebook.com'))  return { icon: 'facebook',  label: 'Facebook' };
+  if (url.includes('tiktok.com'))    return { icon: 'tiktok',    label: 'TikTok' };
   return { icon: 'link', label: 'Social' };
 }
 
@@ -231,7 +233,7 @@ function getNavIcon(href: string): string {
   return 'chevron-right';
 }
 
-const mobileSocialOrder = ['x.com', 'instagram.com', 'bsky.app', 'github.com', 'linkedin.com', 'youtube.com'];
+const mobileSocialOrder = ['instagram.com', 'facebook.com', 'tiktok.com', 'x.com', 'bsky.app', 'github.com', 'linkedin.com', 'youtube.com'];
 const mobileSocialLinks = mobileSocialOrder
   .map((host) => siteConfig.socialLinks.find((u) => u.includes(host)))
   .filter((u): u is string => Boolean(u));

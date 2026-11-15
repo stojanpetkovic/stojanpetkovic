@@ -290,7 +290,11 @@ const siteConfig: SiteConfig = {
     country: 'Serbia',
   },
   // No street number or socials on file yet — add them here once available.
-  socialLinks: [],
+  socialLinks: [
+    'https://www.instagram.com/mrpetkovicstojan/',
+    'https://www.facebook.com/mrpetkovicstojan',
+    'https://www.tiktok.com/@stollep',
+  ],
   header: {
     // Flip to `true` to show the social icons (incl. GitHub) in the header.
     showSocialLinks: false,
