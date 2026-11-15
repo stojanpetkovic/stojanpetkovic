@@ -28,7 +28,9 @@ const rows: Client[][] = [clients, [...clients.slice(half), ...clients.slice(0, 
     {lead && <p class="mx-auto mt-3 max-w-2xl text-foreground-muted">{lead}</p>}
   </div>
 
-  <div class="cl-viewport mt-10 space-y-6">
+  <div class="cl-viewport relative mx-auto mt-10 max-w-6xl space-y-6 overflow-hidden">
+    <span class="cl-edge cl-edge-l" aria-hidden="true"></span>
+    <span class="cl-edge cl-edge-r" aria-hidden="true"></span>
     {rows.map((row, r) => (
       <div class:list={['cl-track', r === 1 && 'cl-reverse']}>
         {[0, 1].map((copy) => (
@@ -66,7 +68,27 @@ const rows: Client[][] = [clients, [...clients.slice(half), ...clients.slice(0, 
 
 <style>
   .cl-viewport {
-    mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  }
+  .cl-edge {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 14%;
+    pointer-events: none;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .cl-edge-l {
+    left: 0;
+    mask-image: linear-gradient(to right, #000, transparent);
+    -webkit-mask-image: linear-gradient(to right, #000, transparent);
+  }
+  .cl-edge-r {
+    right: 0;
+    mask-image: linear-gradient(to left, #000, transparent);
+    -webkit-mask-image: linear-gradient(to left, #000, transparent);
   }
   .cl-track {
     display: flex;
@@ -119,5 +141,6 @@ const rows: Client[][] = [clients, [...clients.slice(half), ...clients.slice(0, 
     .cl-track > .cl-row[aria-hidden] { display: none; }
     .cl-row { flex-wrap: wrap; justify-content: center; padding-right: 0; gap: 2.5rem; }
     .cl-viewport { mask-image: none; }
+    .cl-edge { display: none; }
   }
 </style>
