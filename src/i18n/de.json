@@ -153,7 +153,7 @@
     "requiresJs": "Für die Kommentare wird JavaScript benötigt."
   },
   "projects": {
-    "title": "Projekte",
+    "title": "Websites, die ich gebaut habe",
     "description": "Was ich gebaut habe",
     "viewProject": "Projekt ansehen",
     "viewSource": "Quellcode ansehen",
@@ -171,10 +171,10 @@
     "galleryClose": "Galerie schließen",
     "galleryNextImage": "Nächstes Bild",
     "galleryPreviousImage": "Vorheriges Bild",
-    "metaTitle": "Projekte: Websites und Kampagnen",
-    "metaDescription": "Websites, SEO und Anzeigen, die ich für Dienstleister umgesetzt habe, mit Zahlen: Anfragen, Anrufe, Google-Rankings und Lighthouse-Werte.",
+    "metaTitle": "Website-Portfolio: Kundenprojekte",
+    "metaDescription": "Websites, die ich für Baumdienste, Zahnarztpraxen, Pflegeheime, Ferienwohnungen und Shops in den USA und Serbien gebaut habe, jeweils mit Fallstudie.",
     "heroBadge": "Portfolio",
-    "heroDescription": "Unternehmen, denen ich zu mehr Kunden verholfen habe.",
+    "heroDescription": "Websites für Baumdienste, Zahnarztpraxen, Pflegeheime, Ferienwohnungen und Onlineshops in den USA und Serbien. Jede ist darauf ausgelegt, Anrufe und Anfragen zu bringen, und jede hat ihre eigene Fallstudie.",
     "emptyTitle": "Projekte folgen in Kürze",
     "emptyText": "Bald hier. Bis dahin finden Sie die Ergebnisse auf der Startseite.",
     "emptyWeb": "Webprojekte ansehen",
@@ -199,7 +199,20 @@
     "ctaPrimary": "Nachricht senden",
     "ctaSecondary": "Mehr über mich",
     "closingHeading": "Haben Sie ein Projekt im Kopf?",
-    "closingLead": "Eine ganz neue Website oder eine, die endlich funktionieren soll? Schreiben Sie mir, worum es geht."
+    "closingLead": "Eine ganz neue Website oder eine, die endlich funktionieren soll? Schreiben Sie mir, worum es geht.",
+    "statSites": "Kunden-Websites",
+    "statIndustries": "Branchen",
+    "statMarkets": "Märkte",
+    "marketsValue": "USA · Serbien",
+    "filterLabel": "Projekte nach Branche filtern",
+    "filterAll": "Alle Projekte",
+    "viewCaseStudy": "Fallstudie ansehen",
+    "industries": {
+      "trees": "Baumdienste",
+      "health": "Gesundheit & Pflege",
+      "travel": "Reisen & Unterkunft",
+      "commerce": "Shops & Inhalte"
+    }
   },
   "pagination": {
     "page": "Seite {current} von {total}",

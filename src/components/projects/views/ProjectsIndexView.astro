@@ -1,30 +1,26 @@
 ---
 /**
- * ProjectsIndexView — the projects landing page (page 1).
+ * ProjectsIndexView — the portfolio: every client website on one page (page 1).
  *
  * Shared body for the default-locale route (`/projects`) and the
- * locale-prefixed route (`/<locale>/projects`). All project/pagination/tag URLs
- * are built locale-aware via the helpers in `lib/projects`, so rendering with
- * the default locale produces exactly the same markup the route did before this
- * was extracted.
+ * locale-prefixed route (`/<locale>/projects`). All project/pagination URLs
+ * are built locale-aware via the helpers in `lib/projects`.
+ *
+ * The first four projects (by `order`) get wide cards; the rest sit three to a
+ * row, so ten projects fill the grid without a ragged last row. The industry
+ * filter is radio buttons and CSS `:has()`, so it works without JavaScript; a
+ * browser without `:has()` simply shows every project.
  */
+import { Image } from 'astro:assets';
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
 import CtaBand from '@/components/patterns/CtaBand.astro';
-import ProjectCard from '@/components/projects/ProjectCard.astro';
-import ProjectTagList from '@/components/projects/ProjectTagList.astro';
 import Pagination from '@/components/blog/Pagination.astro';
 import { t, defaultLocale, localizedPath } from '@/i18n';
-import {
-  collectTopProjectTags,
-  getProjectsPageUrl,
-  getVisibleProjects,
-  PROJECT_TAG_CLOUD_LIMIT,
-  PROJECTS_PER_PAGE,
-} from '@/lib/projects';
+import { getProjectUrl, getProjectsPageUrl, getVisibleProjects, PROJECTS_PER_PAGE } from '@/lib/projects';
 
 interface Props {
   /** Locale whose projects this index renders. Defaults to the site default. */
@@ -36,11 +32,24 @@ const { locale = defaultLocale } = Astro.props;
 // Every client project, so each project page is linked from this index.
 const projects = await getVisibleProjects(locale);
 const webUrl = localizedPath('/web', locale);
-const topTags = collectTopProjectTags(projects, PROJECT_TAG_CLOUD_LIMIT);
 
 // Page 1 lives here at /projects; /projects/page/2..N handle the rest.
 const totalPages = Math.max(1, Math.ceil(projects.length / PROJECTS_PER_PAGE));
 const pageProjects = projects.slice(0, PROJECTS_PER_PAGE);
+
+const FEATURED = 4;
+const industryOrder = ['trees', 'health', 'travel', 'commerce'] as const;
+const industries = industryOrder
+  .map((id) => ({ id, count: pageProjects.filter((p) => p.data.industry === id).length }))
+  .filter((entry) => entry.count > 0);
+
+const domain = (url?: string) => (url ? new URL(url).host.replace(/^www\./, '') : undefined);
+
+const stats = [
+  { value: String(projects.length), label: t('projects.statSites', locale) },
+  { value: String(industries.length), label: t('projects.statIndustries', locale) },
+  { value: t('projects.marketsValue', locale), label: t('projects.statMarkets', locale) },
+];
 
 const contactUrl = localizedPath('/contact', locale);
 const aboutUrl = localizedPath('/about', locale);
@@ -64,6 +73,15 @@ const aboutUrl = localizedPath('/about', locale);
     <p slot="description">
       {t('projects.heroDescription', locale)}
     </p>
+
+    <dl slot="actions" class="pf-stats">
+      {stats.map((stat) => (
+        <div class="pf-stat">
+          <dt class="text-xs font-medium uppercase tracking-wider text-foreground-muted">{stat.label}</dt>
+          <dd class:list={['font-display font-bold text-foreground', stat.value.length > 3 ? 'text-lg sm:text-xl' : 'text-2xl sm:text-3xl']}>{stat.value}</dd>
+        </div>
+      ))}
+    </dl>
   </Hero>
 
   <!-- Nothing published yet -->
@@ -85,22 +103,94 @@ const aboutUrl = localizedPath('/about', locale);
     </section>
   )}
 
-  <!-- All projects -->
+  <!-- The portfolio -->
   {projects.length > 0 && (
-    <section class="projects-section py-[var(--space-section-md)] border-t border-border">
-      <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+    <section class="pf border-t border-border bg-background-secondary py-[var(--space-section-md)]">
+      <div class="mx-auto flex max-w-6xl flex-col gap-10 px-6">
 
-        {topTags.length > 0 && (
-          <div class="flex flex-col items-center gap-4" data-reveal>
-            <ProjectTagList tags={topTags} locale={locale} class="justify-center" />
-          </div>
+        {industries.length > 1 && (
+          <fieldset class="pf-filter" data-reveal>
+            <legend class="sr-only">{t('projects.filterLabel', locale)}</legend>
+            <input class="pf-radio sr-only" type="radio" name="pf-industry" id="pf-all" value="all" checked />
+            <label class="pf-chip" for="pf-all">
+              {t('projects.filterAll', locale)}
+              <span class="pf-chip-count">{pageProjects.length}</span>
+            </label>
+            {industries.map((industry) => (
+              <>
+                <input class="pf-radio sr-only" type="radio" name="pf-industry" id={`pf-${industry.id}`} value={industry.id} />
+                <label class="pf-chip" for={`pf-${industry.id}`}>
+                  {t(`projects.industries.${industry.id}`, locale)}
+                  <span class="pf-chip-count">{industry.count}</span>
+                </label>
+              </>
+            ))}
+          </fieldset>
         )}
 
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {pageProjects.map((project, i) => (
-            <ProjectCard project={project} index={i} locale={locale} />
-          ))}
-        </div>
+        <ul class="pf-grid" role="list">
+          {pageProjects.map((project, i) => {
+            const { data } = project;
+            const href = data.placeholder ? undefined : getProjectUrl(project.id, locale);
+            const host = domain(data.url);
+            // The first meta fact is the client's trade and place ("Dental practice, Pančevo").
+            const eyebrow = data.meta[0] ?? (data.industry && t(`projects.industries.${data.industry}`, locale));
+            const Tag = href ? 'a' : 'div';
+            return (
+              <li
+                class:list={['pf-item', i < FEATURED && 'pf-item--featured']}
+                data-industry={data.industry}
+                data-reveal
+                data-reveal-delay={i % 3 || undefined}
+              >
+                <Tag href={href} class="pf-card group">
+                  <div class="pf-shot">
+                    <div class="pf-bar" aria-hidden="true">
+                      <span class="pf-dot" /><span class="pf-dot" /><span class="pf-dot" />
+                      {host && <span class="pf-url">{host}</span>}
+                    </div>
+                    {data.image && (
+                      <div class="pf-frame">
+                        <Image
+                          src={data.image}
+                          alt={data.imageAlt ?? data.title}
+                          widths={[480, 720, 960, 1280]}
+                          sizes={i < FEATURED
+                            ? '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 36rem'
+                            : '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 24rem'}
+                          class="pf-img"
+                          loading={i < 2 ? 'eager' : 'lazy'}
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  <div class="pf-body">
+                    {eyebrow && <p class="pf-eyebrow">{eyebrow}</p>}
+                    <h2 class="pf-title">{data.title}</h2>
+                    <p class="pf-desc">{data.description}</p>
+
+                    {data.services.length > 0 && (
+                      <ul class="pf-services" role="list">
+                        {data.services.slice(0, 3).map((service) => <li>{service}</li>)}
+                      </ul>
+                    )}
+
+                    <div class="pf-foot">
+                      {data.year ? <span class="font-mono text-xs text-foreground-subtle">{data.year}</span> : <span />}
+                      {href && (
+                        <span class="pf-more">
+                          {t('projects.viewCaseStudy', locale)}
+                          <Icon name="arrow-right" size="sm" class="pf-arrow" />
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </Tag>
+              </li>
+            );
+          })}
+        </ul>
 
         <Pagination
           currentPage={1}
@@ -111,7 +201,7 @@ const aboutUrl = localizedPath('/about', locale);
     </section>
   )}
 
- <!-- CTA -->
+  <!-- CTA -->
   <section class="relative z-10 py-[var(--space-section-md)] bg-background">
     <CtaBand>
       <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
@@ -133,3 +223,291 @@ const aboutUrl = localizedPath('/about', locale);
     </CtaBand>
   </section>
 </PageLayout>
+
+<style>
+  /* Hero stats: three figures in a row, divided by hairlines. */
+  .pf-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-inline: auto;
+    width: min(100%, 36rem);
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-card);
+  }
+  .pf-stat {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 1rem 0.75rem;
+    text-align: center;
+  }
+  .pf-stat + .pf-stat {
+    border-left: 1px solid var(--color-border);
+  }
+
+  /* Filter chips. The radios are visually hidden; the labels carry the look. */
+  .pf-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  /* On phones the chips sit in one row that scrolls sideways. */
+  @media (max-width: 639px) {
+    .pf-filter {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      overflow-x: auto;
+      margin-inline: -1.5rem;
+      padding: 0.25rem 1.5rem;
+      scrollbar-width: none;
+    }
+    .pf-filter::-webkit-scrollbar {
+      display: none;
+    }
+    .pf-chip {
+      flex-shrink: 0;
+    }
+  }
+  .pf-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-card);
+    color: var(--color-foreground-muted);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 150ms, border-color 150ms, background-color 150ms;
+  }
+  .pf-chip:hover {
+    color: var(--color-foreground);
+    border-color: var(--brand-400);
+  }
+  .pf-chip-count {
+    min-width: 1.5rem;
+    padding: 0.05rem 0.4rem;
+    border-radius: 999px;
+    background: var(--color-background-secondary);
+    font-size: 0.75rem;
+    text-align: center;
+  }
+  .pf-radio:checked + .pf-chip {
+    background: var(--brand-700);
+    border-color: var(--brand-700);
+    color: #fff;
+  }
+  .pf-radio:checked + .pf-chip .pf-chip-count {
+    background: rgb(255 255 255 / 0.2);
+  }
+  .pf-radio:focus-visible + .pf-chip {
+    outline: 2px solid var(--brand-500);
+    outline-offset: 2px;
+  }
+
+  /* The grid: wide cards first, then three to a row. */
+  .pf-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  @media (min-width: 768px) {
+    .pf-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1024px) {
+    .pf-grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+    .pf-item {
+      grid-column: span 2;
+    }
+    .pf-item--featured {
+      grid-column: span 3;
+    }
+    /* While a filter is on, every card is the same size. */
+    .pf:has(.pf-radio:checked:not(#pf-all)) .pf-item {
+      grid-column: span 2;
+    }
+  }
+
+  .pf:has(#pf-trees:checked) .pf-item:not([data-industry='trees']),
+  .pf:has(#pf-health:checked) .pf-item:not([data-industry='health']),
+  .pf:has(#pf-travel:checked) .pf-item:not([data-industry='travel']),
+  .pf:has(#pf-commerce:checked) .pf-item:not([data-industry='commerce']) {
+    display: none;
+  }
+
+  /* The card. */
+  .pf-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 1.25rem;
+    background: var(--color-card);
+    color: inherit;
+    text-decoration: none;
+    transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+  }
+  a.pf-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--brand-300);
+    box-shadow: 0 24px 48px -24px rgb(15 40 80 / 0.35);
+  }
+  a.pf-card:focus-visible {
+    outline: 2px solid var(--brand-500);
+    outline-offset: 3px;
+  }
+
+  /* The screenshot, in a small browser window on a brand-tinted panel. */
+  .pf-shot {
+    padding: 1rem 1rem 0;
+    background:
+      radial-gradient(120% 80% at 50% 0%, color-mix(in oklch, var(--brand-500) 18%, transparent), transparent 70%),
+      var(--color-background-secondary);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .pf-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    height: 1.75rem;
+    padding: 0 0.75rem;
+    border: 1px solid var(--color-border);
+    border-bottom: 0;
+    border-radius: 0.75rem 0.75rem 0 0;
+    background: var(--color-card);
+  }
+  .pf-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--color-border);
+  }
+  .pf-url {
+    margin-left: 0.5rem;
+    overflow: hidden;
+    color: var(--color-foreground-subtle);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.7rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .pf-frame {
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-bottom: 0;
+  }
+  .pf-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  a.pf-card:hover .pf-img {
+    transform: scale(1.04);
+  }
+
+  .pf-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.4rem 1.5rem 1.5rem;
+  }
+  .pf-eyebrow {
+    color: var(--brand-600);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  :global(.dark) .pf-eyebrow {
+    color: var(--brand-300);
+  }
+  .pf-title {
+    color: var(--color-foreground);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  .pf-item--featured .pf-title {
+    font-size: 1.5rem;
+  }
+  .pf-desc {
+    flex: 1;
+    color: var(--color-foreground-muted);
+    font-size: 0.925rem;
+    line-height: 1.6;
+  }
+  .pf-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.25rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .pf-services li {
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    color: var(--color-foreground-muted);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  .pf-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .pf-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-foreground);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+  .pf-more :global(.pf-arrow) {
+    transition: transform 200ms ease;
+  }
+  a.pf-card:hover .pf-more {
+    color: var(--brand-700);
+  }
+  a.pf-card:hover .pf-more :global(.pf-arrow) {
+    transform: translateX(3px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pf-card,
+    .pf-img,
+    .pf-more :global(.pf-arrow) {
+      transition: none;
+    }
+    a.pf-card:hover,
+    a.pf-card:hover .pf-img {
+      transform: none;
+    }
+  }
+</style>

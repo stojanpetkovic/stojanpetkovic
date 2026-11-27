@@ -14,7 +14,7 @@ import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import { Image } from 'astro:assets';
-import { getVisibleProjects, getProjectUrl } from '@/lib/projects';
+import { getVisibleProjects, getProjectUrl, getProjectsBaseUrl } from '@/lib/projects';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
 
 interface Props {
@@ -49,7 +49,8 @@ const hero = tData<{ badge: string; titleLead: string; titleHighlight: string; d
 )!;
 const services = tData<{ heading: string; cards: IconCard[] }>('pages.web.services', locale)!;
 const glance = tData<{ label: string; items: { label: string; value: string }[] }>('pages.web.glance', locale)!;
-const portfolio = tData<{ heading: string }>('pages.home.portfolio', locale)!;
+const portfolio = tData<{ heading: string; viewAll: string }>('pages.home.portfolio', locale)!;
+const projectsUrl = getProjectsBaseUrl(locale);
 const testimonials = tData<{ heading: string; items: Testimonial[] }>('pages.home.testimonials', locale)!;
 
 const details = tData<{ badge: string; heading: string; sections: { title: string; paragraphs: string[] }[] }>('pages.web.details', locale)!;
@@ -128,7 +129,13 @@ const contactUrl = localizedPath('/contact', locale);
   <!-- Client websites: a compact list -->
   <section id="work" class="border-t border-border bg-background-secondary py-12">
     <div class="mx-auto max-w-5xl px-6">
-      <h2 class="text-sm font-semibold uppercase tracking-wider text-foreground-muted">{portfolio.heading}</h2>
+      <div class="flex items-baseline justify-between gap-4">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-foreground-muted">{portfolio.heading}</h2>
+        <a href={projectsUrl} class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:underline dark:text-brand-300">
+          {portfolio.viewAll}
+          <Icon name="arrow-right" size="sm" />
+        </a>
+      </div>
       <ul class="mt-4 divide-y divide-border rounded-xl border border-border bg-card" role="list">
         {projects.map((project) => (
           <li>

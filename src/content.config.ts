@@ -162,6 +162,11 @@ const projects = defineCollection({
        */
       category: z.enum(['industry', 'web']).default('web'),
       /**
+       * The client's line of business, for the filter on the projects index.
+       * Labels live under `projects.industries.<value>` in the locale files.
+       */
+      industry: z.enum(['trees', 'health', 'travel', 'commerce']).optional(),
+      /**
        * Shorter title for the <title> tag and social cards, where search engines
        * cut a title at about 60 characters including the ` — <site name>` suffix.
        * The page heading keeps `title`.

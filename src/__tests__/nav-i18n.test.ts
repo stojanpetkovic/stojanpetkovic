@@ -30,6 +30,7 @@ describe('nav config — locale resolution (en default, de secondary)', () => {
     expect(items.map((i) => i.href)).toEqual([
       '/de/leistungen',
       '/de/web',
+      '/de/projekte',
       '/de/blog',
       '/de/ueber-mich',
       '/de/kontakt',
@@ -87,9 +88,9 @@ describe('nav config — locale resolution (en default, de secondary)', () => {
 });
 
 describe('top bar', () => {
-  it('lists the client-facing pages only, with no engineering section', () => {
+  it('lists the client-facing pages only, with the client-work portfolio under Projects', () => {
     const items = getNavItems('en');
-    expect(items.map((i) => i.label)).toEqual(['Services', 'Websites', 'Blog', 'About', 'Contact']);
+    expect(items.map((i) => i.label)).toEqual(['Services', 'Websites', 'Projects', 'Blog', 'About', 'Contact']);
     // Only Services opens a menu, and it lists the service pages.
     expect(items.filter((i) => i.mega).map((i) => i.label)).toEqual(['Services']);
     const links = items[0].mega!.groups.flatMap((g) => g.links.map((l) => l.href));

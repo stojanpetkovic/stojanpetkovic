@@ -153,7 +153,7 @@
     "requiresJs": "Za komentare ti treba uključen JavaScript."
   },
   "projects": {
-    "title": "Projekti",
+    "title": "Sajtovi koje sam napravio",
     "description": "Stvari koje sam napravio",
     "viewProject": "Pogledaj projekat",
     "viewSource": "Pogledaj kod",
@@ -171,10 +171,10 @@
     "galleryClose": "Zatvori galeriju",
     "galleryNextImage": "Sledeća slika",
     "galleryPreviousImage": "Prethodna slika",
-    "metaTitle": "Projekti: sajtovi i kampanje",
-    "metaDescription": "Sajtovi, SEO i oglasi koje sam radio za uslužne firme, sa brojkama: upiti, pozivi, pozicije na Google-u i Lighthouse ocene.",
+    "metaTitle": "Portfolio sajtova: radovi za klijente",
+    "metaDescription": "Sajtovi koje sam napravio za firme za drveće, stomatologe, domove za stare, apartmane i prodavnice u Americi i Srbiji, svaki sa opisom projekta i rezultatima.",
     "heroBadge": "Portfolio",
-    "heroDescription": "Firme kojima sam pomogao da dođu do više klijenata.",
+    "heroDescription": "Sajtovi za firme za uklanjanje drveća, stomatološke ordinacije, domove za stare, apartmane i online prodavnice u Americi i Srbiji. Svaki je napravljen da donosi pozive i upite, i svaki ima svoju studiju slučaja.",
     "emptyTitle": "Projekti stižu uskoro",
     "emptyText": "Uskoro ovde. Do tada pogledaj rezultate na početnoj strani.",
     "emptyWeb": "Pogledaj web projekte",
@@ -199,7 +199,20 @@
     "ctaPrimary": "Pošalji poruku",
     "ctaSecondary": "Više o meni",
     "closingHeading": "Imaš projekat na umu?",
-    "closingLead": "Treba ti nov sajt ili stari da proradi kako treba? Napiši mi o čemu se radi."
+    "closingLead": "Treba ti nov sajt ili stari da proradi kako treba? Napiši mi o čemu se radi.",
+    "statSites": "Sajtova za klijente",
+    "statIndustries": "Delatnosti",
+    "statMarkets": "Tržišta",
+    "marketsValue": "SAD · Srbija",
+    "filterLabel": "Filtriraj projekte po delatnosti",
+    "filterAll": "Svi radovi",
+    "viewCaseStudy": "Pogledaj projekat",
+    "industries": {
+      "trees": "Drveće i bašta",
+      "health": "Zdravstvo i nega",
+      "travel": "Turizam i smeštaj",
+      "commerce": "Prodavnice i sadržaj"
+    }
   },
   "pagination": {
     "page": "Strana {current} od {total}",

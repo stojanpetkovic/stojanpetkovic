@@ -153,7 +153,7 @@
     "requiresJs": "Comments require JavaScript to load."
   },
   "projects": {
-    "title": "Projects",
+    "title": "Websites I've built",
     "description": "Things I've built",
     "viewProject": "View project",
     "viewSource": "View source",
@@ -171,10 +171,10 @@
     "galleryClose": "Close lightbox",
     "galleryNextImage": "Next image",
     "galleryPreviousImage": "Previous image",
-    "metaTitle": "Projects: websites and campaigns",
-    "metaDescription": "Websites, SEO and ads I have built for service businesses, with the numbers: enquiries, calls, Google rankings and Lighthouse scores.",
-    "heroBadge": "Selected work",
-    "heroDescription": "Businesses I have helped win more customers.",
+    "metaTitle": "Website portfolio: client projects",
+    "metaDescription": "Websites I have built for tree services, dental practices, care homes, holiday rentals and shops in the US and Serbia, each with a case study and results.",
+    "heroBadge": "Portfolio",
+    "heroDescription": "Client websites for tree services, dental and care practices, holiday rentals and online shops in the US and Serbia. Each one is built to bring in calls and enquiries, and each has its own case study.",
     "emptyTitle": "Projects coming soon",
     "emptyText": "Coming soon. Meanwhile, see the results on the home page.",
     "emptyWeb": "See web projects",
@@ -199,7 +199,20 @@
     "ctaPrimary": "Send a message",
     "ctaSecondary": "More about me",
     "closingHeading": "Have a project in mind?",
-    "closingLead": "Need a new site, or one that finally works the way it should? Tell me what's going on."
+    "closingLead": "Need a new site, or one that finally works the way it should? Tell me what's going on.",
+    "statSites": "Client websites",
+    "statIndustries": "Industries",
+    "statMarkets": "Markets",
+    "marketsValue": "USA · Serbia",
+    "filterLabel": "Filter projects by industry",
+    "filterAll": "All work",
+    "viewCaseStudy": "View case study",
+    "industries": {
+      "trees": "Tree services",
+      "health": "Healthcare & care",
+      "travel": "Travel & hospitality",
+      "commerce": "Shops & content"
+    }
   },
   "pagination": {
     "page": "Page {current} of {total}",
