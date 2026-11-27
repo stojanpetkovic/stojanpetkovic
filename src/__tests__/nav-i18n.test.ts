@@ -90,7 +90,18 @@ describe('top bar', () => {
   it('lists the client-facing pages only, with no engineering section', () => {
     const items = getNavItems('en');
     expect(items.map((i) => i.label)).toEqual(['Services', 'Websites', 'Blog', 'About', 'Contact']);
-    expect(items.some((i) => i.mega)).toBe(false);
+    // Only Services opens a menu, and it lists the service pages.
+    expect(items.filter((i) => i.mega).map((i) => i.label)).toEqual(['Services']);
+    const links = items[0].mega!.groups.flatMap((g) => g.links.map((l) => l.href));
+    expect(links).toContain('/services/local-seo');
+    expect(links).toContain('/web');
+    expect(links.every((href) => href.startsWith('/services/') || href === '/web')).toBe(true);
+  });
+
+  it('names the service pages in the visitor\'s language', () => {
+    const sr = getNavItems('sr')[0].mega!;
+    expect(sr.groups.flatMap((g) => g.links.map((l) => l.href))).toContain('/sr/usluge/google-oglasi');
+    expect(sr.groups.flatMap((g) => g.links.map((l) => l.label))).toContain('Google oglasi');
   });
 
   it('every link goes to a page that exists', () => {

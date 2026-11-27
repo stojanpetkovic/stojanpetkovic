@@ -27,6 +27,12 @@ export interface SiteConfig {
   };
   socialLinks: string[];
   /**
+   * Link to the business's Google Business Profile (the "Share" link from the
+   * profile). Used as `hasMap` and in `sameAs` of the business's JSON-LD, so
+   * Google can tie the website and the profile to one business.
+   */
+  googleBusinessProfile?: string;
+  /**
    * Header options. Set `showSocialLinks: true` to render an icon link in the
    * top-right for each entry in `socialLinks` (GitHub, X, etc. — the icon is
    * inferred from the URL). Off by default; an explicit `<Header
@@ -295,6 +301,7 @@ const siteConfig: SiteConfig = {
     'https://www.facebook.com/mrpetkovicstojan',
     'https://www.tiktok.com/@stollep',
   ],
+  googleBusinessProfile: 'https://share.google/3lGK9tqgz0TaeuCDw',
   header: {
     // Flip to `true` to show the social icons (incl. GitHub) in the header.
     showSocialLinks: false,

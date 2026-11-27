@@ -31,6 +31,7 @@
  * identical to a single-locale site.
  */
 import { localizedPath, t, defaultLocale, type Locale } from '@/i18n';
+import { services } from './services.config';
 
 /** Per-locale override for a nav item or legal link's label and/or path. */
 export interface NavItemOverride {
@@ -130,8 +131,30 @@ export interface ResolvedNavItem {
   mega?: ResolvedMegaMenu;
 }
 
+/**
+ * The Services mega menu: every service page, grouped by what it does for the
+ * client, built from `services.config.ts` so a new service appears here too.
+ */
+const servicesMega: MegaMenuConfig = {
+  activePrefixes: ['/services', '/web'],
+  overview: { label: 'All services', labelKey: 'nav.mega.overview', href: '/services', icon: 'arrow-right' },
+  groups: (['ads', 'visibility', 'web'] as const).map((group) => ({
+    title: group,
+    titleKey: `nav.mega.groups.${group}`,
+    links: services
+      .filter((service) => service.group === group)
+      .map((service) => ({
+        label: service.id,
+        labelKey: `pages.servicePage.items.${service.id}.name`,
+        descriptionKey: `pages.servicePage.items.${service.id}.summary`,
+        href: service.href,
+        icon: service.icon,
+      })),
+  })),
+};
+
 export const navItems: NavItem[] = [
-  { label: 'Services', href: '/services', order: 0, labelKey: 'nav.items.services' },
+  { label: 'Services', href: '/services', order: 0, labelKey: 'nav.items.services', mega: servicesMega },
   { label: 'Websites', href: '/web', order: 1, labelKey: 'nav.items.web' },
   { label: 'Blog', href: '/blog', order: 2, labelKey: 'nav.items.blog' },
   { label: 'About', href: '/about', order: 3, labelKey: 'nav.items.about' },
@@ -174,9 +197,11 @@ export const footerLinkGroups: FooterLinkGroupConfig[] = [
     titleKey: 'footer.groups.services',
     title: 'Services',
     links: [
-      { label: 'Google and Meta ads', href: '/services#marketing', labelKey: 'footer.links.ads' },
-      { label: 'SEO and AI visibility', href: '/services#marketing', labelKey: 'footer.links.seo' },
-      { label: 'Websites', href: '/web', labelKey: 'footer.links.web' },
+      ...services.map((service) => ({
+        label: service.id,
+        href: service.href,
+        labelKey: `pages.servicePage.items.${service.id}.name`,
+      })),
       { label: 'Free website check', href: '/contact', labelKey: 'footer.links.check' },
     ],
   },

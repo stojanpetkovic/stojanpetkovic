@@ -13,6 +13,7 @@ import type {
 import siteConfig from '@/config/site.config';
 import { defaultLocale, type Locale } from '@/i18n';
 import { getSiteName, getSiteNameAlternates } from '@/lib/site-name';
+import { services, resolveService } from '@/config/services.config';
 
 /** Stable `@id`s so every page's JSON-LD points at the same entities. */
 const ID = {
@@ -31,11 +32,11 @@ const AREA_SERVED = ['Serbia', 'Germany', 'Austria', 'Switzerland', 'United Stat
   name,
 }));
 
-const SERVICES: Record<string, string[]> = {
-  en: ['Google Ads management', 'Facebook and Instagram advertising', 'Local SEO', 'AI search visibility (GEO)', 'Website design and development', 'Call and lead tracking'],
-  sr: ['Vođenje Google oglasa', 'Oglasi na Facebook-u i Instagramu', 'Lokalni SEO', 'Vidljivost u AI pretrazi (GEO)', 'Izrada sajtova', 'Praćenje poziva i upita'],
-  de: ['Google-Ads-Betreuung', 'Facebook- und Instagram-Werbung', 'Lokales SEO', 'Sichtbarkeit in der KI-Suche (GEO)', 'Webdesign und Website-Erstellung', 'Anruf- und Anfragen-Tracking'],
-};
+/** The business's profiles elsewhere: social networks and the Google Business Profile. */
+const businessSameAs = () => [
+  ...siteConfig.socialLinks,
+  ...(siteConfig.googleBusinessProfile ? [siteConfig.googleBusinessProfile] : []),
+];
 
 /**
  * The brand as `name`, in the page's language, with the other locales'
@@ -155,13 +156,23 @@ export function createProfessionalServiceSchema(locale: Locale = defaultLocale):
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: locale === 'sr' ? 'Usluge' : locale === 'de' ? 'Leistungen' : 'Services',
-      itemListElement: (SERVICES[locale] ?? SERVICES.en).map((name) => ({
-        '@type': 'Offer' as const,
-        itemOffered: { '@type': 'Service' as const, name },
-      })),
+      itemListElement: services.map((service) => {
+        const { name, summary, url } = resolveService(service, locale);
+        return {
+          '@type': 'Offer' as const,
+          itemOffered: {
+            '@type': 'Service' as const,
+            name,
+            description: summary,
+            // With the trailing slash the pages' canonical tags use.
+            url: `${siteConfig.url}${url.replace(/\/?$/, '/')}`,
+          },
+        };
+      }),
     },
     areaServed: AREA_SERVED,
-    sameAs: siteConfig.socialLinks,
+    ...(siteConfig.googleBusinessProfile ? { hasMap: siteConfig.googleBusinessProfile } : {}),
+    sameAs: businessSameAs(),
   };
 }
 
@@ -179,7 +190,7 @@ export function createOrganizationSchema(locale: Locale = defaultLocale): WithCo
     ...brandName(locale),
     url: siteConfig.url,
     ...(logoUrl ? { logo: logoUrl } : {}),
-    sameAs: siteConfig.socialLinks,
+    sameAs: businessSameAs(),
     contactPoint: siteConfig.phone
       ? {
           '@type': 'ContactPoint',

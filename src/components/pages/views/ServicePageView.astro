@@ -1,0 +1,276 @@
+---
+/**
+ * ServicePageView — the page of one service (`/services/<id>`).
+ *
+ * One page per entry in `src/config/services.config.ts` that has `page: true`,
+ * so each service can rank for its own searches and the Google Business
+ * Profile can link to it. Copy is read from `pages.servicePage.items.<id>`;
+ * labels shared by every service page come from `pages.servicePage.common`.
+ *
+ * Each page carries a Service and an FAQPage in JSON-LD, a visible breadcrumb
+ * with its BreadcrumbList, and links to the related services.
+ */
+import { createServiceSchema, createFAQSchema, createProfessionalServiceSchema } from '@/lib/schema';
+import PageLayout from '@/layouts/PageLayout.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Card from '@/components/ui/data-display/Card/Card.astro';
+import ProofTile from '@/components/ui/data-display/ProofTile/ProofTile.astro';
+import Button from '@/components/ui/form/Button/Button.astro';
+import Breadcrumbs from '@/components/seo/Breadcrumbs.astro';
+import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
+import siteConfig from '@/config/site.config';
+import { services, resolveService } from '@/config/services.config';
+import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+
+interface Props {
+  /** The service's id in `services.config.ts`. */
+  id: string;
+  /** Locale whose copy this page renders. Defaults to the site default. */
+  locale?: string;
+}
+
+interface Item {
+  lead: string;
+  text: string;
+}
+interface Step {
+  title: string;
+  description: string;
+}
+interface Faq {
+  question: string;
+  answer: string;
+}
+interface ServiceCopy {
+  name: string;
+  serviceType: string;
+  meta: { title: string; description: string };
+  hero: { badge: string; title: string; description: string };
+  intro: { heading: string; paragraphs: string[] };
+  included: { heading: string; items: Item[] };
+  fit: string[];
+  steps: { heading: string; items: Step[] };
+  faq: Faq[];
+}
+interface Common {
+  heroPrimary: string;
+  heroSecondary: string;
+  includedBadge: string;
+  fitBadge: string;
+  fitHeading: string;
+  stepsBadge: string;
+  faqBadge: string;
+  faqHeading: string;
+  relatedBadge: string;
+  relatedHeading: string;
+  relatedLink: string;
+  allServices: string;
+  cta: { heading: string; description: string; primary: string; secondary: string };
+}
+
+const { id, locale = defaultLocale } = Astro.props;
+
+const copy = tData<ServiceCopy>(`pages.servicePage.items.${id}`, locale)!;
+const common = tData<Common>('pages.servicePage.common', locale)!;
+
+const service = services.find((entry) => entry.id === id)!;
+const pagePath = localizedPath(service.href, locale);
+// The address the canonical tag names, trailing slash included.
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const servicesUrl = localizedPath('/services', locale);
+const contactUrl = localizedPath('/contact', locale);
+const homeUrl = localizedPath('/', locale);
+
+// Every other service, so each page links to the rest of the catalogue.
+const related = services.filter((entry) => entry.id !== id).map((entry) => resolveService(entry, locale));
+
+const breadcrumbs = [
+  { label: t('nav.items.home', locale), href: homeUrl },
+  { label: t('nav.items.services', locale), href: servicesUrl },
+  { label: copy.name, href: pagePath },
+];
+---
+
+<PageLayout
+  title={copy.meta.title}
+  description={copy.meta.description}
+  extraSchemas={[
+    // The business itself, so the provider every Service points at is
+    // described on the page, with its Google Business Profile.
+    createProfessionalServiceSchema(locale),
+    createServiceSchema({
+      name: copy.name,
+      description: copy.meta.description,
+      url: pageUrl,
+      locale,
+      serviceType: copy.serviceType,
+    }),
+    createFAQSchema(copy.faq),
+  ]}
+  footerBackground="secondary"
+>
+  <!-- Header: breadcrumb, H1 and the actions on the left, what's included on the right -->
+  <section class="border-b border-border pb-14 pt-10 sm:pt-14">
+    <div class="mx-auto max-w-6xl px-6">
+      <Breadcrumbs items={breadcrumbs} class="mb-8 text-foreground-muted" />
+      <div class="grid items-start gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-14">
+        <div>
+          <p class="section-eyebrow !mb-0"><span>{copy.hero.badge}</span></p>
+          <h1 class="mt-4 font-display text-3xl font-bold tracking-tight text-foreground sm:text-[2.6rem] sm:leading-[1.15] text-balance">
+            {copy.hero.title}
+          </h1>
+          <p class="mt-5 max-w-xl text-lg leading-relaxed text-foreground-muted">{copy.hero.description}</p>
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <Button size="lg" href={contactUrl}>
+              {common.heroPrimary}
+              <Icon name="arrow-right" size="sm" />
+            </Button>
+            {siteConfig.phone && (
+              <Button size="lg" variant="outline" href={`tel:${siteConfig.phone}`}>
+                <Icon name="phone" size="sm" />
+                {common.heroSecondary}
+              </Button>
+            )}
+          </div>
+        </div>
+
+        <Card variant="elevated" padding="lg">
+          <div class="flex items-center gap-3 pb-4 mb-4 border-b border-border">
+            <div class="w-11 h-11 rounded-xl bg-brand-700 text-white flex items-center justify-center shrink-0">
+              <Icon name={service.icon} size="md" />
+            </div>
+            <h2 class="font-display text-base font-semibold text-foreground">{copy.included.heading}</h2>
+          </div>
+          <ul class="flex flex-col gap-3">
+            {copy.included.items.map((item) => (
+              <li class="flex items-start gap-3">
+                <Icon name="check" size="sm" class="text-brand-500 shrink-0 mt-1" />
+                <p class="text-sm text-foreground-muted leading-relaxed">
+                  <span class="font-semibold text-foreground">{item.lead}</span> — {item.text}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </Card>
+      </div>
+    </div>
+  </section>
+
+  <!-- The problem it solves, and who it is for -->
+  <section class="py-[var(--space-section-sm)] bg-background-secondary">
+    <div class="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[1.4fr_1fr] lg:gap-14">
+      <div data-reveal>
+        <p class="section-eyebrow"><span class="section-eyebrow-num">01</span><span>{copy.hero.badge}</span></p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">{copy.intro.heading}</h2>
+        {copy.intro.paragraphs.map((paragraph) => (
+          <p class="mt-4 text-lg leading-relaxed text-foreground-muted">{paragraph}</p>
+        ))}
+      </div>
+      <div data-reveal data-reveal-delay="1">
+        <p class="section-eyebrow"><span class="section-eyebrow-num">02</span><span>{common.fitBadge}</span></p>
+        <h2 class="font-display text-xl font-semibold text-foreground">{common.fitHeading}</h2>
+        <ul class="mt-4 flex flex-col gap-3" role="list">
+          {copy.fit.map((item) => (
+            <li class="flex items-start gap-3 text-foreground-muted">
+              <Icon name="check" size="sm" class="text-brand-500 shrink-0 mt-1" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-[var(--space-section-sm)] bg-background border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+      <div data-reveal>
+        <p class="section-eyebrow"><span class="section-eyebrow-num">03</span><span>{common.stepsBadge}</span></p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">{copy.steps.heading}</h2>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        {copy.steps.items.map((step, i) => (
+          <ProofTile number={i + 1} title={step.title} data-reveal data-reveal-delay={i || undefined}>
+            {step.description}
+          </ProofTile>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Questions & answers -->
+  <section id="faq" class="py-[var(--space-section-sm)] bg-background-secondary border-t border-border">
+    <div class="mx-auto max-w-3xl px-6 flex flex-col gap-8">
+      <div data-reveal>
+        <p class="section-eyebrow"><span class="section-eyebrow-num">04</span><span>{common.faqBadge}</span></p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">{common.faqHeading}</h2>
+      </div>
+      <Card variant="elevated" padding="lg" data-reveal>
+        {copy.faq.map((item) => (
+          <details class="border-b border-border last:border-0" name={`faq-${id}`}>
+            <summary class="flex w-full items-center justify-between gap-4 text-base py-4 text-left font-medium text-foreground transition-colors hover:text-foreground-secondary cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              {item.question}
+              <Icon name="chevron-down" size="sm" class="faq-icon shrink-0 text-foreground-muted transition-transform duration-200" />
+            </summary>
+            <p class="pb-4 text-sm text-foreground-muted leading-relaxed">{item.answer}</p>
+          </details>
+        ))}
+      </Card>
+    </div>
+  </section>
+
+  <!-- The other services -->
+  <section class="py-[var(--space-section-sm)] bg-background border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+      <div class="flex flex-wrap items-end justify-between gap-4" data-reveal>
+        <div>
+          <p class="section-eyebrow"><span class="section-eyebrow-num">05</span><span>{common.relatedBadge}</span></p>
+          <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">{common.relatedHeading}</h2>
+        </div>
+        <a href={servicesUrl} class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 underline-offset-4 hover:underline">
+          {common.allServices}
+          <Icon name="arrow-right" size="sm" />
+        </a>
+      </div>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
+        {related.map((entry) => (
+          <li>
+            <a href={entry.url} class="group flex h-full gap-4 rounded-xl border border-border bg-card p-5 transition-colors hover:border-brand-500">
+              <span class="w-10 h-10 rounded-lg bg-brand-700 text-white flex items-center justify-center shrink-0">
+                <Icon name={entry.icon} size="sm" />
+              </span>
+              <span class="flex flex-col gap-1">
+                <span class="font-semibold text-foreground group-hover:text-brand-700">{entry.name}</span>
+                <span class="text-sm leading-relaxed text-foreground-muted">{entry.summary}</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">
+    <LetterGlitchBand desktopOnly={false}>
+      <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">{common.cta.heading}</h2>
+      <p class="text-lg text-foreground-muted mb-8 text-balance">{common.cta.description}</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button size="lg" href={contactUrl}>
+          {common.cta.primary}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+        <Button size="lg" variant="outline" class="cta-btn-brand" href={servicesUrl}>
+          {common.cta.secondary}
+          <Icon name="arrow-right" size="sm" />
+        </Button>
+      </div>
+    </LetterGlitchBand>
+  </section>
+</PageLayout>
+
+<style is:global>
+  details[open] > summary .faq-icon {
+    transform: rotate(180deg);
+  }
+</style>

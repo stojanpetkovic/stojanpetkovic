@@ -17,6 +17,7 @@ import Button from '@/components/ui/form/Button/Button.astro';
 import { Hero } from '@/components/hero';
 import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+import { services, resolveService } from '@/config/services.config';
 
 interface Props {
   /** Locale whose copy this page renders. Defaults to the site default. */
@@ -68,6 +69,9 @@ const cta = tData<{ badge: string; heading: string; description: string; primary
 )!;
 
 const contactUrl = localizedPath('/contact', locale);
+// Every service, each linking to its own page.
+const catalogue = services.map((service) => resolveService(service, locale));
+const catalogueCommon = tData<{ allServices: string; relatedLink: string }>('pages.servicePage.common', locale)!;
 const aboutUrl = localizedPath('/about', locale);
 const webUrl = localizedPath('/web', locale);
 
@@ -117,6 +121,32 @@ const sections = [
       ))}
     </Fragment>
   </Hero>
+
+  <!-- Every service, linking to its own page -->
+  <section id="all" class="py-[var(--space-section-sm)] bg-background border-t border-border">
+    <div class="mx-auto max-w-6xl px-6 flex flex-col gap-6">
+      <h2 class="font-display text-2xl md:text-3xl font-bold tracking-tight text-foreground">{catalogueCommon.allServices}</h2>
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
+        {catalogue.map((entry) => (
+          <li>
+            <a href={entry.url} class="group flex h-full gap-4 rounded-xl border border-border bg-card p-5 transition-colors hover:border-brand-500">
+              <span class="w-10 h-10 rounded-lg bg-brand-700 text-white flex items-center justify-center shrink-0">
+                <Icon name={entry.icon} size="sm" />
+              </span>
+              <span class="flex flex-col gap-1">
+                <span class="font-semibold text-foreground group-hover:text-brand-700">{entry.name}</span>
+                <span class="text-sm leading-relaxed text-foreground-muted">{entry.summary}</span>
+                <span class="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-brand-700">
+                  {catalogueCommon.relatedLink}
+                  <Icon name="arrow-right" size="xs" />
+                </span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
 
   {sections.map(({ id, area, href, bg }, i) => (
     <section id={id} class={`py-[var(--space-section-md)] ${bg} border-t border-border`}>

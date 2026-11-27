@@ -39,6 +39,14 @@
     "summary": "Stojan Petkovic aus Zrenjanin, Serbien, hilft Dienstleistern, online Kunden zu gewinnen: Google- und Meta-Anzeigen, lokales SEO, Sichtbarkeit in der KI-Suche (GEO), schnelle Websites und Landingpages, KI-Chat und die Erfassung jeder Anfrage und jedes Anrufs mit Monatsbericht. Er arbeitet mit Kunden in Serbien, Europa und den USA. Eine Website hat einen Festpreis, Anzeigen und SEO laufen monatlich ohne lange Vertragsbindung, und Code, Domain und Hosting gehören dem Kunden ab dem ersten Tag."
   },
   "nav": {
+    "mega": {
+      "overview": "Alle Leistungen",
+      "groups": {
+        "ads": "Anzeigen",
+        "visibility": "Gefunden werden",
+        "web": "Website und Antworten"
+      }
+    },
     "skipToContent": "Zum Inhalt springen",
     "openMenu": "Menü öffnen",
     "closeMenu": "Menü schließen",
@@ -285,6 +293,453 @@
     }
   },
   "pages": {
+    "servicePage": {
+      "common": {
+        "heroPrimary": "Kostenlosen Check anfragen",
+        "heroSecondary": "Anrufen",
+        "includedBadge": "Was Sie bekommen",
+        "fitBadge": "Für wen",
+        "fitHeading": "Passt besonders gut für",
+        "stepsBadge": "Ablauf",
+        "faqBadge": "Fragen",
+        "faqHeading": "Fragen und Antworten",
+        "relatedBadge": "Weitere Leistungen",
+        "relatedHeading": "Leistungen, die gut dazu passen",
+        "relatedLink": "Mehr erfahren",
+        "allServices": "Alle Leistungen",
+        "cta": {
+          "heading": "Was würde das Ihrem Betrieb bringen?",
+          "description": "Schreiben Sie mir. Ich sehe mir an, wie Kunden Sie heute finden, und sage Ihnen ehrlich, ob sich diese Leistung für Sie lohnt. Das Erstgespräch ist kostenlos.",
+          "primary": "Kostenlosen Check anfragen",
+          "secondary": "Alle Leistungen ansehen"
+        }
+      },
+      "items": {
+        "google-ads": {
+          "name": "Google Ads",
+          "summary": "Ganz oben in der Google-Suche und auf Maps, wenn jemand Sie braucht.",
+          "serviceType": "Google-Ads-Betreuung",
+          "meta": {
+            "title": "Google-Ads-Betreuung für Handwerk und Dienstleister",
+            "description": "Google Ads in Suche und Maps für Handwerker und Dienstleister: ausgerichtet auf Anfragen, aus denen Aufträge werden, jeder Anruf wird gemessen."
+          },
+          "hero": {
+            "badge": "Google Ads",
+            "title": "Google Ads, die Anrufe bringen, nicht nur Klicks",
+            "description": "Wenn jemand in Ihrer Region „Sanitär Notdienst”, „Zahnarzt” oder „Dachdecker” sucht, erscheint Ihre Anzeige zuerst. Ich richte die Kampagnen ein und betreue sie, und jeder Anruf und jede Anfrage wird gemessen."
+          },
+          "intro": {
+            "heading": "Sie zahlen für Klicks, aber niemand ruft an?",
+            "paragraphs": [
+              "Die meisten Google-Ads-Konten kleiner Betriebe verschenken Geld auf dieselbe Weise: zu breite Keywords, keine ausschließenden Keywords, Anzeigen um drei Uhr nachts und keine Ahnung, welcher Klick zum Kunden wurde.",
+              "Ich baue das Konto um die Suchanfragen, aus denen in Ihrer Region wirklich Aufträge werden, streiche den Rest und messe Anrufe und Anfragen statt Impressionen. Das Konto gehört von Anfang an Ihnen."
+            ]
+          },
+          "included": {
+            "heading": "Das gehört zur Google-Ads-Betreuung",
+            "items": [
+              {
+                "lead": "Kampagnen in Suche und Maps",
+                "text": "Suchbegriffe von Leuten, die jetzt beauftragen wollen, nur in Ihrem Einzugsgebiet."
+              },
+              {
+                "lead": "Anruf- und Anfragen-Tracking",
+                "text": "jeder Anruf aus Anzeige oder Website und jedes Formular wird gezählt, Sie kennen die Kosten pro Anfrage."
+              },
+              {
+                "lead": "Wöchentliche Pflege",
+                "text": "neue ausschließende Keywords, Gebote und Anzeigezeiten nach dem, was funktioniert."
+              },
+              {
+                "lead": "Zielseite, die konvertiert",
+                "text": "der Klick landet auf einer Seite für genau diese Leistung, nicht auf der Startseite."
+              },
+              {
+                "lead": "Monatsbericht ohne Fachchinesisch",
+                "text": "Anrufe, Anfragen, Ausgaben und was jede Anfrage gekostet hat."
+              }
+            ]
+          },
+          "fit": [
+            "Sanitär, Heizung, Elektro",
+            "Zahnarztpraxen und Kliniken",
+            "Dachdecker, Bau und Renovierung",
+            "Reinigung, Umzug und Reparatur"
+          ],
+          "steps": {
+            "heading": "Vom Check zu den ersten Anrufen",
+            "items": [
+              {
+                "title": "Kostenloser Check",
+                "description": "Ich prüfe Ihr bestehendes Konto oder Ihren Markt und sage Ihnen, welches Budget und welche Kosten pro Anfrage realistisch sind."
+              },
+              {
+                "title": "Einrichtung in einer Woche",
+                "description": "Kampagnen, Conversion-Tracking und Zielseite, fertig und geprüft, bevor der erste Euro ausgegeben wird."
+              },
+              {
+                "title": "Laufende Betreuung",
+                "description": "Ich optimiere jede Woche, die Zahlen bekommen Sie jeden Monat. Ohne lange Vertragsbindung."
+              }
+            ]
+          },
+          "faq": [
+            {
+              "question": "Wie viel sollte ich in Google Ads investieren?",
+              "answer": "Das hängt von Gewerk und Region ab. Im kostenlosen Check schätze ich, was ein Klick und eine Anfrage in Ihrem Markt kosten, damit Sie mit einem Budget starten, das wirklich Aufträge bringen kann."
+            },
+            {
+              "question": "Wann sehe ich Ergebnisse?",
+              "answer": "Anzeigen können schon in den ersten Tagen Anrufe bringen. Im ersten Monat lernen wir, welche Suchanfragen zu Kunden werden, ab dem zweiten Monat sinken die Kosten pro Anfrage meist."
+            },
+            {
+              "question": "Wem gehört das Google-Ads-Konto?",
+              "answer": "Ihnen. Konto und Abrechnung laufen auf Ihren Namen, ich habe Verwaltungszugriff. Endet die Zusammenarbeit, bleibt alles bei Ihnen."
+            },
+            {
+              "question": "Gibt es eine lange Vertragslaufzeit?",
+              "answer": "Nein. Die Betreuung läuft monatlich und ist mit einem Monat Frist kündbar."
+            }
+          ]
+        },
+        "facebook-instagram-ads": {
+          "name": "Facebook- und Instagram-Werbung",
+          "summary": "Menschen in Ihrer Region erreichen und Website-Besucher zurückholen.",
+          "serviceType": "Social-Media-Werbung",
+          "meta": {
+            "title": "Facebook- und Instagram-Werbung für lokale Betriebe",
+            "description": "Meta-Anzeigen für Dienstleister: Kampagnen für Ihre Region, Retargeting für Website-Besucher und jede Anfrage auf den Euro genau gemessen."
+          },
+          "hero": {
+            "badge": "Facebook und Instagram",
+            "title": "Facebook- und Instagram-Werbung für Ihre Region",
+            "description": "Ihr Angebot vor den Menschen, die dort wohnen, wo Sie arbeiten, und eine Erinnerung für alle, die Ihre Website gesehen und nicht angerufen haben. Jede Anfrage wird gemessen."
+          },
+          "intro": {
+            "heading": "Beiträge bewerben ist keine Strategie",
+            "paragraphs": [
+              "Der Button „Beitrag bewerben” kauft Likes. Likes bringen keine Aufträge.",
+              "Ich betreue Lead-Kampagnen mit sauber eingerichtetem Meta-Pixel und Conversion-Tracking, ausgerichtet auf Ihr Einzugsgebiet, und teste Angebote und Motive gegeneinander. Sie sehen, was jede Anfrage gekostet hat."
+            ]
+          },
+          "included": {
+            "heading": "Was enthalten ist",
+            "items": [
+              {
+                "lead": "Lokale Kampagnen",
+                "text": "Anzeigen für die Orte und Stadtteile, in denen Sie wirklich arbeiten."
+              },
+              {
+                "lead": "Retargeting",
+                "text": "wer auf Ihrer Website war oder Ihr Video gesehen hat, sieht Sie wieder."
+              },
+              {
+                "lead": "Lead-Formulare und Anrufe",
+                "text": "die Anfrage landet in Ihrem Postfach oder auf dem Telefon, nicht in einem vergessenen Facebook-Tab."
+              },
+              {
+                "lead": "Pixel und Conversion-Tracking",
+                "text": "eingerichtet und geprüft, damit die Plattform von echten Kunden lernt."
+              },
+              {
+                "lead": "Texte und Motive testen",
+                "text": "mehrere Varianten gleichzeitig, das Budget geht an die, die Anfragen bringt."
+              }
+            ]
+          },
+          "fit": [
+            "Handwerk mit klarem Angebot",
+            "Kosmetik, Wellness und Fitness",
+            "Gastronomie und lokaler Handel",
+            "Saisonales wie Klima- oder Gartenarbeiten"
+          ],
+          "steps": {
+            "heading": "So starten wir",
+            "items": [
+              {
+                "title": "Angebot und Zielgruppe",
+                "description": "Wir legen ein klares Angebot und das Gebiet fest, aus dem Sie Aufträge wollen."
+              },
+              {
+                "title": "Tracking und Kampagnen",
+                "description": "Pixel, Conversions und die ersten Anzeigen sind innerhalb einer Woche live."
+              },
+              {
+                "title": "Testen und ausbauen",
+                "description": "Schwache Anzeigen gehen aus, gute bekommen mehr Budget, und Sie erhalten einen Monatsbericht."
+              }
+            ]
+          },
+          "faq": [
+            {
+              "question": "Facebook-Werbung oder Google Ads, was ist besser?",
+              "answer": "Google erreicht Menschen, die schon suchen. Facebook und Instagram erreichen sie, bevor sie suchen, und holen Website-Besucher zurück. Für die meisten lokalen Betriebe kommt Google zuerst, Meta unterstützt."
+            },
+            {
+              "question": "Muss ich jeden Tag posten?",
+              "answer": "Nein. Anzeigen funktionieren auch ohne tägliche Beiträge. Für den Anfang reichen ein paar gute Fotos oder kurze Videos Ihrer Arbeit."
+            },
+            {
+              "question": "Welches Budget brauche ich?",
+              "answer": "Ein Test kann mit kleinem Tagesbudget starten. Nach den ersten Wochen kennen wir die Kosten pro Anfrage und entscheiden, ob sich mehr lohnt."
+            }
+          ]
+        },
+        "local-seo": {
+          "name": "Lokales SEO",
+          "summary": "Im Google-Kartenbereich und in lokalen Ergebnissen, ohne Klickkosten.",
+          "serviceType": "Lokale Suchmaschinenoptimierung",
+          "meta": {
+            "title": "Lokales SEO und Google-Unternehmensprofil",
+            "description": "Lokales SEO für Dienstleister: Google-Unternehmensprofil, Bewertungen, eine Seite pro Leistung und Ort und technisches SEO für die Top 3 auf Maps."
+          },
+          "hero": {
+            "badge": "Lokales SEO",
+            "title": "Lokales SEO für die Top 3 auf Google Maps",
+            "description": "Die drei Betriebe auf der Karte bekommen die meisten Anrufe. Ich arbeite an Ihrem Google-Unternehmensprofil, Ihren Bewertungen und Ihrer Website, damit Sie dazugehören, in jedem Ort, den Sie bedienen."
+          },
+          "intro": {
+            "heading": "Kunden, die Sie ohne Anzeige finden",
+            "paragraphs": [
+              "Anzeigen enden, wenn das Budget endet. Lokales SEO wirkt weiter: Ranken Sie einmal für „Ihre Leistung + Ihr Ort”, kommen Anrufe ohne Klickkosten.",
+              "Das dauert einige Monate, deshalb gehe ich der Reihe nach vor: zuerst Unternehmensprofil und Website-Grundlagen, dann eine Seite pro Leistung und Ort, dann Bewertungen und Links, die Vertrauen aufbauen."
+            ]
+          },
+          "included": {
+            "heading": "Was lokales SEO umfasst",
+            "items": [
+              {
+                "lead": "Google-Unternehmensprofil",
+                "text": "Kategorien, Leistungen, Fotos und Beiträge so eingerichtet, wie Google sie bewertet."
+              },
+              {
+                "lead": "Eine Seite pro Leistung und Ort",
+                "text": "damit Sie für alles ranken, was Sie anbieten, nicht nur für Ihren Firmennamen."
+              },
+              {
+                "lead": "Bewertungen",
+                "text": "ein einfacher Weg, zufriedene Kunden um eine Bewertung zu bitten, und eine Antwort auf jede."
+              },
+              {
+                "lead": "Technisches SEO",
+                "text": "Ladezeit, strukturierte Daten, Sitemap und Indexierung geprüft und korrigiert."
+              },
+              {
+                "lead": "Branchenbücher und Citations",
+                "text": "derselbe Name, dieselbe Adresse und Telefonnummer in allen wichtigen Verzeichnissen."
+              }
+            ]
+          },
+          "fit": [
+            "Betriebe in einer Stadt oder Region",
+            "Handwerker mit Aufträgen über Maps",
+            "Praxen, Salons und Studios",
+            "Alle, die nicht mehr für jeden Klick zahlen wollen"
+          ],
+          "steps": {
+            "heading": "Schritt für Schritt",
+            "items": [
+              {
+                "title": "Analyse",
+                "description": "Wo Sie heute ranken, was die Konkurrenz besser macht und was zuerst zu tun ist."
+              },
+              {
+                "title": "Fundament",
+                "description": "Unternehmensprofil, Website-Korrekturen und Leistungsseiten im ersten Monat."
+              },
+              {
+                "title": "Wachstum",
+                "description": "Bewertungen, Inhalte und Links jeden Monat, Rankings und Anrufe im Bericht."
+              }
+            ]
+          },
+          "faq": [
+            {
+              "question": "Wie lange dauert lokales SEO?",
+              "answer": "Erste Veränderungen auf der Karte zeigen sich oft nach einigen Wochen. Stabile Rankings für die wichtigsten Suchen brauchen je nach Wettbewerb meist drei bis sechs Monate."
+            },
+            {
+              "question": "Brauche ich für lokales SEO eine Website?",
+              "answer": "Ein Unternehmensprofil kann allein ranken, aber eine schnelle Website mit einer Seite pro Leistung rankt besser und macht mehr Besucher zu Anrufern."
+            },
+            {
+              "question": "Können Sie Platz 1 garantieren?",
+              "answer": "Niemand Seriöses kann das. Ich zeige Ihnen jeden Monat, was ich tue und wie sich Rankings, Anrufe und Anfragen entwickeln."
+            }
+          ]
+        },
+        "ai-search-visibility": {
+          "name": "Sichtbarkeit in der KI-Suche",
+          "summary": "Von ChatGPT, Gemini und Googles KI-Antworten empfohlen werden.",
+          "serviceType": "Generative Engine Optimization (GEO)",
+          "meta": {
+            "title": "Sichtbarkeit in der KI-Suche (GEO) für Betriebe",
+            "description": "Damit ChatGPT, Gemini, Perplexity und Googles KI-Übersichten Ihren Betrieb empfehlen: klare Fakten, strukturierte Daten und vertrauenswürdige Erwähnungen."
+          },
+          "hero": {
+            "badge": "KI-Suche (GEO)",
+            "title": "Der Betrieb, den ChatGPT empfiehlt",
+            "description": "Immer mehr Menschen fragen ChatGPT oder Googles KI, wen sie beauftragen sollen, statt Ergebnisse durchzuklicken. Ich sorge dafür, dass die Antwort Sie nennt, mit den richtigen Fakten zu Leistung und Ort."
+          },
+          "intro": {
+            "heading": "Ein neuer Ort, an dem Kunden fragen",
+            "paragraphs": [
+              "KI-Assistenten empfehlen Betriebe, die sie verstehen und überprüfen können: klare Leistungsseiten, einheitliche Angaben im ganzen Netz und Bewertungen, die sagen, worin Sie gut sind.",
+              "Diese Arbeit heißt Generative Engine Optimization (GEO). Sie baut auf gutem SEO auf, also hilft sie Ihnen auch bei Google."
+            ]
+          },
+          "included": {
+            "heading": "Was ich mache",
+            "items": [
+              {
+                "lead": "Prüfen, was die KI über Sie sagt",
+                "text": "ich stelle ChatGPT, Gemini und Perplexity die Fragen Ihrer Kunden und dokumentiere die Antworten."
+              },
+              {
+                "lead": "Klare Fakten auf Ihrer Website",
+                "text": "wer Sie sind, was Sie wo und zu welchem Preis anbieten, so geschrieben, dass ein Modell es zitieren kann."
+              },
+              {
+                "lead": "Strukturierte Daten und llms.txt",
+                "text": "Schema-Markup und eine Seitenübersicht, die KI-Crawler lesen."
+              },
+              {
+                "lead": "Erwähnungen und Bewertungen",
+                "text": "Ihr Betrieb einheitlich genannt auf Seiten, denen KI-Modelle vertrauen."
+              },
+              {
+                "lead": "Monatliche Kontrolle",
+                "text": "dieselben Fragen jeden Monat, damit Sie sehen, ob Sie empfohlen werden."
+              }
+            ]
+          },
+          "fit": [
+            "Betriebe, deren Kunden vor dem Anruf vergleichen",
+            "Freie Berufe und Praxen",
+            "Betriebe, die bei Google schon ranken",
+            "Alle, die früh dabei sein wollen"
+          ],
+          "steps": {
+            "heading": "So funktioniert es",
+            "items": [
+              {
+                "title": "Ausgangslage",
+                "description": "Ich halte fest, was KI-Assistenten heute über Ihre Leistung in Ihrer Region sagen."
+              },
+              {
+                "title": "Korrekturen",
+                "description": "Website-Inhalte, strukturierte Daten und Profile werden angepasst, damit die Fakten überall klar sind."
+              },
+              {
+                "title": "Kontrolle",
+                "description": "Jeden Monat wiederhole ich die Fragen und berichte, was sich geändert hat."
+              }
+            ]
+          },
+          "faq": [
+            {
+              "question": "Sucht man lokale Betriebe wirklich über KI?",
+              "answer": "Immer öfter. Google zeigt KI-Antworten schon über den Ergebnissen, und viele fragen ChatGPT direkt nach einer Empfehlung."
+            },
+            {
+              "question": "Ist das etwas anderes als SEO?",
+              "answer": "Es baut auf SEO auf. KI-Antworten stützen sich auf klare, einheitliche und gut bewertete Informationen, deshalb hilft die Arbeit bei beidem."
+            },
+            {
+              "question": "Können Sie dafür sorgen, dass ChatGPT mich immer empfiehlt?",
+              "answer": "Niemand steuert die Antworten. Ich kann KI-Modellen jeden Grund geben, Sie zu nennen, und messen, wie oft sie es tun."
+            }
+          ]
+        },
+        "ai-chat": {
+          "name": "KI-Chat und Sofortantworten",
+          "summary": "Jede Anfrage bekommt eine Antwort, auch wenn Sie nicht rangehen können.",
+          "serviceType": "KI-Chatbot und automatische Anfragebeantwortung",
+          "meta": {
+            "title": "KI-Chat und Sofortantworten für Ihre Website",
+            "description": "Ein KI-Assistent auf Website, WhatsApp oder Messenger, der Fragen beantwortet, die Angaben aufnimmt und Ihnen die fertige Anfrage schickt, rund um die Uhr."
+          },
+          "hero": {
+            "badge": "KI-Chat",
+            "title": "Ein KI-Assistent, der antwortet, wenn Sie nicht können",
+            "description": "Sie sind auf der Baustelle, das Telefon klingelt, die Nachricht wartet bis abends, und der Kunde ruft den Nächsten an. Ein KI-Assistent antwortet sofort, nimmt die Angaben auf und schickt Ihnen die fertige Anfrage."
+          },
+          "intro": {
+            "heading": "Wer zuerst antwortet, bekommt den Auftrag",
+            "paragraphs": [
+              "Die meisten Kunden fragen bei zwei oder drei Betrieben an und nehmen den, der zuerst antwortet. Eine langsame Antwort kostet Aufträge, für die Sie schon Werbung bezahlt haben.",
+              "Der Assistent kennt Ihre Leistungen, Preise und Ihr Gebiet. Er beantwortet häufige Fragen, fragt nach, was Sie wissen müssen, und übergibt dann an Sie."
+            ]
+          },
+          "included": {
+            "heading": "Was der Assistent macht",
+            "items": [
+              {
+                "lead": "Antwortet in Sekunden",
+                "text": "auf der Website und, wo sinnvoll, auf WhatsApp oder Messenger."
+              },
+              {
+                "lead": "Kennt Ihren Betrieb",
+                "text": "Leistungen, Orte, Öffnungszeiten und ungefähre Preise."
+              },
+              {
+                "lead": "Nimmt die Angaben auf",
+                "text": "Name, Telefon, Adresse und worum es geht, bevor Sie zurückrufen."
+              },
+              {
+                "lead": "Schickt Ihnen die Anfrage",
+                "text": "per E-Mail oder Nachricht, jede Anfrage wird im Bericht gezählt."
+              },
+              {
+                "lead": "Übergibt an Sie",
+                "text": "was er nicht weiß, geht direkt an Sie, er erfindet nichts."
+              }
+            ]
+          },
+          "fit": [
+            "Inhaber, die den ganzen Tag beim Kunden sind",
+            "Betriebe mit vielen gleichen Fragen",
+            "Praxen und Salons mit Terminbuchung",
+            "Alle mit Anfragen nach Feierabend"
+          ],
+          "steps": {
+            "heading": "So wird er eingerichtet",
+            "items": [
+              {
+                "title": "Ihre Antworten",
+                "description": "Wir gehen die Fragen Ihrer Kunden durch und wie Sie sie beantwortet haben möchten."
+              },
+              {
+                "title": "Einrichtung und Test",
+                "description": "Der Assistent kommt auf Website und Kanäle und wird mit echten Fragen getestet."
+              },
+              {
+                "title": "Verbesserung",
+                "description": "Ich lese die Gespräche und verbessere die Antworten jeden Monat."
+              }
+            ]
+          },
+          "faq": [
+            {
+              "question": "Wissen Kunden, dass sie mit einer KI schreiben?",
+              "answer": "Ja. Der Assistent gibt sich als Assistent zu erkennen und bietet jederzeit an, an Sie zu übergeben."
+            },
+            {
+              "question": "Was, wenn er falsch antwortet?",
+              "answer": "Er antwortet nur aus den Informationen, die wir ihm geben. Weiß er etwas nicht, nimmt er die Angaben auf und leitet die Frage an Sie weiter."
+            },
+            {
+              "question": "Funktioniert er in mehreren Sprachen?",
+              "answer": "Ja. Er antwortet in der Sprache, in der der Kunde schreibt."
+            }
+          ]
+        },
+        "websites": {
+          "name": "Websites",
+          "summary": "Schnelle Websites und Landingpages, die Besucher zu Anrufern machen."
+        }
+      }
+    },
     "terms": {
       "meta": {
         "title": "Nutzungsbedingungen",

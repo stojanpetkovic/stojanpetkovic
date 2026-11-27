@@ -39,6 +39,14 @@
     "summary": "Stojan Petkovic, based in Zrenjanin, Serbia, helps service businesses win customers online: Google and Meta ads, local SEO, AI search visibility (GEO), fast websites and landing pages, AI chat, and tracking of every enquiry and call with a monthly report. He works with clients in Serbia, Europe and the US. A website has one fixed price, ads and SEO run month to month with no long contract, and the client owns the code, the domain and the hosting from day one."
   },
   "nav": {
+    "mega": {
+      "overview": "All services",
+      "groups": {
+        "ads": "Ads",
+        "visibility": "Get found",
+        "web": "Website and replies"
+      }
+    },
     "skipToContent": "Skip to content",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -285,6 +293,453 @@
     }
   },
   "pages": {
+    "servicePage": {
+      "common": {
+        "heroPrimary": "Get a free audit",
+        "heroSecondary": "Call me",
+        "includedBadge": "What you get",
+        "fitBadge": "Who it's for",
+        "fitHeading": "Works best for",
+        "stepsBadge": "How it works",
+        "faqBadge": "Questions",
+        "faqHeading": "Questions and answers",
+        "relatedBadge": "Other services",
+        "relatedHeading": "Services that work well with this one",
+        "relatedLink": "Learn more",
+        "allServices": "All services",
+        "cta": {
+          "heading": "Want to know what this would do for your business?",
+          "description": "Send me a message. I'll look at how people find you today and tell you honestly whether this service is worth it for you. The first call is free.",
+          "primary": "Get a free audit",
+          "secondary": "See all services"
+        }
+      },
+      "items": {
+        "google-ads": {
+          "name": "Google Ads",
+          "summary": "Show up on Google Search and Maps the moment someone needs you.",
+          "serviceType": "Google Ads management",
+          "meta": {
+            "title": "Google Ads management for local businesses",
+            "description": "Google Search and Maps ads for service businesses: set up around searches that turn into jobs, with every call and lead tracked. Month to month."
+          },
+          "hero": {
+            "badge": "Google Ads",
+            "title": "Google Ads that bring calls, not just clicks",
+            "description": "When someone searches for a plumber, a dentist or a roofer near them, your ad shows up first. I set up and run the campaigns, and every call and form is tracked so you see what each job cost."
+          },
+          "intro": {
+            "heading": "Paying for clicks that never call?",
+            "paragraphs": [
+              "Most local Google Ads accounts waste money the same way: broad keywords, no negative keywords, ads running at 3 AM and no idea which click turned into a customer.",
+              "I build the account around the searches that actually turn into work in your area, cut the rest, and measure calls and leads, not impressions. You own the account from day one."
+            ]
+          },
+          "included": {
+            "heading": "Everything in a managed Google Ads account",
+            "items": [
+              {
+                "lead": "Search and Maps campaigns",
+                "text": "keywords people use when they're ready to hire, limited to the area you serve."
+              },
+              {
+                "lead": "Call and lead tracking",
+                "text": "every call from an ad or the site and every form is counted, so you know the cost per lead."
+              },
+              {
+                "lead": "Weekly cleanup",
+                "text": "new negative keywords, bids and ad times adjusted to what's working."
+              },
+              {
+                "lead": "Landing page that converts",
+                "text": "the click goes to a page built for that service, not to your home page."
+              },
+              {
+                "lead": "Monthly report in plain English",
+                "text": "calls, leads, spend and what each lead cost."
+              }
+            ]
+          },
+          "fit": [
+            "Plumbers, electricians and HVAC",
+            "Dentists and clinics",
+            "Roofers, builders and remodelers",
+            "Cleaning, moving and repair services"
+          ],
+          "steps": {
+            "heading": "From audit to the first calls",
+            "items": [
+              {
+                "title": "Free audit",
+                "description": "I look at your current account or your market and tell you what a realistic budget and cost per lead look like."
+              },
+              {
+                "title": "Setup in a week",
+                "description": "Campaigns, conversion tracking and a landing page, ready and checked before a single dollar is spent."
+              },
+              {
+                "title": "Ongoing management",
+                "description": "I tune the account every week and send you the numbers every month. No long contract."
+              }
+            ]
+          },
+          "faq": [
+            {
+              "question": "How much should I spend on Google Ads?",
+              "answer": "It depends on your trade and your area. In the free audit I estimate what a click and a lead cost in your market, so you start with a budget that can actually bring jobs."
+            },
+            {
+              "question": "How fast will I see results?",
+              "answer": "Ads can bring calls in the first days. The first month is about learning which searches turn into customers, and from the second month the cost per lead usually drops."
+            },
+            {
+              "question": "Who owns the Google Ads account?",
+              "answer": "You do. The account and the billing are in your name, and I get manager access. If we stop working together, everything stays with you."
+            },
+            {
+              "question": "Is there a long-term contract?",
+              "answer": "No. Management runs month to month and you can stop with a month's notice."
+            }
+          ]
+        },
+        "facebook-instagram-ads": {
+          "name": "Facebook and Instagram ads",
+          "summary": "Reach people in your area and bring back the ones who already visited.",
+          "serviceType": "Social media advertising",
+          "meta": {
+            "title": "Facebook and Instagram ads for local businesses",
+            "description": "Meta ads for service businesses: campaigns aimed at your area, retargeting for people who visited your site, and leads tracked to the dollar."
+          },
+          "hero": {
+            "badge": "Facebook and Instagram",
+            "title": "Facebook and Instagram ads for your service area",
+            "description": "Your offer in front of the people who live where you work, and a reminder for everyone who looked at your site and didn't call. Every lead is tracked."
+          },
+          "intro": {
+            "heading": "Boosting posts is not a strategy",
+            "paragraphs": [
+              "The Boost button spends your money on likes. Likes don't book jobs.",
+              "I run lead campaigns with the Meta pixel and conversion tracking set up properly, aimed at your service area, with offers and creative tested against each other. You see what each lead cost."
+            ]
+          },
+          "included": {
+            "heading": "What's included",
+            "items": [
+              {
+                "lead": "Local campaigns",
+                "text": "ads aimed at the towns and neighborhoods you actually serve."
+              },
+              {
+                "lead": "Retargeting",
+                "text": "people who visited your site or watched your video see you again."
+              },
+              {
+                "lead": "Lead forms and calls",
+                "text": "the enquiry lands in your inbox or phone, not in a forgotten Facebook tab."
+              },
+              {
+                "lead": "Pixel and conversion tracking",
+                "text": "set up and checked, so the platform learns from real customers."
+              },
+              {
+                "lead": "Ad copy and creative testing",
+                "text": "several versions at once, and the budget goes to the one that brings leads."
+              }
+            ]
+          },
+          "fit": [
+            "Home services with a clear offer",
+            "Beauty, wellness and fitness",
+            "Restaurants and local shops",
+            "Seasonal services such as AC or garden work"
+          ],
+          "steps": {
+            "heading": "How we start",
+            "items": [
+              {
+                "title": "Offer and audience",
+                "description": "We agree on one clear offer and the area you want work from."
+              },
+              {
+                "title": "Tracking and campaigns",
+                "description": "Pixel, conversions and the first ad versions go live within a week."
+              },
+              {
+                "title": "Test and scale",
+                "description": "Weak ads are switched off, good ones get more budget, and you get a monthly report."
+              }
+            ]
+          },
+          "faq": [
+            {
+              "question": "Facebook ads or Google Ads, which is better?",
+              "answer": "Google catches people who are already searching. Facebook and Instagram reach people before they search and bring back the ones who visited. For most local businesses Google comes first and Meta helps it."
+            },
+            {
+              "question": "Do I need to post every day?",
+              "answer": "No. Ads work without daily posting. A few good photos or short videos of your work are enough to start."
+            },
+            {
+              "question": "What budget do I need?",
+              "answer": "A test can start with a small daily budget. After the first few weeks we know what a lead costs and decide whether to increase it."
+            }
+          ]
+        },
+        "local-seo": {
+          "name": "Local SEO",
+          "summary": "Rank in the Google map pack and local results without paying per click.",
+          "serviceType": "Local search engine optimization",
+          "meta": {
+            "title": "Local SEO and Google Business Profile",
+            "description": "Local SEO for service businesses: Google Business Profile, reviews, a page for every service and town, and technical SEO, so you show up in the map pack."
+          },
+          "hero": {
+            "badge": "Local SEO",
+            "title": "Local SEO that gets you into the Google map pack",
+            "description": "The three businesses on the map get most of the calls. I work on your Google Business Profile, reviews and website so you're one of them, in every town you serve."
+          },
+          "intro": {
+            "heading": "Customers who find you without an ad",
+            "paragraphs": [
+              "Ads stop when the budget stops. Local SEO keeps working: once you rank for \"your service + your town\", the calls keep coming without a cost per click.",
+              "It takes a few months, so I do it in order: first the Google Business Profile and the website basics, then a page for every service and every area, then reviews and links that build trust."
+            ]
+          },
+          "included": {
+            "heading": "What local SEO covers",
+            "items": [
+              {
+                "lead": "Google Business Profile",
+                "text": "categories, services, photos and posts set up the way Google ranks them."
+              },
+              {
+                "lead": "A page for every service and area",
+                "text": "so you can rank for each thing you do, not only for your company name."
+              },
+              {
+                "lead": "Reviews",
+                "text": "a simple way to ask happy customers for a review, and replies to every one."
+              },
+              {
+                "lead": "Technical SEO",
+                "text": "speed, structured data, sitemap and indexing checked and fixed."
+              },
+              {
+                "lead": "Listings and citations",
+                "text": "the same name, address and phone on every directory that matters."
+              }
+            ]
+          },
+          "fit": [
+            "Businesses that serve one city or region",
+            "Trades that get most work from Maps",
+            "Clinics, salons and studios",
+            "Anyone tired of paying for every click"
+          ],
+          "steps": {
+            "heading": "Step by step",
+            "items": [
+              {
+                "title": "Audit",
+                "description": "Where you rank today, what competitors do better and what to fix first."
+              },
+              {
+                "title": "Foundation",
+                "description": "Google Business Profile, website fixes and service pages in the first month."
+              },
+              {
+                "title": "Growth",
+                "description": "Reviews, content and links every month, with rankings and calls in the report."
+              }
+            ]
+          },
+          "faq": [
+            {
+              "question": "How long does local SEO take?",
+              "answer": "The first changes on the map often show in a few weeks. Stable rankings for the main searches usually take three to six months, depending on competition."
+            },
+            {
+              "question": "Do I need a website for local SEO?",
+              "answer": "A Google Business Profile alone can rank, but a fast site with a page for each service ranks better and turns more visitors into calls."
+            },
+            {
+              "question": "Can you guarantee first place?",
+              "answer": "No one honest can. I can show you what I'm doing each month and how rankings, calls and enquiries change."
+            }
+          ]
+        },
+        "ai-search-visibility": {
+          "name": "AI search visibility",
+          "summary": "Get recommended by ChatGPT, Gemini and Google's AI answers.",
+          "serviceType": "Generative engine optimization",
+          "meta": {
+            "title": "AI search visibility (GEO) for local businesses",
+            "description": "Get your business recommended by ChatGPT, Gemini, Perplexity and Google AI Overviews: clear facts, structured data and mentions AI models trust."
+          },
+          "hero": {
+            "badge": "AI search (GEO)",
+            "title": "Be the business ChatGPT recommends",
+            "description": "More people ask ChatGPT or Google's AI who to hire instead of scrolling through results. I make sure the answer includes you, with the right facts about what you do and where."
+          },
+          "intro": {
+            "heading": "A new place where customers ask",
+            "paragraphs": [
+              "AI assistants recommend businesses they can understand and verify: clear service pages, consistent details across the web and reviews that say what you're good at.",
+              "This work is called generative engine optimization (GEO). It builds on good SEO, so the same work helps you in Google too."
+            ]
+          },
+          "included": {
+            "heading": "What I do",
+            "items": [
+              {
+                "lead": "Check what AI says about you",
+                "text": "I ask ChatGPT, Gemini and Perplexity the questions your customers ask and record the answers."
+              },
+              {
+                "lead": "Clear facts on your site",
+                "text": "who you are, what you do, where and for how much, written so a model can quote it."
+              },
+              {
+                "lead": "Structured data and llms.txt",
+                "text": "schema markup and a map of the site that AI crawlers read."
+              },
+              {
+                "lead": "Mentions and reviews",
+                "text": "your business named consistently on the sites AI models trust."
+              },
+              {
+                "lead": "Monthly check",
+                "text": "the same questions every month, so you see whether you're being recommended."
+              }
+            ]
+          },
+          "fit": [
+            "Businesses whose customers compare before calling",
+            "Professional services and clinics",
+            "Businesses already ranking on Google",
+            "Anyone who wants to be early"
+          ],
+          "steps": {
+            "heading": "How it works",
+            "items": [
+              {
+                "title": "Baseline",
+                "description": "I record what AI assistants say today about your service in your area."
+              },
+              {
+                "title": "Fixes",
+                "description": "Site content, structured data and profiles are updated so the facts are clear everywhere."
+              },
+              {
+                "title": "Tracking",
+                "description": "Each month I repeat the questions and report what changed."
+              }
+            ]
+          },
+          "faq": [
+            {
+              "question": "Is AI search really used for finding local businesses?",
+              "answer": "More and more. Google already shows AI answers above the results, and many people ask ChatGPT for recommendations directly."
+            },
+            {
+              "question": "Is this different from SEO?",
+              "answer": "It builds on SEO. AI answers rely on clear, consistent and well-reviewed information, so the work helps both."
+            },
+            {
+              "question": "Can you make ChatGPT always recommend me?",
+              "answer": "No one controls the answers. What I can do is give AI models every reason to name you and measure how often they do."
+            }
+          ]
+        },
+        "ai-chat": {
+          "name": "AI chat and instant replies",
+          "summary": "Every enquiry gets an answer, even when you can't pick up.",
+          "serviceType": "AI chatbot and lead response automation",
+          "meta": {
+            "title": "AI chat and instant replies for your website",
+            "description": "An AI assistant on your website, WhatsApp or Messenger that answers questions, collects the details and books the enquiry, 24 hours a day."
+          },
+          "hero": {
+            "badge": "AI chat",
+            "title": "An AI assistant that answers when you can't",
+            "description": "You're on a job, the phone rings, a message waits until evening, and the customer calls someone else. An AI assistant answers right away, collects the details and sends you a ready enquiry."
+          },
+          "intro": {
+            "heading": "The first to reply gets the job",
+            "paragraphs": [
+              "Most people contact two or three businesses and go with whoever answers first. A slow reply loses jobs you already paid to get.",
+              "The assistant is trained on your services, prices and area. It answers common questions, asks what you need to know and hands the conversation over to you."
+            ]
+          },
+          "included": {
+            "heading": "What the assistant does",
+            "items": [
+              {
+                "lead": "Answers in seconds",
+                "text": "on your website, and on WhatsApp or Messenger where that fits."
+              },
+              {
+                "lead": "Knows your business",
+                "text": "services, areas, working hours and what things roughly cost."
+              },
+              {
+                "lead": "Collects the details",
+                "text": "name, phone, address and what the job is, before you call back."
+              },
+              {
+                "lead": "Sends you the enquiry",
+                "text": "by email or message, and every lead is counted in your report."
+              },
+              {
+                "lead": "Hands over to you",
+                "text": "anything it can't answer goes straight to you, it doesn't make things up."
+              }
+            ]
+          },
+          "fit": [
+            "Owners who are on the job all day",
+            "Businesses with many repeat questions",
+            "Clinics and salons that book appointments",
+            "Anyone getting enquiries after hours"
+          ],
+          "steps": {
+            "heading": "How it's set up",
+            "items": [
+              {
+                "title": "Your answers",
+                "description": "We go through the questions customers ask and how you want them answered."
+              },
+              {
+                "title": "Setup and testing",
+                "description": "The assistant goes on your site and channels and is tested on real questions."
+              },
+              {
+                "title": "Improvement",
+                "description": "I read the conversations and improve the answers every month."
+              }
+            ]
+          },
+          "faq": [
+            {
+              "question": "Will customers know they're talking to AI?",
+              "answer": "Yes. The assistant says it's an assistant, and offers to pass the conversation to you at any time."
+            },
+            {
+              "question": "What if it gives a wrong answer?",
+              "answer": "It only answers from the information we give it. When it doesn't know, it takes the details and passes the question to you."
+            },
+            {
+              "question": "Does it work in several languages?",
+              "answer": "Yes. It replies in the language the customer writes in."
+            }
+          ]
+        },
+        "websites": {
+          "name": "Websites",
+          "summary": "Fast websites and landing pages that turn visitors into calls."
+        }
+      }
+    },
     "terms": {
       "meta": {
         "title": "Terms of use",

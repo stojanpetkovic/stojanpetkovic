@@ -1,0 +1,19 @@
+---
+import ServicePageView from '@/components/pages/views/ServicePageView.astro';
+import { servicePages } from '@/config/services.config';
+import { defaultLocale } from '@/i18n';
+import { serviceSlug } from '@/i18n/routes';
+
+// One page per service for the default locale (`/services/<slug>`). The other
+// locales are served by `src/pages/[locale]/[services]/[service].astro`.
+export function getStaticPaths() {
+  return servicePages.map((service) => ({
+    params: { service: serviceSlug(service.id, defaultLocale) },
+    props: { id: service.id },
+  }));
+}
+
+const { id } = Astro.props;
+---
+
+<ServicePageView id={id} locale={defaultLocale} />

@@ -41,6 +41,8 @@ function translate(path: string, locale: string, config: RoutesConfig, toLocale:
   if (segments.length > 1) {
     if (section === 'tools') {
       out.push(map(config.tools, segments[1]));
+    } else if (section === 'services') {
+      out.push(map(config.services ?? {}, segments[1]));
     } else if (section === 'projects') {
       const sub = map(config.projectSubsegments, segments[1]);
       const isSub = toLocale ? segments[1] in config.projectSubsegments : sub in config.projectSubsegments;
@@ -76,6 +78,11 @@ export function projectSubsegment(key: string, locale: string, config: RoutesCon
 /** The slug of a tool page in a locale. */
 export function toolSlug(key: string, locale: string, config: RoutesConfig = routesConfig): string {
   return name(config.tools, key, locale);
+}
+
+/** The slug of a service page in a locale. */
+export function serviceSlug(key: string, locale: string, config: RoutesConfig = routesConfig): string {
+  return name(config.services ?? {}, key, locale);
 }
 
 /** The URL slug of a project, from its file name, in a locale. */
