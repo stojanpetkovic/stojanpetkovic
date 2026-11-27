@@ -2072,6 +2072,17 @@
   "mobileBar": {
     "label": "Brzi kontakt",
     "check": "Provera sajta",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "home": "Početna",
+    "services": "Usluge",
+    "projects": "Projekti"
+  },
+  "pwa": {
+    "title": "Instaliraj aplikaciju Stojan Petković",
+    "subtitle": "Usluge, projekti i besplatna provera sajta na jedan dodir, direktno sa početnog ekrana telefona.",
+    "install": "Instaliraj aplikaciju",
+    "close": "Zatvori",
+    "iosStep1": "U Safariju dodirni dugme Deli",
+    "iosStep2": "Izaberi „Dodaj na početni ekran“"
   }
 }
