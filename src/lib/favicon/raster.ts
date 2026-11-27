@@ -52,6 +52,24 @@ export async function renderImageFaviconPng(path: string, crop: FaviconCrop, siz
     .toBuffer();
 }
 
+/**
+ * A maskable app icon: the image at 70% of the square, centred on `background`.
+ * Android crops app icons to a circle or squircle; the margin keeps the whole
+ * mark inside the safe zone so nothing is cut off.
+ */
+export async function renderImageMaskablePng(path: string, crop: FaviconCrop, size: number, background: string): Promise<Buffer> {
+  const inner = Math.round(size * 0.7);
+  const mark = await sharp(path)
+    .extract({ left: crop.left, top: crop.top, width: crop.size, height: crop.size })
+    .resize(inner, inner, { kernel: 'lanczos3' })
+    .png()
+    .toBuffer();
+  return sharp({ create: { width: size, height: size, channels: 4, background } })
+    .composite([{ input: mark, gravity: 'center' }])
+    .png({ compressionLevel: 9 })
+    .toBuffer();
+}
+
 /** A multi-size favicon.ico (16/32/48) from the image. */
 export async function renderImageFaviconIco(path: string, crop: FaviconCrop): Promise<Buffer> {
   const pngs = await Promise.all([16, 32, 48].map((s) => renderImageFaviconPng(path, crop, s)));

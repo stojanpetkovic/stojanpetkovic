@@ -175,6 +175,7 @@ function faviconAssets() {
           renderImageFaviconPng,
           renderImageFaviconIco,
           renderImageFaviconSvg,
+          renderImageMaskablePng,
         } = await import('./src/lib/favicon/raster.ts');
         const out = fileURLToPath(dir);
 
@@ -187,12 +188,15 @@ function faviconAssets() {
             await writeFile(join(out, name), await renderImageFaviconPng(path, crop, size));
           }
           await writeFile(join(out, 'favicon.ico'), await renderImageFaviconIco(path, crop));
+          // The installed app's icon for Android's masks (see manifest.webmanifest.ts).
+          await writeFile(join(out, 'pwa-maskable-512x512.png'), await renderImageMaskablePng(path, crop, 512, '#ffffff'));
         } else {
           await writeFile(join(out, 'favicon.svg'), buildFaviconSvg(letter, THEME_COLOR));
           for (const [name, size] of Object.entries(pngSizes)) {
             await writeFile(join(out, name), await renderFaviconPng(letter, THEME_COLOR, size));
           }
           await writeFile(join(out, 'favicon.ico'), await renderFaviconIco(letter, THEME_COLOR));
+          await writeFile(join(out, 'pwa-maskable-512x512.png'), await renderFaviconPng(letter, THEME_COLOR, 512));
         }
 
         logger.info(`wrote ${Object.keys(pngSizes).length + 2} favicon files to ${out}`);

@@ -2072,6 +2072,17 @@
   "mobileBar": {
     "label": "Schnellkontakt",
     "check": "Gratis-Check",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "home": "Start",
+    "services": "Leistungen",
+    "projects": "Projekte"
+  },
+  "pwa": {
+    "title": "Die App von Stojan Petković installieren",
+    "subtitle": "Leistungen, Projekte und ein kostenloser Website-Check mit einem Tippen, direkt vom Startbildschirm.",
+    "install": "App installieren",
+    "close": "Schließen",
+    "iosStep1": "In Safari auf Teilen tippen",
+    "iosStep2": "„Zum Home-Bildschirm“ wählen"
   }
 }

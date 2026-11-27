@@ -1,10 +1,23 @@
 ---
 /**
- * Phones only: two actions pinned to the foot of the screen on every page.
- * "Free check" goes to the contact page (or to the page's own #form when it
- * has one, hiding while that form is on screen); WhatsApp opens a chat with
- * the site's phone number. Plain `wa.me` link on purpose, so the webtano
- * leads.js counts the click like every other WhatsApp link.
+ * Phones only: an app-style tab bar pinned to the foot of every page, plus the
+ * "install the app" sheet.
+ *
+ * The tab bar works like the one in an iPhone app: Home, Services, Projects,
+ * WhatsApp and a highlighted Free audit tab. The current section is marked,
+ * the bar is translucent over the page and it clears the home indicator
+ * through `env(safe-area-inset-bottom)`.
+ *
+ * "Free audit" goes to the contact page (or to the page's own #form when it
+ * has one, hiding the bar while that form is on screen). WhatsApp is a plain
+ * `wa.me` link on purpose, so the webtano leads.js counts the click like every
+ * other WhatsApp link.
+ *
+ * The install sheet appears once a phone visitor has looked around (second
+ * page or 25 seconds), never in the installed app, and not again for 30 days
+ * after it is closed. Chrome and Android get a real Install button through
+ * `beforeinstallprompt`; iPhone Safari, which has no such event, gets the two
+ * steps to add the site to the Home Screen.
  */
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import siteConfig from '@/config/site.config';
@@ -17,62 +30,280 @@ interface Props {
 const { locale = defaultLocale } = Astro.props;
 const phoneDigits = (siteConfig.phone ?? '').replace(/[^\d]/g, '');
 const whatsappHref = phoneDigits ? `https://wa.me/${phoneDigits}` : '';
+
+const homeUrl = localizedPath('/', locale);
+const tabs = [
+  { href: homeUrl, icon: 'house', label: t('mobileBar.home', locale), match: 'home' },
+  { href: localizedPath('/services', locale), icon: 'layout-grid', label: t('mobileBar.services', locale), match: 'section' },
+  { href: localizedPath('/projects', locale), icon: 'layers', label: t('mobileBar.projects', locale), match: 'section' },
+];
 ---
 
 <div class="mab-spacer md:hidden" aria-hidden="true"></div>
-<nav class="mab fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 backdrop-blur-md md:hidden" aria-label={t('mobileBar.label', locale)} data-mobile-bar>
-  <div class="grid grid-cols-2 gap-2 px-3 pt-3">
-    <a href={localizedPath('/contact', locale)} class="mab-btn btn-primary" data-mobile-check>
-      <Icon name="search-check" size="sm" />
-      {t('mobileBar.check', locale)}
-    </a>
+<nav class="mab md:hidden" aria-label={t('mobileBar.label', locale)} data-mobile-bar data-home={homeUrl}>
+  <ul class="mab-tabs" role="list">
+    {tabs.map((tab) => (
+      <li>
+        <a href={tab.href} class="mab-tab" data-tab data-match={tab.match}>
+          <Icon name={tab.icon} class="mab-icon" />
+          <span>{tab.label}</span>
+        </a>
+      </li>
+    ))}
     {whatsappHref && (
-      <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="mab-btn mab-wa">
-        <Icon name="whatsapp" size="sm" />
-        {t('mobileBar.whatsapp', locale)}
-      </a>
+      <li>
+        <a href={whatsappHref} target="_blank" rel="noopener noreferrer" class="mab-tab mab-tab--wa">
+          <Icon name="whatsapp" class="mab-icon" />
+          <span>{t('mobileBar.whatsapp', locale)}</span>
+        </a>
+      </li>
     )}
-  </div>
+    <li>
+      <a href={localizedPath('/contact', locale)} class="mab-tab mab-tab--cta" data-tab data-match="section" data-mobile-check>
+        <span class="mab-cta-dot"><Icon name="search-check" class="mab-icon" /></span>
+        <span>{t('mobileBar.check', locale)}</span>
+      </a>
+    </li>
+  </ul>
 </nav>
 
+<!-- Install the app: a bottom sheet, hidden until the script decides to show it. -->
+<div class="pwa-sheet md:hidden" role="dialog" aria-modal="false" aria-labelledby="pwa-sheet-title" data-pwa-sheet hidden>
+  <div class="pwa-card">
+    <button type="button" class="pwa-close" aria-label={t('pwa.close', locale)} data-pwa-close>
+      <Icon name="x" size="sm" />
+    </button>
+    <div class="pwa-head">
+      <img src="/logo.svg" alt="" width="56" height="56" class="pwa-app-icon" />
+      <div>
+        <p id="pwa-sheet-title" class="pwa-title">{t('pwa.title', locale)}</p>
+        <p class="pwa-sub">{t('pwa.subtitle', locale)}</p>
+      </div>
+    </div>
+
+    <!-- Chrome, Edge, Samsung Internet: the browser's own install dialog. -->
+    <div data-pwa-native hidden>
+      <button type="button" class="pwa-install btn-primary" data-pwa-install>
+        <Icon name="download" size="sm" />
+        {t('pwa.install', locale)}
+      </button>
+    </div>
+
+    <!-- iPhone and iPad Safari: no install event, so the two steps instead. -->
+    <ol class="pwa-steps" data-pwa-ios hidden>
+      <li>
+        <span class="pwa-step-num">1</span>
+        <span>{t('pwa.iosStep1', locale)} <Icon name="share" size="sm" class="pwa-inline-icon" /></span>
+      </li>
+      <li>
+        <span class="pwa-step-num">2</span>
+        <span>{t('pwa.iosStep2', locale)} <Icon name="square-plus" size="sm" class="pwa-inline-icon" /></span>
+      </li>
+    </ol>
+  </div>
+</div>
+
 <style>
+  /* ── Tab bar ─────────────────────────────────────────────────────────── */
   .mab {
-    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
-    transition: transform 200ms ease;
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 40;
+    padding: 0.35rem 0.5rem calc(0.35rem + env(safe-area-inset-bottom));
+    border-top: 1px solid color-mix(in oklch, var(--color-border) 70%, transparent);
+    background: color-mix(in oklch, var(--color-background) 82%, transparent);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    transition: transform 220ms ease;
   }
   .mab[data-hidden] { transform: translateY(110%); }
-  .mab-spacer { height: calc(4.5rem + env(safe-area-inset-bottom)); }
-  .mab-btn {
-    display: inline-flex;
+  .mab-spacer { height: calc(4rem + env(safe-area-inset-bottom)); }
+
+  .mab-tabs {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .mab-tab {
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.45rem;
-    min-height: 2.875rem;
-    padding: 0 0.75rem;
-    border-radius: 0.6rem;
-    font-size: 0.9rem;
+    gap: 0.2rem;
+    min-height: 3.1rem;
+    border-radius: 0.75rem;
+    color: var(--color-foreground-muted);
+    font-size: 0.66rem;
     font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 150ms ease, transform 120ms ease;
+  }
+  .mab-tab span:last-child {
+    max-width: 100%;
+    overflow: hidden;
     white-space: nowrap;
+    text-overflow: ellipsis;
   }
-  /* WhatsApp's own green, so the button is recognised at a glance. */
-  .mab-wa {
-    background: #1fa855;
-    color: #fff;
+  .mab-tab :global(.mab-icon) { width: 1.45rem; height: 1.45rem; }
+  .mab-tab:active { transform: scale(0.92); }
+  .mab-tab[aria-current='page'] { color: var(--brand-700); }
+  .mab-tab--wa :global(.mab-icon) { color: #1fa855; }
+
+  /* The call to action: an orange disc, like a centre action in an app. */
+  .mab-cta-dot {
+    display: grid;
+    place-items: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    margin-top: -0.15rem;
+    border-radius: 999px;
+    background: var(--cta);
+    color: var(--cta-foreground);
+    box-shadow: 0 6px 14px -6px rgb(245 130 32 / 0.8);
   }
-  .mab-wa:hover { background: #198f48; }
+  .mab-tab--cta :global(.mab-icon) { width: 1.15rem; height: 1.15rem; }
+  .mab-tab--cta { color: var(--color-foreground); }
+
   /* Keep the back-to-top button clear of the bar on phones. */
   @media (max-width: 767px) {
-    :global(#back-to-top) { bottom: calc(5.25rem + env(safe-area-inset-bottom)) !important; right: 1rem !important; }
+    :global(#back-to-top) { bottom: calc(4.75rem + env(safe-area-inset-bottom)) !important; right: 1rem !important; }
   }
+
+  /* ── Install sheet ───────────────────────────────────────────────────── */
+  .pwa-sheet {
+    position: fixed;
+    inset-inline: 0.75rem;
+    bottom: calc(4.6rem + env(safe-area-inset-bottom));
+    z-index: 45;
+    animation: pwa-up 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .pwa-sheet[hidden] { display: none; }
+  .pwa-card {
+    position: relative;
+    padding: 1rem 1rem 1.1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1.25rem;
+    background: var(--color-card);
+    box-shadow: 0 24px 48px -20px rgb(10 30 60 / 0.45);
+  }
+  .pwa-head { display: flex; align-items: center; gap: 0.85rem; padding-right: 1.75rem; }
+  .pwa-app-icon { flex-shrink: 0; width: 3.5rem; height: 3.5rem; padding: 0.45rem; border-radius: 0.9rem; background: #fff; box-shadow: 0 2px 10px rgb(0 0 0 / 0.16); }
+  .pwa-title { color: var(--color-foreground); font-weight: 700; font-size: 1rem; line-height: 1.3; }
+  .pwa-sub { margin-top: 0.15rem; color: var(--color-foreground-muted); font-size: 0.85rem; line-height: 1.4; }
+  .pwa-close {
+    position: absolute;
+    top: 0.6rem;
+    right: 0.6rem;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    background: var(--color-background-secondary);
+    color: var(--color-foreground-muted);
+  }
+  .pwa-install {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    min-height: 2.9rem;
+    margin-top: 0.9rem;
+    border-radius: 0.8rem;
+    font-weight: 700;
+  }
+  .pwa-steps { display: grid; gap: 0.55rem; margin: 0.9rem 0 0; padding: 0; list-style: none; }
+  .pwa-steps li {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    color: var(--color-foreground);
+    font-size: 0.9rem;
+  }
+  .pwa-step-num {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 999px;
+    background: var(--brand-700);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .pwa-steps :global(.pwa-inline-icon) { display: inline; vertical-align: -0.2em; color: var(--brand-600); }
+
+  @keyframes pwa-up {
+    from { transform: translateY(1.5rem); opacity: 0; }
+    to { transform: none; opacity: 1; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .mab { transition: none; }
+    .mab, .mab-tab { transition: none; }
+    .pwa-sheet { animation: none; }
   }
 </style>
 
 <script>
-  // A page with its own form (the landing page) sends the check button there
+  const DISMISS_KEY = 'pwa-install-dismissed';
+  const VISITS_KEY = 'pwa-page-views';
+  const DISMISS_DAYS = 30;
+
+  type InstallEvent = Event & { prompt: () => Promise<void>; userChoice: Promise<{ outcome: string }> };
+  // BaseLayout catches the browser's install event in <head>, since it can
+  // fire before this script runs; it lands on window.__pwaPrompt.
+  const win = window as Window & { __pwaPrompt?: InstallEvent | null };
+  let deferred: InstallEvent | null = win.__pwaPrompt ?? null;
+
+  const store = {
+    get(key: string): string | null {
+      try { return localStorage.getItem(key); } catch { return null; }
+    },
+    set(key: string, value: string): void {
+      try { localStorage.setItem(key, value); } catch { /* private mode */ }
+    },
+  };
+
+  function isStandalone(): boolean {
+    return window.matchMedia('(display-mode: standalone)').matches || (navigator as Navigator & { standalone?: boolean }).standalone === true;
+  }
+
+  function isIosSafari(): boolean {
+    const ua = navigator.userAgent;
+    const ios = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    // Chrome, Firefox and Edge on iOS cannot add to the Home Screen the same way.
+    return ios && /Safari/.test(ua) && !/CriOS|FxiOS|EdgiOS/.test(ua);
+  }
+
+  function recentlyDismissed(): boolean {
+    const at = Number(store.get(DISMISS_KEY) || 0);
+    return at > 0 && Date.now() - at < DISMISS_DAYS * 864e5;
+  }
+
+  // Mark the tab for the section being viewed.
+  function markCurrentTab(): void {
+    const bar = document.querySelector<HTMLElement>('[data-mobile-bar]');
+    if (!bar) return;
+    const path = location.pathname.replace(/\/$/, '') || '/';
+    const home = (bar.dataset.home || '/').replace(/\/$/, '') || '/';
+    bar.querySelectorAll<HTMLAnchorElement>('[data-tab]').forEach((tab) => {
+      const target = new URL(tab.href, location.href).pathname.replace(/\/$/, '') || '/';
+      const current = tab.dataset.match === 'home' ? path === home : path === target || path.startsWith(target + '/');
+      if (current) tab.setAttribute('aria-current', 'page');
+      else tab.removeAttribute('aria-current');
+    });
+  }
+
+  // A page with its own form (the landing page) sends the audit tab there
   // and tucks the bar away while the form is on screen.
-  function initMobileBar(): void {
+  function initFormAware(): void {
     const bar = document.querySelector<HTMLElement>('[data-mobile-bar]');
     const form = document.getElementById('form');
     if (!bar || !form) return;
@@ -83,5 +314,53 @@ const whatsappHref = phoneDigits ? `https://wa.me/${phoneDigits}` : '';
       { rootMargin: '0px 0px -20% 0px' }
     ).observe(form);
   }
-  initMobileBar();
+
+  function initInstallSheet(): void {
+    const sheet = document.querySelector<HTMLElement>('[data-pwa-sheet]');
+    if (!sheet || isStandalone()) return;
+
+    const views = Number(store.get(VISITS_KEY) || 0) + 1;
+    store.set(VISITS_KEY, String(views));
+
+    const native = sheet.querySelector<HTMLElement>('[data-pwa-native]');
+    const ios = sheet.querySelector<HTMLElement>('[data-pwa-ios]');
+    let shown = false;
+
+    const show = (): void => {
+      if (shown || recentlyDismissed() || window.innerWidth >= 768) return;
+      if (deferred && native) native.hidden = false;
+      else if (isIosSafari() && ios) ios.hidden = false;
+      else return;
+      shown = true;
+      sheet.hidden = false;
+    };
+    const hide = (remember: boolean): void => {
+      sheet.hidden = true;
+      if (remember) store.set(DISMISS_KEY, String(Date.now()));
+    };
+
+    sheet.querySelector('[data-pwa-close]')?.addEventListener('click', () => hide(true));
+    sheet.querySelector('[data-pwa-install]')?.addEventListener('click', async () => {
+      if (!deferred) return;
+      await deferred.prompt();
+      const { outcome } = await deferred.userChoice;
+      deferred = null;
+      win.__pwaPrompt = null;
+      hide(outcome !== 'accepted');
+    });
+
+    window.addEventListener('pwa:prompt', () => {
+      deferred = win.__pwaPrompt ?? null;
+      if (views >= 2) show();
+    });
+    window.addEventListener('appinstalled', () => hide(true));
+
+    // First visit: wait until the reader has had a look around.
+    if (views >= 2) setTimeout(show, 1500);
+    else setTimeout(show, 25000);
+  }
+
+  markCurrentTab();
+  initFormAware();
+  initInstallSheet();
 </script>

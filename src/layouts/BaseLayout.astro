@@ -126,7 +126,7 @@ if (commentsConfig?.enabled) {
 <html lang={locale === 'sr' ? 'sr-Latn' : locale} class="scroll-smooth" data-theme="blue" data-theme-mode="light">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <!-- The site ships one appearance: light. -->
     <meta name="color-scheme" content="light" />
     <meta name="generator" content={Astro.generator} />
@@ -148,6 +148,31 @@ if (commentsConfig?.enabled) {
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="theme-color" content={siteConfig.branding.colors.themeColor} />
+
+    <!-- Installable app (PWA): home-screen name and status bar on iPhone, and
+         the install event caught early, since Chrome can fire it before the
+         tab bar's script runs. The service worker only registers in a build:
+         in `astro dev` it would cache pages that are still changing. -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content={siteConfig.name} />
+    <script is:inline>
+      window.addEventListener('beforeinstallprompt', function (event) {
+        event.preventDefault();
+        window.__pwaPrompt = event;
+        window.dispatchEvent(new Event('pwa:prompt'));
+      });
+    </script>
+    {import.meta.env.PROD && (
+      <script is:inline>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/sw.js').catch(function () {});
+          });
+        }
+      </script>
+    )}
 
     <!-- SEO -->
     <SEO

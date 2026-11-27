@@ -1677,3 +1677,35 @@ html.dark[data-theme="teal"] .mobile-menu-cta-wrap .btn-primary:hover {
     padding-inline: 1rem;
   }
 }
+
+/* ── Installed app (PWA) ─────────────────────────────────────────────────
+   Page changes cross-fade like screens in an app, in browsers that support
+   cross-document view transitions; others simply load the next page. */
+@view-transition {
+  navigation: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
+/* Opened from the home screen, the site runs without browser chrome. The
+   contact strip above the header is dropped on phones (the tab bar carries
+   WhatsApp and the audit), taps lose the grey flash, and pages do not bounce
+   past their ends. */
+@media (display-mode: standalone) and (max-width: 767px) {
+  :root {
+    --topbar-h: 0px;
+  }
+  .hdr-topbar {
+    display: none !important;
+  }
+  html {
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
+  }
+  header[data-header-variant] {
+    padding-top: env(safe-area-inset-top);
+  }
+}

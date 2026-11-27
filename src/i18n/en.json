@@ -2072,6 +2072,17 @@
   "mobileBar": {
     "label": "Quick contact",
     "check": "Free audit",
-    "whatsapp": "WhatsApp"
+    "whatsapp": "WhatsApp",
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects"
+  },
+  "pwa": {
+    "title": "Install the Stojan Petkovic app",
+    "subtitle": "Services, projects and a free audit one tap away, right from your home screen.",
+    "install": "Install the app",
+    "close": "Close",
+    "iosStep1": "Tap Share in Safari's toolbar",
+    "iosStep2": "Choose \"Add to Home Screen\""
   }
 }
