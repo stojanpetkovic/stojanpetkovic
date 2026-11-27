@@ -178,6 +178,10 @@ const projects = defineCollection({
        * lists the projects that used it.
        */
       serviceIds: z.array(z.string()).default([]),
+      /** One headline number for the portfolio card, e.g. 1,010 tracked leads. */
+      highlight: z.object({ value: z.string(), label: z.string() }).optional(),
+      /** Questions and answers shown under the case study, with FAQPage JSON-LD. */
+      faq: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
       order: z.number().default(99),
       year: z.number().optional(),
       client: z.string().optional(),

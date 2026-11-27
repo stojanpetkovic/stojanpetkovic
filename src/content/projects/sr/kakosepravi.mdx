@@ -5,6 +5,9 @@ description: "Migracija PHP magazina sa bazom na statičan Astro: svih 49 teksto
 seoTitle: "Prelazak magazina sa PHP-a na Astro"
 seoDescription: "Studija slučaja: magazin sa receptima i vodičima prešao je sa PHP-a i baze na statički Astro, uz sačuvanih svih 49 članaka, adresa i posete sa Google-a."
 serviceIds: ["websites"]
+highlight:
+  value: "49"
+  label: "članaka prebačeno, sve adrese iste"
 url: "https://kakosepravi.com"
 tags: ["Astro", "SEO", "Brzina"]
 featured: true
@@ -28,6 +31,13 @@ gallery:
     alt: "Strana kategorije Kuhinja sa mrežom kartica recepata."
   - src: "../../../assets/projects/kakosepravi-popup.webp"
     alt: "Popup koji se pojavi posle 40 sekundi čitanja i nudi brz sajt za vaš biznis."
+faq:
+  - question: "Da li je Kako se pravi izgubio posete sa Google-a posle selidbe?"
+    answer: "Selidba je zadržala svih 49 članaka i sve adrese tačno kao pre, pa su pretraživači videli iste strane, sada kao brz statički HTML."
+  - question: "Može li statički sajt da prikazuje oglase?"
+    answer: "Da. AdSense, Google Analytics i oba Meta piksela rade i posle prelaska na Astro."
+  - question: "Zašto preći sa PHP-a i baze na statički Astro?"
+    answer: "Statičke strane se brže otvaraju, ne traže bazu i nemaju skriptu za ažuriranje, pa je sajt brži i bezbedniji na običnom hostingu."
 ---
 
 import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
@@ -44,6 +54,18 @@ export const lighthouseScores = [
 **Kako se pravi** je sajt sa domaćim receptima i uradi-sam vodičima: hleb, pite, kajmak, rakija, sapun i ćumur, objašnjeni korak po korak. Radio je na **PHP magazin skripti sa bazom podataka**: pri svakoj poseti server je sklapao stranu iz PHP-a i SQL-a, a preko toga je išla teška Bootstrap tema. Strane su bile spore, adrese su zavisile od skripte, a svako ažuriranje skripte bio je rizik.
 
 Klijent je hteo **isti sajt i iste adrese, ali brz koliko sajt uopšte može da bude**, i dalje na istom običnom cPanel hostingu. Tražio je i da AdSense, Analytics i oba Meta Pixela ostanu, a da sajt dobije novi izgled pravog kulinarskog magazina.
+
+## Šta sam napravio
+
+- **Prelazak sa PHP skripte za magazin i baze na statički Astro**, uz prebačenih svih 49 članaka i iste adrese.
+- **Nov dizajn magazina** za recepte i uputstva, sa jasnim kategorijama za kuhinju i radove u kući.
+- **Pretraga koja radi bez servera**, ugrađena u statički sajt.
+- **AdSense, Google Analytics i oba Meta piksela i dalje rade**, pa prihod i praćenje nisu stali ni dana.
+- **Isti cPanel hosting**, bez serverskog koda koji treba ažurirati ili koji može da se pokvari.
+
+## SEO u osnovi
+
+Najveći rizik pri selidbi sajta je gubitak poseta. Pošto su sve adrese, naslovi i članci ostali isti, Google je video iste strane, samo mnogo brže. Svaki recept i uputstvo zadržava svoj naslov i opis, slike su optimizovane, a strukturirani podaci označavaju članke. Brže strane i pregledniji izgled pomažu i rangiranju i zaradi od oglasa.
 
 ## Rezultati
 

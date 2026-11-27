@@ -537,7 +537,14 @@ export default defineConfig({
 
   site: process.env.SITE_URL || SITE_URL_FALLBACK,
   ...(astroI18nOptions ? { i18n: astroI18nOptions } : {}),
-  redirects: { ...redirects, ...removedEngineeringRedirects },
+  redirects: {
+    ...redirects,
+    ...removedEngineeringRedirects,
+    // The Websites page was folded into the Webtano project page in November 2026.
+    '/web': '/projects/webtano/',
+    '/sr/web': '/sr/projekti/webtano/',
+    '/de/web': '/de/projekte/webtano/',
+  },
 
   // Astro 7 changed the default to 'jsx', which strips whitespace between
   // inline elements (React-style). Pin to `true` to keep this theme's v6

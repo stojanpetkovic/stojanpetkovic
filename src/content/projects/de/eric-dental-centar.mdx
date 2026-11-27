@@ -5,6 +5,9 @@ description: "Website einer Zahnarztpraxis auf statischem Astro: drei Sprachen (
 seoTitle: "Zahnarzt-Website in drei Sprachen"
 seoDescription: "Fallstudie: Die Website einer Zahnarztpraxis in Pančevo, neu gebaut mit Astro: 60 Seiten auf Serbisch, Englisch und Deutsch, Terminformular und Tracking."
 serviceIds: ["websites", "local-seo"]
+highlight:
+  value: "60"
+  label: "Seiten in drei Sprachen"
 url: "https://zubarpancevo.com/en/"
 tags: ["Astro", "SEO", "Kundenprojekte"]
 featured: true
@@ -36,6 +39,13 @@ gallery:
     alt: "Patientenbewertungen: durchschnittlich 5,0 aus 31 Bewertungen auf doktor.rs und ausgewählte Rezensionen."
   - src: "../../../assets/projects/eric-dental-centar-german.webp"
     alt: "Die deutsche Version der Website: Der Zahnarzt in Pančevo, dem Patienten vertrauen."
+faq:
+  - question: "Was hat die neue Website von Erić Dental Centar ersetzt?"
+    answer: "Ein altes WordPress-Theme mit Demo-Inhalten: Beispiel-Ärzte, ein leerer Bereich für Mitteilungen und Seiten ohne Bezug zur Praxis."
+  - question: "Warum eine Zahnarzt-Website in drei Sprachen?"
+    answer: "Patienten kommen aus Pančevo, Belgrad und dem Ausland. Serbische, englische und deutsche Seiten lassen jeden in seiner Sprache lesen und buchen."
+  - question: "Wie schnell ist die Website?"
+    answer: "Lighthouse gibt 96 für Performance und 100 für Barrierefreiheit, Best Practices und SEO."
 ---
 
 import Button from '@/components/ui/form/Button/Button.astro';
@@ -53,6 +63,18 @@ export const lighthouseScores = [
 **Erić Dental Centar** ist eine Zahnarztpraxis in Pančevo, Serbien, eröffnet 2020 in der Oslobođenja 23. Ihre Patienten kommen aus Pančevo und aus Belgrad. Die alte Website war ein WordPress-Theme mit Demoinhalten, die nie entfernt worden waren: die Beispielärzte des Themes, ein leerer Bereich „Ankündigungen“ und Seiten, die nichts mit der Praxis zu tun hatten. Vor allem aber **gab es keinen klaren Weg von einer Suche zu einem gebuchten Termin**.
 
 Das Ziel für die neue Website: Ein Patient, der einen Zahnarzt in Pančevo sucht, findet die Praxis, versteht, was sie anbietet, und sendet in unter einer Minute eine Terminanfrage — in seiner eigenen Sprache.
+
+## Was ich gebaut habe
+
+- **Eine neue Astro-Website mit 60 Seiten** auf Serbisch, Englisch und Deutsch, jede Seite übersetzt statt maschinell kopiert.
+- **Eine Seite je Behandlung**, damit Patienten die Praxis finden, wenn sie Implantate, Prothetik, Kieferorthopädie oder ästhetische Zahnmedizin in Pančevo suchen.
+- **Ein Formular für Terminanfragen** in jeder Sprache und Anruf per Tipp auf dem Handy.
+- **Anfragen-Tracking**, damit die Praxis sieht, wie viele Patienten sie online gefunden haben und wie sie Kontakt aufgenommen haben.
+- **Echte Fotos von Praxis und Team** statt der Demo-Ärzte und leeren Bereiche des Themes.
+
+## Für die Suche gebaut
+
+Eine Zahnarztpraxis konkurriert in einem kleinen Gebiet, deshalb entscheidet lokales SEO, wer den Patienten bekommt. Die Website nutzt überall den genauen Namen, die Adresse in der Oslobođenja und die Telefonnummer, genau wie im Google-Unternehmensprofil. Jede Behandlungsseite zielt auf Suchen wie „Zahnarzt Pančevo“ und „Implantate Pančevo“, und hreflang-Tags zeigen Google, welche Sprachversion es ausspielen soll. Patienten aus Belgrad und aus dem Ausland finden die englischen und deutschen Seiten.
 
 ## Ergebnisse
 

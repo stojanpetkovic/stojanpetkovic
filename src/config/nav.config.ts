@@ -136,7 +136,7 @@ export interface ResolvedNavItem {
  * client, built from `services.config.ts` so a new service appears here too.
  */
 const servicesMega: MegaMenuConfig = {
-  activePrefixes: ['/services', '/web'],
+  activePrefixes: ['/services'],
   overview: { label: 'All services', labelKey: 'nav.mega.overview', href: '/services', icon: 'arrow-right' },
   groups: (['ads', 'visibility', 'web'] as const).map((group) => ({
     title: group,
@@ -155,19 +155,19 @@ const servicesMega: MegaMenuConfig = {
 
 export const navItems: NavItem[] = [
   { label: 'Services', href: '/services', order: 0, labelKey: 'nav.items.services', mega: servicesMega },
-  { label: 'Websites', href: '/web', order: 1, labelKey: 'nav.items.web' },
-  { label: 'Blog', href: '/blog', order: 2, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 3, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 4, labelKey: 'nav.items.contact' },
+  { label: 'Projects', href: '/projects', order: 2, labelKey: 'nav.items.projects' },
+  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
+  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
 ];
 
 export const footerNavItems: NavItem[] = [
   { label: 'Home', href: '/', order: 0, labelKey: 'nav.items.home' },
   { label: 'Services', href: '/services', order: 1, labelKey: 'nav.items.services' },
-  { label: 'Websites', href: '/web', order: 2, labelKey: 'nav.items.web' },
-  { label: 'Blog', href: '/blog', order: 3, labelKey: 'nav.items.blog' },
-  { label: 'About', href: '/about', order: 4, labelKey: 'nav.items.about' },
-  { label: 'Contact', href: '/contact', order: 5, labelKey: 'nav.items.contact' },
+  { label: 'Projects', href: '/projects', order: 3, labelKey: 'nav.items.projects' },
+  { label: 'Blog', href: '/blog', order: 4, labelKey: 'nav.items.blog' },
+  { label: 'About', href: '/about', order: 5, labelKey: 'nav.items.about' },
+  { label: 'Contact', href: '/contact', order: 6, labelKey: 'nav.items.contact' },
 ];
 
 export const legalLinks: LegalLink[] = [

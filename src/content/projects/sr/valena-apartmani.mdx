@@ -5,6 +5,9 @@ description: "Astro sajt od nule za apartmane na planini, sa sistemom za rezerva
 seoTitle: "Sajt i Meta oglasi za apartmane, Divčibare"
 seoDescription: "Studija slučaja: sajt za rezervacije napravljen od nule za Valena apartmane na Divčibarama, sa sopstvenim sistemom rezervacija i Facebook i Instagram oglasima."
 serviceIds: ["websites", "facebook-instagram-ads"]
+highlight:
+  value: "99"
+  label: "Lighthouse brzina"
 url: "https://valenaapartmani.com"
 tags: ["Astro", "Društvene mreže", "Klijentski projekti"]
 featured: true
@@ -26,6 +29,13 @@ gallery:
     alt: "Prozor za rezervaciju po meri: izaberi Valena 1 ili Valena 2 i odmah pređi na rezervaciju tog apartmana."
   - src: "../../../assets/projects/valena-gallery.webp"
     alt: "Galerija sa pravim fotografijama enterijera i okoline oba apartmana."
+faq:
+  - question: "Zašto sajt za direktne rezervacije apartmana?"
+    answer: "Za direktne rezervacije nema provizije platformi, a vlasnik zadržava kontakt sa gostom za sledeći dolazak."
+  - question: "Kako rade Facebook i Instagram oglasi za apartmane?"
+    answer: "Oglasi stižu do ljudi koji planiraju put u to mesto, a Meta piksel prati koji oglasi donose zahteve za rezervaciju, pa budžet ide na ono što radi."
+  - question: "Može li gost da rezerviše tačno određen apartman?"
+    answer: "Da. Prozor za rezervaciju nudi Valena 1 ili Valena 2 i vodi pravo u rezervaciju tog apartmana."
 ---
 
 import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
@@ -40,6 +50,18 @@ export const lighthouseScores = [
 ## Zadatak
 
 **Valena Apartmani** izdaje dva apartmana na **Divčibarama**, planinskom mestu u zapadnoj Srbiji, gostima koji dolaze na vikend ili nedelju dana blizu ski staza i planinarskih staza. Za razliku od projekata za firme za seču drveća u ovom portfoliju, ovde nije bilo nikakvog prepravljanja — nije postojao stari sajt koji treba zameniti ni SEO istorija koju treba sačuvati. Zadatak je bio da se od nule pusti brz i ozbiljan sajt za rezervacije i da se gosti dovode direktno preko plaćenih oglasa na mrežama, jer odatle ova publika u Srbiji zaista rezerviše smeštaj.
+
+## Šta sam napravio
+
+- **Sajt za rezervacije napravljen od nule** za dva apartmana na Divčibarama, sa fotografijama, opremom i obližnjim mestima za svaki.
+- **Sopstveni sistem rezervacija**: gost bira Valena 1 ili Valena 2 i odmah ide u rezervaciju tog apartmana.
+- **Facebook i Instagram oglasi** za ljude koji planiraju vikend na planini ili skijanje.
+- **Praćenje konverzija** preko Meta piksela, da se svaki zahtev za rezervaciju iz oglasa izbroji.
+- **Brz statički sajt** sa ocenom 99 za Lighthouse brzinu.
+
+## SEO u osnovi
+
+Gosti traže smeštaj na Divčibarama po mestu i vrsti: apartmani, sobe, vikend na planini. Naslovi, opisi i tekstovi sajta koriste te reči, a strukturirani podaci opisuju objekat, lokaciju i opremu. Direktne rezervacije preko sajta znače bez provizije platformama za rezervacije, a oglasi na društvenim mrežama dovode prve posetioce dok raste posećenost iz pretrage.
 
 ## Rezultati
 

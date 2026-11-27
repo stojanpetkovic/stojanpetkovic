@@ -5,6 +5,9 @@ description: "Statičan Astro sajt za firmu za seču drveća: stranice usluga i 
 seoTitle: "Sajt i lokalni SEO za SF Tree Removal"
 seoDescription: "Studija slučaja: brz Astro sajt za SF Tree Removal sa Floride, sa stranama za usluge i gradove za lokalnu pretragu i brojanjem svakog upita."
 serviceIds: ["websites", "local-seo"]
+highlight:
+  value: "69 → 97"
+  label: "Lighthouse brzina"
 url: "https://sftreeremoval.com"
 tags: ["Astro", "SEO", "Klijentski projekti"]
 featured: true
@@ -26,6 +29,13 @@ gallery:
     alt: "Sekcija oblasti rada, sa linkovima ka posebnim stranicama za Miami, Fort Lauderdale, Hollywood, Pembroke Pines, Boca Raton i Broward County."
   - src: "../../../assets/projects/sf-tree-removal-contact.webp"
     alt: "Kontakt strana: forma za besplatnu procenu sa imenom, telefonom, email-om, uslugom i gradom, i napomenom kako se zahtev označava kao hitan."
+faq:
+  - question: "Koliko je brži novi sajt SF Tree Removal?"
+    answer: "Lighthouse brzina je sa 69 na staroj verziji skočila na 97, uz 100 za Best Practices i SEO."
+  - question: "Zašto postoje posebne strane za gradove?"
+    answer: "Ljudi traže seču drveća u svom gradu. Strana pisana za svako mesto odgovara tim pretragama i rangira se bolje od jedne opšte strane."
+  - question: "Može li sajt bez broja telefona da donosi upite?"
+    answer: "Da. Ovaj klijent je želeo kontakt samo preko forme, pa je forma kratka, vidljiva na svakoj strani i svaki zahtev se broji."
 ---
 
 import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
@@ -40,6 +50,18 @@ export const lighthouseScores = [
 ## Zadatak
 
 **SF Tree Removal** se bavi sečom drveća, hitnim intervencijama posle oluja i poslovima sertifikovanog arboriste u okruzima Miami-Dade, Broward i Palm Beach. Na domenu je ranije radila teška verzija nalik aplikaciji, sa ocenom 69 za performanse. Cilj novog sajta je bio jednostavan: **sajt koji jedan posao radi dobro**. Vlasnik kuće koji traži seča drveća u svom gradu treba da stigne na stranicu napisanu baš za taj grad, da razume šta firma radi i da pošalje zahtev za manje od minut.
+
+## Šta sam napravio
+
+- **Statički Astro i Tailwind CSS sajt** umesto teške verzije nalik aplikaciji, čime je Lighthouse brzina skočila sa 69 na 97.
+- **Posebna strana za svaku uslugu**: seču drveća, hitne intervencije posle oluje i rad sertifikovanog arboriste.
+- **Strane za gradove u okruzima Miami-Dade, Broward i Palm Beach**, da vlasnik kuće dođe na stranu pisanu za njegovo mesto.
+- **Kontakt samo preko forme**, kako je klijent želeo, sa kratkim zahtevom za procenu koji traje manje od minuta.
+- **Brojanje upita**: svaka poseta i svaki zahtev se vide u izveštaju klijenta.
+
+## SEO u osnovi
+
+Google rangira strane, a ne sajtove, pa firmi za seču drveća treba strana za svaku uslugu i svako mesto u kom želi da se pojavi. Svaka strana ima svoj naslov, meta opis, podnaslove i strukturirane podatke, i linkuje srodne usluge i gradove. Brzo otvaranje na telefonu pomaže i rangiranju i upitima, zato je brzina bila prva stvar koju sam rešio.
 
 ## Rezultati
 

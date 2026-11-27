@@ -31,7 +31,7 @@ export const services: ServiceEntry[] = [
   { id: 'facebook-instagram-ads', href: '/services/facebook-instagram-ads', icon: 'megaphone', group: 'ads', page: true },
   { id: 'local-seo', href: '/services/local-seo', icon: 'map-pin', group: 'visibility', page: true },
   { id: 'ai-search-visibility', href: '/services/ai-search-visibility', icon: 'sparkles', group: 'visibility', page: true },
-  { id: 'websites', href: '/web', icon: 'layout', group: 'web', page: false },
+  { id: 'websites', href: '/projects/webtano', icon: 'layout', group: 'web', page: false },
   { id: 'ai-chat', href: '/services/ai-chat', icon: 'message-circle', group: 'web', page: true },
 ];
 

@@ -5,6 +5,9 @@ description: "Statische Astro-Website für eine Baumpflegefirma: Leistungs- und 
 seoTitle: "Website und lokales SEO für Baumfällung, Florida"
 seoDescription: "Fallstudie: Eine schnelle Astro-Website für SF Tree Removal in Südflorida, mit Leistungs- und Ortsseiten für die lokale Suche und gezählten Anfragen."
 serviceIds: ["websites", "local-seo"]
+highlight:
+  value: "69 → 97"
+  label: "Lighthouse-Performance"
 url: "https://sftreeremoval.com"
 tags: ["Astro", "SEO", "Kundenprojekte"]
 featured: true
@@ -26,6 +29,13 @@ gallery:
     alt: "Der Bereich mit Einsatzgebieten und eigenen Seiten für Miami, Fort Lauderdale, Hollywood, Pembroke Pines, Boca Raton und Broward County."
   - src: "../../../assets/projects/sf-tree-removal-contact.webp"
     alt: "Die Kontaktseite: ein Formular für ein kostenloses Angebot mit Name, Telefon, E-Mail, Leistung und Stadt sowie einem Hinweis für Notfälle."
+faq:
+  - question: "Wie viel schneller ist die neue Website von SF Tree Removal?"
+    answer: "Die Lighthouse-Performance stieg von 69 auf 97, mit 100 für Best Practices und SEO."
+  - question: "Warum gibt es eigene Ortsseiten?"
+    answer: "Menschen suchen Baumfällung in ihrer eigenen Stadt. Eine Seite je Ort passt zu diesen Suchen und rankt besser als eine allgemeine Seite."
+  - question: "Bringt eine Website ohne Telefonnummer Anfragen?"
+    answer: "Ja. Dieser Kunde wollte nur Formular-Kontakt, also ist das Formular kurz, auf jeder Seite sichtbar und jede Anfrage wird gezählt."
 ---
 
 import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
@@ -40,6 +50,18 @@ export const lighthouseScores = [
 ## Die Aufgabe
 
 **SF Tree Removal** bietet Baumfällung, Notfalleinsätze nach Stürmen und zertifizierte Arboristenleistungen in Miami-Dade, Broward und Palm Beach County. Auf der Domain lief zuvor ein schwerer, App-artiger Aufbau mit einem Performance-Wert von 69. Das Ziel des Neubaus war einfach: **eine Website, die eine Aufgabe gut erledigt**. Ein Hausbesitzer, der in seiner Stadt nach Baumfällung sucht, soll auf einer Seite für genau diese Stadt landen, verstehen, was die Firma macht, und in unter einer Minute eine Anfrage senden.
+
+## Was ich gebaut habe
+
+- **Eine statische Website mit Astro und Tailwind CSS** statt eines schweren, App-artigen Builds: Lighthouse-Performance von 69 auf 97.
+- **Eine Seite je Leistung**: Baumfällung, Notdienst nach Stürmen und Arbeit zertifizierter Arboristen.
+- **Ortsseiten für Miami-Dade, Broward und Palm Beach County**, damit Hausbesitzer auf einer Seite für ihre Gegend landen.
+- **Kontakt nur per Formular**, wie vom Kunden gewünscht, mit einer kurzen Angebotsanfrage in unter einer Minute.
+- **Anfragen-Zählung**: jeder Besuch und jede Anfrage erscheint im Bericht des Kunden.
+
+## Für die Suche gebaut
+
+Google rankt Seiten, nicht Websites, deshalb braucht ein Baumfäll-Unternehmen eine Seite für jede Leistung und jeden Ort, an dem es gefunden werden will. Jede Seite hat eigenen Titel, Meta-Beschreibung, Überschriften und strukturierte Daten und verlinkt verwandte Leistungen und Orte. Schnelles Laden auf dem Handy hilft Rankings und Anfragen, deshalb kam die Geschwindigkeit zuerst.
 
 ## Ergebnisse
 

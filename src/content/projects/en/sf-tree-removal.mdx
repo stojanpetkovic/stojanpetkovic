@@ -5,6 +5,9 @@ description: "Static Astro site for a tree service: service and city pages for l
 seoTitle: "Tree removal website and local SEO, Florida"
 seoDescription: "Case study: a fast Astro website for SF Tree Removal in South Florida, with service and city pages for local search and every lead counted."
 serviceIds: ["websites", "local-seo"]
+highlight:
+  value: "69 → 97"
+  label: "Lighthouse performance"
 url: "https://sftreeremoval.com"
 tags: ["Astro", "SEO", "Client Work"]
 featured: true
@@ -26,6 +29,13 @@ gallery:
     alt: "The service-areas section, linking to dedicated pages for Miami, Fort Lauderdale, Hollywood, Pembroke Pines, Boca Raton and Broward County."
   - src: "../../../assets/projects/sf-tree-removal-contact.webp"
     alt: "The contact page: a free-estimate form with name, phone, email, service and city, and a note on marking a request as an emergency."
+faq:
+  - question: "How much faster is the new SF Tree Removal site?"
+    answer: "Lighthouse performance went from 69 on the old build to 97, with 100 for Best Practices and SEO."
+  - question: "Why are there separate city pages?"
+    answer: "People search for tree removal in their own city. A page written for each area matches those searches and ranks better than one general page."
+  - question: "Can a site without a phone number still get leads?"
+    answer: "Yes. This client wanted form-only contact, so the estimate form is short, visible on every page and every request is counted."
 ---
 
 import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
@@ -40,6 +50,18 @@ export const lighthouseScores = [
 ## The brief
 
 **SF Tree Removal** offers tree removal, emergency storm response and certified arborist work across Miami-Dade, Broward and Palm Beach County. The domain had been running a heavy, app-like build that scored 69 for performance. The goal of the rebuild was simple: **a site that does one job well**. A homeowner searching for tree removal in their city should land on a page written for that city, understand what the company does, and send a request in under a minute.
+
+## What I built
+
+- **A static Astro and Tailwind CSS site** in place of a heavy app-like build, taking Lighthouse performance from 69 to 97.
+- **A page for each service**: tree removal, emergency storm response and certified arborist work.
+- **City pages for Miami-Dade, Broward and Palm Beach County**, so a homeowner lands on a page written for their area.
+- **Form-only contact**, as the client wanted, with a short estimate request that takes under a minute.
+- **Lead counting**: every visit and every request shows up in the client's report.
+
+## Built for search
+
+Google ranks pages, not websites, so a tree removal company needs a page for every service and every area it wants to be found in. Each page has its own title, meta description, headings and structured data, and links to the related services and cities. Fast loading on phones helps both rankings and conversions, which is why speed was the first thing fixed.
 
 ## Results
 

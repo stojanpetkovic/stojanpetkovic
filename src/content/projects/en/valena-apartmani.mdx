@@ -5,6 +5,9 @@ description: "Astro site built from scratch for a mountain apartment rental, wit
 seoTitle: "Vacation rental website and Meta ads"
 seoDescription: "Case study: a booking website built from scratch for Valena apartments on Divčibare, with a custom booking system and Facebook and Instagram ads."
 serviceIds: ["websites", "facebook-instagram-ads"]
+highlight:
+  value: "99"
+  label: "Lighthouse performance"
 url: "https://valenaapartmani.com"
 tags: ["Astro", "Social Media Marketing", "Client Work"]
 featured: true
@@ -26,6 +29,13 @@ gallery:
     alt: "The custom booking popup: pick Valena 1 or Valena 2 and go straight into that apartment's reservation flow."
   - src: "../../../assets/projects/valena-gallery.webp"
     alt: "The photo gallery section showing the real interior and surroundings of both apartments."
+faq:
+  - question: "Why build a direct booking site for holiday apartments?"
+    answer: "Direct bookings carry no platform commission, and the owner keeps the guest relationship for return visits."
+  - question: "How do Facebook and Instagram ads work for apartment rentals?"
+    answer: "Ads reach people planning a trip to the area, and the Meta pixel tracks which ads lead to booking requests, so the budget goes to what works."
+  - question: "Can guests book a specific apartment?"
+    answer: "Yes. The booking popup lets guests choose Valena 1 or Valena 2 and go straight into that apartment's reservation flow."
 ---
 
 import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
@@ -40,6 +50,18 @@ export const lighthouseScores = [
 ## The brief
 
 **Valena Apartmani** rents two apartments on **Divčibare**, a mountain resort in western Serbia, to guests booking a weekend or week away near the ski slopes and hiking trails. Unlike the tree-service work in this portfolio, this wasn't a rebuild — there was no existing site to replace, no SEO history to protect. The brief was to get a fast, credible booking site live from nothing, and drive guests to it directly with paid social, since that's where this kind of short-term-rental audience in Serbia actually books from.
+
+## What I built
+
+- **A booking website built from scratch** for two apartments on Divčibare, with photos, amenities and nearby places for each.
+- **A custom booking system**: guests pick Valena 1 or Valena 2 and go straight into that apartment's reservation flow.
+- **Facebook and Instagram ads** aimed at people planning a mountain weekend or a ski trip.
+- **Conversion tracking** with the Meta pixel, so every booking request from an ad is counted.
+- **A fast, static site** that scores 99 for Lighthouse performance.
+
+## Built for search
+
+Guests search for accommodation on Divčibare by place and type: apartments, rooms, a weekend in the mountains. The site's titles, descriptions and copy use those words, and structured data describes the property, its location and amenities. Direct bookings through the site mean no commission to booking platforms, and paid social brings the first visitors while search traffic grows.
 
 ## Results
 
