@@ -4,6 +4,7 @@ import { defaultLocale, getLocaleName, getSecondaryLocales, t, type Locale } fro
 import { getPublishedPosts, getPostUrl, getRssUrl } from '@/lib/blog';
 import { getVisibleProjects, getProjectUrl } from '@/lib/projects';
 import { getNavItems } from '@/config/nav.config';
+import { servicePages, resolveService } from '@/config/services.config';
 
 /**
  * /llms.txt
@@ -59,6 +60,14 @@ export const GET: APIRoute = async ({ site }) => {
     const pageLines = getNavItems(locale)
       .filter((item) => !item.external)
       .map((item) => line(item.label, `${base}${item.href}`));
+
+    // Each service has its own page; list them under the nav pages.
+    pageLines.push(
+      ...servicePages.map((service) => {
+        const { name, summary, url } = resolveService(service, locale);
+        return line(name, `${base}${url}`, summary);
+      })
+    );
 
     const projectLines = [...projects]
       .sort((a, b) => a.data.order - b.data.order)

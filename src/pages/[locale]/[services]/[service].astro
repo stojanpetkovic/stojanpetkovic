@@ -1,0 +1,23 @@
+---
+import ServicePageView from '@/components/pages/views/ServicePageView.astro';
+import { servicePages } from '@/config/services.config';
+import { getSecondaryLocales } from '@/i18n';
+import { segment, serviceSlug } from '@/i18n/routes';
+
+// Locale-prefixed service pages (`/<locale>/<services>/<slug>`, both named per
+// locale). One page per non-default locale and service; emits nothing when
+// i18n is off.
+export function getStaticPaths() {
+  return getSecondaryLocales().flatMap((locale) =>
+    servicePages.map((service) => ({
+      params: { locale, services: segment('services', locale), service: serviceSlug(service.id, locale) },
+      props: { id: service.id },
+    }))
+  );
+}
+
+const { locale } = Astro.params;
+const { id } = Astro.props;
+---
+
+<ServicePageView id={id} locale={locale} />

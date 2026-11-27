@@ -13,7 +13,8 @@
  * not listed keeps its English name in every language.
  *
  * Adding a page: add its first path segment to `segments`. Adding a tool: add
- * its slug to `tools`. Adding a project: give it an entry in `projects` only
+ * its slug to `tools`. Adding a service page: add its slug to `services`.
+ * Adding a project: give it an entry in `projects` only
  * when its file name is not already the right slug in every language.
  */
 
@@ -26,6 +27,8 @@ export interface RoutesConfig {
   projectSubsegments: Record<string, Names>;
   /** Slug of each page under `/tools`, by locale. */
   tools: Record<string, Names>;
+  /** Slug of each service page under `/services`, by locale. */
+  services: Record<string, Names>;
   /** URL slug of a project, keyed by its file name (shared by all locales). */
   projects: Record<string, Names>;
 }
@@ -45,6 +48,15 @@ const routesConfig: RoutesConfig = {
     page: { sr: 'strana', de: 'seite' },
   },
   tools: {},
+  // One page per service. The key is the English slug and the page's id in
+  // `src/config/services.config.ts`.
+  services: {
+    'google-ads': { sr: 'google-oglasi', de: 'google-ads' },
+    'facebook-instagram-ads': { sr: 'facebook-instagram-oglasi', de: 'facebook-instagram-werbung' },
+    'local-seo': { sr: 'lokalni-seo', de: 'lokales-seo' },
+    'ai-search-visibility': { sr: 'vidljivost-u-ai-pretrazi', de: 'sichtbarkeit-in-der-ki-suche' },
+    'ai-chat': { sr: 'ai-chat', de: 'ki-chat' },
+  },
   projects: {},
 };
 

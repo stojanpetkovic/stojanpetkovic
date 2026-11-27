@@ -9,6 +9,7 @@ import { describe, expect, it } from 'vitest';
 import en from '../i18n/en.json';
 import de from '../i18n/de.json';
 import sr from '../i18n/sr.json';
+import { services, servicePages } from '../config/services.config';
 
 const locales = { en, de, sr } as Record<string, unknown>;
 
@@ -41,10 +42,33 @@ const BLOCKS = [
   'pages.contact.form.timelines',
   'pages.about.background.paragraphs',
   'nav.items.web',
+  'nav.mega.groups',
+  'pages.servicePage.common.cta',
+  ...servicePages.flatMap(({ id }) => [
+    `pages.servicePage.items.${id}.meta`,
+    `pages.servicePage.items.${id}.hero`,
+    `pages.servicePage.items.${id}.intro.paragraphs`,
+    `pages.servicePage.items.${id}.included.items`,
+    `pages.servicePage.items.${id}.fit`,
+    `pages.servicePage.items.${id}.steps.items`,
+    `pages.servicePage.items.${id}.faq`,
+  ]),
+  ...services.map(({ id }) => `pages.servicePage.items.${id}.summary`),
 ];
 
 const read = (tree: unknown, path: string) =>
   path.split('.').reduce<unknown>((node, key) => (node as Record<string, unknown> | undefined)?.[key], tree);
+
+describe('service page meta', () => {
+  for (const [locale, tree] of Object.entries(locales)) {
+    it.each(servicePages.map(({ id }) => id))(`${locale} %s has a title and description that fit in search results`, (id) => {
+      const meta = read(tree, `pages.servicePage.items.${id}.meta`) as { title: string; description: string };
+      expect(meta.title.length).toBeLessThanOrEqual(60);
+      expect(meta.description.length).toBeGreaterThanOrEqual(110);
+      expect(meta.description.length).toBeLessThanOrEqual(160);
+    });
+  }
+});
 
 describe('page copy', () => {
   for (const [locale, tree] of Object.entries(locales)) {

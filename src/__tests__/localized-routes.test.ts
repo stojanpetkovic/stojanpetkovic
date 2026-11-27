@@ -22,6 +22,14 @@ describe('localized routes', () => {
     expect(toLocalizedRoute('/tools/well-kill', 'sr', fixture)).toBe('/alati/gusenje-busotine');
   });
 
+  it('gives each service page its own slug in each language', () => {
+    expect(localizedPath('/services/local-seo', 'sr')).toBe('/sr/usluge/lokalni-seo');
+    expect(localizedPath('/services/local-seo', 'de')).toBe('/de/leistungen/lokales-seo');
+    expect(localizedPath('/services/local-seo', 'en')).toBe('/services/local-seo');
+    expect(canonicalPath('/sr/usluge/google-oglasi/')).toBe('/services/google-ads/');
+    expect(swapLocaleInPath('/de/leistungen/facebook-instagram-werbung', 'sr')).toBe('/sr/usluge/facebook-instagram-oglasi');
+  });
+
   it('gives a project its own slug in each language', () => {
     expect(toLocalizedRoute('/projects/geotermalni-model-melenci', 'en', fixture)).toBe('/projects/melenci-geothermal-model');
     expect(toLocalizedRoute('/projects/geotermalni-model-melenci', 'de', fixture)).toBe(
@@ -53,6 +61,7 @@ describe('localized routes', () => {
     const paths = [
       ...Object.keys(routesConfig.segments).map((s) => `/${s}`),
       ...Object.keys(routesConfig.tools).map((t) => `/tools/${t}`),
+      ...Object.keys(routesConfig.services).map((s) => `/services/${s}`),
       ...Object.keys(routesConfig.projects).map((p) => `/projects/${p}`),
     ];
     for (const locale of ['en', 'sr', 'de']) {
