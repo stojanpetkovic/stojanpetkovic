@@ -312,7 +312,9 @@
           "description": "Send me a message. I'll look at how people find you today and tell you honestly whether this service is worth it for you. The first call is free.",
           "primary": "Get a free audit",
           "secondary": "See all services"
-        }
+        },
+        "detailsBadge": "In detail",
+        "areasBadge": "Where I work"
       },
       "items": {
         "google-ads": {
@@ -335,6 +337,33 @@
               "I build the account around the searches that actually turn into work in your area, cut the rest, and measure calls and leads, not impressions. You own the account from day one."
             ]
           },
+          "details": {
+            "heading": "How I run Google Ads for local service businesses",
+            "sections": [
+              {
+                "title": "Keywords that turn into jobs",
+                "paragraphs": [
+                  "Not every search is worth paying for. \"Emergency plumber near me\" is someone with water on the floor right now; \"how to fix a leaky faucet\" is someone who wants to do it themselves. I build campaigns around searches with intent to call, and exclude searches for tips, jobs and free fixes from day one.",
+                  "I use tight match types and a negative keyword list that grows every week from the real search terms that triggered clicks. Your budget goes to people looking for your service, in your service area."
+                ]
+              },
+              {
+                "title": "Search, Maps and click-to-call",
+                "paragraphs": [
+                  "For local businesses, Google Search and Google Maps ads bring the most calls. I link Google Ads to your Google Business Profile, so your ad also shows on the map with your address, rating and a call button.",
+                  "I add call, sitelink, callout and location assets, so the ad takes more space, answers more questions and lets people call you without visiting the site."
+                ]
+              },
+              {
+                "title": "Tracking: what each lead costs",
+                "paragraphs": [
+                  "I set up conversion tracking with Google Tag Manager and Google Analytics 4: calls from ads, clicks on your phone number, WhatsApp messages and form submissions. Every lead shows in the report, so you know your real cost per lead, not just clicks.",
+                  "Based on that data I adjust bids, ad schedule and budget by campaign. Money moves to what brings calls and stops where it doesn't."
+                ]
+              }
+            ]
+          },
+          "areas": "I manage Google Ads for service businesses across the United States and Europe, and for local businesses in Serbia. Campaigns are targeted to your city, county or a radius around your shop.",
           "included": {
             "heading": "Everything in a managed Google Ads account",
             "items": [
@@ -399,6 +428,14 @@
             {
               "question": "Is there a long-term contract?",
               "answer": "No. Management runs month to month and you can stop with a month's notice."
+            },
+            {
+              "question": "Google Ads or SEO, which is better?",
+              "answer": "Google Ads brings calls right away; SEO builds steady traffic you don't pay for per click. The best order is usually ads first while SEO ramps up, then shift or lower the ad budget."
+            },
+            {
+              "question": "Can you take over my existing Google Ads account?",
+              "answer": "Yes. I review it for free first, tell you what's broken and what's worth keeping, and we continue in the same account so you keep its history."
             }
           ]
         },
@@ -422,6 +459,33 @@
               "I run lead campaigns with the Meta pixel and conversion tracking set up properly, aimed at your service area, with offers and creative tested against each other. You see what each lead cost."
             ]
           },
+          "details": {
+            "heading": "What Meta ads that bring leads look like",
+            "sections": [
+              {
+                "title": "Lead campaigns, not engagement",
+                "paragraphs": [
+                  "In Meta Ads Manager I pick the Leads or Sales objective, not Engagement. The algorithm then looks for people who send enquiries and call, not people who just like posts.",
+                  "Leads can come through instant forms on Facebook and Instagram, through WhatsApp or Messenger, or from a page on your site. I choose the path that suits your customers and that you can follow up on easily."
+                ]
+              },
+              {
+                "title": "Location targeting and retargeting",
+                "paragraphs": [
+                  "Ads are shown to people who live in or move around the towns you serve. There's no point paying for impressions in a city you don't drive to.",
+                  "Retargeting brings back people who visited your site, watched a video or opened a form without sending it. Those are your cheapest leads, because they already know you."
+                ]
+              },
+              {
+                "title": "Meta pixel and Conversions API",
+                "paragraphs": [
+                  "Without proper tracking, Meta doesn't know who became a customer. I set up the Meta pixel and the Conversions API, check the events and connect them to the enquiries from your site.",
+                  "The platform learns from real leads, and you see in the report what each lead from Facebook and Instagram cost."
+                ]
+              }
+            ]
+          },
+          "areas": "I run Facebook and Instagram ads for local service businesses across the US and Europe, and in Serbia. Ads only show where you actually work.",
           "included": {
             "heading": "What's included",
             "items": [
@@ -482,6 +546,14 @@
             {
               "question": "What budget do I need?",
               "answer": "A test can start with a small daily budget. After the first few weeks we know what a lead costs and decide whether to increase it."
+            },
+            {
+              "question": "Do you make the images and videos?",
+              "answer": "I write the ad copy and build simple creatives from your photos. Real photos of your work shot on a phone usually beat stock images, because people trust real jobs."
+            },
+            {
+              "question": "Do I need a Facebook page or Instagram account?",
+              "answer": "You need a Facebook page and a business ad account. If you don't have them, I set them up in your name and connect Instagram if you have it."
             }
           ]
         },
@@ -505,6 +577,33 @@
               "It takes a few months, so I do it in order: first the Google Business Profile and the website basics, then a page for every service and every area, then reviews and links that build trust."
             ]
           },
+          "details": {
+            "heading": "What local SEO includes",
+            "sections": [
+              {
+                "title": "Google Business Profile as the foundation",
+                "paragraphs": [
+                  "For searches like \"roofer near me\" or \"dentist in [city]\", Google shows a map with three businesses first. Your Google Business Profile drives most of that: the right primary category, secondary categories, services with descriptions, hours, photos and regular posts.",
+                  "I set up the profile so your name, address and phone match the website, every service has a keyword-rich description, and posts link to the matching pages on your site."
+                ]
+              },
+              {
+                "title": "A page for every service and service area",
+                "paragraphs": [
+                  "One home page can't rank for everything you do. I build a separate page for each service, and where it makes sense for each town you serve, with unique copy, title and description.",
+                  "The pages link to each other and to your Google Business Profile, and carry structured data (schema.org) so Google knows exactly what you offer and where."
+                ]
+              },
+              {
+                "title": "Reviews, citations and technical SEO",
+                "paragraphs": [
+                  "Reviews are one of the strongest local ranking signals. I give you a short link and a message to send happy customers, and every review gets a reply.",
+                  "I check and build citations in the directories that matter (Apple Maps, Bing Places, Yelp and industry sites) with consistent details, and fix technical SEO: page speed, mobile layout, sitemap, Google Search Console indexing and canonical tags."
+                ]
+              }
+            ]
+          },
+          "areas": "I do local SEO for service businesses in cities across the United States, Germany, Austria and Switzerland, and in Serbia.",
           "included": {
             "heading": "What local SEO covers",
             "items": [
@@ -565,6 +664,18 @@
             {
               "question": "Can you guarantee first place?",
               "answer": "No one honest can. I can show you what I'm doing each month and how rankings, calls and enquiries change."
+            },
+            {
+              "question": "How much does local SEO cost?",
+              "answer": "It depends on the number of services, locations and how competitive your market is. After the free audit you get a flat monthly price with no long-term contract."
+            },
+            {
+              "question": "What is a Google Business Profile and do I need one?",
+              "answer": "It's your free business listing on Google Search and Maps, with address, phone, hours and reviews. Every local business needs one, because without it you can't show up on the map."
+            },
+            {
+              "question": "Can you do SEO on a site you didn't build?",
+              "answer": "Yes. I review the site first and tell you what can be fixed in place and what would be cheaper to rebuild."
             }
           ]
         },
@@ -588,6 +699,33 @@
               "This work is called generative engine optimization (GEO). It builds on good SEO, so the same work helps you in Google too."
             ]
           },
+          "details": {
+            "heading": "How AI search decides who to recommend",
+            "sections": [
+              {
+                "title": "ChatGPT, Gemini, Perplexity and Google AI Overviews",
+                "paragraphs": [
+                  "When someone asks ChatGPT \"who's a good HVAC company near me\" or Google shows an AI Overview above the results, the answer is built from sources the model trusts: business websites, Google Business Profiles, reviews, directories and articles.",
+                  "If the facts about your business are clear and consistent everywhere, the model is more likely to mention you. If they're vague or contradict each other, it recommends someone else."
+                ]
+              },
+              {
+                "title": "Content AI can quote",
+                "paragraphs": [
+                  "I write pages that answer customer questions directly: what you do, where, for whom, how long it takes and roughly what it costs. Short, clear answers and real facts are what AI models quote most.",
+                  "I add structured data (schema.org for the business, services and FAQs) and an llms.txt file, a site map written for AI crawlers."
+                ]
+              },
+              {
+                "title": "Mentions beyond your website",
+                "paragraphs": [
+                  "AI models trust a business that others mention too: local news, directories, associations and reviews. I work on getting your business listed in those places with the same name and description.",
+                  "Every month I check what ChatGPT, Gemini and Perplexity answer to your customers' questions and record whether you appear."
+                ]
+              }
+            ]
+          },
+          "areas": "I work on AI search visibility for businesses in the US and Europe, in English and German, and in Serbia.",
           "included": {
             "heading": "What I do",
             "items": [
@@ -648,6 +786,14 @@
             {
               "question": "Can you make ChatGPT always recommend me?",
               "answer": "No one controls the answers. What I can do is give AI models every reason to name you and measure how often they do."
+            },
+            {
+              "question": "What is GEO?",
+              "answer": "GEO (generative engine optimization) means optimizing your content and business data so AI assistants like ChatGPT, Gemini and Perplexity mention and recommend you in their answers."
+            },
+            {
+              "question": "How fast do results show in AI search?",
+              "answer": "Google AI Overviews react faster, often within weeks. Models like ChatGPT refresh less often, so some changes take a few months."
             }
           ]
         },
@@ -671,6 +817,33 @@
               "The assistant is trained on your services, prices and area. It answers common questions, asks what you need to know and hands the conversation over to you."
             ]
           },
+          "details": {
+            "heading": "How an AI chat assistant works for a service business",
+            "sections": [
+              {
+                "title": "Answers in seconds, 24/7",
+                "paragraphs": [
+                  "The AI chat assistant on your site replies instantly, even at midnight on a Sunday. It handles the common questions: what services you offer, which areas you cover, rough prices and when you can come out.",
+                  "Where it makes sense, the same assistant answers on WhatsApp or Facebook Messenger, so you don't have to hold your phone all day."
+                ]
+              },
+              {
+                "title": "From conversation to a ready lead",
+                "paragraphs": [
+                  "The assistant doesn't just chat. It collects what you need to quote the job: name, phone, address, a description of the work and a photo if needed.",
+                  "The finished lead arrives by email or message, and every lead is counted in your report alongside leads from ads and the website."
+                ]
+              },
+              {
+                "title": "Safe and under your control",
+                "paragraphs": [
+                  "It answers only from the information we give it and says clearly that it's an assistant. When it doesn't know, it doesn't make things up; it takes the contact details and passes the question to you.",
+                  "You can read every conversation, and data is handled under your site's privacy policy."
+                ]
+              }
+            ]
+          },
+          "areas": "I set up AI chat assistants for service businesses in the US, Europe and Serbia. The assistant answers in English, German, Serbian and other languages.",
           "included": {
             "heading": "What the assistant does",
             "items": [
@@ -731,6 +904,14 @@
             {
               "question": "Does it work in several languages?",
               "answer": "Yes. It replies in the language the customer writes in."
+            },
+            {
+              "question": "How much does an AI chat assistant cost?",
+              "answer": "Setup is a flat fee, and the monthly cost depends on the number of conversations. You get a price after a short call about what you need."
+            },
+            {
+              "question": "Can the assistant book appointments?",
+              "answer": "Yes, if you use a calendar or booking system that allows it. Otherwise it takes the preferred time and sends it to you to confirm."
             }
           ]
         },
@@ -1567,6 +1748,55 @@
       }
     },
     "web": {
+      "details": {
+        "badge": "In detail",
+        "heading": "What you get when I build your website",
+        "sections": [
+          {
+            "title": "A website built to make the phone ring",
+            "paragraphs": [
+              "A service business website has one job: get the visitor to call or send an enquiry. Your phone number, WhatsApp and form are always within reach, on every page and every phone.",
+              "Each service gets its own page with its own copy, so people find you on Google when they search for exactly that service."
+            ]
+          },
+          {
+            "title": "Fast, secure and ready for Google",
+            "paragraphs": [
+              "I build with Astro, so pages load in a fraction of a second and score well on Google PageSpeed. Speed matters for visitors and for rankings.",
+              "SEO is part of the build: titles and descriptions for every page, structured data, sitemap, Google Search Console and your Google Business Profile linked to the site."
+            ]
+          },
+          {
+            "title": "Flat price, and you own everything",
+            "paragraphs": [
+              "We agree on the price before work starts, and it doesn't change. Domain, hosting and code are in your name from day one, so the site stays yours.",
+              "After launch I'm around for changes, and there's a monthly care plan for regular updates."
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "badge": "Questions",
+        "heading": "Website design FAQ",
+        "items": [
+          {
+            "question": "How much does a website cost?",
+            "answer": "It depends on the number of pages and features. A website for a service business has a flat price you get in a proposal after a free call."
+          },
+          {
+            "question": "How long does it take to build a website?",
+            "answer": "A landing page is ready in a few days; a site with several service pages usually takes two to four weeks, depending on how fast copy and photos come in."
+          },
+          {
+            "question": "Will the site work on phones?",
+            "answer": "Yes. Sites are built mobile-first, because most people look for local services on their phone."
+          },
+          {
+            "question": "Can I edit the content myself?",
+            "answer": "Yes. Text and images are easy to change, and I'm there for bigger changes or through the monthly care plan."
+          }
+        ]
+      },
       "glance": {"label": "At a glance", "items": [{"label": "Stack", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Price", "value": "One fixed price, agreed before work starts"}, {"label": "Ownership", "value": "Code, domain and hosting in your name"}, {"label": "Reply", "value": "Within one business day"}]},
       "closing": "Got a website in mind? A few sentences are enough.",
       "meta": {
