@@ -312,7 +312,9 @@
           "description": "Pošalji mi poruku. Pogledam kako te ljudi danas nalaze i iskreno ti kažem da li se ova usluga tebi isplati. Prvi razgovor je besplatan.",
           "primary": "Zatraži besplatnu proveru",
           "secondary": "Pogledaj sve usluge"
-        }
+        },
+        "detailsBadge": "Detaljno",
+        "areasBadge": "Gde radim"
       },
       "items": {
         "google-ads": {
@@ -335,6 +337,33 @@
               "Nalog gradim oko pretraga od kojih stvarno ima posla u tvom kraju, ostalo isključim i merim pozive i upite, a ne prikaze. Nalog je na tvoje ime od prvog dana."
             ]
           },
+          "details": {
+            "heading": "Kako vodim Google Ads kampanje za lokalne firme",
+            "sections": [
+              {
+                "title": "Ključne reči od kojih ima posla",
+                "paragraphs": [
+                  "Nije svaka pretraga ista. „Vodoinstalater hitno Zrenjanin” je čovek kome curi voda sada, a „kako popraviti slavinu” je neko ko želi sam da je popravi. Google oglase podešavam na pretrage sa namerom da se pozove, a pretrage za savete, posao i besplatna rešenja isključujem od prvog dana.",
+                  "Koristim precizne tipove podudaranja i listu isključenih reči koju dopunjujem svake nedelje, na osnovu stvarnih pretraga koje su donele klik. Tako budžet ide na ljude koji traže baš tvoju uslugu, u tvom gradu."
+                ]
+              },
+              {
+                "title": "Oglasi na pretrazi, mapi i pozivi direktno iz oglasa",
+                "paragraphs": [
+                  "Za lokalne uslužne firme najviše donose oglasi na Google pretrazi i Google mapama. Povezujem Google Ads sa tvojim Google Business profilom, pa se oglas prikazuje i na mapi sa adresom, ocenom i dugmetom za poziv.",
+                  "Dodajem proširenja oglasa: broj telefona, linkove ka stranama usluga, prednosti i lokaciju. Oglas je veći, ima više informacija i lakše ga je kliknuti, a ljudi mogu da te pozovu bez odlaska na sajt."
+                ]
+              },
+              {
+                "title": "Merenje: koliko košta jedan upit",
+                "paragraphs": [
+                  "Podešavam praćenje konverzija preko Google Tag Managera i Google Analytics 4: poziv iz oglasa, klik na broj telefona na sajtu, WhatsApp poruka i poslata forma. Svaki upit se vidi u izveštaju, pa znaš tačnu cenu jednog upita, a ne samo broj klikova.",
+                  "Na osnovu tih podataka menjam ponude, raspored prikazivanja i budžet po kampanji. Novac se seli tamo gde ima poziva, a gasi tamo gde ih nema."
+                ]
+              }
+            ]
+          },
+          "areas": "Google oglase vodim za firme iz Zrenjanina, Novog Sada, Beograda i cele Srbije, kao i za klijente u Evropi i Americi. Kampanju podešavam za grad, opštinu ili krug od nekoliko kilometara oko tvoje radnje.",
           "included": {
             "heading": "Šta je uključeno u vođenje Google oglasa",
             "items": [
@@ -399,6 +428,14 @@
             {
               "question": "Da li postoji ugovor na duži rok?",
               "answer": "Ne. Vođenje ide iz meseca u mesec i možeš da prekineš uz otkaz od mesec dana."
+            },
+            {
+              "question": "Šta je bolje, Google oglasi ili SEO?",
+              "answer": "Google oglasi donose pozive odmah, a SEO gradi stalan priliv koji ne plaćaš po kliku. Najbolje je krenuti sa oglasima dok SEO ne počne da radi, a onda budžet za oglase smanjiti ili preusmeriti."
+            },
+            {
+              "question": "Mogu li da preuzmem postojeći Google Ads nalog?",
+              "answer": "Mogu. Prvo besplatno pregledam postojeći nalog, kažem ti šta ne valja i šta se može spasiti, pa nastavljamo na istom nalogu da ne izgubiš istoriju."
             }
           ]
         },
@@ -422,6 +459,33 @@
               "Vodim kampanje za upite, sa pravilno podešenim Meta pikselom i praćenjem konverzija, za područje gde radiš, i testiram ponude i slike jedne protiv drugih. Vidiš koliko je koštao svaki upit."
             ]
           },
+          "details": {
+            "heading": "Kako izgledaju Meta oglasi koji donose upite",
+            "sections": [
+              {
+                "title": "Kampanje za upite, ne za lajkove",
+                "paragraphs": [
+                  "U Meta Ads Manageru biram cilj kampanje „Potencijalni klijenti” ili „Prodaja”, ne „Interakcija”. Algoritam tada traži ljude koji šalju upite i zovu, a ne one koji samo lajkuju.",
+                  "Upit može da stigne preko forme na Facebook-u i Instagramu, preko WhatsApp-a, Messenger-a ili sa strane na sajtu. Biram onaj put koji tvojim mušterijama najviše odgovara i koji ti najlakše pratiš."
+                ]
+              },
+              {
+                "title": "Ciljanje po lokaciji i ponovno prikazivanje",
+                "paragraphs": [
+                  "Oglase prikazujem ljudima koji žive ili se kreću u mestima gde radiš, na primer u Zrenjaninu i okolnim selima ili u određenim delovima Novog Sada i Beograda. Nema smisla plaćati prikaze u gradu u koji ne ideš.",
+                  "Ponovno prikazivanje (retargeting) vraća ljude koji su bili na sajtu, gledali video ili otvorili formu, a nisu poslali upit. To su najjeftiniji upiti, jer te ti ljudi već poznaju."
+                ]
+              },
+              {
+                "title": "Meta piksel i Conversions API",
+                "paragraphs": [
+                  "Bez dobrog praćenja Meta ne zna ko ti je postao mušterija. Podešavam Meta piksel i Conversions API, proveravam događaje i povezujem ih sa upitima sa sajta.",
+                  "Tako platforma uči na pravim upitima, a ti u izveštaju vidiš koliko je koštao svaki upit iz Facebook i Instagram oglasa."
+                ]
+              }
+            ]
+          },
+          "areas": "Facebook i Instagram oglase vodim za lokalne firme u Zrenjaninu, Novom Sadu, Beogradu i širom Srbije, i za klijente u Evropi i SAD. Oglas se prikazuje samo u mestima gde stvarno radiš.",
           "included": {
             "heading": "Šta je uključeno",
             "items": [
@@ -482,6 +546,14 @@
             {
               "question": "Koliki budžet mi treba?",
               "answer": "Test može da krene sa malim dnevnim budžetom. Posle prvih nekoliko nedelja znamo koliko košta upit i odlučujemo da li vredi povećati."
+            },
+            {
+              "question": "Da li pravite i slike i video za oglase?",
+              "answer": "Pišem tekstove oglasa i pravim jednostavne grafike od tvojih fotografija. Za početak su najbolje prave slike tvog rada snimljene telefonom, jer ljudi veruju stvarnim poslovima više nego slikama sa interneta."
+            },
+            {
+              "question": "Treba li mi Facebook stranica ili Instagram profil?",
+              "answer": "Treba ti Facebook stranica i poslovni nalog za oglase. Ako ih nemaš, napravim ih na tvoje ime, a Instagram profil povežem ako ga imaš."
             }
           ]
         },
@@ -505,6 +577,33 @@
               "Traje nekoliko meseci, pa idem redom: prvo Google Business profil i osnove sajta, zatim strana za svaku uslugu i svako mesto, pa recenzije i linkovi koji grade poverenje."
             ]
           },
+          "details": {
+            "heading": "Šta sve ulazi u lokalni SEO",
+            "sections": [
+              {
+                "title": "Google Business profil kao osnova",
+                "paragraphs": [
+                  "Za lokalne pretrage kao „frizer Zrenjanin” ili „električar Novi Sad” Google prvo prikazuje mapu sa tri firme. Na to najviše utiče Google Business profil: prava glavna kategorija, dodatne kategorije, usluge sa opisima, radno vreme, fotografije i redovne objave.",
+                  "Profil sređujem tako da su naziv, adresa i telefon isti kao na sajtu, svaka usluga ima opis sa ključnim rečima, a objave vode na odgovarajuće strane na sajtu."
+                ]
+              },
+              {
+                "title": "Strane za svaku uslugu i svako mesto",
+                "paragraphs": [
+                  "Jedna početna strana ne može da se rangira za sve što radiš. Zato pravim posebnu stranu za svaku uslugu, a gde ima smisla i za mesta u kojima radiš, sa jedinstvenim tekstom, naslovom i opisom.",
+                  "Strane povezujem međusobno i sa Google Business profilom, i dodajem im strukturisane podatke (schema.org) da Google tačno zna koju uslugu nudiš i gde."
+                ]
+              },
+              {
+                "title": "Recenzije, citati i tehnički SEO",
+                "paragraphs": [
+                  "Recenzije su među najjačim signalima za lokalno rangiranje. Pravim ti kratak link i poruku koju šalješ zadovoljnim mušterijama, a na svaku recenziju odgovaramo.",
+                  "Proveravam i upisujem firmu u bitne imenike i mape (Apple Maps, Bing Places, lokalni imenici) sa istim podacima, i sređujem tehnički SEO: brzinu sajta, mobilni prikaz, sitemap, indeksiranje u Google Search Console i ispravne canonical oznake."
+                ]
+              }
+            ]
+          },
+          "areas": "Lokalni SEO radim za firme u Zrenjaninu, Novom Sadu, Beogradu, Kragujevcu, Nišu i drugim gradovima u Srbiji, kao i za firme u Nemačkoj, Austriji, Švajcarskoj i SAD.",
           "included": {
             "heading": "Šta obuhvata lokalni SEO",
             "items": [
@@ -565,6 +664,18 @@
             {
               "question": "Možeš li da garantuješ prvo mesto?",
               "answer": "Niko pošten to ne može. Mogu da ti pokažem šta radim svakog meseca i kako se menjaju pozicije, pozivi i upiti."
+            },
+            {
+              "question": "Koliko košta lokalni SEO?",
+              "answer": "Cena zavisi od broja usluga, mesta i konkurencije. Posle besplatne provere dobiješ fiksnu mesečnu cenu, bez ugovora na duži rok."
+            },
+            {
+              "question": "Šta je Google Business profil i treba li mi?",
+              "answer": "To je besplatan profil firme na Google pretrazi i mapama, sa adresom, telefonom, radnim vremenom i recenzijama. Za svaku lokalnu firmu je obavezan, jer bez njega nema prikaza na mapi."
+            },
+            {
+              "question": "Radiš li SEO i za sajt koji nisi ti pravio?",
+              "answer": "Radim. Prvo pregledam sajt i kažem šta može da se sredi na postojećem, a šta bi bilo jeftinije uraditi iznova."
             }
           ]
         },
@@ -588,6 +699,33 @@
               "Ovaj posao se zove optimizacija za generativnu pretragu (GEO). Oslanja se na dobar SEO, pa ti isti rad pomaže i na Google-u."
             ]
           },
+          "details": {
+            "heading": "Kako AI pretraga bira koga da preporuči",
+            "sections": [
+              {
+                "title": "ChatGPT, Gemini, Perplexity i Google AI pregledi",
+                "paragraphs": [
+                  "Kad neko pita ChatGPT „koji je dobar stomatolog u Zrenjaninu” ili Google prikaže AI pregled iznad rezultata, odgovor se sastavlja iz izvora koje model smatra pouzdanim: sajtova firmi, Google Business profila, recenzija, imenika i članaka.",
+                  "Ako su podaci o tvojoj firmi jasni i isti svuda, veća je šansa da te model pomene. Ako su nejasni ili kontradiktorni, preporučiće nekog drugog."
+                ]
+              },
+              {
+                "title": "Sadržaj koji AI može da citira",
+                "paragraphs": [
+                  "Pišem strane koje direktno odgovaraju na pitanja mušterija: šta radiš, gde, za koga, koliko traje i okvirno koliko košta. Kratki, jasni odgovori i stvarne činjenice su ono što AI modeli najčešće citiraju.",
+                  "Dodajem strukturisane podatke (schema.org za firmu, usluge i česta pitanja) i fajl llms.txt, mapu sajta napravljenu za AI pretraživače."
+                ]
+              },
+              {
+                "title": "Pominjanja van tvog sajta",
+                "paragraphs": [
+                  "AI modeli više veruju firmi koju pominju i drugi: lokalni portali, imenici, udruženja i recenzije. Zato radim na tome da se tvoja firma pojavljuje na takvim mestima sa istim nazivom i opisom.",
+                  "Svakog meseca proveravam šta ChatGPT, Gemini i Perplexity odgovaraju na pitanja tvojih mušterija i beležim da li se tvoja firma pojavljuje."
+                ]
+              }
+            ]
+          },
+          "areas": "Vidljivost u AI pretrazi radim za firme u Srbiji, na srpskom, i za firme u Evropi i SAD, na engleskom i nemačkom.",
           "included": {
             "heading": "Šta radim",
             "items": [
@@ -648,6 +786,14 @@
             {
               "question": "Možeš li da namestiš da me ChatGPT uvek preporuči?",
               "answer": "Niko ne kontroliše odgovore. Mogu da dam AI modelima svaki razlog da te pomenu i da merim koliko često to rade."
+            },
+            {
+              "question": "Šta je GEO?",
+              "answer": "GEO (generative engine optimization) je optimizacija sadržaja i podataka o firmi da bi te AI asistenti kao ChatGPT, Gemini i Perplexity pomenuli i preporučili u svojim odgovorima."
+            },
+            {
+              "question": "Koliko brzo se vide rezultati u AI pretrazi?",
+              "answer": "Google AI pregledi reaguju brže, često za nekoliko nedelja. Modeli kao ChatGPT se osvežavaju ređe, pa promene ponekad traju nekoliko meseci."
             }
           ]
         },
@@ -671,6 +817,33 @@
               "Asistent zna tvoje usluge, cene i područje. Odgovara na česta pitanja, pita ono što ti treba da znaš i predaje razgovor tebi."
             ]
           },
+          "details": {
+            "heading": "Kako radi AI chat za uslužnu firmu",
+            "sections": [
+              {
+                "title": "Odgovor za nekoliko sekundi, 24 sata dnevno",
+                "paragraphs": [
+                  "AI chat asistent na sajtu odgovara odmah, i u nedelju u ponoć. Odgovara na najčešća pitanja: koje usluge radiš, u kojim mestima, koliko okvirno košta i kad možeš da dođeš.",
+                  "Gde ima smisla, isti asistent odgovara i na WhatsApp-u, Viber-u ili Facebook Messenger-u, pa ne moraš da držiš telefon u ruci ceo dan."
+                ]
+              },
+              {
+                "title": "Od razgovora do gotovog upita",
+                "paragraphs": [
+                  "Asistent ne priča samo opšte stvari, već uzima ono što ti treba da odgovoriš ponudom: ime, telefon, adresu, opis posla i fotografiju ako je potrebna.",
+                  "Gotov upit stiže ti mejlom ili porukom, a svaki upit se beleži u izveštaju zajedno sa upitima iz oglasa i sa sajta."
+                ]
+              },
+              {
+                "title": "Bezbedno i pod tvojom kontrolom",
+                "paragraphs": [
+                  "Asistent odgovara samo iz informacija koje mu damo i jasno kaže da je asistent. Kad ne zna odgovor, ne izmišlja, već uzima kontakt i prosleđuje pitanje tebi.",
+                  "Razgovori su ti dostupni, a podaci se čuvaju u skladu sa politikom privatnosti tvog sajta."
+                ]
+              }
+            ]
+          },
+          "areas": "AI chat asistente postavljam za firme u Srbiji, Evropi i SAD. Asistent odgovara na srpskom, engleskom, nemačkom i drugim jezicima.",
           "included": {
             "heading": "Šta asistent radi",
             "items": [
@@ -731,6 +904,14 @@
             {
               "question": "Da li radi na više jezika?",
               "answer": "Da. Odgovara na jeziku na kom mušterija piše."
+            },
+            {
+              "question": "Koliko košta AI chat asistent?",
+              "answer": "Postavljanje ima fiksnu cenu, a mesečni trošak zavisi od broja razgovora. Okvirnu cenu dobiješ posle kratkog razgovora o tome šta ti treba."
+            },
+            {
+              "question": "Može li asistent da zakazuje termine?",
+              "answer": "Može, ako koristiš kalendar ili sistem za zakazivanje koji to dozvoljava. U suprotnom uzima željeni termin i šalje ga tebi na potvrdu."
             }
           ]
         },
@@ -1567,6 +1748,55 @@
       }
     },
     "web": {
+      "details": {
+        "badge": "Detaljno",
+        "heading": "Šta dobijaš kad ti pravim sajt",
+        "sections": [
+          {
+            "title": "Sajt napravljen da donosi pozive",
+            "paragraphs": [
+              "Sajt za uslužnu firmu ima jedan posao: da posetilac pozove ili pošalje upit. Zato su broj telefona, WhatsApp i forma uvek na dohvat ruke, na svakoj strani i na svakom telefonu.",
+              "Za svaku uslugu pravim posebnu stranu sa sopstvenim tekstom, da te ljudi nađu na Google-u kad traže baš tu uslugu."
+            ]
+          },
+          {
+            "title": "Brz, siguran i spreman za Google",
+            "paragraphs": [
+              "Sajtove pravim u Astro-u, pa se strane otvaraju za delić sekunde i dobijaju odlične ocene u Google PageSpeed testu. Brzina je bitna i za posetioce i za rangiranje.",
+              "SEO je deo izrade: naslovi i opisi za svaku stranu, strukturisani podaci, sitemap, Google Search Console i Google Business profil povezan sa sajtom."
+            ]
+          },
+          {
+            "title": "Fiksna cena i sve na tvoje ime",
+            "paragraphs": [
+              "Cenu dogovaramo pre početka i ne menja se. Domen, hosting i kod su na tvoje ime od prvog dana, pa sajt ostaje tvoj i kad prestanemo da radimo.",
+              "Posle lansiranja sam tu za izmene, a za redovna ažuriranja postoji mesečno održavanje."
+            ]
+          }
+        ]
+      },
+      "faq": {
+        "badge": "Pitanja",
+        "heading": "Česta pitanja o izradi sajta",
+        "items": [
+          {
+            "question": "Koliko košta izrada sajta?",
+            "answer": "Cena zavisi od broja strana i funkcija. Jednostavan sajt za uslužnu firmu ima fiksnu cenu koju dobiješ u ponudi posle besplatnog razgovora."
+          },
+          {
+            "question": "Koliko traje izrada sajta?",
+            "answer": "Landing strana je gotova za nekoliko dana, a sajt sa više strana usluga obično za dve do četiri nedelje, zavisno od toga koliko brzo stignu tekstovi i slike."
+          },
+          {
+            "question": "Da li sajt radi na telefonu?",
+            "answer": "Da. Sajt se pravi prvo za telefon, jer većina ljudi traži majstore i usluge sa telefona."
+          },
+          {
+            "question": "Mogu li sam da menjam sadržaj?",
+            "answer": "Možeš. Tekstove i slike menjaš lako, a za veće izmene sam tu ili kroz mesečno održavanje."
+          }
+        ]
+      },
       "glance": {"label": "Ukratko", "items": [{"label": "Tehnologije", "value": "Astro, TypeScript, Tailwind CSS"}, {"label": "Cena", "value": "Jedna fiksna cena, dogovorena pre početka"}, {"label": "Vlasništvo", "value": "Kod, domen i hosting na tvoje ime"}, {"label": "Odgovor", "value": "U roku od jednog radnog dana"}]},
       "closing": "Imaš sajt na umu? Dovoljno je par rečenica.",
       "meta": {
