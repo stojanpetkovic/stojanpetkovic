@@ -114,7 +114,7 @@ export async function getRoutableProjects(locale: string = defaultLocale) {
 
 export async function getProjectPageCount(locale: string = defaultLocale): Promise<number> {
   // The Projects listing shows engineering projects only; websites are on /web.
-  const projects = await getVisibleProjects(locale, 'industry');
+  const projects = await getVisibleProjects(locale);
   return Math.max(1, Math.ceil(projects.length / PROJECTS_PER_PAGE));
 }
 
