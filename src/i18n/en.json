@@ -191,6 +191,8 @@
     "tagBackToAll": "Back to all projects",
     "backToProjects": "Back to Projects",
     "moreProjects": "More projects",
+    "servicesUsed": "Services used on this project",
+    "sameForYou": "Want the same for your business?",
     "ctaBadge": "Let's talk",
     "ctaHeading": "Let's talk about what you need",
     "ctaLead": "Every project I take on is built around the problem it has to solve. Tell me what you have in mind.",
@@ -307,6 +309,9 @@
         "relatedHeading": "Services that work well with this one",
         "relatedLink": "Learn more",
         "allServices": "All services",
+        "workBadge": "Client work",
+        "workHeading": "Projects where I did this",
+        "allWork": "All projects",
         "cta": {
           "heading": "Want to know what this would do for your business?",
           "description": "Send me a message. I'll look at how people find you today and tell you honestly whether this service is worth it for you. The first call is free.",
