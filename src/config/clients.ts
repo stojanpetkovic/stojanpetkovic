@@ -16,7 +16,7 @@ export interface Client {
   /** Lucide icon drawn beside the wordmark when there is no logo file. */
   icon: string;
   /** Key under `pages.home.clients.sectors` in the locale files. */
-  sector: 'tree' | 'rental' | 'dental' | 'transport' | 'recipes' | 'footwear';
+  sector: 'tree' | 'rental' | 'dental' | 'transport' | 'care' | 'supplements';
   country: 'us' | 'rs';
   /** Key under `pages.home.clients.highlights`: a real, published result. */
   highlight?: 'treejaws' | 'mahalo';
@@ -40,8 +40,8 @@ const list: Omit<Client, 'logo'>[] = [
   { name: 'Valena', tagline: 'Apartmani · Divčibare', url: 'https://valenaapartmani.com', icon: 'mountain', sector: 'rental', country: 'rs' },
   { name: 'Erić Dental', tagline: 'Centar · Pančevo', url: 'https://zubarpancevo.com', icon: 'smile', sector: 'dental', country: 'rs' },
   { name: 'CARETRANS', tagline: 'Sanitetski prevoz', url: 'https://prevozpacijenatacaretrans.rs', icon: 'ambulance', sector: 'transport', country: 'rs' },
-  { name: 'Kako se pravi', tagline: 'Recepti i vodiči', url: 'https://kakosepravi.com', icon: 'chef-hat', sector: 'recipes', country: 'rs' },
-  { name: 'Kožna obuća', tagline: 'Blog o obući', url: 'https://koznaobuca.com', icon: 'footprints', sector: 'footwear', country: 'rs' },
+  { name: 'Family Garden', tagline: 'Dom za stara lica · Pančevo', url: 'https://family-garden.rs', icon: 'heart-handshake', sector: 'care', country: 'rs' },
+  { name: 'Fight Hydration', tagline: 'Creatine + Electrolytes', url: 'https://fighthydration.co', icon: 'zap', sector: 'supplements', country: 'us' },
 ];
 
 export const clients: Client[] = list.map((c) => ({
