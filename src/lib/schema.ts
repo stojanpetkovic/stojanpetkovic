@@ -26,8 +26,22 @@ const ID = {
 const LANG: Record<string, string> = { sr: 'sr-Latn-RS', en: 'en', de: 'de' };
 const inLanguage = (locale: Locale) => LANG[locale] ?? locale;
 
-/** Where the work is offered: Serbia, the German-speaking countries and the US. */
-const AREA_SERVED = ['Serbia', 'Germany', 'Austria', 'Switzerland', 'United States'].map((name) => ({
+/**
+ * Where the work is offered: the English-speaking countries first (the main
+ * market), then the German-speaking ones and Serbia.
+ */
+const AREA_SERVED = [
+  'United States',
+  'United Kingdom',
+  'Canada',
+  'Australia',
+  'Ireland',
+  'New Zealand',
+  'Germany',
+  'Austria',
+  'Switzerland',
+  'Serbia',
+].map((name) => ({
   '@type': 'Country' as const,
   name,
 }));
@@ -137,7 +151,7 @@ export function createProfessionalServiceSchema(locale: Locale = defaultLocale):
       email: siteConfig.email,
       ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
       availableLanguage: ['Serbian', 'English', 'German'],
-      areaServed: ['RS', 'DE', 'AT', 'CH', 'US'],
+      areaServed: ['US', 'GB', 'CA', 'AU', 'IE', 'NZ', 'DE', 'AT', 'CH', 'RS'],
     },
     email: siteConfig.email,
     ...(siteConfig.phone ? { telephone: siteConfig.phone } : {}),
