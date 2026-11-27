@@ -167,6 +167,17 @@ const projects = defineCollection({
        * The page heading keeps `title`.
        */
       seoTitle: z.string().optional(),
+      /**
+       * Meta description for search results (about 140 to 160 characters).
+       * The hero keeps `description`, which is shorter and reads as a lead.
+       */
+      seoDescription: z.string().optional(),
+      /**
+       * The services this project used, by id in `src/config/services.config.ts`.
+       * The project page links to those service pages, and each service page
+       * lists the projects that used it.
+       */
+      serviceIds: z.array(z.string()).default([]),
       order: z.number().default(99),
       year: z.number().optional(),
       client: z.string().optional(),

@@ -21,6 +21,7 @@ import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
 import siteConfig from '@/config/site.config';
 import { services, resolveService } from '@/config/services.config';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+import { getRoutableProjects, getProjectUrl, getProjectsBaseUrl } from '@/lib/projects';
 
 interface Props {
   /** The service's id in `services.config.ts`. */
@@ -69,6 +70,9 @@ interface Common {
   relatedHeading: string;
   relatedLink: string;
   allServices: string;
+  workBadge: string;
+  workHeading: string;
+  allWork: string;
   cta: { heading: string; description: string; primary: string; secondary: string };
 }
 
@@ -87,6 +91,10 @@ const homeUrl = localizedPath('/', locale);
 
 // Every other service, so each page links to the rest of the catalogue.
 const related = services.filter((entry) => entry.id !== id).map((entry) => resolveService(entry, locale));
+
+// Client projects that used this service, so the page links to proof of it.
+const work = (await getRoutableProjects(locale)).filter((project) => project.data.serviceIds.includes(id));
+const projectsUrl = getProjectsBaseUrl(locale);
 
 const breadcrumbs = [
   { label: t('nav.items.home', locale), href: homeUrl },
@@ -278,6 +286,39 @@ const breadcrumbs = [
       </ul>
     </div>
   </section>
+
+  <!-- Client work that used this service -->
+  {work.length > 0 && (
+    <section class="py-[var(--space-section-sm)] bg-background border-t border-border">
+      <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
+        <div class="flex flex-wrap items-end justify-between gap-4" data-reveal>
+          <div>
+            <p class="section-eyebrow"><span class="section-eyebrow-num">07</span><span>{common.workBadge}</span></p>
+            <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight text-foreground">{common.workHeading}</h2>
+          </div>
+          <a href={projectsUrl} class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 underline-offset-4 hover:underline">
+            {common.allWork}
+            <Icon name="arrow-right" size="sm" />
+          </a>
+        </div>
+        <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" role="list">
+          {work.map((project) => (
+            <li>
+              <a href={getProjectUrl(project.id, locale)} class="group flex h-full gap-4 rounded-xl border border-border bg-card p-5 transition-colors hover:border-brand-500">
+                <span class="w-10 h-10 rounded-lg bg-brand-700 text-white flex items-center justify-center shrink-0">
+                  <Icon name={project.data.icon ?? 'layers'} size="sm" />
+                </span>
+                <span class="flex flex-col gap-1">
+                  <span class="font-semibold text-foreground group-hover:text-brand-700">{project.data.title}</span>
+                  <span class="text-sm leading-relaxed text-foreground-muted">{project.data.description}</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
 
   <!-- CTA -->
   <section class="relative z-10 py-[var(--space-section-md)] bg-background border-t border-border">

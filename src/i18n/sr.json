@@ -191,6 +191,8 @@
     "tagBackToAll": "Nazad na sve projekte",
     "backToProjects": "Nazad na projekte",
     "moreProjects": "Još projekata",
+    "servicesUsed": "Usluge na ovom projektu",
+    "sameForYou": "Želiš isto za svoju firmu?",
     "ctaBadge": "Popričajmo",
     "ctaHeading": "Popričajmo o tvom projektu",
     "ctaLead": "Svaki projekat krojim prema problemu koji treba da reši. Napiši mi šta imaš na umu.",
@@ -307,6 +309,9 @@
         "relatedHeading": "Usluge koje idu uz ovu",
         "relatedLink": "Saznaj više",
         "allServices": "Sve usluge",
+        "workBadge": "Radovi",
+        "workHeading": "Projekti na kojima sam ovo radio",
+        "allWork": "Svi projekti",
         "cta": {
           "heading": "Zanima te šta bi ovo donelo tvojoj firmi?",
           "description": "Pošalji mi poruku. Pogledam kako te ljudi danas nalaze i iskreno ti kažem da li se ova usluga tebi isplati. Prvi razgovor je besplatan.",

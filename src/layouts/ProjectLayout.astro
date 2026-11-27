@@ -10,6 +10,9 @@ import ProjectCard from '@/components/projects/ProjectCard.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import { getDefaultOgPath, getProjectOgPath, isShareableImage } from '@/lib/og/svg';
 import { t, getLocaleFromPath, localizedPath, getLocales } from '@/i18n';
+import { services, resolveService } from '@/config/services.config';
+import { createProjectSchema } from '@/lib/schema';
+import siteConfig from '@/config/site.config';
 import {
   getProjectSlug,
   getProjectsBaseUrl,
@@ -21,6 +24,10 @@ interface Props {
   /** Shorter title for search results and social cards; the heading keeps `title`. */
   seoTitle?: string;
   description: string;
+  /** Meta description for search results; the hero keeps `description`. */
+  seoDescription?: string;
+  /** Services this project used, by id in `services.config.ts`. */
+  serviceIds?: string[];
   meta?: string[];
   client?: string;
   role?: string;
@@ -44,6 +51,8 @@ const {
   title,
   seoTitle,
   description,
+  seoDescription,
+  serviceIds = [],
   meta = [],
   client,
   role,
@@ -84,6 +93,26 @@ const breadcrumbs = [
 
 const projectsHref = getProjectsBaseUrl(locale);
 
+// The services this project used, each linking to its page.
+const usedServices = serviceIds
+  .map((id) => services.find((service) => service.id === id))
+  .filter((service) => service !== undefined)
+  .map((service) => resolveService(service, locale));
+
+// The project as a CreativeWork made by the business, for the client named.
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const projectSchema = createProjectSchema({
+  name: title,
+  description: seoDescription ?? description,
+  url: pageUrl,
+  locale,
+  client,
+  clientUrl: url,
+  year,
+  image: image ? new URL(image.src, siteConfig.url).toString() : undefined,
+  services: usedServices.map((service) => ({ name: service.name, url: new URL(service.url.replace(/\/?$/, '/'), siteConfig.url).toString() })),
+});
+
 // Resolve this project's real per-locale URLs so the hreflang tags and the
 // LanguageSwitcher point at the matching translation. Projects share one slug
 // across locales, so unlike the blog (which uses canonical uids) matching the
@@ -99,7 +128,8 @@ const languageAlternates = Object.fromEntries(
 
 <BaseLayout
   title={seoTitle ?? title}
-  description={description}
+  description={seoDescription ?? description}
+  extraSchemas={[projectSchema]}
   image={ogImage}
   imageAlt={ogImageAlt}
   localeAlternates={projectTranslations}
@@ -139,6 +169,31 @@ const languageAlternates = Object.fromEntries(
         <div class:list={['project-body prose max-w-none', category === 'industry' && 'project-body--classic']} data-reveal-content>
           <slot />
         </div>
+
+        {usedServices.length > 0 && (
+          <section class="mt-12 rounded-xl border border-border bg-background-secondary p-6">
+            <h2 class="font-display text-xl font-semibold text-foreground">{t('projects.servicesUsed', locale)}</h2>
+            <ul class="mt-4 grid gap-3 sm:grid-cols-2" role="list">
+              {usedServices.map((service) => (
+                <li>
+                  <a href={service.url} class="group flex h-full gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:border-brand-500">
+                    <span class="w-9 h-9 rounded-lg bg-brand-700 text-white flex items-center justify-center shrink-0">
+                      <Icon name={service.icon} size="sm" />
+                    </span>
+                    <span class="flex flex-col gap-0.5">
+                      <span class="font-semibold text-foreground group-hover:text-brand-700">{service.name}</span>
+                      <span class="text-sm leading-relaxed text-foreground-muted">{service.summary}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a href={localizedPath('/contact', locale)} class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 underline-offset-4 hover:underline">
+              {t('projects.sameForYou', locale)}
+              <Icon name="arrow-right" size="sm" />
+            </a>
+          </section>
+        )}
 
         <footer class="mt-10 border-t border-border pt-6">
           <a href={projectsHref} class="inline-flex items-center gap-2 text-sm font-medium text-foreground-muted underline-offset-4 hover:text-foreground hover:underline">

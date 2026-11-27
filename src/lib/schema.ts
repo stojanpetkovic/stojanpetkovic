@@ -9,6 +9,7 @@ import type {
   BreadcrumbList,
   FAQPage,
   WithContext,
+  Thing,
 } from 'schema-dts';
 import siteConfig from '@/config/site.config';
 import { defaultLocale, type Locale } from '@/i18n';
@@ -361,4 +362,46 @@ export function createServiceSchema(service: {
     provider: { '@id': ID.business() },
     areaServed: AREA_SERVED,
   } as WithContext<Service>;
+}
+
+/**
+ * A client project: the work as a CreativeWork made by the business, for the
+ * client named, with the services it used and the client's own site.
+ */
+export function createProjectSchema(project: {
+  name: string;
+  description: string;
+  url: string;
+  locale: Locale;
+  client?: string;
+  clientUrl?: string;
+  year?: number;
+  image?: string;
+  services?: Array<{ name: string; url: string }>;
+}): WithContext<Thing> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    '@id': `${project.url}#project`,
+    name: project.name,
+    description: project.description,
+    url: project.url,
+    inLanguage: inLanguage(project.locale),
+    creator: { '@id': ID.business() },
+    author: { '@id': ID.person() },
+    ...(project.client
+      ? {
+          about: {
+            '@type': 'Organization',
+            name: project.client,
+            ...(project.clientUrl ? { url: project.clientUrl } : {}),
+          },
+        }
+      : {}),
+    ...(project.year ? { dateCreated: String(project.year) } : {}),
+    ...(project.image ? { image: project.image } : {}),
+    ...(project.services?.length
+      ? { mentions: project.services.map((service) => ({ '@type': 'Service', name: service.name, url: service.url })) }
+      : {}),
+  } as WithContext<Thing>;
 }
