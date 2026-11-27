@@ -31,6 +31,13 @@ gallery:
     alt: "The Kuhinja category page with a grid of recipe cards."
   - src: "../../../assets/projects/kakosepravi-popup.webp"
     alt: "The popup that appears after 40 seconds of reading, offering a fast website for your business."
+faq:
+  - question: "Did Kako se pravi lose search traffic after the migration?"
+    answer: "The migration kept all 49 articles and every URL exactly as before, so search engines saw the same pages, now served as fast static HTML."
+  - question: "Can a static site still show ads?"
+    answer: "Yes. AdSense, Google Analytics and both Meta Pixels kept running after the move to Astro."
+  - question: "Why move from PHP and a database to static Astro?"
+    answer: "Static pages load faster, need no database and have no script to update, which makes the site quicker and more secure on ordinary hosting."
 ---
 
 import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
@@ -47,6 +54,18 @@ export const lighthouseScores = [
 **Kako se pravi** ("How it's made") is a site with home recipes and DIY guides: bread, pies, kajmak, rakija, soap and charcoal, explained step by step. It ran on a **PHP magazine script with a database**: every visit had the server assemble the page from PHP and SQL, with a heavy Bootstrap theme on top. Pages were slow, the URLs depended on the script, and every update of the script was a risk.
 
 The client wanted **the same site and the same addresses, but as fast as a site can be**, still on the same ordinary cPanel hosting. The client also asked to keep AdSense, Analytics and both Meta Pixels running, and to have the site redesigned to look like a proper food magazine.
+
+## What I built
+
+- **A migration from a PHP magazine script and database to static Astro**, with all 49 articles moved and every URL kept the same.
+- **A new magazine design** for recipes and DIY guides, with clear categories for cooking and home projects.
+- **Search that works without a server**, built into the static site.
+- **AdSense, Google Analytics and both Meta Pixels still running**, so income and tracking continued without a gap.
+- **The same cPanel hosting**, with no server-side code left to update or break.
+
+## Built for search
+
+The biggest risk in a migration is losing traffic. Keeping every URL, title and article meant Google saw the same pages, only much faster. Each recipe and guide keeps its own title and description, images are optimised, and structured data marks up the articles. Faster pages and a cleaner layout help both rankings and ad revenue.
 
 ## Results
 

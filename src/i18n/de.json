@@ -192,6 +192,7 @@
     "backToProjects": "Zurück zu den Projekten",
     "moreProjects": "Weitere Projekte",
     "servicesUsed": "Leistungen in diesem Projekt",
+    "faqHeading": "Fragen zu diesem Projekt",
     "sameForYou": "Möchten Sie das auch für Ihren Betrieb?",
     "portfolio": {"eyebrow": "Portfolio", "title": "Websites und Kampagnen für echte Betriebe", "lead": "Zehn Kundenprojekte, von Baumpflegern in Florida bis zu einer Zahnarztpraxis, einem Seniorenheim und Ferienwohnungen in Serbien. Zu jedem gibt es eine Fallstudie: was ich gebaut habe, warum und was sich verändert hat.", "stats": [{"value": "10", "label": "Kundenprojekte"}, {"value": "1.010", "label": "gemessene Anfragen für einen Kunden"}, {"value": "95+", "label": "Lighthouse-Performance bei Astro-Websites"}, {"value": "3", "label": "Sprachen: Englisch, Serbisch, Deutsch"}], "featured": "Ausgewählte Fallstudie", "filterLabel": "Nach Leistung filtern", "filterAll": "Alle Projekte", "caseStudy": "Fallstudie lesen", "visitSite": "Website ansehen", "countLabel": "Projekte"},
     "ctaBadge": "Sprechen wir",

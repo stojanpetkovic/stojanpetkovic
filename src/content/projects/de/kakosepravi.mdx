@@ -31,6 +31,13 @@ gallery:
     alt: "Die Kategorieseite Kuhinja mit einem Raster aus Rezeptkarten."
   - src: "../../../assets/projects/kakosepravi-popup.webp"
     alt: "Das Popup, das nach 40 Sekunden Lesezeit erscheint und eine schnelle Website für das eigene Unternehmen anbietet."
+faq:
+  - question: "Hat Kako se pravi nach dem Umzug Besucher von Google verloren?"
+    answer: "Der Umzug behielt alle 49 Artikel und jede URL genau bei, Suchmaschinen sahen also dieselben Seiten, jetzt als schnelles statisches HTML."
+  - question: "Kann eine statische Website Anzeigen zeigen?"
+    answer: "Ja. AdSense, Google Analytics und beide Meta-Pixel laufen auch nach dem Umzug zu Astro."
+  - question: "Warum von PHP und Datenbank zu statischem Astro?"
+    answer: "Statische Seiten laden schneller, brauchen keine Datenbank und kein Skript-Update, die Website ist also schneller und sicherer auf normalem Hosting."
 ---
 
 import LighthouseScoresGrid from '@/components/landing/LighthouseScoresGrid.astro';
@@ -47,6 +54,18 @@ export const lighthouseScores = [
 **Kako se pravi** („Wie man es macht“) ist eine Website mit Hausrezepten und Heimwerker-Anleitungen: Brot, Pita, Kajmak, Rakija, Seife und Holzkohle, Schritt für Schritt erklärt. Sie lief auf einem **PHP-Magazinskript mit Datenbank**: Bei jedem Besuch setzte der Server die Seite aus PHP und SQL zusammen, darüber lag ein schweres Bootstrap-Theme. Die Seiten waren langsam, die Adressen hingen vom Skript ab, und jedes Update des Skripts war ein Risiko.
 
 Der Kunde wollte **dieselbe Website und dieselben Adressen, aber so schnell, wie eine Website nur sein kann**, weiterhin auf demselben gewöhnlichen cPanel-Hosting. Außerdem sollten AdSense, Analytics und beide Meta Pixel weiterlaufen und die Website das Gesicht eines echten Kochmagazins bekommen.
+
+## Was ich gebaut habe
+
+- **Ein Umzug von einem PHP-Magazin-Skript mit Datenbank zu statischem Astro**, mit allen 49 Artikeln und unveränderten URLs.
+- **Ein neues Magazin-Design** für Rezepte und Anleitungen, mit klaren Kategorien für Küche und Heimwerken.
+- **Eine Suche ohne Server**, direkt in die statische Website eingebaut.
+- **AdSense, Google Analytics und beide Meta-Pixel laufen weiter**, Einnahmen und Tracking liefen ohne Unterbrechung.
+- **Dasselbe cPanel-Hosting**, ohne Server-Code, der gepflegt werden muss oder kaputtgehen kann.
+
+## Für die Suche gebaut
+
+Das größte Risiko bei einem Umzug ist der Verlust von Besuchern. Weil alle URLs, Titel und Artikel gleich blieben, sah Google dieselben Seiten, nur viel schneller. Jedes Rezept und jede Anleitung behält Titel und Beschreibung, Bilder sind optimiert, und strukturierte Daten markieren die Artikel. Schnellere Seiten und ein klareres Layout helfen Rankings und Werbeeinnahmen.
 
 ## Ergebnisse
 

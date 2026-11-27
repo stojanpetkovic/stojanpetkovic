@@ -39,6 +39,13 @@ gallery:
     alt: "Utisci pacijenata: prosečna ocena 5,0 iz 31 ocene na doktor.rs i izdvojene recenzije."
   - src: "../../../assets/projects/eric-dental-centar-german.webp"
     alt: "Nemačka verzija sajta: Der Zahnarzt in Pančevo, dem Patienten vertrauen."
+faq:
+  - question: "Šta je zamenio novi sajt Erić Dental Centra?"
+    answer: "Stari WordPress šablon sa demo sadržajem: primer doktorima, praznim delom za obaveštenja i stranama koje nisu imale veze sa ordinacijom."
+  - question: "Zašto sajt za zubara na tri jezika?"
+    answer: "Pacijenti dolaze iz Pančeva, Beograda i inostranstva. Srpske, engleske i nemačke strane omogućavaju svakom da pročita o lečenju i zakaže na svom jeziku."
+  - question: "Koliko je sajt brz?"
+    answer: "Lighthouse daje 96 za brzinu i 100 za pristupačnost, Best Practices i SEO."
 ---
 
 import Button from '@/components/ui/form/Button/Button.astro';
@@ -56,6 +63,18 @@ export const lighthouseScores = [
 **Erić Dental Centar** je stomatološka ordinacija u Pančevu, otvorena 2020. godine u ulici Oslobođenja 23. Pacijenti joj dolaze iz Pančeva, ali i iz Beograda. Stari sajt je bio WordPress tema sa demo sadržajem koji nikada nije uklonjen: doktori iz teme, prazna sekcija „Obaveštenja“ i stranice koje nisu imale veze sa ordinacijom. Najvažnije je bilo to što **nije postojao jasan put od pretrage do zakazanog pregleda**.
 
 Cilj novog sajta: pacijent koji traži zubara u Pančevu nađe ordinaciju, razume šta ona radi i pošalje zahtev za termin za manje od minut, na svom jeziku.
+
+## Šta sam napravio
+
+- **Nov Astro sajt od 60 strana** na srpskom, engleskom i nemačkom, sa svakom stranom prevedenom, a ne mašinski kopiranom.
+- **Posebna strana za svaku vrstu lečenja**, da pacijenti nađu ordinaciju kada traže implante, protetiku, ortodonciju ili estetsku stomatologiju u Pančevu.
+- **Forma za zakazivanje** na svakom jeziku i poziv jednim dodirom na telefonu.
+- **Praćenje upita**, da ordinacija vidi koliko je pacijenata našlo online i kako su se javili.
+- **Prave fotografije ordinacije i tima** umesto demo doktora i praznih delova iz teme.
+
+## SEO u osnovi
+
+Stomatološka ordinacija se takmiči na malom području, pa lokalni SEO odlučuje ko dobija pacijenta. Sajt svuda koristi tačan naziv, adresu u Oslobođenja i telefon ordinacije, isto kao na Google Business profilu. Svaka strana lečenja cilja pretrage kao što su „zubar Pančevo“ i „implanti Pančevo“, a hreflang oznake govore Google-u koju jezičku verziju da prikaže. Pacijenti iz Beograda i iz inostranstva nalaze engleske i nemačke strane.
 
 ## Rezultati
 

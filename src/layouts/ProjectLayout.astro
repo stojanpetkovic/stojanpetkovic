@@ -11,7 +11,7 @@ import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import { getDefaultOgPath, getProjectOgPath, isShareableImage } from '@/lib/og/svg';
 import { t, getLocaleFromPath, localizedPath, getLocales } from '@/i18n';
 import { services, resolveService } from '@/config/services.config';
-import { createProjectSchema } from '@/lib/schema';
+import { createProjectSchema, createFAQSchema } from '@/lib/schema';
 import siteConfig from '@/config/site.config';
 import {
   getProjectSlug,
@@ -28,6 +28,8 @@ interface Props {
   seoDescription?: string;
   /** Services this project used, by id in `services.config.ts`. */
   serviceIds?: string[];
+  /** Questions and answers about the project. */
+  faq?: { question: string; answer: string }[];
   meta?: string[];
   client?: string;
   role?: string;
@@ -53,6 +55,7 @@ const {
   description,
   seoDescription,
   serviceIds = [],
+  faq = [],
   meta = [],
   client,
   role,
@@ -129,7 +132,7 @@ const languageAlternates = Object.fromEntries(
 <BaseLayout
   title={seoTitle ?? title}
   description={seoDescription ?? description}
-  extraSchemas={[projectSchema]}
+  extraSchemas={faq.length > 0 ? [projectSchema, createFAQSchema(faq)] : [projectSchema]}
   image={ogImage}
   imageAlt={ogImageAlt}
   localeAlternates={projectTranslations}
@@ -169,6 +172,23 @@ const languageAlternates = Object.fromEntries(
         <div class:list={['project-body prose max-w-none', category === 'industry' && 'project-body--classic']} data-reveal-content>
           <slot />
         </div>
+
+        {faq.length > 0 && (
+          <section class="mt-12">
+            <h2 class="font-display text-2xl font-bold tracking-tight text-foreground">{t('projects.faqHeading', locale)}</h2>
+            <div class="mt-4 divide-y divide-border rounded-xl border border-border bg-card px-5">
+              {faq.map((item) => (
+                <details class="group py-1" name="project-faq">
+                  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 py-3 font-medium text-foreground [&::-webkit-details-marker]:hidden">
+                    {item.question}
+                    <Icon name="chevron-down" size="sm" class="shrink-0 text-foreground-muted transition-transform group-open:rotate-180" />
+                  </summary>
+                  <p class="pb-4 text-sm leading-relaxed text-foreground-muted">{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )}
 
         {usedServices.length > 0 && (
           <section class="mt-12 rounded-xl border border-border bg-background-secondary p-6">
