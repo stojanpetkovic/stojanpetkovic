@@ -156,6 +156,10 @@ const contactUrl = localizedPath('/contact', locale);
           </li>
         ))}
       </ul>
+      <a href={localizedPath('/projects', locale)} class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 underline-offset-4 hover:underline">
+        {t('projects.portfolio.filterAll', locale)}
+        <Icon name="arrow-right" size="sm" />
+      </a>
     </div>
   </section>
 

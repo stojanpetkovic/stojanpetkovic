@@ -178,6 +178,8 @@ const projects = defineCollection({
        * lists the projects that used it.
        */
       serviceIds: z.array(z.string()).default([]),
+      /** One headline number for the portfolio card, e.g. 1,010 tracked leads. */
+      highlight: z.object({ value: z.string(), label: z.string() }).optional(),
       order: z.number().default(99),
       year: z.number().optional(),
       client: z.string().optional(),

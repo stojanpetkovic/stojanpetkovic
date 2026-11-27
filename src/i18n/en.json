@@ -193,6 +193,7 @@
     "moreProjects": "More projects",
     "servicesUsed": "Services used on this project",
     "sameForYou": "Want the same for your business?",
+    "portfolio": {"eyebrow": "Portfolio", "title": "Websites and campaigns for real businesses", "lead": "Ten client projects, from tree services in Florida to a dental practice, a care home and holiday apartments in Serbia. Each one has a case study: what I built, why, and what changed.", "stats": [{"value": "10", "label": "client projects"}, {"value": "1,010", "label": "tracked leads for one client"}, {"value": "95+", "label": "Lighthouse performance on Astro sites"}, {"value": "3", "label": "languages: English, Serbian, German"}], "featured": "Featured case study", "filterLabel": "Filter by service", "filterAll": "All projects", "caseStudy": "Read the case study", "visitSite": "Visit site", "countLabel": "projects"},
     "ctaBadge": "Let's talk",
     "ctaHeading": "Let's talk about what you need",
     "ctaLead": "Every project I take on is built around the problem it has to solve. Tell me what you have in mind.",

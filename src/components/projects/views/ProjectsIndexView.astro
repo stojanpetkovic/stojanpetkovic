@@ -1,46 +1,65 @@
 ---
 /**
- * ProjectsIndexView — the projects landing page (page 1).
+ * ProjectsIndexView — the portfolio: every client project on one page.
  *
- * Shared body for the default-locale route (`/projects`) and the
- * locale-prefixed route (`/<locale>/projects`). All project/pagination/tag URLs
- * are built locale-aware via the helpers in `lib/projects`, so rendering with
- * the default locale produces exactly the same markup the route did before this
- * was extracted.
+ * Shared body for `/projects` and `/<locale>/projects`. The first project (lowest
+ * `order`) is shown large as the featured case study; the rest sit in a grid of
+ * cards with a screenshot in a browser frame, the headline result and the
+ * services used. Buttons above the grid filter it by service (plain JS, every
+ * card stays in the HTML so crawlers see all links).
  */
+import { Image } from 'astro:assets';
 import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
-import { Hero } from '@/components/hero';
 import CtaBand from '@/components/patterns/CtaBand.astro';
-import ProjectCard from '@/components/projects/ProjectCard.astro';
-import ProjectTagList from '@/components/projects/ProjectTagList.astro';
 import Pagination from '@/components/blog/Pagination.astro';
-import { t, defaultLocale, localizedPath } from '@/i18n';
-import {
-  collectTopProjectTags,
-  getProjectsPageUrl,
-  getVisibleProjects,
-  PROJECT_TAG_CLOUD_LIMIT,
-  PROJECTS_PER_PAGE,
-} from '@/lib/projects';
+import { services, resolveService } from '@/config/services.config';
+import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+import { getProjectUrl, getProjectsPageUrl, getRoutableProjects, PROJECTS_PER_PAGE } from '@/lib/projects';
 
 interface Props {
   /** Locale whose projects this index renders. Defaults to the site default. */
   locale?: string;
 }
 
+interface Portfolio {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  stats: { value: string; label: string }[];
+  featured: string;
+  filterLabel: string;
+  filterAll: string;
+  caseStudy: string;
+  visitSite: string;
+  countLabel: string;
+}
+
 const { locale = defaultLocale } = Astro.props;
+const copy = tData<Portfolio>('projects.portfolio', locale)!;
 
-// Every client project, so each project page is linked from this index.
-const projects = await getVisibleProjects(locale);
-const webUrl = localizedPath('/web', locale);
-const topTags = collectTopProjectTags(projects, PROJECT_TAG_CLOUD_LIMIT);
+const projects = await getRoutableProjects(locale);
+const [featured, ...rest] = projects;
 
-// Page 1 lives here at /projects; /projects/page/2..N handle the rest.
+// Page 1 lives here; /projects/page/2..N handle the rest if the list grows.
 const totalPages = Math.max(1, Math.ceil(projects.length / PROJECTS_PER_PAGE));
-const pageProjects = projects.slice(0, PROJECTS_PER_PAGE);
+const gridProjects = rest.slice(0, PROJECTS_PER_PAGE - 1);
+
+const serviceName = new Map(services.map((service) => [service.id, resolveService(service, locale).name]));
+const serviceUrl = new Map(services.map((service) => [service.id, resolveService(service, locale).url]));
+// Only services that at least one project used become filters.
+const filters = services
+  .filter((service) => projects.some((project) => project.data.serviceIds.includes(service.id)))
+  .map((service) => ({
+    id: service.id,
+    name: serviceName.get(service.id)!,
+    count: gridProjects.filter((project) => project.data.serviceIds.includes(service.id)).length,
+  }))
+  .filter((filter) => filter.count > 0);
+
+const domain = (url?: string) => (url ? new URL(url).hostname.replace(/^www\./, '') : '');
+const place = (meta?: string[]) => meta?.[0] ?? '';
 
 const contactUrl = localizedPath('/contact', locale);
 const aboutUrl = localizedPath('/about', locale);
@@ -53,65 +72,169 @@ const aboutUrl = localizedPath('/about', locale);
   eagerReveal
   footerBackground="secondary"
 >
-  <Hero layout="centered" size="sm" class="isolate" showHeroHalo>
-    <Badge slot="badge" variant="brand" pill>
-      <Icon name="layers" size="sm" />
-      {t('projects.heroBadge', locale)}
-    </Badge>
+  <!-- Hero: what this page is, and the numbers behind it -->
+  <section class="pf-hero relative isolate overflow-hidden border-b border-border">
+    <div class="pf-grid" aria-hidden="true"></div>
+    <div class="relative mx-auto max-w-6xl px-6 pt-14 pb-12 sm:pt-20 sm:pb-16">
+      <p class="section-eyebrow"><span class="section-eyebrow-num">{String(projects.length).padStart(2, '0')}</span><span>{copy.eyebrow}</span></p>
+      <h1 class="mt-4 max-w-4xl font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
+        {copy.title}
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-foreground-muted">{copy.lead}</p>
 
-    <h1 slot="title">{t('projects.title', locale)}</h1>
+      <dl class="mt-10 grid grid-cols-2 overflow-hidden rounded-2xl border border-border bg-card lg:grid-cols-4">
+        {copy.stats.map((stat, i) => (
+          <div class:list={['flex flex-col gap-1 p-5 sm:p-6', i % 2 === 1 && 'border-l border-border', i >= 2 && 'border-t border-border lg:border-t-0', i === 2 && 'lg:border-l']}>
+            <dt class="order-2 text-sm leading-snug text-foreground-muted">{stat.label}</dt>
+            <dd class="order-1 font-display text-3xl font-bold tracking-tight text-brand-700 sm:text-4xl">{stat.value}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
 
-    <p slot="description">
-      {t('projects.heroDescription', locale)}
-    </p>
-  </Hero>
-
-  <!-- Nothing published yet -->
-  {projects.length === 0 && (
-    <section class="projects-section py-[var(--space-section-md)] border-t border-border">
-      <div class="mx-auto max-w-2xl px-6 text-center" data-reveal>
-        <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-brand-700 text-white">
-          <Icon name="layers" size="md" />
-        </span>
-        <h2 class="mt-5 font-display text-2xl font-bold text-foreground">{t('projects.emptyTitle', locale)}</h2>
-        <p class="mt-3 text-foreground-muted leading-relaxed">{t('projects.emptyText', locale)}</p>
-        <div class="mt-6 flex justify-center">
-          <Button variant="brand-outline" href={webUrl}>
-            {t('projects.emptyWeb', locale)}
-            <Icon name="arrow-right" size="sm" />
-          </Button>
-        </div>
+  <!-- Featured case study -->
+  {featured && (
+    <section class="bg-background py-[var(--space-section-sm)]">
+      <div class="mx-auto max-w-6xl px-6">
+        <article class="pf-featured grid items-center gap-8 overflow-hidden rounded-3xl p-5 sm:p-8 lg:grid-cols-12 lg:gap-12 lg:p-10" data-reveal>
+          <a href={getProjectUrl(featured.id, locale)} class="group block lg:col-span-7" tabindex="-1" aria-hidden="true">
+            <div class="pf-frame pf-frame--dark">
+              <div class="pf-frame-bar"><i></i><i></i><i></i><span>{domain(featured.data.url)}</span></div>
+              {featured.data.image && (
+                <Image
+                  src={featured.data.image}
+                  alt=""
+                  widths={[640, 960, 1280, 1600]}
+                  sizes="(max-width: 1024px) 100vw, 40rem"
+                  class="pf-shot aspect-[16/10] h-auto w-full object-cover object-top"
+                  loading="eager"
+                />
+              )}
+            </div>
+          </a>
+          <div class="flex flex-col gap-5 text-white lg:col-span-5">
+            <p class="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-300">
+              <Icon name="star" size="sm" />
+              {copy.featured}
+            </p>
+            <div>
+              <p class="text-sm text-white/60">{place(featured.data.meta)}{featured.data.year && ` · ${featured.data.year}`}</p>
+              <h2 class="mt-1 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                <a href={getProjectUrl(featured.id, locale)} class="text-white hover:underline underline-offset-4">{featured.data.title}</a>
+              </h2>
+            </div>
+            <p class="leading-relaxed text-white/75">{featured.data.description}</p>
+            {featured.data.highlight && (
+              <div class="border-l-2 border-orange-400 pl-4">
+                <p class="font-display text-5xl font-bold tracking-tight text-white">{featured.data.highlight.value}</p>
+                <p class="mt-1 text-sm text-white/70">{featured.data.highlight.label}</p>
+              </div>
+            )}
+            <ul class="flex flex-wrap gap-2" role="list">
+              {featured.data.serviceIds.map((id) => serviceName.get(id) && (
+                <li><a href={serviceUrl.get(id)} class="inline-block rounded-full border border-white/20 px-3 py-1 text-xs font-medium text-white/85 transition-colors hover:border-white/60">{serviceName.get(id)}</a></li>
+              ))}
+            </ul>
+            <div class="flex flex-wrap gap-3 pt-1">
+              <Button href={getProjectUrl(featured.id, locale)}>
+                {copy.caseStudy}
+                <Icon name="arrow-right" size="sm" />
+              </Button>
+              {featured.data.url && (
+                <a href={featured.data.url} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-semibold text-white/85 ring-1 ring-white/25 transition hover:ring-white/60">
+                  {copy.visitSite}
+                  <Icon name="arrow-up-right" size="sm" />
+                </a>
+              )}
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   )}
 
-  <!-- All projects -->
-  {projects.length > 0 && (
-    <section class="projects-section py-[var(--space-section-md)] border-t border-border">
-      <div class="mx-auto max-w-6xl px-6 flex flex-col gap-8">
-
-        {topTags.length > 0 && (
-          <div class="flex flex-col items-center gap-4" data-reveal>
-            <ProjectTagList tags={topTags} locale={locale} class="justify-center" />
+  <!-- Every other project, filterable by service -->
+  {gridProjects.length > 0 && (
+    <section class="border-t border-border bg-background-secondary py-[var(--space-section-sm)]">
+      <div class="mx-auto flex max-w-6xl flex-col gap-8 px-6">
+        {filters.length > 1 && (
+          <div class="pf-filters flex flex-wrap items-center gap-2" role="group" aria-label={copy.filterLabel} data-reveal>
+            <button type="button" class="pf-chip" aria-pressed="true" data-filter="all">
+              {copy.filterAll} <span class="pf-count">{gridProjects.length}</span>
+            </button>
+            {filters.map((filter) => (
+              <button type="button" class="pf-chip" aria-pressed="false" data-filter={filter.id}>
+                {filter.name} <span class="pf-count">{filter.count}</span>
+              </button>
+            ))}
           </div>
         )}
 
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {pageProjects.map((project, i) => (
-            <ProjectCard project={project} index={i} locale={locale} />
-          ))}
-        </div>
+        <ul class="grid grid-cols-1 gap-6 md:grid-cols-2" role="list" data-pf-grid>
+          {gridProjects.map((project, i) => {
+            const { data } = project;
+            const href = getProjectUrl(project.id, locale);
+            return (
+              <li class="pf-item" data-services={data.serviceIds.join(' ')} data-reveal data-reveal-delay={i % 2 || undefined}>
+                <article class="pf-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card transition duration-300 hover:-translate-y-1 hover:border-brand-400 hover:shadow-xl">
+                  <div class="p-3 pb-0">
+                    <div class="pf-frame">
+                      <div class="pf-frame-bar"><i></i><i></i><i></i><span>{domain(data.url)}</span></div>
+                      {data.image ? (
+                        <Image
+                          src={data.image}
+                          alt={data.imageAlt ?? data.title}
+                          widths={[480, 720, 960]}
+                          sizes="(max-width: 768px) 100vw, 34rem"
+                          class="pf-shot aspect-[16/10] h-auto w-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div class="aspect-[16/10] w-full bg-background-secondary" />
+                      )}
+                    </div>
+                  </div>
+                  <div class="flex flex-1 flex-col gap-4 p-6">
+                    <p class="text-xs font-medium uppercase tracking-wider text-foreground-subtle">
+                      {place(data.meta)}{data.year && ` · ${data.year}`}
+                    </p>
+                    <div>
+                      <h2 class="font-display text-2xl font-bold tracking-tight text-foreground">
+                        <a href={href} class="after:absolute after:inset-0 focus-visible:outline-none">{data.title}</a>
+                      </h2>
+                      <p class="mt-2 text-sm leading-relaxed text-foreground-muted">{data.description}</p>
+                    </div>
+                    {data.highlight && (
+                      <div class="flex items-baseline gap-3 rounded-xl bg-background-secondary px-4 py-3">
+                        <span class="font-display text-2xl font-bold tracking-tight text-brand-700 whitespace-nowrap">{data.highlight.value}</span>
+                        <span class="text-sm leading-snug text-foreground-muted">{data.highlight.label}</span>
+                      </div>
+                    )}
+                    <div class="mt-auto flex flex-wrap items-center justify-between gap-3 pt-2">
+                      <ul class="flex flex-wrap gap-1.5" role="list">
+                        {data.serviceIds.map((id) => serviceName.get(id) && (
+                          <li class="rounded-full border border-border px-2.5 py-0.5 text-xs font-medium text-foreground-muted">{serviceName.get(id)}</li>
+                        ))}
+                      </ul>
+                      <span class="inline-flex items-center gap-1 text-sm font-semibold text-brand-700">
+                        {copy.caseStudy}
+                        <Icon name="arrow-right" size="sm" class="transition-transform group-hover:translate-x-1" />
+                      </span>
+                    </div>
+                  </div>
+                </article>
+              </li>
+            );
+          })}
+        </ul>
 
-        <Pagination
-          currentPage={1}
-          totalPages={totalPages}
-          href={(p) => getProjectsPageUrl(p, locale)}
-        />
+        <Pagination currentPage={1} totalPages={totalPages} href={(p) => getProjectsPageUrl(p, locale)} />
       </div>
     </section>
   )}
 
- <!-- CTA -->
+  <!-- CTA -->
   <section class="relative z-10 py-[var(--space-section-md)] bg-background">
     <CtaBand>
       <h2 class="font-display text-4xl font-bold text-foreground mb-4 text-balance">
@@ -133,3 +256,125 @@ const aboutUrl = localizedPath('/about', locale);
     </CtaBand>
   </section>
 </PageLayout>
+
+<script>
+  function initPortfolioFilter() {
+    const chips = document.querySelectorAll<HTMLButtonElement>('.pf-chip');
+    const items = document.querySelectorAll<HTMLElement>('.pf-item');
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const filter = chip.dataset.filter ?? 'all';
+        chips.forEach((other) => other.setAttribute('aria-pressed', String(other === chip)));
+        items.forEach((item) => {
+          const match = filter === 'all' || (item.dataset.services ?? '').split(' ').includes(filter);
+          item.hidden = !match;
+        });
+      });
+    });
+  }
+  initPortfolioFilter();
+  document.addEventListener('astro:after-swap', initPortfolioFilter);
+</script>
+
+<style>
+  .pf-hero {
+    background:
+      radial-gradient(60rem 30rem at 85% -10%, color-mix(in oklab, var(--color-brand-500) 18%, transparent), transparent 70%),
+      var(--color-background-secondary);
+  }
+  .pf-grid {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--color-brand-500) 10%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--color-brand-500) 10%, transparent) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: linear-gradient(to bottom, black 30%, transparent);
+  }
+
+  .pf-featured {
+    background:
+      radial-gradient(40rem 24rem at 100% 0%, color-mix(in oklab, var(--color-brand-500) 35%, transparent), transparent 70%),
+      linear-gradient(160deg, var(--color-brand-800), var(--color-brand-900));
+    box-shadow: 0 30px 80px -30px color-mix(in oklab, var(--color-brand-900) 70%, transparent);
+  }
+
+  /* A screenshot inside a minimal browser window. */
+  .pf-frame {
+    overflow: hidden;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+  }
+  .pf-frame--dark {
+    background: var(--color-brand-900);
+    border-color: rgb(255 255 255 / 0.15);
+    box-shadow: 0 24px 60px -20px rgb(0 0 0 / 0.5);
+  }
+  .pf-frame-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 30px;
+    padding: 0 12px;
+    background: var(--color-background-secondary);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .pf-frame--dark .pf-frame-bar {
+    background: rgb(255 255 255 / 0.08);
+    border-color: rgb(255 255 255 / 0.1);
+  }
+  .pf-frame-bar i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: color-mix(in oklab, var(--color-foreground) 18%, transparent);
+  }
+  .pf-frame--dark .pf-frame-bar i { background: rgb(255 255 255 / 0.3); }
+  .pf-frame-bar span {
+    margin-left: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-family: var(--font-mono, monospace);
+    font-size: 11px;
+    color: var(--color-foreground-subtle);
+  }
+  .pf-frame--dark .pf-frame-bar span { color: rgb(255 255 255 / 0.6); }
+  .pf-shot { transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1); }
+  .group:hover .pf-shot { transform: scale(1.03); }
+
+  .pf-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid var(--color-border);
+    background: var(--color-card);
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-foreground-muted);
+    transition: all 0.15s ease;
+    cursor: pointer;
+  }
+  .pf-chip:hover { border-color: var(--color-brand-500); color: var(--color-foreground); }
+  .pf-chip[aria-pressed='true'] {
+    background: var(--color-brand-700);
+    border-color: var(--color-brand-700);
+    color: #fff;
+  }
+  .pf-count {
+    border-radius: 9999px;
+    background: color-mix(in oklab, currentColor 14%, transparent);
+    padding: 0 0.45rem;
+    font-size: 0.75rem;
+  }
+  .pf-item[hidden] { display: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pf-shot, .pf-card { transition: none; }
+    .group:hover .pf-shot { transform: none; }
+  }
+</style>
