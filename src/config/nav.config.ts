@@ -136,7 +136,7 @@ export interface ResolvedNavItem {
  * client, built from `services.config.ts` so a new service appears here too.
  */
 const servicesMega: MegaMenuConfig = {
-  activePrefixes: ['/services', '/web'],
+  activePrefixes: ['/services'],
   overview: { label: 'All services', labelKey: 'nav.mega.overview', href: '/services', icon: 'arrow-right' },
   groups: (['ads', 'visibility', 'web'] as const).map((group) => ({
     title: group,

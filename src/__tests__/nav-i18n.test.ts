@@ -94,8 +94,8 @@ describe('top bar', () => {
     expect(items.filter((i) => i.mega).map((i) => i.label)).toEqual(['Services']);
     const links = items[0].mega!.groups.flatMap((g) => g.links.map((l) => l.href));
     expect(links).toContain('/services/local-seo');
-    expect(links).toContain('/web');
-    expect(links.every((href) => href.startsWith('/services/') || href === '/web')).toBe(true);
+    expect(links).toContain('/projects/webtano');
+    expect(links.every((href) => href.startsWith('/services/') || href === '/projects/webtano')).toBe(true);
   });
 
   it('names the service pages in the visitor\'s language', () => {
