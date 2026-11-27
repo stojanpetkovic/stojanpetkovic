@@ -33,8 +33,8 @@ interface Props {
 
 const { locale = defaultLocale } = Astro.props;
 
-// Engineering projects only; client websites are listed on the Web page.
-const projects = await getVisibleProjects(locale, 'industry');
+// Every client project, so each project page is linked from this index.
+const projects = await getVisibleProjects(locale);
 const webUrl = localizedPath('/web', locale);
 const topTags = collectTopProjectTags(projects, PROJECT_TAG_CLOUD_LIMIT);
 
