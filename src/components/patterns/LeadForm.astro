@@ -1,0 +1,311 @@
+---
+/**
+ * LeadForm — the one enquiry form of the site: a single short step.
+ *
+ * Shared by the landing page (`/start`) and the Contact page, so both post to
+ * the same endpoint (`/api/contact`, which hands the lead to webtano.com) and
+ * report conversions the same way. `source` is stored with the lead and says
+ * which page it came from. The copy lives in `<copy>.form.*` and
+ * `pages.landing.privacy.*`.
+ *
+ * Built to convert: name and email, an optional phone, one tap for what the
+ * visitor needs (which also makes the message optional) and a big button.
+ * The promise (reply within a day, no obligation) sits right under it.
+ *
+ * Spam protection, no third-party service:
+ * - a honeypot field hidden from people (`honeypot`, must stay empty);
+ * - a timestamp the script writes when the page opens (`started`): the server
+ *   drops anything sent too fast for a person to have typed it, and refuses
+ *   a post without it (a bot that never ran the page);
+ * - the server also drops messages stuffed with links.
+ */
+import Button from '@/components/ui/form/Button/Button.astro';
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import Input from '@/components/ui/form/Input/Input.astro';
+import Textarea from '@/components/ui/form/Textarea/Textarea.astro';
+import siteConfig from '@/config/site.config';
+import { t, tData, defaultLocale, localizedPath } from '@/i18n';
+import { contactConfigured } from '@/lib/email';
+
+interface Props {
+  /** Locale whose copy the form shows. Defaults to the site default. */
+  locale?: string;
+  /** Where the form sits, stored with each lead (`landing`, `contact`). */
+  source: string;
+  /** Dictionary namespace holding the `form.*` copy. */
+  copy?: string;
+}
+
+const { locale = defaultLocale, source, copy = 'pages.landing' } = Astro.props;
+
+interface Option { value: string; label: string; icon?: string }
+
+const L = (key: string) => t(`${copy}.${key}`, locale);
+const form = tData<{ services: Option[]; trust: string[] }>(`${copy}.form`, locale)!;
+const privacy = tData<{ toggle: string; title: string; items: string[] }>('pages.landing.privacy', locale)!;
+
+const unconfigured = !contactConfigured && !import.meta.env.DEV;
+
+// The terms checkbox: its label holds a {terms} placeholder where the link goes.
+const [termsBefore, termsAfter = ''] = L('form.termsLabel').split('{terms}');
+const termsUrl = localizedPath('/terms', locale);
+---
+
+<div class="lead-card rounded-3xl border border-border bg-background p-6 shadow-xl sm:p-8">
+  <p class="text-sm font-semibold text-brand-600 dark:text-brand-400">{L('form.badge')}</p>
+  <h3 class="mt-1 font-display text-2xl font-bold text-foreground text-balance">{L('form.heading')}</h3>
+  <p class="mt-2 text-foreground-muted text-pretty">{L('form.lead')}</p>
+
+  <form
+    id="lp-form"
+    action="/api/contact"
+    method="POST"
+    class="mt-6 space-y-4"
+    data-lead-ignore
+    data-source={source}
+    data-msg-required={L('form.required')}
+    data-msg-message={L('form.needMessage')}
+    data-msg-terms={L('form.termsRequired')}
+    data-msg-error={L('form.error')}
+    data-msg-sending={L('form.sending')}
+    novalidate
+  >
+    <input type="hidden" name="source" value={source} />
+    <input type="hidden" name="subject" value={L('form.badge')} />
+    <input type="hidden" name="started" value="" data-started />
+
+    <Input label={L('form.nameLabel')} name="name" type="text" required autocomplete="name" />
+    <div class="grid gap-4 sm:grid-cols-2">
+      <Input label={L('form.emailLabel')} name="email" type="email" required autocomplete="email" inputmode="email" />
+      <Input label={L('form.phoneLabel')} name="phone" type="tel" autocomplete="tel" inputmode="tel" />
+    </div>
+
+    <fieldset>
+      <legend class="mb-2 text-sm font-medium text-foreground">{L('form.serviceLegend')}</legend>
+      <div class="flex flex-wrap gap-2">
+        {form.services.map((option) => (
+          <label class="lp-chip inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-border bg-background-secondary px-3.5 py-2 text-sm font-medium text-foreground transition-colors hover:border-brand-400">
+            <input type="radio" name="service" value={option.value} class="sr-only" />
+            {option.icon && <Icon name={option.icon} size="sm" class="text-brand-600 dark:text-brand-400" />}
+            {option.label}
+          </label>
+        ))}
+      </div>
+    </fieldset>
+
+    <Textarea label={L('form.messageLabel')} name="message" rows={3} placeholder={L('form.messagePlaceholder')} />
+
+    <label class="flex items-start gap-2.5 text-sm text-foreground-muted">
+      <input type="checkbox" name="terms" value="on" required class="mt-1 accent-[var(--color-brand-700)]" />
+      <span>
+        {termsBefore}<a class="font-medium text-brand-700 underline underline-offset-2 dark:text-brand-400" href={termsUrl} target="_blank" rel="noopener">{L('form.termsLink')}</a>{termsAfter}
+      </span>
+    </label>
+
+    {/* Honeypot: off-screen and out of the tab order, so only bots fill it. */}
+    <div class="lead-hp" aria-hidden="true">
+      <label>Leave this empty <input type="text" name="honeypot" tabindex="-1" autocomplete="off" /></label>
+    </div>
+
+    <p class="hidden text-sm text-destructive" role="alert" data-form-error></p>
+
+    <Button type="submit" size="lg" class="lp-glow cta-btn-brand w-full gap-2" data-submit disabled={unconfigured}>
+      {L('form.submit')}
+      <Icon name="arrow-right" size="sm" />
+    </Button>
+
+    <ul class="flex flex-wrap justify-center gap-x-4 gap-y-1.5 text-xs font-medium text-foreground-muted" role="list">
+      {form.trust.map((item) => (
+        <li class="inline-flex items-center gap-1.5">
+          <Icon name="check" size="xs" class="text-success" />
+          {item}
+        </li>
+      ))}
+    </ul>
+
+    <p class="flex items-start gap-2 text-xs text-foreground-subtle">
+      <Icon name="lock" size="xs" class="mt-0.5 shrink-0" />
+      {L('form.privacy')}
+    </p>
+
+    {/* The privacy notice opens in place: a link to a policy page would
+        be a way off the page. */}
+    <details class="lp-privacy text-xs text-foreground-muted">
+      <summary class="cursor-pointer font-medium text-foreground-muted underline underline-offset-2 hover:text-foreground">
+        {privacy.toggle}
+      </summary>
+      <div class="mt-3 rounded-xl border border-border bg-background-secondary p-4">
+        <p class="font-semibold text-foreground">{privacy.title}</p>
+        <ul class="mt-2 space-y-1.5">
+          {privacy.items.map((item) => <li>{item.replace('{email}', siteConfig.email)}</li>)}
+        </ul>
+      </div>
+    </details>
+  </form>
+
+  <div class="hidden py-6 text-center" data-success role="status">
+    <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-success/15 text-success">
+      <Icon name="check" size="lg" />
+    </span>
+    <h3 class="mt-4 font-display text-2xl font-bold text-foreground">{L('form.successTitle')}</h3>
+    <p class="mt-2 text-foreground-muted">{L('form.successText')}</p>
+  </div>
+</div>
+
+<style>
+/* Chosen chips: the input is visually hidden, so the
+   label carries the checked state and the keyboard focus ring. */
+.lp-chip:has(input:checked) {
+  border-color: var(--color-brand-500);
+  background-color: color-mix(in oklab, var(--color-brand-500) 10%, var(--color-background));
+  box-shadow: 0 0 0 1px var(--color-brand-500);
+}
+.lp-chip:has(input:focus-visible) {
+  outline: 2px solid var(--color-ring);
+  outline-offset: 2px;
+}
+
+/* Guidance glow. A soft brand halo that breathes on the buttons a visitor
+   should press next: the calls to action that lead to the form, and inside
+   the form only the current step's action (the script moves the class).
+
+   The halo is drawn once, on a pseudo-element, and only its opacity is
+   animated, so the compositor runs it. Animating box-shadow itself
+   restyled and repainted every frame: in a throttled mobile Lighthouse run
+   that cost about 3.8s of main-thread style and layout. */
+:global(.lp-glow) {
+  position: relative;
+  isolation: isolate;
+}
+:global(.lp-glow)::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  box-shadow: 0 0 22px 4px var(--lp-glow-color, color-mix(in oklab, var(--color-brand-500) 50%, transparent));
+  opacity: 0;
+  pointer-events: none;
+}
+/* Started only after the page has loaded (the script adds .lp-anim), so
+   the first render and the largest paint are never competing with it. */
+:global(html.lp-anim .lp-glow)::after {
+  animation: lp-glow 2.4s ease-in-out infinite;
+  will-change: opacity;
+}
+:global(.lp-glow-light) {
+  --lp-glow-color: rgb(255 255 255 / 0.55);
+}
+@keyframes lp-glow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.lead-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :global(html.lp-anim .lp-glow)::after {
+    animation: none;
+  }
+}
+</style>
+
+<script>
+type Gtag = (...args: unknown[]) => void;
+type Fbq = (...args: unknown[]) => void;
+
+function initLeadForm(): void {
+  const form = document.getElementById('lp-form') as HTMLFormElement | null;
+  if (!form || form.dataset.init) return;
+  form.dataset.init = 'true';
+
+  const card = form.parentElement!;
+  const submit = form.querySelector<HTMLButtonElement>('[data-submit]')!;
+  const errorBox = form.querySelector<HTMLElement>('[data-form-error]')!;
+  const success = card.querySelector<HTMLElement>('[data-success]')!;
+  const started = form.querySelector<HTMLInputElement>('[data-started]')!;
+  const submitHTML = submit.innerHTML;
+
+  // When the visitor opened the form: the server drops posts sent faster
+  // than a person could fill it in.
+  started.value = String(Date.now());
+
+  const field = (name: string) => form.elements.namedItem(name) as HTMLInputElement;
+
+  function showError(text: string): void {
+    errorBox.textContent = text;
+    errorBox.classList.toggle('hidden', !text);
+  }
+
+  function valid(): boolean {
+    const email = field('email');
+    if (field('name').value.trim().length < 2 || !email.value.trim() || !email.checkValidity()) {
+      showError(form!.dataset.msgRequired || '');
+      return false;
+    }
+    const service = form!.querySelector('input[name="service"]:checked');
+    if (!service && field('message').value.trim().length < 10) {
+      showError(form!.dataset.msgMessage || '');
+      return false;
+    }
+    if (!field('terms').checked) {
+      showError(form!.dataset.msgTerms || '');
+      return false;
+    }
+    showError('');
+    return true;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!valid()) return;
+
+    submit.disabled = true;
+    submit.textContent = form.dataset.msgSending || '…';
+
+    try {
+      const response = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+      const data = await response.json();
+      if (!data.success) throw new Error('rejected');
+
+      // Conversion events for the ad platforms, when they are loaded.
+      const w = window as unknown as { gtag?: Gtag; fbq?: Fbq };
+      w.gtag?.('event', 'generate_lead', { form: form.dataset.source });
+      w.fbq?.('track', 'Lead');
+
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } catch {
+      showError(form.dataset.msgError || '');
+      submit.disabled = false;
+      submit.innerHTML = submitHTML;
+    }
+  });
+}
+
+/** Switch the guidance glow on once the page is loaded and the browser idle. */
+function startGlow(): void {
+  const begin = () => document.documentElement.classList.add('lp-anim');
+  const idle = () => {
+    if (typeof window.requestIdleCallback === 'function') window.requestIdleCallback(begin, { timeout: 3000 });
+    else setTimeout(begin, 1500);
+  };
+  if (document.readyState === 'complete') idle();
+  else window.addEventListener('load', idle, { once: true });
+}
+
+initLeadForm();
+startGlow();
+</script>

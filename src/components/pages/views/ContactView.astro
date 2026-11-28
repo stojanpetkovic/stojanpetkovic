@@ -4,7 +4,8 @@
  *
  * Shared by the default-locale route (`/contact`) and the locale-prefixed route
  * (`/<locale>/contact`). An engineering enquiry: what I can help with, what
- * happens after the message, three headline facts, and the three-step form. The
+ * happens after the message, three headline facts, the one-step form and a
+ * Google map of where I work from (LocationMap). The
  * copy is read from `pages.contact.*`; the form is the same component as the
  * landing page's, pointed at its own `pages.contact.form` copy, and the
  * privacy notice is shared with the landing page.
@@ -14,7 +15,8 @@ import PageLayout from '@/layouts/PageLayout.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import { Hero } from '@/components/hero';
-import WebsiteCheckForm from '@/components/patterns/WebsiteCheckForm.astro';
+import LeadForm from '@/components/patterns/LeadForm.astro';
+import LocationMap from '@/components/patterns/LocationMap.astro';
 import siteConfig from '@/config/site.config';
 import { t, tData, defaultLocale } from '@/i18n';
 
@@ -108,10 +110,12 @@ const facts = tData<{ value: string; label: string }[]>('pages.contact.facts', l
 
         <!-- Right column: the form, first on phones -->
         <div class="glitch:col-span-3 sm:max-w-xl sm:mx-auto glitch:max-w-none glitch:mx-0 order-1 glitch:order-2" data-reveal data-reveal-delay="1" data-reveal-ease="smooth">
-          <WebsiteCheckForm {locale} source="contact" copy="pages.contact" />
+          <LeadForm {locale} source="contact" copy="pages.contact" />
         </div>
 
       </div>
     </div>
   </section>
+
+  <LocationMap {locale} class="border-t border-border bg-background" />
 </PageLayout>

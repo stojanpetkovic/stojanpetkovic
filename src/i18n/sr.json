@@ -71,7 +71,7 @@
       "terms": "Uslovi korišćenja",
       "privacy": "Politika privatnosti"
     },
-    "cta": "Besplatna provera"
+    "cta": "Besplatne konsultacije"
   },
   "common": {
     "readMore": "Pročitaj više",
@@ -292,14 +292,14 @@
       "ads": "Google i Meta oglasi",
       "seo": "Lokalni SEO i AI pretraga",
       "web": "Sajtovi koji donose upite",
-      "check": "Besplatna provera",
+      "check": "Besplatne konsultacije",
       "faq": "Česta pitanja"
     }
   },
   "pages": {
     "servicePage": {
       "common": {
-        "heroPrimary": "Zatraži besplatnu proveru",
+        "heroPrimary": "Zakaži besplatne konsultacije",
         "heroSecondary": "Pozovi me",
         "includedBadge": "Šta dobijaš",
         "fitBadge": "Za koga je",
@@ -316,8 +316,8 @@
         "allWork": "Svi projekti",
         "cta": {
           "heading": "Zanima te šta bi ovo donelo tvojoj firmi?",
-          "description": "Pošalji mi poruku. Pogledam kako te ljudi danas nalaze i iskreno ti kažem da li se ova usluga tebi isplati. Prvi razgovor je besplatan.",
-          "primary": "Zatraži besplatnu proveru",
+          "description": "Pošalji mi poruku. Kažeš mi šta radiš i gde si, a ja ti iskreno kažem da li se ova usluga tebi isplati. Prvi razgovor je besplatan.",
+          "primary": "Zakaži besplatne konsultacije",
           "secondary": "Pogledaj sve usluge"
         },
         "detailsBadge": "Detaljno",
@@ -403,10 +403,10 @@
             "Čišćenje, selidbe i servisi"
           ],
           "steps": {
-            "heading": "Od provere do prvih poziva",
+            "heading": "Od prvog razgovora do prvih poziva",
             "items": [
               {
-                "title": "Besplatna provera",
+                "title": "Besplatne konsultacije",
                 "description": "Pogledam tvoj postojeći nalog ili tržište i kažem ti koliki budžet i cena upita su realni."
               },
               {
@@ -422,7 +422,7 @@
           "faq": [
             {
               "question": "Koliko treba da uložim u Google oglase?",
-              "answer": "Zavisi od delatnosti i grada. Na besplatnoj proveri procenim koliko u tvom kraju košta klik i upit, pa kreneš sa budžetom koji stvarno može da donese posao. Za mnoge lokalne firme početak je nekoliko stotina dinara dnevno."
+              "answer": "Zavisi od delatnosti i grada. Na besplatnim konsultacijama procenim koliko u tvom kraju košta klik i upit, pa kreneš sa budžetom koji stvarno može da donese posao. Za mnoge lokalne firme početak je nekoliko stotina dinara dnevno."
             },
             {
               "question": "Kada ću videti rezultate?",
@@ -646,7 +646,7 @@
             "heading": "Korak po korak",
             "items": [
               {
-                "title": "Provera",
+                "title": "Konsultacije i plan",
                 "description": "Gde se danas rangiraš, šta konkurencija radi bolje i šta prvo treba srediti."
               },
               {
@@ -674,7 +674,7 @@
             },
             {
               "question": "Koliko košta lokalni SEO?",
-              "answer": "Cena zavisi od broja usluga, mesta i konkurencije. Posle besplatne provere dobiješ fiksnu mesečnu cenu, bez ugovora na duži rok."
+              "answer": "Cena zavisi od broja usluga, mesta i konkurencije. Posle besplatnih konsultacija dobiješ fiksnu mesečnu cenu, bez ugovora na duži rok."
             },
             {
               "question": "Šta je Google Business profil i treba li mi?",
@@ -955,7 +955,7 @@
           ],
           "items": [
             "Opis usluga, cena i primera na sajtu nije ponuda u pravnom smislu. Svaki posao se ugovara posebno, pisanom ponudom ili ugovorom koji određuje obim, rok, cenu i način plaćanja.",
-            "Slanje upita ili zahteva za besplatnu proveru ne stvara ugovorni odnos ni obavezu za bilo koju stranu.",
+            "Slanje upita ili zahteva za besplatne konsultacije ne stvara ugovorni odnos ni obavezu za bilo koju stranu.",
             "Autor može da odbije upit bez navođenja razloga.",
             "Ako je u ugovoru drugačije navedeno, važi ugovor."
           ]
@@ -1025,10 +1025,10 @@
     "landing": {
       "meta": {
         "title": "Sajt koji ti donosi klijente",
-        "description": "Brz sajt po meri, SEO i vidljivost u AI pretrazi za lokalne uslužne firme. Fiksna cena, sve na tvoje ime, a provera postojećeg sajta je besplatna."
+        "description": "Brz sajt po meri, SEO i vidljivost u AI pretrazi za lokalne uslužne firme. Fiksna cena, sve na tvoje ime, a prve konsultacije su besplatne."
       },
       "header": {
-        "cta": "Besplatna provera sajta"
+        "cta": "Besplatne konsultacije"
       },
       "hero": {
         "badge": "Primam nove projekte",
@@ -1218,8 +1218,8 @@
         "lead": "Bez dugih sastanaka i bez iznenađenja. U svakom trenutku znaš šta sledi.",
         "steps": [
           {
-            "title": "Besplatna provera",
-            "text": "Pošalješ formu. Za jedan radni dan pogledam tvoj sajt i konkurenciju i kažem ti iskreno šta te koči."
+            "title": "Besplatne konsultacije",
+            "text": "Pošalješ formu. Za jedan radni dan se čujemo i dobiješ konkretan plan: šta bih prvo uradio, koliko traje i koliko košta."
           },
           {
             "title": "Jasna ponuda",
@@ -1237,10 +1237,10 @@
       },
       "offer": {
         "badge": "Prvi korak je besplatan",
-        "heading": "Saznaj koliko te košta sajt kakav sad imaš",
-        "lead": "Nema obaveze ni nagovaranja. Dobiješ iskren pregled gde ti danas beže posetioci i upiti.",
+        "heading": "Saznaj kako do više poziva",
+        "lead": "Nema obaveze ni nagovaranja. Samo iskren razgovor o tome gde su tvoje sledeće mušterije i kako da dođeš do njih.",
         "items": [
-          "Pregled brzine, SEO-a i vidljivosti u AI pretrazi",
+          "Kratak poziv ili email, kako ti više odgovara",
           "Poređenje sa najjačom konkurencijom u tvom gradu",
           "Konkretni sledeći koraci, radili mi zajedno ili ne",
           "Fiksna cena, ako odlučiš da krenemo"
@@ -1252,7 +1252,7 @@
         "items": [
           {
             "question": "Koliko košta sajt?",
-            "answer": "Svaki projekat ima fiksnu cenu koju dogovorimo pre početka. Ne naplaćujem po satu i nema naknadnih troškova. Posle besplatne provere dobiješ ponudu sa cenom i rokom."
+            "answer": "Svaki projekat ima fiksnu cenu koju dogovorimo pre početka. Ne naplaćujem po satu i nema naknadnih troškova. Posle besplatnih konsultacija dobiješ ponudu sa cenom i rokom."
           },
           {
             "question": "Koliko traje izrada?",
@@ -1281,85 +1281,59 @@
         ]
       },
       "form": {
-        "badge": "Besplatna provera sajta",
-          "termsLabel": "Pročitao/la sam {terms} i razumem da ovaj upit nije ponuda ni ugovor.",
-          "termsLink": "Uslove korišćenja",
-          "termsRequired": "Potvrdite da ste pročitali uslove korišćenja.",
-        "heading": "Reci mi nešto o svojoj firmi",
-        "lead": "Tri kratka koraka, za manje od minut. Javljam se u roku od jednog radnog dana.",
-        "stepLabels": [
-          "Šta ti treba",
-          "Tvoj biznis",
-          "Tvoj kontakt"
-        ],
-        "stepCount": "Korak {current} od {total}",
+        "badge": "Besplatne konsultacije",
+        "heading": "Više poziva: reci mi nešto o svojoj firmi",
+        "lead": "Popunjava se za manje od minut. Za jedan radni dan dobiješ konkretan plan: šta bih prvo uradio, koliko traje i koliko košta.",
+        "termsLabel": "Pročitao/la sam {terms} i razumem da ovaj upit nije ponuda ni ugovor.",
+        "termsLink": "uslove korišćenja",
+        "termsRequired": "Potvrdi da si pročitao/la uslove korišćenja.",
+        "nameLabel": "Ime",
+        "emailLabel": "Email",
+        "phoneLabel": "Telefon (nije obavezno, za brži odgovor)",
         "serviceLegend": "Šta ti treba?",
         "services": [
           {
-            "value": "new-website",
-            "icon": "sparkles",
-            "label": "Nov sajt"
-          },
-          {
-            "value": "redesign",
-            "icon": "refresh-cw",
-            "label": "Redizajn mog sajta"
+            "value": "ads",
+            "icon": "target",
+            "label": "Google ili društvene mreže"
           },
           {
             "value": "seo",
             "icon": "search",
-            "label": "SEO i vidljivost u AI pretrazi"
+            "label": "SEO i AI pretraga"
           },
           {
-            "value": "ads",
-            "icon": "target",
-            "label": "Google ili oglasi na mrežama"
+            "value": "website",
+            "icon": "layout",
+            "label": "Novi sajt"
           },
           {
-            "value": "other",
+            "value": "not-sure",
             "icon": "message-circle",
-            "label": "Nešto drugo"
+            "label": "Još ne znam"
           }
         ],
-        "websiteLabel": "Trenutni sajt (ako ga imaš)",
-        "websitePlaceholder": "tvojafirma.rs",
-        "businessLabel": "Delatnost i mesto",
-        "businessPlaceholder": "npr. stomatolog u Novom Sadu, frizerski salon u Beogradu",
-        "timelineLegend": "Kad bi voleo da krenemo?",
-        "timelines": [
-          {
-            "value": "asap",
-            "label": "Što pre"
-          },
-          {
-            "value": "1-3-months",
-            "label": "Za 1–3 meseca"
-          },
-          {
-            "value": "exploring",
-            "label": "Samo se raspitujem"
-          }
-        ],
-        "nameLabel": "Ime i prezime",
-        "emailLabel": "Email",
-        "phoneLabel": "Telefon (opciono)",
-        "messageLabel": "Još nešto što treba da znam? (opciono)",
-        "next": "Dalje",
-        "back": "Nazad",
-        "submit": "Pošalji zahtev za proveru",
+        "messageLabel": "Reci mi nešto o svojoj firmi",
+        "messagePlaceholder": "npr. stomatološka ordinacija u Novom Sadu, želimo više poziva sa Google-a",
+        "submit": "Zakaži besplatne konsultacije",
         "sending": "Šaljem…",
-        "chooseService": "Izaberi šta ti treba da bi nastavio.",
         "required": "Upiši ime i ispravnu email adresu.",
-        "privacy": "Tvoje podatke koristim samo da ti odgovorim. Ne šaljem newsletter i ne delim ih ni sa kim.",
-        "promise": "Odgovor u roku od jednog radnog dana",
-        "successTitle": "Hvala, zahtev je stigao!",
-        "successText": "Pogledaću tvoj sajt i javiti se u roku od jednog radnog dana sa konkretnim predlozima. Baci pogled na inbox.",
-        "error": "Nešto nije u redu. Pokušaj ponovo ili mi piši direktno na mejl."
+        "needMessage": "Izaberi šta ti treba ili napiši rečenicu o svojoj firmi.",
+        "trust": [
+          "Odgovor za 1 radni dan",
+          "Bez obaveze",
+          "Fiksna cena unapred"
+        ],
+        "privacy": "Tvoje podatke koristim samo da ti odgovorim. Nema newslettera i ne delim ih ni sa kim.",
+        "promise": "Odgovor za jedan radni dan",
+        "successTitle": "Hvala, stiglo je!",
+        "successText": "Pročitam i javim ti se za jedan radni dan sa konkretnim planom i cenom. Prati inbox (i spam folder).",
+        "error": "Nešto nije u redu. Pokušaj ponovo ili mi piši direktno na email."
       },
       "final": {
         "heading": "Dok čekaš, pozive dobija konkurencija",
-        "text": "Provera je besplatna i ne obavezuje te ni na šta. U najgorem slučaju saznaš šta ti odbija klijente i šta prvo treba popraviti.",
-        "cta": "Zatraži besplatnu proveru"
+        "text": "Konsultacije su besplatne i ne obavezuju te ni na šta. U najgorem slučaju dobiješ jasan plan kako do više poziva.",
+        "cta": "Zakaži besplatne konsultacije"
       },
       "footer": "Brzi sajtovi, SEO i oglasi za lokalne firme.",
       "privacy": {
@@ -1507,7 +1481,7 @@
     "services": {
       "meta": {
         "title": "Usluge: oglasi, SEO, AI pretraga i sajtovi",
-        "description": "Google i Meta oglasi, lokalni SEO, vidljivost u AI pretrazi i brzi sajtovi za uslužne firme. Besplatna provera, fiksna cena za sajt."
+        "description": "Google i Meta oglasi, lokalni SEO, vidljivost u AI pretrazi i brzi sajtovi za uslužne firme. Besplatne konsultacije, fiksna cena za sajt."
       },
       "areas": {
         "marketing": {
@@ -1544,7 +1518,7 @@
               "text": "pozivi, upiti i koliko je koštao svaki, bez stručnih izraza."
             }
           ],
-          "ctaLabel": "Zatraži besplatnu proveru"
+          "ctaLabel": "Zakaži besplatne konsultacije"
         },
         "web": {
           "icon": "layout",
@@ -1644,7 +1618,7 @@
     },
     "contact": {
       "meta": {
-        "title": "Kontakt i besplatna provera sajta",
+        "title": "Kontakt i besplatne konsultacije",
         "description": "Oglasi, SEO, AI pretraga ili nov sajt: napiši mi šta ti treba. Odgovaram u roku od jednog radnog dana."
       },
       "hero": {
@@ -1683,75 +1657,54 @@
       "emailLabel": "Email",
       "preferEmail": "Lakše ti je mejlom? Piši na",
       "form": {
-        "badge": "Upit",
-          "termsLabel": "Pročitao/la sam {terms} i razumem da ovaj upit nije ponuda ni ugovor.",
-          "termsLink": "Uslove korišćenja",
-          "termsRequired": "Potvrdite da ste pročitali uslove korišćenja.",
+        "badge": "Besplatne konsultacije",
         "heading": "Reci mi šta ti treba",
-        "lead": "Tri kratka koraka, za manje od minut. Odgovaram u roku od jednog radnog dana.",
-        "stepLabels": [
-          "Šta ti treba",
-          "Tvoja firma",
-          "Tvoj kontakt"
-        ],
-        "stepCount": "Korak {current} od {total}",
+        "lead": "Popunjava se za manje od minut. Javljam se za jedan radni dan sa konkretnim planom i fiksnom cenom.",
+        "termsLabel": "Pročitao/la sam {terms} i razumem da ovaj upit nije ponuda ni ugovor.",
+        "termsLink": "uslove korišćenja",
+        "termsRequired": "Potvrdi da si pročitao/la uslove korišćenja.",
+        "nameLabel": "Ime",
+        "emailLabel": "Email",
+        "phoneLabel": "Telefon (nije obavezno, za brži odgovor)",
         "serviceLegend": "Šta ti treba?",
         "services": [
           {
-            "value": "new-website",
-            "icon": "sparkles",
-            "label": "Nov sajt"
+            "value": "ads",
+            "icon": "target",
+            "label": "Google ili društvene mreže"
           },
           {
             "value": "seo",
             "icon": "search",
-            "label": "SEO i vidljivost u AI pretrazi"
+            "label": "SEO i AI pretraga"
           },
           {
-            "value": "ads",
-            "icon": "target",
-            "label": "Google ili oglasi na mrežama"
+            "value": "website",
+            "icon": "layout",
+            "label": "Novi sajt"
           },
           {
-            "value": "other",
+            "value": "not-sure",
             "icon": "message-circle",
-            "label": "Nešto drugo"
+            "label": "Još ne znam"
           }
         ],
-        "websiteLabel": "Sajt firme (opciono)",
-        "websitePlaceholder": "tvojafirma.rs",
-        "businessLabel": "Firma i delatnost",
-        "businessPlaceholder": "npr. stomatolog u Novom Sadu, apartmani na Zlatiboru",
-        "timelineLegend": "Kada želiš da počnemo?",
-        "timelines": [
-          {
-            "value": "asap",
-            "label": "Što pre"
-          },
-          {
-            "value": "1-3-months",
-            "label": "Za 1–3 meseca"
-          },
-          {
-            "value": "exploring",
-            "label": "Samo se informišem"
-          }
-        ],
-        "nameLabel": "Tvoje ime",
-        "emailLabel": "Email",
-        "phoneLabel": "Telefon (opciono)",
-        "messageLabel": "Još nešto što treba da znam? (opciono)",
-        "next": "Nastavi",
-        "back": "Nazad",
-        "submit": "Pošalji upit",
+        "messageLabel": "Reci mi nešto o svojoj firmi",
+        "messagePlaceholder": "npr. stomatološka ordinacija u Novom Sadu, želimo više poziva sa Google-a",
+        "submit": "Zakaži besplatne konsultacije",
         "sending": "Šaljem…",
-        "chooseService": "Izaberi šta ti treba da nastaviš.",
-        "required": "Unesi ime i ispravnu email adresu.",
-        "privacy": "Podatke koristim samo da ti odgovorim. Ne šaljem newsletter i ne delim ih ni sa kim.",
-        "promise": "Odgovor u roku od jednog radnog dana",
+        "required": "Upiši ime i ispravnu email adresu.",
+        "needMessage": "Izaberi šta ti treba ili napiši rečenicu o svojoj firmi.",
+        "trust": [
+          "Odgovor za 1 radni dan",
+          "Bez obaveze",
+          "Fiksna cena unapred"
+        ],
+        "privacy": "Tvoje podatke koristim samo da ti odgovorim. Nema newslettera i ne delim ih ni sa kim.",
+        "promise": "Odgovor za jedan radni dan",
         "successTitle": "Hvala, poruka je stigla!",
-        "successText": "Pročitaću je i javiti se u roku od jednog radnog dana sa konkretnim sledećim koracima. Baci pogled na inbox.",
-        "error": "Nešto nije u redu. Pokušaj ponovo ili mi piši direktno."
+        "successText": "Pročitam je i javim ti se za jedan radni dan sa konkretnim planom i cenom. Prati inbox (i spam folder).",
+        "error": "Nešto nije u redu. Pokušaj ponovo ili mi piši direktno na email."
       }
     },
     "web": {
@@ -1844,14 +1797,14 @@
     "home": {
       "meta": {
         "title": "Više poziva i upita sa interneta",
-        "description": "Google i Facebook oglasi, lokalni SEO, AI pretraga i brz sajt za uslužne firme. Svaki poziv i upit se meri. Prva provera je besplatna."
+        "description": "Google i Facebook oglasi, lokalni SEO, AI pretraga i brz sajt za uslužne firme. Svaki poziv i upit se meri. Prve konsultacije su besplatne."
       },
       "hero": {
         "badge": "Primam nove klijente",
         "titleLead": "Više poziva i upita",
         "titleHighlight": "sa interneta za tvoju firmu",
         "description": "Postavim oglase na Google-u i mrežama, sredim da te nađu na mapi i u ChatGPT-u i napravim sajt sa kog ljudi zovu. Svaki poziv se broji, pa tačno znaš šta ti donosi posao.",
-        "primary": "Besplatna provera",
+        "primary": "Besplatne konsultacije",
         "secondary": "Pogledaj rezultate",
         "imageAlt": "Stojan Petković u tamnoplavom odelu u svetloj kancelariji, iza njega ekrani sa kodom"
       },
@@ -1911,8 +1864,8 @@
       },
       "final": {
         "heading": "Klijent zove prvog koga nađe.",
-        "text": "Neka to budeš ti. Pogledam tvoj sajt i konkurenciju i kažem ti šta bih prvo promenio. Besplatno i bez obaveze.",
-        "cta": "Zatraži besplatnu proveru"
+        "text": "Neka to budeš ti. Reci mi nešto o firmi i pošaljem ti plan kako do više poziva, sa cenom. Besplatno i bez obaveze.",
+        "cta": "Zakaži besplatne konsultacije"
       },
       "testimonials": {
         "badge": "Iskustva klijenata",
@@ -1962,8 +1915,8 @@
         },
         "next": {
           "title": "Tvoja firma?",
-          "text": "Ovo mesto čeka sledećeg klijenta. Besplatno pogledam tvoj sajt i kažem šta bih prvo popravio.",
-          "cta": "Zakaži proveru"
+          "text": "Ovo mesto čeka sledećeg klijenta. Reci mi nešto o firmi i pošaljem ti besplatan plan za više poziva.",
+          "cta": "Zakaži konsultacije"
         }
       }
     },
@@ -1991,7 +1944,7 @@
           "title": "2. Koje podatke prikupljam",
           "paragraphs": [],
           "items": [
-            "Podatke iz formi (kontakt i besplatna provera): ime, email, telefon, adresu sajta, delatnost i mesto, tvoje odgovore i poruku.",
+            "Podatke iz formi (kontakt i besplatne konsultacije): ime, email, telefon, adresu sajta, delatnost i mesto, tvoje odgovore i poruku.",
             "Podatke o poseti, bez kolačića: koje stranice su otvorene, odakle je posetilac došao (pretraga, oglas ili link) i da li je kliknuo na telefon, WhatsApp ili poslao formu. Ovi podaci se ne povezuju sa tvojim imenom osim kada pošalješ formu.",
             "Tehničke podatke koje beleži server: IP adresu, vrstu pregledača i vreme pristupa, radi bezbednosti i rada sajta.",
             "Kolačiće za analitiku i oglase (Google, Meta), samo ako ih dozvoliš u baneru za kolačiće."
@@ -2069,9 +2022,17 @@
     "reply": "Odgovor u roku od jednog radnog dana",
     "whatsapp": "Piši mi na WhatsApp"
   },
+  "map": {
+    "eyebrow": "Gde radim",
+    "title": "Iz Zrenjanina, za firme svuda",
+    "text": "Radim sa firmama u Srbiji, Evropi i Americi. Sve ide preko interneta: pozivi, izveštaji i podrška, na srpskom, engleskom ili nemačkom.",
+    "open": "Otvori u Google mapama",
+    "show": "Prikaži mapu",
+    "note": "Mapa se učitava sa Google mapa i može da postavi Google kolačiće."
+  },
   "mobileBar": {
     "label": "Brzi kontakt",
-    "check": "Provera sajta",
+    "check": "Konsultacije",
     "whatsapp": "WhatsApp",
     "home": "Početna",
     "services": "Usluge",
@@ -2079,7 +2040,7 @@
   },
   "pwa": {
     "title": "Instaliraj aplikaciju Stojan Petković",
-    "subtitle": "Usluge, projekti i besplatna provera sajta na jedan dodir, direktno sa početnog ekrana telefona.",
+    "subtitle": "Usluge, projekti i besplatne konsultacije na jedan dodir, direktno sa početnog ekrana telefona.",
     "install": "Instaliraj aplikaciju",
     "close": "Zatvori",
     "iosStep1": "U Safariju dodirni dugme Deli",

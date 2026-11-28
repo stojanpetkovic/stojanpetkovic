@@ -71,7 +71,7 @@
       "terms": "Nutzungsbedingungen",
       "privacy": "Datenschutz"
     },
-    "cta": "Kostenloser Check"
+    "cta": "Kostenlose Erstberatung"
   },
   "common": {
     "readMore": "Weiterlesen",
@@ -292,14 +292,14 @@
       "ads": "Google- und Meta-Anzeigen",
       "seo": "Lokales SEO und KI-Suche",
       "web": "Websites, die Anfragen bringen",
-      "check": "Kostenloser Check",
+      "check": "Kostenlose Erstberatung",
       "faq": "Häufige Fragen"
     }
   },
   "pages": {
     "servicePage": {
       "common": {
-        "heroPrimary": "Kostenlosen Check anfragen",
+        "heroPrimary": "Kostenlose Erstberatung anfragen",
         "heroSecondary": "Anrufen",
         "includedBadge": "Was Sie bekommen",
         "fitBadge": "Für wen",
@@ -317,7 +317,7 @@
         "cta": {
           "heading": "Was würde das Ihrem Betrieb bringen?",
           "description": "Schreiben Sie mir. Ich sehe mir an, wie Kunden Sie heute finden, und sage Ihnen ehrlich, ob sich diese Leistung für Sie lohnt. Das Erstgespräch ist kostenlos.",
-          "primary": "Kostenlosen Check anfragen",
+          "primary": "Kostenlose Erstberatung anfragen",
           "secondary": "Alle Leistungen ansehen"
         },
         "detailsBadge": "Im Detail",
@@ -403,10 +403,10 @@
             "Reinigung, Umzug und Reparatur"
           ],
           "steps": {
-            "heading": "Vom Check zu den ersten Anrufen",
+            "heading": "Vom Erstgespräch zu den ersten Anrufen",
             "items": [
               {
-                "title": "Kostenloser Check",
+                "title": "Kostenlose Erstberatung",
                 "description": "Ich prüfe Ihr bestehendes Konto oder Ihren Markt und sage Ihnen, welches Budget und welche Kosten pro Anfrage realistisch sind."
               },
               {
@@ -422,7 +422,7 @@
           "faq": [
             {
               "question": "Wie viel sollte ich in Google Ads investieren?",
-              "answer": "Das hängt von Gewerk und Region ab. Im kostenlosen Check schätze ich, was ein Klick und eine Anfrage in Ihrem Markt kosten, damit Sie mit einem Budget starten, das wirklich Aufträge bringen kann."
+              "answer": "Das hängt von Gewerk und Region ab. In der kostenlosen Erstberatung schätze ich, was ein Klick und eine Anfrage in Ihrem Markt kosten, damit Sie mit einem Budget starten, das wirklich Aufträge bringen kann."
             },
             {
               "question": "Wann sehe ich Ergebnisse?",
@@ -646,7 +646,7 @@
             "heading": "Schritt für Schritt",
             "items": [
               {
-                "title": "Analyse",
+                "title": "Beratung und Plan",
                 "description": "Wo Sie heute ranken, was die Konkurrenz besser macht und was zuerst zu tun ist."
               },
               {
@@ -674,7 +674,7 @@
             },
             {
               "question": "Was kostet lokales SEO?",
-              "answer": "Das hängt von der Zahl der Leistungen, Orte und vom Wettbewerb ab. Nach dem kostenlosen Check bekommen Sie einen monatlichen Festpreis ohne lange Vertragsbindung."
+              "answer": "Das hängt von der Zahl der Leistungen, Orte und vom Wettbewerb ab. Nach der kostenlosen Erstberatung bekommen Sie einen monatlichen Festpreis ohne lange Vertragsbindung."
             },
             {
               "question": "Was ist ein Google-Unternehmensprofil und brauche ich es?",
@@ -955,7 +955,7 @@
           ],
           "items": [
             "Beschreibungen von Leistungen, Preisen und Beispielen auf der Website sind kein Angebot im rechtlichen Sinn. Jeder Auftrag wird gesondert vereinbart, in einem schriftlichen Angebot oder Vertrag mit Umfang, Termin, Preis und Zahlung.",
-            "Eine Anfrage oder die Bitte um einen kostenlosen Check begründet keinen Vertrag und keine Pflicht für eine Seite.",
+            "Eine Anfrage oder die Bitte um eine kostenlose Erstberatung begründet keinen Vertrag und keine Pflicht für eine Seite.",
             "Der Autor kann jede Anfrage ohne Angabe von Gründen ablehnen.",
             "Wo ein Vertrag etwas anderes bestimmt, gilt der Vertrag."
           ]
@@ -1025,10 +1025,10 @@
     "landing": {
       "meta": {
         "title": "Eine Website, die Kunden bringt",
-        "description": "Schnelle Websites nach Maß, SEO und Sichtbarkeit in der KI-Suche für lokale Dienstleister. Festpreis, alles auf Ihren Namen und ein kostenloser Check Ihrer aktuellen Seite."
+        "description": "Schnelle Websites nach Maß, SEO und Sichtbarkeit in der KI-Suche für lokale Dienstleister. Festpreis, alles auf Ihren Namen und eine kostenlose Erstberatung zum Start."
       },
       "header": {
-        "cta": "Kostenloser Website-Check"
+        "cta": "Kostenlose Erstberatung"
       },
       "hero": {
         "badge": "Freie Kapazitäten für neue Projekte",
@@ -1218,8 +1218,8 @@
         "lead": "Keine langen Meetings, keine Überraschungen. Sie wissen immer, was als Nächstes kommt.",
         "steps": [
           {
-            "title": "Kostenloser Website-Check",
-            "text": "Sie schicken das Formular. Innerhalb eines Werktags sehe ich mir Ihre Website und Ihre Mitbewerber an und sage Ihnen ehrlich, was Sie bremst."
+            "title": "Kostenlose Erstberatung",
+            "text": "Sie schicken das Formular. Innerhalb eines Werktags sprechen wir, und Sie bekommen einen konkreten Plan: was ich zuerst tun würde, wie lange es dauert und was es kostet."
           },
           {
             "title": "Ein klares Angebot",
@@ -1237,10 +1237,10 @@
       },
       "offer": {
         "badge": "Der erste Schritt ist kostenlos",
-        "heading": "Finden Sie heraus, was Ihre Website Sie kostet",
-        "lead": "Unverbindlich und ohne Verkaufsdruck. Nur ein ehrlicher Blick darauf, wo Ihnen heute Besucher und Anfragen verloren gehen.",
+        "heading": "Finden Sie heraus, wie Sie mehr Anrufe bekommen",
+        "lead": "Unverbindlich und ohne Verkaufsdruck. Nur ein ehrliches Gespräch darüber, wo Ihre nächsten Kunden sind und wie Sie sie erreichen.",
         "items": [
-          "Prüfung von Ladezeit, SEO und Sichtbarkeit in der KI-Suche",
+          "Ein kurzes Gespräch oder eine E-Mail, wie es Ihnen passt",
           "Vergleich mit Ihrem stärksten Mitbewerber vor Ort",
           "Konkrete nächste Schritte, ob Sie mit mir arbeiten oder nicht",
           "Ein Festpreis, wenn Sie loslegen möchten"
@@ -1252,7 +1252,7 @@
         "items": [
           {
             "question": "Was kostet eine Website?",
-            "answer": "Jedes Projekt hat einen Festpreis, den wir vor Beginn vereinbaren. Keine Abrechnung nach Stunden und keine Nachforderungen. Nach dem kostenlosen Check bekommen Sie ein klares Angebot mit Preis und Termin."
+            "answer": "Jedes Projekt hat einen Festpreis, den wir vor Beginn vereinbaren. Keine Abrechnung nach Stunden und keine Nachforderungen. Nach der kostenlosen Erstberatung bekommen Sie ein klares Angebot mit Preis und Termin."
           },
           {
             "question": "Wie lange dauert es?",
@@ -1281,85 +1281,59 @@
         ]
       },
       "form": {
-        "badge": "Kostenloser Website-Check",
-          "termsLabel": "Ich habe die {terms} gelesen und verstehe, dass diese Anfrage weder ein Angebot noch ein Vertrag ist.",
-          "termsLink": "Nutzungsbedingungen",
-          "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
-        "heading": "Erzählen Sie mir kurz von Ihrem Betrieb",
-        "lead": "Drei kurze Schritte, weniger als eine Minute. Ich melde mich innerhalb eines Werktags.",
-        "stepLabels": [
-          "Was Sie brauchen",
-          "Ihr Unternehmen",
-          "Ihre Kontaktdaten"
-        ],
-        "stepCount": "Schritt {current} von {total}",
-        "serviceLegend": "Was brauchen Sie?",
+        "badge": "Kostenlose Erstberatung",
+        "heading": "Mehr Anrufe: Erzählen Sie mir von Ihrem Betrieb",
+        "lead": "In unter einer Minute ausgefüllt. Innerhalb eines Werktags bekommen Sie einen konkreten Plan: was ich zuerst tun würde, wie lange es dauert und was es kostet.",
+        "termsLabel": "Ich habe die {terms} gelesen und verstehe, dass diese Anfrage kein Angebot und kein Vertrag ist.",
+        "termsLink": "Nutzungsbedingungen",
+        "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
+        "nameLabel": "Ihr Name",
+        "emailLabel": "E-Mail",
+        "phoneLabel": "Telefon (optional, für eine schnellere Antwort)",
+        "serviceLegend": "Wobei kann ich helfen?",
         "services": [
           {
-            "value": "new-website",
-            "icon": "sparkles",
-            "label": "Eine neue Website"
-          },
-          {
-            "value": "redesign",
-            "icon": "refresh-cw",
-            "label": "Einen Relaunch meiner Website"
+            "value": "ads",
+            "icon": "target",
+            "label": "Google- oder Social-Anzeigen"
           },
           {
             "value": "seo",
             "icon": "search",
-            "label": "SEO und KI-Sichtbarkeit"
+            "label": "SEO und KI-Suche"
           },
           {
-            "value": "ads",
-            "icon": "target",
-            "label": "Google- oder Social-Media-Anzeigen"
+            "value": "website",
+            "icon": "layout",
+            "label": "Neue Website"
           },
           {
-            "value": "other",
+            "value": "not-sure",
             "icon": "message-circle",
-            "label": "Etwas anderes"
+            "label": "Noch unsicher"
           }
         ],
-        "websiteLabel": "Aktuelle Website (falls vorhanden)",
-        "websitePlaceholder": "ihrunternehmen.de",
-        "businessLabel": "Branche und Ort",
-        "businessPlaceholder": "z. B. Zahnarzt in München, Friseursalon in Wien",
-        "timelineLegend": "Wann möchten Sie starten?",
-        "timelines": [
-          {
-            "value": "asap",
-            "label": "So bald wie möglich"
-          },
-          {
-            "value": "1-3-months",
-            "label": "In 1–3 Monaten"
-          },
-          {
-            "value": "exploring",
-            "label": "Ich informiere mich nur"
-          }
-        ],
-        "nameLabel": "Ihr Name",
-        "emailLabel": "E-Mail",
-        "phoneLabel": "Telefon (optional)",
-        "messageLabel": "Möchten Sie noch etwas ergänzen? (optional)",
-        "next": "Weiter",
-        "back": "Zurück",
-        "submit": "Kostenlosen Check anfordern",
+        "messageLabel": "Erzählen Sie mir kurz von Ihrem Betrieb",
+        "messagePlaceholder": "z. B. Dachdecker in München, wir wollen mehr Anrufe über Google",
+        "submit": "Kostenlose Erstberatung anfragen",
         "sending": "Wird gesendet…",
-        "chooseService": "Wählen Sie aus, was Sie brauchen, um fortzufahren.",
         "required": "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse ein.",
-        "privacy": "Ihre Daten nutze ich nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
+        "needMessage": "Wählen Sie oben, was Sie brauchen, oder schreiben Sie einen Satz zu Ihrem Betrieb.",
+        "trust": [
+          "Antwort in 1 Werktag",
+          "Unverbindlich",
+          "Festpreis vorab"
+        ],
+        "privacy": "Ich nutze Ihre Angaben nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
         "promise": "Antwort innerhalb eines Werktags",
-        "successTitle": "Danke, Ihre Anfrage ist da!",
-        "successText": "Ich sehe mir Ihre Website an und melde mich innerhalb eines Werktags mit ehrlichen, konkreten nächsten Schritten. Schauen Sie in Ihr Postfach.",
-        "error": "Da ist etwas schiefgelaufen. Bitte versuchen Sie es noch einmal oder schreiben Sie mir direkt."
+        "successTitle": "Danke, ist angekommen!",
+        "successText": "Ich lese Ihre Nachricht und melde mich innerhalb eines Werktags mit einem konkreten Plan und einem Preis. Schauen Sie in Ihr Postfach (und den Spam-Ordner).",
+        "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt."
       },
       "final": {
         "heading": "Jede Woche Warten bringt der Konkurrenz Anrufe",
-        "text": "Der Check ist kostenlos und unverbindlich. Im schlimmsten Fall wissen Sie danach genau, was Sie Kunden kostet und was Sie zuerst angehen sollten.",
-        "cta": "Kostenlosen Check anfordern"
+        "text": "Die Erstberatung ist kostenlos und unverbindlich. Im schlimmsten Fall haben Sie danach einen klaren Plan für mehr Anrufe.",
+        "cta": "Kostenlose Erstberatung anfragen"
       },
       "footer": "Schnelle Websites, SEO und Anzeigen für lokale Betriebe.",
       "privacy": {
@@ -1507,7 +1481,7 @@
     "services": {
       "meta": {
         "title": "Leistungen: Anzeigen, SEO, Websites",
-        "description": "Google- und Meta-Anzeigen, lokales SEO, Sichtbarkeit in der KI-Suche und schnelle Websites für Dienstleister. Kostenloser Check, Festpreis."
+        "description": "Google- und Meta-Anzeigen, lokales SEO, Sichtbarkeit in der KI-Suche und schnelle Websites für Dienstleister. Kostenlose Erstberatung, Festpreis."
       },
       "areas": {
         "marketing": {
@@ -1544,7 +1518,7 @@
               "text": "Anrufe, Anfragen und was jede gekostet hat, ohne Fachchinesisch."
             }
           ],
-          "ctaLabel": "Kostenlosen Check anfordern"
+          "ctaLabel": "Kostenlose Erstberatung anfragen"
         },
         "web": {
           "icon": "layout",
@@ -1644,7 +1618,7 @@
     },
     "contact": {
       "meta": {
-        "title": "Kontakt und kostenloser Website-Check",
+        "title": "Kontakt und kostenlose Erstberatung",
         "description": "Anzeigen, SEO, KI-Suche oder eine neue Website: Schreiben Sie mir, was Sie brauchen. Antwort innerhalb eines Werktags."
       },
       "hero": {
@@ -1683,75 +1657,54 @@
       "emailLabel": "E-Mail",
       "preferEmail": "Lieber per E-Mail? Schreiben Sie an",
       "form": {
-        "badge": "Anfrage",
-          "termsLabel": "Ich habe die {terms} gelesen und verstehe, dass diese Anfrage weder ein Angebot noch ein Vertrag ist.",
-          "termsLink": "Nutzungsbedingungen",
-          "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
-        "heading": "Was kann ich für Sie tun?",
-        "lead": "Drei kurze Schritte, weniger als eine Minute. Antwort innerhalb eines Werktags.",
-        "stepLabels": [
-          "Was Sie brauchen",
-          "Ihr Unternehmen",
-          "Ihr Kontakt"
-        ],
-        "stepCount": "Schritt {current} von {total}",
-        "serviceLegend": "Was brauchen Sie?",
+        "badge": "Kostenlose Erstberatung",
+        "heading": "Sagen Sie mir, was Sie brauchen",
+        "lead": "In unter einer Minute ausgefüllt. Ich melde mich innerhalb eines Werktags mit einem konkreten Plan und einem Festpreis.",
+        "termsLabel": "Ich habe die {terms} gelesen und verstehe, dass diese Anfrage kein Angebot und kein Vertrag ist.",
+        "termsLink": "Nutzungsbedingungen",
+        "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
+        "nameLabel": "Ihr Name",
+        "emailLabel": "E-Mail",
+        "phoneLabel": "Telefon (optional, für eine schnellere Antwort)",
+        "serviceLegend": "Wobei kann ich helfen?",
         "services": [
           {
-            "value": "new-website",
-            "icon": "sparkles",
-            "label": "Neue Website"
+            "value": "ads",
+            "icon": "target",
+            "label": "Google- oder Social-Anzeigen"
           },
           {
             "value": "seo",
             "icon": "search",
-            "label": "SEO und Sichtbarkeit in der KI-Suche"
+            "label": "SEO und KI-Suche"
           },
           {
-            "value": "ads",
-            "icon": "target",
-            "label": "Google- oder Social-Media-Anzeigen"
+            "value": "website",
+            "icon": "layout",
+            "label": "Neue Website"
           },
           {
-            "value": "other",
+            "value": "not-sure",
             "icon": "message-circle",
-            "label": "Etwas anderes"
+            "label": "Noch unsicher"
           }
         ],
-        "websiteLabel": "Website des Unternehmens (optional)",
-        "websitePlaceholder": "ihrunternehmen.de",
-        "businessLabel": "Unternehmen und Branche",
-        "businessPlaceholder": "z. B. Zahnarzt in Wien, Dachdecker in München",
-        "timelineLegend": "Wann möchten Sie starten?",
-        "timelines": [
-          {
-            "value": "asap",
-            "label": "So bald wie möglich"
-          },
-          {
-            "value": "1-3-months",
-            "label": "In 1–3 Monaten"
-          },
-          {
-            "value": "exploring",
-            "label": "Ich informiere mich nur"
-          }
-        ],
-        "nameLabel": "Ihr Name",
-        "emailLabel": "E-Mail",
-        "phoneLabel": "Telefon (optional)",
-        "messageLabel": "Noch etwas, das ich wissen sollte? (optional)",
-        "next": "Weiter",
-        "back": "Zurück",
-        "submit": "Anfrage senden",
+        "messageLabel": "Erzählen Sie mir kurz von Ihrem Betrieb",
+        "messagePlaceholder": "z. B. Dachdecker in München, wir wollen mehr Anrufe über Google",
+        "submit": "Kostenlose Erstberatung anfragen",
         "sending": "Wird gesendet…",
-        "chooseService": "Wählen Sie aus, was Sie brauchen, um fortzufahren.",
-        "required": "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse an.",
-        "privacy": "Ihre Daten nutze ich nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
+        "required": "Bitte geben Sie Ihren Namen und eine gültige E-Mail-Adresse ein.",
+        "needMessage": "Wählen Sie oben, was Sie brauchen, oder schreiben Sie einen Satz zu Ihrem Betrieb.",
+        "trust": [
+          "Antwort in 1 Werktag",
+          "Unverbindlich",
+          "Festpreis vorab"
+        ],
+        "privacy": "Ich nutze Ihre Angaben nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
         "promise": "Antwort innerhalb eines Werktags",
-        "successTitle": "Danke, Ihre Nachricht ist angekommen!",
-        "successText": "Ich lese sie und melde mich innerhalb eines Werktags mit konkreten nächsten Schritten. Schauen Sie in Ihr Postfach.",
-        "error": "Da ist etwas schiefgelaufen. Bitte versuchen Sie es noch einmal oder schreiben Sie mir direkt."
+        "successTitle": "Danke, Nachricht erhalten!",
+        "successText": "Ich lese sie und melde mich innerhalb eines Werktags mit einem konkreten Plan und einem Preis. Schauen Sie in Ihr Postfach (und den Spam-Ordner).",
+        "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt."
       }
     },
     "web": {
@@ -1844,14 +1797,14 @@
     "home": {
       "meta": {
         "title": "Mehr Anfragen aus dem Internet",
-        "description": "Google- und Meta-Anzeigen, lokales SEO, KI-Suche und eine schnelle Website für Dienstleister. Jeder Anruf wird gemessen. Der erste Check ist kostenlos."
+        "description": "Google- und Meta-Anzeigen, lokales SEO, KI-Suche und eine schnelle Website für Dienstleister. Jeder Anruf wird gemessen. Die Erstberatung ist kostenlos."
       },
       "hero": {
         "badge": "Freie Kapazitäten",
         "titleLead": "Mehr Anrufe und Anfragen",
         "titleHighlight": "aus dem Internet für Ihren Betrieb",
         "description": "Ich schalte Ihre Anzeigen bei Google und auf Social Media, sorge dafür, dass Sie bei Google Maps und in ChatGPT auftauchen, und baue eine Website, über die Kunden wirklich anrufen. Jeder Anruf wird gezählt, damit Sie schwarz auf weiß sehen, was Aufträge bringt.",
-        "primary": "Kostenloser Website-Check",
+        "primary": "Kostenlose Erstberatung",
         "secondary": "Ergebnisse ansehen",
         "imageAlt": "Stojan Petković im dunkelblauen Anzug in einem hellen Büro, hinter ihm Bildschirme mit Code"
       },
@@ -1911,8 +1864,8 @@
       },
       "final": {
         "heading": "Wer zuerst gefunden wird, bekommt den Auftrag.",
-        "text": "Sorgen wir dafür, dass Sie das sind. Ich sehe mir Ihre Website und Ihre Mitbewerber an und sage Ihnen, was ich zuerst ändern würde. Kostenlos und unverbindlich.",
-        "cta": "Kostenlosen Check anfordern"
+        "text": "Sorgen wir dafür, dass Sie das sind. Erzählen Sie mir von Ihrem Betrieb, und ich schicke Ihnen einen Plan für mehr Anrufe, mit Preis. Kostenlos und unverbindlich.",
+        "cta": "Kostenlose Erstberatung anfragen"
       },
       "testimonials": {
         "badge": "Kundenstimmen",
@@ -1962,8 +1915,8 @@
         },
         "next": {
           "title": "Ihr Betrieb?",
-          "text": "Dieser Platz ist für den nächsten Kunden reserviert. Ich prüfe Ihre Website kostenlos und sage Ihnen, was ich zuerst ändern würde.",
-          "cta": "Kostenlose Prüfung"
+          "text": "Dieser Platz ist für den nächsten Kunden reserviert. Erzählen Sie mir von Ihrem Betrieb, und ich schicke Ihnen einen kostenlosen Plan für mehr Anrufe.",
+          "cta": "Erstberatung anfragen"
         }
       }
     },
@@ -1991,7 +1944,7 @@
           "title": "2. Welche Daten ich erhebe",
           "paragraphs": [],
           "items": [
-            "Formulardaten (Kontakt und kostenloser Check): Name, E-Mail, Telefon, Website-Adresse, Branche und Ort, Ihre Antworten und Ihre Nachricht.",
+            "Formulardaten (Kontakt und kostenlose Erstberatung): Name, E-Mail, Telefon, Website-Adresse, Branche und Ort, Ihre Antworten und Ihre Nachricht.",
             "Besuchsdaten ohne Cookies: welche Seiten geöffnet wurden, woher der Besuch kam (Suche, Anzeige oder Link) und ob Telefon, WhatsApp oder ein Formular genutzt wurde. Diese Daten werden nur mit Ihrem Namen verknüpft, wenn Sie ein Formular senden.",
             "Technische Daten im Serverprotokoll: IP-Adresse, Browsertyp und Zugriffszeit, für Sicherheit und Betrieb.",
             "Analyse- und Werbe-Cookies (Google, Meta), nur wenn Sie sie im Cookie-Banner erlauben."
@@ -2069,9 +2022,17 @@
     "reply": "Antwort innerhalb eines Werktags",
     "whatsapp": "Schreib mir auf WhatsApp"
   },
+  "map": {
+    "eyebrow": "Wo ich arbeite",
+    "title": "Aus Zrenjanin, Serbien. Für Betriebe überall",
+    "text": "Ich arbeite mit Betrieben in Europa und den USA. Alles läuft online: Gespräche, Berichte und Support, auf Deutsch, Englisch oder Serbisch.",
+    "open": "In Google Maps öffnen",
+    "show": "Karte anzeigen",
+    "note": "Die Karte wird von Google Maps geladen und kann Google-Cookies setzen."
+  },
   "mobileBar": {
     "label": "Schnellkontakt",
-    "check": "Gratis-Check",
+    "check": "Beratung",
     "whatsapp": "WhatsApp",
     "home": "Start",
     "services": "Leistungen",
@@ -2079,7 +2040,7 @@
   },
   "pwa": {
     "title": "Die App von Stojan Petković installieren",
-    "subtitle": "Leistungen, Projekte und ein kostenloser Website-Check mit einem Tippen, direkt vom Startbildschirm.",
+    "subtitle": "Leistungen, Projekte und eine kostenlose Erstberatung mit einem Tippen, direkt vom Startbildschirm.",
     "install": "App installieren",
     "close": "Schließen",
     "iosStep1": "In Safari auf Teilen tippen",

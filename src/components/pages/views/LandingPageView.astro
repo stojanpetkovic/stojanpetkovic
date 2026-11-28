@@ -32,7 +32,8 @@ import { Hero } from '@/components/hero';
 import Badge from '@/components/ui/data-display/Badge/Badge.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import WebsiteCheckForm from '@/components/patterns/WebsiteCheckForm.astro';
+import LeadForm from '@/components/patterns/LeadForm.astro';
+import TrustStats from '@/components/patterns/TrustStats.astro';
 import Accordion from '@/components/ui/overlay/Accordion/Accordion.astro';
 import siteConfig from '@/config/site.config';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
@@ -195,16 +196,8 @@ const year = new Date().getFullYear();
         </Button>
       </Fragment>
 
-      {/* Trust figures, in the card style the hero's credential cards used. */}
-      <dl class="mt-8 grid w-full grid-cols-3 gap-3">
-        {trust.map((item) => (
-          <div class="flex flex-col rounded-xl border border-l-4 border-border border-l-brand-600 bg-card px-3 py-3 text-left shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md sm:px-4 motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-            <dt class="sr-only">{item.label}</dt>
-            <dd class="font-display text-2xl font-bold text-brand-600 dark:text-brand-400 sm:text-3xl">{item.value}</dd>
-            <dd class="mt-1 text-xs leading-snug text-foreground-muted sm:text-sm">{item.label}</dd>
-          </div>
-        ))}
-      </dl>
+      {/* Trust figures: one panel that lays itself out by the column width. */}
+      <TrustStats items={trust} class="mt-8" />
     </Hero>
   )}
 
@@ -228,15 +221,7 @@ const year = new Date().getFullYear();
           </Button>
           <Button href="#results" size="lg" variant="outline" class="w-full sm:w-auto">{L('hero.secondary')}</Button>
         </div>
-        <dl class="mt-10 grid grid-cols-3 gap-3 sm:gap-6">
-          {trust.map((item) => (
-            <div class="rounded-xl border border-border bg-background p-3 text-center shadow-sm sm:p-4 lg:text-left">
-              <dt class="sr-only">{item.label}</dt>
-              <dd class="font-display text-2xl font-bold text-brand-600 dark:text-brand-400 sm:text-3xl">{item.value}</dd>
-              <dd class="mt-1 text-xs leading-snug text-foreground-muted sm:text-sm">{item.label}</dd>
-            </div>
-          ))}
-        </dl>
+        <TrustStats items={trust} class="mt-10" />
       </div>
       <div class="relative mx-auto w-full max-w-sm lg:max-w-none">
         <div class="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-brand-500/25 blur-3xl" aria-hidden="true"></div>
@@ -645,7 +630,7 @@ const year = new Date().getFullYear();
       {isHome ? (
         <div class="focus-card flex flex-col justify-center gap-6 !p-8 sm:!p-10 self-center" data-reveal>
           <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-700 text-white shadow-sm">
-            <Icon name="search-check" size="md" />
+            <Icon name="message-circle" size="md" />
           </span>
           <h3 class="font-display text-2xl font-bold text-foreground text-balance">{L('form.heading')}</h3>
           <p class="text-foreground-muted leading-relaxed">{L('form.lead')}</p>
@@ -655,7 +640,7 @@ const year = new Date().getFullYear();
           </Button>
         </div>
       ) : (
-        <WebsiteCheckForm {locale} source="landing" />
+        <LeadForm {locale} source="landing" />
       )}
     </div>
   </section>

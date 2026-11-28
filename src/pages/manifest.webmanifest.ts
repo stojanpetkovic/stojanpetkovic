@@ -35,7 +35,7 @@ export const GET: APIRoute = () => {
       { src: '/pwa-maskable-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
     ],
     shortcuts: [
-      { name: 'Free website audit', short_name: 'Free audit', url: '/contact?source=pwa-shortcut', icons: [{ src: '/pwa-192x192.png', sizes: '192x192' }] },
+      { name: 'Free consultation', short_name: 'Free call', url: '/contact?source=pwa-shortcut', icons: [{ src: '/pwa-192x192.png', sizes: '192x192' }] },
       { name: 'Projects', url: '/projects?source=pwa-shortcut', icons: [{ src: '/pwa-192x192.png', sizes: '192x192' }] },
       { name: 'Services', url: '/services?source=pwa-shortcut', icons: [{ src: '/pwa-192x192.png', sizes: '192x192' }] },
     ],
