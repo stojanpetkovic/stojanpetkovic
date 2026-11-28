@@ -21,8 +21,7 @@ import CtaBand from '@/components/patterns/CtaBand.astro';
 import LetterGlitchBand from '@/components/patterns/LetterGlitchBand.astro';
 import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import siteConfig from '@/config/site.config';
-import { t } from '@/i18n';
+import { t, localizedPath } from '@/i18n';
 
 interface Props {
   locale: string;
@@ -43,13 +42,8 @@ interface Props {
 
 const { locale, sectionClass, maxWidth = '6xl', glitch = false } = Astro.props;
 
-/**
- * The repo, taken from the site's own links so a fork points at its own rather
- * than at this one. Falls back to the theme's repository.
- */
-const repoUrl =
-  siteConfig.socialLinks.find((url) => url.includes('github.com')) ??
-  'https://github.com/hansmartensdev/astro-rocket';
+/** The button leads to the Contact page in the reader's language. */
+const contactUrl = localizedPath('/contact', locale);
 ---
 
 <section class={sectionClass}>
@@ -64,12 +58,10 @@ const repoUrl =
     <div class="flex justify-center">
       <Button
         size="lg"
-        href={repoUrl}
-        target="_blank"
-        rel="noopener noreferrer"
+        href={contactUrl}
         class="gap-2"
       >
-        <Icon name="github" size="sm" />
+        <Icon name="message-circle" size="sm" />
         {t('blog.cta.button', locale)}
         <Icon name="arrow-right" size="sm" />
       </Button>
@@ -88,12 +80,10 @@ const repoUrl =
       <div class="flex justify-center">
         <Button
           size="lg"
-          href={repoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={contactUrl}
           class="gap-2 hero-btn-brand"
         >
-          <Icon name="github" size="sm" />
+          <Icon name="message-circle" size="sm" />
           {t('blog.cta.button', locale)}
           <Icon name="arrow-right" size="sm" />
         </Button>
