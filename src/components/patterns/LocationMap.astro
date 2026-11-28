@@ -46,9 +46,12 @@ const phoneHref = siteConfig.phone ? `tel:${siteConfig.phone.replace(/[^\d+]/g, 
 
         <address class="not-italic text-sm text-foreground">
           <p class="font-semibold">{siteConfig.name}</p>
-          <p class="mt-1 flex items-center gap-2 text-foreground-muted">
-            <Icon name="map-pin" size="sm" class="shrink-0 text-brand-600" />
-            {[siteConfig.address?.city, siteConfig.address?.country].filter(Boolean).join(', ')}
+          <p class="mt-1 flex items-start gap-2 text-foreground-muted">
+            <Icon name="map-pin" size="sm" class="mt-0.5 shrink-0 text-brand-600" />
+            <span>
+              {siteConfig.address?.street && <>{siteConfig.address.street}<br /></>}
+              {[[siteConfig.address?.zip, siteConfig.address?.city].filter(Boolean).join(' '), siteConfig.address?.country].filter(Boolean).join(', ')}
+            </span>
           </p>
           {phoneHref && (
             <p class="mt-1 flex items-center gap-2 text-foreground-muted">

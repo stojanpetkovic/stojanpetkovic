@@ -1289,8 +1289,9 @@
         "termsRequired": "Potvrdi da si pročitao/la uslove korišćenja.",
         "nameLabel": "Ime",
         "emailLabel": "Email",
-        "phoneLabel": "Telefon (nije obavezno, za brži odgovor)",
+        "phoneLabel": "Telefon (opciono)",
         "serviceLegend": "Šta ti treba?",
+        "servicePlaceholder": "Izaberi uslugu",
         "services": [
           {
             "value": "ads",
@@ -1324,7 +1325,7 @@
           "Bez obaveze",
           "Fiksna cena unapred"
         ],
-        "privacy": "Tvoje podatke koristim samo da ti odgovorim. Nema newslettera i ne delim ih ni sa kim.",
+        "privacy": "Podatke koristim samo da ti odgovorim.",
         "promise": "Odgovor za jedan radni dan",
         "successTitle": "Hvala, stiglo je!",
         "successText": "Pročitam i javim ti se za jedan radni dan sa konkretnim planom i cenom. Prati inbox (i spam folder).",
@@ -1640,6 +1641,7 @@
           "text": "Brz sajt ili landing strana, uz praćenje svakog upita."
         }
       ],
+      "direct": {"role": "Frilenser za marketing i sajtove", "status": "Primam nove klijente", "phone": "Pozovi", "whatsapp": "WhatsApp", "email": "Email"},
       "nextTitle": "Šta sledi",
       "next": [
         "Javim se u roku od jednog radnog dana.",
@@ -1665,8 +1667,9 @@
         "termsRequired": "Potvrdi da si pročitao/la uslove korišćenja.",
         "nameLabel": "Ime",
         "emailLabel": "Email",
-        "phoneLabel": "Telefon (nije obavezno, za brži odgovor)",
+        "phoneLabel": "Telefon (opciono)",
         "serviceLegend": "Šta ti treba?",
+        "servicePlaceholder": "Izaberi uslugu",
         "services": [
           {
             "value": "ads",
@@ -1700,7 +1703,7 @@
           "Bez obaveze",
           "Fiksna cena unapred"
         ],
-        "privacy": "Tvoje podatke koristim samo da ti odgovorim. Nema newslettera i ne delim ih ni sa kim.",
+        "privacy": "Podatke koristim samo da ti odgovorim.",
         "promise": "Odgovor za jedan radni dan",
         "successTitle": "Hvala, poruka je stigla!",
         "successText": "Pročitam je i javim ti se za jedan radni dan sa konkretnim planom i cenom. Prati inbox (i spam folder).",

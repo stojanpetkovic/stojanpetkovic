@@ -1289,8 +1289,9 @@
         "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
         "nameLabel": "Ihr Name",
         "emailLabel": "E-Mail",
-        "phoneLabel": "Telefon (optional, für eine schnellere Antwort)",
-        "serviceLegend": "Wobei kann ich helfen?",
+        "phoneLabel": "Telefon (optional)",
+        "serviceLegend": "Was brauchen Sie?",
+        "servicePlaceholder": "Leistung wählen",
         "services": [
           {
             "value": "ads",
@@ -1324,7 +1325,7 @@
           "Unverbindlich",
           "Festpreis vorab"
         ],
-        "privacy": "Ich nutze Ihre Angaben nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
+        "privacy": "Ihre Angaben nutze ich nur für die Antwort.",
         "promise": "Antwort innerhalb eines Werktags",
         "successTitle": "Danke, ist angekommen!",
         "successText": "Ich lese Ihre Nachricht und melde mich innerhalb eines Werktags mit einem konkreten Plan und einem Preis. Schauen Sie in Ihr Postfach (und den Spam-Ordner).",
@@ -1640,6 +1641,7 @@
           "text": "Eine schnelle Website oder Landingpage, bei der jede Anfrage erfasst wird."
         }
       ],
+      "direct": {"role": "Freelancer für Marketing und Websites", "status": "Nimmt neue Kunden an", "phone": "Anrufen", "whatsapp": "WhatsApp", "email": "E-Mail"},
       "nextTitle": "Wie es weitergeht",
       "next": [
         "Ich antworte innerhalb eines Werktags.",
@@ -1665,8 +1667,9 @@
         "termsRequired": "Bitte bestätigen Sie, dass Sie die Nutzungsbedingungen gelesen haben.",
         "nameLabel": "Ihr Name",
         "emailLabel": "E-Mail",
-        "phoneLabel": "Telefon (optional, für eine schnellere Antwort)",
-        "serviceLegend": "Wobei kann ich helfen?",
+        "phoneLabel": "Telefon (optional)",
+        "serviceLegend": "Was brauchen Sie?",
+        "servicePlaceholder": "Leistung wählen",
         "services": [
           {
             "value": "ads",
@@ -1700,7 +1703,7 @@
           "Unverbindlich",
           "Festpreis vorab"
         ],
-        "privacy": "Ich nutze Ihre Angaben nur, um Ihnen zu antworten. Kein Newsletter, keine Weitergabe.",
+        "privacy": "Ihre Angaben nutze ich nur für die Antwort.",
         "promise": "Antwort innerhalb eines Werktags",
         "successTitle": "Danke, Nachricht erhalten!",
         "successText": "Ich lese sie und melde mich innerhalb eines Werktags mit einem konkreten Plan und einem Preis. Schauen Sie in Ihr Postfach (und den Spam-Ordner).",
