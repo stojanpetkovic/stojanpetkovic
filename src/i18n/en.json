@@ -1289,8 +1289,9 @@
         "termsRequired": "Please confirm that you have read the terms of use.",
         "nameLabel": "Your name",
         "emailLabel": "Email",
-        "phoneLabel": "Phone (optional, for a quicker reply)",
-        "serviceLegend": "What do you need help with?",
+        "phoneLabel": "Phone (optional)",
+        "serviceLegend": "What do you need?",
+        "servicePlaceholder": "Choose a service",
         "services": [
           {
             "value": "ads",
@@ -1324,7 +1325,7 @@
           "No obligation",
           "Flat price up front"
         ],
-        "privacy": "I only use your details to reply to you. No newsletter, and they're never shared.",
+        "privacy": "Your details are only used to reply to you.",
         "promise": "Reply within one business day",
         "successTitle": "Thanks, got it!",
         "successText": "I'll read it and get back to you within one business day with a concrete plan and a price. Keep an eye on your inbox (and spam folder).",
@@ -1640,6 +1641,7 @@
           "text": "A fast website or landing page, with every lead tracked."
         }
       ],
+      "direct": {"role": "Freelance marketer and web developer", "status": "Taking on new clients", "phone": "Call", "whatsapp": "WhatsApp", "email": "Email"},
       "nextTitle": "What happens next",
       "next": [
         "I reply within one business day.",
@@ -1665,8 +1667,9 @@
         "termsRequired": "Please confirm that you have read the terms of use.",
         "nameLabel": "Your name",
         "emailLabel": "Email",
-        "phoneLabel": "Phone (optional, for a quicker reply)",
-        "serviceLegend": "What do you need help with?",
+        "phoneLabel": "Phone (optional)",
+        "serviceLegend": "What do you need?",
+        "servicePlaceholder": "Choose a service",
         "services": [
           {
             "value": "ads",
@@ -1700,7 +1703,7 @@
           "No obligation",
           "Flat price up front"
         ],
-        "privacy": "I only use your details to reply to you. No newsletter, and they're never shared.",
+        "privacy": "Your details are only used to reply to you.",
         "promise": "Reply within one business day",
         "successTitle": "Thanks, message received!",
         "successText": "I'll read it and get back to you within one business day with a concrete plan and a price. Keep an eye on your inbox (and spam folder).",

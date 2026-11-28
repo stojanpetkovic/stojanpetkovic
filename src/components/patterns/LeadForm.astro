@@ -8,9 +8,11 @@
  * which page it came from. The copy lives in `<copy>.form.*` and
  * `pages.landing.privacy.*`.
  *
- * Built to convert: name and email, an optional phone, one tap for what the
- * visitor needs (which also makes the message optional) and a big button.
- * The promise (reply within a day, no obligation) sits right under it.
+ * Built to convert and kept compact: a two-column grid on wider screens
+ * (name | email, phone | what you need), one short message box and a
+ * full-width button with the promise (reply within a day, no obligation)
+ * right under it. Every field uses the same label and control height, so
+ * the rows line up. Choosing what you need makes the message optional.
  *
  * Spam protection, no third-party service:
  * - a honeypot field hidden from people (`honeypot`, must stay empty);
@@ -21,8 +23,6 @@
  */
 import Button from '@/components/ui/form/Button/Button.astro';
 import Icon from '@/components/ui/primitives/Icon/Icon.astro';
-import Input from '@/components/ui/form/Input/Input.astro';
-import Textarea from '@/components/ui/form/Textarea/Textarea.astro';
 import siteConfig from '@/config/site.config';
 import { t, tData, defaultLocale, localizedPath } from '@/i18n';
 import { contactConfigured } from '@/lib/email';
@@ -51,16 +51,23 @@ const [termsBefore, termsAfter = ''] = L('form.termsLabel').split('{terms}');
 const termsUrl = localizedPath('/terms', locale);
 ---
 
-<div class="lead-card rounded-3xl border border-border bg-background p-6 shadow-xl sm:p-8">
-  <p class="text-sm font-semibold text-brand-600 dark:text-brand-400">{L('form.badge')}</p>
-  <h3 class="mt-1 font-display text-2xl font-bold text-foreground text-balance">{L('form.heading')}</h3>
-  <p class="mt-2 text-foreground-muted text-pretty">{L('form.lead')}</p>
+<div class="lead-card rounded-2xl border border-border bg-background p-5 shadow-lg sm:p-7">
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <h3 class="font-display text-xl font-bold text-foreground sm:text-2xl">{L('form.heading')}</h3>
+      <p class="mt-1 text-sm text-foreground-muted text-pretty">{L('form.lead')}</p>
+    </div>
+    <span class="hidden shrink-0 items-center gap-1.5 rounded-full bg-success/10 px-3 py-1 text-xs font-semibold text-success sm:inline-flex">
+      <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
+      {L('form.badge')}
+    </span>
+  </div>
 
   <form
     id="lp-form"
     action="/api/contact"
     method="POST"
-    class="mt-6 space-y-4"
+    class="lead-form mt-5 grid gap-x-3 gap-y-3.5 sm:grid-cols-2"
     data-lead-ignore
     data-source={source}
     data-msg-required={L('form.required')}
@@ -74,32 +81,28 @@ const termsUrl = localizedPath('/terms', locale);
     <input type="hidden" name="subject" value={L('form.badge')} />
     <input type="hidden" name="started" value="" data-started />
 
-    <Input label={L('form.nameLabel')} name="name" type="text" required autocomplete="name" />
-    <div class="grid gap-4 sm:grid-cols-2">
-      <Input label={L('form.emailLabel')} name="email" type="email" required autocomplete="email" inputmode="email" />
-      <Input label={L('form.phoneLabel')} name="phone" type="tel" autocomplete="tel" inputmode="tel" />
-    </div>
-
-    <fieldset>
-      <legend class="mb-2 text-sm font-medium text-foreground">{L('form.serviceLegend')}</legend>
-      <div class="flex flex-wrap gap-2">
-        {form.services.map((option) => (
-          <label class="lp-chip inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-border bg-background-secondary px-3.5 py-2 text-sm font-medium text-foreground transition-colors hover:border-brand-400">
-            <input type="radio" name="service" value={option.value} class="sr-only" />
-            {option.icon && <Icon name={option.icon} size="sm" class="text-brand-600 dark:text-brand-400" />}
-            {option.label}
-          </label>
-        ))}
-      </div>
-    </fieldset>
-
-    <Textarea label={L('form.messageLabel')} name="message" rows={3} placeholder={L('form.messagePlaceholder')} />
-
-    <label class="flex items-start gap-2.5 text-sm text-foreground-muted">
-      <input type="checkbox" name="terms" value="on" required class="mt-1 accent-[var(--color-brand-700)]" />
-      <span>
-        {termsBefore}<a class="font-medium text-brand-700 underline underline-offset-2 dark:text-brand-400" href={termsUrl} target="_blank" rel="noopener">{L('form.termsLink')}</a>{termsAfter}
-      </span>
+    <label class="lead-field">
+      <span>{L('form.nameLabel')} <b aria-hidden="true">*</b></span>
+      <input name="name" type="text" required autocomplete="name" />
+    </label>
+    <label class="lead-field">
+      <span>{L('form.emailLabel')} <b aria-hidden="true">*</b></span>
+      <input name="email" type="email" required autocomplete="email" inputmode="email" />
+    </label>
+    <label class="lead-field">
+      <span>{L('form.phoneLabel')}</span>
+      <input name="phone" type="tel" autocomplete="tel" inputmode="tel" />
+    </label>
+    <label class="lead-field">
+      <span>{L('form.serviceLegend')}</span>
+      <select name="service">
+        <option value="">{L('form.servicePlaceholder')}</option>
+        {form.services.map((option) => <option value={option.value}>{option.label}</option>)}
+      </select>
+    </label>
+    <label class="lead-field sm:col-span-2">
+      <span>{L('form.messageLabel')}</span>
+      <textarea name="message" rows="3" placeholder={L('form.messagePlaceholder')}></textarea>
     </label>
 
     {/* Honeypot: off-screen and out of the tab order, so only bots fill it. */}
@@ -107,34 +110,36 @@ const termsUrl = localizedPath('/terms', locale);
       <label>Leave this empty <input type="text" name="honeypot" tabindex="-1" autocomplete="off" /></label>
     </div>
 
-    <p class="hidden text-sm text-destructive" role="alert" data-form-error></p>
+    <label class="flex items-start gap-2 text-xs leading-relaxed text-foreground-muted sm:col-span-2">
+      <input type="checkbox" name="terms" value="on" required class="mt-0.5 h-4 w-4 shrink-0 accent-[var(--color-brand-700)]" />
+      <span>
+        {termsBefore}<a class="font-medium text-foreground underline underline-offset-2" href={termsUrl} target="_blank" rel="noopener">{L('form.termsLink')}</a>{termsAfter}
+      </span>
+    </label>
 
-    <Button type="submit" size="lg" class="lp-glow cta-btn-brand w-full gap-2" data-submit disabled={unconfigured}>
-      {L('form.submit')}
-      <Icon name="arrow-right" size="sm" />
-    </Button>
+    <p class="hidden text-sm text-destructive sm:col-span-2" role="alert" data-form-error></p>
 
-    <ul class="flex flex-wrap justify-center gap-x-4 gap-y-1.5 text-xs font-medium text-foreground-muted" role="list">
-      {form.trust.map((item) => (
-        <li class="inline-flex items-center gap-1.5">
-          <Icon name="check" size="xs" class="text-success" />
-          {item}
-        </li>
-      ))}
-    </ul>
+    <div class="sm:col-span-2">
+      <Button type="submit" size="lg" class="cta-btn-brand w-full gap-2" data-submit disabled={unconfigured}>
+        {L('form.submit')}
+        <Icon name="arrow-right" size="sm" />
+      </Button>
+      <ul class="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-foreground-muted" role="list">
+        {form.trust.map((item) => (
+          <li class="inline-flex items-center gap-1">
+            <Icon name="check" size="xs" class="text-success" />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
 
-    <p class="flex items-start gap-2 text-xs text-foreground-subtle">
-      <Icon name="lock" size="xs" class="mt-0.5 shrink-0" />
-      {L('form.privacy')}
-    </p>
-
-    {/* The privacy notice opens in place: a link to a policy page would
-        be a way off the page. */}
-    <details class="lp-privacy text-xs text-foreground-muted">
-      <summary class="cursor-pointer font-medium text-foreground-muted underline underline-offset-2 hover:text-foreground">
-        {privacy.toggle}
+    <details class="lp-privacy border-t border-border pt-3 text-xs text-foreground-subtle sm:col-span-2">
+      <summary class="flex cursor-pointer list-none items-center gap-1.5 hover:text-foreground">
+        <Icon name="lock" size="xs" class="shrink-0" />
+        <span>{L('form.privacy')} <span class="underline underline-offset-2">{privacy.toggle}</span></span>
       </summary>
-      <div class="mt-3 rounded-xl border border-border bg-background-secondary p-4">
+      <div class="mt-3 rounded-xl border border-border bg-background-secondary p-4 text-foreground-muted">
         <p class="font-semibold text-foreground">{privacy.title}</p>
         <ul class="mt-2 space-y-1.5">
           {privacy.items.map((item) => <li>{item.replace('{email}', siteConfig.email)}</li>)}
@@ -153,18 +158,6 @@ const termsUrl = localizedPath('/terms', locale);
 </div>
 
 <style>
-/* Chosen chips: the input is visually hidden, so the
-   label carries the checked state and the keyboard focus ring. */
-.lp-chip:has(input:checked) {
-  border-color: var(--color-brand-500);
-  background-color: color-mix(in oklab, var(--color-brand-500) 10%, var(--color-background));
-  box-shadow: 0 0 0 1px var(--color-brand-500);
-}
-.lp-chip:has(input:focus-visible) {
-  outline: 2px solid var(--color-ring);
-  outline-offset: 2px;
-}
-
 /* Guidance glow. A soft brand halo that breathes on the buttons a visitor
    should press next: the calls to action that lead to the form, and inside
    the form only the current step's action (the script moves the class).
@@ -204,6 +197,67 @@ const termsUrl = localizedPath('/terms', locale);
   50% {
     opacity: 1;
   }
+}
+
+.lead-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+.lead-field > span {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  color: var(--color-foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lead-field > span b {
+  color: var(--color-brand-600);
+  font-weight: 600;
+}
+.lead-field input,
+.lead-field select,
+.lead-field textarea {
+  width: 100%;
+  border-radius: 0.625rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-background-secondary);
+  color: var(--color-foreground);
+  font-size: 0.9375rem;
+  padding: 0 0.875rem;
+  transition: border-color 0.15s, box-shadow 0.15s, background-color 0.15s;
+}
+.lead-field input,
+.lead-field select {
+  height: 2.75rem;
+}
+.lead-field select {
+  appearance: none;
+  padding-right: 2.25rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+}
+.lead-field textarea {
+  padding: 0.625rem 0.875rem;
+  min-height: 5.5rem;
+  resize: vertical;
+}
+.lead-field input:focus,
+.lead-field select:focus,
+.lead-field textarea:focus {
+  outline: none;
+  border-color: var(--color-brand-500);
+  background: var(--color-background);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-brand-500) 18%, transparent);
+}
+.lead-field textarea::placeholder {
+  color: var(--color-foreground-subtle);
+}
+.lp-privacy summary::-webkit-details-marker {
+  display: none;
 }
 
 .lead-hp {
@@ -254,7 +308,7 @@ function initLeadForm(): void {
       showError(form!.dataset.msgRequired || '');
       return false;
     }
-    const service = form!.querySelector('input[name="service"]:checked');
+    const service = (form!.elements.namedItem('service') as HTMLSelectElement).value;
     if (!service && field('message').value.trim().length < 10) {
       showError(form!.dataset.msgMessage || '');
       return false;
