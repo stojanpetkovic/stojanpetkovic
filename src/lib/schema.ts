@@ -121,6 +121,8 @@ export function createPersonSchema(locale: Locale = defaultLocale): WithContext<
       ? {
           address: {
             '@type': 'PostalAddress',
+            ...(siteConfig.address.street ? { streetAddress: siteConfig.address.street } : {}),
+            ...(siteConfig.address.zip ? { postalCode: siteConfig.address.zip } : {}),
             addressLocality: siteConfig.address.city,
             ...(siteConfig.address.state ? { addressRegion: siteConfig.address.state } : {}),
             ...(siteConfig.address.country ? { addressCountry: siteConfig.address.country } : {}),
@@ -161,6 +163,8 @@ export function createProfessionalServiceSchema(locale: Locale = defaultLocale):
       ? {
           address: {
             '@type': 'PostalAddress',
+            ...(siteConfig.address.street ? { streetAddress: siteConfig.address.street } : {}),
+            ...(siteConfig.address.zip ? { postalCode: siteConfig.address.zip } : {}),
             addressLocality: siteConfig.address.city,
             ...(siteConfig.address.state ? { addressRegion: siteConfig.address.state } : {}),
             ...(siteConfig.address.country ? { addressCountry: siteConfig.address.country } : {}),

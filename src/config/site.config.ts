@@ -297,18 +297,22 @@ const siteConfig: SiteConfig = {
   author: SITE_NAME,
   email: 'petkovicstojan@gmail.com',
   phone: '+381638776419',
+  // Same address as on the Google Business Profile (given by Stojan, Nov 2026).
   address: {
+    street: 'Milana Stanivukovića 23',
+    zip: '23000',
     city: 'Zrenjanin',
     country: 'Serbia',
   },
-  // No street number or socials on file yet — add them here once available.
   socialLinks: [
     'https://www.instagram.com/mrpetkovicstojan/',
     'https://www.facebook.com/mrpetkovicstojan',
     'https://www.tiktok.com/@stollep',
   ],
   googleBusinessProfile: 'https://share.google/3lGK9tqgz0TaeuCDw',
-  mapQuery: 'Stojan Petković, Zrenjanin, Serbia',
+  // The street address, so the map pin lands on the office, not on a
+  // business with a similar name.
+  mapQuery: 'Milana Stanivukovića 23, 23000 Zrenjanin, Serbia',
   header: {
     // Flip to `true` to show the social icons (incl. GitHub) in the header.
     showSocialLinks: false,
