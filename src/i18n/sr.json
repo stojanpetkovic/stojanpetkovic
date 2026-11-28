@@ -2030,6 +2030,7 @@
     "title": "Iz Zrenjanina, za firme svuda",
     "text": "Radim sa firmama u Srbiji, Evropi i Americi. Sve ide preko interneta: pozivi, izveštaji i podrška, na srpskom, engleskom ili nemačkom.",
     "open": "Otvori u Google mapama",
+    "hours": "Svaki dan, {opens}–{closes}",
     "show": "Prikaži mapu",
     "note": "Mapa se učitava sa Google mapa i može da postavi Google kolačiće."
   },

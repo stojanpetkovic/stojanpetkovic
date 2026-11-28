@@ -190,6 +190,16 @@ export function createProfessionalServiceSchema(locale: Locale = defaultLocale):
       }),
     },
     areaServed: AREA_SERVED,
+    ...(siteConfig.openingHours
+      ? {
+          openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            opens: siteConfig.openingHours.opens,
+            closes: siteConfig.openingHours.closes,
+          },
+        }
+      : {}),
     ...(siteConfig.googleBusinessProfile ? { hasMap: siteConfig.googleBusinessProfile } : {}),
     sameAs: businessSameAs(),
   };
