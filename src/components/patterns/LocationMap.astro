@@ -30,7 +30,7 @@ const { locale = defaultLocale, class: className } = Astro.props;
 
 const query = siteConfig.mapQuery ?? [siteConfig.name, siteConfig.address?.city, siteConfig.address?.country].filter(Boolean).join(', ');
 const hl = locale === 'sr' ? 'sr-Latn' : locale;
-const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(query)}&hl=${hl}&z=13&output=embed`;
+const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(query)}&hl=${hl}&z=12&output=embed`;
 const profileUrl = siteConfig.googleBusinessProfile ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 const L = (key: string) => t(`map.${key}`, locale);
 const phoneHref = siteConfig.phone ? `tel:${siteConfig.phone.replace(/[^\d+]/g, '')}` : '';
@@ -53,6 +53,12 @@ const phoneHref = siteConfig.phone ? `tel:${siteConfig.phone.replace(/[^\d+]/g, 
               {[[siteConfig.address?.zip, siteConfig.address?.city].filter(Boolean).join(' '), siteConfig.address?.country].filter(Boolean).join(', ')}
             </span>
           </p>
+          {siteConfig.openingHours && (
+            <p class="mt-1 flex items-center gap-2 text-foreground-muted">
+              <Icon name="clock" size="sm" class="shrink-0 text-brand-600" />
+              {L('hours').replace('{opens}', siteConfig.openingHours.opens).replace('{closes}', siteConfig.openingHours.closes)}
+            </p>
+          )}
           {phoneHref && (
             <p class="mt-1 flex items-center gap-2 text-foreground-muted">
               <Icon name="phone" size="sm" class="shrink-0 text-brand-600" />

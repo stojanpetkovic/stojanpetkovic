@@ -2030,6 +2030,7 @@
     "title": "Based in Zrenjanin, Serbia. Working with businesses worldwide",
     "text": "Most of my clients are in the US and Europe. Everything runs online: calls, reports and support, in English, Serbian or German.",
     "open": "Open in Google Maps",
+    "hours": "Every day, {opens}–{closes} (CET)",
     "show": "Show the map",
     "note": "The map loads from Google Maps and may set Google cookies."
   },

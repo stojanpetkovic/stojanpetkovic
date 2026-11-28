@@ -38,6 +38,8 @@ export interface SiteConfig {
    * city, so the map lands on the profile's pin.
    */
   mapQuery?: string;
+  /** Daily hours when I answer calls and messages, as HH:MM (local time). */
+  openingHours?: { opens: string; closes: string };
   /**
    * Header options. Set `showSocialLinks: true` to render an icon link in the
    * top-right for each entry in `socialLinks` (GitHub, X, etc. — the icon is
@@ -297,10 +299,9 @@ const siteConfig: SiteConfig = {
   author: SITE_NAME,
   email: 'petkovicstojan@gmail.com',
   phone: '+381638776419',
-  // Same address as on the Google Business Profile (given by Stojan, Nov 2026).
+  // A service-area business: clients are not received at the office, so (as
+  // on the Google Business Profile) only the city is public, no street.
   address: {
-    street: 'Milana Stanivukovića 23',
-    zip: '23000',
     city: 'Zrenjanin',
     country: 'Serbia',
   },
@@ -310,9 +311,11 @@ const siteConfig: SiteConfig = {
     'https://www.tiktok.com/@stollep',
   ],
   googleBusinessProfile: 'https://share.google/3lGK9tqgz0TaeuCDw',
-  // The street address, so the map pin lands on the office, not on a
-  // business with a similar name.
-  mapQuery: 'Milana Stanivukovića 23, 23000 Zrenjanin, Serbia',
+  // The city only: searching the name landed on another business's pin, and
+  // the street stays private (no clients at the office).
+  mapQuery: 'Zrenjanin, Serbia',
+  // When I'm reachable (local time, Europe/Belgrade), every day.
+  openingHours: { opens: '17:00', closes: '23:00' },
   header: {
     // Flip to `true` to show the social icons (incl. GitHub) in the header.
     showSocialLinks: false,

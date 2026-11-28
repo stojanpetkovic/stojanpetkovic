@@ -2030,6 +2030,7 @@
     "title": "Aus Zrenjanin, Serbien. Für Betriebe überall",
     "text": "Ich arbeite mit Betrieben in Europa und den USA. Alles läuft online: Gespräche, Berichte und Support, auf Deutsch, Englisch oder Serbisch.",
     "open": "In Google Maps öffnen",
+    "hours": "Täglich, {opens}–{closes} Uhr (MEZ)",
     "show": "Karte anzeigen",
     "note": "Die Karte wird von Google Maps geladen und kann Google-Cookies setzen."
   },
