@@ -4,11 +4,11 @@
  * "install the app" sheet.
  *
  * The tab bar works like the one in an iPhone app: Home, Services, Projects,
- * WhatsApp and a highlighted Free audit tab. The current section is marked,
+ * WhatsApp and a highlighted free consultation tab. The current section is marked,
  * the bar is translucent over the page and it clears the home indicator
  * through `env(safe-area-inset-bottom)`.
  *
- * "Free audit" goes to the contact page (or to the page's own #form when it
+ * The consultation tab goes to the contact page (or to the page's own #form when it
  * has one, hiding the bar while that form is on screen). WhatsApp is a plain
  * `wa.me` link on purpose, so the webtano leads.js counts the click like every
  * other WhatsApp link.
@@ -60,7 +60,7 @@ const tabs = [
     )}
     <li>
       <a href={localizedPath('/contact', locale)} class="mab-tab mab-tab--cta" data-tab data-match="section" data-mobile-check>
-        <span class="mab-cta-dot"><Icon name="search-check" class="mab-icon" /></span>
+        <span class="mab-cta-dot"><Icon name="message-circle" class="mab-icon" /></span>
         <span>{t('mobileBar.check', locale)}</span>
       </a>
     </li>
@@ -301,7 +301,7 @@ const tabs = [
     });
   }
 
-  // A page with its own form (the landing page) sends the audit tab there
+  // A page with its own form (the landing page) sends the consultation tab there
   // and tucks the bar away while the form is on screen.
   function initFormAware(): void {
     const bar = document.querySelector<HTMLElement>('[data-mobile-bar]');

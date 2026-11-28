@@ -1,0 +1,69 @@
+---
+/**
+ * TrustStats — the three proof figures under a hero (leads, SEO score,
+ * reply time).
+ *
+ * One panel instead of three separate cards, laid out by the width of the
+ * column it sits in (a container query), not by the viewport: the home hero
+ * puts it in half of the screen on desktop, where three cards used to get
+ * squeezed just like on a phone.
+ *
+ * - Narrow column: one row per figure, the number on the left and its
+ *   label beside it, split by thin lines.
+ * - Wide column: three equal columns, number above label.
+ */
+interface Props {
+  items: { value: string; label: string }[];
+  class?: string;
+}
+
+const { items, class: className } = Astro.props;
+---
+
+<div class:list={['trust-stats w-full', className]}>
+  <dl class="trust-grid overflow-hidden rounded-2xl border border-l-4 border-border border-l-brand-600 bg-card text-left shadow-sm">
+    {items.map((item) => (
+      <div class="trust-item flex items-center gap-4 px-4 py-3">
+        <dt class="sr-only">{item.label}</dt>
+        <dd class="trust-value shrink-0 whitespace-nowrap font-display text-2xl font-bold leading-none text-brand-600 dark:text-brand-400">{item.value}</dd>
+        <dd class="text-sm leading-snug text-foreground-muted text-pretty">{item.label}</dd>
+      </div>
+    ))}
+  </dl>
+</div>
+
+<style>
+  .trust-stats {
+    container-type: inline-size;
+  }
+  .trust-grid {
+    display: grid;
+  }
+  .trust-item + .trust-item {
+    border-top: 1px solid var(--color-border);
+  }
+  /* Narrow: numbers share one column width, so the labels line up. */
+  .trust-value {
+    min-width: 6.5rem;
+  }
+
+  @container (min-width: 36rem) {
+    .trust-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .trust-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 1rem 1.25rem;
+    }
+    .trust-item + .trust-item {
+      border-top: 0;
+      border-left: 1px solid var(--color-border);
+    }
+    .trust-value {
+      min-width: 0;
+      font-size: 1.875rem;
+    }
+  }
+</style>

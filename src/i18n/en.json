@@ -71,7 +71,7 @@
       "terms": "Terms of use",
       "privacy": "Privacy Policy"
     },
-    "cta": "Free audit"
+    "cta": "Free consultation"
   },
   "common": {
     "readMore": "Read more",
@@ -292,14 +292,14 @@
       "ads": "Google and Meta ads",
       "seo": "Local SEO and AI search",
       "web": "Websites that bring enquiries",
-      "check": "Free audit",
+      "check": "Free consultation",
       "faq": "FAQ"
     }
   },
   "pages": {
     "servicePage": {
       "common": {
-        "heroPrimary": "Get a free audit",
+        "heroPrimary": "Get a free consultation",
         "heroSecondary": "Call me",
         "includedBadge": "What you get",
         "fitBadge": "Who it's for",
@@ -317,7 +317,7 @@
         "cta": {
           "heading": "Want to know what this would do for your business?",
           "description": "Send me a message. I'll look at how people find you today and tell you honestly whether this service is worth it for you. The first call is free.",
-          "primary": "Get a free audit",
+          "primary": "Get a free consultation",
           "secondary": "See all services"
         },
         "detailsBadge": "In detail",
@@ -403,10 +403,10 @@
             "Cleaning, moving and repair services"
           ],
           "steps": {
-            "heading": "From audit to the first calls",
+            "heading": "From the first call to the first leads",
             "items": [
               {
-                "title": "Free audit",
+                "title": "Free consultation",
                 "description": "I look at your current account or your market and tell you what a realistic budget and cost per lead look like."
               },
               {
@@ -422,7 +422,7 @@
           "faq": [
             {
               "question": "How much should I spend on Google Ads?",
-              "answer": "It depends on your trade and your area. In the free audit I estimate what a click and a lead cost in your market, so you start with a budget that can actually bring jobs."
+              "answer": "It depends on your trade and your area. In the free consultation I estimate what a click and a lead cost in your market, so you start with a budget that can actually bring jobs."
             },
             {
               "question": "How fast will I see results?",
@@ -646,7 +646,7 @@
             "heading": "Step by step",
             "items": [
               {
-                "title": "Audit",
+                "title": "Consultation and plan",
                 "description": "Where you rank today, what competitors do better and what to fix first."
               },
               {
@@ -674,7 +674,7 @@
             },
             {
               "question": "How much does local SEO cost?",
-              "answer": "It depends on the number of services, locations and how competitive your market is. After the free audit you get a flat monthly price with no long-term contract."
+              "answer": "It depends on the number of services, locations and how competitive your market is. After the free consultation you get a flat monthly price with no long-term contract."
             },
             {
               "question": "What is a Google Business Profile and do I need one?",
@@ -955,7 +955,7 @@
           ],
           "items": [
             "Descriptions of services, prices and examples on the site are not an offer in the legal sense. Each engagement is agreed separately, in a written proposal or contract that sets the scope, timing, price and payment.",
-            "Sending an enquiry or asking for a free check creates no contract and no obligation for either side.",
+            "Sending an enquiry or asking for a free consultation creates no contract and no obligation for either side.",
             "The author may decline any enquiry without giving a reason.",
             "Where a contract says otherwise, the contract applies."
           ]
@@ -1025,10 +1025,10 @@
     "landing": {
       "meta": {
         "title": "A website that brings in customers",
-        "description": "Fast custom websites, SEO and AI search visibility for local service businesses. One flat price, everything in your name, and a free audit of your current site."
+        "description": "Fast custom websites, SEO and AI search visibility for local service businesses. One flat price, everything in your name, and a free consultation to start."
       },
       "header": {
-        "cta": "Free website audit"
+        "cta": "Free consultation"
       },
       "hero": {
         "badge": "Taking on new projects",
@@ -1218,8 +1218,8 @@
         "lead": "No long meetings, no surprises. You always know what happens next.",
         "steps": [
           {
-            "title": "Free website audit",
-            "text": "Send the form. Within one business day I look at your site and your competitors and tell you honestly what's holding you back."
+            "title": "Free consultation",
+            "text": "Send the form. Within one business day we talk, and you get a concrete plan: what I'd do first, how long it takes and what it costs."
           },
           {
             "title": "One clear proposal",
@@ -1237,10 +1237,10 @@
       },
       "offer": {
         "badge": "The first step is free",
-        "heading": "Find out what your website is costing you",
-        "lead": "No obligation and no sales pitch. Just an honest look at where visitors and leads are slipping away today.",
+        "heading": "Find out how to get more calls",
+        "lead": "No obligation and no sales pitch. Just an honest conversation about where your next customers are and how to reach them.",
         "items": [
-          "A check of your speed, SEO and AI search visibility",
+          "A short call or email, whichever suits you",
           "A comparison with your strongest local competitor",
           "Concrete next steps, whether you hire me or not",
           "One flat price if you decide to go ahead"
@@ -1252,7 +1252,7 @@
         "items": [
           {
             "question": "How much does a website cost?",
-            "answer": "Every project has one flat price agreed before work starts. No hourly billing and no surprise invoices. After the free audit you get a clear proposal with the price and the timeline."
+            "answer": "Every project has one flat price agreed before work starts. No hourly billing and no surprise invoices. After the free consultation you get a clear proposal with the price and the timeline."
           },
           {
             "question": "How long does it take?",
@@ -1281,85 +1281,59 @@
         ]
       },
       "form": {
-        "badge": "Free website audit",
-          "termsLabel": "I have read the {terms} and understand that this enquiry is not an offer or a contract.",
-          "termsLink": "Terms of use",
-          "termsRequired": "Please confirm that you have read the terms of use.",
-        "heading": "Tell me a bit about your business",
-        "lead": "Three short steps, under a minute. I'll get back to you within one business day.",
-        "stepLabels": [
-          "What you need",
-          "Your business",
-          "Your contact"
-        ],
-        "stepCount": "Step {current} of {total}",
-        "serviceLegend": "What do you need?",
+        "badge": "Free consultation",
+        "heading": "Get more calls: tell me about your business",
+        "lead": "Under a minute to fill in. Within one business day you get a concrete plan: what I'd do first, how long it takes and what it costs.",
+        "termsLabel": "I have read the {terms} and understand that this enquiry is not an offer or a contract.",
+        "termsLink": "Terms of use",
+        "termsRequired": "Please confirm that you have read the terms of use.",
+        "nameLabel": "Your name",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone (optional, for a quicker reply)",
+        "serviceLegend": "What do you need help with?",
         "services": [
-          {
-            "value": "new-website",
-            "icon": "sparkles",
-            "label": "A new website"
-          },
-          {
-            "value": "redesign",
-            "icon": "refresh-cw",
-            "label": "A redesign of my site"
-          },
-          {
-            "value": "seo",
-            "icon": "search",
-            "label": "SEO and AI visibility"
-          },
           {
             "value": "ads",
             "icon": "target",
             "label": "Google or social ads"
           },
           {
-            "value": "other",
+            "value": "seo",
+            "icon": "search",
+            "label": "SEO and AI search"
+          },
+          {
+            "value": "website",
+            "icon": "layout",
+            "label": "A new website"
+          },
+          {
+            "value": "not-sure",
             "icon": "message-circle",
-            "label": "Something else"
+            "label": "Not sure yet"
           }
         ],
-        "websiteLabel": "Current website (if you have one)",
-        "websitePlaceholder": "yourbusiness.com",
-        "businessLabel": "Business type and location",
-        "businessPlaceholder": "e.g. tree service in Miami, dentist in Novi Sad",
-        "timelineLegend": "When would you like to start?",
-        "timelines": [
-          {
-            "value": "asap",
-            "label": "As soon as possible"
-          },
-          {
-            "value": "1-3-months",
-            "label": "In 1–3 months"
-          },
-          {
-            "value": "exploring",
-            "label": "Just exploring"
-          }
-        ],
-        "nameLabel": "Your name",
-        "emailLabel": "Email",
-        "phoneLabel": "Phone (optional)",
-        "messageLabel": "Anything else I should know? (optional)",
-        "next": "Continue",
-        "back": "Back",
-        "submit": "Get my free check",
+        "messageLabel": "Tell me about your business",
+        "messagePlaceholder": "e.g. roofing company in Tampa, we want more calls from Google",
+        "submit": "Get my free consultation",
         "sending": "Sending…",
-        "chooseService": "Choose what you need to continue.",
         "required": "Please fill in your name and a valid email.",
+        "needMessage": "Pick what you need above, or write a sentence about your business.",
+        "trust": [
+          "Reply within 1 business day",
+          "No obligation",
+          "Flat price up front"
+        ],
         "privacy": "I only use your details to reply to you. No newsletter, and they're never shared.",
         "promise": "Reply within one business day",
         "successTitle": "Thanks, got it!",
-        "successText": "I'll look at your site and get back to you within one business day with honest, concrete next steps. Keep an eye on your inbox.",
+        "successText": "I'll read it and get back to you within one business day with a concrete plan and a price. Keep an eye on your inbox (and spam folder).",
         "error": "Something went wrong. Please try again or email me directly."
       },
       "final": {
         "heading": "Every week you wait, the calls go to someone else",
-        "text": "The audit is free and there's no obligation. Worst case, you find out exactly what's costing you customers and what to fix first.",
-        "cta": "Get my free audit"
+        "text": "The consultation is free and there's no obligation. Worst case, you walk away with a clear plan for getting more calls.",
+        "cta": "Get my free consultation"
       },
       "footer": "Fast websites, SEO and ads for local businesses.",
       "privacy": {
@@ -1507,7 +1481,7 @@
     "services": {
       "meta": {
         "title": "Services: ads, SEO, AI search and websites",
-        "description": "Google and Meta ads, local SEO, AI search visibility and fast websites for service businesses. Free check, fixed price for the website."
+        "description": "Google and Meta ads, local SEO, AI search visibility and fast websites for service businesses. Free consultation, fixed price for the website."
       },
       "areas": {
         "marketing": {
@@ -1544,7 +1518,7 @@
               "text": "calls, leads and what each one cost, in plain English."
             }
           ],
-          "ctaLabel": "Get my free audit"
+          "ctaLabel": "Get my free consultation"
         },
         "web": {
           "icon": "layout",
@@ -1644,7 +1618,7 @@
     },
     "contact": {
       "meta": {
-        "title": "Contact and free website audit",
+        "title": "Contact and free consultation",
         "description": "Ads, SEO, AI search or a new website: tell me what you need. I reply within one business day."
       },
       "hero": {
@@ -1683,74 +1657,53 @@
       "emailLabel": "Email",
       "preferEmail": "Rather use email? Write to",
       "form": {
-        "badge": "Get in touch",
-          "termsLabel": "I have read the {terms} and understand that this enquiry is not an offer or a contract.",
-          "termsLink": "Terms of use",
-          "termsRequired": "Please confirm that you have read the terms of use.",
+        "badge": "Free consultation",
         "heading": "Tell me what you need",
-        "lead": "Three short steps, under a minute. I reply within one business day.",
-        "stepLabels": [
-          "What you need",
-          "Your company",
-          "Your contact"
-        ],
-        "stepCount": "Step {current} of {total}",
-        "serviceLegend": "What do you need?",
+        "lead": "Under a minute to fill in. I reply within one business day with a concrete plan and a flat price.",
+        "termsLabel": "I have read the {terms} and understand that this enquiry is not an offer or a contract.",
+        "termsLink": "Terms of use",
+        "termsRequired": "Please confirm that you have read the terms of use.",
+        "nameLabel": "Your name",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone (optional, for a quicker reply)",
+        "serviceLegend": "What do you need help with?",
         "services": [
           {
-            "value": "new-website",
-            "icon": "sparkles",
-            "label": "A new website"
+            "value": "ads",
+            "icon": "target",
+            "label": "Google or social ads"
           },
           {
             "value": "seo",
             "icon": "search",
-            "label": "SEO and AI search visibility"
+            "label": "SEO and AI search"
           },
           {
-            "value": "ads",
-            "icon": "target",
-            "label": "Google or social media ads"
+            "value": "website",
+            "icon": "layout",
+            "label": "A new website"
           },
           {
-            "value": "other",
+            "value": "not-sure",
             "icon": "message-circle",
-            "label": "Something else"
+            "label": "Not sure yet"
           }
         ],
-        "websiteLabel": "Company website (optional)",
-        "websitePlaceholder": "yourcompany.com",
-        "businessLabel": "Company and industry",
-        "businessPlaceholder": "e.g. dentist in Vienna, roofing company in Miami",
-        "timelineLegend": "When would you like to start?",
-        "timelines": [
-          {
-            "value": "asap",
-            "label": "As soon as possible"
-          },
-          {
-            "value": "1-3-months",
-            "label": "In 1–3 months"
-          },
-          {
-            "value": "exploring",
-            "label": "Just exploring"
-          }
-        ],
-        "nameLabel": "Your name",
-        "emailLabel": "Email",
-        "phoneLabel": "Phone (optional)",
-        "messageLabel": "Anything else I should know? (optional)",
-        "next": "Continue",
-        "back": "Back",
-        "submit": "Send enquiry",
+        "messageLabel": "Tell me about your business",
+        "messagePlaceholder": "e.g. roofing company in Tampa, we want more calls from Google",
+        "submit": "Get my free consultation",
         "sending": "Sending…",
-        "chooseService": "Choose what you need to continue.",
         "required": "Please fill in your name and a valid email.",
+        "needMessage": "Pick what you need above, or write a sentence about your business.",
+        "trust": [
+          "Reply within 1 business day",
+          "No obligation",
+          "Flat price up front"
+        ],
         "privacy": "I only use your details to reply to you. No newsletter, and they're never shared.",
         "promise": "Reply within one business day",
         "successTitle": "Thanks, message received!",
-        "successText": "I'll read it and get back to you within one business day with concrete next steps. Keep an eye on your inbox.",
+        "successText": "I'll read it and get back to you within one business day with a concrete plan and a price. Keep an eye on your inbox (and spam folder).",
         "error": "Something went wrong. Please try again or email me directly."
       }
     },
@@ -1844,14 +1797,14 @@
     "home": {
       "meta": {
         "title": "More calls and leads from Google",
-        "description": "Google and Facebook ads, local SEO, AI search and a fast website for service businesses. Every call and lead is tracked. Your first audit is free."
+        "description": "Google and Facebook ads, local SEO, AI search and a fast website for service businesses. Every call and lead is tracked. The first consultation is free."
       },
       "hero": {
         "badge": "Taking on new clients",
         "titleLead": "More calls and leads",
         "titleHighlight": "from Google, Maps and AI search",
         "description": "I run your Google and Facebook ads, get you on the map and into ChatGPT answers, and build a website people actually call from. Every call is tracked, so you know exactly what brings in work.",
-        "primary": "Get a free audit",
+        "primary": "Get a free consultation",
         "secondary": "See the results",
         "imageAlt": "Stojan Petković in a navy suit in a bright office with code on the screens behind him"
       },
@@ -1911,8 +1864,8 @@
       },
       "final": {
         "heading": "The first business they find gets the call.",
-        "text": "Make sure it's yours. I'll look at your site and your competitors and tell you what I'd fix first. Free, and no strings attached.",
-        "cta": "Get my free audit"
+        "text": "Make sure it's yours. Tell me about your business and I'll send you a plan for getting more calls, with a price. Free, and no strings attached.",
+        "cta": "Get my free consultation"
       },
       "testimonials": {
         "badge": "Client reviews",
@@ -1962,8 +1915,8 @@
         },
         "next": {
           "title": "Your business?",
-          "text": "This spot is saved for the next client. I'll review your site for free and tell you what I'd fix first.",
-          "cta": "Get a free audit"
+          "text": "This spot is saved for the next client. Tell me about your business and I'll send you a free plan for more calls.",
+          "cta": "Get a free consultation"
         }
       }
     },
@@ -1991,7 +1944,7 @@
           "title": "2. What I collect",
           "paragraphs": [],
           "items": [
-            "Form data (contact and free check): name, email, phone, website address, business and location, your answers and your message.",
+            "Form data (contact and free consultation): name, email, phone, website address, business and location, your answers and your message.",
             "Visit data, without cookies: which pages were opened, where the visitor came from (search, ad or link) and whether they tapped the phone number or WhatsApp or sent a form. This is not linked to your name unless you send a form.",
             "Technical data logged by the server: IP address, browser type and time of access, for security and to run the site.",
             "Analytics and advertising cookies (Google, Meta), only if you allow them in the cookie banner."
@@ -2069,9 +2022,17 @@
     "reply": "I reply within one business day",
     "whatsapp": "Message me on WhatsApp"
   },
+  "map": {
+    "eyebrow": "Where I work from",
+    "title": "Based in Zrenjanin, Serbia. Working with businesses worldwide",
+    "text": "Most of my clients are in the US and Europe. Everything runs online: calls, reports and support, in English, Serbian or German.",
+    "open": "Open in Google Maps",
+    "show": "Show the map",
+    "note": "The map loads from Google Maps and may set Google cookies."
+  },
   "mobileBar": {
     "label": "Quick contact",
-    "check": "Free audit",
+    "check": "Free call",
     "whatsapp": "WhatsApp",
     "home": "Home",
     "services": "Services",
@@ -2079,7 +2040,7 @@
   },
   "pwa": {
     "title": "Install the Stojan Petkovic app",
-    "subtitle": "Services, projects and a free audit one tap away, right from your home screen.",
+    "subtitle": "Services, projects and a free consultation one tap away, right from your home screen.",
     "install": "Install the app",
     "close": "Close",
     "iosStep1": "Tap Share in Safari's toolbar",

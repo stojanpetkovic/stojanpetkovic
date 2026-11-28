@@ -631,6 +631,18 @@ const configJson = JSON.stringify(consentConfig);
     left: 1rem;
   }
 
+  /* Phones: the app-style tab bar (MobileActionBar, below md) is pinned to
+     the bottom edge, and the reopener used to sit on top of its Home tab.
+     Lift it just above the bar, a little smaller so it stays out of the way. */
+  @media (max-width: 767.98px) {
+    .consent-reopener--bottom {
+      bottom: calc(4rem + env(safe-area-inset-bottom) + 0.75rem);
+      left: 0.75rem;
+      width: 2.25rem;
+      height: 2.25rem;
+    }
+  }
+
   .consent-reopener--top {
     top: 1rem;
     left: 1rem;

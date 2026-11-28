@@ -6,6 +6,7 @@ import { z } from 'astro/zod';
 import { Resend } from 'resend';
 import siteConfig from '@/config/site.config';
 import { WEBTANO_URL } from '@/lib/webtano';
+import { spamVerdict } from '@/lib/spam';
 
 // Escape user-supplied values before they are interpolated into the
 // notification email's HTML, so a message containing markup (links,
@@ -40,6 +41,7 @@ const contactSchema = z
     budget: z.string().max(40).optional(),
     source: z.string().max(40).optional(),
     honeypot: z.string().max(0), // Anti-spam: must be empty
+    started: z.string().max(20).optional(),
   })
   .refine((d) => Boolean(d.service) || (d.message ?? '').trim().length >= 10, {
     message: 'Message must be at least 10 characters',
@@ -117,6 +119,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       subject: formData.get('subject')?.toString() || '',
       message: formData.get('message')?.toString() || '',
       honeypot: formData.get('honeypot')?.toString() || '',
+      started: formData.get('started')?.toString() || '',
       ...Object.fromEntries(EXTRA_FIELDS.map((key) => [key, formData.get(key)?.toString() || ''])),
     };
 
@@ -139,8 +142,18 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       );
     }
 
+    // Spam: refuse a post that never ran the page, and quietly drop one that
+    // was filled in too fast or is full of links (a bot gets no hint).
+    const verdict = spamVerdict(result.data);
+    if (verdict === 'missing') {
+      return new Response(
+        JSON.stringify({ success: false, errors: { form: ['Please enable JavaScript and try again, or email me directly.'] } }),
+        { status: 400, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
     // Honeypot check (bot detection)
-    if (result.data.honeypot) {
+    if (result.data.honeypot || verdict === 'spam') {
       return new Response(JSON.stringify({ success: true }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },

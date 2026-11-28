@@ -1,0 +1,138 @@
+---
+/**
+ * LocationMap — where I work from, with a Google map and a link to the
+ * Google Business Profile.
+ *
+ * The address block (name, city, country, phone, the profile link) is plain
+ * HTML, so it is part of the page for search engines whether or not the map
+ * loads. Together with the ProfessionalService JSON-LD (`hasMap`, `sameAs`)
+ * it ties the site to the Google Business Profile.
+ *
+ * Google Maps sets cookies, and the site only sets those after consent. So
+ * the map loads by itself once the visitor has accepted cookies (any
+ * optional category), or when they press "Show map". Until then a light
+ * placeholder with a pin keeps its place, so nothing jumps.
+ *
+ * The embed needs no API key: `google.com/maps?q=…&output=embed`.
+ * `siteConfig.mapQuery` says what it searches for.
+ */
+import Icon from '@/components/ui/primitives/Icon/Icon.astro';
+import siteConfig from '@/config/site.config';
+import consentConfig from '@/config/consent.config';
+import { t, defaultLocale } from '@/i18n';
+
+interface Props {
+  locale?: string;
+  class?: string;
+}
+
+const { locale = defaultLocale, class: className } = Astro.props;
+
+const query = siteConfig.mapQuery ?? [siteConfig.name, siteConfig.address?.city, siteConfig.address?.country].filter(Boolean).join(', ');
+const hl = locale === 'sr' ? 'sr-Latn' : locale;
+const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(query)}&hl=${hl}&z=13&output=embed`;
+const profileUrl = siteConfig.googleBusinessProfile ?? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+const L = (key: string) => t(`map.${key}`, locale);
+const phoneHref = siteConfig.phone ? `tel:${siteConfig.phone.replace(/[^\d+]/g, '')}` : '';
+---
+
+<section class:list={['py-[var(--space-section-md)]', className]} aria-labelledby="location-map-title">
+  <div class="mx-auto max-w-5xl px-6">
+    <div class="grid overflow-hidden rounded-3xl border border-border bg-card shadow-sm md:grid-cols-5">
+      <div class="flex flex-col justify-center gap-5 p-6 sm:p-8 md:col-span-2">
+        <p class="section-eyebrow"><span>{L('eyebrow')}</span></p>
+        <h2 id="location-map-title" class="font-display text-2xl font-bold text-foreground text-balance">{L('title')}</h2>
+        <p class="text-foreground-muted text-pretty">{L('text')}</p>
+
+        <address class="not-italic text-sm text-foreground">
+          <p class="font-semibold">{siteConfig.name}</p>
+          <p class="mt-1 flex items-center gap-2 text-foreground-muted">
+            <Icon name="map-pin" size="sm" class="shrink-0 text-brand-600" />
+            {[siteConfig.address?.city, siteConfig.address?.country].filter(Boolean).join(', ')}
+          </p>
+          {phoneHref && (
+            <p class="mt-1 flex items-center gap-2 text-foreground-muted">
+              <Icon name="phone" size="sm" class="shrink-0 text-brand-600" />
+              <a href={phoneHref} class="hover:text-foreground">{siteConfig.phone}</a>
+            </p>
+          )}
+        </address>
+
+        <a
+          href={profileUrl}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 self-start rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-brand-400"
+        >
+          <Icon name="map" size="sm" class="text-brand-600" />
+          {L('open')}
+          <Icon name="external-link" size="xs" />
+        </a>
+      </div>
+
+      <div class="relative min-h-[18rem] bg-background-secondary md:col-span-3 md:min-h-[22rem]" data-location-map data-src={embedUrl} data-storage-key={consentConfig.storageKey}>
+        <div class="map-placeholder absolute inset-0 flex flex-col items-center justify-center gap-4 p-6 text-center" data-map-placeholder>
+          <span class="flex h-14 w-14 items-center justify-center rounded-full bg-brand-500/15 text-brand-600 dark:text-brand-400">
+            <Icon name="map-pin" size="lg" />
+          </span>
+          <p class="font-display font-bold text-foreground">{[siteConfig.address?.city, siteConfig.address?.country].filter(Boolean).join(', ')}</p>
+          <button type="button" class="cta-btn-brand inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold" data-map-load>
+            <Icon name="map" size="sm" />
+            {L('show')}
+          </button>
+          <p class="max-w-xs text-xs text-foreground-subtle">{L('note')}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .map-placeholder {
+    background-image:
+      linear-gradient(var(--color-border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: center;
+  }
+</style>
+
+<script>
+  function initLocationMaps(): void {
+    document.querySelectorAll<HTMLElement>('[data-location-map]').forEach((box) => {
+      if (box.dataset.init) return;
+      box.dataset.init = 'true';
+
+      const load = () => {
+        if (box.querySelector('iframe')) return;
+        const frame = document.createElement('iframe');
+        frame.src = box.dataset.src || '';
+        frame.title = 'Google Maps';
+        frame.loading = 'lazy';
+        frame.referrerPolicy = 'no-referrer-when-downgrade';
+        frame.className = 'absolute inset-0 h-full w-full border-0';
+        frame.setAttribute('allowfullscreen', '');
+        box.appendChild(frame);
+        box.querySelector('[data-map-placeholder]')?.remove();
+      };
+
+      box.querySelector('[data-map-load]')?.addEventListener('click', load);
+
+      // Already accepted cookies (any optional category)? Show the map at once.
+      const accepted = (categories: Record<string, boolean> | undefined) =>
+        Boolean(categories && Object.entries(categories).some(([key, on]) => key !== 'necessary' && on));
+      try {
+        const stored = JSON.parse(localStorage.getItem(box.dataset.storageKey || '') || 'null');
+        if (accepted(stored?.categories)) load();
+      } catch {
+        /* no stored choice */
+      }
+      window.addEventListener('consent-updated', (e) => {
+        if (accepted((e as CustomEvent).detail?.categories)) load();
+      });
+    });
+  }
+
+  initLocationMaps();
+  document.addEventListener('astro:page-load', initLocationMaps);
+</script>

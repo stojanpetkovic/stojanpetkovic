@@ -33,6 +33,12 @@ export interface SiteConfig {
    */
   googleBusinessProfile?: string;
   /**
+   * What the embedded Google map (Contact page) searches for. Use the exact
+   * business name as it appears on the Google Business Profile, plus the
+   * city, so the map lands on the profile's pin.
+   */
+  mapQuery?: string;
+  /**
    * Header options. Set `showSocialLinks: true` to render an icon link in the
    * top-right for each entry in `socialLinks` (GitHub, X, etc. — the icon is
    * inferred from the URL). Off by default; an explicit `<Header
@@ -302,6 +308,7 @@ const siteConfig: SiteConfig = {
     'https://www.tiktok.com/@stollep',
   ],
   googleBusinessProfile: 'https://share.google/3lGK9tqgz0TaeuCDw',
+  mapQuery: 'Stojan Petković, Zrenjanin, Serbia',
   header: {
     // Flip to `true` to show the social icons (incl. GitHub) in the header.
     showSocialLinks: false,
